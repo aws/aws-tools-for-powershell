@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetName
         /// <summary>
         /// <para>
-        /// <para>A unique, friendly name for the asset.</para>
+        /// <para>A friendly name for the asset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

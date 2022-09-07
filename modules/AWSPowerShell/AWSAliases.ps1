@@ -20745,6 +20745,7 @@ Set-Alias -Name Delete-SNSSMSSandboxPhoneNumber -Value Remove-SNSSMSSandboxPhone
 Set-Alias -Name SNS-DeleteSMSSandboxPhoneNumber -Value Remove-SNSSMSSandboxPhoneNumber
 Set-Alias -Name Delete-SNSTopic -Value Remove-SNSTopic
 Set-Alias -Name SNS-DeleteTopic -Value Remove-SNSTopic
+Set-Alias -Name SNS-GetDataProtectionPolicy -Value Get-SNSDataProtectionPolicy
 Set-Alias -Name Get-SNSEndpointAttributes -Value Get-SNSEndpointAttribute
 Set-Alias -Name SNS-GetEndpointAttributes -Value Get-SNSEndpointAttribute
 Set-Alias -Name Get-SNSPlatformApplicationAttributes -Value Get-SNSPlatformApplicationAttribute
@@ -20785,6 +20786,8 @@ Set-Alias -Name SNS-OptInPhoneNumber -Value Enable-SNSPhoneNumber
 Set-Alias -Name Publish-SNS -Value Publish-SNSMessage
 Set-Alias -Name SNS-Publish -Value Publish-SNSMessage
 Set-Alias -Name SNS-PublishBatch -Value Publish-SNSBatch
+Set-Alias -Name Put-SNSDataProtectionPolicy -Value Set-SNSDataProtectionPolicy
+Set-Alias -Name SNS-PutDataProtectionPolicy -Value Set-SNSDataProtectionPolicy
 Set-Alias -Name SNS-RemovePermission -Value Remove-SNSPermission
 Set-Alias -Name Set-SNSEndpointAttributes -Value Set-SNSEndpointAttribute
 Set-Alias -Name SNS-SetEndpointAttributes -Value Set-SNSEndpointAttribute

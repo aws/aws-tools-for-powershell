@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetsFromRedshiftDataShares_AssetSource
         /// <summary>
         /// <para>
-        /// A list of Amazon Redshift datashare assets.
+        /// <para>A list of Amazon Redshift datashare assets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,8 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetsFromRedshiftDataShares_DataSetId
         /// <summary>
         /// <para>
-        /// The unique identifier for the data set associated
-        /// with this import job.
+        /// <para>The unique identifier for the data set associated with this import job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,8 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetsFromRedshiftDataShares_RevisionId
         /// <summary>
         /// <para>
-        /// The unique identifier for the revision associated
-        /// with this import job.
+        /// <para>The unique identifier for the revision associated with this import job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

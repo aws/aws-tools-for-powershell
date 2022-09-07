@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public Amazon.IoTSiteWise.PropertyNotificationState PropertyNotificationState { get; set; }
         #endregion
         
+        #region Parameter PropertyUnit
+        /// <summary>
+        /// <para>
+        /// <para>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify
+        /// a value for this parameter, the service uses the value of the <code>assetModelProperty</code>
+        /// in the asset model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PropertyUnit { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -195,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.PropertyNotificationState = this.PropertyNotificationState;
+            context.PropertyUnit = this.PropertyUnit;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -230,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.PropertyNotificationState != null)
             {
                 request.PropertyNotificationState = cmdletContext.PropertyNotificationState;
+            }
+            if (cmdletContext.PropertyUnit != null)
+            {
+                request.PropertyUnit = cmdletContext.PropertyUnit;
             }
             
             CmdletOutput output;
@@ -297,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String PropertyAlias { get; set; }
             public System.String PropertyId { get; set; }
             public Amazon.IoTSiteWise.PropertyNotificationState PropertyNotificationState { get; set; }
+            public System.String PropertyUnit { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.UpdateAssetPropertyResponse, UpdateIOTSWAssetPropertyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

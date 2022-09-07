@@ -82,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataProtectionPolicy" OutputProperty="DataProtectionPolicy" Verb="Get" Noun="DataProtectionPolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEndpointAttributes" OutputProperty="Attributes" Verb="Get" Noun="EndpointAttribute" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyAlias="Get-SNSEndpointAttributes">
             <Params />
             <TypesNotToFlatten />
@@ -151,6 +155,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PublishBatch" OutputProperty="*" Verb="Publish" Noun="Batch" ShouldProcessTarget="TopicArn" PipelineParameter="TopicArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataProtectionPolicy" Verb="Set" Noun="DataProtectionPolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

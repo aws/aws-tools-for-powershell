@@ -114,7 +114,7 @@ $EKS_Completers = {
             ($_ -eq "Update-EKSAddon/ResolveConflicts")
         }
         {
-            $v = "NONE","OVERWRITE"
+            $v = "NONE","OVERWRITE","PRESERVE"
             break
         }
 

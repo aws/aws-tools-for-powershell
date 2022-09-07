@@ -99,8 +99,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ResolveConflict
         /// <summary>
         /// <para>
-        /// <para>How to resolve parameter value conflicts when applying the new version of the add-on
-        /// to the cluster.</para>
+        /// <para>How to resolve field value conflicts for an Amazon EKS add-on if you've changed a
+        /// value from the Amazon EKS default value. Conflicts are handled based on the option
+        /// you choose:</para><ul><li><para><b>None</b> – Amazon EKS doesn't change the value. The update might fail.</para></li><li><para><b>Overwrite</b> – Amazon EKS overwrites the changed value back to the Amazon EKS
+        /// default value.</para></li><li><para><b>Preserve</b> – Amazon EKS preserves the value. If you choose this option, we recommend
+        /// that you test any field and value changes on a non-production cluster before updating
+        /// the add-on on your production cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

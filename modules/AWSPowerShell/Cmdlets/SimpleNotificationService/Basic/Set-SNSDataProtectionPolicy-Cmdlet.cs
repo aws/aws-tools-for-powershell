@@ -22,28 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataExchange;
-using Amazon.DataExchange.Model;
+using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DTEX
+namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// This operation removes one or more tags from a resource.
+    /// Adds or updates an inline policy document that is stored in the specified Amazon SNS
+    /// topic.
     /// </summary>
-    [Cmdlet("Remove", "DTEXResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Set", "SNSDataProtectionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Data Exchange UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.DataExchange.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.DataExchange.Model.UntagResourceResponse",
+    [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) PutDataProtectionPolicy API operation.", Operation = new[] {"PutDataProtectionPolicy"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataExchange.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDTEXResourceTagCmdlet : AmazonDataExchangeClientCmdlet, IExecutor
+    public partial class SetSNSDataProtectionPolicyCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter DataProtectionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</para><para>The <code>DataProtectionPolicy</code> must be in JSON string format.</para><para>Length Constraints: Maximum length of 30,720.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DataProtectionPolicy { get; set; }
+        #endregion
         
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</para>
+        /// <para>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,28 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The key tags.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataExchange.Model.UntagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DTEXResourceTag (UntagResource)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-SNSDataProtectionPolicy (PutDataProtectionPolicy)"))
             {
                 return;
             }
@@ -123,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataExchange.Model.UntagResourceResponse, RemoveDTEXResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse, SetSNSDataProtectionPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +136,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DataProtectionPolicy = this.DataProtectionPolicy;
+            #if MODULAR
+            if (this.DataProtectionPolicy == null && ParameterWasBound(nameof(this.DataProtectionPolicy)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DataProtectionPolicy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
             if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
-            #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataExchange.Model.UntagResourceRequest();
+            var request = new Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyRequest();
             
+            if (cmdletContext.DataProtectionPolicy != null)
+            {
+                request.DataProtectionPolicy = cmdletContext.DataProtectionPolicy;
+            }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.TagKey != null)
-            {
-                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -209,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         
         #region AWS Service Operation Call
         
-        private Amazon.DataExchange.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonDataExchange client, Amazon.DataExchange.Model.UntagResourceRequest request)
+        private Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Exchange", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service (SNS)", "PutDataProtectionPolicy");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.PutDataProtectionPolicy(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.PutDataProtectionPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,9 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DataProtectionPolicy { get; set; }
             public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.DataExchange.Model.UntagResourceResponse, RemoveDTEXResourceTagCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.SimpleNotificationService.Model.PutDataProtectionPolicyResponse, SetSNSDataProtectionPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

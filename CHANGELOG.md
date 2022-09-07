@@ -1,4 +1,18 @@
-﻿### 4.1.162 (2022-09-06 21:45Z)
+﻿### 4.1.163 (2022-09-07 20:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.351.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Inspector2
+    * Modified cmdlet Get-INS2FindingList: added parameter FilterCriteria_FixAvailable.
+    * Modified cmdlet New-INS2Filter: added parameter FilterCriteria_FixAvailable.
+    * Modified cmdlet New-INS2FindingsReport: added parameter FilterCriteria_FixAvailable.
+    * Modified cmdlet Update-INS2Filter: added parameter FilterCriteria_FixAvailable.
+  * Amazon IoT SiteWise
+    * Modified cmdlet Update-IOTSWAssetProperty: added parameter PropertyUnit.
+  * Amazon Simple Notification Service (SNS)
+    * Added cmdlet Get-SNSDataProtectionPolicy leveraging the GetDataProtectionPolicy service API.
+    * Added cmdlet Set-SNSDataProtectionPolicy leveraging the PutDataProtectionPolicy service API.
+    * Modified cmdlet New-SNSTopic: added parameter DataProtectionPolicy.
+
+### 4.1.162 (2022-09-06 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.350.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.161 (2022-09-02 20:34Z)

@@ -108,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter LaunchTemplate_Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template.</para>
+        /// <para>The ID of the launch template.</para><para>You must specify either the launch template ID or the launch template name in the
+        /// request, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter LaunchTemplate_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template.</para>
+        /// <para>The name of the launch template.</para><para>You must specify either the launch template name or the launch template ID in the
+        /// request, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version of the launch template to use. If no version is specified, then the template's
-        /// default version is used.</para>
+        /// <para>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</para><para>If the value is <code>$Latest</code>, Amazon EKS uses the latest version of the launch
+        /// template.</para><para>If the value is <code>$Default</code>, Amazon EKS uses the default version of the
+        /// launch template.</para><para>Default: The default version of the launch template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

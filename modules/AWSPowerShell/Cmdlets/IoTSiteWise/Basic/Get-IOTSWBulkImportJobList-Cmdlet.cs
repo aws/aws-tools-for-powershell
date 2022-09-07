@@ -28,15 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// <note><para>
-    /// This API operation is in preview release for IoT SiteWise and is subject to change.
-    /// We recommend that you use this operation only with test data, and not in production
-    /// environments.
-    /// </para></note><para>
     /// Retrieves a paginated list of bulk import job requests. For more information, see
     /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ListBulkImportJobs.html">List
-    /// bulk import jobs (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// bulk import jobs (CLI)</a> in the <i>IoT SiteWise User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSWBulkImportJobList")]
     [OutputType("Amazon.IoTSiteWise.Model.JobSummary")]

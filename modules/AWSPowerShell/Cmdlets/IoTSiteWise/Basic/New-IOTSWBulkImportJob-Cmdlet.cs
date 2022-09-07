@@ -28,15 +28,11 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// <note><para>
-    /// This API operation is in preview release for IoT SiteWise and is subject to change.
-    /// We recommend that you use this operation only with test data, and not in production
-    /// environments.
-    /// </para></note><para>
     /// Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information,
     /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create
     /// a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
-    /// </para><important><para>
+    /// 
+    ///  <important><para>
     /// You must enable IoT SiteWise to export data to Amazon S3 before you create a bulk
     /// import job. For more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.
     /// </para></important>

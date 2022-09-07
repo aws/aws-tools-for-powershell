@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.350.0",
+    "ProductVersion" : "3.7.351.0",
     "CoreVersion"    : "3.7.12.29",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.83.5",
+            "Version" : "3.7.84.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -346,7 +346,7 @@
             "InPreview"               : false
         },
         "SimpleNotificationService" : {
-            "Version" : "3.7.3.101",
+            "Version" : "3.7.4.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.46.0",
+            "Version" : "3.7.47.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -1138,7 +1138,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.14.42",
+            "Version" : "3.7.15.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -1298,7 +1298,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.13.37",
+            "Version" : "3.7.13.38",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -1586,7 +1586,7 @@
             "InPreview"               : false
         },
         "DataExchange"                    : {
-            "Version" : "3.7.4.64",
+            "Version" : "3.7.5.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -1770,7 +1770,7 @@
             "InPreview"               : false
         },
         "IoTSiteWise"                     : {
-            "Version" : "3.7.13.5",
+            "Version" : "3.7.14.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"
@@ -2338,7 +2338,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.1.20",
+            "Version" : "3.7.2.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.12.29"

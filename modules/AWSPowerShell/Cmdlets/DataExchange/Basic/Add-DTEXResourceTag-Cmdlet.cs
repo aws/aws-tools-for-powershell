@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// A label that consists of a customer-defined key and
-        /// an optional value.
+        /// <para>A label that consists of a customer-defined key and an optional value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

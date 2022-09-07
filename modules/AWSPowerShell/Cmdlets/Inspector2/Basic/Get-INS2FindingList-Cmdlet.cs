@@ -212,6 +212,19 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_FirstObservedAt { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_FixAvailable
+        /// <summary>
+        /// <para>
+        /// <para>Details on whether a fix is available through a version update. This value can be
+        /// <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>. A <code>PARTIAL</code>
+        /// fix means that some, but not all, of the packages identified in the finding have fixes
+        /// available through updated versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_FixAvailable { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_InspectorScore
         /// <summary>
         /// <para>
@@ -489,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_FirstObservedAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_FirstObservedAt);
             }
+            if (this.FilterCriteria_FixAvailable != null)
+            {
+                context.FilterCriteria_FixAvailable = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_FixAvailable);
+            }
             if (this.FilterCriteria_InspectorScore != null)
             {
                 context.FilterCriteria_InspectorScore = new List<Amazon.Inspector2.Model.NumberFilter>(this.FilterCriteria_InspectorScore);
@@ -731,6 +748,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_FirstObservedAt != null)
             {
                 request.FilterCriteria.FirstObservedAt = requestFilterCriteria_filterCriteria_FirstObservedAt;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_FixAvailable = null;
+            if (cmdletContext.FilterCriteria_FixAvailable != null)
+            {
+                requestFilterCriteria_filterCriteria_FixAvailable = cmdletContext.FilterCriteria_FixAvailable;
+            }
+            if (requestFilterCriteria_filterCriteria_FixAvailable != null)
+            {
+                request.FilterCriteria.FixAvailable = requestFilterCriteria_filterCriteria_FixAvailable;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.NumberFilter> requestFilterCriteria_filterCriteria_InspectorScore = null;
@@ -1002,6 +1029,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingStatus { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingType { get; set; }
             public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_FirstObservedAt { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FixAvailable { get; set; }
             public List<Amazon.Inspector2.Model.NumberFilter> FilterCriteria_InspectorScore { get; set; }
             public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_LastObservedAt { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_NetworkProtocol { get; set; }

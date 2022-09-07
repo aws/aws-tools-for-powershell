@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         /// <summary>
         /// <para>
         /// <para>URI path value for the API request. Alternatively, you can set the URI path directly
-        /// by invoking /v1/{pathValue}</para>
+        /// by invoking /v1/{pathValue}.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

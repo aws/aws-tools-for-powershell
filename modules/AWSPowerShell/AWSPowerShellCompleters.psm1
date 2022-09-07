@@ -18661,7 +18661,7 @@ $EKS_Completers = {
             ($_ -eq "Update-EKSAddon/ResolveConflicts")
         }
         {
-            $v = "NONE","OVERWRITE"
+            $v = "NONE","OVERWRITE","PRESERVE"
             break
         }
 
@@ -47983,6 +47983,7 @@ $SNS_SelectMap = @{
                "Remove-SNSPlatformApplication",
                "Remove-SNSSMSSandboxPhoneNumber",
                "Remove-SNSTopic",
+               "Get-SNSDataProtectionPolicy",
                "Get-SNSEndpointAttribute",
                "Get-SNSPlatformApplicationAttribute",
                "Get-SNSSMSAttribute",
@@ -48001,6 +48002,7 @@ $SNS_SelectMap = @{
                "Enable-SNSPhoneNumber",
                "Publish-SNSMessage",
                "Publish-SNSBatch",
+               "Set-SNSDataProtectionPolicy",
                "Remove-SNSPermission",
                "Set-SNSEndpointAttribute",
                "Set-SNSPlatformApplicationAttribute",

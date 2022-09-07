@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         public System.Collections.Hashtable Attribute { get; set; }
         #endregion
         
+        #region Parameter DataProtectionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The body of the policy document you want to use for this topic.</para><para>You can only add one policy per topic.</para><para>The policy must be in JSON string format.</para><para>Length Constraints: Maximum length of 30,720.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataProtectionPolicy { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -170,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                     context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
                 }
             }
+            context.DataProtectionPolicy = this.DataProtectionPolicy;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -200,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             if (cmdletContext.Attribute != null)
             {
                 request.Attributes = cmdletContext.Attribute;
+            }
+            if (cmdletContext.DataProtectionPolicy != null)
+            {
+                request.DataProtectionPolicy = cmdletContext.DataProtectionPolicy;
             }
             if (cmdletContext.Name != null)
             {
@@ -271,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> Attribute { get; set; }
+            public System.String DataProtectionPolicy { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.SimpleNotificationService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SimpleNotificationService.Model.CreateTopicResponse, NewSNSTopicCmdlet, object> Select { get; set; } =

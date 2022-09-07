@@ -28,14 +28,8 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// <note><para>
-    /// This API operation is in preview release for IoT SiteWise and is subject to change.
-    /// We recommend that you use this operation only with test data, and not in production
-    /// environments.
-    /// </para></note><para>
     /// Retrieves information about a bulk import job request. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/DescribeBulkImportJob.html">Describe
     /// a bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "IOTSWBulkImportJob")]
     [OutputType("Amazon.IoTSiteWise.Model.DescribeBulkImportJobResponse")]
