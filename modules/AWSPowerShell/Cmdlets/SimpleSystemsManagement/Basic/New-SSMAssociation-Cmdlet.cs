@@ -291,6 +291,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i> are
+        /// metadata that you can assign to your Amazon Web Services resources. Tags enable you
+        /// to categorize your resources in different ways, for example, by purpose, owner, or
+        /// environment. Each tag consists of a key and an optional value, both of which you define.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetLocation
         /// <summary>
         /// <para>
@@ -439,6 +454,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.ScheduleExpression = this.ScheduleExpression;
             context.ScheduleOffset = this.ScheduleOffset;
             context.SyncCompliance = this.SyncCompliance;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+            }
             if (this.TargetLocation != null)
             {
                 context.TargetLocation = new List<Amazon.SimpleSystemsManagement.Model.TargetLocation>(this.TargetLocation);
@@ -598,6 +617,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.SyncCompliance = cmdletContext.SyncCompliance;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TargetLocation != null)
             {
                 request.TargetLocations = cmdletContext.TargetLocation;
@@ -688,6 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String ScheduleExpression { get; set; }
             public System.Int32? ScheduleOffset { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocation { get; set; }
             public List<Dictionary<System.String, List<System.String>>> TargetMap { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }

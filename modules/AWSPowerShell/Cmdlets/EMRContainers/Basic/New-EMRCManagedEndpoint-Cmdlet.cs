@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The certificate ARN provided by users for the managed endpoint. This fiedd is under
+        /// <para>The certificate ARN provided by users for the managed endpoint. This field is under
         /// deprecation and will be removed in future releases.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>

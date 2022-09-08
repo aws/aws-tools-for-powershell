@@ -249,6 +249,32 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.AutoMLMetricEnum AutoMLJobObjective_MetricName { get; set; }
         #endregion
         
+        #region Parameter AutoMLJobConfig_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The method that Autopilot uses to train the data. You can either specify the mode
+        /// manually or let Autopilot choose for you based on the dataset size by selecting <code>AUTO</code>.
+        /// In <code>AUTO</code> mode, Autopilot chooses <code>ENSEMBLING</code> for datasets
+        /// smaller than 100 MB, and <code>HYPERPARAMETER_TUNING</code> for larger ones.</para><para>The <code>ENSEMBLING</code> mode uses a multi-stack ensemble model to predict classification
+        /// and regression tasks directly from your dataset. This machine learning mode combines
+        /// several base models to produce an optimal predictive model. It then uses a stacking
+        /// ensemble method to combine predictions from contributing members. A multi-stack ensemble
+        /// model can provide better performance over a single model by combining the predictive
+        /// capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot
+        /// algorithm support</a> for a list of algorithms supported by <code>ENSEMBLING</code>
+        /// mode.</para><para>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to
+        /// train the best version of a model. HPO will automatically select an algorithm for
+        /// the type of problem you want to solve. Then HPO finds the best hyperparameters according
+        /// to your objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot
+        /// algorithm support</a> for a list of algorithms supported by <code>HYPERPARAMETER_TUNING</code>
+        /// mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.AutoMLMode")]
+        public Amazon.SageMaker.AutoMLMode AutoMLJobConfig_Mode { get; set; }
+        #endregion
+        
         #region Parameter ProblemType
         /// <summary>
         /// <para>
@@ -422,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.CompletionCriteria_MaxCandidate = this.CompletionCriteria_MaxCandidate;
             context.CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
             context.DataSplitConfig_ValidationFraction = this.DataSplitConfig_ValidationFraction;
+            context.AutoMLJobConfig_Mode = this.AutoMLJobConfig_Mode;
             context.SecurityConfig_EnableInterContainerTrafficEncryption = this.SecurityConfig_EnableInterContainerTrafficEncryption;
             context.SecurityConfig_VolumeKmsKeyId = this.SecurityConfig_VolumeKmsKeyId;
             if (this.VpcConfig_SecurityGroupId != null)
@@ -493,6 +520,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate AutoMLJobConfig
             var requestAutoMLJobConfigIsNull = true;
             request.AutoMLJobConfig = new Amazon.SageMaker.Model.AutoMLJobConfig();
+            Amazon.SageMaker.AutoMLMode requestAutoMLJobConfig_autoMLJobConfig_Mode = null;
+            if (cmdletContext.AutoMLJobConfig_Mode != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_Mode = cmdletContext.AutoMLJobConfig_Mode;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_Mode != null)
+            {
+                request.AutoMLJobConfig.Mode = requestAutoMLJobConfig_autoMLJobConfig_Mode;
+                requestAutoMLJobConfigIsNull = false;
+            }
             Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
             
              // populate CandidateGenerationConfig
@@ -830,6 +867,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
             public System.Single? DataSplitConfig_ValidationFraction { get; set; }
+            public Amazon.SageMaker.AutoMLMode AutoMLJobConfig_Mode { get; set; }
             public System.Boolean? SecurityConfig_EnableInterContainerTrafficEncryption { get; set; }
             public System.String SecurityConfig_VolumeKmsKeyId { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }

@@ -214,6 +214,19 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String CsvFormatDescriptor_Delimiter { get; set; }
         #endregion
         
+        #region Parameter DimensionFilterList
+        /// <summary>
+        /// <para>
+        /// <para>Describes a list of filters for choosing specific dimensions and specific values.
+        /// Each filter consists of the dimension and one of its values that you want to include.
+        /// When multiple dimensions or values are specified, the dimensions are joined with an
+        /// AND operation and the values are joined with an OR operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.LookoutMetrics.Model.MetricSetDimensionFilter[] DimensionFilterList { get; set; }
+        #endregion
+        
         #region Parameter DimensionList
         /// <summary>
         /// <para>
@@ -632,6 +645,10 @@ namespace Amazon.PowerShell.Cmdlets.LOM
                 context.Select = (response, cmdlet) => this.MetricSetArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.DimensionFilterList != null)
+            {
+                context.DimensionFilterList = new List<Amazon.LookoutMetrics.Model.MetricSetDimensionFilter>(this.DimensionFilterList);
+            }
             if (this.DimensionList != null)
             {
                 context.DimensionList = new List<System.String>(this.DimensionList);
@@ -729,6 +746,10 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             // create request
             var request = new Amazon.LookoutMetrics.Model.UpdateMetricSetRequest();
             
+            if (cmdletContext.DimensionFilterList != null)
+            {
+                request.DimensionFilterList = cmdletContext.DimensionFilterList;
+            }
             if (cmdletContext.DimensionList != null)
             {
                 request.DimensionList = cmdletContext.DimensionList;
@@ -1447,6 +1468,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.LookoutMetrics.Model.MetricSetDimensionFilter> DimensionFilterList { get; set; }
             public List<System.String> DimensionList { get; set; }
             public List<Amazon.LookoutMetrics.Model.Metric> MetricList { get; set; }
             public System.String MetricSetArn { get; set; }

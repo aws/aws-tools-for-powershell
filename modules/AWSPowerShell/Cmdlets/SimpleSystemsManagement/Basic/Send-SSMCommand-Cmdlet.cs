@@ -261,7 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The ARN of the Identity and Access Management (IAM) service role to use to publish
-        /// Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</para>
+        /// Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</para><para>This role must provide the <code>sns:Publish</code> permission for your notification
+        /// topic. For information about creating and using this service role, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
+        /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>Amazon
+        /// Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

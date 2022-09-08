@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public Amazon.EMRContainers.Model.Configuration[] ConfigurationOverrides_ApplicationConfiguration { get; set; }
         #endregion
         
+        #region Parameter SparkSqlJobDriver_EntryPoint
+        /// <summary>
+        /// <para>
+        /// <para>The SQL file to be executed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobDriver_SparkSqlJobDriver_EntryPoint")]
+        public System.String SparkSqlJobDriver_EntryPoint { get; set; }
+        #endregion
+        
         #region Parameter SparkSubmitJobDriver_EntryPoint
         /// <summary>
         /// <para>
@@ -159,6 +170,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReleaseLabel { get; set; }
+        #endregion
+        
+        #region Parameter SparkSqlJobDriver_SparkSqlParameter
+        /// <summary>
+        /// <para>
+        /// <para>The Spark parameters to be included in the Spark SQL command.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobDriver_SparkSqlJobDriver_SparkSqlParameters")]
+        public System.String SparkSqlJobDriver_SparkSqlParameter { get; set; }
         #endregion
         
         #region Parameter SparkSubmitJobDriver_SparkSubmitParameter
@@ -287,6 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SparkSqlJobDriver_EntryPoint = this.SparkSqlJobDriver_EntryPoint;
+            context.SparkSqlJobDriver_SparkSqlParameter = this.SparkSqlJobDriver_SparkSqlParameter;
             context.SparkSubmitJobDriver_EntryPoint = this.SparkSubmitJobDriver_EntryPoint;
             if (this.SparkSubmitJobDriver_EntryPointArgument != null)
             {
@@ -448,6 +472,41 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
              // populate JobDriver
             var requestJobDriverIsNull = true;
             request.JobDriver = new Amazon.EMRContainers.Model.JobDriver();
+            Amazon.EMRContainers.Model.SparkSqlJobDriver requestJobDriver_jobDriver_SparkSqlJobDriver = null;
+            
+             // populate SparkSqlJobDriver
+            var requestJobDriver_jobDriver_SparkSqlJobDriverIsNull = true;
+            requestJobDriver_jobDriver_SparkSqlJobDriver = new Amazon.EMRContainers.Model.SparkSqlJobDriver();
+            System.String requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_EntryPoint = null;
+            if (cmdletContext.SparkSqlJobDriver_EntryPoint != null)
+            {
+                requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_EntryPoint = cmdletContext.SparkSqlJobDriver_EntryPoint;
+            }
+            if (requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_EntryPoint != null)
+            {
+                requestJobDriver_jobDriver_SparkSqlJobDriver.EntryPoint = requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_EntryPoint;
+                requestJobDriver_jobDriver_SparkSqlJobDriverIsNull = false;
+            }
+            System.String requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_SparkSqlParameter = null;
+            if (cmdletContext.SparkSqlJobDriver_SparkSqlParameter != null)
+            {
+                requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_SparkSqlParameter = cmdletContext.SparkSqlJobDriver_SparkSqlParameter;
+            }
+            if (requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_SparkSqlParameter != null)
+            {
+                requestJobDriver_jobDriver_SparkSqlJobDriver.SparkSqlParameters = requestJobDriver_jobDriver_SparkSqlJobDriver_sparkSqlJobDriver_SparkSqlParameter;
+                requestJobDriver_jobDriver_SparkSqlJobDriverIsNull = false;
+            }
+             // determine if requestJobDriver_jobDriver_SparkSqlJobDriver should be set to null
+            if (requestJobDriver_jobDriver_SparkSqlJobDriverIsNull)
+            {
+                requestJobDriver_jobDriver_SparkSqlJobDriver = null;
+            }
+            if (requestJobDriver_jobDriver_SparkSqlJobDriver != null)
+            {
+                request.JobDriver.SparkSqlJobDriver = requestJobDriver_jobDriver_SparkSqlJobDriver;
+                requestJobDriverIsNull = false;
+            }
             Amazon.EMRContainers.Model.SparkSubmitJobDriver requestJobDriver_jobDriver_SparkSubmitJobDriver = null;
             
              // populate SparkSubmitJobDriver
@@ -582,6 +641,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public Amazon.EMRContainers.PersistentAppUI MonitoringConfiguration_PersistentAppUI { get; set; }
             public System.String S3MonitoringConfiguration_LogUri { get; set; }
             public System.String ExecutionRoleArn { get; set; }
+            public System.String SparkSqlJobDriver_EntryPoint { get; set; }
+            public System.String SparkSqlJobDriver_SparkSqlParameter { get; set; }
             public System.String SparkSubmitJobDriver_EntryPoint { get; set; }
             public List<System.String> SparkSubmitJobDriver_EntryPointArgument { get; set; }
             public System.String SparkSubmitJobDriver_SparkSubmitParameter { get; set; }

@@ -231,6 +231,16 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         public System.String CsvFormatDescriptor_Delimiter { get; set; }
         #endregion
         
+        #region Parameter DimensionFilterList
+        /// <summary>
+        /// <para>
+        /// <para>A list of filters that specify which data is kept for anomaly detection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.LookoutMetrics.Model.MetricSetDimensionFilter[] DimensionFilterList { get; set; }
+        #endregion
+        
         #region Parameter DimensionList
         /// <summary>
         /// <para>
@@ -685,6 +695,10 @@ namespace Amazon.PowerShell.Cmdlets.LOM
                 WriteWarning("You are passing $null as a value for parameter AnomalyDetectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.DimensionFilterList != null)
+            {
+                context.DimensionFilterList = new List<Amazon.LookoutMetrics.Model.MetricSetDimensionFilter>(this.DimensionFilterList);
+            }
             if (this.DimensionList != null)
             {
                 context.DimensionList = new List<System.String>(this.DimensionList);
@@ -800,6 +814,10 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             if (cmdletContext.AnomalyDetectorArn != null)
             {
                 request.AnomalyDetectorArn = cmdletContext.AnomalyDetectorArn;
+            }
+            if (cmdletContext.DimensionFilterList != null)
+            {
+                request.DimensionFilterList = cmdletContext.DimensionFilterList;
             }
             if (cmdletContext.DimensionList != null)
             {
@@ -1528,6 +1546,7 @@ namespace Amazon.PowerShell.Cmdlets.LOM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AnomalyDetectorArn { get; set; }
+            public List<Amazon.LookoutMetrics.Model.MetricSetDimensionFilter> DimensionFilterList { get; set; }
             public List<System.String> DimensionList { get; set; }
             public List<Amazon.LookoutMetrics.Model.Metric> MetricList { get; set; }
             public System.String MetricSetDescription { get; set; }

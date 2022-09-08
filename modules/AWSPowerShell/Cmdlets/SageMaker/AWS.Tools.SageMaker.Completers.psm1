@@ -185,6 +185,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AutoMLMode
+        "New-SMAutoMLJob/AutoMLJobConfig_Mode"
+        {
+            $v = "AUTO","ENSEMBLING","HYPERPARAMETER_TUNING"
+            break
+        }
+
         # Amazon.SageMaker.AutoMLSortBy
         "Get-SMAutoMLJobList/SortBy"
         {
@@ -1080,6 +1087,7 @@ $SM_map = @{
     "AppTypeEquals"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
+    "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")

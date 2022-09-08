@@ -56,12 +56,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2FlowLogCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter DeliverCrossAccountRole
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeliverCrossAccountRole { get; set; }
+        #endregion
+        
         #region Parameter DeliverLogsPermissionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch
-        /// Logs log group in your account.</para><para>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
-        /// <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</para>
+        /// <para>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch
+        /// Logs log group in your account.</para><para>This parameter is required if the destination type is <code>cloud-watch-logs</code>
+        /// and unsupported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,17 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LogDestination
         /// <summary>
         /// <para>
-        /// <para>The destination to which the flow log data is to be published. Flow log data can be
-        /// published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified
-        /// for this parameter depends on the value specified for <code>LogDestinationType</code>.</para><para>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
-        /// specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example,
-        /// to publish to a log group called <code>my-logs</code>, specify <code>arn:aws:logs:us-east-1:123456789012:log-group:my-logs</code>.
-        /// Alternatively, use <code>LogGroupName</code> instead.</para><para>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket.
-        /// You can also specify a subfolder in the bucket. To specify a subfolder in the bucket,
-        /// use the following ARN format: <code>bucket_ARN/subfolder_name/</code>. For example,
-        /// to specify a subfolder named <code>my-logs</code> in a bucket named <code>my-bucket</code>,
-        /// use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use
-        /// <code>AWSLogs</code> as a subfolder name. This is a reserved term.</para>
+        /// <para>The destination for the flow log data. The meaning of this parameter depends on the
+        /// destination type.</para><ul><li><para>If the destination type is <code>cloud-watch-logs</code>, specify the ARN of a CloudWatch
+        /// Logs log group. For example:</para><para>arn:aws:logs:<i>region</i>:<i>account_id</i>:log-group:<i>my_group</i></para><para>Alternatively, use the <code>LogGroupName</code> parameter.</para></li><li><para>If the destination type is <code>s3</code>, specify the ARN of an S3 bucket. For example:</para><para>arn:aws:s3:::<i>my_bucket</i>/<i>my_subfolder</i>/</para><para>The subfolder is optional. Note that you can't use <code>AWSLogs</code> as a subfolder
+        /// name.</para></li><li><para>If the destination type is <code>kinesis-data-firehose</code>, specify the ARN of
+        /// a Kinesis Data Firehose delivery stream. For example:</para><para>arn:aws:firehose:<i>region</i>:<i>account_id</i>:deliverystream:<i>my_stream</i></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,11 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LogDestinationType
         /// <summary>
         /// <para>
-        /// <para>The type of destination to which the flow log data is to be published. Flow log data
-        /// can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch
-        /// Logs, specify <code>cloud-watch-logs</code>. To publish flow log data to Amazon S3,
-        /// specify <code>s3</code>.</para><para>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
-        /// <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</para><para>Default: <code>cloud-watch-logs</code></para>
+        /// <para>The type of destination for the flow log data.</para><para>Default: <code>cloud-watch-logs</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,10 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LogFormat
         /// <summary>
         /// <para>
-        /// <para>The fields to include in the flow log record, in the order in which they should appear.
-        /// For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
+        /// <para>The fields to include in the flow log record. List the fields in the order in which
+        /// they should appear. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
         /// log records</a>. If you omit this parameter, the flow log is created using the default
-        /// format. If you specify this parameter, you must specify at least one field.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.
+        /// format. If you specify this parameter, you must include at least one field.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.
         /// For the CLI, surround this parameter value with single quotes on Linux or double quotes
         /// on Windows.</para>
         /// </para>
@@ -145,8 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes
-        /// your flow logs.</para><para>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
-        /// <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</para>
+        /// your flow logs.</para><para>This parameter is valid only if the destination type is <code>cloud-watch-logs</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -180,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the subnet, network interface, or VPC for which you want to create a flow
-        /// log.</para><para>Constraints: Maximum of 1000 resources</para>
+        /// <para>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>,
+        /// specify the IDs of the VPCs.</para><para>Constraints: Maximum of 1000 resources</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -199,9 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource for which to create the flow log. For example, if you specified
-        /// a VPC ID for the <code>ResourceId</code> property, specify <code>VPC</code> for this
-        /// property.</para>
+        /// <para>The type of resource to monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -229,8 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TrafficType
         /// <summary>
         /// <para>
-        /// <para>The type of traffic to log. You can log traffic that the resource accepts or rejects,
-        /// or all traffic.</para>
+        /// <para>The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.DeliverCrossAccountRole = this.DeliverCrossAccountRole;
             context.DeliverLogsPermissionArn = this.DeliverLogsPermissionArn;
             context.DestinationOptions_FileFormat = this.DestinationOptions_FileFormat;
             context.DestinationOptions_HiveCompatiblePartition = this.DestinationOptions_HiveCompatiblePartition;
@@ -362,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DeliverCrossAccountRole != null)
+            {
+                request.DeliverCrossAccountRole = cmdletContext.DeliverCrossAccountRole;
             }
             if (cmdletContext.DeliverLogsPermissionArn != null)
             {
@@ -504,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String DeliverCrossAccountRole { get; set; }
             public System.String DeliverLogsPermissionArn { get; set; }
             public Amazon.EC2.DestinationFileFormat DestinationOptions_FileFormat { get; set; }
             public System.Boolean? DestinationOptions_HiveCompatiblePartition { get; set; }

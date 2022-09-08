@@ -1,4 +1,18 @@
-﻿### 4.1.163 (2022-09-07 20:28Z)
+﻿### 4.1.164 (2022-09-08 21:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.352.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2FlowLog: added parameter DeliverCrossAccountRole.
+  * Amazon EMR Containers
+    * Modified cmdlet Start-EMRCJobRun: added parameters SparkSqlJobDriver_EntryPoint and SparkSqlJobDriver_SparkSqlParameter.
+  * Amazon Lookout for Metrics
+    * Modified cmdlet New-LOMMetricSet: added parameter DimensionFilterList.
+    * Modified cmdlet Update-LOMMetricSet: added parameter DimensionFilterList.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJob: added parameter AutoMLJobConfig_Mode.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameter Tag.
+
+### 4.1.163 (2022-09-07 20:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.351.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Inspector2
     * Modified cmdlet Get-INS2FindingList: added parameter FilterCriteria_FixAvailable.

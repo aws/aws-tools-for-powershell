@@ -652,7 +652,7 @@ $EC2_Completers = {
         # Amazon.EC2.LogDestinationType
         "New-EC2FlowLog/LogDestinationType"
         {
-            $v = "cloud-watch-logs","s3"
+            $v = "cloud-watch-logs","kinesis-data-firehose","s3"
             break
         }
 
