@@ -1,0 +1,4 @@
+{
+    "Type": "Patch",
+    "Description": "Added support for ClientConfig parameter for CmdLets."
+}

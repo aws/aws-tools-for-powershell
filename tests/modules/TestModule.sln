@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestModule", "TestModule.csproj", "{1914DF17-D65B-48B9-B88B-F476B0A2004F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.S3", "..\..\modules\AWSPowerShell\Cmdlets\S3\AWS.Tools.S3.csproj", "{3E703091-0C52-4E33-8264-540DAE0D389D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C56A24BD-3E55-448D-A137-74BBEF78A6F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1914DF17-D65B-48B9-B88B-F476B0A2004F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1914DF17-D65B-48B9-B88B-F476B0A2004F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1914DF17-D65B-48B9-B88B-F476B0A2004F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1914DF17-D65B-48B9-B88B-F476B0A2004F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E703091-0C52-4E33-8264-540DAE0D389D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E703091-0C52-4E33-8264-540DAE0D389D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E703091-0C52-4E33-8264-540DAE0D389D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E703091-0C52-4E33-8264-540DAE0D389D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E703091-0C52-4E33-8264-540DAE0D389D} = {C56A24BD-3E55-448D-A137-74BBEF78A6F7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {578372FE-FB37-4E9F-A4C3-C852CD999BB2}
+	EndGlobalSection
+EndGlobal

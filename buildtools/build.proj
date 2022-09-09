@@ -67,15 +67,15 @@
     <!-- Import default code signing properties and the task -->
     <Import Project="$(InternalBuildTools)/CodeSign.proj" Condition="'$(InternalBuildTools)'!='' And '$(SignModules)'=='true' And Exists('$(InternalBuildTools)/CodeSign.proj')" />
 
-    <Target Name="full-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests">
+    <Target Name="full-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;build-test-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-test-module-artifacts;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests">
             <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
 
-    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;copy-coreclr-artifacts;draft-release-notes;create-pshelp;run-tests">
+    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;build-test-modules;copy-coreclr-artifacts;copy-test-module-artifacts;draft-release-notes;create-pshelp;run-tests">
         <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
     </Target>
 
-    <Target Name="staging-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules">
+    <Target Name="staging-build" DependsOnTargets="clean-bin;clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;build-test-modules">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts."/>
     </Target>
 
@@ -158,6 +158,12 @@
         <Zip InputDirectory="$(DocDeployment)/docs" OutputFileName="$(DocDeployment)/help.zip" />
     </Target>
 
+    <Target Name="build-test-modules" DependsOnTargets="create-cmdlets">
+        <Message Text="Building test modules"/>
+        <Exec Command="dotnet restore --disable-parallel ../tests/modules/TestModule.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --no-restore ../tests/modules/TestModule.sln"/>
+    </Target>
+	
     <Target Name="run-tests" Condition="'$(RunTests)'">
         <Message Text="Running tests"/>
 
@@ -245,6 +251,20 @@
         </ItemGroup>
 
         <Copy SourceFiles="@(TestFiles)" DestinationFolder="$(RootPath)/Deployment/Tests/%(RecursiveDir)" />
+    </Target>
+
+    <Target Name="copy-test-module-artifacts" DependsOnTargets="build-test-modules">
+		<PropertyGroup>
+            <TestModuleSourceFolder>$(RootPath)/Tests/modules/bin/$(Configuration)/netstandard2.0</TestModuleSourceFolder>
+        </PropertyGroup>
+        <Message Text="Consolidating test module artifacts from $(TestModuleSourceFolder) to $(RootPath)/Deployment/Tests/modules"/>
+
+        <ItemGroup>
+            <TestModuleAssemblies Include="$(TestModuleSourceFolder)/*.dll" />
+        </ItemGroup>
+		
+		<RemoveDir Directories="$(RootPath)/Deployment/Tests/modules" />
+        <Copy SourceFiles="@(TestModuleAssemblies)" DestinationFolder="$(RootPath)/Deployment/Tests/modules" />
     </Target>
 
     <Target Name="copy-postbuild-scripts">
