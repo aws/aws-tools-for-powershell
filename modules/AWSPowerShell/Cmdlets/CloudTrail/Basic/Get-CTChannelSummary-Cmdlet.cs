@@ -28,25 +28,33 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lists trails that are in the current account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all CloudTrail channels.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CTTrailSummary")]
-    [OutputType("Amazon.CloudTrail.Model.TrailInfo")]
-    [AWSCmdlet("Calls the AWS CloudTrail ListTrails API operation.", Operation = new[] {"ListTrails"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.ListTrailsResponse))]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.TrailInfo or Amazon.CloudTrail.Model.ListTrailsResponse",
-        "This cmdlet returns a collection of Amazon.CloudTrail.Model.TrailInfo objects.",
-        "The service call response (type Amazon.CloudTrail.Model.ListTrailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CTChannelSummary")]
+    [OutputType("Amazon.CloudTrail.Model.Channel")]
+    [AWSCmdlet("Calls the AWS CloudTrail ListChannels API operation.", Operation = new[] {"ListChannels"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.ListChannelsResponse))]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.Channel or Amazon.CloudTrail.Model.ListChannelsResponse",
+        "This cmdlet returns a collection of Amazon.CloudTrail.Model.Channel objects.",
+        "The service call response (type Amazon.CloudTrail.Model.ListChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCTTrailSummaryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class GetCTChannelSummaryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of CloudTrail channels to display on a single page. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to use to get the next page of results after a previous API call. This token
-        /// must be passed in with the same parameters that were specified in the original call.
-        /// For example, if the original call specified an AttributeKey of 'Username' with a value
-        /// of 'root', the call with NextToken should include those same parameters.</para>
+        /// <para> A token you can use to get the next page of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -59,13 +67,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Trails'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.ListTrailsResponse).
-        /// Specifying the name of a property of type Amazon.CloudTrail.Model.ListTrailsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Channels'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.ListChannelsResponse).
+        /// Specifying the name of a property of type Amazon.CloudTrail.Model.ListChannelsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Trails";
+        public string Select { get; set; } = "Channels";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -89,9 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.ListTrailsResponse, GetCTTrailSummaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.ListChannelsResponse, GetCTChannelSummaryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -109,8 +118,12 @@ namespace Amazon.PowerShell.Cmdlets.CT
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudTrail.Model.ListTrailsRequest();
+            var request = new Amazon.CloudTrail.Model.ListChannelsRequest();
             
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -168,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudTrail.Model.ListTrailsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListTrailsRequest request)
+        private Amazon.CloudTrail.Model.ListChannelsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListChannelsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "ListTrails");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "ListChannels");
             try
             {
                 #if DESKTOP
-                return client.ListTrails(request);
+                return client.ListChannels(request);
                 #elif CORECLR
-                return client.ListTrailsAsync(request).GetAwaiter().GetResult();
+                return client.ListChannelsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -196,9 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.CloudTrail.Model.ListTrailsResponse, GetCTTrailSummaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Trails;
+            public System.Func<Amazon.CloudTrail.Model.ListChannelsResponse, GetCTChannelSummaryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Channels;
         }
         
     }

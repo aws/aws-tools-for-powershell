@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>The retention period of the event data store, in days. You can set a retention period
-        /// of up to 2555 days, the equivalent of seven years.</para>
+        /// of up to 2557 days, the equivalent of seven years.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

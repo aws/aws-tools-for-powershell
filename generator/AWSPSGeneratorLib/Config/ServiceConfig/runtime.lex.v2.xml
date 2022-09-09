@@ -39,5 +39,7 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.LexRuntimeV2.Model.ElicitSubSlot</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

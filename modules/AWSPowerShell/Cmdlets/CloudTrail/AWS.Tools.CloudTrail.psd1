@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CTResourceTag', 
         'Find-CTEvent', 
+        'Get-CTChannel', 
+        'Get-CTChannelSummary', 
         'Get-CTEventDataStore', 
         'Get-CTEventDataStoreSummary', 
         'Get-CTEventSelector', 

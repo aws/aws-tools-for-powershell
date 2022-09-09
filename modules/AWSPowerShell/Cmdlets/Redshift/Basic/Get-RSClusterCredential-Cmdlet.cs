@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of a database that <code>DbUser</code> is authorized to log on to. If <code>DbName</code>
-        /// is not specified, <code>DbUser</code> can log on to any existing database.</para><para>Constraints:</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
-        /// at symbol (@), or hyphen.</para></li><li><para>First character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ). </para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// is not specified, <code>DbUser</code> can log on to any existing database.</para><para>Constraints:</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens</para></li><li><para>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
+        /// (dot), at symbol (@), or hyphen.</para></li><li><para>First character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ). </para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide.</para></li></ul>
         /// </para>
         /// </summary>
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command
         /// succeeds but the connection attempt will fail because the user doesn't exist in the
         /// database.</para><para>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE
-        /// USER</a> in the Amazon Redshift Database Developer Guide. </para><para>Constraints:</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
-        /// at symbol (@), or hyphen.</para></li><li><para>First character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ). </para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// USER</a> in the Amazon Redshift Database Developer Guide. </para><para>Constraints:</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</para></li><li><para>Must contain uppercase or lowercase letters, numbers, underscore, plus sign, period
+        /// (dot), at symbol (@), or hyphen.</para></li><li><para>First character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ). </para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide.</para></li></ul>
         /// </para>
         /// </summary>

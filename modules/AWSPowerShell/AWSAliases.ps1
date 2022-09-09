@@ -3408,6 +3408,7 @@ Set-Alias -Name CT-DescribeQuery -Value Get-CTQuery
 Set-Alias -Name Describe-CTTrails -Value Get-CTTrail
 Set-Alias -Name Describe-CTTrail -Value Get-CTTrail
 Set-Alias -Name CT-DescribeTrails -Value Get-CTTrail
+Set-Alias -Name CT-GetChannel -Value Get-CTChannel
 Set-Alias -Name CT-GetEventDataStore -Value Get-CTEventDataStore
 Set-Alias -Name Get-CTEventSelectors -Value Get-CTEventSelector
 Set-Alias -Name CT-GetEventSelectors -Value Get-CTEventSelector
@@ -3418,6 +3419,9 @@ Set-Alias -Name CT-GetQueryResults -Value Get-CTQueryResult
 Set-Alias -Name Get-CTTrail -Value Get-CTTrailByName
 Set-Alias -Name CT-GetTrail -Value Get-CTTrailByName
 Set-Alias -Name CT-GetTrailStatus -Value Get-CTTrailStatus
+Set-Alias -Name List-CTChannels -Value Get-CTChannelSummary
+Set-Alias -Name List-CTChannelSummary -Value Get-CTChannelSummary
+Set-Alias -Name CT-ListChannels -Value Get-CTChannelSummary
 Set-Alias -Name List-CTEventDataStores -Value Get-CTEventDataStoreSummary
 Set-Alias -Name List-CTEventDataStoreSummary -Value Get-CTEventDataStoreSummary
 Set-Alias -Name CT-ListEventDataStores -Value Get-CTEventDataStoreSummary

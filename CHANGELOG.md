@@ -1,4 +1,20 @@
-﻿### 4.1.164 (2022-09-08 21:16Z)
+﻿### 4.1.165 (2022-09-09 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.354.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudTrail
+    * Added cmdlet Get-CTChannel leveraging the GetChannel service API.
+    * Added cmdlet Get-CTChannelSummary leveraging the ListChannels service API.
+  * Amazon Elastic Disaster Recovery Service
+    * Modified cmdlet Get-EDRSReplicationConfigurationTemplate: added parameter IsReplicationConfigurationTemplateIDsSet.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Slot: added parameters SubSlotSetting_Expression and SubSlotSetting_SlotSpecification.
+    * Modified cmdlet New-LMBV2SlotType: added parameter CompositeSlotTypeSetting_SubSlot.
+    * Modified cmdlet Update-LMBV2Slot: added parameters SubSlotSetting_Expression and SubSlotSetting_SlotSpecification.
+    * Modified cmdlet Update-LMBV2SlotType: added parameter CompositeSlotTypeSetting_SubSlot.
+  * Amazon Lex Runtime V2
+    * Modified cmdlet Send-LRSV2Text: added parameter DialogAction_SubSlotToElicit.
+    * Modified cmdlet Write-LRSV2Session: added parameter DialogAction_SubSlotToElicit.
+
+### 4.1.164 (2022-09-08 21:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.352.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2FlowLog: added parameter DeliverCrossAccountRole.

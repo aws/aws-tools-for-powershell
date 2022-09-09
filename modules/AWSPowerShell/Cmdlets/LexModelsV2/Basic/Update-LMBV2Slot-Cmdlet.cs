@@ -424,6 +424,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Boolean? ElicitationCodeHook_EnableCodeHookInvocation { get; set; }
         #endregion
         
+        #region Parameter SubSlotSetting_Expression
+        /// <summary>
+        /// <para>
+        /// <para>The expression text for defining the constituent sub slots in the composite slot using
+        /// logical AND and OR operators.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SubSlotSetting_Expression { get; set; }
+        #endregion
+        
         #region Parameter StillWaitingResponse_FrequencyInSecond
         /// <summary>
         /// <para>
@@ -1078,6 +1089,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.Collections.Hashtable ValueElicitationSetting_SlotCaptureSetting_FailureNextStep_Intent_Slots { get; set; }
         #endregion
         
+        #region Parameter SubSlotSetting_SlotSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Specifications for the constituent sub slots of a composite slot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SubSlotSetting_SlotSpecifications")]
+        public System.Collections.Hashtable SubSlotSetting_SlotSpecification { get; set; }
+        #endregion
+        
         #region Parameter ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_SlotToElicit
         /// <summary>
         /// <para>
@@ -1527,6 +1549,15 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             #endif
             context.SlotTypeId = this.SlotTypeId;
+            context.SubSlotSetting_Expression = this.SubSlotSetting_Expression;
+            if (this.SubSlotSetting_SlotSpecification != null)
+            {
+                context.SubSlotSetting_SlotSpecification = new Dictionary<System.String, Amazon.LexModelsV2.Model.Specifications>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SubSlotSetting_SlotSpecification.Keys)
+                {
+                    context.SubSlotSetting_SlotSpecification.Add((String)hashKey, (Specifications)(this.SubSlotSetting_SlotSpecification[hashKey]));
+                }
+            }
             if (this.DefaultValueSpecification_DefaultValueList != null)
             {
                 context.DefaultValueSpecification_DefaultValueList = new List<Amazon.LexModelsV2.Model.SlotDefaultValue>(this.DefaultValueSpecification_DefaultValueList);
@@ -1932,6 +1963,35 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.SlotTypeId != null)
             {
                 request.SlotTypeId = cmdletContext.SlotTypeId;
+            }
+            
+             // populate SubSlotSetting
+            var requestSubSlotSettingIsNull = true;
+            request.SubSlotSetting = new Amazon.LexModelsV2.Model.SubSlotSetting();
+            System.String requestSubSlotSetting_subSlotSetting_Expression = null;
+            if (cmdletContext.SubSlotSetting_Expression != null)
+            {
+                requestSubSlotSetting_subSlotSetting_Expression = cmdletContext.SubSlotSetting_Expression;
+            }
+            if (requestSubSlotSetting_subSlotSetting_Expression != null)
+            {
+                request.SubSlotSetting.Expression = requestSubSlotSetting_subSlotSetting_Expression;
+                requestSubSlotSettingIsNull = false;
+            }
+            Dictionary<System.String, Amazon.LexModelsV2.Model.Specifications> requestSubSlotSetting_subSlotSetting_SlotSpecification = null;
+            if (cmdletContext.SubSlotSetting_SlotSpecification != null)
+            {
+                requestSubSlotSetting_subSlotSetting_SlotSpecification = cmdletContext.SubSlotSetting_SlotSpecification;
+            }
+            if (requestSubSlotSetting_subSlotSetting_SlotSpecification != null)
+            {
+                request.SubSlotSetting.SlotSpecifications = requestSubSlotSetting_subSlotSetting_SlotSpecification;
+                requestSubSlotSettingIsNull = false;
+            }
+             // determine if request.SubSlotSetting should be set to null
+            if (requestSubSlotSettingIsNull)
+            {
+                request.SubSlotSetting = null;
             }
             
              // populate ValueElicitationSetting
@@ -4023,6 +4083,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String SlotId { get; set; }
             public System.String SlotName { get; set; }
             public System.String SlotTypeId { get; set; }
+            public System.String SubSlotSetting_Expression { get; set; }
+            public Dictionary<System.String, Amazon.LexModelsV2.Model.Specifications> SubSlotSetting_SlotSpecification { get; set; }
             public List<Amazon.LexModelsV2.Model.SlotDefaultValue> DefaultValueSpecification_DefaultValueList { get; set; }
             public System.Boolean? PromptSpecification_AllowInterrupt { get; set; }
             public System.Int32? PromptSpecification_MaxRetry { get; set; }

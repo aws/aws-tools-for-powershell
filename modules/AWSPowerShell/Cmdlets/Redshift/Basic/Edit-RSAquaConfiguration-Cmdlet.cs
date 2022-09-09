@@ -28,7 +28,8 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies whether a cluster can use AQUA (Advanced Query Accelerator).
+    /// This operation is retired. Calling this operation does not change AQUA configuration.
+    /// Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).
     /// </summary>
     [Cmdlet("Edit", "RSAquaConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.AquaConfiguration")]
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AquaConfigurationStatus
         /// <summary>
         /// <para>
-        /// <para>The new value of AQUA configuration status. Possible values include the following.</para><ul><li><para>enabled - Use AQUA if it is available for the current Amazon Web Services Region and
-        /// Amazon Redshift node type.</para></li><li><para>disabled - Don't use AQUA. </para></li><li><para>auto - Amazon Redshift determines whether to use AQUA.</para></li></ul>
+        /// <para>This parameter is retired. Amazon Redshift automatically determines whether to use
+        /// AQUA (Advanced Query Accelerator).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

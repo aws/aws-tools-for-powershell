@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class GetEDRSReplicationConfigurationTemplateCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        #region Parameter IsReplicationConfigurationTemplateIDsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesRequest.ReplicationConfigurationTemplateIDs" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsReplicationConfigurationTemplateIDsSet { get; set; }
+        #endregion
+        
         #region Parameter ReplicationConfigurationTemplateIDs
         /// <summary>
         /// <para>
@@ -103,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             {
                 context.ReplicationConfigurationTemplateIDs = new List<System.String>(this.ReplicationConfigurationTemplateIDs);
             }
+            context.IsReplicationConfigurationTemplateIDsSet = this.IsReplicationConfigurationTemplateIDsSet;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.ReplicationConfigurationTemplateIDs != null)
             {
                 request.ReplicationConfigurationTemplateIDs = cmdletContext.ReplicationConfigurationTemplateIDs;
+            }
+            if (cmdletContext.IsReplicationConfigurationTemplateIDsSet != null)
+            {
+                request.IsReplicationConfigurationTemplateIDsSet = cmdletContext.IsReplicationConfigurationTemplateIDsSet.Value;
             }
             
             CmdletOutput output;
@@ -195,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> ReplicationConfigurationTemplateIDs { get; set; }
+            public System.Boolean? IsReplicationConfigurationTemplateIDsSet { get; set; }
             public System.Func<Amazon.Drs.Model.DescribeReplicationConfigurationTemplatesResponse, GetEDRSReplicationConfigurationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

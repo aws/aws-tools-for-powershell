@@ -61,6 +61,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetChannel" OutputProperty="*" Verb="Get" Noun="Channel" PipelineParameter="Channel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEventDataStore" OutputProperty="*" Verb="Get" Noun="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -82,6 +86,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTrailStatus" OutputProperty="*" Verb="Get" Noun="TrailStatus" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelSummary" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

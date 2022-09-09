@@ -75,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AquaConfigurationStatus
         /// <summary>
         /// <para>
-        /// <para>The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator)
-        /// when it is created. Possible values include the following.</para><ul><li><para>enabled - Use AQUA if it is available for the current Amazon Web Services Region and
-        /// Amazon Redshift node type.</para></li><li><para>disabled - Don't use AQUA. </para></li><li><para>auto - Amazon Redshift determines whether to use AQUA.</para></li></ul>
+        /// <para>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift
+        /// automatically determines whether to use AQUA (Advanced Query Accelerator).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,8 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
-        /// <para>The Elastic IP (EIP) address for the cluster. You don't have to specify the EIP for
-        /// a publicly accessible cluster with AvailabilityZoneRelocation turned on.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
+        /// <para>The Elastic IP (EIP) address for the cluster.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
         /// an Internet gateway. For more information about provisioning clusters in EC2-VPC,
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
         /// Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</para>

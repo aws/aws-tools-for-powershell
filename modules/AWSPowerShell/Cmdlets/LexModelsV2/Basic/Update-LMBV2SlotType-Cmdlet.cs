@@ -231,6 +231,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.Model.SlotTypeValue[] SlotTypeValue { get; set; }
         #endregion
         
+        #region Parameter CompositeSlotTypeSetting_SubSlot
+        /// <summary>
+        /// <para>
+        /// <para>Subslots in the composite slot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CompositeSlotTypeSetting_SubSlots")]
+        public Amazon.LexModelsV2.Model.SubSlotTypeComposition[] CompositeSlotTypeSetting_SubSlot { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -306,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter BotVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CompositeSlotTypeSetting_SubSlot != null)
+            {
+                context.CompositeSlotTypeSetting_SubSlot = new List<Amazon.LexModelsV2.Model.SubSlotTypeComposition>(this.CompositeSlotTypeSetting_SubSlot);
+            }
             context.Description = this.Description;
             context.Source_KmsKeyArn = this.Source_KmsKeyArn;
             context.Source_S3BucketName = this.Source_S3BucketName;
@@ -362,6 +377,25 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.BotVersion != null)
             {
                 request.BotVersion = cmdletContext.BotVersion;
+            }
+            
+             // populate CompositeSlotTypeSetting
+            var requestCompositeSlotTypeSettingIsNull = true;
+            request.CompositeSlotTypeSetting = new Amazon.LexModelsV2.Model.CompositeSlotTypeSetting();
+            List<Amazon.LexModelsV2.Model.SubSlotTypeComposition> requestCompositeSlotTypeSetting_compositeSlotTypeSetting_SubSlot = null;
+            if (cmdletContext.CompositeSlotTypeSetting_SubSlot != null)
+            {
+                requestCompositeSlotTypeSetting_compositeSlotTypeSetting_SubSlot = cmdletContext.CompositeSlotTypeSetting_SubSlot;
+            }
+            if (requestCompositeSlotTypeSetting_compositeSlotTypeSetting_SubSlot != null)
+            {
+                request.CompositeSlotTypeSetting.SubSlots = requestCompositeSlotTypeSetting_compositeSlotTypeSetting_SubSlot;
+                requestCompositeSlotTypeSettingIsNull = false;
+            }
+             // determine if request.CompositeSlotTypeSetting should be set to null
+            if (requestCompositeSlotTypeSettingIsNull)
+            {
+                request.CompositeSlotTypeSetting = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -588,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         {
             public System.String BotId { get; set; }
             public System.String BotVersion { get; set; }
+            public List<Amazon.LexModelsV2.Model.SubSlotTypeComposition> CompositeSlotTypeSetting_SubSlot { get; set; }
             public System.String Description { get; set; }
             public System.String Source_KmsKeyArn { get; set; }
             public System.String Source_S3BucketName { get; set; }

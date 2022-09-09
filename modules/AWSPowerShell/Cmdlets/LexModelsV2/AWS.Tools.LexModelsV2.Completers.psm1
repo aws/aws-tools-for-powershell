@@ -317,7 +317,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2SlotType/ValueSelectionSetting_ResolutionStrategy")
         }
         {
-            $v = "OriginalValue","TopResolution"
+            $v = "Concatenation","OriginalValue","TopResolution"
             break
         }
 

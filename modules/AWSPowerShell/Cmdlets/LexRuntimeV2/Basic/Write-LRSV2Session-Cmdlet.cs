@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// <para>
         /// <para>A list of the slots in the intent that should have runtime hints added, and the phrases
         /// that should be added for each slot.</para><para>The first level of the <code>slotHints</code> map is the name of the intent. The second
-        /// level is the name of the slot within the intent. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.xml">Using
+        /// level is the name of the slot within the intent. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.html">Using
         /// hints to improve accuracy</a>.</para><para>The intent name and slot name must exist.</para>
         /// </para>
         /// </summary>
@@ -265,13 +265,25 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         public Amazon.LexRuntimeV2.IntentState Intent_State { get; set; }
         #endregion
         
+        #region Parameter DialogAction_SubSlotToElicit
+        /// <summary>
+        /// <para>
+        /// <para>The name of the constituent sub slot of the composite slot specified in slotToElicit
+        /// that should be elicited from the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionStateValue_DialogAction_SubSlotToElicit")]
+        public Amazon.LexRuntimeV2.Model.ElicitSubSlot DialogAction_SubSlotToElicit { get; set; }
+        #endregion
+        
         #region Parameter DialogAction_Type
         /// <summary>
         /// <para>
         /// <para>The next action that the bot should take in its interaction with the user. The possible
         /// values are:</para><ul><li><para><code>Close</code> - Indicates that there will not be a response from the user. For
         /// example, the statement "Your order has been placed" does not require a response.</para></li><li><para><code>ConfirmIntent</code> - The next action is asking the user if the intent is
-        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> - The next action is determined by Amazon Lex V2.</para></li><li><para><code>ElicitSlot</code> - The next action is to elicit a slot value from the user.</para></li></ul>
+        /// complete and ready to be fulfilled. This is a yes/no question such as "Place the order?"</para></li><li><para><code>Delegate</code> - The next action is determined by Amazon Lex V2.</para></li><li><para><code>ElicitIntent</code> - The next action is to elicit an intent from the user.</para></li><li><para><code>ElicitSlot</code> - The next action is to elicit a slot value from the user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             }
             context.DialogAction_SlotElicitationStyle = this.DialogAction_SlotElicitationStyle;
             context.DialogAction_SlotToElicit = this.DialogAction_SlotToElicit;
+            context.DialogAction_SubSlotToElicit = this.DialogAction_SubSlotToElicit;
             context.DialogAction_Type = this.DialogAction_Type;
             context.Intent_ConfirmationState = this.Intent_ConfirmationState;
             context.Intent_Name = this.Intent_Name;
@@ -545,6 +558,16 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
                 requestSessionStateValue_sessionStateValue_DialogAction.SlotToElicit = requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SlotToElicit;
                 requestSessionStateValue_sessionStateValue_DialogActionIsNull = false;
             }
+            Amazon.LexRuntimeV2.Model.ElicitSubSlot requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SubSlotToElicit = null;
+            if (cmdletContext.DialogAction_SubSlotToElicit != null)
+            {
+                requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SubSlotToElicit = cmdletContext.DialogAction_SubSlotToElicit;
+            }
+            if (requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SubSlotToElicit != null)
+            {
+                requestSessionStateValue_sessionStateValue_DialogAction.SubSlotToElicit = requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_SubSlotToElicit;
+                requestSessionStateValue_sessionStateValue_DialogActionIsNull = false;
+            }
             Amazon.LexRuntimeV2.DialogActionType requestSessionStateValue_sessionStateValue_DialogAction_dialogAction_Type = null;
             if (cmdletContext.DialogAction_Type != null)
             {
@@ -696,6 +719,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             public List<Amazon.LexRuntimeV2.Model.ActiveContext> SessionStateValue_ActiveContext { get; set; }
             public Amazon.LexRuntimeV2.StyleType DialogAction_SlotElicitationStyle { get; set; }
             public System.String DialogAction_SlotToElicit { get; set; }
+            public Amazon.LexRuntimeV2.Model.ElicitSubSlot DialogAction_SubSlotToElicit { get; set; }
             public Amazon.LexRuntimeV2.DialogActionType DialogAction_Type { get; set; }
             public Amazon.LexRuntimeV2.ConfirmationState Intent_ConfirmationState { get; set; }
             public System.String Intent_Name { get; set; }

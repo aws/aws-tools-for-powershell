@@ -8810,12 +8810,14 @@ $CT_SelectMap = @{
                "Remove-CTTrail",
                "Get-CTQuery",
                "Get-CTTrail",
+               "Get-CTChannel",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",
                "Get-CTInsightSelector",
                "Get-CTQueryResult",
                "Get-CTTrailByName",
                "Get-CTTrailStatus",
+               "Get-CTChannelSummary",
                "Get-CTEventDataStoreSummary",
                "Get-CTPublicKey",
                "Get-CTQuerySummary",
@@ -35429,7 +35431,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2SlotType/ValueSelectionSetting_ResolutionStrategy")
         }
         {
-            $v = "OriginalValue","TopResolution"
+            $v = "Concatenation","OriginalValue","TopResolution"
             break
         }
 
