@@ -58,7 +58,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationConfigurationTemplates" OutputProperty="Items" Verb="Get" Noun="ReplicationConfigurationTemplate" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReplicationConfigurationTemplates" OutputProperty="Items" Verb="Get" Noun="ReplicationConfigurationTemplate" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
