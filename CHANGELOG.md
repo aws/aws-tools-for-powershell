@@ -1,4 +1,10 @@
-﻿### 4.1.165 (2022-09-09 21:28Z)
+﻿### 4.1.166 (2022-09-12 20:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.355.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameters OutpostConfig_ControlPlaneInstanceType and OutpostConfig_OutpostArn.
+  * Update cmdlets not to skip IMDS when resolving the region
+
+### 4.1.165 (2022-09-09 21:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.354.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudTrail
     * Added cmdlet Get-CTChannel leveraging the GetChannel service API.

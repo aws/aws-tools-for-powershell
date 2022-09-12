@@ -86,6 +86,21 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
         #endregion
         
+        #region Parameter OutpostConfig_ControlPlaneInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster
+        /// on Outposts. The instance type that you specify is used for all Kubernetes control
+        /// plane instances. The instance type can't be changed after cluster creation.</para><para>Choose an instance type based on the number of nodes that your cluster will have.
+        /// If your cluster will have:</para><ul><li><para>1–20 nodes, then we recommend specifying a <code>large</code> instance type.</para></li><li><para>21–100 nodes, then we recommend specifying an <code>xlarge</code> instance type.</para></li><li><para>101–250 nodes, then we recommend specifying a <code>2xlarge</code> instance type.</para></li></ul><para>For a list of the available Amazon EC2 instance types, see Compute and storage in
+        /// <a href="http://aws.amazon.com/outposts/rack/features/">Outposts rack features</a>.
+        /// The control plane is not automatically scaled by Amazon EKS.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfig
         /// <summary>
         /// <para>
@@ -134,6 +149,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OutpostConfig_OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts.
+        /// Only a single Outpost ARN is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutpostConfig_OutpostArns")]
+        public System.String[] OutpostConfig_OutpostArn { get; set; }
         #endregion
         
         #region Parameter ResourcesVpcConfig
@@ -211,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The desired Kubernetes version for your cluster. If you don't specify a value here,
-        /// the latest version available in Amazon EKS is used.</para>
+        /// the default version available in Amazon EKS is used.</para><note><para>The default version might not be the latest version available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,6 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutpostConfig_ControlPlaneInstanceType = this.OutpostConfig_ControlPlaneInstanceType;
+            if (this.OutpostConfig_OutpostArn != null)
+            {
+                context.OutpostConfig_OutpostArn = new List<System.String>(this.OutpostConfig_OutpostArn);
+            }
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
             #if MODULAR
             if (this.ResourcesVpcConfig == null && ParameterWasBound(nameof(this.ResourcesVpcConfig)))
@@ -396,6 +428,35 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             {
                 request.Name = cmdletContext.Name;
             }
+            
+             // populate OutpostConfig
+            var requestOutpostConfigIsNull = true;
+            request.OutpostConfig = new Amazon.EKS.Model.OutpostConfigRequest();
+            System.String requestOutpostConfig_outpostConfig_ControlPlaneInstanceType = null;
+            if (cmdletContext.OutpostConfig_ControlPlaneInstanceType != null)
+            {
+                requestOutpostConfig_outpostConfig_ControlPlaneInstanceType = cmdletContext.OutpostConfig_ControlPlaneInstanceType;
+            }
+            if (requestOutpostConfig_outpostConfig_ControlPlaneInstanceType != null)
+            {
+                request.OutpostConfig.ControlPlaneInstanceType = requestOutpostConfig_outpostConfig_ControlPlaneInstanceType;
+                requestOutpostConfigIsNull = false;
+            }
+            List<System.String> requestOutpostConfig_outpostConfig_OutpostArn = null;
+            if (cmdletContext.OutpostConfig_OutpostArn != null)
+            {
+                requestOutpostConfig_outpostConfig_OutpostArn = cmdletContext.OutpostConfig_OutpostArn;
+            }
+            if (requestOutpostConfig_outpostConfig_OutpostArn != null)
+            {
+                request.OutpostConfig.OutpostArns = requestOutpostConfig_outpostConfig_OutpostArn;
+                requestOutpostConfigIsNull = false;
+            }
+             // determine if request.OutpostConfig should be set to null
+            if (requestOutpostConfigIsNull)
+            {
+                request.OutpostConfig = null;
+            }
             if (cmdletContext.ResourcesVpcConfig != null)
             {
                 request.ResourcesVpcConfig = cmdletContext.ResourcesVpcConfig;
@@ -479,6 +540,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String KubernetesNetworkConfig_ServiceIpv4Cidr { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
+            public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
+            public List<System.String> OutpostConfig_OutpostArn { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

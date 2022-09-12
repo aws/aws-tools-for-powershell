@@ -1,4 +1,0 @@
-{
-  "Type": "Patch",
-  "Description": "Update cmdlets not to skip IMDS when resolving the region"
-}
