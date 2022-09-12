@@ -700,7 +700,7 @@ namespace Amazon.PowerShell.Common
                 WriteCredentialSourceDiagnostic(awsPSCredentials);
             }
 
-            this.TryGetRegion(string.IsNullOrEmpty(_DefaultRegion), out var region, out var regionSource, SessionState);
+            this.TryGetRegion(useInstanceMetadata: true, out var region, out var regionSource, SessionState);
 
             _RegionEndpoint = region;
 
@@ -766,7 +766,7 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            this.TryGetRegion(string.IsNullOrEmpty(_DefaultRegion), out var region, out var regionSource, SessionState);
+            this.TryGetRegion(useInstanceMetadata: true, out var region, out var regionSource, SessionState);
             _RegionEndpoint = region;
 
             if (_RegionEndpoint == null)

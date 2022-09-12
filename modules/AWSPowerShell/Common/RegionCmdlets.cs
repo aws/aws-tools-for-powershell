@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Common
 
         protected override void ProcessRecord()
         {
-            var region = this.GetRegion(false, SessionState);
+            var region = this.GetRegion(true, SessionState);
             string scope = MyInvocation.BoundParameters.ContainsKey("Scope") ? Scope.ToString() + ":" : "";
             this.SessionState.PSVariable.Set(scope + SessionKeys.AWSRegionVariableName, region.SystemName);
         }
