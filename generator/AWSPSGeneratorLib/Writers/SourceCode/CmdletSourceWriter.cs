@@ -891,6 +891,39 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine("#endif");
                             }
                         }
+
+                        /* If we have public Is<PropertyName>Set available (we could have <ParentProperty>_Is<ChildProperty>Set as well) and 
+                         * have the corresponding PropertyName (Collection type), just set the context Is<PropertyName>Set property to true.
+                         * 
+                         * EXAMPLES (using AnalyzedName):
+                         * 
+                         * IsReplicationConfigurationTemplateIDsSet -> ReplicationConfigurationTemplateIDs
+                         * IsLayersSet -> Layers
+                         * IsFileSystemConfigsSet -> FileSystemConfigs
+                         * Environment_IsVariablesSet -> Environment_Variables
+                         * ImageConfig_IsCommandSet -> ImageConfig_Command
+                         * ImageConfig_IsEntryPointSet -> ImageConfig_EntryPoint
+                         * VpcConfig_IsSecurityGroupIdsSet -> VpcConfig_SecurityGroupIds
+                         * VpcConfig_IsSubnetIdsSet -> VpcConfig_SubnetIds
+                         */
+                        var propertyParts = property.AnalyzedName.Split('_');
+                        if (propertyParts[propertyParts.Length - 1].StartsWith("Is") && propertyParts[propertyParts.Length - 1].EndsWith("Set") && property.PropertyTypeName == "System.Boolean")
+                        {
+                            // Modify the last part to remove Is (from beginning) and Set (from end).
+                            propertyParts[propertyParts.Length - 1] = propertyParts[propertyParts.Length - 1].Substring(2, propertyParts[propertyParts.Length - 1].Length - 5);
+
+                            string desiredCorrespondingPropertyName = String.Join('_', propertyParts);
+                            var correspondingProperty = allProperties.Where(spi => spi.AnalyzedName == desiredCorrespondingPropertyName).FirstOrDefault();
+
+                            if (correspondingProperty != null && correspondingProperty.CollectionType != SimplePropertyInfo.PropertyCollectionType.NoCollection)
+                            {
+                                // Make sure to set the context Is<PropertyName>Set property to true only if it was not explicitly set by user and the corresponding property is not set to null (else it could clear the service collection in some scenarios).
+                                writer.WriteLine($"if (!ParameterWasBound(nameof(this.{property.CmdletParameterName})) && this.{correspondingProperty.CmdletParameterName} != null)");
+                                writer.OpenRegion();
+                                writer.WriteLine($"context.{property.CmdletParameterName} = true;");
+                                writer.CloseRegion();
+                            }
+                        }
                     }
                     else
                     {
