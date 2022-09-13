@@ -22,42 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CustomerProfiles;
-using Amazon.CustomerProfiles.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CPF
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Adds additional objects to customer profiles of a given ObjectType.
-    /// 
-    ///  
-    /// <para>
-    /// When adding a specific profile object, like a Contact Record, an inferred profile
-    /// can get created if it is not mapped to an existing profile. The resulting profile
-    /// will only have a phone number populated in the standard ProfileObject. Any additional
-    /// Contact Records with the same phone number will be mapped to the same inferred profile.
-    /// </para><para>
-    /// When a ProfileObject is created and if a ProfileObjectType already exists for the
-    /// ProfileObject, it will provide data to a standard profile depending on the ProfileObjectType
-    /// definition.
-    /// </para><para>
-    /// PutProfileObject needs an ObjectType, which can be created using PutProfileObjectType.
-    /// </para>
+    /// Modifies the specified local gateway route.
     /// </summary>
-    [Cmdlet("Write", "CPFProfileObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Connect Customer Profiles PutProfileObject API operation.", Operation = new[] {"PutProfileObject"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.PutProfileObjectResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CustomerProfiles.Model.PutProfileObjectResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CustomerProfiles.Model.PutProfileObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyLocalGatewayRoute API operation.", Operation = new[] {"ModifyLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyLocalGatewayRouteResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.ModifyLocalGatewayRouteResponse",
+        "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRoute object.",
+        "The service call response (type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteCPFProfileObjectCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
+    public partial class EditEC2LocalGatewayRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter DomainName
+        #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The unique name of the domain.</para>
+        /// <para>The CIDR block used for destination matches. The value that you provide must match
+        /// the CIDR of an existing route in the table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,30 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String DestinationCidrBlock { get; set; }
         #endregion
         
-        #region Parameter Object
+        #region Parameter LocalGatewayRouteTableId
         /// <summary>
         /// <para>
-        /// <para>A string that is serialized from a JSON object.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Object { get; set; }
-        #endregion
-        
-        #region Parameter ObjectTypeName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the profile object type.</para>
+        /// <para>The ID of the local gateway route table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,26 +72,43 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ObjectTypeName { get; set; }
+        public System.String LocalGatewayRouteTableId { get; set; }
+        #endregion
+        
+        #region Parameter NetworkInterfaceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the network interface.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String NetworkInterfaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProfileObjectUniqueKey'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.PutProfileObjectResponse).
-        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.PutProfileObjectResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Route'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyLocalGatewayRouteResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProfileObjectUniqueKey";
+        public string Select { get; set; } = "Route";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ObjectTypeName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ObjectTypeName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LocalGatewayRouteTableId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LocalGatewayRouteTableId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ObjectTypeName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocalGatewayRouteTableId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -140,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Object), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CPFProfileObject (PutProfileObject)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocalGatewayRouteTableId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2LocalGatewayRoute (ModifyLocalGatewayRoute)"))
             {
                 return;
             }
@@ -154,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.PutProfileObjectResponse, WriteCPFProfileObjectCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyLocalGatewayRouteResponse, EditEC2LocalGatewayRouteCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -163,28 +150,28 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ObjectTypeName;
+                context.Select = (response, cmdlet) => this.LocalGatewayRouteTableId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainName = this.DomainName;
+            context.DestinationCidrBlock = this.DestinationCidrBlock;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.DestinationCidrBlock == null && ParameterWasBound(nameof(this.DestinationCidrBlock)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DestinationCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Object = this.Object;
+            context.LocalGatewayRouteTableId = this.LocalGatewayRouteTableId;
             #if MODULAR
-            if (this.Object == null && ParameterWasBound(nameof(this.Object)))
+            if (this.LocalGatewayRouteTableId == null && ParameterWasBound(nameof(this.LocalGatewayRouteTableId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Object which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LocalGatewayRouteTableId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ObjectTypeName = this.ObjectTypeName;
+            context.NetworkInterfaceId = this.NetworkInterfaceId;
             #if MODULAR
-            if (this.ObjectTypeName == null && ParameterWasBound(nameof(this.ObjectTypeName)))
+            if (this.NetworkInterfaceId == null && ParameterWasBound(nameof(this.NetworkInterfaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ObjectTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter NetworkInterfaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -201,19 +188,19 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CustomerProfiles.Model.PutProfileObjectRequest();
+            var request = new Amazon.EC2.Model.ModifyLocalGatewayRouteRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.DestinationCidrBlock != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
             }
-            if (cmdletContext.Object != null)
+            if (cmdletContext.LocalGatewayRouteTableId != null)
             {
-                request.Object = cmdletContext.Object;
+                request.LocalGatewayRouteTableId = cmdletContext.LocalGatewayRouteTableId;
             }
-            if (cmdletContext.ObjectTypeName != null)
+            if (cmdletContext.NetworkInterfaceId != null)
             {
-                request.ObjectTypeName = cmdletContext.ObjectTypeName;
+                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
             }
             
             CmdletOutput output;
@@ -248,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         #region AWS Service Operation Call
         
-        private Amazon.CustomerProfiles.Model.PutProfileObjectResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.PutProfileObjectRequest request)
+        private Amazon.EC2.Model.ModifyLocalGatewayRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyLocalGatewayRouteRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "PutProfileObject");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyLocalGatewayRoute");
             try
             {
                 #if DESKTOP
-                return client.PutProfileObject(request);
+                return client.ModifyLocalGatewayRoute(request);
                 #elif CORECLR
-                return client.PutProfileObjectAsync(request).GetAwaiter().GetResult();
+                return client.ModifyLocalGatewayRouteAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -276,11 +263,11 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
-            public System.String Object { get; set; }
-            public System.String ObjectTypeName { get; set; }
-            public System.Func<Amazon.CustomerProfiles.Model.PutProfileObjectResponse, WriteCPFProfileObjectCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProfileObjectUniqueKey;
+            public System.String DestinationCidrBlock { get; set; }
+            public System.String LocalGatewayRouteTableId { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
+            public System.Func<Amazon.EC2.Model.ModifyLocalGatewayRouteResponse, EditEC2LocalGatewayRouteCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Route;
         }
         
     }

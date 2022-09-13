@@ -1608,6 +1608,7 @@ $EC2_SelectMap = @{
                "Edit-EC2IpamResourceCidr",
                "Edit-EC2IpamScope",
                "Edit-EC2LaunchTemplate",
+               "Edit-EC2LocalGatewayRoute",
                "Edit-EC2ManagedPrefixList",
                "Edit-EC2NetworkInterfaceAttribute",
                "Edit-EC2PrivateDnsNameOption",

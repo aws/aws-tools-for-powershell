@@ -28,8 +28,7 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Associates a new key value with a specific profile, such as a Contact Trace Record
-    /// (CTR) ContactId.
+    /// Associates a new key value with a specific profile, such as a Contact Record ContactId.
     /// 
     ///  
     /// <para>

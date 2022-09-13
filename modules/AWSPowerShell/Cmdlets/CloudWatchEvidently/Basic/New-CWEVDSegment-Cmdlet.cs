@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     ///  
     /// <para>
     /// Using a segment in an experiment limits that experiment to evaluate only the users
-    /// who match the segment criteria. Using one or more segments in a launch allow you to
-    /// define different traffic splits for the different audience segments.
+    /// who match the segment criteria. Using one or more segments in a launch allows you
+    /// to define different traffic splits for the different audience segments.
     /// </para><pre><code> &lt;p&gt;For more information about segment pattern syntax, see &lt;a
-    /// href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html"&gt;
+    /// href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html"&gt;
     /// Segment rule pattern syntax&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The pattern that you define
     /// for a segment is matched against the value of &lt;code&gt;evaluationContext&lt;/code&gt;,
     /// which is passed into Evidently in the &lt;a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html"&gt;EvaluateFeature&lt;/a&gt;
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <summary>
         /// <para>
         /// <para>The pattern to use for the segment. For more information about pattern syntax, see
-        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments-syntax.html">
+        /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
         /// Segment rule pattern syntax</a>.</para>
         /// </para>
         /// </summary>

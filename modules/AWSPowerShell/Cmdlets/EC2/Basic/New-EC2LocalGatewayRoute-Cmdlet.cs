@@ -28,7 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a static route for the specified local gateway route table.
+    /// Creates a static route for the specified local gateway route table. You must specify
+    /// one of the following targets: 
+    /// 
+    ///  <ul><li><para><code>LocalGatewayVirtualInterfaceGroupId</code></para></li><li><para><code>NetworkInterfaceId</code></para></li></ul>
     /// </summary>
     [Cmdlet("New", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
@@ -81,15 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the virtual interface group.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
+        #endregion
+        
+        #region Parameter NetworkInterfaceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the network interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkInterfaceId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -168,12 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.LocalGatewayVirtualInterfaceGroupId = this.LocalGatewayVirtualInterfaceGroupId;
-            #if MODULAR
-            if (this.LocalGatewayVirtualInterfaceGroupId == null && ParameterWasBound(nameof(this.LocalGatewayVirtualInterfaceGroupId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LocalGatewayVirtualInterfaceGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.NetworkInterfaceId = this.NetworkInterfaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -201,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LocalGatewayVirtualInterfaceGroupId != null)
             {
                 request.LocalGatewayVirtualInterfaceGroupId = cmdletContext.LocalGatewayVirtualInterfaceGroupId;
+            }
+            if (cmdletContext.NetworkInterfaceId != null)
+            {
+                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
             }
             
             CmdletOutput output;
@@ -266,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String DestinationCidrBlock { get; set; }
             public System.String LocalGatewayRouteTableId { get; set; }
             public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
+            public System.String NetworkInterfaceId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateLocalGatewayRouteResponse, NewEC2LocalGatewayRouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Route;
         }

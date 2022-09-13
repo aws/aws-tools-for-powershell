@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     public partial class NewCWEVDProjectCmdlet : AmazonCloudWatchEvidentlyClientCmdlet, IExecutor
     {
         
+        #region Parameter AppConfigResource_ApplicationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AppConfig application to use for client-side evaluation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AppConfigResource_ApplicationId { get; set; }
+        #endregion
+        
         #region Parameter S3Destination_Bucket
         /// <summary>
         /// <para>
@@ -65,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter AppConfigResource_EnvironmentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AppConfig environment to use for client-side evaluation. This must be
+        /// an environment that is within the application that you specify for <code>applicationId</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AppConfigResource_EnvironmentId { get; set; }
         #endregion
         
         #region Parameter CloudWatchLogs_LogGroup
@@ -183,6 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AppConfigResource_ApplicationId = this.AppConfigResource_ApplicationId;
+            context.AppConfigResource_EnvironmentId = this.AppConfigResource_EnvironmentId;
             context.CloudWatchLogs_LogGroup = this.CloudWatchLogs_LogGroup;
             context.S3Destination_Bucket = this.S3Destination_Bucket;
             context.S3Destination_Prefix = this.S3Destination_Prefix;
@@ -218,6 +241,35 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
             // create request
             var request = new Amazon.CloudWatchEvidently.Model.CreateProjectRequest();
             
+            
+             // populate AppConfigResource
+            var requestAppConfigResourceIsNull = true;
+            request.AppConfigResource = new Amazon.CloudWatchEvidently.Model.ProjectAppConfigResourceConfig();
+            System.String requestAppConfigResource_appConfigResource_ApplicationId = null;
+            if (cmdletContext.AppConfigResource_ApplicationId != null)
+            {
+                requestAppConfigResource_appConfigResource_ApplicationId = cmdletContext.AppConfigResource_ApplicationId;
+            }
+            if (requestAppConfigResource_appConfigResource_ApplicationId != null)
+            {
+                request.AppConfigResource.ApplicationId = requestAppConfigResource_appConfigResource_ApplicationId;
+                requestAppConfigResourceIsNull = false;
+            }
+            System.String requestAppConfigResource_appConfigResource_EnvironmentId = null;
+            if (cmdletContext.AppConfigResource_EnvironmentId != null)
+            {
+                requestAppConfigResource_appConfigResource_EnvironmentId = cmdletContext.AppConfigResource_EnvironmentId;
+            }
+            if (requestAppConfigResource_appConfigResource_EnvironmentId != null)
+            {
+                request.AppConfigResource.EnvironmentId = requestAppConfigResource_appConfigResource_EnvironmentId;
+                requestAppConfigResourceIsNull = false;
+            }
+             // determine if request.AppConfigResource should be set to null
+            if (requestAppConfigResourceIsNull)
+            {
+                request.AppConfigResource = null;
+            }
             
              // populate DataDelivery
             var requestDataDeliveryIsNull = true;
@@ -360,6 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AppConfigResource_ApplicationId { get; set; }
+            public System.String AppConfigResource_EnvironmentId { get; set; }
             public System.String CloudWatchLogs_LogGroup { get; set; }
             public System.String S3Destination_Bucket { get; set; }
             public System.String S3Destination_Prefix { get; set; }

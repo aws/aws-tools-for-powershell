@@ -1,4 +1,19 @@
-﻿### 4.1.166 (2022-09-12 20:13Z)
+﻿### 4.1.167 (2022-09-13 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.356.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Evidently
+    * Modified cmdlet New-CWEVDProject: added parameters AppConfigResource_ApplicationId and AppConfigResource_EnvironmentId.
+    * Modified cmdlet Update-CWEVDProject: added parameters AppConfigResource_ApplicationId and AppConfigResource_EnvironmentId.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2LocalGatewayRoute leveraging the ModifyLocalGatewayRoute service API.
+    * Modified cmdlet New-EC2LocalGatewayRoute: added parameter NetworkInterfaceId.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Get-TFRHostKey leveraging the DescribeHostKey service API.
+    * Added cmdlet Get-TFRHostKeyList leveraging the ListHostKeys service API.
+    * Added cmdlet Import-TFRHostKey leveraging the ImportHostKey service API.
+    * Added cmdlet Remove-TFRHostKey leveraging the DeleteHostKey service API.
+    * Added cmdlet Update-TFRHostKey leveraging the UpdateHostKey service API.
+
+### 4.1.166 (2022-09-12 20:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.355.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Container Service for Kubernetes
     * Modified cmdlet New-EKSCluster: added parameters OutpostConfig_ControlPlaneInstanceType and OutpostConfig_OutpostArn.

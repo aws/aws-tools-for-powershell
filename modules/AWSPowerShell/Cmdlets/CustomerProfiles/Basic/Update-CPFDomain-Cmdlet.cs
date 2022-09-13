@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     /// </para><para>
     /// To prevent cross-service impersonation when you call this API, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cross-service-confused-deputy-prevention.html">Cross-service
     /// confused deputy prevention</a> for sample policies that you should apply. 
+    /// </para><para>
+    /// To add or remove tags on an existing Domain, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CPFDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

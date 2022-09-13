@@ -22,42 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CustomerProfiles;
-using Amazon.CustomerProfiles.Model;
+using Amazon.Transfer;
+using Amazon.Transfer.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CPF
+namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Adds additional objects to customer profiles of a given ObjectType.
-    /// 
-    ///  
-    /// <para>
-    /// When adding a specific profile object, like a Contact Record, an inferred profile
-    /// can get created if it is not mapped to an existing profile. The resulting profile
-    /// will only have a phone number populated in the standard ProfileObject. Any additional
-    /// Contact Records with the same phone number will be mapped to the same inferred profile.
-    /// </para><para>
-    /// When a ProfileObject is created and if a ProfileObjectType already exists for the
-    /// ProfileObject, it will provide data to a standard profile depending on the ProfileObjectType
-    /// definition.
-    /// </para><para>
-    /// PutProfileObject needs an ObjectType, which can be created using PutProfileObjectType.
-    /// </para>
+    /// Adds a host key to the server specified by the <code>ServerId</code> parameter.
     /// </summary>
-    [Cmdlet("Write", "CPFProfileObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Connect Customer Profiles PutProfileObject API operation.", Operation = new[] {"PutProfileObject"}, SelectReturnType = typeof(Amazon.CustomerProfiles.Model.PutProfileObjectResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CustomerProfiles.Model.PutProfileObjectResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CustomerProfiles.Model.PutProfileObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Import", "TFRHostKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Transfer.Model.ImportHostKeyResponse")]
+    [AWSCmdlet("Calls the AWS Transfer for SFTP ImportHostKey API operation.", Operation = new[] {"ImportHostKey"}, SelectReturnType = typeof(Amazon.Transfer.Model.ImportHostKeyResponse))]
+    [AWSCmdletOutput("Amazon.Transfer.Model.ImportHostKeyResponse",
+        "This cmdlet returns an Amazon.Transfer.Model.ImportHostKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteCPFProfileObjectCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
+    public partial class ImportTFRHostKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
-        #region Parameter DomainName
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The unique name of the domain.</para>
+        /// <para>Enter a text description to identify this host key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter HostKeyBody
+        /// <summary>
+        /// <para>
+        /// <para>The public key portion of an SSH key pair.</para><para>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,30 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        public System.String HostKeyBody { get; set; }
         #endregion
         
-        #region Parameter Object
+        #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A string that is serialized from a JSON object.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Object { get; set; }
-        #endregion
-        
-        #region Parameter ObjectTypeName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the profile object type.</para>
+        /// <para>Provide the ID of the server that contains the host key that you are importing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,26 +80,37 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ObjectTypeName { get; set; }
+        public System.String ServerId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs that can be used to group and search for host keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Transfer.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProfileObjectUniqueKey'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CustomerProfiles.Model.PutProfileObjectResponse).
-        /// Specifying the name of a property of type Amazon.CustomerProfiles.Model.PutProfileObjectResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Transfer.Model.ImportHostKeyResponse).
+        /// Specifying the name of a property of type Amazon.Transfer.Model.ImportHostKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProfileObjectUniqueKey";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ObjectTypeName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ObjectTypeName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServerId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServerId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ObjectTypeName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServerId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -140,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Object), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CPFProfileObject (PutProfileObject)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServerId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-TFRHostKey (ImportHostKey)"))
             {
                 return;
             }
@@ -154,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.PutProfileObjectResponse, WriteCPFProfileObjectCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Transfer.Model.ImportHostKeyResponse, ImportTFRHostKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -163,30 +152,28 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ObjectTypeName;
+                context.Select = (response, cmdlet) => this.ServerId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainName = this.DomainName;
+            context.Description = this.Description;
+            context.HostKeyBody = this.HostKeyBody;
             #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
+            if (this.HostKeyBody == null && ParameterWasBound(nameof(this.HostKeyBody)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HostKeyBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Object = this.Object;
+            context.ServerId = this.ServerId;
             #if MODULAR
-            if (this.Object == null && ParameterWasBound(nameof(this.Object)))
+            if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Object which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ObjectTypeName = this.ObjectTypeName;
-            #if MODULAR
-            if (this.ObjectTypeName == null && ParameterWasBound(nameof(this.ObjectTypeName)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ObjectTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -201,19 +188,23 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CustomerProfiles.Model.PutProfileObjectRequest();
+            var request = new Amazon.Transfer.Model.ImportHostKeyRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.Description != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Object != null)
+            if (cmdletContext.HostKeyBody != null)
             {
-                request.Object = cmdletContext.Object;
+                request.HostKeyBody = cmdletContext.HostKeyBody;
             }
-            if (cmdletContext.ObjectTypeName != null)
+            if (cmdletContext.ServerId != null)
             {
-                request.ObjectTypeName = cmdletContext.ObjectTypeName;
+                request.ServerId = cmdletContext.ServerId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -248,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         #region AWS Service Operation Call
         
-        private Amazon.CustomerProfiles.Model.PutProfileObjectResponse CallAWSServiceOperation(IAmazonCustomerProfiles client, Amazon.CustomerProfiles.Model.PutProfileObjectRequest request)
+        private Amazon.Transfer.Model.ImportHostKeyResponse CallAWSServiceOperation(IAmazonTransfer client, Amazon.Transfer.Model.ImportHostKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Customer Profiles", "PutProfileObject");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "ImportHostKey");
             try
             {
                 #if DESKTOP
-                return client.PutProfileObject(request);
+                return client.ImportHostKey(request);
                 #elif CORECLR
-                return client.PutProfileObjectAsync(request).GetAwaiter().GetResult();
+                return client.ImportHostKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -276,11 +267,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
-            public System.String Object { get; set; }
-            public System.String ObjectTypeName { get; set; }
-            public System.Func<Amazon.CustomerProfiles.Model.PutProfileObjectResponse, WriteCPFProfileObjectCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProfileObjectUniqueKey;
+            public System.String Description { get; set; }
+            public System.String HostKeyBody { get; set; }
+            public System.String ServerId { get; set; }
+            public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.Transfer.Model.ImportHostKeyResponse, ImportTFRHostKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -63,6 +63,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHostKey" Verb="Remove" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +107,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHostKey" OutputProperty="HostKey" Verb="Get" Noun="HostKey" PipelineParameter="HostKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -127,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ImportHostKey" OutputProperty="*" Verb="Import" Noun="HostKey" ShouldProcessTarget="ServerId" PipelineParameter="ServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportSshPublicKey" OutputProperty="*" Verb="Import" Noun="SshPublicKey" ShouldProcessTarget="UserName" PipelineParameter="SshPublicKeyBody" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +160,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListExecutions" OutputProperty="*" Verb="Get" Noun="ExecutionList" PipelineParameter="WorkflowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHostKeys" OutputProperty="*" Verb="Get" Noun="HostKeyList" PipelineParameter="ServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnector" OutputProperty="ConnectorId" Verb="Update" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHostKey" OutputProperty="*" Verb="Update" Noun="HostKey" ShouldProcessTarget="HostKeyId" PipelineParameter="HostKeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -7481,6 +7481,8 @@ Set-Alias -Name Modify-EC2IpamScope -Value Edit-EC2IpamScope
 Set-Alias -Name EC2-ModifyIpamScope -Value Edit-EC2IpamScope
 Set-Alias -Name Modify-EC2LaunchTemplate -Value Edit-EC2LaunchTemplate
 Set-Alias -Name EC2-ModifyLaunchTemplate -Value Edit-EC2LaunchTemplate
+Set-Alias -Name Modify-EC2LocalGatewayRoute -Value Edit-EC2LocalGatewayRoute
+Set-Alias -Name EC2-ModifyLocalGatewayRoute -Value Edit-EC2LocalGatewayRoute
 Set-Alias -Name Modify-EC2ManagedPrefixList -Value Edit-EC2ManagedPrefixList
 Set-Alias -Name EC2-ModifyManagedPrefixList -Value Edit-EC2ManagedPrefixList
 Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
@@ -21850,6 +21852,8 @@ Set-Alias -Name Delete-TFRCertificate -Value Remove-TFRCertificate
 Set-Alias -Name TFR-DeleteCertificate -Value Remove-TFRCertificate
 Set-Alias -Name Delete-TFRConnector -Value Remove-TFRConnector
 Set-Alias -Name TFR-DeleteConnector -Value Remove-TFRConnector
+Set-Alias -Name Delete-TFRHostKey -Value Remove-TFRHostKey
+Set-Alias -Name TFR-DeleteHostKey -Value Remove-TFRHostKey
 Set-Alias -Name Delete-TFRProfile -Value Remove-TFRProfile
 Set-Alias -Name TFR-DeleteProfile -Value Remove-TFRProfile
 Set-Alias -Name Delete-TFRServer -Value Remove-TFRServer
@@ -21870,6 +21874,8 @@ Set-Alias -Name Describe-TFRConnector -Value Get-TFRConnector
 Set-Alias -Name TFR-DescribeConnector -Value Get-TFRConnector
 Set-Alias -Name Describe-TFRExecution -Value Get-TFRExecution
 Set-Alias -Name TFR-DescribeExecution -Value Get-TFRExecution
+Set-Alias -Name Describe-TFRHostKey -Value Get-TFRHostKey
+Set-Alias -Name TFR-DescribeHostKey -Value Get-TFRHostKey
 Set-Alias -Name Describe-TFRProfile -Value Get-TFRProfile
 Set-Alias -Name TFR-DescribeProfile -Value Get-TFRProfile
 Set-Alias -Name Describe-TFRSecurityPolicy -Value Get-TFRSecurityPolicy
@@ -21881,6 +21887,7 @@ Set-Alias -Name TFR-DescribeUser -Value Get-TFRUser
 Set-Alias -Name Describe-TFRWorkflow -Value Get-TFRWorkflow
 Set-Alias -Name TFR-DescribeWorkflow -Value Get-TFRWorkflow
 Set-Alias -Name TFR-ImportCertificate -Value Import-TFRCertificate
+Set-Alias -Name TFR-ImportHostKey -Value Import-TFRHostKey
 Set-Alias -Name TFR-ImportSshPublicKey -Value Import-TFRSshPublicKey
 Set-Alias -Name List-TFRAccesses -Value Get-TFRAccessList
 Set-Alias -Name List-TFRAccessList -Value Get-TFRAccessList
@@ -21897,6 +21904,9 @@ Set-Alias -Name TFR-ListConnectors -Value Get-TFRConnectorList
 Set-Alias -Name List-TFRExecutions -Value Get-TFRExecutionList
 Set-Alias -Name List-TFRExecutionList -Value Get-TFRExecutionList
 Set-Alias -Name TFR-ListExecutions -Value Get-TFRExecutionList
+Set-Alias -Name List-TFRHostKeys -Value Get-TFRHostKeyList
+Set-Alias -Name List-TFRHostKeyList -Value Get-TFRHostKeyList
+Set-Alias -Name TFR-ListHostKeys -Value Get-TFRHostKeyList
 Set-Alias -Name List-TFRProfiles -Value Get-TFRProfileList
 Set-Alias -Name List-TFRProfileList -Value Get-TFRProfileList
 Set-Alias -Name TFR-ListProfiles -Value Get-TFRProfileList
@@ -21925,6 +21935,7 @@ Set-Alias -Name TFR-UpdateAccess -Value Update-TFRAccess
 Set-Alias -Name TFR-UpdateAgreement -Value Update-TFRAgreement
 Set-Alias -Name TFR-UpdateCertificate -Value Update-TFRCertificate
 Set-Alias -Name TFR-UpdateConnector -Value Update-TFRConnector
+Set-Alias -Name TFR-UpdateHostKey -Value Update-TFRHostKey
 Set-Alias -Name TFR-UpdateProfile -Value Update-TFRProfile
 Set-Alias -Name TFR-UpdateServer -Value Update-TFRServer
 Set-Alias -Name TFR-UpdateUser -Value Update-TFRUser

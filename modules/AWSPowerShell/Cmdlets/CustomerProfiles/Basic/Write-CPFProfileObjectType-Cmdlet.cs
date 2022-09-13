@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
     /// Defines a ProfileObjectType.
+    /// 
+    ///  
+    /// <para>
+    /// To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
+    /// TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CPFProfileObjectType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CustomerProfiles.Model.PutProfileObjectTypeResponse")]

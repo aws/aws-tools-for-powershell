@@ -1916,6 +1916,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLocalGatewayRoute" OutputProperty="Route" Verb="Edit" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyManagedPrefixList" OutputProperty="PrefixList" Verb="Edit" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
