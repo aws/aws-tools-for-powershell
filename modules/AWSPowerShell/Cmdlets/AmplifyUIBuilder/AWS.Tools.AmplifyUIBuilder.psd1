@@ -88,18 +88,26 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Convert-AMPUICodeForToken', 
         'Export-AMPUIComponent', 
+        'Export-AMPUIForm', 
         'Export-AMPUITheme', 
         'Get-AMPUIComponent', 
         'Get-AMPUIComponentList', 
+        'Get-AMPUIForm', 
+        'Get-AMPUIFormList', 
+        'Get-AMPUIMetadata', 
         'Get-AMPUITheme', 
         'Get-AMPUIThemeList', 
         'New-AMPUIComponent', 
+        'New-AMPUIForm', 
         'New-AMPUITheme', 
         'Remove-AMPUIComponent', 
+        'Remove-AMPUIForm', 
         'Remove-AMPUITheme', 
         'Update-AMPUIComponent', 
+        'Update-AMPUIForm', 
         'Update-AMPUITheme', 
-        'Update-AMPUIToken')
+        'Update-AMPUIToken', 
+        'Write-AMPUIMetadataFlag')
 
     # Variables to export from this module
     VariablesToExport = '*'

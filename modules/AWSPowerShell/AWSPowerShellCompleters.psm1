@@ -1245,6 +1245,50 @@ $AMPUI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AmplifyUIBuilder.FixedPosition
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Cancel_Position_Fixed") -Or
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Clear_Position_Fixed") -Or
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Submit_Position_Fixed") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Cancel_Position_Fixed") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Clear_Position_Fixed") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Submit_Position_Fixed")
+        }
+        {
+            $v = "first"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.FormActionType
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_FormActionType") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_FormActionType")
+        }
+        {
+            $v = "create","update"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.FormButtonsPosition
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Position") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Position")
+        }
+        {
+            $v = "bottom","top","top_and_bottom"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.FormDataSourceType
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_DataType_DataSourceType") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_DataType_DataSourceType")
+        }
+        {
+            $v = "Custom","DataStore"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.TokenProviders
         {
             ($_ -eq "Convert-AMPUICodeForToken/Provider") -Or
@@ -1264,7 +1308,19 @@ $AMPUI_Completers = {
 }
 
 $AMPUI_map = @{
+    "FormToCreate_Cta_Cancel_Position_Fixed"=@("New-AMPUIForm")
+    "FormToCreate_Cta_Clear_Position_Fixed"=@("New-AMPUIForm")
+    "FormToCreate_Cta_Position"=@("New-AMPUIForm")
+    "FormToCreate_Cta_Submit_Position_Fixed"=@("New-AMPUIForm")
+    "FormToCreate_DataType_DataSourceType"=@("New-AMPUIForm")
+    "FormToCreate_FormActionType"=@("New-AMPUIForm")
     "Provider"=@("Convert-AMPUICodeForToken","Update-AMPUIToken")
+    "UpdatedForm_Cta_Cancel_Position_Fixed"=@("Update-AMPUIForm")
+    "UpdatedForm_Cta_Clear_Position_Fixed"=@("Update-AMPUIForm")
+    "UpdatedForm_Cta_Position"=@("Update-AMPUIForm")
+    "UpdatedForm_Cta_Submit_Position_Fixed"=@("Update-AMPUIForm")
+    "UpdatedForm_DataType_DataSourceType"=@("Update-AMPUIForm")
+    "UpdatedForm_FormActionType"=@("Update-AMPUIForm")
 }
 
 _awsArgumentCompleterRegistration $AMPUI_Completers $AMPUI_map
@@ -1318,18 +1374,26 @@ $AMPUI_SelectCompleters = {
 
 $AMPUI_SelectMap = @{
     "Select"=@("New-AMPUIComponent",
+               "New-AMPUIForm",
                "New-AMPUITheme",
                "Remove-AMPUIComponent",
+               "Remove-AMPUIForm",
                "Remove-AMPUITheme",
                "Convert-AMPUICodeForToken",
                "Export-AMPUIComponent",
+               "Export-AMPUIForm",
                "Export-AMPUITheme",
                "Get-AMPUIComponent",
+               "Get-AMPUIForm",
+               "Get-AMPUIMetadata",
                "Get-AMPUITheme",
                "Get-AMPUIComponentList",
+               "Get-AMPUIFormList",
                "Get-AMPUIThemeList",
+               "Write-AMPUIMetadataFlag",
                "Update-AMPUIToken",
                "Update-AMPUIComponent",
+               "Update-AMPUIForm",
                "Update-AMPUITheme")
 }
 
@@ -16925,6 +16989,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.LocalGatewayRouteTableMode
+        "New-EC2LocalGatewayRouteTable/Mode"
+        {
+            $v = "coip","direct-vpc-routing"
+            break
+        }
+
         # Amazon.EC2.LocalStorage
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_LocalStorage") -Or
@@ -17357,6 +17428,7 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpTokens"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTags"=@("New-EC2Instance")
+    "Mode"=@("New-EC2LocalGatewayRouteTable")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
@@ -17519,6 +17591,8 @@ $EC2_SelectMap = @{
                "New-EC2CarrierGateway",
                "New-EC2ClientVpnEndpoint",
                "New-EC2ClientVpnRoute",
+               "New-EC2CoipCidr",
+               "New-EC2CoipPool",
                "New-EC2CustomerGateway",
                "New-EC2DefaultSubnet",
                "New-EC2DefaultVpc",
@@ -17538,6 +17612,8 @@ $EC2_SelectMap = @{
                "New-EC2LaunchTemplate",
                "New-EC2LaunchTemplateVersion",
                "New-EC2LocalGatewayRoute",
+               "New-EC2LocalGatewayRouteTable",
+               "New-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
                "New-EC2LocalGatewayRouteTableVpcAssociation",
                "New-EC2ManagedPrefixList",
                "New-EC2NatGateway",
@@ -17589,6 +17665,8 @@ $EC2_SelectMap = @{
                "Remove-EC2CarrierGateway",
                "Remove-EC2ClientVpnEndpoint",
                "Remove-EC2ClientVpnRoute",
+               "Remove-EC2CoipCidr",
+               "Remove-EC2CoipPool",
                "Remove-EC2CustomerGateway",
                "Remove-EC2DhcpOption",
                "Remove-EC2EgressOnlyInternetGateway",
@@ -17604,6 +17682,8 @@ $EC2_SelectMap = @{
                "Remove-EC2LaunchTemplate",
                "Remove-EC2TemplateVersion",
                "Remove-EC2LocalGatewayRoute",
+               "Remove-EC2LocalGatewayRouteTable",
+               "Remove-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
                "Remove-EC2LocalGatewayRouteTableVpcAssociation",
                "Remove-EC2ManagedPrefixList",
                "Remove-EC2NatGateway",

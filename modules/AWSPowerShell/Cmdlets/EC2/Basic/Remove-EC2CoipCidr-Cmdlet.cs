@@ -28,23 +28,22 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the specified local gateway route.
+    /// Deletes a range of customer-owned IP addresses.
     /// </summary>
-    [Cmdlet("Edit", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyLocalGatewayRoute API operation.", Operation = new[] {"ModifyLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyLocalGatewayRouteResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.ModifyLocalGatewayRouteResponse",
-        "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRoute object.",
-        "The service call response (type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EC2CoipCidr", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.CoipCidr")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteCoipCidr API operation.", Operation = new[] {"DeleteCoipCidr"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteCoipCidrResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CoipCidr or Amazon.EC2.Model.DeleteCoipCidrResponse",
+        "This cmdlet returns an Amazon.EC2.Model.CoipCidr object.",
+        "The service call response (type Amazon.EC2.Model.DeleteCoipCidrResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditEC2LocalGatewayRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveEC2CoipCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter DestinationCidrBlock
+        #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The CIDR block used for destination matches. The value that you provide must match
-        /// the CIDR of an existing route in the table.</para>
+        /// <para> A customer-owned IP address range that you want to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,13 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DestinationCidrBlock { get; set; }
+        public System.String Cidr { get; set; }
         #endregion
         
-        #region Parameter LocalGatewayRouteTableId
+        #region Parameter CoipPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the local gateway route table.</para>
+        /// <para> The ID of the customer-owned address pool. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,46 +71,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LocalGatewayRouteTableId { get; set; }
-        #endregion
-        
-        #region Parameter LocalGatewayVirtualInterfaceGroupId
-        /// <summary>
-        /// <para>
-        /// <para> The ID of the virtual interface group. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
-        #endregion
-        
-        #region Parameter NetworkInterfaceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the network interface.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NetworkInterfaceId { get; set; }
+        public System.String CoipPoolId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Route'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyLocalGatewayRouteResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CoipCidr'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteCoipCidrResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteCoipCidrResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Route";
+        public string Select { get; set; } = "CoipCidr";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LocalGatewayRouteTableId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LocalGatewayRouteTableId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CoipPoolId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CoipPoolId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LocalGatewayRouteTableId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CoipPoolId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocalGatewayRouteTableId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2LocalGatewayRoute (ModifyLocalGatewayRoute)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CoipPoolId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2CoipCidr (DeleteCoipCidr)"))
             {
                 return;
             }
@@ -144,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyLocalGatewayRouteResponse, EditEC2LocalGatewayRouteCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteCoipCidrResponse, RemoveEC2CoipCidrCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,25 +132,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LocalGatewayRouteTableId;
+                context.Select = (response, cmdlet) => this.CoipPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DestinationCidrBlock = this.DestinationCidrBlock;
+            context.Cidr = this.Cidr;
             #if MODULAR
-            if (this.DestinationCidrBlock == null && ParameterWasBound(nameof(this.DestinationCidrBlock)))
+            if (this.Cidr == null && ParameterWasBound(nameof(this.Cidr)))
             {
-                WriteWarning("You are passing $null as a value for parameter DestinationCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LocalGatewayRouteTableId = this.LocalGatewayRouteTableId;
+            context.CoipPoolId = this.CoipPoolId;
             #if MODULAR
-            if (this.LocalGatewayRouteTableId == null && ParameterWasBound(nameof(this.LocalGatewayRouteTableId)))
+            if (this.CoipPoolId == null && ParameterWasBound(nameof(this.CoipPoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LocalGatewayRouteTableId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CoipPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LocalGatewayVirtualInterfaceGroupId = this.LocalGatewayVirtualInterfaceGroupId;
-            context.NetworkInterfaceId = this.NetworkInterfaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,23 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyLocalGatewayRouteRequest();
+            var request = new Amazon.EC2.Model.DeleteCoipCidrRequest();
             
-            if (cmdletContext.DestinationCidrBlock != null)
+            if (cmdletContext.Cidr != null)
             {
-                request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
+                request.Cidr = cmdletContext.Cidr;
             }
-            if (cmdletContext.LocalGatewayRouteTableId != null)
+            if (cmdletContext.CoipPoolId != null)
             {
-                request.LocalGatewayRouteTableId = cmdletContext.LocalGatewayRouteTableId;
-            }
-            if (cmdletContext.LocalGatewayVirtualInterfaceGroupId != null)
-            {
-                request.LocalGatewayVirtualInterfaceGroupId = cmdletContext.LocalGatewayVirtualInterfaceGroupId;
-            }
-            if (cmdletContext.NetworkInterfaceId != null)
-            {
-                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
+                request.CoipPoolId = cmdletContext.CoipPoolId;
             }
             
             CmdletOutput output;
@@ -237,15 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.ModifyLocalGatewayRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyLocalGatewayRouteRequest request)
+        private Amazon.EC2.Model.DeleteCoipCidrResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteCoipCidrRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyLocalGatewayRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteCoipCidr");
             try
             {
                 #if DESKTOP
-                return client.ModifyLocalGatewayRoute(request);
+                return client.DeleteCoipCidr(request);
                 #elif CORECLR
-                return client.ModifyLocalGatewayRouteAsync(request).GetAwaiter().GetResult();
+                return client.DeleteCoipCidrAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,12 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DestinationCidrBlock { get; set; }
-            public System.String LocalGatewayRouteTableId { get; set; }
-            public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
-            public System.String NetworkInterfaceId { get; set; }
-            public System.Func<Amazon.EC2.Model.ModifyLocalGatewayRouteResponse, EditEC2LocalGatewayRouteCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Route;
+            public System.String Cidr { get; set; }
+            public System.String CoipPoolId { get; set; }
+            public System.Func<Amazon.EC2.Model.DeleteCoipCidrResponse, RemoveEC2CoipCidrCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CoipCidr;
         }
         
     }

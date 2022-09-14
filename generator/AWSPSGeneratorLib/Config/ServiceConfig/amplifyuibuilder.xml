@@ -22,11 +22,29 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateForm" OutputProperty="Entity" Verb="New" Noun="Form" ShouldProcessTarget="EnvironmentName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="FormToCreate_Cta_Cancel_Position_Below" NewName="FormToCreate_Cta_Cancel_Position_Below" Alias="Create_Form_Cancel_Position_Below" />
+                <Param Name="FormToCreate_Cta_Clear_Position_Below" NewName="FormToCreate_Cta_Clear_Position_Below" Alias="Create_Form_Clear_Position_Below" />
+                <Param Name="FormToCreate_Cta_Submit_Position_Below" NewName="FormToCreate_Cta_Submit_Position_Below" Alias="Create_Form_Submit_Position_Below" />
+                <Param Name="FormToCreate_Cta_Cancel_Position_Fixed" NewName="FormToCreate_Cta_Cancel_Position_Fixed" Alias="Create_Form_Cancel_Position_Fixed" />
+                <Param Name="FormToCreate_Cta_Clear_Position_Fixed" NewName="FormToCreate_Cta_Clear_Position_Fixed" Alias="Create_Form_Clear_Position_Fixed" />
+                <Param Name="FormToCreate_Cta_Submit_Position_Fixed" NewName="FormToCreate_Cta_Submit_Position_Fixed" Alias="Create_Form_Submit_Position_Fixed" />
+                <Param Name="FormToCreate_Cta_Cancel_Position_RightOf" NewName="FormToCreate_Cta_Cancel_Position_RightOf" Alias="Create_Form_Cancel_Position_RightOf" />
+                <Param Name="FormToCreate_Cta_Clear_Position_RightOf" NewName="FormToCreate_Cta_Clear_Position_RightOf" Alias="Create_Form_Clear_Position_RightOf" />
+                <Param Name="FormToCreate_Cta_Submit_Position_RightOf" NewName="FormToCreate_Cta_Submit_Position_RightOf" Alias="Create_Form_Submit_Position_RightOf" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTheme" OutputProperty="Entity" Verb="New" Noun="Theme" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteComponent" Verb="Remove" Noun="Component" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteForm" Verb="Remove" Noun="Form" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,11 +60,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportForms" OutputProperty="Entities" Verb="Export" Noun="Form" ShouldProcessTarget="EnvironmentName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ExportThemes" OutputProperty="Entities" Verb="Export" Noun="Theme" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetComponent" OutputProperty="Component" Verb="Get" Noun="Component" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetForm" OutputProperty="Form" Verb="Get" Noun="Form" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetadata" OutputProperty="Features" Verb="Get" Noun="Metadata" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -58,7 +88,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListForms" OutputProperty="Entities" Verb="Get" Noun="FormList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListThemes" OutputProperty="Entities" Verb="Get" Noun="ThemeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetadataFlag" Verb="Write" Noun="MetadataFlag" ShouldProcessTarget="FeatureName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,6 +106,20 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComponent" OutputProperty="Entity" Verb="Update" Noun="Component" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateForm" OutputProperty="Entity" Verb="Update" Noun="Form" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="UpdatedForm_Cta_Cancel_Position_Below" NewName="UpdatedForm_Cta_Cancel_Position_Below" Alias="Update_Form_Cancel_Position_Below" />
+                <Param Name="UpdatedForm_Cta_Clear_Position_Below" NewName="UpdatedForm_Cta_Clear_Position_Below" Alias="Update_Form_Clear_Position_Below" />
+                <Param Name="UpdatedForm_Cta_Submit_Position_Below" NewName="UpdatedForm_Cta_Submit_Position_Below" Alias="Update_Form_Submit_Position_Below" />
+                <Param Name="UpdatedForm_Cta_Cancel_Position_Fixed" NewName="UpdatedForm_Cta_Cancel_Position_Fixed" Alias="Update_Form_Cancel_Position_Fixed" />
+                <Param Name="UpdatedForm_Cta_Clear_Position_Fixed" NewName="UpdatedForm_Cta_Clear_Position_Fixed" Alias="Update_Form_Clear_Position_Fixed" />
+                <Param Name="UpdatedForm_Cta_Submit_Position_Fixed" NewName="UpdatedForm_Cta_Submit_Position_Fixed" Alias="Update_Form_Submit_Position_Fixed" />
+                <Param Name="UpdatedForm_Cta_Cancel_Position_RightOf" NewName="UpdatedForm_Cta_Cancel_Position_RightOf" Alias="Update_Form_Cancel_Position_RightOf" />
+                <Param Name="UpdatedForm_Cta_Clear_Position_RightOf" NewName="UpdatedForm_Cta_Clear_Position_RightOf" Alias="Update_Form_Clear_Position_RightOf" />
+                <Param Name="UpdatedForm_Cta_Submit_Position_RightOf" NewName="UpdatedForm_Cta_Submit_Position_RightOf" Alias="Update_Form_Submit_Position_RightOf" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTheme" OutputProperty="Entity" Verb="Update" Noun="Theme" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

@@ -1,4 +1,26 @@
-﻿### 4.1.167 (2022-09-13 20:33Z)
+﻿### 4.1.168 (2022-09-14 20:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.357.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Amplify UI Builder
+    * Added cmdlet Export-AMPUIForm leveraging the ExportForms service API.
+    * Added cmdlet Get-AMPUIForm leveraging the GetForm service API.
+    * Added cmdlet Get-AMPUIFormList leveraging the ListForms service API.
+    * Added cmdlet Get-AMPUIMetadata leveraging the GetMetadata service API.
+    * Added cmdlet New-AMPUIForm leveraging the CreateForm service API.
+    * Added cmdlet Remove-AMPUIForm leveraging the DeleteForm service API.
+    * Added cmdlet Update-AMPUIForm leveraging the UpdateForm service API.
+    * Added cmdlet Write-AMPUIMetadataFlag leveraging the PutMetadataFlag service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet New-EC2CoipCidr leveraging the CreateCoipCidr service API.
+    * Added cmdlet New-EC2CoipPool leveraging the CreateCoipPool service API.
+    * Added cmdlet New-EC2LocalGatewayRouteTable leveraging the CreateLocalGatewayRouteTable service API.
+    * Added cmdlet New-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation leveraging the CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation service API.
+    * Added cmdlet Remove-EC2CoipCidr leveraging the DeleteCoipCidr service API.
+    * Added cmdlet Remove-EC2CoipPool leveraging the DeleteCoipPool service API.
+    * Added cmdlet Remove-EC2LocalGatewayRouteTable leveraging the DeleteLocalGatewayRouteTable service API.
+    * Added cmdlet Remove-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation leveraging the DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation service API.
+    * Modified cmdlet Edit-EC2LocalGatewayRoute: added parameter LocalGatewayVirtualInterfaceGroupId.
+
+### 4.1.167 (2022-09-13 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.356.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch Evidently
     * Modified cmdlet New-CWEVDProject: added parameters AppConfigResource_ApplicationId and AppConfigResource_EnvironmentId.

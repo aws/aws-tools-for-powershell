@@ -28,40 +28,22 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the specified local gateway route.
+    /// Creates a pool of customer-owned IP (CoIP) addresses.
     /// </summary>
-    [Cmdlet("Edit", "EC2LocalGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.LocalGatewayRoute")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyLocalGatewayRoute API operation.", Operation = new[] {"ModifyLocalGatewayRoute"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyLocalGatewayRouteResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.LocalGatewayRoute or Amazon.EC2.Model.ModifyLocalGatewayRouteResponse",
-        "This cmdlet returns an Amazon.EC2.Model.LocalGatewayRoute object.",
-        "The service call response (type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EC2CoipPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.CoipPool")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateCoipPool API operation.", Operation = new[] {"CreateCoipPool"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateCoipPoolResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.CoipPool or Amazon.EC2.Model.CreateCoipPoolResponse",
+        "This cmdlet returns an Amazon.EC2.Model.CoipPool object.",
+        "The service call response (type Amazon.EC2.Model.CreateCoipPoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditEC2LocalGatewayRouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class NewEC2CoipPoolCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        
-        #region Parameter DestinationCidrBlock
-        /// <summary>
-        /// <para>
-        /// <para>The CIDR block used for destination matches. The value that you provide must match
-        /// the CIDR of an existing route in the table.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DestinationCidrBlock { get; set; }
-        #endregion
         
         #region Parameter LocalGatewayRouteTableId
         /// <summary>
         /// <para>
-        /// <para>The ID of the local gateway route table.</para>
+        /// <para> The ID of the local gateway route table. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,35 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LocalGatewayRouteTableId { get; set; }
         #endregion
         
-        #region Parameter LocalGatewayVirtualInterfaceGroupId
+        #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para> The ID of the virtual interface group. </para>
+        /// <para> The tags to assign to the CoIP address pool. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
-        #endregion
-        
-        #region Parameter NetworkInterfaceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the network interface.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NetworkInterfaceId { get; set; }
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Route'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyLocalGatewayRouteResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyLocalGatewayRouteResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CoipPool'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateCoipPoolResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.CreateCoipPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Route";
+        public string Select { get; set; } = "CoipPool";
         #endregion
         
         #region Parameter PassThru
@@ -131,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LocalGatewayRouteTableId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2LocalGatewayRoute (ModifyLocalGatewayRoute)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2CoipPool (CreateCoipPool)"))
             {
                 return;
             }
@@ -144,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyLocalGatewayRouteResponse, EditEC2LocalGatewayRouteCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateCoipPoolResponse, NewEC2CoipPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,13 +129,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.LocalGatewayRouteTableId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DestinationCidrBlock = this.DestinationCidrBlock;
-            #if MODULAR
-            if (this.DestinationCidrBlock == null && ParameterWasBound(nameof(this.DestinationCidrBlock)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DestinationCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LocalGatewayRouteTableId = this.LocalGatewayRouteTableId;
             #if MODULAR
             if (this.LocalGatewayRouteTableId == null && ParameterWasBound(nameof(this.LocalGatewayRouteTableId)))
@@ -170,8 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter LocalGatewayRouteTableId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LocalGatewayVirtualInterfaceGroupId = this.LocalGatewayVirtualInterfaceGroupId;
-            context.NetworkInterfaceId = this.NetworkInterfaceId;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,23 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ModifyLocalGatewayRouteRequest();
+            var request = new Amazon.EC2.Model.CreateCoipPoolRequest();
             
-            if (cmdletContext.DestinationCidrBlock != null)
-            {
-                request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
-            }
             if (cmdletContext.LocalGatewayRouteTableId != null)
             {
                 request.LocalGatewayRouteTableId = cmdletContext.LocalGatewayRouteTableId;
             }
-            if (cmdletContext.LocalGatewayVirtualInterfaceGroupId != null)
+            if (cmdletContext.TagSpecification != null)
             {
-                request.LocalGatewayVirtualInterfaceGroupId = cmdletContext.LocalGatewayVirtualInterfaceGroupId;
-            }
-            if (cmdletContext.NetworkInterfaceId != null)
-            {
-                request.NetworkInterfaceId = cmdletContext.NetworkInterfaceId;
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -237,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.ModifyLocalGatewayRouteResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyLocalGatewayRouteRequest request)
+        private Amazon.EC2.Model.CreateCoipPoolResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateCoipPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyLocalGatewayRoute");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateCoipPool");
             try
             {
                 #if DESKTOP
-                return client.ModifyLocalGatewayRoute(request);
+                return client.CreateCoipPool(request);
                 #elif CORECLR
-                return client.ModifyLocalGatewayRouteAsync(request).GetAwaiter().GetResult();
+                return client.CreateCoipPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,12 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DestinationCidrBlock { get; set; }
             public System.String LocalGatewayRouteTableId { get; set; }
-            public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
-            public System.String NetworkInterfaceId { get; set; }
-            public System.Func<Amazon.EC2.Model.ModifyLocalGatewayRouteResponse, EditEC2LocalGatewayRouteCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Route;
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.Func<Amazon.EC2.Model.CreateCoipPoolResponse, NewEC2CoipPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CoipPool;
         }
         
     }

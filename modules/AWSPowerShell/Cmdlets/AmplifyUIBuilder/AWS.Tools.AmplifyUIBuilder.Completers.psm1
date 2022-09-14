@@ -80,6 +80,50 @@ $AMPUI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AmplifyUIBuilder.FixedPosition
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Cancel_Position_Fixed") -Or
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Clear_Position_Fixed") -Or
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Submit_Position_Fixed") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Cancel_Position_Fixed") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Clear_Position_Fixed") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Submit_Position_Fixed")
+        }
+        {
+            $v = "first"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.FormActionType
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_FormActionType") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_FormActionType")
+        }
+        {
+            $v = "create","update"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.FormButtonsPosition
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Position") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Position")
+        }
+        {
+            $v = "bottom","top","top_and_bottom"
+            break
+        }
+
+        # Amazon.AmplifyUIBuilder.FormDataSourceType
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_DataType_DataSourceType") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_DataType_DataSourceType")
+        }
+        {
+            $v = "Custom","DataStore"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.TokenProviders
         {
             ($_ -eq "Convert-AMPUICodeForToken/Provider") -Or
@@ -99,7 +143,19 @@ $AMPUI_Completers = {
 }
 
 $AMPUI_map = @{
+    "FormToCreate_Cta_Cancel_Position_Fixed"=@("New-AMPUIForm")
+    "FormToCreate_Cta_Clear_Position_Fixed"=@("New-AMPUIForm")
+    "FormToCreate_Cta_Position"=@("New-AMPUIForm")
+    "FormToCreate_Cta_Submit_Position_Fixed"=@("New-AMPUIForm")
+    "FormToCreate_DataType_DataSourceType"=@("New-AMPUIForm")
+    "FormToCreate_FormActionType"=@("New-AMPUIForm")
     "Provider"=@("Convert-AMPUICodeForToken","Update-AMPUIToken")
+    "UpdatedForm_Cta_Cancel_Position_Fixed"=@("Update-AMPUIForm")
+    "UpdatedForm_Cta_Clear_Position_Fixed"=@("Update-AMPUIForm")
+    "UpdatedForm_Cta_Position"=@("Update-AMPUIForm")
+    "UpdatedForm_Cta_Submit_Position_Fixed"=@("Update-AMPUIForm")
+    "UpdatedForm_DataType_DataSourceType"=@("Update-AMPUIForm")
+    "UpdatedForm_FormActionType"=@("Update-AMPUIForm")
 }
 
 _awsArgumentCompleterRegistration $AMPUI_Completers $AMPUI_map
@@ -153,18 +209,26 @@ $AMPUI_SelectCompleters = {
 
 $AMPUI_SelectMap = @{
     "Select"=@("New-AMPUIComponent",
+               "New-AMPUIForm",
                "New-AMPUITheme",
                "Remove-AMPUIComponent",
+               "Remove-AMPUIForm",
                "Remove-AMPUITheme",
                "Convert-AMPUICodeForToken",
                "Export-AMPUIComponent",
+               "Export-AMPUIForm",
                "Export-AMPUITheme",
                "Get-AMPUIComponent",
+               "Get-AMPUIForm",
+               "Get-AMPUIMetadata",
                "Get-AMPUITheme",
                "Get-AMPUIComponentList",
+               "Get-AMPUIFormList",
                "Get-AMPUIThemeList",
+               "Write-AMPUIMetadataFlag",
                "Update-AMPUIToken",
                "Update-AMPUIComponent",
+               "Update-AMPUIForm",
                "Update-AMPUITheme")
 }
 

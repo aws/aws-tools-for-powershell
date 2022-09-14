@@ -281,6 +281,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoipCidr" OutputProperty="CoipCidr" Verb="New" Noun="CoipCidr" ShouldProcessTarget="CoipPoolId" PipelineParameter="CoipPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoipPool" OutputProperty="CoipPool" Verb="New" Noun="CoipPool" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomerGateway" OutputProperty="CustomerGateway" Verb="New" Noun="CustomerGateway" ShouldProcessTarget="Type" PositionalParameters="PublicIp;BgpAsn" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -359,6 +367,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocalGatewayRoute" OutputProperty="Route" Verb="New" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocalGatewayRouteTable" OutputProperty="LocalGatewayRouteTable" Verb="New" Noun="LocalGatewayRouteTable" ShouldProcessTarget="LocalGatewayId" PipelineParameter="LocalGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" Verb="New" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -581,6 +597,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoipCidr" OutputProperty="CoipCidr" Verb="Remove" Noun="CoipCidr" ShouldProcessTarget="CoipPoolId" PipelineParameter="CoipPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoipPool" OutputProperty="CoipPool" Verb="Remove" Noun="CoipPool" ShouldProcessTarget="CoipPoolId" PipelineParameter="CoipPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCustomerGateway" Verb="Remove" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayId" ShouldProcessMsgNoun="Customer Gateway" PipelineParameter="CustomerGatewayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -638,6 +662,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLocalGatewayRoute" OutputProperty="Route" Verb="Remove" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocalGatewayRouteTable" OutputProperty="LocalGatewayRouteTable" Verb="Remove" Noun="LocalGatewayRouteTable" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" Verb="Remove" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" ShouldProcessTarget="LocalGatewayRouteTableVirtualInterfaceGroupAssociationId" PipelineParameter="LocalGatewayRouteTableVirtualInterfaceGroupAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
