@@ -325,6 +325,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ResourceLimits_MaxParallelTrainingJob { get; set; }
         #endregion
         
+        #region Parameter HyperbandStrategyConfig_MaxResource
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of resources (such as epochs) that can be used by a training job
+        /// launched by a hyperparameter tuning job. Once a job reaches the <code>MaxResource</code>
+        /// value, it is stopped. If a value for <code>MaxResource</code> is not provided, and
+        /// <code>Hyperband</code> is selected as the hyperparameter tuning strategy, <code>HyperbandTrainingJ</code>
+        /// attempts to infer <code>MaxResource</code> from the following keys (if present) in
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-StaticHyperParameters">StaticsHyperParameters</a>:</para><ul><li><para><code>epochs</code></para></li><li><para><code>numepochs</code></para></li><li><para><code>n-epochs</code></para></li><li><para><code>n_epochs</code></para></li><li><para><code>num_epochs</code></para></li></ul><para>If <code>HyperbandStrategyConfig</code> is unable to infer a value for <code>MaxResource</code>,
+        /// it generates a validation error. The maximum value is 20,000 epochs. All metrics that
+        /// correspond to an objective metric are used to derive <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">early
+        /// stopping decisions</a>. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/distributed-training.html">distributive</a>
+        /// training jobs, ensure that duplicate metrics are not printed in the logs across the
+        /// individual nodes in a training job. If multiple nodes are publishing duplicate or
+        /// incorrect metrics, training jobs may make an incorrect stopping decision and stop
+        /// the job prematurely. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_MaxResource")]
+        public System.Int32? HyperbandStrategyConfig_MaxResource { get; set; }
+        #endregion
+        
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
@@ -391,6 +414,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TrainingJobDefinition_TuningObjective_MetricName")]
         public System.String TuningObjective_MetricName { get; set; }
+        #endregion
+        
+        #region Parameter HyperbandStrategyConfig_MinResource
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of resources (such as epochs) that can be used by a training job
+        /// launched by a hyperparameter tuning job. If the value for <code>MinResource</code>
+        /// has not been reached, the training job will not be stopped by <code>Hyperband</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_MinResource")]
+        public System.Int32? HyperbandStrategyConfig_MinResource { get; set; }
         #endregion
         
         #region Parameter TrainingJobDefinition_OutputDataConfig
@@ -485,9 +521,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies how hyperparameter tuning chooses the combinations of hyperparameter values
-        /// to use for the training job it launches. To use the Bayesian search strategy, set
-        /// this to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>.
-        /// For information about search strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+        /// to use for the training job it launches. For information about search strategies,
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
         /// Hyperparameter Tuning Works</a>.</para>
         /// </para>
         /// </summary>
@@ -585,7 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies whether to use early stopping for training jobs launched by the hyperparameter
-        /// tuning job. This can be one of the following values (the default value is <code>OFF</code>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>SageMaker stops training jobs launched by the hyperparameter tuning job when they
+        /// tuning job. Because the <code>Hyperband</code> strategy has its own advanced internal
+        /// early stopping mechanism, <code>TrainingJobEarlyStoppingType</code> must be <code>OFF</code>
+        /// to use <code>Hyperband</code>. This parameter can take on one of the following values
+        /// (the default value is <code>OFF</code>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>SageMaker stops training jobs launched by the hyperparameter tuning job when they
         /// are unlikely to perform better than previously completed training jobs. For more information,
         /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop
         /// Training Jobs Early</a>.</para></dd></dl>
@@ -780,6 +818,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter HyperParameterTuningJobConfig_Strategy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HyperbandStrategyConfig_MaxResource = this.HyperbandStrategyConfig_MaxResource;
+            context.HyperbandStrategyConfig_MinResource = this.HyperbandStrategyConfig_MinResource;
             context.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType = this.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
             context.TuningJobCompletionCriteria_TargetObjectiveMetricValue = this.TuningJobCompletionCriteria_TargetObjectiveMetricValue;
             context.HyperParameterTuningJobName = this.HyperParameterTuningJobName;
@@ -902,6 +942,56 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType != null)
             {
                 request.HyperParameterTuningJobConfig.TrainingJobEarlyStoppingType = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
+                requestHyperParameterTuningJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.HyperParameterTuningJobStrategyConfig requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig = null;
+            
+             // populate StrategyConfig
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfigIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig = new Amazon.SageMaker.Model.HyperParameterTuningJobStrategyConfig();
+            Amazon.SageMaker.Model.HyperbandStrategyConfig requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig = null;
+            
+             // populate HyperbandStrategyConfig
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfigIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig = new Amazon.SageMaker.Model.HyperbandStrategyConfig();
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MaxResource = null;
+            if (cmdletContext.HyperbandStrategyConfig_MaxResource != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MaxResource = cmdletContext.HyperbandStrategyConfig_MaxResource.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MaxResource != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig.MaxResource = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MaxResource.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfigIsNull = false;
+            }
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MinResource = null;
+            if (cmdletContext.HyperbandStrategyConfig_MinResource != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MinResource = cmdletContext.HyperbandStrategyConfig_MinResource.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MinResource != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig.MinResource = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_hyperbandStrategyConfig_MinResource.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfigIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfigIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig.HyperbandStrategyConfig = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig_hyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfigIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfigIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig != null)
+            {
+                request.HyperParameterTuningJobConfig.StrategyConfig = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig;
                 requestHyperParameterTuningJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TuningJobCompletionCriteria requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
@@ -1598,6 +1688,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? ResourceLimits_MaxNumberOfTrainingJob { get; set; }
             public System.Int32? ResourceLimits_MaxParallelTrainingJob { get; set; }
             public Amazon.SageMaker.HyperParameterTuningJobStrategyType HyperParameterTuningJobConfig_Strategy { get; set; }
+            public System.Int32? HyperbandStrategyConfig_MaxResource { get; set; }
+            public System.Int32? HyperbandStrategyConfig_MinResource { get; set; }
             public Amazon.SageMaker.TrainingJobEarlyStoppingType HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType { get; set; }
             public System.Single? TuningJobCompletionCriteria_TargetObjectiveMetricValue { get; set; }
             public System.String HyperParameterTuningJobName { get; set; }

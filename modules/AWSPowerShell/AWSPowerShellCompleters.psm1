@@ -44712,7 +44712,7 @@ $SM_Completers = {
         # Amazon.SageMaker.HyperParameterTuningJobStrategyType
         "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_Strategy"
         {
-            $v = "Bayesian","Random"
+            $v = "Bayesian","Hyperband","Random"
             break
         }
 

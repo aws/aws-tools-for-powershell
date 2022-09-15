@@ -352,7 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Defines the maximum number of data objects that can be labeled by human workers at
         /// the same time. Also referred to as batch size. Each object may have more than one
-        /// worker at one time. The default value is 1000 objects.</para>
+        /// worker at one time. The default value is 1000 objects. To increase the maximum value
+        /// to 5000 objects, contact Amazon Web Services Support.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

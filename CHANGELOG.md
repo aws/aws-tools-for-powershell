@@ -1,4 +1,9 @@
-﻿### 4.1.168 (2022-09-14 20:29Z)
+﻿### 4.1.169 (2022-09-15 20:34Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.358.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameters HyperbandStrategyConfig_MaxResource and HyperbandStrategyConfig_MinResource.
+
+### 4.1.168 (2022-09-14 20:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.357.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Amplify UI Builder
     * Added cmdlet Export-AMPUIForm leveraging the ExportForms service API.

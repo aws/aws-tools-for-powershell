@@ -28,10 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a running app for the specified UserProfile. Supported apps are <code>JupyterServer</code>
-    /// and <code>KernelGateway</code>. This operation is automatically invoked by Amazon
-    /// SageMaker Studio upon access to the associated Domain, and when new kernel configurations
-    /// are selected by the user. A user may have multiple Apps active simultaneously.
+    /// Creates a running app for the specified UserProfile. This operation is automatically
+    /// invoked by Amazon SageMaker Studio upon access to the associated Domain, and when
+    /// new kernel configurations are selected by the user. A user may have multiple Apps
+    /// active simultaneously.
     /// </summary>
     [Cmdlet("New", "SMApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AppType
         /// <summary>
         /// <para>
-        /// <para>The type of app. Supported apps are <code>JupyterServer</code> and <code>KernelGateway</code>.
-        /// <code>TensorBoard</code> is not supported.</para>
+        /// <para>The type of app.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// <code>TransactWriteItems</code> is a synchronous write operation that groups up to
-    /// 25 action requests. These actions can target items in different tables, but not in
+    /// 100 action requests. These actions can target items in different tables, but not in
     /// different Amazon Web Services accounts or Regions, and no two actions can target the
     /// same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code>
     /// the same item. The aggregate size of the items in the transaction cannot exceed 4
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TransactItem
         /// <summary>
         /// <para>
-        /// <para>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which
+        /// <para>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
         /// contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
         /// <code>Delete</code> object. These can operate on items in different tables, but the
         /// tables must reside in the same Amazon Web Services account and Region, and no two

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// <code>TransactGetItems</code> is a synchronous operation that atomically retrieves
     /// multiple items from one or more tables (but not from indexes) in a single account
-    /// and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code>
+    /// and Region. A <code>TransactGetItems</code> call can contain up to 100 <code>TransactGetItem</code>
     /// objects, each of which contains a <code>Get</code> structure that specifies an item
     /// to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code>
     /// cannot retrieve items from tables in more than one Amazon Web Services account or
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TransactItem
         /// <summary>
         /// <para>
-        /// <para>An ordered array of up to 25 <code>TransactGetItem</code> objects, each of which contains
-        /// a <code>Get</code> structure.</para>
+        /// <para>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
+        /// contains a <code>Get</code> structure.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

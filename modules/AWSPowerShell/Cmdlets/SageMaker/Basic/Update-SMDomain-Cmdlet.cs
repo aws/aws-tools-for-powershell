@@ -83,8 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The configuration for attaching a SageMaker user profile name to the execution role
-        /// as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html"><code>sts:SourceIdentity</code> key</a>. This configuration can only be modified if
-        /// there are no apps in the <code>InService</code> or <code>Pending</code> state.</para>
+        /// as a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">sts:SourceIdentity
+        /// key</a>. This configuration can only be modified if there are no apps in the <code>InService</code>
+        /// or <code>Pending</code> state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
