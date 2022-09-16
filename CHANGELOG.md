@@ -1,4 +1,7 @@
-﻿### 4.1.169 (2022-09-15 20:34Z)
+﻿### 4.1.170 (2022-09-16 20:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.359.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.169 (2022-09-15 20:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.358.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMHyperParameterTuningJob: added parameters HyperbandStrategyConfig_MaxResource and HyperbandStrategyConfig_MinResource.

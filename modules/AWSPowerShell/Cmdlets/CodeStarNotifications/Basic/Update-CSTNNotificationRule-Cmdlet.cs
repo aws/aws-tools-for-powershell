@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         /// <summary>
         /// <para>
         /// <para>The level of detail to include in the notifications for this resource. BASIC will
-        /// include only the contents of the event as it would appear in AWS CloudWatch. FULL
+        /// include only the contents of the event as it would appear in Amazon CloudWatch. FULL
         /// will include any supplemental information provided by AWS CodeStar Notifications and/or
         /// the service for the resource for which the notification is created.</para>
         /// </para>
@@ -80,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter EventTypeId
         /// <summary>
         /// <para>
-        /// <para>A list of event types associated with this notification rule.</para>
+        /// <para>A list of event types associated with this notification rule. For a complete list
+        /// of event types and IDs, see <a href="https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api">Notification
+        /// concepts</a> in the <i>Developer Tools Console User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

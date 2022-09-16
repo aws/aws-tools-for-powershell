@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.358.0",
+    "ProductVersion" : "3.7.359.0",
     "CoreVersion"    : "3.7.13.4",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -160,7 +160,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.5.77",
+            "Version" : "3.7.5.78",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.13.4"
@@ -1538,7 +1538,7 @@
             "InPreview"               : false
         },
         "CodeStarNotifications"           : {
-            "Version" : "3.7.0.206",
+            "Version" : "3.7.1.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.13.4"

@@ -28,7 +28,7 @@ using Amazon.CodeStarNotifications.Model;
 namespace Amazon.PowerShell.Cmdlets.CSTN
 {
     /// <summary>
-    /// Returns a list of the notification rules for an AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of the notification rules for an Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CSTNNotificationRuleList")]
     [OutputType("Amazon.CodeStarNotifications.Model.NotificationRuleSummary")]

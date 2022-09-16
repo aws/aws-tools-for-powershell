@@ -28,8 +28,9 @@ using Amazon.CodeStarNotifications.Model;
 namespace Amazon.PowerShell.Cmdlets.CSTN
 {
     /// <summary>
-    /// Creates an association between a notification rule and an SNS topic so that the associated
-    /// target can receive notifications when the events described in the rule are triggered.
+    /// Creates an association between a notification rule and an Chatbot topic or Chatbot
+    /// client so that the associated target can receive notifications when the events described
+    /// in the rule are triggered.
     /// </summary>
     [Cmdlet("Add", "CSTNSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter Target_TargetAddress
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the SNS topic.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Chatbot topic or Chatbot client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         #region Parameter Target_TargetType
         /// <summary>
         /// <para>
-        /// <para>The target type. Can be an Amazon SNS topic.</para>
+        /// <para>The target type. Can be an Chatbot topic or Chatbot client.</para><ul><li><para>Chatbot topics are specified as <code>SNS</code>.</para></li><li><para>Chatbot clients are specified as <code>AWSChatbotSlack</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
