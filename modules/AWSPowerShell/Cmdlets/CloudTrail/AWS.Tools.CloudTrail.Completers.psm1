@@ -87,6 +87,13 @@ $CT_Completers = {
             break
         }
 
+        # Amazon.CloudTrail.ImportStatus
+        "Get-CTImportList/ImportStatus"
+        {
+            $v = "COMPLETED","FAILED","INITIALIZING","IN_PROGRESS","STOPPED"
+            break
+        }
+
         # Amazon.CloudTrail.QueryStatus
         "Get-CTQuerySummary/QueryStatus"
         {
@@ -104,6 +111,7 @@ $CT_Completers = {
 
 $CT_map = @{
     "EventCategory"=@("Find-CTEvent")
+    "ImportStatus"=@("Get-CTImportList")
     "QueryStatus"=@("Get-CTQuerySummary")
 }
 
@@ -168,12 +176,15 @@ $CT_SelectMap = @{
                "Get-CTChannel",
                "Get-CTEventDataStore",
                "Get-CTEventSelector",
+               "Get-CTImport",
                "Get-CTInsightSelector",
                "Get-CTQueryResult",
                "Get-CTTrailByName",
                "Get-CTTrailStatus",
                "Get-CTChannelSummary",
                "Get-CTEventDataStoreSummary",
+               "Get-CTImportFailure",
+               "Get-CTImportList",
                "Get-CTPublicKey",
                "Get-CTQuerySummary",
                "Get-CTResourceTag",
@@ -183,8 +194,10 @@ $CT_SelectMap = @{
                "Write-CTInsightSelector",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
+               "Start-CTImport",
                "Start-CTLogging",
                "Start-CTQuery",
+               "Stop-CTImport",
                "Stop-CTLogging",
                "Update-CTEventDataStore",
                "Update-CTTrail")

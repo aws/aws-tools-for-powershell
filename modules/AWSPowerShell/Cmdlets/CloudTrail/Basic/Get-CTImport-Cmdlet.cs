@@ -28,40 +28,21 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Describes the settings for the event selectors that you configured for your trail.
-    /// The information returned for your event selectors includes the following:
-    /// 
-    ///  <ul><li><para>
-    /// If your event selector includes read-only events, write-only events, or all events.
-    /// This applies to both management events and data events.
-    /// </para></li><li><para>
-    /// If your event selector includes management events.
-    /// </para></li><li><para>
-    /// If your event selector includes data events, the resources on which you are logging
-    /// data events.
-    /// </para></li></ul><para>
-    /// For more information about logging management and data events, see the following topics
-    /// in the <i>CloudTrail User Guide</i>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
-    /// management events for trails </a></para></li><li><para><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
-    /// data events for trails </a></para></li></ul>
+    /// Returns information for the specified import.
     /// </summary>
-    [Cmdlet("Get", "CTEventSelector")]
-    [OutputType("Amazon.CloudTrail.Model.GetEventSelectorsResponse")]
-    [AWSCmdlet("Calls the AWS CloudTrail GetEventSelectors API operation.", Operation = new[] {"GetEventSelectors"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GetEventSelectorsResponse), LegacyAlias="Get-CTEventSelectors")]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.GetEventSelectorsResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.GetEventSelectorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CTImport")]
+    [OutputType("Amazon.CloudTrail.Model.GetImportResponse")]
+    [AWSCmdlet("Calls the AWS CloudTrail GetImport API operation.", Operation = new[] {"GetImport"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.GetImportResponse))]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.GetImportResponse",
+        "This cmdlet returns an Amazon.CloudTrail.Model.GetImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCTEventSelectorCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class GetCTImportCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter TrailName
+        #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the trail or trail ARN. If you specify a trail name, the string
-        /// must meet the following requirements:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_),
-        /// or dashes (-)</para></li><li><para>Start with a letter or number, and end with a letter or number</para></li><li><para>Be between 3 and 128 characters</para></li><li><para>Have no adjacent periods, underscores or dashes. Names like <code>my-_namespace</code>
-        /// and <code>my--namespace</code> are not valid.</para></li><li><para>Not be in IP address format (for example, 192.168.5.4)</para></li></ul><para>If you specify a trail ARN, it must be in the format:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
+        /// <para> The ID for the import. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,14 +53,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TrailName { get; set; }
+        public System.String ImportId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.GetEventSelectorsResponse).
-        /// Specifying the name of a property of type Amazon.CloudTrail.Model.GetEventSelectorsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.GetImportResponse).
+        /// Specifying the name of a property of type Amazon.CloudTrail.Model.GetImportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TrailName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TrailName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImportId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrailName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.GetEventSelectorsResponse, GetCTEventSelectorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.GetImportResponse, GetCTImportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,14 +98,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TrailName;
+                context.Select = (response, cmdlet) => this.ImportId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.TrailName = this.TrailName;
+            context.ImportId = this.ImportId;
             #if MODULAR
-            if (this.TrailName == null && ParameterWasBound(nameof(this.TrailName)))
+            if (this.ImportId == null && ParameterWasBound(nameof(this.ImportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TrailName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,11 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudTrail.Model.GetEventSelectorsRequest();
+            var request = new Amazon.CloudTrail.Model.GetImportRequest();
             
-            if (cmdletContext.TrailName != null)
+            if (cmdletContext.ImportId != null)
             {
-                request.TrailName = cmdletContext.TrailName;
+                request.ImportId = cmdletContext.ImportId;
             }
             
             CmdletOutput output;
@@ -180,15 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudTrail.Model.GetEventSelectorsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.GetEventSelectorsRequest request)
+        private Amazon.CloudTrail.Model.GetImportResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.GetImportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "GetEventSelectors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "GetImport");
             try
             {
                 #if DESKTOP
-                return client.GetEventSelectors(request);
+                return client.GetImport(request);
                 #elif CORECLR
-                return client.GetEventSelectorsAsync(request).GetAwaiter().GetResult();
+                return client.GetImportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,8 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TrailName { get; set; }
-            public System.Func<Amazon.CloudTrail.Model.GetEventSelectorsResponse, GetCTEventSelectorCmdlet, object> Select { get; set; } =
+            public System.String ImportId { get; set; }
+            public System.Func<Amazon.CloudTrail.Model.GetImportResponse, GetCTImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

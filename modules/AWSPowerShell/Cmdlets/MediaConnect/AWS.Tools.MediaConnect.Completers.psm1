@@ -127,7 +127,7 @@ $EMCN_Completers = {
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "cdi","fujitsu-qos","rist","rtp","rtp-fec","srt-listener","st2110-jpegxs","zixi-pull","zixi-push"
+            $v = "cdi","fujitsu-qos","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","zixi-pull","zixi-push"
             break
         }
 

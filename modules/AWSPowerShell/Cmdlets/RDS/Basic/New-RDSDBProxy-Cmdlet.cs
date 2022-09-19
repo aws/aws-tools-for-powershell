@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// database network protocol the proxy recognizes when it interprets network traffic
         /// to and from the database. For Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases,
         /// specify <code>MYSQL</code>. For Aurora PostgreSQL and RDS for PostgreSQL databases,
-        /// specify <code>POSTGRESQL</code>.</para>
+        /// specify <code>POSTGRESQL</code>. For RDS for Microsoft SQL Server, specify <code>SQLSERVER</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

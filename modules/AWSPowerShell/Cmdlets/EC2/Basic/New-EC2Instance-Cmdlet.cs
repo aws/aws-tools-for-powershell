@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting
     /// connecting to your instance</a>.
     /// </para><note><para>
-    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
     /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para></note>
     /// </summary>
@@ -420,12 +420,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The state of token usage for your instance metadata requests.</para><para>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-        /// with or without a signed token header on your request. If you retrieve the IAM role
-        /// credentials without a token, the version 1.0 role credentials are returned. If you
-        /// retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-        /// credentials are returned.</para><para>If the state is <code>required</code>, you must send a signed token header with any
-        /// instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-        /// always returns the version 2.0 credentials; the version 1.0 credentials are not available.</para><para>Default: <code>optional</code></para>
+        /// with or without a session token on your request. If you retrieve the IAM role credentials
+        /// without a token, the version 1.0 role credentials are returned. If you retrieve the
+        /// IAM role credentials using a valid session token, the version 2.0 role credentials
+        /// are returned.</para><para>If the state is <code>required</code>, you must send a session token with any instance
+        /// metadata retrieval requests. In this state, retrieving the IAM role credentials always
+        /// returns the version 2.0 credentials; the version 1.0 credentials are not available.</para><para>Default: <code>optional</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

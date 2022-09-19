@@ -212,6 +212,27 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String SourceArn { get; set; }
         #endregion
         
+        #region Parameter SourceListenerAddress
+        /// <summary>
+        /// <para>
+        /// Source IP or domain name for SRT-caller
+        /// protocol.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceListenerAddress { get; set; }
+        #endregion
+        
+        #region Parameter SourceListenerPort
+        /// <summary>
+        /// <para>
+        /// Source port for SRT-caller protocol.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SourceListenerPort { get; set; }
+        #endregion
+        
         #region Parameter StreamId
         /// <summary>
         /// <para>
@@ -336,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter SourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SourceListenerAddress = this.SourceListenerAddress;
+            context.SourceListenerPort = this.SourceListenerPort;
             context.StreamId = this.StreamId;
             context.VpcInterfaceName = this.VpcInterfaceName;
             context.WhitelistCidr = this.WhitelistCidr;
@@ -410,6 +433,14 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.SourceArn != null)
             {
                 request.SourceArn = cmdletContext.SourceArn;
+            }
+            if (cmdletContext.SourceListenerAddress != null)
+            {
+                request.SourceListenerAddress = cmdletContext.SourceListenerAddress;
+            }
+            if (cmdletContext.SourceListenerPort != null)
+            {
+                request.SourceListenerPort = cmdletContext.SourceListenerPort.Value;
             }
             if (cmdletContext.StreamId != null)
             {
@@ -498,6 +529,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? SenderControlPort { get; set; }
             public System.String SenderIpAddress { get; set; }
             public System.String SourceArn { get; set; }
+            public System.String SourceListenerAddress { get; set; }
+            public System.Int32? SourceListenerPort { get; set; }
             public System.String StreamId { get; set; }
             public System.String VpcInterfaceName { get; set; }
             public System.String WhitelistCidr { get; set; }

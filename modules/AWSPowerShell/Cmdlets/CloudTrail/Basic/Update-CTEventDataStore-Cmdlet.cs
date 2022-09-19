@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter AdvancedEventSelector
         /// <summary>
         /// <para>
-        /// <para>The advanced event selectors used to select events for the event data store.</para>
+        /// <para>The advanced event selectors used to select events for the event data store. You can
+        /// configure up to five advanced event selectors for each event data store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

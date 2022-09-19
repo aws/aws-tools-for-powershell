@@ -1,4 +1,15 @@
-﻿### 4.1.170 (2022-09-16 20:20Z)
+﻿### 4.1.171 (2022-09-19 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.360.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudTrail
+    * Added cmdlet Get-CTImport leveraging the GetImport service API.
+    * Added cmdlet Get-CTImportFailure leveraging the ListImportFailures service API.
+    * Added cmdlet Get-CTImportList leveraging the ListImports service API.
+    * Added cmdlet Start-CTImport leveraging the StartImport service API.
+    * Added cmdlet Stop-CTImport leveraging the StopImport service API.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet Update-EMCNFlowSource: added parameters SourceListenerAddress and SourceListenerPort.
+
+### 4.1.170 (2022-09-16 20:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.359.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.169 (2022-09-15 20:34Z)

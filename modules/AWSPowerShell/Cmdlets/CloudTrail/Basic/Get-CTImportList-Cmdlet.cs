@@ -22,66 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CloudTrail;
+using Amazon.CloudTrail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Describes the modifications made to your Reserved Instances. If no parameter is specified,
-    /// information about all your Reserved Instances modification requests is returned. If
-    /// a modification ID is specified, only information about the specific modification is
-    /// returned.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying
-    /// Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information on all imports, or a select set of imports by <code>ImportStatus</code>
+    /// or <code>Destination</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2ReservedInstancesModification")]
-    [OutputType("Amazon.EC2.Model.ReservedInstancesModification")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeReservedInstancesModifications API operation.", Operation = new[] {"DescribeReservedInstancesModifications"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse), LegacyAlias="Get-EC2ReservedInstancesModifications")]
-    [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesModification or Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.ReservedInstancesModification objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CTImportList")]
+    [OutputType("Amazon.CloudTrail.Model.ImportsListItem")]
+    [AWSCmdlet("Calls the AWS CloudTrail ListImports API operation.", Operation = new[] {"ListImports"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.ListImportsResponse))]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.ImportsListItem or Amazon.CloudTrail.Model.ListImportsResponse",
+        "This cmdlet returns a collection of Amazon.CloudTrail.Model.ImportsListItem objects.",
+        "The service call response (type Amazon.CloudTrail.Model.ListImportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2ReservedInstancesModificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetCTImportListCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
+        #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>client-token</code> - The idempotency token for the modification request.</para></li><li><para><code>create-date</code> - The time when the modification request was created.</para></li><li><para><code>effective-date</code> - The time when the modification becomes effective.</para></li><li><para><code>modification-result.reserved-instances-id</code> - The ID for the Reserved
-        /// Instances created as part of the modification request. This ID is only available when
-        /// the status of the modification is <code>fulfilled</code>.</para></li><li><para><code>modification-result.target-configuration.availability-zone</code> - The Availability
-        /// Zone for the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-count </code> - The number
-        /// of new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-type</code> - The instance
-        /// type of the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.platform</code> - The network platform
-        /// of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</para></li><li><para><code>reserved-instances-modification-id</code> - The ID of the modification request.</para></li><li><para><code>status</code> - The status of the Reserved Instances modification request (<code>processing</code>
-        /// | <code>fulfilled</code> | <code>failed</code>).</para></li><li><para><code>status-message</code> - The reason for the status.</para></li><li><para><code>update-date</code> - The time when the modification request was last updated.</para></li></ul>
+        /// <para> The destination event data store. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String Destination { get; set; }
         #endregion
         
-        #region Parameter ReservedInstancesModificationId
+        #region Parameter ImportStatus
         /// <summary>
         /// <para>
-        /// <para>IDs for the submitted modification request.</para>
+        /// <para> The status of the import. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ReservedInstancesModificationIds")]
-        public System.String[] ReservedInstancesModificationId { get; set; }
+        [AWSConstantClassSource("Amazon.CloudTrail.ImportStatus")]
+        public Amazon.CloudTrail.ImportStatus ImportStatus { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of imports to display on a single page. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to retrieve the next page of results.</para>
+        /// <para> A token you can use to get the next page of import results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -94,13 +89,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReservedInstancesModifications'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Imports'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.ListImportsResponse).
+        /// Specifying the name of a property of type Amazon.CloudTrail.Model.ListImportsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReservedInstancesModifications";
+        public string Select { get; set; } = "Imports";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Destination parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Destination' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Destination' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -122,20 +127,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse, GetEC2ReservedInstancesModificationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.ListImportsResponse, GetCTImportListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.Filter != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+                context.Select = (response, cmdlet) => this.Destination;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Destination = this.Destination;
+            context.ImportStatus = this.ImportStatus;
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.ReservedInstancesModificationId != null)
-            {
-                context.ReservedInstancesModificationId = new List<System.String>(this.ReservedInstancesModificationId);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,18 +159,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.DescribeReservedInstancesModificationsRequest();
+            var request = new Amazon.CloudTrail.Model.ListImportsRequest();
             
-            if (cmdletContext.Filter != null)
+            if (cmdletContext.Destination != null)
             {
-                request.Filters = cmdletContext.Filter;
+                request.Destination = cmdletContext.Destination;
             }
-            if (cmdletContext.ReservedInstancesModificationId != null)
+            if (cmdletContext.ImportStatus != null)
             {
-                request.ReservedInstancesModificationIds = cmdletContext.ReservedInstancesModificationId;
+                request.ImportStatus = cmdletContext.ImportStatus;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -219,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeReservedInstancesModificationsRequest request)
+        private Amazon.CloudTrail.Model.ListImportsResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.ListImportsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeReservedInstancesModifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "ListImports");
             try
             {
                 #if DESKTOP
-                return client.DescribeReservedInstancesModifications(request);
+                return client.ListImports(request);
                 #elif CORECLR
-                return client.DescribeReservedInstancesModificationsAsync(request).GetAwaiter().GetResult();
+                return client.ListImportsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,11 +263,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public System.String Destination { get; set; }
+            public Amazon.CloudTrail.ImportStatus ImportStatus { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ReservedInstancesModificationId { get; set; }
-            public System.Func<Amazon.EC2.Model.DescribeReservedInstancesModificationsResponse, GetEC2ReservedInstancesModificationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReservedInstancesModifications;
+            public System.Func<Amazon.CloudTrail.Model.ListImportsResponse, GetCTImportListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Imports;
         }
         
     }

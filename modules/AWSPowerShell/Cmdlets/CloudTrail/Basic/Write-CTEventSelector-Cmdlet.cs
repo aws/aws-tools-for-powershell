@@ -60,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// is thrown.
     /// </para><para>
     /// You can configure up to five event selectors for each trail. For more information,
-    /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
-    /// data and management events for trails </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
+    /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
+    /// management events for trails </a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
+    /// data events for trails </a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Quotas
     /// in CloudTrail</a> in the <i>CloudTrail User Guide</i>.
     /// </para><para>
     /// You can add advanced event selectors, and conditions for your advanced event selectors,

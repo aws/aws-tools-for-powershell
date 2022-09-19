@@ -49,11 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// a service disruption and you specify instance IDs that are in the affected zone, or
     /// do not specify any instance IDs at all, the call fails. If you describe instances
     /// and specify only instance IDs that are in an unaffected zone, the call works normally.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para></note><br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Instance")]
     [OutputType("Amazon.EC2.Model.Reservation")]

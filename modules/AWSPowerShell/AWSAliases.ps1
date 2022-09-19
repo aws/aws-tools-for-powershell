@@ -3426,6 +3426,7 @@ Set-Alias -Name CT-GetChannel -Value Get-CTChannel
 Set-Alias -Name CT-GetEventDataStore -Value Get-CTEventDataStore
 Set-Alias -Name Get-CTEventSelectors -Value Get-CTEventSelector
 Set-Alias -Name CT-GetEventSelectors -Value Get-CTEventSelector
+Set-Alias -Name CT-GetImport -Value Get-CTImport
 Set-Alias -Name Get-CTInsightSelectors -Value Get-CTInsightSelector
 Set-Alias -Name CT-GetInsightSelectors -Value Get-CTInsightSelector
 Set-Alias -Name Get-CTQueryResults -Value Get-CTQueryResult
@@ -3439,6 +3440,12 @@ Set-Alias -Name CT-ListChannels -Value Get-CTChannelSummary
 Set-Alias -Name List-CTEventDataStores -Value Get-CTEventDataStoreSummary
 Set-Alias -Name List-CTEventDataStoreSummary -Value Get-CTEventDataStoreSummary
 Set-Alias -Name CT-ListEventDataStores -Value Get-CTEventDataStoreSummary
+Set-Alias -Name List-CTImportFailures -Value Get-CTImportFailure
+Set-Alias -Name List-CTImportFailure -Value Get-CTImportFailure
+Set-Alias -Name CT-ListImportFailures -Value Get-CTImportFailure
+Set-Alias -Name List-CTImports -Value Get-CTImportList
+Set-Alias -Name List-CTImportList -Value Get-CTImportList
+Set-Alias -Name CT-ListImports -Value Get-CTImportList
 Set-Alias -Name List-CTPublicKeys -Value Get-CTPublicKey
 Set-Alias -Name List-CTPublicKey -Value Get-CTPublicKey
 Set-Alias -Name CT-ListPublicKeys -Value Get-CTPublicKey
@@ -3462,8 +3469,10 @@ Set-Alias -Name CT-PutInsightSelectors -Value Write-CTInsightSelector
 Set-Alias -Name Remove-CTTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RemoveTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RestoreEventDataStore -Value Restore-CTEventDataStore
+Set-Alias -Name CT-StartImport -Value Start-CTImport
 Set-Alias -Name CT-StartLogging -Value Start-CTLogging
 Set-Alias -Name CT-StartQuery -Value Start-CTQuery
+Set-Alias -Name CT-StopImport -Value Stop-CTImport
 Set-Alias -Name CT-StopLogging -Value Stop-CTLogging
 Set-Alias -Name CT-UpdateEventDataStore -Value Update-CTEventDataStore
 Set-Alias -Name CT-UpdateTrail -Value Update-CTTrail

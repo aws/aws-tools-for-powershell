@@ -224,8 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB cluster is created. If this parameter isn't specified for an Aurora MySQL DB cluster,
         /// no database is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 64 alphanumeric characters.</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul><para><b>Amazon Aurora PostgreSQL</b></para><para>The name of the database to create when the primary DB instance of the Aurora PostgreSQL
         /// DB cluster is created. If this parameter isn't specified for an Aurora PostgreSQL
-        /// DB cluster, a database named <code>postgres</code> is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 63 alphanumeric characters.</para></li><li><para>It must begin with a letter or an underscore. Subsequent characters can be letters,
-        /// underscores, or digits (0 to 9).</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul>
+        /// DB cluster, a database named <code>postgres</code> is created in the DB cluster.</para><para>Constraints:</para><ul><li><para>It must contain 1 to 63 alphanumeric characters.</para></li><li><para>It must begin with a letter. Subsequent characters can be letters, underscores, or
+        /// digits (0 to 9).</para></li><li><para>It can't be a word reserved by the database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The name of the DB parameter group to associate with this DB instance. If you do not
         /// specify a value, then the default DB parameter group for the specified DB engine and
-        /// version is used.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// version is used.</para><para>This setting doesn't apply to RDS Custom.</para><para>Constraints:</para><ul><li><para>It must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>It can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

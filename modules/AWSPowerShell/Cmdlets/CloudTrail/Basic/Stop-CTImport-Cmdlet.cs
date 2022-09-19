@@ -22,84 +22,57 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CloudTrail;
+using Amazon.CloudTrail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// <note><para>
-    /// You can no longer purchase Scheduled Instances.
-    /// </para></note><para>
-    /// Purchases the Scheduled Instances with the specified schedule.
-    /// </para><para>
-    /// Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour
-    /// for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a>
-    /// to check for available schedules and obtain a purchase token. After you purchase a
-    /// Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled
-    /// time period.
-    /// </para><para>
-    /// After you purchase a Scheduled Instance, you can't cancel, modify, or resell your
-    /// purchase.
-    /// </para>
+    /// Stops a specified import.
     /// </summary>
-    [Cmdlet("New", "EC2ScheduledInstancePurchase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ScheduledInstance")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) PurchaseScheduledInstances API operation.", Operation = new[] {"PurchaseScheduledInstances"}, SelectReturnType = typeof(Amazon.EC2.Model.PurchaseScheduledInstancesResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ScheduledInstance or Amazon.EC2.Model.PurchaseScheduledInstancesResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.ScheduledInstance objects.",
-        "The service call response (type Amazon.EC2.Model.PurchaseScheduledInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "CTImport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudTrail.Model.StopImportResponse")]
+    [AWSCmdlet("Calls the AWS CloudTrail StopImport API operation.", Operation = new[] {"StopImport"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.StopImportResponse))]
+    [AWSCmdletOutput("Amazon.CloudTrail.Model.StopImportResponse",
+        "This cmdlet returns an Amazon.CloudTrail.Model.StopImportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEC2ScheduledInstancePurchaseCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class StopCTImportCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter PurchaseRequest
+        #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The purchase requests.</para>
+        /// <para> The ID of the import. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("PurchaseRequests")]
-        public Amazon.EC2.Model.PurchaseRequest[] PurchaseRequest { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that ensures the idempotency of the request. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String ImportId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ScheduledInstanceSet'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.PurchaseScheduledInstancesResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.PurchaseScheduledInstancesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.StopImportResponse).
+        /// Specifying the name of a property of type Amazon.CloudTrail.Model.StopImportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ScheduledInstanceSet";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PurchaseRequest parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PurchaseRequest' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImportId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PurchaseRequest' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImportId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PurchaseRequest), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2ScheduledInstancePurchase (PurchaseScheduledInstances)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImportId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CTImport (StopImport)"))
             {
                 return;
             }
@@ -132,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.PurchaseScheduledInstancesResponse, NewEC2ScheduledInstancePurchaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.StopImportResponse, StopCTImportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,18 +114,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PurchaseRequest;
+                context.Select = (response, cmdlet) => this.ImportId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            if (this.PurchaseRequest != null)
-            {
-                context.PurchaseRequest = new List<Amazon.EC2.Model.PurchaseRequest>(this.PurchaseRequest);
-            }
+            context.ImportId = this.ImportId;
             #if MODULAR
-            if (this.PurchaseRequest == null && ParameterWasBound(nameof(this.PurchaseRequest)))
+            if (this.ImportId == null && ParameterWasBound(nameof(this.ImportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PurchaseRequest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -169,15 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.PurchaseScheduledInstancesRequest();
+            var request = new Amazon.CloudTrail.Model.StopImportRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.ImportId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.PurchaseRequest != null)
-            {
-                request.PurchaseRequests = cmdletContext.PurchaseRequest;
+                request.ImportId = cmdletContext.ImportId;
             }
             
             CmdletOutput output;
@@ -212,15 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.PurchaseScheduledInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.PurchaseScheduledInstancesRequest request)
+        private Amazon.CloudTrail.Model.StopImportResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.StopImportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "PurchaseScheduledInstances");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "StopImport");
             try
             {
                 #if DESKTOP
-                return client.PurchaseScheduledInstances(request);
+                return client.StopImport(request);
                 #elif CORECLR
-                return client.PurchaseScheduledInstancesAsync(request).GetAwaiter().GetResult();
+                return client.StopImportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,10 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public List<Amazon.EC2.Model.PurchaseRequest> PurchaseRequest { get; set; }
-            public System.Func<Amazon.EC2.Model.PurchaseScheduledInstancesResponse, NewEC2ScheduledInstancePurchaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ScheduledInstanceSet;
+            public System.String ImportId { get; set; }
+            public System.Func<Amazon.CloudTrail.Model.StopImportResponse, StopCTImportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

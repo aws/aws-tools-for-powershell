@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_AcceleratorName
         /// <summary>
         /// <para>
-        /// <para>The accelerators that must be on the instance type.</para><ul><li><para>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</para></li><li><para>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</para></li><li><para>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</para></li><li><para>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</para></li><li><para>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</para></li><li><para>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</para></li><li><para>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</para></li></ul><para>Default: Any accelerator</para>
+        /// <para>The accelerators that must be on the instance type.</para><ul><li><para>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</para></li><li><para>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</para></li><li><para>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</para></li><li><para>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</para></li><li><para>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</para></li><li><para>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</para></li><li><para>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</para></li><li><para>For instance types with Amazon Web Services Inferentia GPUs, specify <code>inferentia</code>.</para></li><li><para>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</para></li></ul><para>Default: Any accelerator</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,10 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceRequirements_ExcludedInstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance types to exclude. You can use strings with one or more wild cards, represented
-        /// by an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation.
-        /// The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
-        /// <code>r*</code>, <code>*3*</code>.</para><para>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5
+        /// <para>The instance types to exclude.</para><para>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>),
+        /// to exclude an instance family, type, size, or generation. The following are examples:
+        /// <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>,
+        /// <code>*3*</code>.</para><para>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5
         /// instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>,
         /// Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</para><para>Default: No excluded instance types</para>
         /// </para>
