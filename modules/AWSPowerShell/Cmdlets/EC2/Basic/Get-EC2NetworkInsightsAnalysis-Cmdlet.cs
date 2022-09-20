@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. The following are the possible values:</para><ul><li><para>PathFound - A Boolean value that indicates whether a feasible path is found.</para></li><li><para>Status - The status of the analysis (running | succeeded | failed).</para></li></ul>
+        /// <para>The filters. The following are the possible values:</para><ul><li><para>path-found - A Boolean value that indicates whether a feasible path is found.</para></li><li><para>status - The status of the analysis (running | succeeded | failed).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

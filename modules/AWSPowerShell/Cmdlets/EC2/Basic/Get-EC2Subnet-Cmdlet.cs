@@ -55,13 +55,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// that are available.</para></li><li><para><code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify
         /// must exactly match the subnet's CIDR block for information to be returned for the
         /// subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter
-        /// names.</para></li><li><para><code>default-for-az</code> - Indicates whether this is the default subnet for the
+        /// names.</para></li><li><para><code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool associated
+        /// with the subnet.</para></li><li><para><code>default-for-az</code> - Indicates whether this is the default subnet for the
         /// Availability Zone (<code>true</code> | <code>false</code>). You can also use <code>defaultForAz</code>
-        /// as the filter name.</para></li><li><para><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated
+        /// as the filter name.</para></li><li><para><code>enable-dns64</code> - Indicates whether DNS queries made to the Amazon-provided
+        /// DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations.</para></li><li><para><code>enable-lni-at-device-index</code> - Indicates the device position for local
+        /// network interfaces in this subnet. For example, <code>1</code> indicates local network
+        /// interfaces in this subnet are the secondary network interface (eth1). </para></li><li><para><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated
         /// with the subnet.</para></li><li><para><code>ipv6-cidr-block-association.association-id</code> - An association ID for an
         /// IPv6 CIDR block associated with the subnet.</para></li><li><para><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block
         /// associated with the subnet.</para></li><li><para><code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet (<code>true</code>
-        /// | <code>false</code>).</para></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</para></li><li><para><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</para></li><li><para><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// | <code>false</code>).</para></li><li><para><code>map-customer-owned-ip-on-launch</code> - Indicates whether a network interface
+        /// created in this subnet (including a network interface created by <a>RunInstances</a>)
+        /// receives a customer-owned IPv4 address.</para></li><li><para><code>map-public-ip-on-launch</code> - Indicates whether instances launched in this
+        /// subnet receive a public IPv4 address.</para></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</para></li><li><para><code>owner-id</code> - The ID of the Amazon Web Services account that owns the subnet.</para></li><li><para><code>private-dns-name-options-on-launch.hostname-type</code> - The type of hostname
+        /// to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4
+        /// and IPv6) subnets, an instance DNS name can be based on the instance IPv4 address
+        /// (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance DNS
+        /// name must be based on the instance ID (resource-name).</para></li><li><para><code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code>
+        /// - Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</para></li><li><para><code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code>
+        /// - Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+        /// records.</para></li><li><para><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</para></li><li><para><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
