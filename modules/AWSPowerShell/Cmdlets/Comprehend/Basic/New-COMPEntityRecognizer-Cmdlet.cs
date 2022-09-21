@@ -291,9 +291,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Annotations_TestS3Uri
         /// <summary>
         /// <para>
-        /// <para>This specifies the Amazon S3 location where the test annotations for an entity recognizer
-        /// are located. The URI must be in the same AWS Region as the API endpoint that you are
-        /// calling.</para>
+        /// <para> Specifies the Amazon S3 location where the test annotations for an entity recognizer
+        /// are located. The URI must be in the same region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

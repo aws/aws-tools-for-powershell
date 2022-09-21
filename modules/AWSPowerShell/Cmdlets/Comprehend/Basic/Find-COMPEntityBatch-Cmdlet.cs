@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Inspects the text of a batch of documents for named entities and returns information
-    /// about them. For more information about named entities, see <a>how-entities</a>
+    /// about them. For more information about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a>
+    /// in the Comprehend Developer Guide.
     /// </summary>
     [Cmdlet("Find", "COMPEntityBatch")]
     [OutputType("Amazon.Comprehend.Model.BatchDetectEntitiesResponse")]
@@ -61,9 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter TextList
         /// <summary>
         /// <para>
-        /// <para>A list containing the text of the input documents. The list can contain a maximum
-        /// of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded
-        /// characters.</para>
+        /// <para>A list containing the UTF-8 encoded text of the input documents. The list can contain
+        /// a maximum of 25 documents. The maximum size of each document is 5 KB.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

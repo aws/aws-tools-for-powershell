@@ -29,61 +29,52 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// <note><para>
-    /// This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy
-    /// for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a>
+    /// This operation returns the versioning state only for S3 on Outposts buckets. To return
+    /// the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>
     /// in the <i>Amazon S3 API Reference</i>. 
     /// </para></note><para>
-    /// Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-    /// Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
+    /// Returns the versioning state for an S3 on Outposts bucket. With versioning, you can
+    /// save multiple distinct copies of your data and recover from unintended user actions
+    /// and application failures.
     /// </para><para>
-    /// If you are using an identity other than the root user of the Amazon Web Services account
-    /// that owns the bucket, the calling identity must have the <code>GetBucketPolicy</code>
-    /// permissions on the specified bucket and belong to the bucket owner's account in order
-    /// to use this action.
+    /// If you've never set versioning on your bucket, it has no versioning state. In that
+    /// case, the <code>GetBucketVersioning</code> request does not return a versioning state
+    /// value.
     /// </para><para>
-    /// Only users from Outposts bucket owner account with the right permissions can perform
-    /// actions on an Outposts bucket. If you don't have <code>s3-outposts:GetBucketPolicy</code>
-    /// permissions or you're not using an identity that belongs to the bucket owner's account,
-    /// Amazon S3 returns a <code>403 Access Denied</code> error.
-    /// </para><important><para>
-    /// As a security precaution, the root user of the Amazon Web Services account that owns
-    /// a bucket can always use this action, even if the policy explicitly denies the root
-    /// user the ability to perform this action.
-    /// </para></important><para>
-    /// For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
-    /// Bucket Policies and User Policies</a>.
+    /// For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a>
+    /// in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
     /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.
     /// For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on
     /// Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by
-    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples">Examples</a>
+    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketVersioning.html#API_control_GetBucketVersioning_Examples">Examples</a>
     /// section.
     /// </para><para>
-    /// The following actions are related to <code>GetBucketPolicy</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html">PutBucketPolicy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html">DeleteBucketPolicy</a></para></li></ul>
+    /// The following operations are related to <code>GetBucketVersioning</code> for S3 on
+    /// Outposts.
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html">PutBucketVersioning</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "S3CBucketPolicy")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon S3 Control GetBucketPolicy API operation.", Operation = new[] {"GetBucketPolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketPolicyResponse))]
-    [AWSCmdletOutput("System.String or Amazon.S3Control.Model.GetBucketPolicyResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.S3Control.Model.GetBucketPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "S3CBucketVersioning")]
+    [OutputType("Amazon.S3Control.Model.GetBucketVersioningResponse")]
+    [AWSCmdlet("Calls the Amazon S3 Control GetBucketVersioning API operation.", Operation = new[] {"GetBucketVersioning"}, SelectReturnType = typeof(Amazon.S3Control.Model.GetBucketVersioningResponse))]
+    [AWSCmdletOutput("Amazon.S3Control.Model.GetBucketVersioningResponse",
+        "This cmdlet returns an Amazon.S3Control.Model.GetBucketVersioningResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetS3CBucketPolicyCmdlet : AmazonS3ControlClientCmdlet, IExecutor
+    public partial class GetS3CBucketVersioningCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the Outposts bucket.</para>
+        /// <para>The Amazon Web Services account ID of the S3 on Outposts bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -94,13 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Bucket
         /// <summary>
         /// <para>
-        /// <para>Specifies the bucket.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
-        /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and
-        /// CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
-        /// For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code>
-        /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
-        /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>.
-        /// The value must be URL encoded. </para>
+        /// <para>The S3 on Outposts bucket to return the versioning state for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,23 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Policy'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.GetBucketPolicyResponse).
-        /// Specifying the name of a property of type Amazon.S3Control.Model.GetBucketPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.GetBucketVersioningResponse).
+        /// Specifying the name of a property of type Amazon.S3Control.Model.GetBucketVersioningResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Policy";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -144,21 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.GetBucketPolicyResponse, GetS3CBucketPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.GetBucketVersioningResponse, GetS3CBucketVersioningCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AccountId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountId = this.AccountId;
             #if MODULAR
             if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
@@ -187,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3Control.Model.GetBucketPolicyRequest();
+            var request = new Amazon.S3Control.Model.GetBucketVersioningRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -230,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         #region AWS Service Operation Call
         
-        private Amazon.S3Control.Model.GetBucketPolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetBucketPolicyRequest request)
+        private Amazon.S3Control.Model.GetBucketVersioningResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.GetBucketVersioningRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetBucketPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "GetBucketVersioning");
             try
             {
                 #if DESKTOP
-                return client.GetBucketPolicy(request);
+                return client.GetBucketVersioning(request);
                 #elif CORECLR
-                return client.GetBucketPolicyAsync(request).GetAwaiter().GetResult();
+                return client.GetBucketVersioningAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             public System.String AccountId { get; set; }
             public System.String Bucket { get; set; }
-            public System.Func<Amazon.S3Control.Model.GetBucketPolicyResponse, GetS3CBucketPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Policy;
+            public System.Func<Amazon.S3Control.Model.GetBucketVersioningResponse, GetS3CBucketVersioningCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

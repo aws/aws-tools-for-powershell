@@ -1,4 +1,13 @@
-﻿### 4.1.172 (2022-09-20 20:26Z)
+﻿### 4.1.173 (2022-09-21 20:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.362.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Comprehend
+    * Added cmdlet Find-COMPTargetedSentiment leveraging the DetectTargetedSentiment service API.
+    * Added cmdlet Find-COMPTargetedSentimentBatch leveraging the BatchDetectTargetedSentiment service API.
+  * Amazon S3 Control
+    * Added cmdlet Get-S3CBucketVersioning leveraging the GetBucketVersioning service API.
+    * Added cmdlet Write-S3CBucketVersioning leveraging the PutBucketVersioning service API.
+
+### 4.1.172 (2022-09-20 20:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.361.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.171 (2022-09-19 20:33Z)

@@ -28,24 +28,28 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Analyzes input text for the presence of personally identifiable information (PII)
-    /// and returns the labels of identified PII entity types such as name, address, bank
-    /// account number, or phone number.
+    /// Inspects a batch of documents and returns a sentiment analysis for each entity identified
+    /// in the documents.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted
+    /// sentiment</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Find", "COMPPiiEntityType")]
-    [OutputType("Amazon.Comprehend.Model.EntityLabel")]
-    [AWSCmdlet("Calls the Amazon Comprehend ContainsPiiEntities API operation.", Operation = new[] {"ContainsPiiEntities"}, SelectReturnType = typeof(Amazon.Comprehend.Model.ContainsPiiEntitiesResponse))]
-    [AWSCmdletOutput("Amazon.Comprehend.Model.EntityLabel or Amazon.Comprehend.Model.ContainsPiiEntitiesResponse",
-        "This cmdlet returns a collection of Amazon.Comprehend.Model.EntityLabel objects.",
-        "The service call response (type Amazon.Comprehend.Model.ContainsPiiEntitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Find", "COMPTargetedSentimentBatch")]
+    [OutputType("Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse")]
+    [AWSCmdlet("Calls the Amazon Comprehend BatchDetectTargetedSentiment API operation.", Operation = new[] {"BatchDetectTargetedSentiment"}, SelectReturnType = typeof(Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse))]
+    [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse",
+        "This cmdlet returns an Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class FindCOMPPiiEntityTypeCmdlet : AmazonComprehendClientCmdlet, IExecutor
+    public partial class FindCOMPTargetedSentimentBatchCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of the input documents. Currently, English is the only valid language.</para>
+        /// <para>The language of the input documents. Currently, English is the only supported language.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,42 +63,33 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
         #endregion
         
-        #region Parameter Text
+        #region Parameter TextList
         /// <summary>
         /// <para>
-        /// <para>A UTF-8 text string. The maximum string size is 100 KB.</para>
+        /// <para>A list containing the UTF-8 encoded text of the input documents. The list can contain
+        /// a maximum of 25 documents. The maximum size of each document is 5 KB.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Text { get; set; }
+        public System.String[] TextList { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Labels'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Comprehend.Model.ContainsPiiEntitiesResponse).
-        /// Specifying the name of a property of type Amazon.Comprehend.Model.ContainsPiiEntitiesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse).
+        /// Specifying the name of a property of type Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Labels";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Text parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Text' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Text' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         protected override void ProcessRecord()
@@ -106,21 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Comprehend.Model.ContainsPiiEntitiesResponse, FindCOMPPiiEntityTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse, FindCOMPTargetedSentimentBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Text;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -128,11 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Text = this.Text;
-            #if MODULAR
-            if (this.Text == null && ParameterWasBound(nameof(this.Text)))
+            if (this.TextList != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Text which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TextList = new List<System.String>(this.TextList);
+            }
+            #if MODULAR
+            if (this.TextList == null && ParameterWasBound(nameof(this.TextList)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TextList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Comprehend.Model.ContainsPiiEntitiesRequest();
+            var request = new Amazon.Comprehend.Model.BatchDetectTargetedSentimentRequest();
             
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
             }
-            if (cmdletContext.Text != null)
+            if (cmdletContext.TextList != null)
             {
-                request.Text = cmdletContext.Text;
+                request.TextList = cmdletContext.TextList;
             }
             
             CmdletOutput output;
@@ -192,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         #region AWS Service Operation Call
         
-        private Amazon.Comprehend.Model.ContainsPiiEntitiesResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.ContainsPiiEntitiesRequest request)
+        private Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.BatchDetectTargetedSentimentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "ContainsPiiEntities");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "BatchDetectTargetedSentiment");
             try
             {
                 #if DESKTOP
-                return client.ContainsPiiEntities(request);
+                return client.BatchDetectTargetedSentiment(request);
                 #elif CORECLR
-                return client.ContainsPiiEntitiesAsync(request).GetAwaiter().GetResult();
+                return client.BatchDetectTargetedSentimentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
-            public System.String Text { get; set; }
-            public System.Func<Amazon.Comprehend.Model.ContainsPiiEntitiesResponse, FindCOMPPiiEntityTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Labels;
+            public List<System.String> TextList { get; set; }
+            public System.Func<Amazon.Comprehend.Model.BatchDetectTargetedSentimentResponse, FindCOMPTargetedSentimentBatchCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

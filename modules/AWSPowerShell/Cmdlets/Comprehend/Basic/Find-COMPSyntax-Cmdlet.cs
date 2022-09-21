@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Inspects text for syntax and the part of speech of words in the document. For more
-    /// information, <a>how-syntax</a>.
+    /// information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-syntax.html">Syntax</a>
+    /// in the Comprehend Developer Guide.
     /// </summary>
     [Cmdlet("Find", "COMPSyntax")]
     [OutputType("Amazon.Comprehend.Model.SyntaxToken")]
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.</para>
+        /// <para>A UTF-8 string. The maximum string size is 5 KB.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter TextList
         /// <summary>
         /// <para>
-        /// <para>A list containing the text of the input documents. The list can contain a maximum
-        /// of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded
-        /// characters.</para>
+        /// <para>A list containing the UTF-8 encoded text of the input documents. The list can contain
+        /// a maximum of 25 documents. The maximum size of each document is 5 KB. </para><note><para>Amazon Comprehend performs real-time sentiment analysis on the first 500 characters
+        /// of the input text and ignores any additional text in the input.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

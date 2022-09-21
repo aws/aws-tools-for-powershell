@@ -11426,6 +11426,8 @@ $COMP_Completers = {
             ($_ -eq "Find-COMPPiiEntityType/LanguageCode") -Or
             ($_ -eq "Find-COMPSentiment/LanguageCode") -Or
             ($_ -eq "Find-COMPSentimentBatch/LanguageCode") -Or
+            ($_ -eq "Find-COMPTargetedSentiment/LanguageCode") -Or
+            ($_ -eq "Find-COMPTargetedSentimentBatch/LanguageCode") -Or
             ($_ -eq "New-COMPDocumentClassifier/LanguageCode") -Or
             ($_ -eq "New-COMPEntityRecognizer/LanguageCode") -Or
             ($_ -eq "Start-COMPEntitiesDetectionJob/LanguageCode") -Or
@@ -11487,7 +11489,7 @@ $COMP_map = @{
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
 }
@@ -11547,6 +11549,7 @@ $COMP_SelectMap = @{
                "Find-COMPKeyPhrasesBatch",
                "Find-COMPSentimentBatch",
                "Find-COMPSyntaxBatch",
+               "Find-COMPTargetedSentimentBatch",
                "Invoke-COMPDocumentClassification",
                "Find-COMPPiiEntityType",
                "New-COMPDocumentClassifier",
@@ -11575,6 +11578,7 @@ $COMP_SelectMap = @{
                "Find-COMPPiiEntity",
                "Find-COMPSentiment",
                "Find-COMPSyntax",
+               "Find-COMPTargetedSentiment",
                "Import-COMPModel",
                "Get-COMPDocumentClassificationJobList",
                "Get-COMPDocumentClassifierList",
@@ -44038,6 +44042,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.BucketVersioningStatus
+        "Write-S3CBucketVersioning/VersioningConfiguration_Status"
+        {
+            $v = "Enabled","Suspended"
+            break
+        }
+
         # Amazon.S3Control.Format
         "Write-S3CStorageLensConfiguration/StorageLensConfiguration_DataExport_S3BucketDestination_Format"
         {
@@ -44070,6 +44081,13 @@ $S3C_Completers = {
         "New-S3CJob/Report_ReportScope"
         {
             $v = "AllTasks","FailedTasksOnly"
+            break
+        }
+
+        # Amazon.S3Control.MFADelete
+        "Write-S3CBucketVersioning/VersioningConfiguration_MFADelete"
+        {
+            $v = "Disabled","Enabled"
             break
         }
 
@@ -44185,6 +44203,8 @@ $S3C_map = @{
     "RequestedJobStatus"=@("Update-S3CJobStatus")
     "StorageLensConfiguration_DataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
     "StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "VersioningConfiguration_MFADelete"=@("Write-S3CBucketVersioning")
+    "VersioningConfiguration_Status"=@("Write-S3CBucketVersioning")
 }
 
 _awsArgumentCompleterRegistration $S3C_Completers $S3C_map
@@ -44268,6 +44288,7 @@ $S3C_SelectMap = @{
                "Get-S3CBucketLifecycleConfiguration",
                "Get-S3CBucketPolicy",
                "Get-S3CBucketTagging",
+               "Get-S3CBucketVersioning",
                "Get-S3CJobTagging",
                "Get-S3CMultiRegionAccessPoint",
                "Get-S3CMultiRegionAccessPointPolicy",
@@ -44287,6 +44308,7 @@ $S3C_SelectMap = @{
                "Write-S3CBucketLifecycleConfiguration",
                "Write-S3CBucketPolicy",
                "Write-S3CBucketTagging",
+               "Write-S3CBucketVersioning",
                "Add-S3CJobTagging",
                "Write-S3CMultiRegionAccessPointPolicy",
                "Add-S3CPublicAccessBlock",

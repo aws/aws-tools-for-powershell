@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Inspects text for named entities, and returns information about them. For more information,
-    /// about named entities, see <a>how-entities</a>.
+    /// about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a>
+    /// in the Comprehend Developer Guide.
     /// </summary>
     [Cmdlet("Find", "COMPEntity")]
     [OutputType("Amazon.Comprehend.Model.Entity")]
@@ -72,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-        /// characters.</para>
+        /// <para>A UTF-8 text string. The maximum string size is 100 KB.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

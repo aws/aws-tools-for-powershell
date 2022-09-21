@@ -4397,6 +4397,9 @@ Set-Alias -Name COMP-BatchDetectSentiment -Value Find-COMPSentimentBatch
 Set-Alias -Name Batch-COMPDetectSyntax -Value Find-COMPSyntaxBatch
 Set-Alias -Name Batch-COMPSyntaxBatch -Value Find-COMPSyntaxBatch
 Set-Alias -Name COMP-BatchDetectSyntax -Value Find-COMPSyntaxBatch
+Set-Alias -Name Batch-COMPDetectTargetedSentiment -Value Find-COMPTargetedSentimentBatch
+Set-Alias -Name Batch-COMPTargetedSentimentBatch -Value Find-COMPTargetedSentimentBatch
+Set-Alias -Name COMP-BatchDetectTargetedSentiment -Value Find-COMPTargetedSentimentBatch
 Set-Alias -Name Classify-COMPDocument -Value Invoke-COMPDocumentClassification
 Set-Alias -Name Classify-COMPDocumentClassification -Value Invoke-COMPDocumentClassification
 Set-Alias -Name COMP-ClassifyDocument -Value Invoke-COMPDocumentClassification
@@ -4458,6 +4461,8 @@ Set-Alias -Name Detect-COMPSentiment -Value Find-COMPSentiment
 Set-Alias -Name COMP-DetectSentiment -Value Find-COMPSentiment
 Set-Alias -Name Detect-COMPSyntax -Value Find-COMPSyntax
 Set-Alias -Name COMP-DetectSyntax -Value Find-COMPSyntax
+Set-Alias -Name Detect-COMPTargetedSentiment -Value Find-COMPTargetedSentiment
+Set-Alias -Name COMP-DetectTargetedSentiment -Value Find-COMPTargetedSentiment
 Set-Alias -Name COMP-ImportModel -Value Import-COMPModel
 Set-Alias -Name List-COMPDocumentClassificationJobs -Value Get-COMPDocumentClassificationJobList
 Set-Alias -Name List-COMPDocumentClassificationJobList -Value Get-COMPDocumentClassificationJobList
@@ -19223,6 +19228,7 @@ Set-Alias -Name S3C-GetBucket -Value Get-S3CBucket
 Set-Alias -Name S3C-GetBucketLifecycleConfiguration -Value Get-S3CBucketLifecycleConfiguration
 Set-Alias -Name S3C-GetBucketPolicy -Value Get-S3CBucketPolicy
 Set-Alias -Name S3C-GetBucketTagging -Value Get-S3CBucketTagging
+Set-Alias -Name S3C-GetBucketVersioning -Value Get-S3CBucketVersioning
 Set-Alias -Name S3C-GetJobTagging -Value Get-S3CJobTagging
 Set-Alias -Name S3C-GetMultiRegionAccessPoint -Value Get-S3CMultiRegionAccessPoint
 Set-Alias -Name S3C-GetMultiRegionAccessPointPolicy -Value Get-S3CMultiRegionAccessPointPolicy
@@ -19260,6 +19266,8 @@ Set-Alias -Name Put-S3CBucketPolicy -Value Write-S3CBucketPolicy
 Set-Alias -Name S3C-PutBucketPolicy -Value Write-S3CBucketPolicy
 Set-Alias -Name Put-S3CBucketTagging -Value Write-S3CBucketTagging
 Set-Alias -Name S3C-PutBucketTagging -Value Write-S3CBucketTagging
+Set-Alias -Name Put-S3CBucketVersioning -Value Write-S3CBucketVersioning
+Set-Alias -Name S3C-PutBucketVersioning -Value Write-S3CBucketVersioning
 Set-Alias -Name Put-S3CJobTagging -Value Add-S3CJobTagging
 Set-Alias -Name S3C-PutJobTagging -Value Add-S3CJobTagging
 Set-Alias -Name Put-S3CMultiRegionAccessPointPolicy -Value Write-S3CMultiRegionAccessPointPolicy

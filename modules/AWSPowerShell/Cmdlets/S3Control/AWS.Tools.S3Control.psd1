@@ -101,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3CBucketLifecycleConfiguration', 
         'Get-S3CBucketPolicy', 
         'Get-S3CBucketTagging', 
+        'Get-S3CBucketVersioning', 
         'Get-S3CJob', 
         'Get-S3CJobList', 
         'Get-S3CJobTagging', 
@@ -140,6 +141,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-S3CBucketLifecycleConfiguration', 
         'Write-S3CBucketPolicy', 
         'Write-S3CBucketTagging', 
+        'Write-S3CBucketVersioning', 
         'Write-S3CMultiRegionAccessPointPolicy', 
         'Write-S3CStorageLensConfiguration', 
         'Write-S3CStorageLensConfigurationTagging')

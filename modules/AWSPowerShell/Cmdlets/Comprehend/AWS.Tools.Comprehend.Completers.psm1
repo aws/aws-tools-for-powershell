@@ -136,6 +136,8 @@ $COMP_Completers = {
             ($_ -eq "Find-COMPPiiEntityType/LanguageCode") -Or
             ($_ -eq "Find-COMPSentiment/LanguageCode") -Or
             ($_ -eq "Find-COMPSentimentBatch/LanguageCode") -Or
+            ($_ -eq "Find-COMPTargetedSentiment/LanguageCode") -Or
+            ($_ -eq "Find-COMPTargetedSentimentBatch/LanguageCode") -Or
             ($_ -eq "New-COMPDocumentClassifier/LanguageCode") -Or
             ($_ -eq "New-COMPEntityRecognizer/LanguageCode") -Or
             ($_ -eq "Start-COMPEntitiesDetectionJob/LanguageCode") -Or
@@ -197,7 +199,7 @@ $COMP_map = @{
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
-    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
 }
@@ -257,6 +259,7 @@ $COMP_SelectMap = @{
                "Find-COMPKeyPhrasesBatch",
                "Find-COMPSentimentBatch",
                "Find-COMPSyntaxBatch",
+               "Find-COMPTargetedSentimentBatch",
                "Invoke-COMPDocumentClassification",
                "Find-COMPPiiEntityType",
                "New-COMPDocumentClassifier",
@@ -285,6 +288,7 @@ $COMP_SelectMap = @{
                "Find-COMPPiiEntity",
                "Find-COMPSentiment",
                "Find-COMPSyntax",
+               "Find-COMPTargetedSentiment",
                "Import-COMPModel",
                "Get-COMPDocumentClassificationJobList",
                "Get-COMPDocumentClassifierList",

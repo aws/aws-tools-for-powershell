@@ -502,7 +502,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services
-        /// KMS) symmetric customer managed key to use for encrypting generated manifest objects.</para>
+        /// KMS) symmetric encryption customer managed key to use for encrypting generated manifest
+        /// objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

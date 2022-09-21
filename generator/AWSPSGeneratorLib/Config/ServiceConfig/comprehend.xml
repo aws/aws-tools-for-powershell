@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDetectTargetedSentiment" OutputProperty="*" Verb="Find" Noun="TargetedSentimentBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ClassifyDocument" OutputProperty="Classes" Verb="Invoke" Noun="DocumentClassification" ShouldProcessTarget="EndpointArn" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectSyntax" OutputProperty="SyntaxTokens" Verb="Find" Noun="Syntax" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectTargetedSentiment" OutputProperty="Entities" Verb="Find" Noun="TargetedSentiment" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

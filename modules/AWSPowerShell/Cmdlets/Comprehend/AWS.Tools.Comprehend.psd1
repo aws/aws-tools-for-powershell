@@ -99,6 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Find-COMPSentimentBatch', 
         'Find-COMPSyntax', 
         'Find-COMPSyntaxBatch', 
+        'Find-COMPTargetedSentiment', 
+        'Find-COMPTargetedSentimentBatch', 
         'Get-COMPDocumentClassificationJob', 
         'Get-COMPDocumentClassificationJobList', 
         'Get-COMPDocumentClassifier', 

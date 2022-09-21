@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Outposts.</para><note><para>This is required by Amazon S3 on Outposts buckets.</para></note>
+        /// <para>The ID of the Outposts resource.</para><note><para>This ID is required by Amazon S3 on Outposts buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

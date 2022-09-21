@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// Creates a new document classifier that you can use to categorize documents. To create
     /// a classifier, you provide a set of training documents that labeled with the categories
     /// that you want to use. After the classifier is trained you can use it to categorize
-    /// a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.
+    /// a set of labeled documents into the categories. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document
+    /// Classification</a> in the Comprehend Developer Guide.
     /// </summary>
     [Cmdlet("New", "COMPDocumentClassifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -284,9 +285,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig_TestS3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS
-        /// Region as the API endpoint that you are calling. The URI can point to a single input
-        /// file or it can provide the prefix for a collection of input files. </para>
+        /// <para>This specifies the Amazon S3 location where the test annotations for an entity recognizer
+        /// are located. The URI must be in the same AWS Region as the API endpoint that you are
+        /// calling. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

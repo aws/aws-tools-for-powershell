@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded
-        /// characters.</para>
+        /// <para>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

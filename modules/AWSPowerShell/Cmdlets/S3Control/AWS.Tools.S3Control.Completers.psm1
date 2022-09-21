@@ -94,6 +94,13 @@ $S3C_Completers = {
             break
         }
 
+        # Amazon.S3Control.BucketVersioningStatus
+        "Write-S3CBucketVersioning/VersioningConfiguration_Status"
+        {
+            $v = "Enabled","Suspended"
+            break
+        }
+
         # Amazon.S3Control.Format
         "Write-S3CStorageLensConfiguration/StorageLensConfiguration_DataExport_S3BucketDestination_Format"
         {
@@ -126,6 +133,13 @@ $S3C_Completers = {
         "New-S3CJob/Report_ReportScope"
         {
             $v = "AllTasks","FailedTasksOnly"
+            break
+        }
+
+        # Amazon.S3Control.MFADelete
+        "Write-S3CBucketVersioning/VersioningConfiguration_MFADelete"
+        {
+            $v = "Disabled","Enabled"
             break
         }
 
@@ -241,6 +255,8 @@ $S3C_map = @{
     "RequestedJobStatus"=@("Update-S3CJobStatus")
     "StorageLensConfiguration_DataExport_S3BucketDestination_Format"=@("Write-S3CStorageLensConfiguration")
     "StorageLensConfiguration_DataExport_S3BucketDestination_OutputSchemaVersion"=@("Write-S3CStorageLensConfiguration")
+    "VersioningConfiguration_MFADelete"=@("Write-S3CBucketVersioning")
+    "VersioningConfiguration_Status"=@("Write-S3CBucketVersioning")
 }
 
 _awsArgumentCompleterRegistration $S3C_Completers $S3C_map
@@ -324,6 +340,7 @@ $S3C_SelectMap = @{
                "Get-S3CBucketLifecycleConfiguration",
                "Get-S3CBucketPolicy",
                "Get-S3CBucketTagging",
+               "Get-S3CBucketVersioning",
                "Get-S3CJobTagging",
                "Get-S3CMultiRegionAccessPoint",
                "Get-S3CMultiRegionAccessPointPolicy",
@@ -343,6 +360,7 @@ $S3C_SelectMap = @{
                "Write-S3CBucketLifecycleConfiguration",
                "Write-S3CBucketPolicy",
                "Write-S3CBucketTagging",
+               "Write-S3CBucketVersioning",
                "Add-S3CJobTagging",
                "Write-S3CMultiRegionAccessPointPolicy",
                "Add-S3CPublicAccessBlock",
