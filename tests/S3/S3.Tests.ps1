@@ -156,6 +156,12 @@ Describe -Tag "Smoke" "S3" {
             Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt"
             (Get-Content "temp\cross-region-copy.txt") | Should -Be $content
         }
+        It "Can copy cross-region with SourceRegion Parameter"{
+            Copy-S3Object -BucketName $eastBucketName -Key key -SourceRegion us-east-1 -DestinationBucket $westBucketName -DestinationKey key -Region us-west-1
+
+            Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt"
+            (Get-Content "temp\cross-region-copy.txt") | Should -Be $content
+        }
 
         It "Can copy with /-prefixed keys" {
             $prefixedKey = "/key"

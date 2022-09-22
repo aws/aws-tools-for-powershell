@@ -29,6 +29,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using Amazon.Runtime;
+using AWSRegion = Amazon.PowerShell.Common.AWSRegion;
+using System.Text;
+using Amazon.Runtime.CredentialManagement;
+using Amazon.Util;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -144,6 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         public System.String ContentType { get; set; }
+        #endregion
+        /// <summary>
+        /// Specifies the Region that the source bucket resides in; If not specified an attempt is made to infer it using the Region
+        /// set in your credential profile. The -Region parameter specifies the Destination Region. 
+        /// </summary>
+        #region Parameter SourceRegion
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
+        public Object SourceRegion { get; set; }
+
         #endregion
 
         #region Parameter CannedACLName
@@ -474,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 SourceVersionId = this.VersionId,
                 DestinationBucket = this.DestinationBucket,
                 DestinationKey = this.DestinationKey,
+                SourceRegion = this.SourceRegion,
                 ContentType = this.ContentType,
                 ETagToMatch = this.ETagToMatch,
                 ETagToNotMatch = this.ETagToNotMatch,
@@ -586,7 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return CopyS3ObjectsToLocalFolder(context);
 
             // S3 requires multi-part operation for objects > 5GB
-            var objectSize = GetObjectData(Client, cmdletContext.SourceBucket, cmdletContext.SourceKey).Size;
+            var objectSize = GetSourceObjectData(cmdletContext.SourceBucket, cmdletContext.SourceKey).Size;
             return objectSize > FiveGigabytes ? MultipartCopyS3ObjectToS3(context, objectSize) : CopyS3ObjectToS3(context);
         }
 
@@ -596,11 +610,33 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         #endregion
+        private S3Object GetSourceObjectData(string bucketName, string objectKey)
+        {
+
+            var copySourceRegionArgs = new StandaloneRegionArguments
+            {
+                Region = this.SourceRegion,
+                ProfileLocation = this.ProfileLocation
+            };
+            copySourceRegionArgs.TryGetRegion(true, out var region, out var regionSource, SessionState);
+            var sourceRegionClient = CreateClient(_CurrentCredentials, region);
+
+            var request = new ListObjectsRequest
+            {
+                BucketName = bucketName,
+                Prefix = objectKey.TrimStart('/')
+            };
+
+            var response = CallAWSServiceOperation(sourceRegionClient, request);
+            return response.S3Objects[0];
+
+        }
 
         private S3Object GetObjectData(IAmazonS3 s3Client, string bucketName, string objectKey)
         {
             // The underlying S3 api does not like listing with prefixes starting with / so strip
             // (eg Copy-S3Object -BucketName test-bucket -Key /data/sample.txt -DestinationKey /data/sample-copy.txt)
+
             var request = new ListObjectsRequest
             {
                 BucketName = bucketName,
@@ -626,7 +662,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             request.DestinationBucket = cmdletContext.DestinationBucket;
             request.DestinationKey = cmdletContext.DestinationKey;
-
             if (cmdletContext.ContentType != null)
                 request.ContentType = cmdletContext.ContentType;
             if (cmdletContext.ETagToMatch != null)
@@ -692,7 +727,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 try
                 {
                     var response = CallAWSServiceOperation(client, request);
-                    var objectData = GetObjectData(Client, 
+                    var objectData = GetObjectData(Client,
                                                    request.DestinationBucket, 
                                                    string.IsNullOrEmpty(cmdletContext.DestinationKey) 
                                                     ? cmdletContext.SourceKey : cmdletContext.DestinationKey);
@@ -1060,6 +1095,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String SourceKey { get; set; }
             public String DestinationBucket { get; set; }
             public String DestinationKey { get; set; }
+            public Object SourceRegion { get; set; }
             public String LocalFile { get; set; }
             public String LocalFolder { get; set; }
             public String OriginalKeyPrefix { get; set; }
@@ -1098,7 +1134,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public ChecksumMode ChecksumMode { get; set; }
         }
-
+       
         internal class MultiPartObjectCopyController
         {
             private static readonly long MinPartSize = 5 * (long)Math.Pow(2, 20);
