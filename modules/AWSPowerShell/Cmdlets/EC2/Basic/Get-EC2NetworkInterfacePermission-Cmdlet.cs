@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkInterfacePermissionId
         /// <summary>
         /// <para>
-        /// <para>One or more network interface permission IDs.</para>
+        /// <para>The network interface permission IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

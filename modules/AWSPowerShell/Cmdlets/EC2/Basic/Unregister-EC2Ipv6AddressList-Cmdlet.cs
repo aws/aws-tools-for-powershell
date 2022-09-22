@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6Prefix
         /// <summary>
         /// <para>
-        /// <para>One or more IPv6 prefixes to unassign from the network interface.</para>
+        /// <para>The IPv6 prefixes to unassign from the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

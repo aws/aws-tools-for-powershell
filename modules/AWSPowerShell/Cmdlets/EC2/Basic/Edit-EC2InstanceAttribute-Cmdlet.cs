@@ -56,7 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute.</para>
+        /// <para>The name of the attribute to modify.</para><important><para>You can modify the following attributes only: <code>disableApiTermination</code> |
+        /// <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> | <code>instanceInitiatedShutdownBehavior</code>
+        /// | <code>blockDeviceMapping</code> | <code>userData</code> | <code>sourceDestCheck</code>
+        /// | <code>groupSet</code> | <code>ebsOptimized</code> | <code>sriovNetSupport</code>
+        /// | <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code>
+        /// | <code>enclaveOptions</code></para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

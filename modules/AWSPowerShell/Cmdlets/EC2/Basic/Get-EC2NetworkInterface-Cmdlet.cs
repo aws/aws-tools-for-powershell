@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkInterfaceId
         /// <summary>
         /// <para>
-        /// <para>One or more network interface IDs.</para><para>Default: Describes all your network interfaces.</para>
+        /// <para>The network interface IDs.</para><para>Default: Describes all your network interfaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -122,10 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IncludeDeprecated
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, all deprecated AMIs are included in the response. If <code>false</code>,
-        /// no deprecated AMIs are included in the response. If no value is specified, the default
-        /// value is <code>false</code>.</para><note><para>If you are the AMI owner, all deprecated AMIs appear in the response regardless of
-        /// the value (<code>true</code> or <code>false</code>) that you set for this parameter.</para></note>
+        /// <para>Specifies whether to include deprecated AMIs.</para><para>Default: No deprecated AMIs are included in the response.</para><note><para>If you are the AMI owner, all deprecated AMIs appear in the response regardless of
+        /// what you specify for this parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

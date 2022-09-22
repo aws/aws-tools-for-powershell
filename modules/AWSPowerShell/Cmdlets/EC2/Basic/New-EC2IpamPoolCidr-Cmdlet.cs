@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DisallowedCidr
         /// <summary>
         /// <para>
-        /// <para>Exclude a particular CIDR range from being returned by the pool.</para>
+        /// <para>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs
+        /// are only allowed if using netmask length for allocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

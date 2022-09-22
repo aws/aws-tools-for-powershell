@@ -121,9 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
-        /// <para>One or more IP addresses to be assigned as a secondary private IP address to the network
-        /// interface. You can't specify this parameter when also specifying a number of secondary
-        /// IP addresses.</para><para>If you don't specify an IP address, Amazon EC2 automatically selects an IP address
+        /// <para>The IP addresses to be assigned as a secondary private IP address to the network interface.
+        /// You can't specify this parameter when also specifying a number of secondary IP addresses.</para><para>If you don't specify an IP address, Amazon EC2 automatically selects an IP address
         /// within the subnet range.</para>
         /// </para>
         /// </summary>

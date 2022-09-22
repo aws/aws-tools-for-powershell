@@ -30,11 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates crash-consistent snapshots of multiple EBS volumes and stores the data in
     /// S3. Volumes are chosen by specifying an instance. Any attached volumes will produce
-    /// one snapshot each that is crash-consistent across the instance. Boot volumes can be
-    /// excluded by changing the parameters. 
+    /// one snapshot each that is crash-consistent across the instance.
     /// 
     ///  
     /// <para>
+    /// You can include all of the volumes currently attached to the instance, or you can
+    /// exclude the root volume or specific data (non-root) volumes from the multi-volume
+    /// snapshot set.
+    /// </para><para>
     /// You can create multi-volume snapshots of instances in a Region and instances on an
     /// Outpost. If you create snapshots from an instance in a Region, the snapshots must
     /// be stored in the same Region as the instance. If you create snapshots from an instance
@@ -86,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceSpecification_ExcludeDataVolumeId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IDs of the data (non-root) volumes to exclude from the multi-volume snapshot set.
+        /// If you specify the ID of the root volume, the request fails. To exclude the root volume,
+        /// use <b>ExcludeBootVolume</b>.</para><para>You can specify up to 40 volume IDs per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

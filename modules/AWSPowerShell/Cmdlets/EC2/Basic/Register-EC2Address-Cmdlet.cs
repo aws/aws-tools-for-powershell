@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i>
     /// section of <a href="http://aws.amazon.com/ec2/pricing/">Amazon EC2 Pricing</a>.
     /// </para></important><note><para>
-    /// We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from
-    /// EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
+    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
     /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para></note>
     /// </summary>

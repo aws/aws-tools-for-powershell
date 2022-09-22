@@ -28,10 +28,9 @@ using Amazon.IdentityStore.Model;
 namespace Amazon.PowerShell.Cmdlets.IDS
 {
     /// <summary>
-    /// Lists the attribute name and value of the user that you specified in the search. We
-    /// only support <code>UserName</code> as a valid filter attribute path currently, and
-    /// filter is required. This API returns minimum attributes, including <code>UserId</code>
-    /// and <code>UserName</code> in the response.
+    /// Lists all users in the identity store. Returns a paginated list of complete <code>User</code>
+    /// objects. Filtering for a <code>User</code> by the <code>UserName</code> attribute
+    /// is deprecated. Instead, use the <code>GetUserId</code> API action.
     /// </summary>
     [Cmdlet("Find", "IDSUserList")]
     [OutputType("Amazon.IdentityStore.Model.User")]

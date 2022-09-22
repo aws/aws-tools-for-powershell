@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVirtualMachine" OutputProperty="VirtualMachine" Verb="Get" Noun="VirtualMachine" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportHypervisorConfiguration" OutputProperty="HypervisorArn" Verb="Import" Noun="HypervisorConfiguration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="Host" NewName="HypervisorHost" />

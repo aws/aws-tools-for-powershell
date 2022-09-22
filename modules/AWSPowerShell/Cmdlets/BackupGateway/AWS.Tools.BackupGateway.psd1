@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BUGWGatewayList', 
         'Get-BUGWHypervisorList', 
         'Get-BUGWResourceTag', 
+        'Get-BUGWVirtualMachine', 
         'Get-BUGWVirtualMachineList', 
         'Import-BUGWHypervisorConfiguration', 
         'New-BUGWGateway', 

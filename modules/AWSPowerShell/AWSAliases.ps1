@@ -1926,6 +1926,7 @@ Set-Alias -Name BUGW-DeleteHypervisor -Value Remove-BUGWHypervisor
 Set-Alias -Name Disassociate-BUGWGatewayFromServer -Value Remove-BUGWGatewayFromServer
 Set-Alias -Name BUGW-DisassociateGatewayFromServer -Value Remove-BUGWGatewayFromServer
 Set-Alias -Name BUGW-GetGateway -Value Get-BUGWGateway
+Set-Alias -Name BUGW-GetVirtualMachine -Value Get-BUGWVirtualMachine
 Set-Alias -Name BUGW-ImportHypervisorConfiguration -Value Import-BUGWHypervisorConfiguration
 Set-Alias -Name List-BUGWGateways -Value Get-BUGWGatewayList
 Set-Alias -Name List-BUGWGatewayList -Value Get-BUGWGatewayList

@@ -22,39 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.BackupGateway;
+using Amazon.BackupGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.BUGW
 {
     /// <summary>
-    /// Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform.
-    /// The Elastic IP address must be allocated to your account for more than 24 hours, and
-    /// it must not be associated with an instance. After the Elastic IP address is moved,
-    /// it is no longer available for use in the EC2-Classic platform, unless you move it
-    /// back using the <a>RestoreAddressToClassic</a> request. You cannot move an Elastic
-    /// IP address that was originally allocated for use in the EC2-VPC platform to the EC2-Classic
-    /// platform.
-    /// 
-    ///  <note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para></note>
+    /// By providing the ARN (Amazon Resource Name), this API returns the virtual machine.
     /// </summary>
-    [Cmdlet("Move", "EC2AddressToVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) MoveAddressToVpc API operation.", Operation = new[] {"MoveAddressToVpc"}, SelectReturnType = typeof(Amazon.EC2.Model.MoveAddressToVpcResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.MoveAddressToVpcResponse",
-        "This cmdlet returns an Amazon.EC2.Model.MoveAddressToVpcResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BUGWVirtualMachine")]
+    [OutputType("Amazon.BackupGateway.Model.VirtualMachineDetails")]
+    [AWSCmdlet("Calls the AWS Backup Gateway GetVirtualMachine API operation.", Operation = new[] {"GetVirtualMachine"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.GetVirtualMachineResponse))]
+    [AWSCmdletOutput("Amazon.BackupGateway.Model.VirtualMachineDetails or Amazon.BackupGateway.Model.GetVirtualMachineResponse",
+        "This cmdlet returns an Amazon.BackupGateway.Model.VirtualMachineDetails object.",
+        "The service call response (type Amazon.BackupGateway.Model.GetVirtualMachineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class MoveEC2AddressToVpcCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetBUGWVirtualMachineCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter PublicIp
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Elastic IP address.</para>
+        /// <para>The Amazon Resource Name (ARN) of the virtual machine.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,49 +54,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PublicIp { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.MoveAddressToVpcResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.MoveAddressToVpcResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VirtualMachine'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BackupGateway.Model.GetVirtualMachineResponse).
+        /// Specifying the name of a property of type Amazon.BackupGateway.Model.GetVirtualMachineResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "VirtualMachine";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PublicIp parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PublicIp' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PublicIp' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PublicIp), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Move-EC2AddressToVpc (MoveAddressToVpc)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -117,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.MoveAddressToVpcResponse, MoveEC2AddressToVpcCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BackupGateway.Model.GetVirtualMachineResponse, GetBUGWVirtualMachineCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,14 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PublicIp;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PublicIp = this.PublicIp;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.PublicIp == null && ParameterWasBound(nameof(this.PublicIp)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter PublicIp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.MoveAddressToVpcRequest();
+            var request = new Amazon.BackupGateway.Model.GetVirtualMachineRequest();
             
-            if (cmdletContext.PublicIp != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.PublicIp = cmdletContext.PublicIp;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -189,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.MoveAddressToVpcResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.MoveAddressToVpcRequest request)
+        private Amazon.BackupGateway.Model.GetVirtualMachineResponse CallAWSServiceOperation(IAmazonBackupGateway client, Amazon.BackupGateway.Model.GetVirtualMachineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "MoveAddressToVpc");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup Gateway", "GetVirtualMachine");
             try
             {
                 #if DESKTOP
-                return client.MoveAddressToVpc(request);
+                return client.GetVirtualMachine(request);
                 #elif CORECLR
-                return client.MoveAddressToVpcAsync(request).GetAwaiter().GetResult();
+                return client.GetVirtualMachineAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -217,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PublicIp { get; set; }
-            public System.Func<Amazon.EC2.Model.MoveAddressToVpcResponse, MoveEC2AddressToVpcCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.BackupGateway.Model.GetVirtualMachineResponse, GetBUGWVirtualMachineCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VirtualMachine;
         }
         
     }

@@ -1,4 +1,13 @@
-﻿### 4.1.173 (2022-09-21 20:32Z)
+﻿### 4.1.174 (2022-09-22 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.363.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Backup Gateway
+    * Added cmdlet Get-BUGWVirtualMachine leveraging the GetVirtualMachine service API.
+    * Modified cmdlet Get-BUGWVirtualMachineList: added parameter HypervisorArn.
+  * Amazon Device Farm
+    * Modified cmdlet New-DFProject: added parameters VpcConfig_SecurityGroupId, VpcConfig_SubnetId and VpcConfig_VpcId.
+    * Modified cmdlet Update-DFProject: added parameters VpcConfig_SecurityGroupId, VpcConfig_SubnetId and VpcConfig_VpcId.
+
+### 4.1.173 (2022-09-21 20:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.362.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Comprehend
     * Added cmdlet Find-COMPTargetedSentiment leveraging the DetectTargetedSentiment service API.

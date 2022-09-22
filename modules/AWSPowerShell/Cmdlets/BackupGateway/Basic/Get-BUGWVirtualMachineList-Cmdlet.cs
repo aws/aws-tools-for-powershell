@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class GetBUGWVirtualMachineListCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter HypervisorArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HypervisorArn { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -89,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
                 context.Select = CreateSelectDelegate<Amazon.BackupGateway.Model.ListVirtualMachinesResponse, GetBUGWVirtualMachineListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.HypervisorArn = this.HypervisorArn;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -107,6 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
             // create request
             var request = new Amazon.BackupGateway.Model.ListVirtualMachinesRequest();
             
+            if (cmdletContext.HypervisorArn != null)
+            {
+                request.HypervisorArn = cmdletContext.HypervisorArn;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -176,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String HypervisorArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BackupGateway.Model.ListVirtualMachinesResponse, GetBUGWVirtualMachineListCmdlet, object> Select { get; set; } =

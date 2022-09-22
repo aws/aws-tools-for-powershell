@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>When set to <code>true</code>, for private devices, Device Farm does not sign your
-        /// app again. For public devices, Device Farm always signs your apps again.</para><para>For more information about how Device Farm re-signs your apps, see <a href="https://aws.amazon.com/device-farm/faq/">Do
+        /// app again. For public devices, Device Farm always signs your apps again.</para><para>For more information about how Device Farm re-signs your apps, see <a href="http://aws.amazon.com/device-farm/faqs/">Do
         /// you modify my app?</a> in the <i>AWS Device Farm FAQs</i>.</para>
         /// </para>
         /// </summary>

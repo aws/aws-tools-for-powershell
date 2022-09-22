@@ -31,8 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
     /// Image (AMI).
     /// 
-    ///  
-    /// <para>
+    ///  <important><para>
+    /// Amazon Web Services VM Import/Export strongly recommends specifying a value for either
+    /// the <code>--license-type</code> or <code>--usage-operation</code> parameter when you
+    /// create a new VM Import task. This ensures your operating system is licensed appropriately
+    /// and your billing is optimized.
+    /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
     /// a VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
     /// </para>
@@ -157,10 +161,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LicenseType
         /// <summary>
         /// <para>
-        /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para>By default, we detect the source-system operating system (OS) and apply the appropriate
-        /// license. Specify <code>AWS</code> to replace the source-system license with an Amazon
-        /// Web Services license, if appropriate. Specify <code>BYOL</code> to retain the source-system
-        /// license, if appropriate.</para><para>To use <code>BYOL</code>, you must have existing licenses with rights to use these
+        /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para>Specify <code>AWS</code> to replace the source-system license with an Amazon Web Services
+        /// license or <code>BYOL</code> to retain the source-system license. Leaving this parameter
+        /// undefined is the same as choosing <code>AWS</code> when importing a Windows Server
+        /// operating system, and the same as choosing <code>BYOL</code> when importing a Windows
+        /// client operating system (such as Windows 10) or a Linux operating system.</para><para>To use <code>BYOL</code>, you must have existing licenses with rights to use these
         /// licenses in a third party cloud, such as Amazon Web Services. For more information,
         /// see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
         /// in the VM Import/Export User Guide.</para>

@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// When the IAM role is associated with the ACM certificate, the certificate, certificate
-    /// chain, and encrypted private key are placed in an Amazon S3 bucket that only the associated
-    /// IAM role can access. The private key of the certificate is encrypted with an Amazon
-    /// Web Services managed key that has an attached attestation-based key policy.
+    /// chain, and encrypted private key are placed in an Amazon S3 location that only the
+    /// associated IAM role can access. The private key of the certificate is encrypted with
+    /// an Amazon Web Services managed key that has an attached attestation-based key policy.
     /// </para><para>
     /// To enable the IAM role to access the Amazon S3 object, you must grant it permission
     /// to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command.

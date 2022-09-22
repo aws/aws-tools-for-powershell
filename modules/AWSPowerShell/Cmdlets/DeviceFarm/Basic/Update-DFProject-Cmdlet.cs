@@ -78,6 +78,38 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>An array of one or more security groups IDs in your Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>An array of one or more subnet IDs in your Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SubnetIds")]
+        public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcConfig_VpcId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Project'.
@@ -148,6 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.DF
             #endif
             context.DefaultJobTimeoutMinute = this.DefaultJobTimeoutMinute;
             context.Name = this.Name;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_SubnetId != null)
+            {
+                context.VpcConfig_SubnetId = new List<System.String>(this.VpcConfig_SubnetId);
+            }
+            context.VpcConfig_VpcId = this.VpcConfig_VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +216,45 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate VpcConfig
+            var requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.DeviceFarm.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
+            if (cmdletContext.VpcConfig_SubnetId != null)
+            {
+                requestVpcConfig_vpcConfig_SubnetId = cmdletContext.VpcConfig_SubnetId;
+            }
+            if (requestVpcConfig_vpcConfig_SubnetId != null)
+            {
+                request.VpcConfig.SubnetIds = requestVpcConfig_vpcConfig_SubnetId;
+                requestVpcConfigIsNull = false;
+            }
+            System.String requestVpcConfig_vpcConfig_VpcId = null;
+            if (cmdletContext.VpcConfig_VpcId != null)
+            {
+                requestVpcConfig_vpcConfig_VpcId = cmdletContext.VpcConfig_VpcId;
+            }
+            if (requestVpcConfig_vpcConfig_VpcId != null)
+            {
+                request.VpcConfig.VpcId = requestVpcConfig_vpcConfig_VpcId;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
             }
             
             CmdletOutput output;
@@ -240,6 +320,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.String Arn { get; set; }
             public System.Int32? DefaultJobTimeoutMinute { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_SubnetId { get; set; }
+            public System.String VpcConfig_VpcId { get; set; }
             public System.Func<Amazon.DeviceFarm.Model.UpdateProjectResponse, UpdateDFProjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Project;
         }

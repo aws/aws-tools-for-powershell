@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6Address
         /// <summary>
         /// <para>
-        /// <para>One or more specific IPv6 addresses to be assigned to the network interface. You can't
-        /// use this option if you're specifying a number of IPv6 addresses.</para>
+        /// <para>The IPv6 addresses to be assigned to the network interface. You can't use this option
+        /// if you're specifying a number of IPv6 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

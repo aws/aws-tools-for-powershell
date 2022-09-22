@@ -32,8 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
+    /// The number of IP addresses you can assign to a network interface varies by instance
+    /// type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
+    /// Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User
+    /// Guide</i>.
+    /// </para><para>
     /// For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic
-    /// Network Interfaces</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of IPv4 prefixes that Amazon Web Services automatically assigns to the
-        /// network interface. You cannot use this option if you use the <code>Ipv4 Prefixes</code>
-        /// option.</para>
+        /// network interface.</para><para>You can't specify a count of IPv4 prefixes if you've specified one of the following:
+        /// specific IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4
+        /// addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv4Prefix
         /// <summary>
         /// <para>
-        /// <para>One or more IPv4 prefixes assigned to the network interface. You cannot use this option
-        /// if you use the <code>Ipv4PrefixCount</code> option.</para>
+        /// <para>The IPv4 prefixes assigned to the network interface.</para><para>You can't specify IPv4 prefixes if you've specified one of the following: a count
+        /// of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically
-        /// selects the IPv6 addresses from the subnet range. You can't use this option if specifying
-        /// specific IPv6 addresses. If your subnet has the <code>AssignIpv6AddressOnCreation</code>
-        /// attribute set to <code>true</code>, you can specify <code>0</code> to override this
-        /// setting.</para>
+        /// selects the IPv6 addresses from the subnet range.</para><para>You can't specify a count of IPv6 addresses using this parameter if you've specified
+        /// one of the following: specific IPv6 addresses, specific IPv6 prefixes, or a count
+        /// of IPv6 prefixes.</para><para>If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set, you
+        /// can override that setting by specifying 0 as the IPv6 address count.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6Address
         /// <summary>
         /// <para>
-        /// <para>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
-        /// You can't use this option if you're specifying a number of IPv6 addresses.</para>
+        /// <para>The IPv6 addresses from the IPv6 CIDR block range of your subnet.</para><para>You can't specify IPv6 addresses using this parameter if you've specified one of the
+        /// following: a count of IPv6 addresses, specific IPv6 prefixes, or a count of IPv6 prefixes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of IPv6 prefixes that Amazon Web Services automatically assigns to the
-        /// network interface. You cannot use this option if you use the <code>Ipv6Prefixes</code>
-        /// option.</para>
+        /// network interface.</para><para>You can't specify a count of IPv6 prefixes if you've specified one of the following:
+        /// specific IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6Prefix
         /// <summary>
         /// <para>
-        /// <para>One or more IPv6 prefixes assigned to the network interface. You cannot use this option
-        /// if you use the <code>Ipv6PrefixCount</code> option.</para>
+        /// <para>The IPv6 prefixes assigned to the network interface.</para><para>You can't specify IPv6 prefixes if you've specified one of the following: a count
+        /// of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateIpAddressSet
         /// <summary>
         /// <para>
-        /// <para>One or more private IPv4 addresses.</para>
+        /// <para>The private IPv4 addresses.</para><para>You can't specify private IPv4 addresses if you've specified one of the following:
+        /// a count of private IPv4 addresses, specific IPv4 prefixes, or a count of IPv4 prefixes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,10 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of secondary private IPv4 addresses to assign to a network interface. When
         /// you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
         /// within the subnet's IPv4 CIDR range. You can't specify this option and specify more
-        /// than one private IP address using <code>privateIpAddresses</code>.</para><para>The number of IP addresses you can assign to a network interface varies by instance
-        /// type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
-        /// Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.</para>
+        /// than one private IP address using <code>privateIpAddresses</code>.</para><para>You can't specify a count of private IPv4 addresses if you've specified one of the
+        /// following: specific private IPv4 addresses, specific IPv4 prefixes, or a count of
+        /// IPv4 prefixes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
