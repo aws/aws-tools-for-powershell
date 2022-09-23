@@ -181,6 +181,27 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.HttpEndpoint
+        "Update-LSInstanceMetadataOption/HttpEndpoint"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.Lightsail.HttpProtocolIpv6
+        "Update-LSInstanceMetadataOption/HttpProtocolIpv6"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.Lightsail.HttpTokens
+        "Update-LSInstanceMetadataOption/HttpTokens"
+        {
+            $v = "optional","required"
+            break
+        }
+
         # Amazon.Lightsail.InstanceAccessProtocol
         "Get-LSInstanceAccessDetail/Protocol"
         {
@@ -191,7 +212,7 @@ $LS_Completers = {
         # Amazon.Lightsail.InstanceMetricName
         "Get-LSInstanceMetricData/MetricName"
         {
-            $v = "BurstCapacityPercentage","BurstCapacityTime","CPUUtilization","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
+            $v = "BurstCapacityPercentage","BurstCapacityTime","CPUUtilization","MetadataNoToken","NetworkIn","NetworkOut","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System"
             break
         }
 
@@ -326,6 +347,9 @@ $LS_map = @{
     "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
+    "HttpEndpoint"=@("Update-LSInstanceMetadataOption")
+    "HttpProtocolIpv6"=@("Update-LSInstanceMetadataOption")
+    "HttpTokens"=@("Update-LSInstanceMetadataOption")
     "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
     "MetricName"=@("Add-LSAlarm","Get-LSBucketMetricData","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
@@ -542,6 +566,7 @@ $LS_SelectMap = @{
                "Update-LSDistribution",
                "Update-LSDistributionBundle",
                "Update-LSDomainEntry",
+               "Update-LSInstanceMetadataOption",
                "Update-LSLoadBalancerAttribute",
                "Update-LSRelationalDatabase",
                "Update-LSRelationalDatabaseParameter")

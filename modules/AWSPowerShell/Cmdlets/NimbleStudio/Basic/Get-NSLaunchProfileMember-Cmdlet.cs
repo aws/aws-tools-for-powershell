@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The principal ID. This currently supports a Amazon Web Services SSO UserId. </para>
+        /// <para>The principal ID. This currently supports a IAM Identity Center UserId. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

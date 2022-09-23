@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter StudioId
         /// <summary>
         /// <para>
-        /// <para>A collection of EULA IDs.</para>
+        /// <para>The studio ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

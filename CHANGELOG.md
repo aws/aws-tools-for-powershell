@@ -1,4 +1,14 @@
-﻿### 4.1.174 (2022-09-22 20:31Z)
+﻿### 4.1.175 (2022-09-23 20:16Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.364.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Intent: added parameter PromptSpecification_PromptAttemptsSpecification.
+    * Modified cmdlet New-LMBV2Slot: added parameter PromptSpecification_PromptAttemptsSpecification.
+    * Modified cmdlet Update-LMBV2Intent: added parameter PromptSpecification_PromptAttemptsSpecification.
+    * Modified cmdlet Update-LMBV2Slot: added parameter PromptSpecification_PromptAttemptsSpecification.
+  * Amazon Lightsail
+    * Added cmdlet Update-LSInstanceMetadataOption leveraging the UpdateInstanceMetadataOptions service API.
+
+### 4.1.174 (2022-09-22 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.363.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Backup Gateway
     * Added cmdlet Get-BUGWVirtualMachine leveraging the GetVirtualMachine service API.

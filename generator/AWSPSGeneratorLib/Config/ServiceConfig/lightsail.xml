@@ -629,6 +629,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInstanceMetadataOptions" OutputProperty="Operation" Verb="Update" Noun="InstanceMetadataOption" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateLoadBalancerAttribute" OutputProperty="Operations" Verb="Update" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

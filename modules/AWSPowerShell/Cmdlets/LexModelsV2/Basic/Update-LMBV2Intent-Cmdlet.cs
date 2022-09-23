@@ -1659,6 +1659,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String ParentIntentSignature { get; set; }
         #endregion
         
+        #region Parameter PromptSpecification_PromptAttemptsSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the advanced settings on each attempt of the prompt.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IntentConfirmationSetting_PromptSpecification_PromptAttemptsSpecification")]
+        public System.Collections.Hashtable PromptSpecification_PromptAttemptsSpecification { get; set; }
+        #endregion
+        
         #region Parameter KendraConfiguration_QueryFilterString
         /// <summary>
         /// <para>
@@ -4115,6 +4126,14 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.PromptSpecification_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.PromptSpecification_MessageGroup);
             }
             context.PromptSpecification_MessageSelectionStrategy = this.PromptSpecification_MessageSelectionStrategy;
+            if (this.PromptSpecification_PromptAttemptsSpecification != null)
+            {
+                context.PromptSpecification_PromptAttemptsSpecification = new Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PromptSpecification_PromptAttemptsSpecification.Keys)
+                {
+                    context.PromptSpecification_PromptAttemptsSpecification.Add((String)hashKey, (PromptAttemptSpecification)(this.PromptSpecification_PromptAttemptsSpecification[hashKey]));
+                }
+            }
             context.IntentId = this.IntentId;
             #if MODULAR
             if (this.IntentId == null && ParameterWasBound(nameof(this.IntentId)))
@@ -9234,6 +9253,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification.MessageSelectionStrategy = requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy;
                 requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecificationIsNull = false;
             }
+            Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification> requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification = null;
+            if (cmdletContext.PromptSpecification_PromptAttemptsSpecification != null)
+            {
+                requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification = cmdletContext.PromptSpecification_PromptAttemptsSpecification;
+            }
+            if (requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification != null)
+            {
+                requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification.PromptAttemptsSpecification = requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification;
+                requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecificationIsNull = false;
+            }
              // determine if requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecification should be set to null
             if (requestIntentConfirmationSetting_intentConfirmationSetting_PromptSpecificationIsNull)
             {
@@ -9658,6 +9687,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Int32? PromptSpecification_MaxRetry { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
             public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
+            public Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification> PromptSpecification_PromptAttemptsSpecification { get; set; }
             public System.String IntentId { get; set; }
             public System.String IntentName { get; set; }
             public System.String KendraConfiguration_KendraIndex { get; set; }

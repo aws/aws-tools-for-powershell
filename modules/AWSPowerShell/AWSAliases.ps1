@@ -13818,6 +13818,8 @@ Set-Alias -Name LS-UpdateContainerService -Value Update-LSContainerService
 Set-Alias -Name LS-UpdateDistribution -Value Update-LSDistribution
 Set-Alias -Name LS-UpdateDistributionBundle -Value Update-LSDistributionBundle
 Set-Alias -Name LS-UpdateDomainEntry -Value Update-LSDomainEntry
+Set-Alias -Name Update-LSInstanceMetadataOptions -Value Update-LSInstanceMetadataOption
+Set-Alias -Name LS-UpdateInstanceMetadataOptions -Value Update-LSInstanceMetadataOption
 Set-Alias -Name LS-UpdateLoadBalancerAttribute -Value Update-LSLoadBalancerAttribute
 Set-Alias -Name LS-UpdateRelationalDatabase -Value Update-LSRelationalDatabase
 Set-Alias -Name Update-LSRelationalDatabaseParameters -Value Update-LSRelationalDatabaseParameter

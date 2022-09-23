@@ -806,6 +806,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public Amazon.LexModelsV2.ObfuscationSettingType ObfuscationSetting_ObfuscationSettingType { get; set; }
         #endregion
         
+        #region Parameter PromptSpecification_PromptAttemptsSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the advanced settings on each attempt of the prompt.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ValueElicitationSetting_PromptSpecification_PromptAttemptsSpecification")]
+        public System.Collections.Hashtable PromptSpecification_PromptAttemptsSpecification { get; set; }
+        #endregion
+        
         #region Parameter ValueElicitationSetting_SampleUtterance
         /// <summary>
         /// <para>
@@ -1550,6 +1561,14 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.PromptSpecification_MessageGroup = new List<Amazon.LexModelsV2.Model.MessageGroup>(this.PromptSpecification_MessageGroup);
             }
             context.PromptSpecification_MessageSelectionStrategy = this.PromptSpecification_MessageSelectionStrategy;
+            if (this.PromptSpecification_PromptAttemptsSpecification != null)
+            {
+                context.PromptSpecification_PromptAttemptsSpecification = new Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PromptSpecification_PromptAttemptsSpecification.Keys)
+                {
+                    context.PromptSpecification_PromptAttemptsSpecification.Add((String)hashKey, (PromptAttemptSpecification)(this.PromptSpecification_PromptAttemptsSpecification[hashKey]));
+                }
+            }
             if (this.ValueElicitationSetting_SampleUtterance != null)
             {
                 context.ValueElicitationSetting_SampleUtterance = new List<Amazon.LexModelsV2.Model.SampleUtterance>(this.ValueElicitationSetting_SampleUtterance);
@@ -2019,61 +2038,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 request.ValueElicitationSetting.DefaultValueSpecification = requestValueElicitationSetting_valueElicitationSetting_DefaultValueSpecification;
                 requestValueElicitationSettingIsNull = false;
             }
-            Amazon.LexModelsV2.Model.PromptSpecification requestValueElicitationSetting_valueElicitationSetting_PromptSpecification = null;
-            
-             // populate PromptSpecification
-            var requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = true;
-            requestValueElicitationSetting_valueElicitationSetting_PromptSpecification = new Amazon.LexModelsV2.Model.PromptSpecification();
-            System.Boolean? requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt = null;
-            if (cmdletContext.PromptSpecification_AllowInterrupt != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt = cmdletContext.PromptSpecification_AllowInterrupt.Value;
-            }
-            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.AllowInterrupt = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt.Value;
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
-            }
-            System.Int32? requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry = null;
-            if (cmdletContext.PromptSpecification_MaxRetry != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry = cmdletContext.PromptSpecification_MaxRetry.Value;
-            }
-            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MaxRetries = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry.Value;
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
-            }
-            List<Amazon.LexModelsV2.Model.MessageGroup> requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup = null;
-            if (cmdletContext.PromptSpecification_MessageGroup != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup = cmdletContext.PromptSpecification_MessageGroup;
-            }
-            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MessageGroups = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup;
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
-            }
-            Amazon.LexModelsV2.MessageSelectionStrategy requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = null;
-            if (cmdletContext.PromptSpecification_MessageSelectionStrategy != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = cmdletContext.PromptSpecification_MessageSelectionStrategy;
-            }
-            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy != null)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MessageSelectionStrategy = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy;
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
-            }
-             // determine if requestValueElicitationSetting_valueElicitationSetting_PromptSpecification should be set to null
-            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull)
-            {
-                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification = null;
-            }
-            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification != null)
-            {
-                request.ValueElicitationSetting.PromptSpecification = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification;
-                requestValueElicitationSettingIsNull = false;
-            }
             Amazon.LexModelsV2.Model.WaitAndContinueSpecification requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification = null;
             
              // populate WaitAndContinueSpecification
@@ -2222,6 +2186,71 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification != null)
             {
                 request.ValueElicitationSetting.WaitAndContinueSpecification = requestValueElicitationSetting_valueElicitationSetting_WaitAndContinueSpecification;
+                requestValueElicitationSettingIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.PromptSpecification requestValueElicitationSetting_valueElicitationSetting_PromptSpecification = null;
+            
+             // populate PromptSpecification
+            var requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = true;
+            requestValueElicitationSetting_valueElicitationSetting_PromptSpecification = new Amazon.LexModelsV2.Model.PromptSpecification();
+            System.Boolean? requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt = null;
+            if (cmdletContext.PromptSpecification_AllowInterrupt != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt = cmdletContext.PromptSpecification_AllowInterrupt.Value;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.AllowInterrupt = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_AllowInterrupt.Value;
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
+            }
+            System.Int32? requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry = null;
+            if (cmdletContext.PromptSpecification_MaxRetry != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry = cmdletContext.PromptSpecification_MaxRetry.Value;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MaxRetries = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MaxRetry.Value;
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
+            }
+            List<Amazon.LexModelsV2.Model.MessageGroup> requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup = null;
+            if (cmdletContext.PromptSpecification_MessageGroup != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup = cmdletContext.PromptSpecification_MessageGroup;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MessageGroups = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageGroup;
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.MessageSelectionStrategy requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = null;
+            if (cmdletContext.PromptSpecification_MessageSelectionStrategy != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy = cmdletContext.PromptSpecification_MessageSelectionStrategy;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.MessageSelectionStrategy = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_MessageSelectionStrategy;
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
+            }
+            Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification> requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification = null;
+            if (cmdletContext.PromptSpecification_PromptAttemptsSpecification != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification = cmdletContext.PromptSpecification_PromptAttemptsSpecification;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification != null)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification.PromptAttemptsSpecification = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification_promptSpecification_PromptAttemptsSpecification;
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull = false;
+            }
+             // determine if requestValueElicitationSetting_valueElicitationSetting_PromptSpecification should be set to null
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecificationIsNull)
+            {
+                requestValueElicitationSetting_valueElicitationSetting_PromptSpecification = null;
+            }
+            if (requestValueElicitationSetting_valueElicitationSetting_PromptSpecification != null)
+            {
+                request.ValueElicitationSetting.PromptSpecification = requestValueElicitationSetting_valueElicitationSetting_PromptSpecification;
                 requestValueElicitationSettingIsNull = false;
             }
             Amazon.LexModelsV2.Model.SlotCaptureSetting requestValueElicitationSetting_valueElicitationSetting_SlotCaptureSetting = null;
@@ -4066,6 +4095,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.Int32? PromptSpecification_MaxRetry { get; set; }
             public List<Amazon.LexModelsV2.Model.MessageGroup> PromptSpecification_MessageGroup { get; set; }
             public Amazon.LexModelsV2.MessageSelectionStrategy PromptSpecification_MessageSelectionStrategy { get; set; }
+            public Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification> PromptSpecification_PromptAttemptsSpecification { get; set; }
             public List<Amazon.LexModelsV2.Model.SampleUtterance> ValueElicitationSetting_SampleUtterance { get; set; }
             public System.Boolean? CaptureConditional_Active { get; set; }
             public List<Amazon.LexModelsV2.Model.ConditionalBranch> CaptureConditional_ConditionalBranch { get; set; }

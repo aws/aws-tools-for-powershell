@@ -100,7 +100,7 @@ $NS_Completers = {
         # Amazon.NimbleStudio.StreamingInstanceType
         "New-NSStreamingSession/Ec2InstanceType"
         {
-            $v = "g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.xlarge"
+            $v = "g3.4xlarge","g3s.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.xlarge","g5.16xlarge","g5.2xlarge","g5.4xlarge","g5.8xlarge","g5.xlarge"
             break
         }
 
