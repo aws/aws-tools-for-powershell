@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotfleetwise</C2jFilename>
+    <AssemblyName>IoTFleetWise</AssemblyName>
+    <ServiceNounPrefix>IFW</ServiceNounPrefix>
+    <ServiceName>AWS IoT FleetWise</ServiceName>
+    <ServiceClientInterface>IAmazonIoTFleetWise</ServiceClientInterface>
+    <ServiceClient>AmazonIoTFleetWiseClient</ServiceClient>
+    <ServiceModuleGuid>94597f1b-83e1-4a64-83e0-c11f1410976b</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateVehicleFleet" Verb="New" Noun="VehicleFleet" ShouldProcessTarget="VehicleName" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateVehicle" OutputProperty="*" Verb="New" Noun="CreateVehicle" ShouldProcessTarget="Vehicles" PipelineParameter="Vehicles" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateVehicle" OutputProperty="*" Verb="New" Noun="UpdateVehicle" ShouldProcessTarget="Vehicles" PipelineParameter="Vehicles" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCampaign" OutputProperty="*" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDecoderManifest" OutputProperty="*" Verb="New" Noun="DecoderManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="*" Verb="New" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelManifest" OutputProperty="*" Verb="New" Noun="ModelManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSignalCatalog" OutputProperty="*" Verb="New" Noun="SignalCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVehicle" OutputProperty="*" Verb="New" Noun="Vehicle" ShouldProcessTarget="VehicleName" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCampaign" OutputProperty="*" Verb="Remove" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDecoderManifest" OutputProperty="*" Verb="Remove" Noun="DecoderManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleet" OutputProperty="*" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelManifest" OutputProperty="*" Verb="Remove" Noun="ModelManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSignalCatalog" OutputProperty="*" Verb="Remove" Noun="SignalCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVehicle" OutputProperty="*" Verb="Remove" Noun="Vehicle" ShouldProcessTarget="VehicleName" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateVehicleFleet" Verb="Remove" Noun="VehicleFleet" ShouldProcessTarget="VehicleName" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCampaign" OutputProperty="*" Verb="Get" Noun="Campaign" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDecoderManifest" OutputProperty="*" Verb="Get" Noun="DecoderManifest" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFleet" OutputProperty="*" Verb="Get" Noun="Fleet" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoggingOptions" OutputProperty="CloudWatchLogDelivery" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetModelManifest" OutputProperty="*" Verb="Get" Noun="ModelManifest" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegisterAccountStatus" OutputProperty="*" Verb="Get" Noun="RegisterAccountStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSignalCatalog" OutputProperty="*" Verb="Get" Noun="SignalCatalog" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVehicle" OutputProperty="*" Verb="Get" Noun="Vehicle" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVehicleStatus" OutputProperty="Campaigns" Verb="Get" Noun="VehicleStatus" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportDecoderManifest" OutputProperty="*" Verb="Import" Noun="DecoderManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportSignalCatalog" OutputProperty="*" Verb="Import" Noun="SignalCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCampaigns" OutputProperty="CampaignSummaries" Verb="Get" Noun="CampaignList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDecoderManifestNetworkInterfaces" OutputProperty="NetworkInterfaces" Verb="Get" Noun="DecoderManifestNetworkInterfaceList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDecoderManifests" OutputProperty="Summaries" Verb="Get" Noun="DecoderManifestList" PipelineParameter="ModelManifestArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDecoderManifestSignals" OutputProperty="SignalDecoders" Verb="Get" Noun="DecoderManifestSignalList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetSummaries" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleetsForVehicle" OutputProperty="Fleets" Verb="Get" Noun="FleetsForVehicleList" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelManifestNodes" OutputProperty="Nodes" Verb="Get" Noun="ModelManifestNodeList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelManifests" OutputProperty="Summaries" Verb="Get" Noun="ModelManifestList" PipelineParameter="SignalCatalogArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSignalCatalogNodes" OutputProperty="Nodes" Verb="Get" Noun="SignalCatalogNodeList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSignalCatalogs" OutputProperty="Summaries" Verb="Get" Noun="SignalCatalogList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVehicles" OutputProperty="VehicleSummaries" Verb="Get" Noun="VehicleList" PipelineParameter="ModelManifestArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVehiclesInFleet" OutputProperty="Vehicles" Verb="Get" Noun="VehiclesInFleetList" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="CloudWatchLogDelivery_LogGroupName" PipelineParameter="CloudWatchLogDelivery_LogType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAccount" OutputProperty="*" Verb="Register" Noun="Account" ShouldProcessTarget="TimestreamResources_TimestreamDatabaseName" PipelineParameter="TimestreamResources_TimestreamDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCampaign" OutputProperty="*" Verb="Update" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDecoderManifest" OutputProperty="*" Verb="Update" Noun="DecoderManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFleet" OutputProperty="*" Verb="Update" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateModelManifest" OutputProperty="*" Verb="Update" Noun="ModelManifest" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSignalCatalog" OutputProperty="*" Verb="Update" Noun="SignalCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVehicle" OutputProperty="*" Verb="Update" Noun="Vehicle" ShouldProcessTarget="VehicleName" PipelineParameter="VehicleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

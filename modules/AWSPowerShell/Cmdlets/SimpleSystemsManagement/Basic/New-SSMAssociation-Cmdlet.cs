@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter AlarmConfiguration_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch alarm specified in the configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AlarmConfiguration_Alarms")]
+        public Amazon.SimpleSystemsManagement.Model.Alarm[] AlarmConfiguration_Alarm { get; set; }
+        #endregion
+        
         #region Parameter ApplyOnlyAtCronInterval
         /// <summary>
         /// <para>
@@ -124,6 +135,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DocumentVersion { get; set; }
+        #endregion
+        
+        #region Parameter AlarmConfiguration_IgnorePollAlarmFailure
+        /// <summary>
+        /// <para>
+        /// <para>If you specify <code>true</code> for this value, your automation or command continue
+        /// to run even if we can't gather information about the state of your CloudWatch alarm.
+        /// The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -294,11 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i> are
-        /// metadata that you can assign to your Amazon Web Services resources. Tags enable you
-        /// to categorize your resources in different ways, for example, by purpose, owner, or
-        /// environment. Each tag consists of a key and an optional value, both of which you define.
-        /// </para>
+        /// <para>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
+        /// in different ways, such as by purpose, owner, or environment. For example, you might
+        /// want to tag an association to identify the type of resource to which it applies, the
+        /// environment, or the purpose of the association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -409,6 +431,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AlarmConfiguration_Alarm != null)
+            {
+                context.AlarmConfiguration_Alarm = new List<Amazon.SimpleSystemsManagement.Model.Alarm>(this.AlarmConfiguration_Alarm);
+            }
+            context.AlarmConfiguration_IgnorePollAlarmFailure = this.AlarmConfiguration_IgnorePollAlarmFailure;
             context.ApplyOnlyAtCronInterval = this.ApplyOnlyAtCronInterval;
             context.AssociationName = this.AssociationName;
             context.AutomationTargetParameterName = this.AutomationTargetParameterName;
@@ -507,6 +534,35 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
             
+            
+             // populate AlarmConfiguration
+            var requestAlarmConfigurationIsNull = true;
+            request.AlarmConfiguration = new Amazon.SimpleSystemsManagement.Model.AlarmConfiguration();
+            List<Amazon.SimpleSystemsManagement.Model.Alarm> requestAlarmConfiguration_alarmConfiguration_Alarm = null;
+            if (cmdletContext.AlarmConfiguration_Alarm != null)
+            {
+                requestAlarmConfiguration_alarmConfiguration_Alarm = cmdletContext.AlarmConfiguration_Alarm;
+            }
+            if (requestAlarmConfiguration_alarmConfiguration_Alarm != null)
+            {
+                request.AlarmConfiguration.Alarms = requestAlarmConfiguration_alarmConfiguration_Alarm;
+                requestAlarmConfigurationIsNull = false;
+            }
+            System.Boolean? requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure = null;
+            if (cmdletContext.AlarmConfiguration_IgnorePollAlarmFailure != null)
+            {
+                requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure = cmdletContext.AlarmConfiguration_IgnorePollAlarmFailure.Value;
+            }
+            if (requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure != null)
+            {
+                request.AlarmConfiguration.IgnorePollAlarmFailure = requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure.Value;
+                requestAlarmConfigurationIsNull = false;
+            }
+             // determine if request.AlarmConfiguration should be set to null
+            if (requestAlarmConfigurationIsNull)
+            {
+                request.AlarmConfiguration = null;
+            }
             if (cmdletContext.ApplyOnlyAtCronInterval != null)
             {
                 request.ApplyOnlyAtCronInterval = cmdletContext.ApplyOnlyAtCronInterval.Value;
@@ -694,6 +750,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleSystemsManagement.Model.Alarm> AlarmConfiguration_Alarm { get; set; }
+            public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
             public System.Boolean? ApplyOnlyAtCronInterval { get; set; }
             public System.String AssociationName { get; set; }
             public System.String AutomationTargetParameterName { get; set; }

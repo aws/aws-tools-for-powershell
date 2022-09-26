@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMMaintenanceWindowTaskCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter AlarmConfiguration_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch alarm specified in the configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AlarmConfiguration_Alarms")]
+        public Amazon.SimpleSystemsManagement.Model.Alarm[] AlarmConfiguration_Alarm { get; set; }
+        #endregion
+        
         #region Parameter Lambda_ClientContext
         /// <summary>
         /// <para>
@@ -188,6 +199,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaskInvocationParameters_RunCommand_DocumentVersion")]
         public System.String RunCommand_DocumentVersion { get; set; }
+        #endregion
+        
+        #region Parameter AlarmConfiguration_IgnorePollAlarmFailure
+        /// <summary>
+        /// <para>
+        /// <para>If you specify <code>true</code> for this value, your automation or command continue
+        /// to run even if we can't gather information about the state of your CloudWatch alarm.
+        /// The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
         #endregion
         
         #region Parameter StepFunctions_Input
@@ -604,6 +627,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.WindowTaskId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AlarmConfiguration_Alarm != null)
+            {
+                context.AlarmConfiguration_Alarm = new List<Amazon.SimpleSystemsManagement.Model.Alarm>(this.AlarmConfiguration_Alarm);
+            }
+            context.AlarmConfiguration_IgnorePollAlarmFailure = this.AlarmConfiguration_IgnorePollAlarmFailure;
             context.CutoffBehavior = this.CutoffBehavior;
             context.Description = this.Description;
             context.LoggingInfo_S3BucketName = this.LoggingInfo_S3BucketName;
@@ -724,6 +752,35 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 // create request
                 var request = new Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskRequest();
                 
+                
+                 // populate AlarmConfiguration
+                var requestAlarmConfigurationIsNull = true;
+                request.AlarmConfiguration = new Amazon.SimpleSystemsManagement.Model.AlarmConfiguration();
+                List<Amazon.SimpleSystemsManagement.Model.Alarm> requestAlarmConfiguration_alarmConfiguration_Alarm = null;
+                if (cmdletContext.AlarmConfiguration_Alarm != null)
+                {
+                    requestAlarmConfiguration_alarmConfiguration_Alarm = cmdletContext.AlarmConfiguration_Alarm;
+                }
+                if (requestAlarmConfiguration_alarmConfiguration_Alarm != null)
+                {
+                    request.AlarmConfiguration.Alarms = requestAlarmConfiguration_alarmConfiguration_Alarm;
+                    requestAlarmConfigurationIsNull = false;
+                }
+                System.Boolean? requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure = null;
+                if (cmdletContext.AlarmConfiguration_IgnorePollAlarmFailure != null)
+                {
+                    requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure = cmdletContext.AlarmConfiguration_IgnorePollAlarmFailure.Value;
+                }
+                if (requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure != null)
+                {
+                    request.AlarmConfiguration.IgnorePollAlarmFailure = requestAlarmConfiguration_alarmConfiguration_IgnorePollAlarmFailure.Value;
+                    requestAlarmConfigurationIsNull = false;
+                }
+                 // determine if request.AlarmConfiguration should be set to null
+                if (requestAlarmConfigurationIsNull)
+                {
+                    request.AlarmConfiguration = null;
+                }
                 if (cmdletContext.CutoffBehavior != null)
                 {
                     request.CutoffBehavior = cmdletContext.CutoffBehavior;
@@ -1194,6 +1251,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleSystemsManagement.Model.Alarm> AlarmConfiguration_Alarm { get; set; }
+            public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
             public Amazon.SimpleSystemsManagement.MaintenanceWindowTaskCutoffBehavior CutoffBehavior { get; set; }
             public System.String Description { get; set; }
             public System.String LoggingInfo_S3BucketName { get; set; }

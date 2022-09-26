@@ -13005,7 +13005,7 @@ $CUR_Completers = {
             ($_ -eq "Write-CURReportDefinition/ReportDefinition_S3Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-south-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
 
@@ -27112,6 +27112,203 @@ $IOTFH_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IOTFH_SelectCompleters $IOTFH_SelectMap
+# Argument completions for service AWS IoT FleetWise
+
+
+$IFW_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IoTFleetWise.Compression
+        "New-IFWCampaign/Compression"
+        {
+            $v = "OFF","SNAPPY"
+            break
+        }
+
+        # Amazon.IoTFleetWise.DiagnosticsMode
+        "New-IFWCampaign/DiagnosticsMode"
+        {
+            $v = "OFF","SEND_ACTIVE_DTCS"
+            break
+        }
+
+        # Amazon.IoTFleetWise.LogType
+        "Write-IFWLoggingOption/CloudWatchLogDelivery_LogType"
+        {
+            $v = "ERROR","OFF"
+            break
+        }
+
+        # Amazon.IoTFleetWise.ManifestStatus
+        {
+            ($_ -eq "Update-IFWDecoderManifest/Status") -Or
+            ($_ -eq "Update-IFWModelManifest/Status")
+        }
+        {
+            $v = "ACTIVE","DRAFT"
+            break
+        }
+
+        # Amazon.IoTFleetWise.SpoolingMode
+        "New-IFWCampaign/SpoolingMode"
+        {
+            $v = "OFF","TO_DISK"
+            break
+        }
+
+        # Amazon.IoTFleetWise.TriggerMode
+        "New-IFWCampaign/CollectionScheme_ConditionBasedCollectionScheme_TriggerMode"
+        {
+            $v = "ALWAYS","RISING_EDGE"
+            break
+        }
+
+        # Amazon.IoTFleetWise.UpdateCampaignAction
+        "Update-IFWCampaign/Action"
+        {
+            $v = "APPROVE","RESUME","SUSPEND","UPDATE"
+            break
+        }
+
+        # Amazon.IoTFleetWise.UpdateMode
+        "Update-IFWVehicle/AttributeUpdateMode"
+        {
+            $v = "Merge","Overwrite"
+            break
+        }
+
+        # Amazon.IoTFleetWise.VehicleAssociationBehavior
+        "New-IFWVehicle/AssociationBehavior"
+        {
+            $v = "CreateIotThing","ValidateIotThingExists"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IFW_map = @{
+    "Action"=@("Update-IFWCampaign")
+    "AssociationBehavior"=@("New-IFWVehicle")
+    "AttributeUpdateMode"=@("Update-IFWVehicle")
+    "CloudWatchLogDelivery_LogType"=@("Write-IFWLoggingOption")
+    "CollectionScheme_ConditionBasedCollectionScheme_TriggerMode"=@("New-IFWCampaign")
+    "Compression"=@("New-IFWCampaign")
+    "DiagnosticsMode"=@("New-IFWCampaign")
+    "SpoolingMode"=@("New-IFWCampaign")
+    "Status"=@("Update-IFWDecoderManifest","Update-IFWModelManifest")
+}
+
+_awsArgumentCompleterRegistration $IFW_Completers $IFW_map
+
+$IFW_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IFW.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IFW_SelectMap = @{
+    "Select"=@("New-IFWVehicleFleet",
+               "New-IFWCreateVehicle",
+               "New-IFWUpdateVehicle",
+               "New-IFWCampaign",
+               "New-IFWDecoderManifest",
+               "New-IFWFleet",
+               "New-IFWModelManifest",
+               "New-IFWSignalCatalog",
+               "New-IFWVehicle",
+               "Remove-IFWCampaign",
+               "Remove-IFWDecoderManifest",
+               "Remove-IFWFleet",
+               "Remove-IFWModelManifest",
+               "Remove-IFWSignalCatalog",
+               "Remove-IFWVehicle",
+               "Remove-IFWVehicleFleet",
+               "Get-IFWCampaign",
+               "Get-IFWDecoderManifest",
+               "Get-IFWFleet",
+               "Get-IFWLoggingOption",
+               "Get-IFWModelManifest",
+               "Get-IFWRegisterAccountStatus",
+               "Get-IFWSignalCatalog",
+               "Get-IFWVehicle",
+               "Get-IFWVehicleStatus",
+               "Import-IFWDecoderManifest",
+               "Import-IFWSignalCatalog",
+               "Get-IFWCampaignList",
+               "Get-IFWDecoderManifestNetworkInterfaceList",
+               "Get-IFWDecoderManifestList",
+               "Get-IFWDecoderManifestSignalList",
+               "Get-IFWFleetList",
+               "Get-IFWFleetsForVehicleList",
+               "Get-IFWModelManifestNodeList",
+               "Get-IFWModelManifestList",
+               "Get-IFWSignalCatalogNodeList",
+               "Get-IFWSignalCatalogList",
+               "Get-IFWResourceTag",
+               "Get-IFWVehicleList",
+               "Get-IFWVehiclesInFleetList",
+               "Write-IFWLoggingOption",
+               "Register-IFWAccount",
+               "Add-IFWResourceTag",
+               "Remove-IFWResourceTag",
+               "Update-IFWCampaign",
+               "Update-IFWDecoderManifest",
+               "Update-IFWFleet",
+               "Update-IFWModelManifest",
+               "Update-IFWSignalCatalog",
+               "Update-IFWVehicle")
+}
+
+_awsArgumentCompleterRegistration $IFW_SelectCompleters $IFW_SelectMap
 # Argument completions for service AWS IoT Jobs Data Plane
 
 

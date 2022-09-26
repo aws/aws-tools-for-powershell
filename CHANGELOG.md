@@ -1,4 +1,15 @@
-﻿### 4.1.175 (2022-09-23 20:16Z)
+﻿### 4.1.176 (2022-09-26 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.365.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT FleetWise. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IFW and can be listed using the command 'Get-AWSCmdletName -Service IFW'.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameters AlarmConfiguration_Alarm and AlarmConfiguration_IgnorePollAlarmFailure.
+    * Modified cmdlet Register-SSMTaskWithMaintenanceWindow: added parameters AlarmConfiguration_Alarm and AlarmConfiguration_IgnorePollAlarmFailure.
+    * Modified cmdlet Send-SSMCommand: added parameters AlarmConfiguration_Alarm and AlarmConfiguration_IgnorePollAlarmFailure.
+    * Modified cmdlet Start-SSMAutomationExecution: added parameters AlarmConfiguration_Alarm and AlarmConfiguration_IgnorePollAlarmFailure.
+    * Modified cmdlet Update-SSMAssociation: added parameters AlarmConfiguration_Alarm and AlarmConfiguration_IgnorePollAlarmFailure.
+    * Modified cmdlet Update-SSMMaintenanceWindowTask: added parameters AlarmConfiguration_Alarm and AlarmConfiguration_IgnorePollAlarmFailure.
+
+### 4.1.175 (2022-09-23 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.364.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Lex Model Building V2
     * Modified cmdlet New-LMBV2Intent: added parameter PromptSpecification_PromptAttemptsSpecification.

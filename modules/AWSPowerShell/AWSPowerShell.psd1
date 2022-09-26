@@ -206,6 +206,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.IoTEvents.dll',
         'AWSSDK.IoTEventsData.dll',
         'AWSSDK.IoTFleetHub.dll',
+        'AWSSDK.IoTFleetWise.dll',
         'AWSSDK.IoTJobsDataPlane.dll',
         'AWSSDK.IoTSecureTunneling.dll',
         'AWSSDK.IoTSiteWise.dll',
