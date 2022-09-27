@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public abstract partial class AmazonSecretsManagerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSecretsManager Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSecretsManagerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSecretsManagerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSecretsManager CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSecretsManagerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSecretsManagerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSecretsManagerClient(credentials, config);

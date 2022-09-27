@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public abstract partial class AmazonOpenSearchServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonOpenSearchService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonOpenSearchServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonOpenSearchServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonOpenSearchService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonOpenSearchServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonOpenSearchServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonOpenSearchServiceClient(credentials, config);

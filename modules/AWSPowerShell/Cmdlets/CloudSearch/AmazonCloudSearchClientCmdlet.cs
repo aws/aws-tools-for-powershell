@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CS
     public abstract partial class AmazonCloudSearchClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudSearch Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudSearchConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudSearchConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudSearch CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudSearchConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudSearchConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudSearchClient(credentials, config);

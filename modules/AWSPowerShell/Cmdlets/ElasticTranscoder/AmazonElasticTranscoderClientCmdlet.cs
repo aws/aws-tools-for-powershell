@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     public abstract partial class AmazonElasticTranscoderClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticTranscoder Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElasticTranscoderConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElasticTranscoderConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElasticTranscoder CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElasticTranscoderConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElasticTranscoderConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticTranscoderClient(credentials, config);

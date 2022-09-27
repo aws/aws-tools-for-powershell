@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public abstract partial class AmazonServerMigrationServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonServerMigrationService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonServerMigrationServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonServerMigrationServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonServerMigrationService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonServerMigrationServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonServerMigrationServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonServerMigrationServiceClient(credentials, config);

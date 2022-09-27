@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     public abstract partial class AmazonSimpleWorkflowClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleWorkflow Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSimpleWorkflowConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSimpleWorkflowConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSimpleWorkflow CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSimpleWorkflowConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSimpleWorkflowConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSimpleWorkflowClient(credentials, config);

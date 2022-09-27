@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public abstract partial class AmazonIoTClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoT Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoT CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTClient(credentials, config);

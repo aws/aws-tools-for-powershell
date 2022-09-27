@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     public abstract partial class AmazonEBSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEBS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonEBSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonEBSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonEBS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonEBSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonEBSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEBSClient(credentials, config);

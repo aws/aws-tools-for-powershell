@@ -31777,6 +31777,7 @@ $LOC_SelectMap = @{
                "Get-LOCMapSprite",
                "Get-LOCMapStyleDescriptor",
                "Get-LOCMapTile",
+               "Get-LOCPlace",
                "Get-LOCDevicePositionList",
                "Get-LOCGeofenceCollectionList",
                "Get-LOCGeofenceList",

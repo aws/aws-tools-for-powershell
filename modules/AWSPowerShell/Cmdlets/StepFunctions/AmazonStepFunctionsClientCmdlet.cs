@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public abstract partial class AmazonStepFunctionsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonStepFunctions Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonStepFunctionsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonStepFunctionsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonStepFunctions CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonStepFunctionsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonStepFunctionsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonStepFunctionsClient(credentials, config);

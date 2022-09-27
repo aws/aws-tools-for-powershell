@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
     public abstract partial class AmazonDetectiveClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDetective Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDetectiveConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDetectiveConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDetective CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDetectiveConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDetectiveConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDetectiveClient(credentials, config);

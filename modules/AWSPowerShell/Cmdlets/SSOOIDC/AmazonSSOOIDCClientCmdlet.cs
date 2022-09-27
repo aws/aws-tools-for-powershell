@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
     public abstract partial class AmazonSSOOIDCClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSSOOIDC Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSSOOIDCConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSSOOIDCConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSSOOIDC CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSSOOIDCConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSSOOIDCConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSSOOIDCClient(credentials, config);

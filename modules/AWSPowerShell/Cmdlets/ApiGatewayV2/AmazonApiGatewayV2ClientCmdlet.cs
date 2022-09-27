@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     public abstract partial class AmazonApiGatewayV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonApiGatewayV2 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonApiGatewayV2Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonApiGatewayV2Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonApiGatewayV2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonApiGatewayV2Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonApiGatewayV2Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApiGatewayV2Client(credentials, config);

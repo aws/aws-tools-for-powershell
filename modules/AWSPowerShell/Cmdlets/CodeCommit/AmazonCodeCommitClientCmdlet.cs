@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CC
     public abstract partial class AmazonCodeCommitClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeCommit Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCodeCommitConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCodeCommitConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCodeCommit CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCodeCommitConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCodeCommitConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCodeCommitClient(credentials, config);

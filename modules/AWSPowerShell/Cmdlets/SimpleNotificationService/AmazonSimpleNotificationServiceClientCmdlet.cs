@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public abstract partial class AmazonSimpleNotificationServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleNotificationService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSimpleNotificationServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSimpleNotificationServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSimpleNotificationService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSimpleNotificationServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSimpleNotificationServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSimpleNotificationServiceClient(credentials, config);

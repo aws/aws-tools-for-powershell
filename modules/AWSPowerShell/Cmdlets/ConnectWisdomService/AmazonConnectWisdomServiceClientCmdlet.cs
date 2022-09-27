@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public abstract partial class AmazonConnectWisdomServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConnectWisdomService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonConnectWisdomServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonConnectWisdomServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonConnectWisdomService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonConnectWisdomServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonConnectWisdomServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonConnectWisdomServiceClient(credentials, config);

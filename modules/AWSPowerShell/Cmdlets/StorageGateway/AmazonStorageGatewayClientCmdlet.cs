@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public abstract partial class AmazonStorageGatewayClientCmdlet : ServiceCmdlet
     {
         protected IAmazonStorageGateway Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonStorageGatewayConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonStorageGatewayConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonStorageGateway CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonStorageGatewayConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonStorageGatewayConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonStorageGatewayClient(credentials, config);

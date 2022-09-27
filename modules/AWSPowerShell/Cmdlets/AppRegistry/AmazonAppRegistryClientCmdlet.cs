@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
     public abstract partial class AmazonAppRegistryClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppRegistry Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppRegistryConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppRegistryConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppRegistry CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppRegistryConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppRegistryConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppRegistryClient(credentials, config);

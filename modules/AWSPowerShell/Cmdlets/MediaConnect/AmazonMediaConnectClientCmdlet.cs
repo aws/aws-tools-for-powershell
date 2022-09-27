@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public abstract partial class AmazonMediaConnectClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaConnect Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaConnectConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaConnectConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaConnect CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaConnectConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaConnectConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaConnectClient(credentials, config);

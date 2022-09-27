@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public abstract partial class AmazonKinesisClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKinesis Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonKinesisConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonKinesisConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonKinesis CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonKinesisConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonKinesisConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKinesisClient(credentials, config);

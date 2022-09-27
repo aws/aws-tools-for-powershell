@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public abstract partial class AmazonPersonalizeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPersonalize Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPersonalizeConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPersonalizeConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPersonalize CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPersonalizeConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPersonalizeConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPersonalizeClient(credentials, config);

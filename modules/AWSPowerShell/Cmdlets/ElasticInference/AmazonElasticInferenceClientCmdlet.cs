@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EI
     public abstract partial class AmazonElasticInferenceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticInference Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElasticInferenceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElasticInferenceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElasticInference CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElasticInferenceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElasticInferenceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticInferenceClient(credentials, config);

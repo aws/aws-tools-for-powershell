@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     public abstract partial class AmazonCloudDirectoryClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudDirectory Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudDirectoryConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudDirectoryConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudDirectory CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudDirectoryConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudDirectoryConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudDirectoryClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public abstract partial class AmazonElasticMapReduceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticMapReduce Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElasticMapReduceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElasticMapReduceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElasticMapReduce CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElasticMapReduceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElasticMapReduceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticMapReduceClient(credentials, config);

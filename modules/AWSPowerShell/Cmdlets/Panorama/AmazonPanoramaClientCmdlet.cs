@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public abstract partial class AmazonPanoramaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPanorama Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPanoramaConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPanoramaConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPanorama CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPanoramaConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPanoramaConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPanoramaClient(credentials, config);

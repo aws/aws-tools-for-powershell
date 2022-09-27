@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
     public abstract partial class AmazonCognitoSyncClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCognitoSync Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCognitoSyncConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCognitoSyncConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCognitoSync CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCognitoSyncConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCognitoSyncConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCognitoSyncClient(credentials, config);

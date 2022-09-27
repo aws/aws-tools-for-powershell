@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public abstract partial class AmazonIoTDeviceAdvisorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTDeviceAdvisor Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTDeviceAdvisorConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTDeviceAdvisorConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTDeviceAdvisor CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTDeviceAdvisorConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTDeviceAdvisorConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTDeviceAdvisorClient(credentials, config);

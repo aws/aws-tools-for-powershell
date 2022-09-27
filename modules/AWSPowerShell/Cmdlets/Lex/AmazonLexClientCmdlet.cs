@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     public abstract partial class AmazonLexClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLex Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLexConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLexConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLex CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLexConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLexConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLexClient(credentials, config);

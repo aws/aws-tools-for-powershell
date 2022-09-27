@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
     public abstract partial class AmazonMobileClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMobile Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMobileConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMobileConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMobile CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMobileConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMobileConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMobileClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public abstract partial class AmazonRAMClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRAM Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRAMConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRAMConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRAM CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRAMConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRAMConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRAMClient(credentials, config);

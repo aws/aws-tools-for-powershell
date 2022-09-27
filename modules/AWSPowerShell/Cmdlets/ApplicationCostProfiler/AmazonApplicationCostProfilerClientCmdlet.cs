@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ACP
     public abstract partial class AmazonApplicationCostProfilerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonApplicationCostProfiler Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonApplicationCostProfilerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonApplicationCostProfilerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonApplicationCostProfiler CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonApplicationCostProfilerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonApplicationCostProfilerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApplicationCostProfilerClient(credentials, config);

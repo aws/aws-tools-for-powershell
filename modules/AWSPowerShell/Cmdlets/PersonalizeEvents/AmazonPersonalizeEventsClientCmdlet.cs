@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
     public abstract partial class AmazonPersonalizeEventsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPersonalizeEvents Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPersonalizeEventsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPersonalizeEventsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPersonalizeEvents CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPersonalizeEventsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPersonalizeEventsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPersonalizeEventsClient(credentials, config);

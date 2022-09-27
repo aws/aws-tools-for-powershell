@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public abstract partial class AmazonMWAAClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMWAA Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMWAAConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMWAAConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMWAA CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMWAAConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMWAAConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMWAAClient(credentials, config);

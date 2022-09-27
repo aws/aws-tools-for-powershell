@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.QLDBS
     public abstract partial class AmazonQLDBSessionClientCmdlet : ServiceCmdlet
     {
         protected IAmazonQLDBSession Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonQLDBSessionConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonQLDBSessionConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonQLDBSession CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonQLDBSessionConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonQLDBSessionConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonQLDBSessionClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
     public abstract partial class AmazonNetworkFirewallClientCmdlet : ServiceCmdlet
     {
         protected IAmazonNetworkFirewall Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonNetworkFirewallConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonNetworkFirewallConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonNetworkFirewall CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonNetworkFirewallConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonNetworkFirewallConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonNetworkFirewallClient(credentials, config);

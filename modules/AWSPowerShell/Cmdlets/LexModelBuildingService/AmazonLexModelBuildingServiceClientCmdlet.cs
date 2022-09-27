@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public abstract partial class AmazonLexModelBuildingServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLexModelBuildingService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLexModelBuildingServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLexModelBuildingServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLexModelBuildingService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLexModelBuildingServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLexModelBuildingServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLexModelBuildingServiceClient(credentials, config);

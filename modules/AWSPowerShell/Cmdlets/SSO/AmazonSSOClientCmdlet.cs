@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SSO
     public abstract partial class AmazonSSOClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSSO Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSSOConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSSOConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSSO CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSSOConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSSOConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSSOClient(credentials, config);

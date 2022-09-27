@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     public abstract partial class AmazonFISClientCmdlet : ServiceCmdlet
     {
         protected IAmazonFIS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonFISConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonFISConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonFIS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonFISConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonFISConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonFISClient(credentials, config);

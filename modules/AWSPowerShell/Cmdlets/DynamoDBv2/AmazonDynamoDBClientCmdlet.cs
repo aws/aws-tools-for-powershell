@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public abstract partial class AmazonDynamoDBClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDynamoDB Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDynamoDBConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDynamoDBConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDynamoDB CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDynamoDBConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDynamoDBConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDynamoDBClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CCL
     public abstract partial class AmazonConnectContactLensClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConnectContactLens Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonConnectContactLensConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonConnectContactLensConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonConnectContactLens CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonConnectContactLensConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonConnectContactLensConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonConnectContactLensClient(credentials, config);

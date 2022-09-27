@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     public abstract partial class AmazonMarketplaceCatalogClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMarketplaceCatalog Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMarketplaceCatalogConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMarketplaceCatalogConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMarketplaceCatalog CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMarketplaceCatalogConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMarketplaceCatalogConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMarketplaceCatalogClient(credentials, config);

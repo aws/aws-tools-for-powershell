@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public abstract partial class AmazonKeyManagementServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKeyManagementService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonKeyManagementServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonKeyManagementServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonKeyManagementService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonKeyManagementServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonKeyManagementServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKeyManagementServiceClient(credentials, config);

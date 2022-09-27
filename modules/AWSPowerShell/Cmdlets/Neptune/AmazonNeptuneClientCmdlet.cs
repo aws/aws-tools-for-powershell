@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     public abstract partial class AmazonNeptuneClientCmdlet : ServiceCmdlet
     {
         protected IAmazonNeptune Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonNeptuneConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonNeptuneConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonNeptune CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonNeptuneConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonNeptuneConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonNeptuneClient(credentials, config);

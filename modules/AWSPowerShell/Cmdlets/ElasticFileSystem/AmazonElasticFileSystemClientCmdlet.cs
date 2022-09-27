@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public abstract partial class AmazonElasticFileSystemClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticFileSystem Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElasticFileSystemConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElasticFileSystemConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElasticFileSystem CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElasticFileSystemConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElasticFileSystemConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticFileSystemClient(credentials, config);

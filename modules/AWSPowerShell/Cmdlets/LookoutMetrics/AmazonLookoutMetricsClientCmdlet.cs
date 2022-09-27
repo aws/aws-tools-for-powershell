@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LOM
     public abstract partial class AmazonLookoutMetricsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLookoutMetrics Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLookoutMetricsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLookoutMetricsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLookoutMetrics CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLookoutMetricsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLookoutMetricsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLookoutMetricsClient(credentials, config);

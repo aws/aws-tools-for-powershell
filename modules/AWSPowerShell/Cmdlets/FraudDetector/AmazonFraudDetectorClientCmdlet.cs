@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public abstract partial class AmazonFraudDetectorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonFraudDetector Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonFraudDetectorConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonFraudDetectorConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonFraudDetector CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonFraudDetectorConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonFraudDetectorConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonFraudDetectorClient(credentials, config);

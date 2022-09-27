@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public abstract partial class AmazonIvschatClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIvschat Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIvschatConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIvschatConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIvschat CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIvschatConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIvschatConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIvschatClient(credentials, config);

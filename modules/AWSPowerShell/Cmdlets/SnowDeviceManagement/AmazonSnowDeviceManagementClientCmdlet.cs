@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SDMS
     public abstract partial class AmazonSnowDeviceManagementClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSnowDeviceManagement Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSnowDeviceManagementConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSnowDeviceManagementConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSnowDeviceManagement CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSnowDeviceManagementConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSnowDeviceManagementConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSnowDeviceManagementClient(credentials, config);

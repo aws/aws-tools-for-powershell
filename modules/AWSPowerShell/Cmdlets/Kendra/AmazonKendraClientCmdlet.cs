@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public abstract partial class AmazonKendraClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKendra Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonKendraConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonKendraConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonKendra CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonKendraConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonKendraConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKendraClient(credentials, config);

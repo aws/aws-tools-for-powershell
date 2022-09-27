@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RG
     public abstract partial class AmazonResourceGroupsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonResourceGroups Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonResourceGroupsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonResourceGroupsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonResourceGroups CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonResourceGroupsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonResourceGroupsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonResourceGroupsClient(credentials, config);

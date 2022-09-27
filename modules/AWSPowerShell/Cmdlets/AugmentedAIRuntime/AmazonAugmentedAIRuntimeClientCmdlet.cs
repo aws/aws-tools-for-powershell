@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
     public abstract partial class AmazonAugmentedAIRuntimeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAugmentedAIRuntime Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAugmentedAIRuntimeConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAugmentedAIRuntimeConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAugmentedAIRuntime CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAugmentedAIRuntimeConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAugmentedAIRuntimeConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAugmentedAIRuntimeClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     public abstract partial class AmazonRoboMakerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoboMaker Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRoboMakerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRoboMakerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRoboMaker CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRoboMakerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRoboMakerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRoboMakerClient(credentials, config);

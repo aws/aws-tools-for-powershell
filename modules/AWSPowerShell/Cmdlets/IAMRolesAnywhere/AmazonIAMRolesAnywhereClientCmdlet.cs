@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public abstract partial class AmazonIAMRolesAnywhereClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIAMRolesAnywhere Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIAMRolesAnywhereConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIAMRolesAnywhereConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIAMRolesAnywhere CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIAMRolesAnywhereConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIAMRolesAnywhereConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIAMRolesAnywhereClient(credentials, config);

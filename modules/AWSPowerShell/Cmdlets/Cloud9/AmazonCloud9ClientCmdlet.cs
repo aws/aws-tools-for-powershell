@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.C9
     public abstract partial class AmazonCloud9ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloud9 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloud9Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloud9Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloud9 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloud9Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloud9Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloud9Client(credentials, config);

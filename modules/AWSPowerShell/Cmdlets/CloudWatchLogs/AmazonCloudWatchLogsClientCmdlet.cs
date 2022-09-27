@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public abstract partial class AmazonCloudWatchLogsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudWatchLogs Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudWatchLogsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudWatchLogsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudWatchLogs CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudWatchLogsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudWatchLogsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudWatchLogsClient(credentials, config);

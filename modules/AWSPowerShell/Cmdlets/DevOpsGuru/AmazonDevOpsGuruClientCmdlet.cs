@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public abstract partial class AmazonDevOpsGuruClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDevOpsGuru Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDevOpsGuruConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDevOpsGuruConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDevOpsGuru CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDevOpsGuruConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDevOpsGuruConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDevOpsGuruClient(credentials, config);

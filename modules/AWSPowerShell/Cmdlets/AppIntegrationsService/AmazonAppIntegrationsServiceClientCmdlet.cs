@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AIS
     public abstract partial class AmazonAppIntegrationsServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppIntegrationsService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppIntegrationsServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppIntegrationsServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppIntegrationsService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppIntegrationsServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppIntegrationsServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppIntegrationsServiceClient(credentials, config);

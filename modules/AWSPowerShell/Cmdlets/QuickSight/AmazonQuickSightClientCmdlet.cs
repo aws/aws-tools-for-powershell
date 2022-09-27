@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public abstract partial class AmazonQuickSightClientCmdlet : ServiceCmdlet
     {
         protected IAmazonQuickSight Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonQuickSightConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonQuickSightConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonQuickSight CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonQuickSightConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonQuickSightConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonQuickSightClient(credentials, config);

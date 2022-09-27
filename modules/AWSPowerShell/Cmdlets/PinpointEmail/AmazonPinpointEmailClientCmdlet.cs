@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public abstract partial class AmazonPinpointEmailClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPinpointEmail Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPinpointEmailConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPinpointEmailConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPinpointEmail CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPinpointEmailConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPinpointEmailConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPinpointEmailClient(credentials, config);

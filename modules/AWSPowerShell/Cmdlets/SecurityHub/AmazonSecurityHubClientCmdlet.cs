@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public abstract partial class AmazonSecurityHubClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSecurityHub Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSecurityHubConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSecurityHubConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSecurityHub CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSecurityHubConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSecurityHubConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSecurityHubClient(credentials, config);

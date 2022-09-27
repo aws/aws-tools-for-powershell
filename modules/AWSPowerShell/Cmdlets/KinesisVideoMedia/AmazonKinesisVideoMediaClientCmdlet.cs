@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.KVM
     public abstract partial class AmazonKinesisVideoMediaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKinesisVideoMedia Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonKinesisVideoMediaConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonKinesisVideoMediaConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonKinesisVideoMedia CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonKinesisVideoMediaConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonKinesisVideoMediaConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKinesisVideoMediaClient(credentials, config);

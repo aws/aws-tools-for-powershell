@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     public abstract partial class AmazonRoute53RecoveryControlConfigClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoute53RecoveryControlConfig Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRoute53RecoveryControlConfigConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRoute53RecoveryControlConfigConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRoute53RecoveryControlConfig CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRoute53RecoveryControlConfigConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRoute53RecoveryControlConfigConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRoute53RecoveryControlConfigClient(credentials, config);

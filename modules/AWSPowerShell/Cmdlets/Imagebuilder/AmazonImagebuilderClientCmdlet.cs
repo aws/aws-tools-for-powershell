@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
     public abstract partial class AmazonImagebuilderClientCmdlet : ServiceCmdlet
     {
         protected IAmazonImagebuilder Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonImagebuilderConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonImagebuilderConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonImagebuilder CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonImagebuilderConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonImagebuilderConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonImagebuilderClient(credentials, config);

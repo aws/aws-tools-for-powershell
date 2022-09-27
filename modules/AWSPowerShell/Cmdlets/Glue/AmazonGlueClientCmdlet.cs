@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public abstract partial class AmazonGlueClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGlue Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGlueConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGlueConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGlue CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGlueConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGlueConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGlueClient(credentials, config);

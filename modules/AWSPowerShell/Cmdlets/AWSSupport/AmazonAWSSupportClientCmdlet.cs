@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     public abstract partial class AmazonAWSSupportClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSSupport Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAWSSupportConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAWSSupportConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         }
         protected IAmazonAWSSupport CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAWSSupportConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAWSSupportConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAWSSupportClient(credentials, config);

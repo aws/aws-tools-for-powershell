@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public abstract partial class AmazonAlexaForBusinessClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAlexaForBusiness Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAlexaForBusinessConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAlexaForBusinessConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAlexaForBusiness CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAlexaForBusinessConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAlexaForBusinessConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAlexaForBusinessClient(credentials, config);

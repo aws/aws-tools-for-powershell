@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.INS2
     public abstract partial class AmazonInspector2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonInspector2 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonInspector2Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonInspector2Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonInspector2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonInspector2Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonInspector2Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonInspector2Client(credentials, config);

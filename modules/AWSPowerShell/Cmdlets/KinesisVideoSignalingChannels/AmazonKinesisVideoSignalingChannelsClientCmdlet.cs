@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.KVSC
     public abstract partial class AmazonKinesisVideoSignalingChannelsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKinesisVideoSignalingChannels Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonKinesisVideoSignalingChannelsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonKinesisVideoSignalingChannelsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonKinesisVideoSignalingChannels CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonKinesisVideoSignalingChannelsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonKinesisVideoSignalingChannelsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKinesisVideoSignalingChannelsClient(credentials, config);

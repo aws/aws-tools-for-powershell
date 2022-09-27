@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
     public abstract partial class AmazonCloudWatchRUMClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudWatchRUM Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudWatchRUMConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudWatchRUMConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudWatchRUM CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudWatchRUMConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudWatchRUMConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudWatchRUMClient(credentials, config);

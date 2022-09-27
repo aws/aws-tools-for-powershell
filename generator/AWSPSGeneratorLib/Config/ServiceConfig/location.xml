@@ -146,6 +146,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPlace" OutputProperty="Place" Verb="Get" Noun="Place" PipelineParameter="IndexName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDevicePositions" OutputProperty="Entries" Verb="Get" Noun="DevicePositionList" PipelineParameter="TrackerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

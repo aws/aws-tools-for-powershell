@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     public abstract partial class AmazonSQSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSQS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSQSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSQSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSQS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSQSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSQSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSQSClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public abstract partial class AmazonLakeFormationClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLakeFormation Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLakeFormationConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLakeFormationConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLakeFormation CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLakeFormationConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLakeFormationConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLakeFormationClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     public abstract partial class AmazonACMPCAClientCmdlet : ServiceCmdlet
     {
         protected IAmazonACMPCA Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonACMPCAConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonACMPCAConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonACMPCA CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonACMPCAConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonACMPCAConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonACMPCAClient(credentials, config);

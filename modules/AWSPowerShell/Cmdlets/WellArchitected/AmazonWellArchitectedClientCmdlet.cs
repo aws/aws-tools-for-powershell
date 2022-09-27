@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     public abstract partial class AmazonWellArchitectedClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWellArchitected Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonWellArchitectedConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonWellArchitectedConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonWellArchitected CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonWellArchitectedConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonWellArchitectedConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonWellArchitectedClient(credentials, config);

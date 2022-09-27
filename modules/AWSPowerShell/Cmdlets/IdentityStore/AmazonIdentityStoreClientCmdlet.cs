@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public abstract partial class AmazonIdentityStoreClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIdentityStore Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIdentityStoreConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIdentityStoreConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIdentityStore CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIdentityStoreConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIdentityStoreConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIdentityStoreClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public abstract partial class AmazonTranslateClientCmdlet : ServiceCmdlet
     {
         protected IAmazonTranslate Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonTranslateConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonTranslateConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonTranslate CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonTranslateConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonTranslateConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonTranslateClient(credentials, config);

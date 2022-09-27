@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     public abstract partial class AmazonCloudControlApiClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudControlApi Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudControlApiConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudControlApiConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudControlApi CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudControlApiConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudControlApiConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudControlApiClient(credentials, config);

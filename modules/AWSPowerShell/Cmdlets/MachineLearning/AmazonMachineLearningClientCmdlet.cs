@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ML
     public abstract partial class AmazonMachineLearningClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMachineLearning Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMachineLearningConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMachineLearningConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMachineLearning CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMachineLearningConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMachineLearningConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMachineLearningClient(credentials, config);

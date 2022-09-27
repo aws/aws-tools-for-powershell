@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     public abstract partial class AmazonAWSMarketplaceCommerceAnalyticsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSMarketplaceCommerceAnalytics Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAWSMarketplaceCommerceAnalyticsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAWSMarketplaceCommerceAnalyticsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAWSMarketplaceCommerceAnalytics CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAWSMarketplaceCommerceAnalyticsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAWSMarketplaceCommerceAnalyticsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAWSMarketplaceCommerceAnalyticsClient(credentials, config);

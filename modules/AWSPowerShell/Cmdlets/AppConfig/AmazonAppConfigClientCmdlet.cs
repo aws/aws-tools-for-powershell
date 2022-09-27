@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     public abstract partial class AmazonAppConfigClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppConfig Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppConfigConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppConfigConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppConfig CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppConfigConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppConfigConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppConfigClient(credentials, config);

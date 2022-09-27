@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public abstract partial class AmazonS3ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonS3 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonS3Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonS3Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
         protected IAmazonS3 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonS3Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonS3Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonS3Client(credentials, config);

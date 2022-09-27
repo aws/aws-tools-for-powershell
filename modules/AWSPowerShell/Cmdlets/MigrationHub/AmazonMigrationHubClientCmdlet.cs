@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MH
     public abstract partial class AmazonMigrationHubClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMigrationHub Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMigrationHubConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMigrationHubConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMigrationHub CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMigrationHubConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMigrationHubConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMigrationHubClient(credentials, config);

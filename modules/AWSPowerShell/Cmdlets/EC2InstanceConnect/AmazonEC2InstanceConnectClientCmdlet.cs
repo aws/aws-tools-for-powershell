@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
     public abstract partial class AmazonEC2InstanceConnectClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEC2InstanceConnect Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonEC2InstanceConnectConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonEC2InstanceConnectConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonEC2InstanceConnect CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonEC2InstanceConnectConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonEC2InstanceConnectConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEC2InstanceConnectClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public abstract partial class AmazonFinspaceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonFinspace Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonFinspaceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonFinspaceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonFinspace CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonFinspaceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonFinspaceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonFinspaceClient(credentials, config);

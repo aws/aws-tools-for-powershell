@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AMM
     public abstract partial class AmazonMainframeModernizationClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMainframeModernization Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMainframeModernizationConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMainframeModernizationConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMainframeModernization CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMainframeModernizationConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMainframeModernizationConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMainframeModernizationClient(credentials, config);

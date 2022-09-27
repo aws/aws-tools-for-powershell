@@ -13982,6 +13982,7 @@ Set-Alias -Name Get-LOCMapSprites -Value Get-LOCMapSprite
 Set-Alias -Name LOC-GetMapSprites -Value Get-LOCMapSprite
 Set-Alias -Name LOC-GetMapStyleDescriptor -Value Get-LOCMapStyleDescriptor
 Set-Alias -Name LOC-GetMapTile -Value Get-LOCMapTile
+Set-Alias -Name LOC-GetPlace -Value Get-LOCPlace
 Set-Alias -Name List-LOCDevicePositions -Value Get-LOCDevicePositionList
 Set-Alias -Name List-LOCDevicePositionList -Value Get-LOCDevicePositionList
 Set-Alias -Name LOC-ListDevicePositions -Value Get-LOCDevicePositionList

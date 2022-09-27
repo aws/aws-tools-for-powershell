@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public abstract partial class AmazonLocationServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLocationService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLocationServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLocationServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLocationService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLocationServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLocationServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLocationServiceClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public abstract partial class AmazonDirectoryServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDirectoryService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDirectoryServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDirectoryServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDirectoryService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDirectoryServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDirectoryServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDirectoryServiceClient(credentials, config);

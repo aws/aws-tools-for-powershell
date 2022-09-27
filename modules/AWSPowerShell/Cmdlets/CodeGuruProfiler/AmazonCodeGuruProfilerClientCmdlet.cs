@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public abstract partial class AmazonCodeGuruProfilerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeGuruProfiler Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCodeGuruProfilerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCodeGuruProfilerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCodeGuruProfiler CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCodeGuruProfilerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCodeGuruProfilerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCodeGuruProfilerClient(credentials, config);

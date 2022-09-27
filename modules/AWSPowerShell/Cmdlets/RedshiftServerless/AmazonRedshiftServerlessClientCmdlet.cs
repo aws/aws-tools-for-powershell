@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public abstract partial class AmazonRedshiftServerlessClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRedshiftServerless Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRedshiftServerlessConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRedshiftServerlessConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRedshiftServerless CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRedshiftServerlessConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRedshiftServerlessConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRedshiftServerlessClient(credentials, config);

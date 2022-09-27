@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public abstract partial class AmazonRoute53DomainsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoute53Domains Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRoute53DomainsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRoute53DomainsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         }
         protected IAmazonRoute53Domains CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRoute53DomainsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRoute53DomainsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRoute53DomainsClient(credentials, config);

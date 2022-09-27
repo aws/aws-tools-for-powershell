@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public abstract partial class AmazonDeviceFarmClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDeviceFarm Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDeviceFarmConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDeviceFarmConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDeviceFarm CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDeviceFarmConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDeviceFarmConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDeviceFarmClient(credentials, config);

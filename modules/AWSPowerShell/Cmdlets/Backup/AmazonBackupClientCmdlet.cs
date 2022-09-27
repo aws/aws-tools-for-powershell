@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public abstract partial class AmazonBackupClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBackup Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonBackupConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonBackupConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonBackup CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonBackupConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonBackupConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonBackupClient(credentials, config);

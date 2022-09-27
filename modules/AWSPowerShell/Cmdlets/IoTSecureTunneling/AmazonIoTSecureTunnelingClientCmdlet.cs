@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     public abstract partial class AmazonIoTSecureTunnelingClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTSecureTunneling Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTSecureTunnelingConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTSecureTunnelingConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTSecureTunneling CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTSecureTunnelingConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTSecureTunnelingConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTSecureTunnelingClient(credentials, config);

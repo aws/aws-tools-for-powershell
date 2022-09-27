@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public abstract partial class AmazonWorkMailClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWorkMail Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonWorkMailConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonWorkMailConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonWorkMail CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonWorkMailConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonWorkMailConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonWorkMailClient(credentials, config);

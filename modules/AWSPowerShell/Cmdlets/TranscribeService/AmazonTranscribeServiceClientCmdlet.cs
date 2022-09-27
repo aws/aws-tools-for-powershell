@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public abstract partial class AmazonTranscribeServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonTranscribeService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonTranscribeServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonTranscribeServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonTranscribeService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonTranscribeServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonTranscribeServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonTranscribeServiceClient(credentials, config);

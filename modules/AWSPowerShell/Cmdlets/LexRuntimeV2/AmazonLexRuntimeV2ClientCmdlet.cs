@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     public abstract partial class AmazonLexRuntimeV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLexRuntimeV2 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLexRuntimeV2Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLexRuntimeV2Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLexRuntimeV2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLexRuntimeV2Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLexRuntimeV2Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLexRuntimeV2Client(credentials, config);

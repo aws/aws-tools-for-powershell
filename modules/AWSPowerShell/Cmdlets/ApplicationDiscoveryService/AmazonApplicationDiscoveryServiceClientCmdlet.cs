@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public abstract partial class AmazonApplicationDiscoveryServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonApplicationDiscoveryService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonApplicationDiscoveryServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonApplicationDiscoveryServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonApplicationDiscoveryService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonApplicationDiscoveryServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonApplicationDiscoveryServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApplicationDiscoveryServiceClient(credentials, config);

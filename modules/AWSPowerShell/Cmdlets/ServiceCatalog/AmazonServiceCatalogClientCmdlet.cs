@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public abstract partial class AmazonServiceCatalogClientCmdlet : ServiceCmdlet
     {
         protected IAmazonServiceCatalog Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonServiceCatalogConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonServiceCatalogConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonServiceCatalog CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonServiceCatalogConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonServiceCatalogConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonServiceCatalogClient(credentials, config);

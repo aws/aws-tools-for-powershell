@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.XR
     public abstract partial class AmazonXRayClientCmdlet : ServiceCmdlet
     {
         protected IAmazonXRay Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonXRayConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonXRayConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonXRay CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonXRayConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonXRayConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonXRayClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     public abstract partial class AmazonIoTFleetHubClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTFleetHub Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTFleetHubConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTFleetHubConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTFleetHub CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTFleetHubConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTFleetHubConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTFleetHubClient(credentials, config);

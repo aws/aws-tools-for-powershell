@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EB
     public abstract partial class AmazonElasticBeanstalkClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticBeanstalk Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElasticBeanstalkConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElasticBeanstalkConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElasticBeanstalk CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElasticBeanstalkConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElasticBeanstalkConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticBeanstalkClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public abstract partial class AmazonComprehendClientCmdlet : ServiceCmdlet
     {
         protected IAmazonComprehend Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonComprehendConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonComprehendConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonComprehend CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonComprehendConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonComprehendConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonComprehendClient(credentials, config);

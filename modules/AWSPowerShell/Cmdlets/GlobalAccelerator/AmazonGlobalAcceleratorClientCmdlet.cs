@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     public abstract partial class AmazonGlobalAcceleratorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGlobalAccelerator Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGlobalAcceleratorConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGlobalAcceleratorConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGlobalAccelerator CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGlobalAcceleratorConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGlobalAcceleratorConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGlobalAcceleratorClient(credentials, config);

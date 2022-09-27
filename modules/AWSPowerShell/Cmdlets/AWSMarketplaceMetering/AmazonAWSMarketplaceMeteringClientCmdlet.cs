@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MM
     public abstract partial class AmazonAWSMarketplaceMeteringClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSMarketplaceMetering Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAWSMarketplaceMeteringConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAWSMarketplaceMeteringConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAWSMarketplaceMetering CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAWSMarketplaceMeteringConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAWSMarketplaceMeteringConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAWSMarketplaceMeteringClient(credentials, config);

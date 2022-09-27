@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     public abstract partial class AmazonCloudFormationClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudFormation Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudFormationConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudFormationConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudFormation CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudFormationConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudFormationConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudFormationClient(credentials, config);

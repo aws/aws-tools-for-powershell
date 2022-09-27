@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public abstract partial class AmazonMigrationHubRefactorSpacesClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMigrationHubRefactorSpaces Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMigrationHubRefactorSpacesConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMigrationHubRefactorSpacesConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMigrationHubRefactorSpaces CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMigrationHubRefactorSpacesConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMigrationHubRefactorSpacesConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMigrationHubRefactorSpacesClient(credentials, config);

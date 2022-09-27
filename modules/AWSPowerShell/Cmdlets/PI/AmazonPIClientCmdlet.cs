@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PI
     public abstract partial class AmazonPIClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPI Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPIConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPIConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPI CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPIConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPIConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPIClient(credentials, config);

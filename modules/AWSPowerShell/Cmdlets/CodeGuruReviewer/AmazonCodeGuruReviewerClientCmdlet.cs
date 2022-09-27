@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     public abstract partial class AmazonCodeGuruReviewerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeGuruReviewer Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCodeGuruReviewerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCodeGuruReviewerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCodeGuruReviewer CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCodeGuruReviewerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCodeGuruReviewerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCodeGuruReviewerClient(credentials, config);

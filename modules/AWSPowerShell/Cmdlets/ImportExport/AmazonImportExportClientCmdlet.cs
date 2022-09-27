@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.IE
     public abstract partial class AmazonImportExportClientCmdlet : ServiceCmdlet
     {
         protected IAmazonImportExport Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonImportExportConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonImportExportConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IE
         }
         protected IAmazonImportExport CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonImportExportConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonImportExportConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonImportExportClient(credentials, config);

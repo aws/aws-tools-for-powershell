@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.VID
     public abstract partial class AmazonVoiceIDClientCmdlet : ServiceCmdlet
     {
         protected IAmazonVoiceID Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonVoiceIDConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonVoiceIDConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonVoiceID CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonVoiceIDConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonVoiceIDConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonVoiceIDClient(credentials, config);

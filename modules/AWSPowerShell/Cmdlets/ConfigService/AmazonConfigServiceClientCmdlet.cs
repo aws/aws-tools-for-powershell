@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     public abstract partial class AmazonConfigServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConfigService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonConfigServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonConfigServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         }
         protected IAmazonConfigService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonConfigServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonConfigServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonConfigServiceClient(credentials, config);

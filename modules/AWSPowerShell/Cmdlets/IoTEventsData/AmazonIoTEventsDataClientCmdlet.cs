@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTED
     public abstract partial class AmazonIoTEventsDataClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTEventsData Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTEventsDataConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTEventsDataConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTEventsData CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTEventsDataConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTEventsDataConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTEventsDataClient(credentials, config);

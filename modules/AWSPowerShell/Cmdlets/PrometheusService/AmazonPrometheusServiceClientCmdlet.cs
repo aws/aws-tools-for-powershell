@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PROM
     public abstract partial class AmazonPrometheusServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPrometheusService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPrometheusServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPrometheusServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPrometheusService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPrometheusServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPrometheusServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPrometheusServiceClient(credentials, config);

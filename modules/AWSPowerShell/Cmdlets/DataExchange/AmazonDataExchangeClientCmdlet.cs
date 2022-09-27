@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
     public abstract partial class AmazonDataExchangeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDataExchange Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDataExchangeConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDataExchangeConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDataExchange CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDataExchangeConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDataExchangeConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDataExchangeClient(credentials, config);

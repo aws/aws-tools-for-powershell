@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public abstract partial class AmazonIoTWirelessClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTWireless Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTWirelessConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTWirelessConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTWireless CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTWirelessConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTWirelessConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTWirelessClient(credentials, config);

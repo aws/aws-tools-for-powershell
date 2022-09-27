@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     public abstract partial class AmazonMediaStoreClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaStore Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaStoreConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaStoreConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaStore CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaStoreConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaStoreConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaStoreClient(credentials, config);

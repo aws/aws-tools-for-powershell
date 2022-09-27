@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public abstract partial class AmazonConnectCampaignServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConnectCampaignService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonConnectCampaignServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonConnectCampaignServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonConnectCampaignService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonConnectCampaignServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonConnectCampaignServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonConnectCampaignServiceClient(credentials, config);

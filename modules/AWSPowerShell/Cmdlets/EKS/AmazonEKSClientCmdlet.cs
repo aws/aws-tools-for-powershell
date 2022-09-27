@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     public abstract partial class AmazonEKSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEKS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonEKSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonEKSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonEKS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonEKSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonEKSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEKSClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
     public abstract partial class AmazonAmplifyUIBuilderClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAmplifyUIBuilder Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAmplifyUIBuilderConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAmplifyUIBuilderConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAmplifyUIBuilder CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAmplifyUIBuilderConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAmplifyUIBuilderConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAmplifyUIBuilderClient(credentials, config);

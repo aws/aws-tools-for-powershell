@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     public abstract partial class AmazonLicenseManagerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLicenseManager Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLicenseManagerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLicenseManagerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLicenseManager CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLicenseManagerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLicenseManagerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLicenseManagerClient(credentials, config);

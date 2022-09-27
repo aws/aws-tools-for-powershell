@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
     public abstract partial class AmazonIoTJobsDataPlaneClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTJobsDataPlane Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTJobsDataPlaneConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTJobsDataPlaneConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTJobsDataPlane CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTJobsDataPlaneConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTJobsDataPlaneConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTJobsDataPlaneClient(credentials, config);

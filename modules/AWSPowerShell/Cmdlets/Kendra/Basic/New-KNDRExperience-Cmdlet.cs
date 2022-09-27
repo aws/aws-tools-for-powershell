@@ -90,13 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserIdentityConfiguration_IdentityAttributeName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services SSO field name that contains the identifiers of your users,
-        /// such as their emails. This is used for <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">user
+        /// <para>The IAM Identity Center field name that contains the identifiers of your users, such
+        /// as their emails. This is used for <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">user
         /// context filtering</a> and for granting access to your Amazon Kendra experience. You
-        /// must set up Amazon Web Services SSO with Amazon Kendra. You must include your users
-        /// and groups in your Access Control List when you ingest documents into your index.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting
-        /// started with an Amazon Web Services SSO identity source</a>.</para>
+        /// must set up IAM Identity Center with Amazon Kendra. You must include your users and
+        /// groups in your Access Control List when you ingest documents into your index. For
+        /// more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting
+        /// started with an IAM Identity Center identity source</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,10 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
-        /// API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and Amazon
-        /// Web Services SSO that stores your user and group information. For more information,
-        /// see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles
-        /// for Amazon Kendra</a>.</para>
+        /// API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code> API, and IAM Identity
+        /// Center that stores your user and group information. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

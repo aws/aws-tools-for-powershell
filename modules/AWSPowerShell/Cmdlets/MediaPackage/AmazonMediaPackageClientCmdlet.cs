@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public abstract partial class AmazonMediaPackageClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaPackage Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaPackageConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaPackageConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaPackage CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaPackageConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaPackageConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaPackageClient(credentials, config);

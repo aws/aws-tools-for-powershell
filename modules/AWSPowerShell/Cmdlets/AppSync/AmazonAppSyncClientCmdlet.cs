@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public abstract partial class AmazonAppSyncClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppSync Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppSyncConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppSyncConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppSync CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppSyncConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppSyncConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppSyncClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SUP
     public abstract partial class AmazonSupportAppClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSupportApp Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSupportAppConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSupportAppConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSupportApp CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSupportAppConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSupportAppConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSupportAppClient(credentials, config);

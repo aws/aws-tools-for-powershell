@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public abstract partial class AmazonLexModelsV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLexModelsV2 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLexModelsV2Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLexModelsV2Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLexModelsV2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLexModelsV2Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLexModelsV2Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLexModelsV2Client(credentials, config);

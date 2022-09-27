@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     public abstract partial class AmazonAmplifyClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAmplify Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAmplifyConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAmplifyConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAmplify CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAmplifyConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAmplifyConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAmplifyClient(credentials, config);

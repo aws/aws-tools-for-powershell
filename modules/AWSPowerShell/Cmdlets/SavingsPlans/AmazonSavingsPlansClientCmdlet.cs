@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SP
     public abstract partial class AmazonSavingsPlansClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSavingsPlans Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSavingsPlansConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSavingsPlansConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSavingsPlans CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSavingsPlansConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSavingsPlansConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSavingsPlansClient(credentials, config);

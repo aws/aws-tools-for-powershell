@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     public abstract partial class AmazonTextractClientCmdlet : ServiceCmdlet
     {
         protected IAmazonTextract Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonTextractConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonTextractConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonTextract CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonTextractConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonTextractConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonTextractClient(credentials, config);

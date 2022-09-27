@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.FRCQ
     public abstract partial class AmazonForecastQueryServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonForecastQueryService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonForecastQueryServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonForecastQueryServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonForecastQueryService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonForecastQueryServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonForecastQueryServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonForecastQueryServiceClient(credentials, config);

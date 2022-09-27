@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     public abstract partial class AmazonApplicationAutoScalingClientCmdlet : ServiceCmdlet
     {
         protected IAmazonApplicationAutoScaling Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonApplicationAutoScalingConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonApplicationAutoScalingConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonApplicationAutoScaling CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonApplicationAutoScalingConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonApplicationAutoScalingConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApplicationAutoScalingClient(credentials, config);

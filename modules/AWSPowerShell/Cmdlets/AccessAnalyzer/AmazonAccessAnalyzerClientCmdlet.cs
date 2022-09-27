@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
     public abstract partial class AmazonAccessAnalyzerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAccessAnalyzer Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAccessAnalyzerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAccessAnalyzerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAccessAnalyzer CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAccessAnalyzerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAccessAnalyzerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAccessAnalyzerClient(credentials, config);

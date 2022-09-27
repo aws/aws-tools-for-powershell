@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     public abstract partial class AmazonChimeSDKMediaPipelinesClientCmdlet : ServiceCmdlet
     {
         protected IAmazonChimeSDKMediaPipelines Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonChimeSDKMediaPipelinesConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonChimeSDKMediaPipelinesConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonChimeSDKMediaPipelines CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonChimeSDKMediaPipelinesConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonChimeSDKMediaPipelinesConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonChimeSDKMediaPipelinesClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MDB
     public abstract partial class AmazonMemoryDBClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMemoryDB Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMemoryDBConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMemoryDBConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMemoryDB CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMemoryDBConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMemoryDBConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMemoryDBClient(credentials, config);

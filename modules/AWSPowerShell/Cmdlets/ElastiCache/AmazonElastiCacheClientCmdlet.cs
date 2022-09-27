@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EC
     public abstract partial class AmazonElastiCacheClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElastiCache Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElastiCacheConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElastiCacheConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElastiCache CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElastiCacheConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElastiCacheConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElastiCacheClient(credentials, config);

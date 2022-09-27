@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public abstract partial class AmazonAppStreamClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppStream Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppStreamConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppStreamConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppStream CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppStreamConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppStreamConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppStreamClient(credentials, config);

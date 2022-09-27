@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     public abstract partial class AmazonCustomerProfilesClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCustomerProfiles Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCustomerProfilesConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCustomerProfilesConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCustomerProfiles CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCustomerProfilesConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCustomerProfilesConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCustomerProfilesClient(credentials, config);

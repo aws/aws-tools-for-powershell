@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public abstract partial class AmazonMgnClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMgn Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMgnConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMgnConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMgn CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMgnConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMgnConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMgnClient(credentials, config);

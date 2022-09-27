@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CO
     public abstract partial class AmazonComputeOptimizerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonComputeOptimizer Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonComputeOptimizerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonComputeOptimizerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonComputeOptimizer CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonComputeOptimizerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonComputeOptimizerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonComputeOptimizerClient(credentials, config);

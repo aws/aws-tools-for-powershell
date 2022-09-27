@@ -49,6 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public System.String DefaultValue { get; set; }
         #endregion
         
+        #region Parameter EffectiveStart
+        /// <summary>
+        /// <para>
+        /// <para>The Cost Category's effective start date. It can only be a billing start date (first
+        /// day of the month). If the date isn't provided, it's the first day of the current month.
+        /// Dates can't be before the previous twelve months, or in the future.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EffectiveStart { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -191,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultValue = this.DefaultValue;
+            context.EffectiveStart = this.EffectiveStart;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -242,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.DefaultValue != null)
             {
                 request.DefaultValue = cmdletContext.DefaultValue;
+            }
+            if (cmdletContext.EffectiveStart != null)
+            {
+                request.EffectiveStart = cmdletContext.EffectiveStart;
             }
             if (cmdletContext.Name != null)
             {
@@ -325,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DefaultValue { get; set; }
+            public System.String EffectiveStart { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.CostExplorer.Model.ResourceTag> ResourceTag { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }

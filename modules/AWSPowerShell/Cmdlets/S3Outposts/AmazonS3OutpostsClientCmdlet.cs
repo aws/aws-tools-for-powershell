@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.S3O
     public abstract partial class AmazonS3OutpostsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonS3Outposts Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonS3OutpostsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonS3OutpostsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonS3Outposts CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonS3OutpostsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonS3OutpostsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonS3OutpostsClient(credentials, config);

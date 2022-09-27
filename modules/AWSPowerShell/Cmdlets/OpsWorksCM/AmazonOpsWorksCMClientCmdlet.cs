@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public abstract partial class AmazonOpsWorksCMClientCmdlet : ServiceCmdlet
     {
         protected IAmazonOpsWorksCM Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonOpsWorksCMConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonOpsWorksCMConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         }
         protected IAmazonOpsWorksCM CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonOpsWorksCMConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonOpsWorksCMConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonOpsWorksCMClient(credentials, config);

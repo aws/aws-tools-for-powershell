@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public abstract partial class AmazonECRClientCmdlet : ServiceCmdlet
     {
         protected IAmazonECR Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonECRConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonECRConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonECR CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonECRConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonECRConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonECRClient(credentials, config);

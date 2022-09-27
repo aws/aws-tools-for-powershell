@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public abstract partial class AmazonLightsailClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLightsail Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLightsailConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLightsailConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLightsail CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLightsailConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLightsailConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLightsailClient(credentials, config);

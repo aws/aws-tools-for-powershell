@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public abstract partial class AmazonBatchClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBatch Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonBatchConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonBatchConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonBatch CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonBatchConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonBatchConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonBatchClient(credentials, config);

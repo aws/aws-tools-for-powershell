@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public abstract partial class AmazonPollyClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPolly Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPollyConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPollyConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         }
         protected IAmazonPolly CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPollyConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPollyConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPollyClient(credentials, config);

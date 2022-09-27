@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.STS
     public abstract partial class AmazonSecurityTokenServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSecurityTokenService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSecurityTokenServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSecurityTokenServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSecurityTokenService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSecurityTokenServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSecurityTokenServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSecurityTokenServiceClient(credentials, config);

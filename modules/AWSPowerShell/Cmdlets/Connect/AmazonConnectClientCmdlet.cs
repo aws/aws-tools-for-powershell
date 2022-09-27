@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public abstract partial class AmazonConnectClientCmdlet : ServiceCmdlet
     {
         protected IAmazonConnect Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonConnectConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonConnectConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonConnect CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonConnectConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonConnectConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonConnectClient(credentials, config);

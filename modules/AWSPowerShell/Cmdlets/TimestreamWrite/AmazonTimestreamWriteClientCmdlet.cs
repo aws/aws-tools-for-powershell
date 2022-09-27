@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public abstract partial class AmazonTimestreamWriteClientCmdlet : ServiceCmdlet
     {
         protected IAmazonTimestreamWrite Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonTimestreamWriteConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonTimestreamWriteConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonTimestreamWrite CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonTimestreamWriteConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonTimestreamWriteConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonTimestreamWriteClient(credentials, config);

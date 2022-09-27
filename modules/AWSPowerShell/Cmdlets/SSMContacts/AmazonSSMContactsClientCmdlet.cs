@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SMC
     public abstract partial class AmazonSSMContactsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSSMContacts Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSSMContactsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSSMContactsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSSMContacts CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSSMContactsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSSMContactsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSSMContactsClient(credentials, config);

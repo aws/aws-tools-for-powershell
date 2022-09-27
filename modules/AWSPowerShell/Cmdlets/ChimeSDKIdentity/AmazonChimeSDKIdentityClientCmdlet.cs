@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     public abstract partial class AmazonChimeSDKIdentityClientCmdlet : ServiceCmdlet
     {
         protected IAmazonChimeSDKIdentity Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonChimeSDKIdentityConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonChimeSDKIdentityConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonChimeSDKIdentity CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonChimeSDKIdentityConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonChimeSDKIdentityConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonChimeSDKIdentityClient(credentials, config);

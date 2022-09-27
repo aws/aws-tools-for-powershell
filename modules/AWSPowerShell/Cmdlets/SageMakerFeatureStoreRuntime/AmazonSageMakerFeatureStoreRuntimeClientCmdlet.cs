@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     public abstract partial class AmazonSageMakerFeatureStoreRuntimeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSageMakerFeatureStoreRuntime Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSageMakerFeatureStoreRuntimeConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSageMakerFeatureStoreRuntimeConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSageMakerFeatureStoreRuntime CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSageMakerFeatureStoreRuntimeConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSageMakerFeatureStoreRuntimeConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSageMakerFeatureStoreRuntimeClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     public abstract partial class AmazonElasticLoadBalancingClientCmdlet : ServiceCmdlet
     {
         protected IAmazonElasticLoadBalancing Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonElasticLoadBalancingConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonElasticLoadBalancingConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonElasticLoadBalancing CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonElasticLoadBalancingConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonElasticLoadBalancingConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonElasticLoadBalancingClient(credentials, config);

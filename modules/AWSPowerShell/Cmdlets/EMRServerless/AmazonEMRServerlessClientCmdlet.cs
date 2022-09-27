@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     public abstract partial class AmazonEMRServerlessClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEMRServerless Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonEMRServerlessConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonEMRServerlessConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonEMRServerless CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonEMRServerlessConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonEMRServerlessConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEMRServerlessClient(credentials, config);

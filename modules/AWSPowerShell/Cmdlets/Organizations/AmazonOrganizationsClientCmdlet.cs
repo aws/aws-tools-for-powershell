@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public abstract partial class AmazonOrganizationsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonOrganizations Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonOrganizationsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonOrganizationsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonOrganizations CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonOrganizationsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonOrganizationsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonOrganizationsClient(credentials, config);

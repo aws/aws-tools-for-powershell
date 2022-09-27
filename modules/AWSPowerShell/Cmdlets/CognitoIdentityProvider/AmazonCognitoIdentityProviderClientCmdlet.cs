@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public abstract partial class AmazonCognitoIdentityProviderClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCognitoIdentityProvider Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCognitoIdentityProviderConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCognitoIdentityProviderConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCognitoIdentityProvider CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCognitoIdentityProviderConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCognitoIdentityProviderConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCognitoIdentityProviderClient(credentials, config);
@@ -54,9 +69,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public abstract partial class AnonymousAmazonCognitoIdentityProviderClientCmdlet : AnonymousServiceCmdlet
     {
         protected IAmazonCognitoIdentityProvider Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCognitoIdentityProviderConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCognitoIdentityProviderConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCognitoIdentityProvider CreateClient(RegionEndpoint region)
         {
-            var config = new AmazonCognitoIdentityProviderConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCognitoIdentityProviderConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCognitoIdentityProviderClient(new AnonymousAWSCredentials(), config);

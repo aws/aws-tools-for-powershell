@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
     public abstract partial class AmazonBraketClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBraket Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonBraketConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonBraketConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonBraket CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonBraketConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonBraketConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonBraketClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     public abstract partial class AmazonPinpointSMSVoiceV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPinpointSMSVoiceV2 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPinpointSMSVoiceV2Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPinpointSMSVoiceV2Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPinpointSMSVoiceV2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPinpointSMSVoiceV2Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPinpointSMSVoiceV2Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPinpointSMSVoiceV2Client(credentials, config);

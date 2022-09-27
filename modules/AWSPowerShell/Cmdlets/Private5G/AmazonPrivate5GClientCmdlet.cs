@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public abstract partial class AmazonPrivate5GClientCmdlet : ServiceCmdlet
     {
         protected IAmazonPrivate5G Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonPrivate5GConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonPrivate5GConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonPrivate5G CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonPrivate5GConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonPrivate5GConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonPrivate5GClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     public abstract partial class AmazonAthenaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAthena Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAthenaConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAthenaConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAthena CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAthenaConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAthenaConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAthenaClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GMESP
     public abstract partial class AmazonGameSparksClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGameSparks Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGameSparksConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGameSparksConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGameSparks CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGameSparksConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGameSparksConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGameSparksClient(credentials, config);

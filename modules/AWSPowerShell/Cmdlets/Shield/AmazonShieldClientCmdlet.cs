@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     public abstract partial class AmazonShieldClientCmdlet : ServiceCmdlet
     {
         protected IAmazonShield Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonShieldConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonShieldConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonShield CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonShieldConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonShieldConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonShieldClient(credentials, config);

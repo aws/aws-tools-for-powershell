@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMT
     public abstract partial class AmazonMediaTailorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaTailor Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaTailorConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaTailorConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaTailor CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaTailorConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaTailorConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaTailorClient(credentials, config);

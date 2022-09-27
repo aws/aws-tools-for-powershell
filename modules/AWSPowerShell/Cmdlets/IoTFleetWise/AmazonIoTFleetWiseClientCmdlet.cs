@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public abstract partial class AmazonIoTFleetWiseClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTFleetWise Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTFleetWiseConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTFleetWiseConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTFleetWise CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTFleetWiseConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTFleetWiseConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTFleetWiseClient(credentials, config);

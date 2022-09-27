@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     public abstract partial class AmazonCostAndUsageReportClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCostAndUsageReport Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCostAndUsageReportConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCostAndUsageReportConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCostAndUsageReport CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCostAndUsageReportConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCostAndUsageReportConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCostAndUsageReportClient(credentials, config);

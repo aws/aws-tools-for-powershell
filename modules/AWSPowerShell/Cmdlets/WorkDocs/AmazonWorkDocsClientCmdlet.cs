@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public abstract partial class AmazonWorkDocsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWorkDocs Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonWorkDocsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonWorkDocsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonWorkDocs CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonWorkDocsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonWorkDocsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonWorkDocsClient(credentials, config);

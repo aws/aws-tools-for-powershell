@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public abstract partial class AmazonWAFRegionalClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWAFRegional Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonWAFRegionalConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonWAFRegionalConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonWAFRegional CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonWAFRegionalConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonWAFRegionalConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonWAFRegionalClient(credentials, config);

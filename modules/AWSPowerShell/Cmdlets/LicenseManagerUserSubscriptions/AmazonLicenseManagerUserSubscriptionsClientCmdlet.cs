@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
     public abstract partial class AmazonLicenseManagerUserSubscriptionsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLicenseManagerUserSubscriptions Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLicenseManagerUserSubscriptionsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLicenseManagerUserSubscriptionsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLicenseManagerUserSubscriptions CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLicenseManagerUserSubscriptionsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLicenseManagerUserSubscriptionsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLicenseManagerUserSubscriptionsClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public abstract partial class AmazonResilienceHubClientCmdlet : ServiceCmdlet
     {
         protected IAmazonResilienceHub Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonResilienceHubConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonResilienceHubConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonResilienceHub CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonResilienceHubConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonResilienceHubConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonResilienceHubClient(credentials, config);

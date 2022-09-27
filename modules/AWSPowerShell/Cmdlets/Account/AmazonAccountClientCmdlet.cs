@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     public abstract partial class AmazonAccountClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAccount Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAccountConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAccountConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAccount CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAccountConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAccountConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAccountClient(credentials, config);

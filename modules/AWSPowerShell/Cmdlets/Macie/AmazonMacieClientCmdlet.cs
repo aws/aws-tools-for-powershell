@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     public abstract partial class AmazonMacieClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMacie Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMacieConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMacieConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMacie CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMacieConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMacieConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMacieClient(credentials, config);

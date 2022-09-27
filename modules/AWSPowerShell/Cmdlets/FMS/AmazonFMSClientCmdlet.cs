@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public abstract partial class AmazonFMSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonFMS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonFMSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonFMSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonFMS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonFMSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonFMSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonFMSClient(credentials, config);

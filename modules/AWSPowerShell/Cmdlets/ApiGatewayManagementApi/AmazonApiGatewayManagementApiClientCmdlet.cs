@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AGM
     public abstract partial class AmazonApiGatewayManagementApiClientCmdlet : ServiceCmdlet
     {
         protected IAmazonApiGatewayManagementApi Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonApiGatewayManagementApiConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonApiGatewayManagementApiConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonApiGatewayManagementApi CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonApiGatewayManagementApiConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonApiGatewayManagementApiConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApiGatewayManagementApiClient(credentials, config);

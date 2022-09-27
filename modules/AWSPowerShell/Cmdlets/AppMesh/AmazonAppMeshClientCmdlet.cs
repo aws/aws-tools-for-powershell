@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public abstract partial class AmazonAppMeshClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppMesh Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppMeshConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppMeshConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppMesh CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppMeshConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppMeshConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppMeshClient(credentials, config);

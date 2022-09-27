@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public abstract partial class AmazonRekognitionClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRekognition Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRekognitionConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRekognitionConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRekognition CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRekognitionConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRekognitionConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRekognitionClient(credentials, config);

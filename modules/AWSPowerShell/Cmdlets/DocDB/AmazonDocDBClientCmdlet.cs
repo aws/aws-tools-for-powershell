@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     public abstract partial class AmazonDocDBClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDocDB Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDocDBConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDocDBConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDocDB CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDocDBConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDocDBConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDocDBClient(credentials, config);

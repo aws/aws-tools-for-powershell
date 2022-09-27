@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public abstract partial class AmazonCostExplorerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCostExplorer Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCostExplorerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCostExplorerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCostExplorer CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCostExplorerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCostExplorerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCostExplorerClient(credentials, config);

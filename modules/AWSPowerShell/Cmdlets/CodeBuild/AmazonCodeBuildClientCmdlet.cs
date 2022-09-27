@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public abstract partial class AmazonCodeBuildClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeBuild Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCodeBuildConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCodeBuildConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCodeBuild CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCodeBuildConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCodeBuildConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCodeBuildClient(credentials, config);

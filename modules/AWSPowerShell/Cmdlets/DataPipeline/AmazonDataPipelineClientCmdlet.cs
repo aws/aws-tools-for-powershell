@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DP
     public abstract partial class AmazonDataPipelineClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDataPipeline Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDataPipelineConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDataPipelineConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDataPipeline CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDataPipelineConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDataPipelineConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDataPipelineClient(credentials, config);

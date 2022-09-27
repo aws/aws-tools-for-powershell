@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public abstract partial class AmazonAppflowClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppflow Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAppflowConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAppflowConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAppflow CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAppflowConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAppflowConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAppflowClient(credentials, config);

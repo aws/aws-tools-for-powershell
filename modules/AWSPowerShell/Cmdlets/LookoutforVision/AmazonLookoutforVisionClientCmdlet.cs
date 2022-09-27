@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     public abstract partial class AmazonLookoutforVisionClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLookoutforVision Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLookoutforVisionConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLookoutforVisionConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLookoutforVision CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLookoutforVisionConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLookoutforVisionConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLookoutforVisionClient(credentials, config);

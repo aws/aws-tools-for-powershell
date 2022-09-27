@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     public abstract partial class AmazonAWSHealthClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAWSHealth Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAWSHealthConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAWSHealthConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAWSHealth CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAWSHealthConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAWSHealthConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAWSHealthClient(credentials, config);

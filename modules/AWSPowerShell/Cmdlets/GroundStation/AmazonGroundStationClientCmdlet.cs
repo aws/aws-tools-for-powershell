@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public abstract partial class AmazonGroundStationClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGroundStation Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGroundStationConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGroundStationConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGroundStation CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGroundStationConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGroundStationConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGroundStationClient(credentials, config);

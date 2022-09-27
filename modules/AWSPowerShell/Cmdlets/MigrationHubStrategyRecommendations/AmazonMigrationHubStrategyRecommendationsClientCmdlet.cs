@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public abstract partial class AmazonMigrationHubStrategyRecommendationsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMigrationHubStrategyRecommendations Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMigrationHubStrategyRecommendationsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMigrationHubStrategyRecommendationsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMigrationHubStrategyRecommendations CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMigrationHubStrategyRecommendationsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMigrationHubStrategyRecommendationsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMigrationHubStrategyRecommendationsClient(credentials, config);

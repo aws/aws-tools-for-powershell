@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public abstract partial class AmazonBillingConductorClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBillingConductor Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonBillingConductorConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonBillingConductorConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonBillingConductor CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonBillingConductorConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonBillingConductorConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonBillingConductorClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MES
     public abstract partial class AmazonMarketplaceEntitlementServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMarketplaceEntitlementService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMarketplaceEntitlementServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMarketplaceEntitlementServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMarketplaceEntitlementService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMarketplaceEntitlementServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMarketplaceEntitlementServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMarketplaceEntitlementServiceClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SAR
     public abstract partial class AmazonServerlessApplicationRepositoryClientCmdlet : ServiceCmdlet
     {
         protected IAmazonServerlessApplicationRepository Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonServerlessApplicationRepositoryConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonServerlessApplicationRepositoryConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonServerlessApplicationRepository CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonServerlessApplicationRepositoryConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonServerlessApplicationRepositoryConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonServerlessApplicationRepositoryClient(credentials, config);

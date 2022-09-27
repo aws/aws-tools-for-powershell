@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SQ
     public abstract partial class AmazonServiceQuotasClientCmdlet : ServiceCmdlet
     {
         protected IAmazonServiceQuotas Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonServiceQuotasConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonServiceQuotasConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonServiceQuotas CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonServiceQuotasConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonServiceQuotasConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonServiceQuotasClient(credentials, config);

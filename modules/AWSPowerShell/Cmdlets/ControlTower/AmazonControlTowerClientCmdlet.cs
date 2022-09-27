@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ACT
     public abstract partial class AmazonControlTowerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonControlTower Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonControlTowerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonControlTowerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonControlTower CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonControlTowerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonControlTowerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonControlTowerClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public abstract partial class AmazonRDSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRDS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRDSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRDSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRDS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRDSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRDSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRDSClient(credentials, config);

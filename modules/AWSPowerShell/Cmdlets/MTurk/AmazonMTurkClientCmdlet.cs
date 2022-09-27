@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     public abstract partial class AmazonMTurkClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMTurk Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMTurkConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMTurkConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMTurk CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMTurkConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMTurkConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMTurkClient(credentials, config);

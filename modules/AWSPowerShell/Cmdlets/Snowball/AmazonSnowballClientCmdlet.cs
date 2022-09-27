@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     public abstract partial class AmazonSnowballClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSnowball Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSnowballConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSnowballConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSnowball CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSnowballConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSnowballConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSnowballClient(credentials, config);

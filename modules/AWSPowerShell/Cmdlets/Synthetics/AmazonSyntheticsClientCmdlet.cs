@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     public abstract partial class AmazonSyntheticsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSynthetics Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSyntheticsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSyntheticsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSynthetics CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSyntheticsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSyntheticsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSyntheticsClient(credentials, config);

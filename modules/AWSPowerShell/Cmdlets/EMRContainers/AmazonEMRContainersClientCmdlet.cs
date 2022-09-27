@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public abstract partial class AmazonEMRContainersClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEMRContainers Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonEMRContainersConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonEMRContainersConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonEMRContainers CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonEMRContainersConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonEMRContainersConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEMRContainersClient(credentials, config);

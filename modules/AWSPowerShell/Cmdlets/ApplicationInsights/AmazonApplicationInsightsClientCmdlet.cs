@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public abstract partial class AmazonApplicationInsightsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonApplicationInsights Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonApplicationInsightsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonApplicationInsightsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         }
         protected IAmazonApplicationInsights CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonApplicationInsightsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonApplicationInsightsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonApplicationInsightsClient(credentials, config);

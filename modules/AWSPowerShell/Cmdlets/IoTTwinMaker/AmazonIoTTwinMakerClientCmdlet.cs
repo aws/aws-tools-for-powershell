@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
     public abstract partial class AmazonIoTTwinMakerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIoTTwinMaker Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIoTTwinMakerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIoTTwinMakerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIoTTwinMaker CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIoTTwinMakerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIoTTwinMakerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIoTTwinMakerClient(credentials, config);

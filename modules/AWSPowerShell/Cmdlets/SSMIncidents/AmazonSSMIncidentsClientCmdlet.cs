@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     public abstract partial class AmazonSSMIncidentsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSSMIncidents Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSSMIncidentsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSSMIncidentsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSSMIncidents CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSSMIncidentsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSSMIncidentsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSSMIncidentsClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     public abstract partial class AmazonAuditManagerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAuditManager Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonAuditManagerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonAuditManagerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonAuditManager CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonAuditManagerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonAuditManagerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonAuditManagerClient(credentials, config);

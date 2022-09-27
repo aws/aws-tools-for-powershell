@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GG
     public abstract partial class AmazonGreengrassClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGreengrass Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGreengrassConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGreengrassConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGreengrass CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGreengrassConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGreengrassConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGreengrassClient(credentials, config);

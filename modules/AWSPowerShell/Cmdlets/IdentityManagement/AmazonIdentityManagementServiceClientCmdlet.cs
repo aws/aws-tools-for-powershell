@@ -31,6 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public abstract partial class AmazonIdentityManagementServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIdentityManagementService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIdentityManagementServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIdentityManagementServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected override string _DefaultRegion
         {
             get
@@ -40,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         }
         protected IAmazonIdentityManagementService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIdentityManagementServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIdentityManagementServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIdentityManagementServiceClient(credentials, config);

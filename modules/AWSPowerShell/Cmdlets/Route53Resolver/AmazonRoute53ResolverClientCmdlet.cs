@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.R53R
     public abstract partial class AmazonRoute53ResolverClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRoute53Resolver Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRoute53ResolverConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRoute53ResolverConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRoute53Resolver CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRoute53ResolverConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRoute53ResolverConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRoute53ResolverClient(credentials, config);

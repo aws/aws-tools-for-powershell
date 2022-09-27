@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public abstract partial class AmazonEventBridgeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonEventBridge Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonEventBridgeConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonEventBridgeConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonEventBridge CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonEventBridgeConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonEventBridgeConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonEventBridgeClient(credentials, config);

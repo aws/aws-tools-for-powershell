@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public System.String DefaultValue { get; set; }
         #endregion
         
+        #region Parameter EffectiveStart
+        /// <summary>
+        /// <para>
+        /// <para>The Cost Category's effective start date. It can only be a billing start date (first
+        /// day of the month). If the date isn't provided, it's the first day of the current month.
+        /// Dates can't be before the previous twelve months, or in the future.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EffectiveStart { get; set; }
+        #endregion
+        
         #region Parameter Rule
         /// <summary>
         /// <para>
@@ -186,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
             }
             #endif
             context.DefaultValue = this.DefaultValue;
+            context.EffectiveStart = this.EffectiveStart;
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.CostExplorer.Model.CostCategoryRule>(this.Rule);
@@ -230,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.DefaultValue != null)
             {
                 request.DefaultValue = cmdletContext.DefaultValue;
+            }
+            if (cmdletContext.EffectiveStart != null)
+            {
+                request.EffectiveStart = cmdletContext.EffectiveStart;
             }
             if (cmdletContext.Rule != null)
             {
@@ -306,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         {
             public System.String CostCategoryArn { get; set; }
             public System.String DefaultValue { get; set; }
+            public System.String EffectiveStart { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategoryRule> Rule { get; set; }
             public Amazon.CostExplorer.CostCategoryRuleVersion RuleVersion { get; set; }
             public List<Amazon.CostExplorer.Model.CostCategorySplitChargeRule> SplitChargeRule { get; set; }

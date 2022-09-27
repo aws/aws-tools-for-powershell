@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CA
     public abstract partial class AmazonCodeArtifactClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeArtifact Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCodeArtifactConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCodeArtifactConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCodeArtifact CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCodeArtifactConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCodeArtifactConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCodeArtifactClient(credentials, config);

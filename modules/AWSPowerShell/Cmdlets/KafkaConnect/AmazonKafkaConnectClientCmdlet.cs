@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     public abstract partial class AmazonKafkaConnectClientCmdlet : ServiceCmdlet
     {
         protected IAmazonKafkaConnect Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonKafkaConnectConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonKafkaConnectConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonKafkaConnect CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonKafkaConnectConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonKafkaConnectConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonKafkaConnectClient(credentials, config);

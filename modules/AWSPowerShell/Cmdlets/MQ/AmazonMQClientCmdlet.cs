@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public abstract partial class AmazonMQClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMQ Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMQConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMQConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMQ CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMQConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMQConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMQClient(credentials, config);

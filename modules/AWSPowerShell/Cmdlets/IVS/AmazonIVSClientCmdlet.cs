@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public abstract partial class AmazonIVSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonIVS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonIVSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonIVSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonIVS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonIVSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonIVSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonIVSClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     public abstract partial class AmazonDAXClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDAX Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDAXConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDAXConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDAX CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDAXConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDAXConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDAXClient(credentials, config);

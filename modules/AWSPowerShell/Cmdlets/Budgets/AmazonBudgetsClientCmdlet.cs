@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     public abstract partial class AmazonBudgetsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonBudgets Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonBudgetsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonBudgetsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonBudgets CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonBudgetsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonBudgetsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonBudgetsClient(credentials, config);

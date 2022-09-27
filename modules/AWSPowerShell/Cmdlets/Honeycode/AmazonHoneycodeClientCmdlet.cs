@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public abstract partial class AmazonHoneycodeClientCmdlet : ServiceCmdlet
     {
         protected IAmazonHoneycode Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonHoneycodeConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonHoneycodeConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonHoneycode CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonHoneycodeConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonHoneycodeConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonHoneycodeClient(credentials, config);

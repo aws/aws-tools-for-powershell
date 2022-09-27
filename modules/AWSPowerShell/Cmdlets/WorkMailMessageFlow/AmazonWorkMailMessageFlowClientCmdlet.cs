@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WMMF
     public abstract partial class AmazonWorkMailMessageFlowClientCmdlet : ServiceCmdlet
     {
         protected IAmazonWorkMailMessageFlow Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonWorkMailMessageFlowConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonWorkMailMessageFlowConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonWorkMailMessageFlow CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonWorkMailMessageFlowConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonWorkMailMessageFlowConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonWorkMailMessageFlowClient(credentials, config);

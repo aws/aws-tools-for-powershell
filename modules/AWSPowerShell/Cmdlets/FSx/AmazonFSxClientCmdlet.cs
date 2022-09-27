@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public abstract partial class AmazonFSxClientCmdlet : ServiceCmdlet
     {
         protected IAmazonFSx Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonFSxConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonFSxConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonFSx CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonFSxConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonFSxConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonFSxClient(credentials, config);

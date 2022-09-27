@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public abstract partial class AmazonGuardDutyClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGuardDuty Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGuardDutyConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGuardDutyConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGuardDuty CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGuardDutyConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGuardDutyConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGuardDutyClient(credentials, config);

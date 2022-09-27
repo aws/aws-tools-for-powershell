@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     public abstract partial class AmazonCloudHSMClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudHSM Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudHSMConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudHSMConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudHSM CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudHSMConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudHSMConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudHSMClient(credentials, config);

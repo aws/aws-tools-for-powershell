@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public abstract partial class AmazonECSClientCmdlet : ServiceCmdlet
     {
         protected IAmazonECS Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonECSConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonECSConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonECS CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonECSConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonECSConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonECSClient(credentials, config);

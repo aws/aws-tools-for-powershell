@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMC
     public abstract partial class AmazonMediaConvertClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaConvert Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaConvertConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaConvertConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaConvert CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaConvertConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaConvertConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaConvertClient(credentials, config);

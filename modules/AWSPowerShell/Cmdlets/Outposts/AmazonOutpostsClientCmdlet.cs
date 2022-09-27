@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     public abstract partial class AmazonOutpostsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonOutposts Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonOutpostsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonOutpostsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonOutposts CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonOutpostsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonOutpostsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonOutpostsClient(credentials, config);

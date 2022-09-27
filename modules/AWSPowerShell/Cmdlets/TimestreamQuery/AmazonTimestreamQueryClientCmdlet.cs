@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public abstract partial class AmazonTimestreamQueryClientCmdlet : ServiceCmdlet
     {
         protected IAmazonTimestreamQuery Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonTimestreamQueryConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonTimestreamQueryConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonTimestreamQuery CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonTimestreamQueryConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonTimestreamQueryConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonTimestreamQueryClient(credentials, config);

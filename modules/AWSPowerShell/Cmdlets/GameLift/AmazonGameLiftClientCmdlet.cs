@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public abstract partial class AmazonGameLiftClientCmdlet : ServiceCmdlet
     {
         protected IAmazonGameLift Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonGameLiftConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonGameLiftConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonGameLift CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonGameLiftConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonGameLiftConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonGameLiftClient(credentials, config);

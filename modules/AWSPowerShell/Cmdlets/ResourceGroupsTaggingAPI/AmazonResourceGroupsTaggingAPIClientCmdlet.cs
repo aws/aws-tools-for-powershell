@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     public abstract partial class AmazonResourceGroupsTaggingAPIClientCmdlet : ServiceCmdlet
     {
         protected IAmazonResourceGroupsTaggingAPI Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonResourceGroupsTaggingAPIConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonResourceGroupsTaggingAPIConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonResourceGroupsTaggingAPI CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonResourceGroupsTaggingAPIConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonResourceGroupsTaggingAPIConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonResourceGroupsTaggingAPIClient(credentials, config);

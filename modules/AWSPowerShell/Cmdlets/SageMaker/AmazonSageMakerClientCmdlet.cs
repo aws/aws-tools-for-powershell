@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public abstract partial class AmazonSageMakerClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSageMaker Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSageMakerConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSageMakerConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSageMaker CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSageMakerConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSageMakerConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSageMakerClient(credentials, config);

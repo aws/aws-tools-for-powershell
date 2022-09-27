@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public abstract partial class AmazonLambdaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLambda Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLambdaConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLambdaConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLambda CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLambdaConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLambdaConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLambdaClient(credentials, config);

@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.L4E
     public abstract partial class AmazonLookoutEquipmentClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLookoutEquipment Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonLookoutEquipmentConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonLookoutEquipmentConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonLookoutEquipment CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonLookoutEquipmentConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonLookoutEquipmentConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonLookoutEquipmentClient(credentials, config);

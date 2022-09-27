@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     public abstract partial class AmazonCodeStarNotificationsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCodeStarNotifications Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCodeStarNotificationsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCodeStarNotificationsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCodeStarNotifications CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCodeStarNotificationsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCodeStarNotificationsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCodeStarNotificationsClient(credentials, config);

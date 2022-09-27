@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public abstract partial class AmazonDrsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonDrs Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonDrsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonDrsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonDrs CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonDrsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonDrsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonDrsClient(credentials, config);

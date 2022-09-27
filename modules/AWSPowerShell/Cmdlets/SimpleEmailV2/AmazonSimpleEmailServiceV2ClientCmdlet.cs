@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public abstract partial class AmazonSimpleEmailServiceV2ClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSimpleEmailServiceV2 Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSimpleEmailServiceV2Config ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSimpleEmailServiceV2Config;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSimpleEmailServiceV2 CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSimpleEmailServiceV2Config { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSimpleEmailServiceV2Config();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSimpleEmailServiceV2Client(credentials, config);

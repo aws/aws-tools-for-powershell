@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.SCHM
     public abstract partial class AmazonSchemasClientCmdlet : ServiceCmdlet
     {
         protected IAmazonSchemas Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonSchemasConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonSchemasConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonSchemas CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonSchemasConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonSchemasConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonSchemasClient(credentials, config);

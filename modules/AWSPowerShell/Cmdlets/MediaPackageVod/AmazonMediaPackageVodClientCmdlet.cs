@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     public abstract partial class AmazonMediaPackageVodClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaPackageVod Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaPackageVodConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaPackageVodConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaPackageVod CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaPackageVodConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaPackageVodConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaPackageVodClient(credentials, config);

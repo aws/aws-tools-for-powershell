@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     public abstract partial class AmazonRDSDataServiceClientCmdlet : ServiceCmdlet
     {
         protected IAmazonRDSDataService Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonRDSDataServiceConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonRDSDataServiceConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonRDSDataService CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonRDSDataServiceConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonRDSDataServiceConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonRDSDataServiceClient(credentials, config);

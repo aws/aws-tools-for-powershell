@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public abstract partial class AmazonChimeSDKMeetingsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonChimeSDKMeetings Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonChimeSDKMeetingsConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonChimeSDKMeetingsConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonChimeSDKMeetings CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonChimeSDKMeetingsConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonChimeSDKMeetingsConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonChimeSDKMeetingsClient(credentials, config);

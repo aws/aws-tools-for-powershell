@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public abstract partial class AmazonNimbleStudioClientCmdlet : ServiceCmdlet
     {
         protected IAmazonNimbleStudio Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonNimbleStudioConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonNimbleStudioConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonNimbleStudio CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonNimbleStudioConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonNimbleStudioConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonNimbleStudioClient(credentials, config);

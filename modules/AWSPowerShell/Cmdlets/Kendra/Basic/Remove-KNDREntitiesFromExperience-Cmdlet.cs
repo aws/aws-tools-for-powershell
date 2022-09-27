@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Prevents users or groups in your Amazon Web Services SSO identity source from accessing
+    /// Prevents users or groups in your IAM Identity Center identity source from accessing
     /// your Amazon Kendra experience. You can create an Amazon Kendra experience such as
     /// a search application. For more information on creating a search application experience,
     /// see <a href="https://docs.aws.amazon.com/kendra/latest/dg/deploying-search-experience-no-code.html">Building
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter EntityList
         /// <summary>
         /// <para>
-        /// <para>Lists users or groups in your Amazon Web Services SSO identity source.</para>
+        /// <para>Lists users or groups in your IAM Identity Center identity source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

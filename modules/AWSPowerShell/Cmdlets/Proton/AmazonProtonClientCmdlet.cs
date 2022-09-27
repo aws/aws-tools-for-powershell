@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public abstract partial class AmazonProtonClientCmdlet : ServiceCmdlet
     {
         protected IAmazonProton Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonProtonConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonProtonConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonProton CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonProtonConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonProtonConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonProtonClient(credentials, config);

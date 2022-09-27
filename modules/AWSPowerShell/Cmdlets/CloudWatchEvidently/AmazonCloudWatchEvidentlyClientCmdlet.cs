@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     public abstract partial class AmazonCloudWatchEvidentlyClientCmdlet : ServiceCmdlet
     {
         protected IAmazonCloudWatchEvidently Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCloudWatchEvidentlyConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCloudWatchEvidentlyConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonCloudWatchEvidently CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonCloudWatchEvidentlyConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonCloudWatchEvidentlyConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonCloudWatchEvidentlyClient(credentials, config);

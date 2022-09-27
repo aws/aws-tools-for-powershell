@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public abstract partial class AmazonManagedGrafanaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonManagedGrafana Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonManagedGrafanaConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonManagedGrafanaConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonManagedGrafana CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonManagedGrafanaConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonManagedGrafanaConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonManagedGrafanaClient(credentials, config);

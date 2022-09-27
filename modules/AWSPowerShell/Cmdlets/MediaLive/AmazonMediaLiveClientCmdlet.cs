@@ -31,9 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public abstract partial class AmazonMediaLiveClientCmdlet : ServiceCmdlet
     {
         protected IAmazonMediaLive Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonMediaLiveConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonMediaLiveConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
         protected IAmazonMediaLive CreateClient(AWSCredentials credentials, RegionEndpoint region)
         {
-            var config = new AmazonMediaLiveConfig { RegionEndpoint = region };
+            var config = this.ClientConfig ?? new AmazonMediaLiveConfig();
+            if (region != null) config.RegionEndpoint = region;
             Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
             this.CustomizeClientConfig(config);
             var client = new AmazonMediaLiveClient(credentials, config);
