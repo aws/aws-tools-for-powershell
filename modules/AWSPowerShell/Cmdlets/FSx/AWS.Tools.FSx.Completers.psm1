@@ -83,7 +83,7 @@ $FSX_Completers = {
         # Amazon.FSx.DataRepositoryTaskType
         "New-FSXDataRepositoryTask/Type"
         {
-            $v = "EXPORT_TO_REPOSITORY","IMPORT_METADATA_FROM_REPOSITORY"
+            $v = "AUTO_RELEASE_DATA","EXPORT_TO_REPOSITORY","IMPORT_METADATA_FROM_REPOSITORY","RELEASE_DATA_FROM_FILESYSTEM"
             break
         }
 
@@ -97,6 +97,20 @@ $FSX_Completers = {
         }
         {
             $v = "AUTOMATIC","USER_PROVISIONED"
+            break
+        }
+
+        # Amazon.FSx.FileCacheLustreDeploymentType
+        "New-FSXFileCache/LustreConfiguration_DeploymentType"
+        {
+            $v = "CACHE_1"
+            break
+        }
+
+        # Amazon.FSx.FileCacheType
+        "New-FSXFileCache/FileCacheType"
+        {
+            $v = "LUSTRE"
             break
         }
 
@@ -212,7 +226,9 @@ $FSX_Completers = {
 }
 
 $FSX_map = @{
+    "FileCacheType"=@("New-FSXFileCache")
     "FileSystemType"=@("New-FSXFileSystem")
+    "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
@@ -286,6 +302,7 @@ $FSX_SelectMap = @{
                "New-FSXBackup",
                "New-FSXDataRepositoryAssociation",
                "New-FSXDataRepositoryTask",
+               "New-FSXFileCache",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
                "New-FSXSnapshot",
@@ -294,6 +311,7 @@ $FSX_SelectMap = @{
                "New-FSXVolumeFromBackup",
                "Remove-FSXBackup",
                "Remove-FSXDataRepositoryAssociation",
+               "Remove-FSXFileCache",
                "Remove-FSXFileSystem",
                "Remove-FSXSnapshot",
                "Remove-FSXStorageVirtualMachine",
@@ -301,6 +319,7 @@ $FSX_SelectMap = @{
                "Get-FSXBackup",
                "Get-FSXDataRepositoryAssociation",
                "Get-FSXDataRepositoryTask",
+               "Get-FSXFileCach",
                "Get-FSXFileSystemAlias",
                "Get-FSXFileSystem",
                "Get-FSXSnapshot",
@@ -313,6 +332,7 @@ $FSX_SelectMap = @{
                "Add-FSXResourceTag",
                "Remove-FSXResourceTag",
                "Update-FSXDataRepositoryAssociation",
+               "Update-FSXFileCache",
                "Update-FSXFileSystem",
                "Update-FSXSnapshot",
                "Update-FSXStorageVirtualMachine",

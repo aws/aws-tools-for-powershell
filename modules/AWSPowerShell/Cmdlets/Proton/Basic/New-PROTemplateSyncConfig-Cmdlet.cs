@@ -28,12 +28,18 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Set up a template to create new template versions automatically. When a commit is
-    /// pushed to your registered <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Repository.html">repository</a>,
-    /// Proton checks for changes to your repository template bundles. If it detects a template
-    /// bundle change, a new major or minor version of its template is created, if the version
-    /// doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template
-    /// sync configurations</a> in the <i>Proton Administrator Guide</i>.
+    /// Set up a template to create new template versions automatically by tracking a linked
+    /// repository. A linked repository is a repository that has been registered with Proton.
+    /// For more information, see <a>CreateRepository</a>.
+    /// 
+    ///  
+    /// <para>
+    /// When a commit is pushed to your linked repository, Proton checks for changes to your
+    /// repository template bundles. If it detects a template bundle change, a new major or
+    /// minor version of its template is created, if the version doesn’t already exist. For
+    /// more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template
+    /// sync configurations</a> in the <i>Proton User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "PROTemplateSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.TemplateSyncConfig")]
@@ -48,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Branch
         /// <summary>
         /// <para>
-        /// <para>The branch of the registered repository for your template.</para>
+        /// <para>The repository branch for your template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of your repository (for example, <code>myrepos/myrepo</code>).</para>
+        /// <para>The repository name (for example, <code>myrepos/myrepo</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

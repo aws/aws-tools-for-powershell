@@ -28,8 +28,8 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
-    /// Templates</a> in the <i>Proton Administrator Guide</i>.
+    /// Create an environment template for Proton. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment
+    /// Templates</a> in the <i>Proton User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// manage your existing provisioned infrastructure. To create an environment template
     /// for customer provisioned and managed infrastructure, include the <code>provisioning</code>
     /// parameter and set the value to <code>CUSTOMER_MANAGED</code>. For more information,
-    /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html">Register
-    /// and publish an environment template</a> in the <i>Proton Administrator Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
+    /// and publish an environment template</a> in the <i>Proton User Guide</i>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "PROEnvironmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -120,9 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>An optional list of metadata items that you can associate with the Proton environment
-        /// template. A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
-        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-        /// User Guide</a>.</para>
+        /// template. A tag is a key-value pair.</para><para>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// resources and tagging</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter AutoExportPolicy_Event
         /// <summary>
         /// <para>
-        /// <para>The <code>AutoExportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - Amazon FSx automatically exports new files and directories to
-        /// the data repository as they are added to the file system.</para></li><li><para><code>CHANGED</code> - Amazon FSx automatically exports changes to files and directories
-        /// on the file system to the data repository.</para></li><li><para><code>DELETED</code> - Files and directories are automatically deleted on the data
+        /// <para>The <code>AutoExportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - New files and directories are automatically exported to the data
+        /// repository as they are added to the file system.</para></li><li><para><code>CHANGED</code> - Changes to files and directories on the file system are automatically
+        /// exported to the data repository.</para></li><li><para><code>DELETED</code> - Files and directories are automatically deleted on the data
         /// repository when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <code>AutoExportPolicy</code>.</para>
         /// </para>
         /// </summary>

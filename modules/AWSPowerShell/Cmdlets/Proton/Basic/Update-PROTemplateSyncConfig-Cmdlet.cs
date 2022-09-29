@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
     /// Update template sync configuration parameters, except for the <code>templateName</code>
-    /// and <code>templateType</code>.
+    /// and <code>templateType</code>. Repository details (branch, name, and provider) should
+    /// be of a linked repository. A linked repository is a repository that has been registered
+    /// with Proton. For more information, see <a>CreateRepository</a>.
     /// </summary>
     [Cmdlet("Update", "PROTemplateSyncConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.TemplateSyncConfig")]
@@ -44,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter Branch
         /// <summary>
         /// <para>
-        /// <para>The repository branch.</para>
+        /// <para>The repository branch for your template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository (for example, <code>myrepos/myrepo</code>).</para>
+        /// <para>The repository name (for example, <code>myrepos/myrepo</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

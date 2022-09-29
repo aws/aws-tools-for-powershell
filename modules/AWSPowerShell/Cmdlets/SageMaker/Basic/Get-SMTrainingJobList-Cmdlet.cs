@@ -141,6 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.TrainingJobStatus StatusEqual { get; set; }
         #endregion
         
+        #region Parameter WarmPoolStatusEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter that retrieves only training jobs with a specific warm pool status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WarmPoolStatusEquals")]
+        [AWSConstantClassSource("Amazon.SageMaker.WarmPoolResourceStatus")]
+        public Amazon.SageMaker.WarmPoolResourceStatus WarmPoolStatusEqual { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -235,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.StatusEqual = this.StatusEqual;
+            context.WarmPoolStatusEqual = this.WarmPoolStatusEqual;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -289,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.StatusEqual != null)
             {
                 request.StatusEquals = cmdletContext.StatusEqual;
+            }
+            if (cmdletContext.WarmPoolStatusEqual != null)
+            {
+                request.WarmPoolStatusEquals = cmdletContext.WarmPoolStatusEqual;
             }
             
             // Initialize loop variant and commence piping
@@ -376,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.StatusEqual != null)
             {
                 request.StatusEquals = cmdletContext.StatusEqual;
+            }
+            if (cmdletContext.WarmPoolStatusEqual != null)
+            {
+                request.WarmPoolStatusEquals = cmdletContext.WarmPoolStatusEqual;
             }
             
             // Initialize loop variants and commence piping
@@ -510,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.SortBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
             public Amazon.SageMaker.TrainingJobStatus StatusEqual { get; set; }
+            public Amazon.SageMaker.WarmPoolResourceStatus WarmPoolStatusEqual { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListTrainingJobsResponse, GetSMTrainingJobListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrainingJobSummaries;
         }

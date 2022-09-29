@@ -61,6 +61,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// If the secret is in a different Amazon Web Services account from the credentials calling
     /// the API, then you can't use <code>aws/secretsmanager</code> to encrypt the secret,
     /// and you must create and use a customer managed KMS key. 
+    /// </para><para>
+    /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+    /// include sensitive information in request parameters except <code>SecretBinary</code>
+    /// or <code>SecretString</code> because it might be logged. For more information, see
+    /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// Secrets Manager events with CloudTrail</a>.
     /// </para><para><b>Required permissions: </b><code>secretsmanager:CreateSecret</code>. If you include
     /// tags in the secret, you also need <code>secretsmanager:TagResource</code>. For more
     /// information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">

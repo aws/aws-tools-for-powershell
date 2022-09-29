@@ -127,6 +127,7 @@ $EMRServerless_SelectMap = @{
                "New-EMRServerlessApplication",
                "Remove-EMRServerlessApplication",
                "Get-EMRServerlessApplication",
+               "Get-EMRServerlessDashboardForJobRun",
                "Get-EMRServerlessJobRun",
                "Get-EMRServerlessApplicationList",
                "Get-EMRServerlessJobRunList",

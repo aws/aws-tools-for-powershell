@@ -460,12 +460,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
             }
             context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;
+            if (!ParameterWasBound(nameof(this.Environment_IsVariablesSet)) && this.Environment_Variable != null)
+            {
+                context.Environment_IsVariablesSet = true;
+            }
             context.EphemeralStorage_Size = this.EphemeralStorage_Size;
             if (this.FileSystemConfig != null)
             {
                 context.FileSystemConfig = new List<Amazon.Lambda.Model.FileSystemConfig>(this.FileSystemConfig);
             }
             context.IsFileSystemConfigsSet = this.IsFileSystemConfigsSet;
+            if (!ParameterWasBound(nameof(this.IsFileSystemConfigsSet)) && this.FileSystemConfig != null)
+            {
+                context.IsFileSystemConfigsSet = true;
+            }
             context.FunctionName = this.FunctionName;
             #if MODULAR
             if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
@@ -479,11 +487,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.ImageConfig_Command = new List<System.String>(this.ImageConfig_Command);
             }
             context.ImageConfig_IsCommandSet = this.ImageConfig_IsCommandSet;
+            if (!ParameterWasBound(nameof(this.ImageConfig_IsCommandSet)) && this.ImageConfig_Command != null)
+            {
+                context.ImageConfig_IsCommandSet = true;
+            }
             if (this.ImageConfig_EntryPoint != null)
             {
                 context.ImageConfig_EntryPoint = new List<System.String>(this.ImageConfig_EntryPoint);
             }
             context.ImageConfig_IsEntryPointSet = this.ImageConfig_IsEntryPointSet;
+            if (!ParameterWasBound(nameof(this.ImageConfig_IsEntryPointSet)) && this.ImageConfig_EntryPoint != null)
+            {
+                context.ImageConfig_IsEntryPointSet = true;
+            }
             context.ImageConfig_WorkingDirectory = this.ImageConfig_WorkingDirectory;
             context.KMSKeyArn = this.KMSKeyArn;
             if (this.Layer != null)
@@ -491,6 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Layer = new List<System.String>(this.Layer);
             }
             context.IsLayersSet = this.IsLayersSet;
+            if (!ParameterWasBound(nameof(this.IsLayersSet)) && this.Layer != null)
+            {
+                context.IsLayersSet = true;
+            }
             context.MemorySize = this.MemorySize;
             context.RevisionId = this.RevisionId;
             context.Role = this.Role;
@@ -502,11 +522,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
             }
             context.VpcConfig_IsSecurityGroupIdsSet = this.VpcConfig_IsSecurityGroupIdsSet;
+            if (!ParameterWasBound(nameof(this.VpcConfig_IsSecurityGroupIdsSet)) && this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_IsSecurityGroupIdsSet = true;
+            }
             if (this.VpcConfig_SubnetId != null)
             {
                 context.VpcConfig_SubnetId = new List<System.String>(this.VpcConfig_SubnetId);
             }
             context.VpcConfig_IsSubnetIdsSet = this.VpcConfig_IsSubnetIdsSet;
+            if (!ParameterWasBound(nameof(this.VpcConfig_IsSubnetIdsSet)) && this.VpcConfig_SubnetId != null)
+            {
+                context.VpcConfig_IsSubnetIdsSet = true;
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

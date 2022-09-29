@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <para>
     /// You must call this operation from the Region in which you want to promote the replica
     /// to a primary secret.
+    /// </para><para>
+    /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+    /// include sensitive information in request parameters because it might be logged. For
+    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// Secrets Manager events with CloudTrail</a>.
     /// </para><para><b>Required permissions: </b><code>secretsmanager:StopReplicationToReplica</code>.
     /// For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
     /// IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication

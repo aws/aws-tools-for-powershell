@@ -42,10 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// validation</a>. We recommend that you use DNS validation. ACM issues public certificates
     /// after receiving approval from the domain owner. 
     /// </para><note><para>
-    /// ACM behavior differs from the <a href="https://tools.ietf.org/html/rfc6125#appendix-B.2">https://tools.ietf.org/html/rfc6125#appendix-B.2</a>RFC
-    /// 6125 specification of the certificate validation process. first checks for a subject
-    /// alternative name, and, if it finds one, ignores the common name (CN)
-    /// </para></note>
+    /// ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC
+    /// 6125</a> specification of the certificate validation process. ACM first checks for
+    /// a Subject Alternative Name, and, if it finds one, ignores the common name (CN).
+    /// </para></note><para>
+    /// After successful completion of the <code>RequestCertificate</code> action, there is
+    /// a delay of several seconds before you can retrieve information about the new certificate.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -63,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will
         /// be used to issue the certificate. If you do not provide an ARN and you are trying
         /// to request a private certificate, ACM will attempt to issue a public certificate.
-        /// For more information about private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">Amazon
-        /// Web Services Certificate Manager Private Certificate Authority (PCA)</a> user guide.
-        /// The ARN must have the following form: </para><para><code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code></para>
+        /// For more information about private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">Certificate
+        /// Manager Private Certificate Authority</a> user guide. The ARN must have the following
+        /// form: </para><para><code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,12 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> Fully qualified domain name (FQDN), such as www.example.com, that you want to secure
+        /// <para>Fully qualified domain name (FQDN), such as www.example.com, that you want to secure
         /// with an ACM certificate. Use an asterisk (*) to create a wildcard certificate that
         /// protects several sites in the same domain. For example, *.example.com protects www.example.com,
-        /// site.example.com, and images.example.com. </para><para> The first domain name you enter cannot exceed 64 octets, including periods. Each
-        /// subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length.
-        /// </para>
+        /// site.example.com, and images.example.com. </para><para>In compliance with <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>,
+        /// the length of the domain name (technically, the Common Name) that you provide cannot
+        /// exceed 64 octets (characters), including periods. To add a longer domain name, specify
+        /// it in the Subject Alternative Name field, which supports names up to 253 octets in
+        /// length. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

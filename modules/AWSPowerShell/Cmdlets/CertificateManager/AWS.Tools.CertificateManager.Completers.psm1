@@ -90,6 +90,20 @@ $ACM_Completers = {
             break
         }
 
+        # Amazon.CertificateManager.SortBy
+        "Get-ACMCertificateList/SortBy"
+        {
+            $v = "CREATED_AT"
+            break
+        }
+
+        # Amazon.CertificateManager.SortOrder
+        "Get-ACMCertificateList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
         # Amazon.CertificateManager.ValidationMethod
         "New-ACMCertificate/ValidationMethod"
         {
@@ -107,6 +121,8 @@ $ACM_Completers = {
 
 $ACM_map = @{
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
+    "SortBy"=@("Get-ACMCertificateList")
+    "SortOrder"=@("Get-ACMCertificateList")
     "ValidationMethod"=@("New-ACMCertificate")
 }
 

@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// on this action. Specifically, you can't use these tags to control access to this action
     /// using Attribute-based access control (ABAC).
     /// </para><para>
-    /// For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a>
-    /// in the <i>Proton Administrator Guide</i>.
+    /// For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a>
+    /// in the <i>Proton User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "PRORepositorySyncStatus")]

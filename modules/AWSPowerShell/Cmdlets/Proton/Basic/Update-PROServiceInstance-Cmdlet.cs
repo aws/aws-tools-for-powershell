@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// You can't update a service instance while its deployment status, or the deployment
     /// status of a component attached to it, is <code>IN_PROGRESS</code>.
     /// </para><para>
-    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-    /// components</a> in the <i>Proton Administrator Guide</i>.
+    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+    /// components</a> in the <i>Proton User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "PROServiceInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

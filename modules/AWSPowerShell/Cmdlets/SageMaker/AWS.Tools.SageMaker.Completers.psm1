@@ -1072,6 +1072,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.WarmPoolResourceStatus
+        "Get-SMTrainingJobList/WarmPoolStatusEquals"
+        {
+            $v = "Available","InUse","Reused","Terminated"
+            break
+        }
+
 
     }
 
@@ -1151,6 +1158,7 @@ $SM_map = @{
     "TransformInput_SplitType"=@("New-SMTransformJob")
     "TransformOutput_AssembleWith"=@("New-SMTransformJob")
     "TransformResources_InstanceType"=@("New-SMTransformJob")
+    "WarmPoolStatusEquals"=@("Get-SMTrainingJobList")
     "WarmStartConfig_WarmStartType"=@("New-SMHyperParameterTuningJob")
 }
 

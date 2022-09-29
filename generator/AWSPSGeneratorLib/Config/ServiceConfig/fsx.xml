@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFileCache" OutputProperty="FileCache" Verb="New" Noun="FileCache" ShouldProcessTarget="KmsKeyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFileSystem" OutputProperty="FileSystem" Verb="New" Noun="FileSystem" ShouldProcessTarget="FileSystemType" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="OntapConfiguration_DiskIopsConfiguration_Iops" NewName="OntapConfiguration_DiskIopsConfiguration_Iops" />
@@ -80,6 +84,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFileCache" OutputProperty="*" Verb="Remove" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFileSystem" OutputProperty="*" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -105,6 +113,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataRepositoryTasks" OutputProperty="DataRepositoryTasks" Verb="Get" Noun="DataRepositoryTask" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFileCaches" OutputProperty="FileCaches" Verb="Get" Noun="FileCach" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -153,6 +165,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataRepositoryAssociation" OutputProperty="Association" Verb="Update" Noun="DataRepositoryAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFileCache" OutputProperty="FileCache" Verb="Update" Noun="FileCache" ShouldProcessTarget="FileCacheId" PipelineParameter="FileCacheId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

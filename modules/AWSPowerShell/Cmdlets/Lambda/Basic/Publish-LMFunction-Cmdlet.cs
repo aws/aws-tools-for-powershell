@@ -581,6 +581,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
             }
             context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;
+            if (!ParameterWasBound(nameof(this.Environment_IsVariablesSet)) && this.Environment_Variable != null)
+            {
+                context.Environment_IsVariablesSet = true;
+            }
             context.EphemeralStorage_Size = this.EphemeralStorage_Size;
             if (this.FileSystemConfig != null)
             {
@@ -599,11 +603,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.ImageConfig_Command = new List<System.String>(this.ImageConfig_Command);
             }
             context.ImageConfig_IsCommandSet = this.ImageConfig_IsCommandSet;
+            if (!ParameterWasBound(nameof(this.ImageConfig_IsCommandSet)) && this.ImageConfig_Command != null)
+            {
+                context.ImageConfig_IsCommandSet = true;
+            }
             if (this.ImageConfig_EntryPoint != null)
             {
                 context.ImageConfig_EntryPoint = new List<System.String>(this.ImageConfig_EntryPoint);
             }
             context.ImageConfig_IsEntryPointSet = this.ImageConfig_IsEntryPointSet;
+            if (!ParameterWasBound(nameof(this.ImageConfig_IsEntryPointSet)) && this.ImageConfig_EntryPoint != null)
+            {
+                context.ImageConfig_IsEntryPointSet = true;
+            }
             context.ImageConfig_WorkingDirectory = this.ImageConfig_WorkingDirectory;
             context.KMSKeyArn = this.KMSKeyArn;
             if (this.Layer != null)
@@ -636,11 +648,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
             }
             context.VpcConfig_IsSecurityGroupIdsSet = this.VpcConfig_IsSecurityGroupIdsSet;
+            if (!ParameterWasBound(nameof(this.VpcConfig_IsSecurityGroupIdsSet)) && this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_IsSecurityGroupIdsSet = true;
+            }
             if (this.VpcConfig_SubnetId != null)
             {
                 context.VpcConfig_SubnetId = new List<System.String>(this.VpcConfig_SubnetId);
             }
             context.VpcConfig_IsSubnetIdsSet = this.VpcConfig_IsSubnetIdsSet;
+            if (!ParameterWasBound(nameof(this.VpcConfig_IsSubnetIdsSet)) && this.VpcConfig_SubnetId != null)
+            {
+                context.VpcConfig_IsSubnetIdsSet = true;
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

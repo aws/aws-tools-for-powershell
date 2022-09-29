@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List repositories with detail data.
+    /// List linked repositories with detail data.
     /// </summary>
     [Cmdlet("Get", "PRORepositoryList")]
     [OutputType("Amazon.Proton.Model.RepositorySummary")]

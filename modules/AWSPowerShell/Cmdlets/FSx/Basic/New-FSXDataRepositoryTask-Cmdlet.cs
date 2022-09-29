@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXDataRepositoryTaskCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        #region Parameter CapacityToRelease
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of data to release, in GiB, by an Amazon File Cache <code>AUTO_RELEASE_DATA</code>
+        /// task that automatically releases files from the cache.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? CapacityToRelease { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -252,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 context.Select = (response, cmdlet) => this.FileSystemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CapacityToRelease = this.CapacityToRelease;
             context.ClientRequestToken = this.ClientRequestToken;
             context.FileSystemId = this.FileSystemId;
             #if MODULAR
@@ -301,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             // create request
             var request = new Amazon.FSx.Model.CreateDataRepositoryTaskRequest();
             
+            if (cmdletContext.CapacityToRelease != null)
+            {
+                request.CapacityToRelease = cmdletContext.CapacityToRelease.Value;
+            }
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
@@ -431,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int64? CapacityToRelease { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
             public List<System.String> Path { get; set; }

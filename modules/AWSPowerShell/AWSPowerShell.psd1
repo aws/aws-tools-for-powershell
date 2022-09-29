@@ -260,6 +260,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Mgn.dll',
         'AWSSDK.MigrationHub.dll',
         'AWSSDK.MigrationHubConfig.dll',
+        'AWSSDK.MigrationHubOrchestrator.dll',
         'AWSSDK.MigrationHubRefactorSpaces.dll',
         'AWSSDK.MigrationHubStrategyRecommendations.dll',
         'AWSSDK.Mobile.dll',

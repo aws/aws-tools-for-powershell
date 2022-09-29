@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>An array of supported component sources. Components with supported sources can be
         /// attached to service instances based on this service template version.</para><note><para>A change to <code>supportedComponentSources</code> doesn't impact existing component
         /// attachments to instances based on this template version. A change only affects later
-        /// associations.</para></note><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// associations.</para></note><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

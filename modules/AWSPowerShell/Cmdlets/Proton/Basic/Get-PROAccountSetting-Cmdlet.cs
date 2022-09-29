@@ -28,7 +28,7 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Get detail data for the Proton pipeline service role.
+    /// Get detail data for Proton account-wide settings.
     /// </summary>
     [Cmdlet("Get", "PROAccountSetting")]
     [OutputType("Amazon.Proton.Model.AccountSettings")]

@@ -41,7 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// association for automatic import only, for automatic export only, or for both. To
     /// learn more about linking a data repository to your file system, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking
     /// your file system to an S3 bucket</a>.
-    /// </para>
+    /// </para><note><para><code>CreateDataRepositoryAssociation</code> isn't supported on Amazon File Cache
+    /// resources. To create a DRA on Amazon File Cache, use the <code>CreateFileCache</code>
+    /// operation.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "FSXDataRepositoryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.DataRepositoryAssociation")]
@@ -98,9 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter AutoExportPolicy_Event
         /// <summary>
         /// <para>
-        /// <para>The <code>AutoExportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - Amazon FSx automatically exports new files and directories to
-        /// the data repository as they are added to the file system.</para></li><li><para><code>CHANGED</code> - Amazon FSx automatically exports changes to files and directories
-        /// on the file system to the data repository.</para></li><li><para><code>DELETED</code> - Files and directories are automatically deleted on the data
+        /// <para>The <code>AutoExportPolicy</code> can have the following event values:</para><ul><li><para><code>NEW</code> - New files and directories are automatically exported to the data
+        /// repository as they are added to the file system.</para></li><li><para><code>CHANGED</code> - Changes to files and directories on the file system are automatically
+        /// exported to the data repository.</para></li><li><para><code>DELETED</code> - Files and directories are automatically deleted on the data
         /// repository when they are deleted on the file system.</para></li></ul><para>You can define any combination of event types for your <code>AutoExportPolicy</code>.</para>
         /// </para>
         /// </summary>
@@ -151,18 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// with file system path <code>/ns1/ns2</code>.</para><para>This path specifies where in your file system files will be exported from or imported
         /// to. This file system directory can be linked to only one Amazon S3 bucket, and no
         /// other S3 bucket can be linked to the directory.</para><note><para>If you specify only a forward slash (<code>/</code>) as the file system path, you
-        /// can link only 1 data repository to the file system. You can only specify "/" as the
-        /// file system path for the first data repository associated with a file system.</para></note>
+        /// can link only one data repository to the file system. You can only specify "/" as
+        /// the file system path for the first data repository associated with a file system.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FileSystemPath { get; set; }
         #endregion
         
@@ -269,12 +265,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #endif
             context.FileSystemPath = this.FileSystemPath;
-            #if MODULAR
-            if (this.FileSystemPath == null && ParameterWasBound(nameof(this.FileSystemPath)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FileSystemPath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ImportedFileChunkSize = this.ImportedFileChunkSize;
             if (this.AutoExportPolicy_Event != null)
             {

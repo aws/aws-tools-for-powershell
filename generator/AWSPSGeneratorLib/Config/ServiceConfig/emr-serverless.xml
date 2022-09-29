@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDashboardForJobRun" OutputProperty="Url" Verb="Get" Noun="DashboardForJobRun" PipelineParameter="JobRunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetJobRun" OutputProperty="JobRun" Verb="Get" Noun="JobRun" PipelineParameter="JobRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

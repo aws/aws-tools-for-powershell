@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <code>RSA_1024</code> and <code>RSA_2048</code> certificates
         /// that have at least one domain. To return other certificate types, provide the desired
-        /// type signatures in a comma-separated list. For example, <code>"keyTypes": ["RSA_2048,RSA_4096"]</code>
+        /// type signatures in a comma-separated list. For example, <code>"keyTypes": ["RSA_2048","RSA_4096"]</code>
         /// returns both <code>RSA_2048</code> and <code>RSA_4096</code> certificates.</para>
         /// </para>
         /// </summary>
@@ -86,6 +86,30 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] Includes_KeyUsage { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must
+        /// also specify <code>SortOrder</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.SortBy")]
+        public Amazon.CertificateManager.SortBy SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you
+        /// must also specify <code>SortBy</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.SortOrder")]
+        public Amazon.CertificateManager.SortOrder SortOrder { get; set; }
         #endregion
         
         #region Parameter MaxItem
@@ -185,6 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             }
             #endif
             context.NextToken = this.NextToken;
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +276,14 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.MaxItem != null)
             {
                 request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
             }
             
             // Initialize loop variant and commence piping
@@ -348,6 +382,14 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (requestIncludesIsNull)
             {
                 request.Includes = null;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
             }
             
             // Initialize loop variants and commence piping
@@ -474,6 +516,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public List<System.String> Includes_KeyUsage { get; set; }
             public int? MaxItem { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CertificateManager.SortBy SortBy { get; set; }
+            public Amazon.CertificateManager.SortOrder SortOrder { get; set; }
             public System.Func<Amazon.CertificateManager.Model.ListCertificatesResponse, GetACMCertificateListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CertificateSummaryList;
         }

@@ -39,6 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><para>
     /// To retrieve the previous version of a secret, use <code>VersionStage</code> and specify
     /// AWSPREVIOUS. To revert to the previous version of a secret, call <a href="https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html">UpdateSecretVersionStage</a>.
+    /// </para><para>
+    /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
+    /// include sensitive information in request parameters because it might be logged. For
+    /// more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// Secrets Manager events with CloudTrail</a>.
     /// </para><para><b>Required permissions: </b><code>secretsmanager:GetSecretValue</code>. If the
     /// secret is encrypted using a customer-managed key instead of the Amazon Web Services
     /// managed key <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code>

@@ -1,4 +1,32 @@
-﻿### 4.1.177 (2022-09-27 20:31Z)
+﻿### 4.1.178 (2022-09-29 20:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.367.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Certificate Manager
+    * Modified cmdlet Get-ACMCertificateList: added parameters SortBy and SortOrder.
+  * Amazon EMR Serverless
+    * Added cmdlet Get-EMRServerlessDashboardForJobRun leveraging the GetDashboardForJobRun service API.
+  * Amazon FSx
+    * Added cmdlet Get-FSXFileCach leveraging the DescribeFileCaches service API.
+    * Added cmdlet New-FSXFileCache leveraging the CreateFileCache service API.
+    * Added cmdlet Remove-FSXFileCache leveraging the DeleteFileCache service API.
+    * Added cmdlet Update-FSXFileCache leveraging the UpdateFileCache service API.
+    * Modified cmdlet New-FSXDataRepositoryTask: added parameter CapacityToRelease.
+    * Modified cmdlet New-FSXFileSystemFromBackup: added parameter StorageCapacity.
+  * Amazon Migration Hub Orchestrator. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MHO and can be listed using the command 'Get-AWSCmdletName -Service MHO'.
+  * Amazon Proton
+    * Modified cmdlet Update-PROAccountSetting: added parameter DeletePipelineProvisioningRepository.
+  * Amazon SageMaker Service
+    * Modified cmdlet Get-SMTrainingJobList: added parameter WarmPoolStatusEqual.
+    * Modified cmdlet Update-SMTrainingJob: added parameter ResourceConfig_KeepAlivePeriodInSecond.
+  * Amazon Translate
+    * Added cmdlet Add-TRNResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-TRNResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-TRNResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Import-TRNTerminology: added parameter Tag.
+    * Modified cmdlet New-TRNParallelData: added parameter Tag.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSClientProperty: added parameter ClientProperties_LogUploadEnabled.
+
+### 4.1.177 (2022-09-27 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.366.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Account
     * Modified cmdlet Get-ACCTAlternateContact: added parameter ClientConfig.

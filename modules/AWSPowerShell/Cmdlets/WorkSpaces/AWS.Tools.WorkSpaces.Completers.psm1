@@ -120,6 +120,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.LogUploadEnum
+        "Edit-WKSClientProperty/ClientProperties_LogUploadEnabled"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WorkSpaces.ReconnectEnum
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
@@ -178,6 +185,7 @@ $WKS_Completers = {
 }
 
 $WKS_map = @{
+    "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")

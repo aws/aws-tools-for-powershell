@@ -676,6 +676,9 @@
     <Reference Include="AWSSDK.MigrationHubConfig">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MigrationHubOrchestrator">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubOrchestrator.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MigrationHubRefactorSpaces">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubRefactorSpaces.dll</HintPath>
     </Reference>
@@ -1604,6 +1607,9 @@
     </Reference>
     <Reference Include="AWSSDK.MigrationHubConfig">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MigrationHubOrchestrator">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubOrchestrator.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MigrationHubRefactorSpaces">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubRefactorSpaces.dll</HintPath>

@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
         /// directly defined components in this environment. It determines the scope of infrastructure
         /// that a component can provision.</para><para>You must specify <code>componentRoleArn</code> to allow directly defined components
-        /// to be associated with this environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// to be associated with this environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The ID of the environment account connection that you provide if you're provisioning
         /// your environment infrastructure resources to an environment account. For more information,
-        /// see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>Proton Administrator guide</i>.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
+        /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton User guide</i>.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
         /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
         /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
         /// </para>
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>A YAML formatted string that provides inputs as defined in the environment template
-        /// bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-        /// in the <i>Proton Administrator Guide</i>.</para>
+        /// bundle schema file. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a>
+        /// in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,9 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>An optional list of metadata items that you can associate with the Proton environment.
-        /// A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
-        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-        /// User Guide</a>.</para>
+        /// A tag is a key-value pair.</para><para>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// resources and tagging</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-templates.html">Environment
-        /// Templates</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// <para>The name of the environment template. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Environment
+        /// Templates</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

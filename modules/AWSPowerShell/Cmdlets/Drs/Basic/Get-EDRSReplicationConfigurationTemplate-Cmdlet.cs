@@ -118,6 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                 context.ReplicationConfigurationTemplateIDs = new List<System.String>(this.ReplicationConfigurationTemplateIDs);
             }
             context.IsReplicationConfigurationTemplateIDsSet = this.IsReplicationConfigurationTemplateIDsSet;
+            if (!ParameterWasBound(nameof(this.IsReplicationConfigurationTemplateIDsSet)) && this.ReplicationConfigurationTemplateIDs != null)
+            {
+                context.IsReplicationConfigurationTemplateIDsSet = true;
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

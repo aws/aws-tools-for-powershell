@@ -28,17 +28,19 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create and register a link to a repository that can be used with self-managed provisioning
-    /// (infrastructure or pipelines) or for template sync configurations. When you create
-    /// a repository link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/adminguide/using-service-linked-roles.html">service-linked
+    /// Create and register a link to a repository. Proton uses the link to repeatedly access
+    /// the repository, to either push to it (self-managed provisioning) or pull from it (template
+    /// sync). You can share a linked repository across multiple resources (like environments
+    /// using self-managed provisioning, or synced templates). When you create a repository
+    /// link, Proton creates a <a href="https://docs.aws.amazon.com/proton/latest/userguide/using-service-linked-roles.html">service-linked
     /// role</a> for you.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
-    /// provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html">Template
-    /// bundles</a>, and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-sync-configs.html">Template
-    /// sync configurations</a> in the <i>Proton Administrator Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed
+    /// provisioning</a>, <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-authoring.html#ag-template-bundles">Template
+    /// bundles</a>, and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template
+    /// sync configurations</a> in the <i>Proton User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "PRORepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ConnectionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of your Amazon Web Services CodeStar connection. For
-        /// more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html">Setting
-        /// up for Proton</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// <para>The Amazon Resource Name (ARN) of your AWS CodeStar connection that connects Proton
+        /// to your repository provider account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/setting-up-for-service.html">Setting
+        /// up for Proton</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,9 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>An optional list of metadata items that you can associate with the Proton repository.
-        /// A tag is a key-value pair.</para><para>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton
-        /// Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-        /// User Guide</a>.</para>
+        /// A tag is a key-value pair.</para><para>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// resources and tagging</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

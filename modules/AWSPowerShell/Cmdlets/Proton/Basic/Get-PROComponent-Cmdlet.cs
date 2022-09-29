@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// 
     ///  
     /// <para>
-    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-    /// components</a> in the <i>Proton Administrator Guide</i>.
+    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+    /// components</a> in the <i>Proton User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "PROComponent")]

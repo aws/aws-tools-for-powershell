@@ -115,6 +115,17 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         public System.String ParallelDataConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Translate.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKey_Type
         /// <summary>
         /// <para>
@@ -223,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 WriteWarning("You are passing $null as a value for parameter ParallelDataConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Translate.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -309,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 request.ParallelDataConfig = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -377,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public System.String Name { get; set; }
             public Amazon.Translate.ParallelDataFormat ParallelDataConfig_Format { get; set; }
             public System.String ParallelDataConfig_S3Uri { get; set; }
+            public List<Amazon.Translate.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Translate.Model.CreateParallelDataResponse, NewTRNParallelDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

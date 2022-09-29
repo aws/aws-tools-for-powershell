@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-EMRServerlessResourceTag', 
         'Get-EMRServerlessApplication', 
         'Get-EMRServerlessApplicationList', 
+        'Get-EMRServerlessDashboardForJobRun', 
         'Get-EMRServerlessJobRun', 
         'Get-EMRServerlessJobRunList', 
         'Get-EMRServerlessResourceTagList', 

@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code>
     /// parameters.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html">Environments</a>
-    /// and <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html">Provisioning
-    /// methods</a> in the <i>Proton Administrator Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a>
+    /// and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning
+    /// methods</a> in the <i>Proton User Guide</i>.
     /// </para><para>
     /// There are four modes for updating an environment. The <code>deploymentType</code>
     /// field defines the mode.
@@ -105,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
         /// directly defined components in this environment. It determines the scope of infrastructure
         /// that a component can provision.</para><para>The environment must have a <code>componentRoleArn</code> to allow directly defined
-        /// components to be associated with the environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html">Proton
-        /// components</a> in the <i>Proton Administrator Guide</i>.</para>
+        /// components to be associated with the environment.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
+        /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

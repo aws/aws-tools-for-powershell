@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Passphrase
         /// <summary>
         /// <para>
-        /// <para>Passphrase to associate with the encrypted exported private key. If you want to later
-        /// decrypt the private key, you must have the passphrase. You can use the following OpenSSL
-        /// command to decrypt a private key: </para><para><code>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</code></para>
+        /// <para>Passphrase to associate with the encrypted exported private key. </para><note><para>When creating your passphrase, you can use any ASCII character except #, $, or %.</para></note><para>If you want to later decrypt the private key, you must have the passphrase. You can
+        /// use the following OpenSSL command to decrypt a private key. After entering the command,
+        /// you are prompted for the passphrase.</para><para><code>openssl rsa -in encrypted_key.pem -out decrypted_key.pem</code></para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -240,11 +240,14 @@ $TRN_SelectMap = @{
                "Import-TRNTerminology",
                "Get-TRNLanguageList",
                "Get-TRNParallelDataList",
+               "Get-TRNResourceTag",
                "Get-TRNTerminologyList",
                "Get-TRNTextTranslationJobList",
                "Start-TRNTextTranslationJob",
                "Stop-TRNTextTranslationJob",
+               "Add-TRNResourceTag",
                "ConvertTo-TRNTargetLanguage",
+               "Remove-TRNResourceTag",
                "Update-TRNParallelData")
 }
 

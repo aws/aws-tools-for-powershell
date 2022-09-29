@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <summary>
         /// <para>
         /// <para>The name of the environment template a version of which you want to get detailed data
-        /// for..</para>
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

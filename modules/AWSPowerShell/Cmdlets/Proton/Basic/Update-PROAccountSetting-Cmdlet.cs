@@ -28,7 +28,8 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Update the Proton service pipeline role or repository settings.
+    /// Update Proton settings that are used for multiple services in the Amazon Web Services
+    /// account.
     /// </summary>
     [Cmdlet("Update", "PROAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Proton.Model.AccountSettings")]
@@ -50,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String PipelineProvisioningRepository_Branch { get; set; }
         #endregion
         
+        #region Parameter DeletePipelineProvisioningRepository
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to remove a configured pipeline repository from the account
+        /// settings. Don't set this field if you are updating the configured pipeline repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletePipelineProvisioningRepository { get; set; }
+        #endregion
+        
         #region Parameter PipelineProvisioningRepository_Name
         /// <summary>
         /// <para>
@@ -65,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service role you want to use for provisioning
         /// pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
-        /// customer-owned automation for self-managed provisioning.</para>
+        /// customer-owned automation for self-managed provisioning.</para><para>To remove a previously configured ARN, specify an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,6 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = CreateSelectDelegate<Amazon.Proton.Model.UpdateAccountSettingsResponse, UpdatePROAccountSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeletePipelineProvisioningRepository = this.DeletePipelineProvisioningRepository;
             context.PipelineProvisioningRepository_Branch = this.PipelineProvisioningRepository_Branch;
             context.PipelineProvisioningRepository_Name = this.PipelineProvisioningRepository_Name;
             context.PipelineProvisioningRepository_Provider = this.PipelineProvisioningRepository_Provider;
@@ -144,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateAccountSettingsRequest();
             
+            if (cmdletContext.DeletePipelineProvisioningRepository != null)
+            {
+                request.DeletePipelineProvisioningRepository = cmdletContext.DeletePipelineProvisioningRepository.Value;
+            }
             
              // populate PipelineProvisioningRepository
             var requestPipelineProvisioningRepositoryIsNull = true;
@@ -248,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeletePipelineProvisioningRepository { get; set; }
             public System.String PipelineProvisioningRepository_Branch { get; set; }
             public System.String PipelineProvisioningRepository_Name { get; set; }
             public Amazon.Proton.RepositoryProvider PipelineProvisioningRepository_Provider { get; set; }

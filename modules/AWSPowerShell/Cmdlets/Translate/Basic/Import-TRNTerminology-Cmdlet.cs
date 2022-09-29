@@ -162,6 +162,17 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Translate.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter EncryptionKey_Type
         /// <summary>
         /// <para>
@@ -251,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Translate.Model.Tag>(this.Tag);
+            }
             context.TerminologyData_Directionality = this.TerminologyData_Directionality;
             context.TerminologyData_File = this.TerminologyData_File;
             #if MODULAR
@@ -326,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 if (cmdletContext.Name != null)
                 {
                     request.Name = cmdletContext.Name;
+                }
+                if (cmdletContext.Tag != null)
+                {
+                    request.Tags = cmdletContext.Tag;
                 }
                 
                  // populate TerminologyData
@@ -441,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             public Amazon.Translate.EncryptionKeyType EncryptionKey_Type { get; set; }
             public Amazon.Translate.MergeStrategy MergeStrategy { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Translate.Model.Tag> Tag { get; set; }
             public Amazon.Translate.Directionality TerminologyData_Directionality { get; set; }
             public byte[] TerminologyData_File { get; set; }
             public Amazon.Translate.TerminologyDataFormat TerminologyData_Format { get; set; }

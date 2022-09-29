@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class EditWKSClientPropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientProperties_LogUploadEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether users can upload diagnostic log files of Amazon WorkSpaces client
+        /// directly to WorkSpaces to troubleshoot issues when using the WorkSpaces client. When
+        /// enabled, the log files will be sent to WorkSpaces automatically and will be applied
+        /// to all users in the specified directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.LogUploadEnum")]
+        public Amazon.WorkSpaces.LogUploadEnum ClientProperties_LogUploadEnabled { get; set; }
+        #endregion
+        
         #region Parameter ClientProperties_ReconnectEnabled
         /// <summary>
         /// <para>
@@ -130,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.Select = (response, cmdlet) => this.ClientProperties_ReconnectEnabled;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientProperties_LogUploadEnabled = this.ClientProperties_LogUploadEnabled;
             context.ClientProperties_ReconnectEnabled = this.ClientProperties_ReconnectEnabled;
             context.ResourceId = this.ResourceId;
             #if MODULAR
@@ -158,6 +173,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
              // populate ClientProperties
             var requestClientPropertiesIsNull = true;
             request.ClientProperties = new Amazon.WorkSpaces.Model.ClientProperties();
+            Amazon.WorkSpaces.LogUploadEnum requestClientProperties_clientProperties_LogUploadEnabled = null;
+            if (cmdletContext.ClientProperties_LogUploadEnabled != null)
+            {
+                requestClientProperties_clientProperties_LogUploadEnabled = cmdletContext.ClientProperties_LogUploadEnabled;
+            }
+            if (requestClientProperties_clientProperties_LogUploadEnabled != null)
+            {
+                request.ClientProperties.LogUploadEnabled = requestClientProperties_clientProperties_LogUploadEnabled;
+                requestClientPropertiesIsNull = false;
+            }
             Amazon.WorkSpaces.ReconnectEnum requestClientProperties_clientProperties_ReconnectEnabled = null;
             if (cmdletContext.ClientProperties_ReconnectEnabled != null)
             {
@@ -238,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WorkSpaces.LogUploadEnum ClientProperties_LogUploadEnabled { get; set; }
             public Amazon.WorkSpaces.ReconnectEnum ClientProperties_ReconnectEnabled { get; set; }
             public System.String ResourceId { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.ModifyClientPropertiesResponse, EditWKSClientPropertyCmdlet, object> Select { get; set; } =

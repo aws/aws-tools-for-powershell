@@ -78,13 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// the data repository association.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? DeleteDataInFileSystem { get; set; }
         #endregion
         
@@ -158,12 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
             context.DeleteDataInFileSystem = this.DeleteDataInFileSystem;
-            #if MODULAR
-            if (this.DeleteDataInFileSystem == null && ParameterWasBound(nameof(this.DeleteDataInFileSystem)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeleteDataInFileSystem which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

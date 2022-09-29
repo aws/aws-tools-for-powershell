@@ -28,7 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Update a model training job to request a new Debugger profiling configuration.
+    /// Update a model training job to request a new Debugger profiling configuration or to
+    /// change warm pool retention length.
     /// </summary>
     [Cmdlet("Update", "SMTrainingJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,6 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }
+        #endregion
+        
+        #region Parameter ResourceConfig_KeepAlivePeriodInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The <code>KeepAlivePeriodInSeconds</code> value specified in the <code>ResourceConfig</code>
+        /// to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceConfig_KeepAlivePeriodInSeconds")]
+        public System.Int32? ResourceConfig_KeepAlivePeriodInSecond { get; set; }
         #endregion
         
         #region Parameter ProfilerRuleConfiguration
@@ -194,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.ProfilerRuleConfiguration = new List<Amazon.SageMaker.Model.ProfilerRuleConfiguration>(this.ProfilerRuleConfiguration);
             }
+            context.ResourceConfig_KeepAlivePeriodInSecond = this.ResourceConfig_KeepAlivePeriodInSecond;
             context.TrainingJobName = this.TrainingJobName;
             #if MODULAR
             if (this.TrainingJobName == null && ParameterWasBound(nameof(this.TrainingJobName)))
@@ -270,6 +284,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ProfilerRuleConfigurations = cmdletContext.ProfilerRuleConfiguration;
             }
+            
+             // populate ResourceConfig
+            var requestResourceConfigIsNull = true;
+            request.ResourceConfig = new Amazon.SageMaker.Model.ResourceConfigForUpdate();
+            System.Int32? requestResourceConfig_resourceConfig_KeepAlivePeriodInSecond = null;
+            if (cmdletContext.ResourceConfig_KeepAlivePeriodInSecond != null)
+            {
+                requestResourceConfig_resourceConfig_KeepAlivePeriodInSecond = cmdletContext.ResourceConfig_KeepAlivePeriodInSecond.Value;
+            }
+            if (requestResourceConfig_resourceConfig_KeepAlivePeriodInSecond != null)
+            {
+                request.ResourceConfig.KeepAlivePeriodInSeconds = requestResourceConfig_resourceConfig_KeepAlivePeriodInSecond.Value;
+                requestResourceConfigIsNull = false;
+            }
+             // determine if request.ResourceConfig should be set to null
+            if (requestResourceConfigIsNull)
+            {
+                request.ResourceConfig = null;
+            }
             if (cmdletContext.TrainingJobName != null)
             {
                 request.TrainingJobName = cmdletContext.TrainingJobName;
@@ -340,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> ProfilerConfig_ProfilingParameter { get; set; }
             public System.String ProfilerConfig_S3OutputPath { get; set; }
             public List<Amazon.SageMaker.Model.ProfilerRuleConfiguration> ProfilerRuleConfiguration { get; set; }
+            public System.Int32? ResourceConfig_KeepAlivePeriodInSecond { get; set; }
             public System.String TrainingJobName { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateTrainingJobResponse, UpdateSMTrainingJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrainingJobArn;

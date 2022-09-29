@@ -313,6 +313,22 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter StorageCapacity
+        /// <summary>
+        /// <para>
+        /// <para>Sets the storage capacity of the OpenZFS file system that you're creating from a backup,
+        /// in gibibytes (GiB). Valid values are from 64 GiB up to 524,288 GiB (512 TiB). However,
+        /// the value that you specify must be equal to or greater than the backup's storage capacity
+        /// value. If you don't use the <code>StorageCapacity</code> parameter, the default is
+        /// the backup's <code>StorageCapacity</code> value.</para><para>If used to create a file system other than OpenZFS, you must provide a value that
+        /// matches the backup's <code>StorageCapacity</code> value. If you provide any other
+        /// value, Amazon FSx responds with a 400 Bad Request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
@@ -507,6 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
+            context.StorageCapacity = this.StorageCapacity;
             context.StorageType = this.StorageType;
             if (this.SubnetId != null)
             {
@@ -752,6 +769,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
             }
+            if (cmdletContext.StorageCapacity != null)
+            {
+                request.StorageCapacity = cmdletContext.StorageCapacity.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -850,6 +871,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.Int32? OpenZFSConfiguration_ThroughputCapacity { get; set; }
             public System.String OpenZFSConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
+            public System.Int32? StorageCapacity { get; set; }
             public Amazon.FSx.StorageType StorageType { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.FSx.Model.Tag> Tag { get; set; }
