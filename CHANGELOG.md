@@ -1,4 +1,15 @@
-﻿### 4.1.178 (2022-09-29 20:36Z)
+﻿### 4.1.179 (2022-09-30 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.368.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CodeDeploy
+    * Modified cmdlet New-CDDeployment: added parameters OverrideAlarmConfiguration_Alarm, OverrideAlarmConfiguration_Enabled and OverrideAlarmConfiguration_IgnorePollAlarmFailure.
+  * Amazon DevOps Guru
+    * Modified cmdlet Add-DGURUNotificationChannel: added parameters Filters_MessageType and Filters_Severity.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpoint: added parameter EnableExplanation.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMEndpointConfig: added parameters ClarifyExplainerConfig_EnableExplanation, InferenceConfig_ContentTemplate, InferenceConfig_FeatureHeader, InferenceConfig_FeaturesAttribute, InferenceConfig_FeatureType, InferenceConfig_LabelAttribute, InferenceConfig_LabelHeader, InferenceConfig_LabelIndex, InferenceConfig_MaxPayloadInMB, InferenceConfig_MaxRecordCount, InferenceConfig_ProbabilityAttribute, InferenceConfig_ProbabilityIndex, ShapBaselineConfig_MimeType, ShapBaselineConfig_ShapBaseline, ShapBaselineConfig_ShapBaselineUri, ShapConfig_NumberOfSample, ShapConfig_Seed, ShapConfig_UseLogit, TextConfig_Granularity and TextConfig_Language.
+
+### 4.1.178 (2022-09-29 20:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.367.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Certificate Manager
     * Modified cmdlet Get-ACMCertificateList: added parameters SortBy and SortOrder.

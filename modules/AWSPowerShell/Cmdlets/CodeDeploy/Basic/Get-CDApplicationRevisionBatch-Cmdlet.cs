@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an AWS CodeDeploy application about which to get revision information.</para>
+        /// <para>The name of an CodeDeploy application about which to get revision information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

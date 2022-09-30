@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// <note><para>
     ///  The newer <code>BatchGetDeploymentTargets</code> should be used instead because it
     /// works with all compute types. <code>ListDeploymentInstances</code> throws an exception
-    /// if it is used with a compute platform other than EC2/On-premises or AWS Lambda. 
+    /// if it is used with a compute platform other than EC2/On-premises or Lambda. 
     /// </para></note><para>
-    ///  Lists the instance for a deployment associated with the IAM user or AWS account.
-    /// 
+    ///  Lists the instance for a deployment associated with the IAM user or Amazon Web Services
+    /// account. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstanceList")]

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-        /// </para>
+        /// <para> The name of an CodeDeploy application associated with the IAM user or Amazon Web
+        /// Services account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The column name to use to sort the list results:</para><ul><li><para><code>registerTime</code>: Sort by the time the revisions were registered with AWS
-        /// CodeDeploy.</para></li><li><para><code>firstUsedTime</code>: Sort by the time the revisions were first used in a deployment.</para></li><li><para><code>lastUsedTime</code>: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results are returned in an arbitrary order.
+        /// <para>The column name to use to sort the list results:</para><ul><li><para><code>registerTime</code>: Sort by the time the revisions were registered with CodeDeploy.</para></li><li><para><code>firstUsedTime</code>: Sort by the time the revisions were first used in a deployment.</para></li><li><para><code>lastUsedTime</code>: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results are returned in an arbitrary order.
         /// </para>
         /// </para>
         /// </summary>

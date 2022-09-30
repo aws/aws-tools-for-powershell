@@ -81,6 +81,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.CaptureOption[] DataCaptureConfig_CaptureOption { get; set; }
         #endregion
         
+        #region Parameter InferenceConfig_ContentTemplate
+        /// <summary>
+        /// <para>
+        /// <para>A template string used to format a JSON record into an acceptable model container
+        /// input. For example, a <code>ContentTemplate</code> string <code>'{"myfeatures":$features}'</code>
+        /// will format a list of features <code>[1,2,3]</code> into the record string <code>'{"myfeatures":[1,2,3]}'</code>.
+        /// Required only when the model container input is in JSON Lines format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_ContentTemplate")]
+        public System.String InferenceConfig_ContentTemplate { get; set; }
+        #endregion
+        
         #region Parameter CaptureContentTypeHeader_CsvContentType
         /// <summary>
         /// <para>
@@ -113,6 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? DataCaptureConfig_EnableCapture { get; set; }
         #endregion
         
+        #region Parameter ClarifyExplainerConfig_EnableExplanation
+        /// <summary>
+        /// <para>
+        /// <para>A JMESPath boolean expression used to filter which records to explain. Explanations
+        /// are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable"><code>EnableExplanations</code></a>for additional information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_EnableExplanations")]
+        public System.String ClarifyExplainerConfig_EnableExplanation { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
@@ -141,6 +167,64 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AsyncInferenceConfig_OutputConfig_NotificationConfig_ErrorTopic")]
         public System.String NotificationConfig_ErrorTopic { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_FeatureHeader
+        /// <summary>
+        /// <para>
+        /// <para>The names of the features. If provided, these are included in the endpoint response
+        /// payload to help readability of the <code>InvokeEndpoint</code> output. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">Response</a>
+        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_FeatureHeaders")]
+        public System.String[] InferenceConfig_FeatureHeader { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_FeaturesAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Provides the JMESPath expression to extract the features from a model container input
+        /// in JSON Lines format. For example, if <code>FeaturesAttribute</code> is the JMESPath
+        /// expression <code>'myfeatures'</code>, it extracts a list of features <code>[1,2,3]</code>
+        /// from request data <code>'{"myfeatures":[1,2,3}'</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_FeaturesAttribute")]
+        public System.String InferenceConfig_FeaturesAttribute { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_FeatureType
+        /// <summary>
+        /// <para>
+        /// <para>A list of data types of the features (optional). Applicable only to NLP explainability.
+        /// If provided, <code>FeatureTypes</code> must have at least one <code>'text'</code>
+        /// string (for example, <code>['text']</code>). If <code>FeatureTypes</code> is not provided,
+        /// the explainer infers the feature types based on the baseline data. The feature types
+        /// are included in the endpoint response payload. For additional information see the
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
+        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_FeatureTypes")]
+        public System.String[] InferenceConfig_FeatureType { get; set; }
+        #endregion
+        
+        #region Parameter TextConfig_Granularity
+        /// <summary>
+        /// <para>
+        /// <para>The unit of granularity for the analysis of text features. For example, if the unit
+        /// is <code>'token'</code>, then each token (like a word in English) of the text is treated
+        /// as a feature. SHAP values are computed for each unit/feature.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity")]
+        [AWSConstantClassSource("Amazon.SageMaker.ClarifyTextGranularity")]
+        public Amazon.SageMaker.ClarifyTextGranularity TextConfig_Granularity { get; set; }
         #endregion
         
         #region Parameter DataCaptureConfig_InitialSamplingPercentage
@@ -213,6 +297,64 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter InferenceConfig_LabelAttribute
+        /// <summary>
+        /// <para>
+        /// <para>A JMESPath expression used to locate the list of label headers in the model container
+        /// output.</para><para><b>Example</b>: If the model container output of a batch request is <code>'{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]}'</code>,
+        /// then set <code>LabelAttribute</code> to <code>'labels'</code> to extract the list
+        /// of label headers <code>["cat","dog","fish"]</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_LabelAttribute")]
+        public System.String InferenceConfig_LabelAttribute { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_LabelHeader
+        /// <summary>
+        /// <para>
+        /// <para>For multiclass classification problems, the label headers are the names of the classes.
+        /// Otherwise, the label header is the name of the predicted label. These are used to
+        /// help readability for the output of the <code>InvokeEndpoint</code> API. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response">response</a>
+        /// section under <b>Invoke the endpoint</b> in the Developer Guide for more information.
+        /// If there are no label headers in the model container output, provide them manually
+        /// using this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_LabelHeaders")]
+        public System.String[] InferenceConfig_LabelHeader { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_LabelIndex
+        /// <summary>
+        /// <para>
+        /// <para>A zero-based index used to extract a label header or list of label headers from model
+        /// container output in CSV format.</para><para><b>Example for a multiclass model:</b> If the model container output consists of
+        /// label headers followed by probabilities: <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>,
+        /// set <code>LabelIndex</code> to <code>0</code> to select the label headers <code>['cat','dog','fish']</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_LabelIndex")]
+        public System.Int32? InferenceConfig_LabelIndex { get; set; }
+        #endregion
+        
+        #region Parameter TextConfig_Language
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the language of the text features in <a href=" https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO
+        /// 639-1</a> or <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> code
+        /// of a supported language. </para><note><para>For a mix of multiple languages, use code <code>'xx'</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Language")]
+        [AWSConstantClassSource("Amazon.SageMaker.ClarifyTextLanguage")]
+        public Amazon.SageMaker.ClarifyTextLanguage TextConfig_Language { get; set; }
+        #endregion
+        
         #region Parameter ClientConfig_MaxConcurrentInvocationsPerInstance
         /// <summary>
         /// <para>
@@ -223,6 +365,94 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AsyncInferenceConfig_ClientConfig_MaxConcurrentInvocationsPerInstance")]
         public System.Int32? ClientConfig_MaxConcurrentInvocationsPerInstance { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_MaxPayloadInMB
+        /// <summary>
+        /// <para>
+        /// <para>The maximum payload size (MB) allowed of a request from the explainer to the model
+        /// container. Defaults to <code>6</code> MB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_MaxPayloadInMB")]
+        public System.Int32? InferenceConfig_MaxPayloadInMB { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_MaxRecordCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of records in a request that the model container can process when
+        /// querying the model container for the predictions of a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-synthetic">synthetic
+        /// dataset</a>. A record is a unit of input data that inference can be made on, for example,
+        /// a single line in CSV data. If <code>MaxRecordCount</code> is <code>1</code>, the model
+        /// container expects one record per request. A value of 2 or greater means that the model
+        /// expects batch requests, which can reduce overhead and speed up the inferencing process.
+        /// If this parameter is not provided, the explainer will tune the record count per request
+        /// according to the model container's capacity at runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_MaxRecordCount")]
+        public System.Int32? InferenceConfig_MaxRecordCount { get; set; }
+        #endregion
+        
+        #region Parameter ShapBaselineConfig_MimeType
+        /// <summary>
+        /// <para>
+        /// <para>The MIME type of the baseline data. Choose from <code>'text/csv'</code> or <code>'application/jsonlines'</code>.
+        /// Defaults to <code>'text/csv'</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_MimeType")]
+        public System.String ShapBaselineConfig_MimeType { get; set; }
+        #endregion
+        
+        #region Parameter ShapConfig_NumberOfSample
+        /// <summary>
+        /// <para>
+        /// <para>The number of samples to be used for analysis by the Kernal SHAP algorithm. </para><note><para>The number of samples determines the size of the synthetic dataset, which has an impact
+        /// on latency of explainability requests. For more information, see the <b>Synthetic
+        /// data</b> of <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html">Configure
+        /// and create an endpoint</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_NumberOfSamples")]
+        public System.Int32? ShapConfig_NumberOfSample { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_ProbabilityAttribute
+        /// <summary>
+        /// <para>
+        /// <para>A JMESPath expression used to extract the probability (or score) from the model container
+        /// output if the model container is in JSON Lines format.</para><para><b>Example</b>: If the model container output of a single request is <code>'{"predicted_label":1,"probability":0.6}'</code>,
+        /// then set <code>ProbabilityAttribute</code> to <code>'probability'</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_ProbabilityAttribute")]
+        public System.String InferenceConfig_ProbabilityAttribute { get; set; }
+        #endregion
+        
+        #region Parameter InferenceConfig_ProbabilityIndex
+        /// <summary>
+        /// <para>
+        /// <para>A zero-based index used to extract a probability value (score) or list from model
+        /// container output in CSV format. If this value is not provided, the entire model container
+        /// output will be treated as a probability value (score) or list.</para><para><b>Example for a single class model:</b> If the model container output consists of
+        /// a string-formatted prediction label followed by its probability: <code>'1,0.6'</code>,
+        /// set <code>ProbabilityIndex</code> to <code>1</code> to select the probability value
+        /// <code>0.6</code>.</para><para><b>Example for a multiclass model:</b> If the model container output consists of
+        /// a string-formatted prediction label followed by its probability: <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>,
+        /// set <code>ProbabilityIndex</code> to <code>1</code> to select the probability values
+        /// <code>[0.1,0.6,0.3]</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_InferenceConfig_ProbabilityIndex")]
+        public System.Int32? InferenceConfig_ProbabilityIndex { get; set; }
         #endregion
         
         #region Parameter ProductionVariant
@@ -255,6 +485,57 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String OutputConfig_S3OutputPath { get; set; }
         #endregion
         
+        #region Parameter ShapConfig_Seed
+        /// <summary>
+        /// <para>
+        /// <para>The starting value used to initialize the random number generator in the explainer.
+        /// Provide a value for this parameter to obtain a deterministic SHAP result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_Seed")]
+        public System.Int32? ShapConfig_Seed { get; set; }
+        #endregion
+        
+        #region Parameter ShapBaselineConfig_ShapBaseline
+        /// <summary>
+        /// <para>
+        /// <para>The inline SHAP baseline data in string format. <code>ShapBaseline</code> can have
+        /// one or multiple records to be used as the baseline dataset. The format of the SHAP
+        /// baseline file should be the same format as the training dataset. For example, if the
+        /// training dataset is in CSV format and each record contains four features, and all
+        /// features are numerical, then the format of the baseline data should also share these
+        /// characteristics. For natural language processing (NLP) of text columns, the baseline
+        /// value should be the value used to replace the unit of text specified by the <code>Granularity</code>
+        /// of the <code>TextConfig</code> parameter. The size limit for <code>ShapBasline</code>
+        /// is 4 KB. Use the <code>ShapBaselineUri</code> parameter if you want to provide more
+        /// than 4 KB of baseline data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_ShapBaseline")]
+        public System.String ShapBaselineConfig_ShapBaseline { get; set; }
+        #endregion
+        
+        #region Parameter ShapBaselineConfig_ShapBaselineUri
+        /// <summary>
+        /// <para>
+        /// <para>The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file
+        /// is stored. The format of the SHAP baseline file should be the same format as the format
+        /// of the training dataset. For example, if the training dataset is in CSV format, and
+        /// each record in the training dataset has four features, and all features are numerical,
+        /// then the baseline file should also have this same format. Each record should contain
+        /// only the features. If you are using a virtual private cloud (VPC), the <code>ShapBaselineUri</code>
+        /// should be accessible to the VPC. For more information about setting up endpoints with
+        /// Amazon Virtual Private Cloud, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give
+        /// SageMaker access to Resources in your Amazon Virtual Private Cloud</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_ShapBaselineUri")]
+        public System.String ShapBaselineConfig_ShapBaselineUri { get; set; }
+        #endregion
+        
         #region Parameter NotificationConfig_SuccessTopic
         /// <summary>
         /// <para>
@@ -279,6 +560,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ShapConfig_UseLogit
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean toggle to indicate if you want to use the logit function (true) or log-odds
+        /// units (false) for model predictions. Defaults to false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExplainerConfig_ClarifyExplainerConfig_ShapConfig_UseLogit")]
+        public System.Boolean? ShapConfig_UseLogit { get; set; }
         #endregion
         
         #region Parameter Select
@@ -370,6 +663,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter EndpointConfigName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClarifyExplainerConfig_EnableExplanation = this.ClarifyExplainerConfig_EnableExplanation;
+            context.InferenceConfig_ContentTemplate = this.InferenceConfig_ContentTemplate;
+            if (this.InferenceConfig_FeatureHeader != null)
+            {
+                context.InferenceConfig_FeatureHeader = new List<System.String>(this.InferenceConfig_FeatureHeader);
+            }
+            context.InferenceConfig_FeaturesAttribute = this.InferenceConfig_FeaturesAttribute;
+            if (this.InferenceConfig_FeatureType != null)
+            {
+                context.InferenceConfig_FeatureType = new List<System.String>(this.InferenceConfig_FeatureType);
+            }
+            context.InferenceConfig_LabelAttribute = this.InferenceConfig_LabelAttribute;
+            if (this.InferenceConfig_LabelHeader != null)
+            {
+                context.InferenceConfig_LabelHeader = new List<System.String>(this.InferenceConfig_LabelHeader);
+            }
+            context.InferenceConfig_LabelIndex = this.InferenceConfig_LabelIndex;
+            context.InferenceConfig_MaxPayloadInMB = this.InferenceConfig_MaxPayloadInMB;
+            context.InferenceConfig_MaxRecordCount = this.InferenceConfig_MaxRecordCount;
+            context.InferenceConfig_ProbabilityAttribute = this.InferenceConfig_ProbabilityAttribute;
+            context.InferenceConfig_ProbabilityIndex = this.InferenceConfig_ProbabilityIndex;
+            context.ShapConfig_NumberOfSample = this.ShapConfig_NumberOfSample;
+            context.ShapConfig_Seed = this.ShapConfig_Seed;
+            context.ShapBaselineConfig_MimeType = this.ShapBaselineConfig_MimeType;
+            context.ShapBaselineConfig_ShapBaseline = this.ShapBaselineConfig_ShapBaseline;
+            context.ShapBaselineConfig_ShapBaselineUri = this.ShapBaselineConfig_ShapBaselineUri;
+            context.TextConfig_Granularity = this.TextConfig_Granularity;
+            context.TextConfig_Language = this.TextConfig_Language;
+            context.ShapConfig_UseLogit = this.ShapConfig_UseLogit;
             context.KmsKeyId = this.KmsKeyId;
             if (this.ProductionVariant != null)
             {
@@ -603,6 +925,290 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.EndpointConfigName = cmdletContext.EndpointConfigName;
             }
+            
+             // populate ExplainerConfig
+            var requestExplainerConfigIsNull = true;
+            request.ExplainerConfig = new Amazon.SageMaker.Model.ExplainerConfig();
+            Amazon.SageMaker.Model.ClarifyExplainerConfig requestExplainerConfig_explainerConfig_ClarifyExplainerConfig = null;
+            
+             // populate ClarifyExplainerConfig
+            var requestExplainerConfig_explainerConfig_ClarifyExplainerConfigIsNull = true;
+            requestExplainerConfig_explainerConfig_ClarifyExplainerConfig = new Amazon.SageMaker.Model.ClarifyExplainerConfig();
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_clarifyExplainerConfig_EnableExplanation = null;
+            if (cmdletContext.ClarifyExplainerConfig_EnableExplanation != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_clarifyExplainerConfig_EnableExplanation = cmdletContext.ClarifyExplainerConfig_EnableExplanation;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_clarifyExplainerConfig_EnableExplanation != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig.EnableExplanations = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_clarifyExplainerConfig_EnableExplanation;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClarifyShapConfig requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig = null;
+            
+             // populate ShapConfig
+            var requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull = true;
+            requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig = new Amazon.SageMaker.Model.ClarifyShapConfig();
+            System.Int32? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_NumberOfSample = null;
+            if (cmdletContext.ShapConfig_NumberOfSample != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_NumberOfSample = cmdletContext.ShapConfig_NumberOfSample.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_NumberOfSample != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig.NumberOfSamples = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_NumberOfSample.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull = false;
+            }
+            System.Int32? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_Seed = null;
+            if (cmdletContext.ShapConfig_Seed != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_Seed = cmdletContext.ShapConfig_Seed.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_Seed != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig.Seed = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_Seed.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull = false;
+            }
+            System.Boolean? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_UseLogit = null;
+            if (cmdletContext.ShapConfig_UseLogit != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_UseLogit = cmdletContext.ShapConfig_UseLogit.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_UseLogit != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig.UseLogit = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_shapConfig_UseLogit.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClarifyTextConfig requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig = null;
+            
+             // populate TextConfig
+            var requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfigIsNull = true;
+            requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig = new Amazon.SageMaker.Model.ClarifyTextConfig();
+            Amazon.SageMaker.ClarifyTextGranularity requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Granularity = null;
+            if (cmdletContext.TextConfig_Granularity != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Granularity = cmdletContext.TextConfig_Granularity;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Granularity != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig.Granularity = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Granularity;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfigIsNull = false;
+            }
+            Amazon.SageMaker.ClarifyTextLanguage requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Language = null;
+            if (cmdletContext.TextConfig_Language != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Language = cmdletContext.TextConfig_Language;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Language != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig.Language = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_textConfig_Language;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfigIsNull = false;
+            }
+             // determine if requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig should be set to null
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfigIsNull)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig = null;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig.TextConfig = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClarifyShapBaselineConfig requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig = null;
+            
+             // populate ShapBaselineConfig
+            var requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = true;
+            requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig = new Amazon.SageMaker.Model.ClarifyShapBaselineConfig();
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType = null;
+            if (cmdletContext.ShapBaselineConfig_MimeType != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType = cmdletContext.ShapBaselineConfig_MimeType;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig.MimeType = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_MimeType;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = false;
+            }
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline = null;
+            if (cmdletContext.ShapBaselineConfig_ShapBaseline != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline = cmdletContext.ShapBaselineConfig_ShapBaseline;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig.ShapBaseline = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaseline;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = false;
+            }
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri = null;
+            if (cmdletContext.ShapBaselineConfig_ShapBaselineUri != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri = cmdletContext.ShapBaselineConfig_ShapBaselineUri;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig.ShapBaselineUri = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig_shapBaselineConfig_ShapBaselineUri;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull = false;
+            }
+             // determine if requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig should be set to null
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfigIsNull)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig = null;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig.ShapBaselineConfig = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig_ShapBaselineConfig;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull = false;
+            }
+             // determine if requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig should be set to null
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfigIsNull)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig = null;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig.ShapConfig = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_ShapConfig;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.ClarifyInferenceConfig requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig = null;
+            
+             // populate InferenceConfig
+            var requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = true;
+            requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig = new Amazon.SageMaker.Model.ClarifyInferenceConfig();
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ContentTemplate = null;
+            if (cmdletContext.InferenceConfig_ContentTemplate != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ContentTemplate = cmdletContext.InferenceConfig_ContentTemplate;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ContentTemplate != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.ContentTemplate = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ContentTemplate;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            List<System.String> requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureHeader = null;
+            if (cmdletContext.InferenceConfig_FeatureHeader != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureHeader = cmdletContext.InferenceConfig_FeatureHeader;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureHeader != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.FeatureHeaders = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureHeader;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeaturesAttribute = null;
+            if (cmdletContext.InferenceConfig_FeaturesAttribute != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeaturesAttribute = cmdletContext.InferenceConfig_FeaturesAttribute;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeaturesAttribute != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.FeaturesAttribute = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeaturesAttribute;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            List<System.String> requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureType = null;
+            if (cmdletContext.InferenceConfig_FeatureType != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureType = cmdletContext.InferenceConfig_FeatureType;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureType != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.FeatureTypes = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_FeatureType;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelAttribute = null;
+            if (cmdletContext.InferenceConfig_LabelAttribute != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelAttribute = cmdletContext.InferenceConfig_LabelAttribute;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelAttribute != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.LabelAttribute = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelAttribute;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            List<System.String> requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelHeader = null;
+            if (cmdletContext.InferenceConfig_LabelHeader != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelHeader = cmdletContext.InferenceConfig_LabelHeader;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelHeader != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.LabelHeaders = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelHeader;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.Int32? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelIndex = null;
+            if (cmdletContext.InferenceConfig_LabelIndex != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelIndex = cmdletContext.InferenceConfig_LabelIndex.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelIndex != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.LabelIndex = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_LabelIndex.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.Int32? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxPayloadInMB = null;
+            if (cmdletContext.InferenceConfig_MaxPayloadInMB != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxPayloadInMB = cmdletContext.InferenceConfig_MaxPayloadInMB.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxPayloadInMB != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.MaxPayloadInMB = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxPayloadInMB.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.Int32? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxRecordCount = null;
+            if (cmdletContext.InferenceConfig_MaxRecordCount != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxRecordCount = cmdletContext.InferenceConfig_MaxRecordCount.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxRecordCount != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.MaxRecordCount = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_MaxRecordCount.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.String requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityAttribute = null;
+            if (cmdletContext.InferenceConfig_ProbabilityAttribute != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityAttribute = cmdletContext.InferenceConfig_ProbabilityAttribute;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityAttribute != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.ProbabilityAttribute = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityAttribute;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+            System.Int32? requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityIndex = null;
+            if (cmdletContext.InferenceConfig_ProbabilityIndex != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityIndex = cmdletContext.InferenceConfig_ProbabilityIndex.Value;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityIndex != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig.ProbabilityIndex = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig_inferenceConfig_ProbabilityIndex.Value;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull = false;
+            }
+             // determine if requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig should be set to null
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfigIsNull)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig = null;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig != null)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig.InferenceConfig = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig_explainerConfig_ClarifyExplainerConfig_InferenceConfig;
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfigIsNull = false;
+            }
+             // determine if requestExplainerConfig_explainerConfig_ClarifyExplainerConfig should be set to null
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfigIsNull)
+            {
+                requestExplainerConfig_explainerConfig_ClarifyExplainerConfig = null;
+            }
+            if (requestExplainerConfig_explainerConfig_ClarifyExplainerConfig != null)
+            {
+                request.ExplainerConfig.ClarifyExplainerConfig = requestExplainerConfig_explainerConfig_ClarifyExplainerConfig;
+                requestExplainerConfigIsNull = false;
+            }
+             // determine if request.ExplainerConfig should be set to null
+            if (requestExplainerConfigIsNull)
+            {
+                request.ExplainerConfig = null;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -689,6 +1295,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? DataCaptureConfig_InitialSamplingPercentage { get; set; }
             public System.String DataCaptureConfig_KmsKeyId { get; set; }
             public System.String EndpointConfigName { get; set; }
+            public System.String ClarifyExplainerConfig_EnableExplanation { get; set; }
+            public System.String InferenceConfig_ContentTemplate { get; set; }
+            public List<System.String> InferenceConfig_FeatureHeader { get; set; }
+            public System.String InferenceConfig_FeaturesAttribute { get; set; }
+            public List<System.String> InferenceConfig_FeatureType { get; set; }
+            public System.String InferenceConfig_LabelAttribute { get; set; }
+            public List<System.String> InferenceConfig_LabelHeader { get; set; }
+            public System.Int32? InferenceConfig_LabelIndex { get; set; }
+            public System.Int32? InferenceConfig_MaxPayloadInMB { get; set; }
+            public System.Int32? InferenceConfig_MaxRecordCount { get; set; }
+            public System.String InferenceConfig_ProbabilityAttribute { get; set; }
+            public System.Int32? InferenceConfig_ProbabilityIndex { get; set; }
+            public System.Int32? ShapConfig_NumberOfSample { get; set; }
+            public System.Int32? ShapConfig_Seed { get; set; }
+            public System.String ShapBaselineConfig_MimeType { get; set; }
+            public System.String ShapBaselineConfig_ShapBaseline { get; set; }
+            public System.String ShapBaselineConfig_ShapBaselineUri { get; set; }
+            public Amazon.SageMaker.ClarifyTextGranularity TextConfig_Granularity { get; set; }
+            public Amazon.SageMaker.ClarifyTextLanguage TextConfig_Language { get; set; }
+            public System.Boolean? ShapConfig_UseLogit { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariant { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

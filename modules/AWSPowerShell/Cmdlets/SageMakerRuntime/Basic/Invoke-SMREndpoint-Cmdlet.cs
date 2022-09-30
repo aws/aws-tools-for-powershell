@@ -126,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String CustomAttribute { get; set; }
         #endregion
         
+        #region Parameter EnableExplanation
+        /// <summary>
+        /// <para>
+        /// <para>An optional JMESPath expression used to override the <code>EnableExplanations</code>
+        /// parameter of the <code>ClarifyExplainerConfig</code> API. See the <a href="https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable">EnableExplanations</a>
+        /// section in the developer guide for more information. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnableExplanations")]
+        public System.String EnableExplanation { get; set; }
+        #endregion
+        
         #region Parameter EndpointName
         /// <summary>
         /// <para>
@@ -263,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             #endif
             context.ContentType = this.ContentType;
             context.CustomAttribute = this.CustomAttribute;
+            context.EnableExplanation = this.EnableExplanation;
             context.EndpointName = this.EndpointName;
             #if MODULAR
             if (this.EndpointName == null && ParameterWasBound(nameof(this.EndpointName)))
@@ -310,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.CustomAttribute != null)
                 {
                     request.CustomAttributes = cmdletContext.CustomAttribute;
+                }
+                if (cmdletContext.EnableExplanation != null)
+                {
+                    request.EnableExplanations = cmdletContext.EnableExplanation;
                 }
                 if (cmdletContext.EndpointName != null)
                 {
@@ -404,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public byte[] Body { get; set; }
             public System.String ContentType { get; set; }
             public System.String CustomAttribute { get; set; }
+            public System.String EnableExplanation { get; set; }
             public System.String EndpointName { get; set; }
             public System.String InferenceId { get; set; }
             public System.String TargetContainerHostname { get; set; }

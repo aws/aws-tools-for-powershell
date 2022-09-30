@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.DLM
 {
     /// <summary>
     /// Updates the specified lifecycle policy.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about updating a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#modify">Modify
+    /// lifecycle policies</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "DLMLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

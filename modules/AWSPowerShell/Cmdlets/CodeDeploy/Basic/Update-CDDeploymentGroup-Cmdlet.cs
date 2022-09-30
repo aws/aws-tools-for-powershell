@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>
-        /// <para>A list of alarms configured for the deployment group. A maximum of 10 alarms can be
-        /// added to a deployment group.</para>
+        /// <para>A list of alarms configured for the deployment or deployment group. A maximum of 10
+        /// alarms can be added.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,8 +118,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The replacement list of Auto Scaling groups to be included in the deployment group,
-        /// if you want to change them. To keep the Auto Scaling groups, enter their names. To
-        /// remove Auto Scaling groups, do not enter any Auto Scaling group names.</para>
+        /// if you want to change them.</para><ul><li><para>To keep the Auto Scaling groups, enter their names or do not specify this parameter.
+        /// </para></li><li><para>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group
+        /// names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples,
+        /// see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon
+        /// EC2 instances in an Amazon EC2 Auto Scaling group fail to launch and receive the error
+        /// "Heartbeat Timeout"</a> in the <i>CodeDeploy User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagSetList
         /// <summary>
         /// <para>
-        /// <para>A list that contains other lists of EC2 instance tag groups. For an instance to be
-        /// included in the deployment group, it must be identified by all of the tag groups in
-        /// the list.</para>
+        /// <para>A list that contains other lists of Amazon EC2 instance tag groups. For an instance
+        /// to be included in the deployment group, it must be identified by all of the tag groups
+        /// in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -312,11 +316,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter OutdatedInstancesStrategy
         /// <summary>
         /// <para>
-        /// <para>Indicates what happens when new EC2 instances are launched mid-deployment and do not
-        /// receive the deployed application revision.</para><para>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+        /// <para>Indicates what happens when new Amazon EC2 instances are launched mid-deployment and
+        /// do not receive the deployed application revision.</para><para>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
         /// one or more 'auto-update outdated instances' deployments to apply the deployed application
-        /// revision to the new EC2 instances.</para><para>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a deployment
-        /// to update the new EC2 instances. This may result in instances having different revisions.</para>
+        /// revision to the new Amazon EC2 instances.</para><para>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a deployment
+        /// to update the new Amazon EC2 instances. This may result in instances having different
+        /// revisions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -376,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>Information about triggers to change when the deployment group is updated. For examples,
         /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Edit
-        /// a Trigger in a CodeDeploy Deployment Group</a> in the <i>AWS CodeDeploy User Guide</i>.</para>
+        /// a Trigger in a CodeDeploy Deployment Group</a> in the <i>CodeDeploy User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

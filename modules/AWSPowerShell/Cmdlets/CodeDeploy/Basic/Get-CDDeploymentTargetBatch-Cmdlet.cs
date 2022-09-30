@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// <para>
     ///  The type of targets returned depends on the deployment's compute platform or deployment
     /// method: 
-    /// </para><ul><li><para><b>EC2/On-premises</b>: Information about EC2 instance targets. 
-    /// </para></li><li><para><b>AWS Lambda</b>: Information about Lambda functions targets. 
+    /// </para><ul><li><para><b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. 
+    /// </para></li><li><para><b>Lambda</b>: Information about Lambda functions targets. 
     /// </para></li><li><para><b>Amazon ECS</b>: Information about Amazon ECS service targets. 
     /// </para></li><li><para><b>CloudFormation</b>: Information about targets of blue/green deployments initiated
     /// by a CloudFormation stack update.
@@ -69,11 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para> The unique IDs of the deployment targets. The compute platform of the deployment
         /// determines the type of the targets and their formats. The maximum number of deployment
         /// target IDs you can specify is 25.</para><ul><li><para> For deployments that use the EC2/On-premises compute platform, the target IDs are
-        /// EC2 or on-premises instances IDs, and their target type is <code>instanceTarget</code>.
-        /// </para></li><li><para> For deployments that use the AWS Lambda compute platform, the target IDs are the
-        /// names of Lambda functions, and their target type is <code>instanceTarget</code>. </para></li><li><para> For deployments that use the Amazon ECS compute platform, the target IDs are pairs
+        /// Amazon EC2 or on-premises instances IDs, and their target type is <code>instanceTarget</code>.
+        /// </para></li><li><para> For deployments that use the Lambda compute platform, the target IDs are the names
+        /// of Lambda functions, and their target type is <code>instanceTarget</code>. </para></li><li><para> For deployments that use the Amazon ECS compute platform, the target IDs are pairs
         /// of Amazon ECS clusters and services specified using the format <code>&lt;clustername&gt;:&lt;servicename&gt;</code>.
-        /// Their target type is <code>ecsTarget</code>. </para></li><li><para> For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation
+        /// Their target type is <code>ecsTarget</code>. </para></li><li><para> For deployments that are deployed with CloudFormation, the target IDs are CloudFormation
         /// stack IDs. Their target type is <code>cloudFormationTarget</code>. </para></li></ul>
         /// </para>
         /// </summary>

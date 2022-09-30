@@ -102,7 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter GrantType
         /// <summary>
         /// <para>
-        /// <para>Supports grant types for authorization code, refresh token, and device code request.</para>
+        /// <para>Supports grant types for the authorization code, refresh token, and device code request.
+        /// For device code requests, specify the following value:</para><para><code>urn:ietf:params:oauth:grant-type:<i>device_code</i></code></para><para>For information about how to obtain the device code, see the <a>StartDeviceAuthorization</a>
+        /// topic.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,8 +132,12 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter RefreshToken
         /// <summary>
         /// <para>
-        /// <para>The token used to obtain an access token in the event that the access token is invalid
-        /// or expired. This token is not issued by the service.</para>
+        /// <para>Currently, <code>refreshToken</code> is not yet implemented and is not supported.
+        /// For more information about the features and limitations of the current IAM Identity
+        /// Center OIDC implementation, see <i>Considerations for Using this Guide</i> in the
+        /// <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html">IAM
+        /// Identity Center OIDC API Reference</a>.</para><para>The token used to obtain an access token in the event that the access token is invalid
+        /// or expired.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

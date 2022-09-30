@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier string for the client that is registered with AWS SSO. This
-        /// value should come from the persisted result of the <a>RegisterClient</a> API operation.</para>
+        /// <para>The unique identifier string for the client that is registered with IAM Identity Center.
+        /// This value should come from the persisted result of the <a>RegisterClient</a> API
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         #region Parameter StartUrl
         /// <summary>
         /// <para>
-        /// <para>The URL for the AWS SSO user portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
-        /// the User Portal</a> in the <i>AWS Single Sign-On User Guide</i>.</para>
+        /// <para>The URL for the AWS access portal. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/using-the-portal.html">Using
+        /// the AWS access portal</a> in the <i>IAM Identity Center User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application. This name must be unique with the applicable IAM user
-        /// or AWS account.</para>
+        /// <para>The name of the application. This name must be unique with the applicable IAM or Amazon
+        /// Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

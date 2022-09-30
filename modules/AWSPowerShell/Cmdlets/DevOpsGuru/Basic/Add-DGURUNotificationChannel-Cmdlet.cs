@@ -60,6 +60,33 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
     public partial class AddDGURUNotificationChannelCmdlet : AmazonDevOpsGuruClientCmdlet, IExecutor
     {
         
+        #region Parameter Filters_MessageType
+        /// <summary>
+        /// <para>
+        /// <para> The events that you want to receive notifications for. For example, you can choose
+        /// to receive notifications only when the severity level is upgraded or a new insight
+        /// is created. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Config_Filters_MessageTypes")]
+        public System.String[] Filters_MessageType { get; set; }
+        #endregion
+        
+        #region Parameter Filters_Severity
+        /// <summary>
+        /// <para>
+        /// <para> The severity levels that you want to receive notifications for. For example, you
+        /// can choose to receive notifications only for insights with <code>HIGH</code> and <code>MEDIUM</code>
+        /// severity levels. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities">Understanding
+        /// insight severities</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Config_Filters_Severities")]
+        public System.String[] Filters_Severity { get; set; }
+        #endregion
+        
         #region Parameter Config_Sn
         /// <summary>
         /// <para>
@@ -149,6 +176,14 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
                 context.Select = (response, cmdlet) => this.Config_Sn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filters_MessageType != null)
+            {
+                context.Filters_MessageType = new List<System.String>(this.Filters_MessageType);
+            }
+            if (this.Filters_Severity != null)
+            {
+                context.Filters_Severity = new List<System.String>(this.Filters_Severity);
+            }
             context.Config_Sn = this.Config_Sn;
             #if MODULAR
             if (this.Config_Sn == null && ParameterWasBound(nameof(this.Config_Sn)))
@@ -184,6 +219,41 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (requestConfig_config_Sn != null)
             {
                 request.Config.Sns = requestConfig_config_Sn;
+                requestConfigIsNull = false;
+            }
+            Amazon.DevOpsGuru.Model.NotificationFilterConfig requestConfig_config_Filters = null;
+            
+             // populate Filters
+            var requestConfig_config_FiltersIsNull = true;
+            requestConfig_config_Filters = new Amazon.DevOpsGuru.Model.NotificationFilterConfig();
+            List<System.String> requestConfig_config_Filters_filters_MessageType = null;
+            if (cmdletContext.Filters_MessageType != null)
+            {
+                requestConfig_config_Filters_filters_MessageType = cmdletContext.Filters_MessageType;
+            }
+            if (requestConfig_config_Filters_filters_MessageType != null)
+            {
+                requestConfig_config_Filters.MessageTypes = requestConfig_config_Filters_filters_MessageType;
+                requestConfig_config_FiltersIsNull = false;
+            }
+            List<System.String> requestConfig_config_Filters_filters_Severity = null;
+            if (cmdletContext.Filters_Severity != null)
+            {
+                requestConfig_config_Filters_filters_Severity = cmdletContext.Filters_Severity;
+            }
+            if (requestConfig_config_Filters_filters_Severity != null)
+            {
+                requestConfig_config_Filters.Severities = requestConfig_config_Filters_filters_Severity;
+                requestConfig_config_FiltersIsNull = false;
+            }
+             // determine if requestConfig_config_Filters should be set to null
+            if (requestConfig_config_FiltersIsNull)
+            {
+                requestConfig_config_Filters = null;
+            }
+            if (requestConfig_config_Filters != null)
+            {
+                request.Config.Filters = requestConfig_config_Filters;
                 requestConfigIsNull = false;
             }
              // determine if request.Config should be set to null
@@ -252,6 +322,8 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filters_MessageType { get; set; }
+            public List<System.String> Filters_Severity { get; set; }
             public Amazon.DevOpsGuru.Model.SnsChannelConfig Config_Sn { get; set; }
             public System.Func<Amazon.DevOpsGuru.Model.AddNotificationChannelResponse, AddDGURUNotificationChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;

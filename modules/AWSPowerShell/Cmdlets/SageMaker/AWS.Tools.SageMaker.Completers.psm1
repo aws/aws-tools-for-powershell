@@ -256,6 +256,20 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClarifyTextGranularity
+        "New-SMEndpointConfig/ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity"
+        {
+            $v = "paragraph","sentence","token"
+            break
+        }
+
+        # Amazon.SageMaker.ClarifyTextLanguage
+        "New-SMEndpointConfig/ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Language"
+        {
+            $v = "af","ar","bg","bn","ca","cs","da","de","el","en","es","et","eu","fa","fi","fr","ga","gu","he","hi","hr","hu","hy","id","is","it","kn","ky","lb","lij","lt","lv","mk","ml","mr","nb","ne","nl","pl","pt","ro","ru","sa","si","sk","sl","sq","sr","sv","ta","te","tl","tn","tr","tt","uk","ur","xx","yo","zh"
+            break
+        }
+
         # Amazon.SageMaker.CodeRepositorySortBy
         "Get-SMCodeRepositoryList/SortBy"
         {
@@ -1109,6 +1123,8 @@ $SM_map = @{
     "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
     "DomainSettingsForUpdate_ExecutionRoleIdentityConfig"=@("Update-SMDomain")
     "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
+    "ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity"=@("New-SMEndpointConfig")
+    "ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Language"=@("New-SMEndpointConfig")
     "FeatureGroupStatusEquals"=@("Get-SMFeatureGroupList")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")

@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AppSpecContent_Content
         /// <summary>
         /// <para>
-        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
+        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an Lambda deployment, the content includes a Lambda function name, the alias
         /// for its original version, and the alias for its replacement version. The deployment
         /// shifts traffic from the original version of the Lambda function to the replacement
         /// version. </para><para> For an Amazon ECS deployment, the content includes the task name, information about
@@ -160,9 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).</para></li><li><para>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of
-        /// an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted
-        /// as JSON or YAML stored as a RawString.</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (Lambda deployments only).</para></li><li><para>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of
+        /// an AppSpec file for an Lambda or Amazon ECS deployment. The content is formatted as
+        /// JSON or YAML stored as a RawString.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

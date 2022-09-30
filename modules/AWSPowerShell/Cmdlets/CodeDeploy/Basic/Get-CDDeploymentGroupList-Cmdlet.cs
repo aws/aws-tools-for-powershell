@@ -28,8 +28,8 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists the deployment groups for an application registered with the IAM user or AWS
-    /// account.<br/><br/>In the AWS.Tools.CodeDeploy module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the deployment groups for an application registered with the IAM user or Amazon
+    /// Web Services account.<br/><br/>In the AWS.Tools.CodeDeploy module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentGroupList")]
     [OutputType("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an AWS CodeDeploy application associated with the IAM user or AWS account.</para>
+        /// <para>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

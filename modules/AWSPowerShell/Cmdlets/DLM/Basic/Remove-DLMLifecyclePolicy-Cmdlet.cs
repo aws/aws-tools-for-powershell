@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     /// <summary>
     /// Deletes the specified lifecycle policy and halts the automated operations that the
     /// policy specified.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about deleting a policy, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-modify-delete.html#delete">Delete
+    /// lifecycle policies</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "DLMLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

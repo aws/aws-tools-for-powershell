@@ -28,8 +28,9 @@ using Amazon.SSOOIDC.Model;
 namespace Amazon.PowerShell.Cmdlets.SSOOIDC
 {
     /// <summary>
-    /// Registers a client with AWS SSO. This allows clients to initiate device authorization.
-    /// The output should be persisted for reuse through many authentication requests.
+    /// Registers a client with IAM Identity Center. This allows clients to initiate device
+    /// authorization. The output should be persisted for reuse through many authentication
+    /// requests.
     /// </summary>
     [Cmdlet("Register", "SSOOIDCClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SSOOIDC.Model.RegisterClientResponse")]

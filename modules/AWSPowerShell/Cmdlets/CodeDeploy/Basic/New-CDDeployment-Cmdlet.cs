@@ -40,10 +40,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class NewCDDeploymentCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        #region Parameter OverrideAlarmConfiguration_Alarm
+        /// <summary>
+        /// <para>
+        /// <para>A list of alarms configured for the deployment or deployment group. A maximum of 10
+        /// alarms can be added.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideAlarmConfiguration_Alarms")]
+        public Amazon.CodeDeploy.Model.Alarm[] OverrideAlarmConfiguration_Alarm { get; set; }
+        #endregion
+        
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an AWS CodeDeploy application associated with the IAM user or AWS account.</para>
+        /// <para>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AppSpecContent_Content
         /// <summary>
         /// <para>
-        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
+        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an Lambda deployment, the content includes a Lambda function name, the alias
         /// for its original version, and the alias for its replacement version. The deployment
         /// shifts traffic from the original version of the Lambda function to the replacement
         /// version. </para><para> For an Amazon ECS deployment, the content includes the task name, information about
@@ -136,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of a deployment configuration associated with the IAM user or AWS account.</para><para>If not specified, the value configured in the deployment group is used as the default.
+        /// <para>The name of a deployment configuration associated with the IAM user or Amazon Web
+        /// Services account.</para><para>If not specified, the value configured in the deployment group is used as the default.
         /// If the deployment group does not have a deployment configuration associated with it,
         /// <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</para>
         /// </para>
@@ -168,9 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagSetList
         /// <summary>
         /// <para>
-        /// <para>A list that contains other lists of EC2 instance tag groups. For an instance to be
-        /// included in the deployment group, it must be identified by all of the tag groups in
-        /// the list.</para>
+        /// <para>A list that contains other lists of Amazon EC2 instance tag groups. For an instance
+        /// to be included in the deployment group, it must be identified by all of the tag groups
+        /// in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,6 +199,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? AutoRollbackConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter OverrideAlarmConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the alarm configuration is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OverrideAlarmConfiguration_Enabled { get; set; }
         #endregion
         
         #region Parameter S3Location_ETag
@@ -214,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter FileExistsBehavior
         /// <summary>
         /// <para>
-        /// <para>Information about how AWS CodeDeploy handles files that already exist in a deployment
+        /// <para>Information about how CodeDeploy handles files that already exist in a deployment
         /// target location but weren't part of the previous successful deployment.</para><para>The <code>fileExistsBehavior</code> parameter takes any of the following values:</para><ul><li><para>DISALLOW: The deployment fails. This is also the default behavior if no option is
         /// specified.</para></li><li><para>OVERWRITE: The version of the file from the application revision currently being deployed
         /// replaces the version already on the instance.</para></li><li><para>RETAIN: The version of the file already on the instance is kept and used as part of
@@ -238,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para><para> If false or not specified, then if a lifecycle event fails during a deployment to
         /// an instance, that deployment fails. If deployment to that instance is part of an overall
         /// deployment and the number of healthy hosts is not less than the minimum number of
-        /// healthy hosts, then a deployment to the next instance is attempted. </para><para> During a deployment, the AWS CodeDeploy agent runs the scripts specified for <code>ApplicationStop</code>,
+        /// healthy hosts, then a deployment to the next instance is attempted. </para><para> During a deployment, the CodeDeploy agent runs the scripts specified for <code>ApplicationStop</code>,
         /// <code>BeforeBlockTraffic</code>, and <code>AfterBlockTraffic</code> in the AppSpec
         /// file from the previous successful deployment. (All other scripts are run from the
         /// AppSpec file in the current deployment.) If one of these scripts contains an error
@@ -251,6 +275,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IgnoreApplicationStopFailures")]
         public System.Boolean? IgnoreApplicationStopFailure { get; set; }
+        #endregion
+        
+        #region Parameter OverrideAlarmConfiguration_IgnorePollAlarmFailure
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a deployment should continue if information about the current state
+        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para><code>true</code>: The deployment proceeds even if alarm status information can't
+        /// be retrieved from Amazon CloudWatch.</para></li><li><para><code>false</code>: The deployment stops if alarm status information can't be retrieved
+        /// from Amazon CloudWatch.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OverrideAlarmConfiguration_IgnorePollAlarmFailure { get; set; }
         #endregion
         
         #region Parameter S3Location_Key
@@ -280,9 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).</para></li><li><para>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of
-        /// an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted
-        /// as JSON or YAML stored as a RawString.</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (Lambda deployments only).</para></li><li><para>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of
+        /// an AppSpec file for an Lambda or Amazon ECS deployment. The content is formatted as
+        /// JSON or YAML stored as a RawString.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -426,6 +463,12 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.Description = this.Description;
             context.FileExistsBehavior = this.FileExistsBehavior;
             context.IgnoreApplicationStopFailure = this.IgnoreApplicationStopFailure;
+            if (this.OverrideAlarmConfiguration_Alarm != null)
+            {
+                context.OverrideAlarmConfiguration_Alarm = new List<Amazon.CodeDeploy.Model.Alarm>(this.OverrideAlarmConfiguration_Alarm);
+            }
+            context.OverrideAlarmConfiguration_Enabled = this.OverrideAlarmConfiguration_Enabled;
+            context.OverrideAlarmConfiguration_IgnorePollAlarmFailure = this.OverrideAlarmConfiguration_IgnorePollAlarmFailure;
             context.AppSpecContent_Content = this.AppSpecContent_Content;
             context.AppSpecContent_Sha256 = this.AppSpecContent_Sha256;
             context.GitHubLocation_CommitId = this.GitHubLocation_CommitId;
@@ -523,6 +566,45 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.IgnoreApplicationStopFailure != null)
             {
                 request.IgnoreApplicationStopFailures = cmdletContext.IgnoreApplicationStopFailure.Value;
+            }
+            
+             // populate OverrideAlarmConfiguration
+            var requestOverrideAlarmConfigurationIsNull = true;
+            request.OverrideAlarmConfiguration = new Amazon.CodeDeploy.Model.AlarmConfiguration();
+            List<Amazon.CodeDeploy.Model.Alarm> requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Alarm = null;
+            if (cmdletContext.OverrideAlarmConfiguration_Alarm != null)
+            {
+                requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Alarm = cmdletContext.OverrideAlarmConfiguration_Alarm;
+            }
+            if (requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Alarm != null)
+            {
+                request.OverrideAlarmConfiguration.Alarms = requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Alarm;
+                requestOverrideAlarmConfigurationIsNull = false;
+            }
+            System.Boolean? requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Enabled = null;
+            if (cmdletContext.OverrideAlarmConfiguration_Enabled != null)
+            {
+                requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Enabled = cmdletContext.OverrideAlarmConfiguration_Enabled.Value;
+            }
+            if (requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Enabled != null)
+            {
+                request.OverrideAlarmConfiguration.Enabled = requestOverrideAlarmConfiguration_overrideAlarmConfiguration_Enabled.Value;
+                requestOverrideAlarmConfigurationIsNull = false;
+            }
+            System.Boolean? requestOverrideAlarmConfiguration_overrideAlarmConfiguration_IgnorePollAlarmFailure = null;
+            if (cmdletContext.OverrideAlarmConfiguration_IgnorePollAlarmFailure != null)
+            {
+                requestOverrideAlarmConfiguration_overrideAlarmConfiguration_IgnorePollAlarmFailure = cmdletContext.OverrideAlarmConfiguration_IgnorePollAlarmFailure.Value;
+            }
+            if (requestOverrideAlarmConfiguration_overrideAlarmConfiguration_IgnorePollAlarmFailure != null)
+            {
+                request.OverrideAlarmConfiguration.IgnorePollAlarmFailure = requestOverrideAlarmConfiguration_overrideAlarmConfiguration_IgnorePollAlarmFailure.Value;
+                requestOverrideAlarmConfigurationIsNull = false;
+            }
+             // determine if request.OverrideAlarmConfiguration should be set to null
+            if (requestOverrideAlarmConfigurationIsNull)
+            {
+                request.OverrideAlarmConfiguration = null;
             }
             
              // populate Revision
@@ -840,6 +922,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String Description { get; set; }
             public Amazon.CodeDeploy.FileExistsBehavior FileExistsBehavior { get; set; }
             public System.Boolean? IgnoreApplicationStopFailure { get; set; }
+            public List<Amazon.CodeDeploy.Model.Alarm> OverrideAlarmConfiguration_Alarm { get; set; }
+            public System.Boolean? OverrideAlarmConfiguration_Enabled { get; set; }
+            public System.Boolean? OverrideAlarmConfiguration_IgnorePollAlarmFailure { get; set; }
             public System.String AppSpecContent_Content { get; set; }
             public System.String AppSpecContent_Sha256 { get; set; }
             public System.String GitHubLocation_CommitId { get; set; }
