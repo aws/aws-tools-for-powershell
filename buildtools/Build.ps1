@@ -86,7 +86,8 @@ try {
       /p:RunTests=$RunTests `
       /p:CleanSdkReferences=false `
       /p:BreakOnNewOperations=true `
-      /p:Configuration=$Configuration
+      /p:Configuration=$Configuration `
+      /p:SignModules=$SignModules
     $BuildResult = $LASTEXITCODE
   }
   elseif ($BuildType -eq 'RELEASE') {

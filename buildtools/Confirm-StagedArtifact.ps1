@@ -24,7 +24,12 @@ Param (
     # Determines if signing will be verified. This must be true for production
     # release environments.
     [Parameter()]
-    [string] $VerifySigning = "true"
+    [string] $VerifySigning = "true",
+
+    # Specifies the type of build that is being verified. For PREVIEW build types AWSPowerShell.NetCore 
+    # will be verified. Otherwise AWSPowerShell, AWSPowerShell.NetCore, and AWS.Tools.* will be verified.
+    [Parameter()]
+    [string] $BuildType = "RELEASE"
 )
 
 function ValidateModule([string]$modulePath, [bool]$verifyChangeLog, [bool]$testVersion, [bool]$signingCheck, [string]$cmdletToTest) {
@@ -113,9 +118,16 @@ if ($VerifySigning -eq 'false') {
     $signingCheck = $false
 }
 
-@('AWSPowerShell', 'AWSPowerShell.NetCore') | ForEach-Object {
+$testVersion = $true
+$validateModules = @('AWSPowerShell', 'AWSPowerShell.NetCore')
+if ($BuildType -eq 'PREVIEW') {
+    $validateModules = @('AWSPowerShell.NetCore')
+    $testVersion = $false
+}
+
+$validateModules | ForEach-Object {
     try {
-        ValidateModule $_ $true $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
+        ValidateModule $_ $true $testVersion $signingCheck { Get-S3Bucket -ProfileName test-runner }
         Write-Host "PASSED validation for module $_"
     }
     catch {
@@ -123,29 +135,31 @@ if ($VerifySigning -eq 'false') {
     }
 }
 
-$awsToolsDeploymentPath = Resolve-Path "$PSScriptRoot/AWS.Tools"
+if ($BuildType -ne 'PREVIEW') {
+    $awsToolsDeploymentPath = Resolve-Path "$PSScriptRoot/AWS.Tools"
 
-Import-Module PowerShellGet
+    Import-Module PowerShellGet
 
-$OldPath = $Env:PSModulePath
-$Env:PSModulePath = $Env:PSModulePath + ';' + $awsToolsDeploymentPath
+    $OldPath = $Env:PSModulePath
+    $Env:PSModulePath = $Env:PSModulePath + ';' + $awsToolsDeploymentPath
 
-Get-ChildItem $awsToolsDeploymentPath -Directory | ForEach-Object {
-    try {
-        if ($_.Name -eq 'AWS.Tools.S3') {
-            ValidateModule $_ $false $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
+    Get-ChildItem $awsToolsDeploymentPath -Directory | ForEach-Object {
+        try {
+            if ($_.Name -eq 'AWS.Tools.S3') {
+                ValidateModule $_ $false $true $signingCheck { Get-S3Bucket -ProfileName test-runner }
+            }
+            elseif ($_.Name -eq 'AWS.Tools.Installer') {
+                ValidateModule $_ $false $false $signingCheck { }
+            }
+            else {
+                ValidateModule $_ $false $true $signingCheck { Get-AWSPowerShellVersion }
+            }
+            Write-Host "PASSED validation for module $_"
         }
-        elseif ($_.Name -eq 'AWS.Tools.Installer') {
-            ValidateModule $_ $false $false $signingCheck { }
+        catch {
+            throw "FAILED validation for module $_, error $error"
         }
-        else {
-            ValidateModule $_ $false $true $signingCheck { Get-AWSPowerShellVersion }
-        }
-        Write-Host "PASSED validation for module $_"
     }
-    catch {
-        throw "FAILED validation for module $_, error $error"
-    }
+
+    $Env:PSModulePath = $OldPath
 }
-
-$Env:PSModulePath = $OldPath

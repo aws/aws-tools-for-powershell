@@ -71,7 +71,7 @@
             <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
 
-    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;build-test-modules;copy-coreclr-artifacts;copy-test-module-artifacts;draft-release-notes;create-pshelp;run-tests">
+    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;build-test-modules;copy-coreclr-artifacts;copy-test-module-artifacts;draft-release-notes;copy-postbuild-scripts;create-pshelp;sign-script-artifacts-preview;run-tests">
         <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
     </Target>
 
@@ -302,6 +302,54 @@
             <SignableItems Include="$(ModularDeploymentArtifacts)**/*.psd1" />
             <SignableItems Include="$(ModularDeploymentArtifacts)**/*.ps1xml" />
             <SignableItems Include="$(ModularDeploymentArtifacts)**/AWS.Tools.*.dll" />
+        </ItemGroup>
+
+        <PropertyGroup>
+            <SignableItemsBasePath>$(Deployment)</SignableItemsBasePath>
+            <ZipPrefix>powershell</ZipPrefix>
+            <ZipFilesPath>$(RootPath)/codesign-zip</ZipFilesPath>
+            <SigningS3KeyPrefix>powershell</SigningS3KeyPrefix>
+            <SignedItemsPath>$(Deployment)</SignedItemsPath>
+            <SigningRoleSessionName>powershell-signer-session</SigningRoleSessionName>
+        </PropertyGroup>
+
+        <CodeSignTask
+            SignableItemsBasePath="$(SignableItemsBasePath)"
+            SignableItems="@(SignableItems)"
+            ZipItemsBeforeSigning="$(ZipItemsBeforeSigning)"
+            ZipPrefix="$(ZipPrefix)"
+            NumberOfFilesPerZip="$(NumberOfFilesPerZip)"
+            ZipFilesPath="$(ZipFilesPath)"
+            SigningProfileName="$(SigningProfileName)"
+            SigningRoleArn="$(SigningRoleArn)"
+            SigningRoleSessionName="$(SigningRoleSessionName)"
+            SigningBucketRegion="$(SigningBucketRegion)"
+            SignerServiceRegion="$(SignerServiceRegion)"
+            UnsignedBucketName="$(UnsignedBucketName)"
+            SigningS3Folder="$(SigningS3Folder)"
+            SigningS3KeyPrefix="$(SigningS3KeyPrefix)"
+            SigningInitialQueryStatusDelay="$(SigningInitialQueryStatusDelay)"
+            SignedItemsPath="$(SignedItemsPath)"
+            KeepZippedSignedFiles="$(KeepZippedSignedFiles)"
+            S3TagPollingInvervalMilliseconds="$(S3TagPollingInvervalMilliseconds)"
+            JobCompletionPollingInvervalMilliseconds="$(JobCompletionPollingInvervalMilliseconds)">
+            <Output TaskParameter="ZipFiles" ItemName="FileWrites" />
+            <Output TaskParameter="ZipFiles" ItemName="SigningZipFiles" />
+            <Output TaskParameter="SignableArtifacts" ItemName="SignableArtifacts" />
+            <Output TaskParameter="DownloadedSignedItems" ItemName="FileWrites" />
+            <Output TaskParameter="DownloadedSignedItems" ItemName="DownloadedSignedItems" />
+        </CodeSignTask>
+    </Target>
+
+    <Target Name="sign-script-artifacts-preview" Condition="'$(SignModules)'=='true'" DependsOnTargets="copy-coreclr-artifacts">
+        <!-- Configure project specfic code sign properties -->
+        <ItemGroup>
+            <!-- NetCore Edition -->
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psm1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.psd1" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)*.ps1xml" />
+            <SignableItems Include="$(NetCoreDeploymentArtifacts)AWSPowerShell.NetCore.dll" />            
         </ItemGroup>
 
         <PropertyGroup>
