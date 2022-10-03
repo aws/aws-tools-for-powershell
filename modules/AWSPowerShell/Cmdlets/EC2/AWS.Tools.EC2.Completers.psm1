@@ -494,7 +494,14 @@ $EC2_Completers = {
         # Amazon.EC2.ImageAttributeName
         "Get-EC2ImageAttribute/Attribute"
         {
-            $v = "blockDeviceMapping","bootMode","description","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
+            $v = "blockDeviceMapping","bootMode","description","imdsSupport","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
+            break
+        }
+
+        # Amazon.EC2.ImdsSupportValues
+        "Register-EC2Image/ImdsSupport"
+        {
+            $v = "v2.0"
             break
         }
 
@@ -1043,6 +1050,7 @@ $EC2_map = @{
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
     "HttpTokens"=@("Edit-EC2InstanceMetadataOption")
+    "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")

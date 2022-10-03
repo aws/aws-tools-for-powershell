@@ -175,6 +175,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ImageLocation { get; set; }
         #endregion
         
+        #region Parameter ImdsSupport
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
+        /// launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code>
+        /// so that, by default, the instance requires that IMDSv2 is used when requesting instance
+        /// metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+        /// the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><note><para>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
+        /// IMDSv2.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.ImdsSupportValues")]
+        public Amazon.EC2.ImdsSupportValues ImdsSupport { get; set; }
+        #endregion
+        
         #region Parameter KernelId
         /// <summary>
         /// <para>
@@ -347,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             context.EnaSupport = this.EnaSupport;
             context.ImageLocation = this.ImageLocation;
+            context.ImdsSupport = this.ImdsSupport;
             context.KernelId = this.KernelId;
             context.Name = this.Name;
             #if MODULAR
@@ -404,6 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ImageLocation != null)
             {
                 request.ImageLocation = cmdletContext.ImageLocation;
+            }
+            if (cmdletContext.ImdsSupport != null)
+            {
+                request.ImdsSupport = cmdletContext.ImdsSupport;
             }
             if (cmdletContext.KernelId != null)
             {
@@ -505,6 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public System.Boolean? EnaSupport { get; set; }
             public System.String ImageLocation { get; set; }
+            public Amazon.EC2.ImdsSupportValues ImdsSupport { get; set; }
             public System.String KernelId { get; set; }
             public System.String Name { get; set; }
             public System.String RamdiskId { get; set; }

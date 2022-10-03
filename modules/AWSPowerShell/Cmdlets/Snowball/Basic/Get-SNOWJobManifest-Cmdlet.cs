@@ -37,9 +37,12 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     ///  
     /// <para>
     /// The manifest is an encrypted file that you can download after your job enters the
-    /// <code>WithCustomer</code> status. The manifest is decrypted by using the <code>UnlockCode</code>
-    /// code value, when you pass both values to the Snow device through the Snowball client
-    /// when the client is started for the first time.
+    /// <code>WithCustomer</code> status. This is the only valid status for calling this API
+    /// as the manifest and <code>UnlockCode</code> code value are used for securing your
+    /// device and should only be used when you have the device. The manifest is decrypted
+    /// by using the <code>UnlockCode</code> code value, when you pass both values to the
+    /// Snow device through the Snowball client when the client is started for the first time.
+    /// 
     /// </para><para>
     /// As a best practice, we recommend that you don't save a copy of an <code>UnlockCode</code>
     /// value in the same location as the manifest file for that job. Saving these separately

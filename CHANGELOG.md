@@ -1,4 +1,9 @@
-﻿### 4.1.179 (2022-09-30 20:44Z)
+﻿### 4.1.180 (2022-10-03 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.369.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Register-EC2Image: added parameter ImdsSupport.
+
+### 4.1.179 (2022-09-30 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.368.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CodeDeploy
     * Modified cmdlet New-CDDeployment: added parameters OverrideAlarmConfiguration_Alarm, OverrideAlarmConfiguration_Enabled and OverrideAlarmConfiguration_IgnorePollAlarmFailure.

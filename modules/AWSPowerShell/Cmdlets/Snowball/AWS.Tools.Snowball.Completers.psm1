@@ -133,7 +133,7 @@ $SNOW_Completers = {
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T100","T14","T42","T50","T8","T80","T98"
+            $v = "NoPreference","T100","T14","T32","T42","T50","T8","T80","T98"
             break
         }
 
@@ -144,7 +144,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWLongTermPricing/SnowballType")
         }
         {
-            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD"
+            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C"
             break
         }
 

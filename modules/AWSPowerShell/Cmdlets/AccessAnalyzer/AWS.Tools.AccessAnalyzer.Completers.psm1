@@ -128,7 +128,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ValidatePolicyResourceType
         "Use-IAMAAPolicyValidation/ValidatePolicyResourceType"
         {
-            $v = "AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
+            $v = "AWS::IAM::AssumeRolePolicyDocument","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
             break
         }
 

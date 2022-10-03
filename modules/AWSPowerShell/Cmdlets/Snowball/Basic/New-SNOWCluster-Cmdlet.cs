@@ -240,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of Snow Family Devices to use for this cluster. </para><note><para>For cluster jobs, Amazon Web Services Snow Family currently supports only the <code>EDGE</code>
+        /// <para>The type of Snow Family devices to use for this cluster. </para><note><para>For cluster jobs, Amazon Web Services Snow Family currently supports only the <code>EDGE</code>
         /// device type.</para></note><para>For more information, see "https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html"
         /// (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</para>
