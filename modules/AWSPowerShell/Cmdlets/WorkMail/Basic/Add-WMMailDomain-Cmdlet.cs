@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Registers a new domain in Amazon WorkMail and SES, and configures it for use by WorkMail.
+    /// Registers a new domain in WorkMail and SES, and configures it for use by WorkMail.
     /// Emails received by SES for this domain are routed to the specified WorkMail organization,
     /// and WorkMail has permanent permission to use the specified domain for sending your
     /// users' emails.
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the mail domain to create in Amazon WorkMail and SES.</para>
+        /// <para>The name of the mail domain to create in WorkMail and SES.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization under which you're creating the domain.</para>
+        /// <para>The WorkMail organization under which you're creating the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

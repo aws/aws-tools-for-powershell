@@ -28,25 +28,24 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a new Amazon WorkMail organization. Optionally, you can choose to associate
-    /// an existing AWS Directory Service directory with your organization. If an AWS Directory
-    /// Service directory ID is specified, the organization alias must match the directory
-    /// alias. If you choose not to associate an existing directory with your organization,
-    /// then we create a new Amazon WorkMail directory for you. For more information, see
-    /// <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding
-    /// an organization</a> in the <i>Amazon WorkMail Administrator Guide</i>.
+    /// Creates a new WorkMail organization. Optionally, you can choose to associate an existing
+    /// AWS Directory Service directory with your organization. If an AWS Directory Service
+    /// directory ID is specified, the organization alias must match the directory alias.
+    /// If you choose not to associate an existing directory with your organization, then
+    /// we create a new WorkMail directory for you. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html">Adding
+    /// an organization</a> in the <i>WorkMail Administrator Guide</i>.
     /// 
     ///  
     /// <para>
-    /// You can associate multiple email domains with an organization, then set your default
-    /// email domain from the Amazon WorkMail console. You can also associate a domain that
-    /// is managed in an Amazon Route 53 public hosted zone. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding
+    /// You can associate multiple email domains with an organization, then choose your default
+    /// email domain from the WorkMail console. You can also associate a domain that is managed
+    /// in an Amazon Route 53 public hosted zone. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding
     /// a domain</a> and <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/default_domain.html">Choosing
-    /// the default domain</a> in the <i>Amazon WorkMail Administrator Guide</i>.
+    /// the default domain</a> in the <i>WorkMail Administrator Guide</i>.
     /// </para><para>
-    /// Optionally, you can use a customer managed master key from AWS Key Management Service
-    /// (AWS KMS) to encrypt email for your organization. If you don't associate an AWS KMS
-    /// key, Amazon WorkMail creates a default AWS managed master key for you.
+    /// Optionally, you can use a customer managed key from AWS Key Management Service (AWS
+    /// KMS) to encrypt email for your organization. If you don't associate an AWS KMS key,
+    /// WorkMail creates a default, AWS managed key for you.
     /// </para>
     /// </summary>
     [Cmdlet("New", "WMOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -100,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EnableInteroperability
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, allows organization interoperability between Amazon WorkMail
-        /// and Microsoft Exchange. Can only be set to <code>true</code> if an AD Connector directory
-        /// ID is included in the request.</para>
+        /// <para>When <code>true</code>, allows organization interoperability between WorkMail and
+        /// Microsoft Exchange. If <code>true</code>, you must include a AD Connector directory
+        /// ID in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a customer managed master key from AWS KMS.</para>
+        /// <para>The Amazon Resource Name (ARN) of a customer managed key from AWS KMS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a user who can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
+    /// Creates a user who can be used in WorkMail by calling the <a>RegisterToWorkMail</a>
     /// operation.
     /// </summary>
     [Cmdlet("New", "WMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

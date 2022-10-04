@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     /// <summary>
     /// Adds a new access control rule for the specified organization. The rule allows or
     /// denies access to the organization for the specified IPv4 addresses, access protocol
-    /// actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
-    /// the older rule.
+    /// actions, user IDs and impersonation IDs. Adding a new rule with the same name as an
+    /// existing rule replaces the older rule.
     /// </summary>
     [Cmdlet("Write", "WMAccessControlRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.WM
         public Amazon.WorkMail.AccessControlRuleEffect Effect { get; set; }
         #endregion
         
+        #region Parameter ImpersonationRoleId
+        /// <summary>
+        /// <para>
+        /// <para>Impersonation role IDs to include in the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImpersonationRoleIds")]
+        public System.String[] ImpersonationRoleId { get; set; }
+        #endregion
+        
         #region Parameter IpRange
         /// <summary>
         /// <para>
@@ -129,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.WM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NotActions")]
         public System.String[] NotAction { get; set; }
+        #endregion
+        
+        #region Parameter NotImpersonationRoleId
+        /// <summary>
+        /// <para>
+        /// <para>Impersonation role IDs to exclude from the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NotImpersonationRoleIds")]
+        public System.String[] NotImpersonationRoleId { get; set; }
         #endregion
         
         #region Parameter NotIpRange
@@ -259,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 WriteWarning("You are passing $null as a value for parameter Effect which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ImpersonationRoleId != null)
+            {
+                context.ImpersonationRoleId = new List<System.String>(this.ImpersonationRoleId);
+            }
             if (this.IpRange != null)
             {
                 context.IpRange = new List<System.String>(this.IpRange);
@@ -273,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (this.NotAction != null)
             {
                 context.NotAction = new List<System.String>(this.NotAction);
+            }
+            if (this.NotImpersonationRoleId != null)
+            {
+                context.NotImpersonationRoleId = new List<System.String>(this.NotImpersonationRoleId);
             }
             if (this.NotIpRange != null)
             {
@@ -321,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             {
                 request.Effect = cmdletContext.Effect;
             }
+            if (cmdletContext.ImpersonationRoleId != null)
+            {
+                request.ImpersonationRoleIds = cmdletContext.ImpersonationRoleId;
+            }
             if (cmdletContext.IpRange != null)
             {
                 request.IpRanges = cmdletContext.IpRange;
@@ -332,6 +366,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.NotAction != null)
             {
                 request.NotActions = cmdletContext.NotAction;
+            }
+            if (cmdletContext.NotImpersonationRoleId != null)
+            {
+                request.NotImpersonationRoleIds = cmdletContext.NotImpersonationRoleId;
             }
             if (cmdletContext.NotIpRange != null)
             {
@@ -413,9 +451,11 @@ namespace Amazon.PowerShell.Cmdlets.WM
             public List<System.String> Action { get; set; }
             public System.String Description { get; set; }
             public Amazon.WorkMail.AccessControlRuleEffect Effect { get; set; }
+            public List<System.String> ImpersonationRoleId { get; set; }
             public List<System.String> IpRange { get; set; }
             public System.String Name { get; set; }
             public List<System.String> NotAction { get; set; }
+            public List<System.String> NotImpersonationRoleId { get; set; }
             public List<System.String> NotIpRange { get; set; }
             public List<System.String> NotUserId { get; set; }
             public System.String OrganizationId { get; set; }

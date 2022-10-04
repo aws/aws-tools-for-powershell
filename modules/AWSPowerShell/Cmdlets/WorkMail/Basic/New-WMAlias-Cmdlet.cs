@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
+    /// Adds an alias to the set of a given member (user or group) of WorkMail.
     /// </summary>
     [Cmdlet("New", "WMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

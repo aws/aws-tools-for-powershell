@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Updates a mobile device access rule for the specified Amazon WorkMail organization.
+    /// Updates a mobile device access rule for the specified WorkMail organization.
     /// </summary>
     [Cmdlet("Update", "WMMobileDeviceAccessRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization under which the rule will be updated.</para>
+        /// <para>The WorkMail organization under which the rule will be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

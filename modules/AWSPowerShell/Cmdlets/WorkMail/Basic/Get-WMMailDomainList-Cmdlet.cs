@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Lists the mail domains in a given Amazon WorkMail organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the mail domains in a given WorkMail organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WMMailDomainList")]
     [OutputType("Amazon.WorkMail.Model.MailDomainSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization for which to list domains.</para>
+        /// <para>The WorkMail organization for which to list domains.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

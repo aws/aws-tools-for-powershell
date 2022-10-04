@@ -988,7 +988,7 @@ $EC2_Completers = {
         # Amazon.EC2.VpcAttributeName
         "Get-EC2VpcAttribute/Attribute"
         {
-            $v = "enableDnsHostnames","enableDnsSupport"
+            $v = "enableDnsHostnames","enableDnsSupport","enableNetworkAddressUsageMetrics"
             break
         }
 

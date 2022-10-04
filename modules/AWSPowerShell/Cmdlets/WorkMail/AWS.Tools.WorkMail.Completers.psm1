@@ -87,6 +87,16 @@ $WM_Completers = {
             break
         }
 
+        # Amazon.WorkMail.ImpersonationRoleType
+        {
+            ($_ -eq "New-WMImpersonationRole/Type") -Or
+            ($_ -eq "Update-WMImpersonationRole/Type")
+        }
+        {
+            $v = "FULL_ACCESS","READ_ONLY"
+            break
+        }
+
         # Amazon.WorkMail.MobileDeviceAccessRuleEffect
         {
             ($_ -eq "New-WMMobileDeviceAccessRule/Effect") -Or
@@ -115,7 +125,7 @@ $WM_Completers = {
 
 $WM_map = @{
     "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
-    "Type"=@("New-WMResource")
+    "Type"=@("New-WMImpersonationRole","New-WMResource","Update-WMImpersonationRole")
 }
 
 _awsArgumentCompleterRegistration $WM_Completers $WM_map
@@ -170,10 +180,12 @@ $WM_SelectCompleters = {
 $WM_SelectMap = @{
     "Select"=@("Add-WMDelegateToResource",
                "Add-WMMemberToGroup",
+               "Invoke-WMImpersonationRole",
                "Stop-WMMailboxExportJob",
                "New-WMAlias",
                "New-WMAvailabilityConfiguration",
                "New-WMGroup",
+               "New-WMImpersonationRole",
                "New-WMMobileDeviceAccessRule",
                "New-WMOrganization",
                "New-WMResource",
@@ -183,6 +195,7 @@ $WM_SelectMap = @{
                "Remove-WMAvailabilityConfiguration",
                "Remove-WMEmailMonitoringConfiguration",
                "Remove-WMGroup",
+               "Remove-WMImpersonationRole",
                "Remove-WMMailboxPermission",
                "Remove-WMMobileDeviceAccessOverride",
                "Remove-WMMobileDeviceAccessRule",
@@ -203,6 +216,8 @@ $WM_SelectMap = @{
                "Remove-WMMemberFromGroup",
                "Get-WMAccessControlEffect",
                "Get-WMDefaultRetentionPolicy",
+               "Get-WMImpersonationRole",
+               "Get-WMImpersonationRoleEffect",
                "Get-WMMailboxDetail",
                "Get-WMMailDomain",
                "Get-WMMobileDeviceAccessEffect",
@@ -212,6 +227,7 @@ $WM_SelectMap = @{
                "Get-WMAvailabilityConfigurationList",
                "Get-WMMemberList",
                "Get-WMGroupList",
+               "Get-WMImpersonationRoleList",
                "Get-WMMailboxExportJobList",
                "Get-WMMailboxPermissionList",
                "Get-WMMailDomainList",
@@ -237,6 +253,7 @@ $WM_SelectMap = @{
                "Remove-WMResourceTag",
                "Update-WMAvailabilityConfiguration",
                "Update-WMDefaultMailDomain",
+               "Update-WMImpersonationRole",
                "Update-WMMailboxQuota",
                "Update-WMMobileDeviceAccessRule",
                "Update-WMPrimaryEmailAddress",

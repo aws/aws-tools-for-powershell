@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     /// <summary>
     /// Simulates the effect of the mobile device access rules for the given attributes of
     /// a sample access event. Use this method to test the effects of the current set of mobile
-    /// device access rules for the Amazon WorkMail organization for a particular user's attributes.
+    /// device access rules for the WorkMail organization for a particular user's attributes.
     /// </summary>
     [Cmdlet("Get", "WMMobileDeviceAccessEffect")]
     [OutputType("Amazon.WorkMail.Model.GetMobileDeviceAccessEffectResponse")]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization to simulate the access effect for.</para>
+        /// <para>The WorkMail organization to simulate the access effect for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

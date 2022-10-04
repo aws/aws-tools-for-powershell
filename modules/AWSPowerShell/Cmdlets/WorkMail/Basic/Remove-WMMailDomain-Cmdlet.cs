@@ -28,10 +28,10 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Removes a domain from Amazon WorkMail, stops email routing to WorkMail, and removes
-    /// the authorization allowing WorkMail use. SES keeps the domain because other applications
-    /// may use it. You must first remove any email address used by WorkMail entities before
-    /// you remove the domain.
+    /// Removes a domain from WorkMail, stops email routing to WorkMail, and removes the authorization
+    /// allowing WorkMail use. SES keeps the domain because other applications may use it.
+    /// You must first remove any email address used by WorkMail entities before you remove
+    /// the domain.
     /// </summary>
     [Cmdlet("Remove", "WMMailDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain to deregister in WorkMail and SES. </para>
+        /// <para>The domain to deregister in WorkMail and SES.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization for which the domain will be deregistered.</para>
+        /// <para>The WorkMail organization for which the domain will be deregistered.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
     /// The request must contain either one provider definition (<code>EwsProvider</code>
     /// or <code>LambdaProvider</code>) or the <code>DomainName</code> parameter. If the <code>DomainName</code>
     /// parameter is provided, the configuration stored under the <code>DomainName</code>
-    /// will be tested. 
+    /// will be tested.
     /// </para></note>
     /// </summary>
     [Cmdlet("Test", "WMAvailabilityConfiguration")]
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization where the availability provider will be tested.</para>
+        /// <para>The WorkMail organization where the availability provider will be tested.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

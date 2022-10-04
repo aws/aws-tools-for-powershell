@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Applies the specified tags to the specified Amazon WorkMail organization resource.
+    /// Applies the specified tags to the specified WorkMailorganization resource.
     /// </summary>
     [Cmdlet("Add", "WMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

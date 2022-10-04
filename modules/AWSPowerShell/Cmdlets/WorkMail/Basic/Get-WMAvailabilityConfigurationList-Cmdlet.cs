@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization for which the <code>AvailabilityConfiguration</code>'s
-        /// will be listed.</para>
+        /// <para>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will
+        /// be listed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

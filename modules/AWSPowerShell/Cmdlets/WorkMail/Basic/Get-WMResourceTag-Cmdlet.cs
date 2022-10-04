@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Lists the tags applied to an Amazon WorkMail organization resource.
+    /// Lists the tags applied to an WorkMail organization resource.
     /// </summary>
     [Cmdlet("Get", "WMResourceTag")]
     [OutputType("Amazon.WorkMail.Model.Tag")]

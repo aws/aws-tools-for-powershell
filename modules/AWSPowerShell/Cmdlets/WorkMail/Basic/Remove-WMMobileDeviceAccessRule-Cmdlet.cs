@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes a mobile device access rule for the specified Amazon WorkMail organization.
+    /// Deletes a mobile device access rule for the specified WorkMail organization.
     /// 
     ///  <note><para>
     /// Deleting already deleted and non-existing rules does not produce an error. In those
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization under which the rule will be deleted.</para>
+        /// <para>The WorkMail organization under which the rule will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
+    /// Creates a group that can be used in WorkMail by calling the <a>RegisterToWorkMail</a>
     /// operation.
     /// </summary>
     [Cmdlet("New", "WMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

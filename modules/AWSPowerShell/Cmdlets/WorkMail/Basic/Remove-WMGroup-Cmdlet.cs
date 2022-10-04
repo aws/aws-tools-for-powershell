@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes a group from Amazon WorkMail.
+    /// Deletes a group from WorkMail.
     /// </summary>
     [Cmdlet("Remove", "WMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

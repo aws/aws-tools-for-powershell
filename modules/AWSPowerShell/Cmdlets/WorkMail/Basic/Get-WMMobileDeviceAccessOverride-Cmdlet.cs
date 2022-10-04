@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization to which you want to apply the override.</para>
+        /// <para>The WorkMail organization to which you want to apply the override.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

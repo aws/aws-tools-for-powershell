@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization for which the access override will be deleted.</para>
+        /// <para>The WorkMail organization for which the access override will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

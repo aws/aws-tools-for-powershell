@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? EnableDnsSupport { get; set; }
         #endregion
         
+        #region Parameter EnableNetworkAddressUsageMetric
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether Network Address Usage metrics are enabled for your VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnableNetworkAddressUsageMetrics")]
+        public System.Boolean? EnableNetworkAddressUsageMetric { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -141,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EnableDnsHostname = this.EnableDnsHostname;
             context.EnableDnsSupport = this.EnableDnsSupport;
+            context.EnableNetworkAddressUsageMetric = this.EnableNetworkAddressUsageMetric;
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -171,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.EnableDnsSupport != null)
             {
                 request.EnableDnsSupport = cmdletContext.EnableDnsSupport.Value;
+            }
+            if (cmdletContext.EnableNetworkAddressUsageMetric != null)
+            {
+                request.EnableNetworkAddressUsageMetrics = cmdletContext.EnableNetworkAddressUsageMetric.Value;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -239,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? EnableDnsHostname { get; set; }
             public System.Boolean? EnableDnsSupport { get; set; }
+            public System.Boolean? EnableNetworkAddressUsageMetric { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcAttributeResponse, EditEC2VpcAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

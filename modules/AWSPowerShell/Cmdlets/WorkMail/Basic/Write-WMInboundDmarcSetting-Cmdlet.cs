@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the organization that you are applying the DMARC policy to. </para>
+        /// <para>The ID of the organization that you are applying the DMARC policy to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

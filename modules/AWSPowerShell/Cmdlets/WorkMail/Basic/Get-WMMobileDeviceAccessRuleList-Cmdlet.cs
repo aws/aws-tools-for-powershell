@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Lists the mobile device access rules for the specified Amazon WorkMail organization.
+    /// Lists the mobile device access rules for the specified WorkMail organization.
     /// </summary>
     [Cmdlet("Get", "WMMobileDeviceAccessRuleList")]
     [OutputType("Amazon.WorkMail.Model.MobileDeviceAccessRule")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization for which to list the rules.</para>
+        /// <para>The WorkMail organization for which to list the rules.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

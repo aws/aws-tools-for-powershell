@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization for which to list domains.</para>
+        /// <para>The WorkMail organization for which to list domains.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization under which to list mobile device access overrides.</para>
+        /// <para>The WorkMail organization under which to list mobile device access overrides.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

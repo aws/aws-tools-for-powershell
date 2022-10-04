@@ -1,4 +1,20 @@
-﻿### 4.1.180 (2022-10-03 20:31Z)
+﻿### 4.1.181 (2022-10-04 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.370.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Cases. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCAS and can be listed using the command 'Get-AWSCmdletName -Service CCAS'.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VpcAttribute: added parameter EnableNetworkAddressUsageMetric.
+  * Amazon WorkMail
+    * Added cmdlet Get-WMImpersonationRole leveraging the GetImpersonationRole service API.
+    * Added cmdlet Get-WMImpersonationRoleEffect leveraging the GetImpersonationRoleEffect service API.
+    * Added cmdlet Get-WMImpersonationRoleList leveraging the ListImpersonationRoles service API.
+    * Added cmdlet Invoke-WMImpersonationRole leveraging the AssumeImpersonationRole service API.
+    * Added cmdlet New-WMImpersonationRole leveraging the CreateImpersonationRole service API.
+    * Added cmdlet Remove-WMImpersonationRole leveraging the DeleteImpersonationRole service API.
+    * Added cmdlet Update-WMImpersonationRole leveraging the UpdateImpersonationRole service API.
+    * Modified cmdlet Get-WMAccessControlEffect: added parameter ImpersonationRoleId.
+    * Modified cmdlet Write-WMAccessControlRule: added parameters ImpersonationRoleId and NotImpersonationRoleId.
+
+### 4.1.180 (2022-10-03 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.369.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Register-EC2Image: added parameter ImdsSupport.

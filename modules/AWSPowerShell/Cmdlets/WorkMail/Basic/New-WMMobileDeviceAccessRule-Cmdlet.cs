@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a new mobile device access rule for the specified Amazon WorkMail organization.
+    /// Creates a new mobile device access rule for the specified WorkMail organization.
     /// </summary>
     [Cmdlet("New", "WMMobileDeviceAccessRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The Amazon WorkMail organization under which the rule will be created.</para>
+        /// <para>The WorkMail organization under which the rule will be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

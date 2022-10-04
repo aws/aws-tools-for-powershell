@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
     /// Gets the effects of an organization's access control rules as they apply to a specified
-    /// IPv4 address, access protocol action, or user ID.
+    /// IPv4 address, access protocol action, and user ID or impersonation role ID. You must
+    /// provide either the user ID or impersonation role ID. Impersonation role ID can only
+    /// be used with Action EWS.
     /// </summary>
     [Cmdlet("Get", "WMAccessControlEffect")]
     [OutputType("Amazon.WorkMail.Model.GetAccessControlEffectResponse")]
@@ -57,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Action { get; set; }
+        #endregion
+        
+        #region Parameter ImpersonationRoleId
+        /// <summary>
+        /// <para>
+        /// <para>The impersonation role ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImpersonationRoleId { get; set; }
         #endregion
         
         #region Parameter IpAddress
@@ -99,14 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <para>The user ID.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
         #endregion
         
@@ -162,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 WriteWarning("You are passing $null as a value for parameter Action which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImpersonationRoleId = this.ImpersonationRoleId;
             context.IpAddress = this.IpAddress;
             #if MODULAR
             if (this.IpAddress == null && ParameterWasBound(nameof(this.IpAddress)))
@@ -177,12 +183,6 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             #endif
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.WM
             if (cmdletContext.Action != null)
             {
                 request.Action = cmdletContext.Action;
+            }
+            if (cmdletContext.ImpersonationRoleId != null)
+            {
+                request.ImpersonationRoleId = cmdletContext.ImpersonationRoleId;
             }
             if (cmdletContext.IpAddress != null)
             {
@@ -277,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Action { get; set; }
+            public System.String ImpersonationRoleId { get; set; }
             public System.String IpAddress { get; set; }
             public System.String OrganizationId { get; set; }
             public System.String UserId { get; set; }

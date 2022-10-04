@@ -28,10 +28,9 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Mark a user, group, or resource as no longer used in Amazon WorkMail. This action
-    /// disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes
-    /// for 30 days before they are permanently removed. The functionality in the console
-    /// is <i>Disable</i>.
+    /// Mark a user, group, or resource as no longer used in WorkMail. This action disassociates
+    /// the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days before
+    /// they are permanently removed. The functionality in the console is <i>Disable</i>.
     /// </summary>
     [Cmdlet("Remove", "WMFromWorkMail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the organization under which the Amazon WorkMail entity exists.</para>
+        /// <para>The identifier for the organization under which the WorkMail entity exists.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -12317,7 +12317,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNIntegrationAssociation/IntegrationType")
         }
         {
-            $v = "EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
+            $v = "CASES_DOMAIN","EVENT","PINPOINT_APP","VOICE_ID","WISDOM_ASSISTANT","WISDOM_KNOWLEDGE_BASE"
             break
         }
 
@@ -12798,6 +12798,130 @@ $CCS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CCS_SelectCompleters $CCS_SelectMap
+# Argument completions for service Amazon Connect Cases
+
+
+$CCAS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ConnectCases.CommentBodyTextType
+        "New-CCASRelatedItem/Content_Comment_ContentType"
+        {
+            $v = "Text/Plain"
+            break
+        }
+
+        # Amazon.ConnectCases.FieldType
+        "New-CCASField/Type"
+        {
+            $v = "Boolean","DateTime","Number","SingleSelect","Text"
+            break
+        }
+
+        # Amazon.ConnectCases.RelatedItemType
+        "New-CCASRelatedItem/Type"
+        {
+            $v = "Comment","Contact"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCAS_map = @{
+    "Content_Comment_ContentType"=@("New-CCASRelatedItem")
+    "Type"=@("New-CCASField","New-CCASRelatedItem")
+}
+
+_awsArgumentCompleterRegistration $CCAS_Completers $CCAS_map
+
+$CCAS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CCAS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCAS_SelectMap = @{
+    "Select"=@("Group-CCASGetField",
+               "Group-CCASPutFieldOption",
+               "New-CCASCase",
+               "New-CCASDomain",
+               "New-CCASField",
+               "New-CCASLayout",
+               "New-CCASRelatedItem",
+               "New-CCASTemplate",
+               "Get-CCASCase",
+               "Get-CCASCaseEventConfiguration",
+               "Get-CCASDomain",
+               "Get-CCASLayout",
+               "Get-CCASTemplate",
+               "Get-CCASCasesForContactList",
+               "Get-CCASDomainList",
+               "Get-CCASFieldOptionList",
+               "Get-CCASFieldList",
+               "Get-CCASLayoutList",
+               "Get-CCASResourceTag",
+               "Get-CCASTemplateList",
+               "Write-CCASCaseEventConfiguration",
+               "Search-CCASCase",
+               "Search-CCASRelatedItem",
+               "Add-CCASResourceTag",
+               "Remove-CCASResourceTag",
+               "Update-CCASCase",
+               "Update-CCASField",
+               "Update-CCASLayout",
+               "Update-CCASTemplate")
+}
+
+_awsArgumentCompleterRegistration $CCAS_SelectCompleters $CCAS_SelectMap
 # Argument completions for service Amazon Connect Contact Lens
 
 
@@ -17379,7 +17503,7 @@ $EC2_Completers = {
         # Amazon.EC2.VpcAttributeName
         "Get-EC2VpcAttribute/Attribute"
         {
-            $v = "enableDnsHostnames","enableDnsSupport"
+            $v = "enableDnsHostnames","enableDnsSupport","enableNetworkAddressUsageMetrics"
             break
         }
 
@@ -52903,6 +53027,16 @@ $WM_Completers = {
             break
         }
 
+        # Amazon.WorkMail.ImpersonationRoleType
+        {
+            ($_ -eq "New-WMImpersonationRole/Type") -Or
+            ($_ -eq "Update-WMImpersonationRole/Type")
+        }
+        {
+            $v = "FULL_ACCESS","READ_ONLY"
+            break
+        }
+
         # Amazon.WorkMail.MobileDeviceAccessRuleEffect
         {
             ($_ -eq "New-WMMobileDeviceAccessRule/Effect") -Or
@@ -52931,7 +53065,7 @@ $WM_Completers = {
 
 $WM_map = @{
     "Effect"=@("New-WMMobileDeviceAccessRule","Update-WMMobileDeviceAccessRule","Write-WMAccessControlRule","Write-WMMobileDeviceAccessOverride")
-    "Type"=@("New-WMResource")
+    "Type"=@("New-WMImpersonationRole","New-WMResource","Update-WMImpersonationRole")
 }
 
 _awsArgumentCompleterRegistration $WM_Completers $WM_map
@@ -52986,10 +53120,12 @@ $WM_SelectCompleters = {
 $WM_SelectMap = @{
     "Select"=@("Add-WMDelegateToResource",
                "Add-WMMemberToGroup",
+               "Invoke-WMImpersonationRole",
                "Stop-WMMailboxExportJob",
                "New-WMAlias",
                "New-WMAvailabilityConfiguration",
                "New-WMGroup",
+               "New-WMImpersonationRole",
                "New-WMMobileDeviceAccessRule",
                "New-WMOrganization",
                "New-WMResource",
@@ -52999,6 +53135,7 @@ $WM_SelectMap = @{
                "Remove-WMAvailabilityConfiguration",
                "Remove-WMEmailMonitoringConfiguration",
                "Remove-WMGroup",
+               "Remove-WMImpersonationRole",
                "Remove-WMMailboxPermission",
                "Remove-WMMobileDeviceAccessOverride",
                "Remove-WMMobileDeviceAccessRule",
@@ -53019,6 +53156,8 @@ $WM_SelectMap = @{
                "Remove-WMMemberFromGroup",
                "Get-WMAccessControlEffect",
                "Get-WMDefaultRetentionPolicy",
+               "Get-WMImpersonationRole",
+               "Get-WMImpersonationRoleEffect",
                "Get-WMMailboxDetail",
                "Get-WMMailDomain",
                "Get-WMMobileDeviceAccessEffect",
@@ -53028,6 +53167,7 @@ $WM_SelectMap = @{
                "Get-WMAvailabilityConfigurationList",
                "Get-WMMemberList",
                "Get-WMGroupList",
+               "Get-WMImpersonationRoleList",
                "Get-WMMailboxExportJobList",
                "Get-WMMailboxPermissionList",
                "Get-WMMailDomainList",
@@ -53053,6 +53193,7 @@ $WM_SelectMap = @{
                "Remove-WMResourceTag",
                "Update-WMAvailabilityConfiguration",
                "Update-WMDefaultMailDomain",
+               "Update-WMImpersonationRole",
                "Update-WMMailboxQuota",
                "Update-WMMobileDeviceAccessRule",
                "Update-WMPrimaryEmailAddress",

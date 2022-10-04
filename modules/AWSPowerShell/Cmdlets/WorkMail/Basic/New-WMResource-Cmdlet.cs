@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a new Amazon WorkMail resource.
+    /// Creates a new WorkMail resource.
     /// </summary>
     [Cmdlet("New", "WMResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

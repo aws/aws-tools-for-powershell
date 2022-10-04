@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Untags the specified tags from the specified Amazon WorkMail organization resource.
+    /// Untags the specified tags from the specified WorkMail organization resource.
     /// </summary>
     [Cmdlet("Remove", "WMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

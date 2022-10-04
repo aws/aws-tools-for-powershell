@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssumeImpersonationRole" OutputProperty="*" Verb="Invoke" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelMailboxExportJob" Verb="Stop" Noun="MailboxExportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -40,6 +44,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="GroupId" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImpersonationRole" OutputProperty="ImpersonationRoleId" Verb="New" Noun="ImpersonationRole" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImpersonationRole" Verb="Remove" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,6 +171,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetImpersonationRole" OutputProperty="*" Verb="Get" Noun="ImpersonationRole" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImpersonationRoleEffect" OutputProperty="*" Verb="Get" Noun="ImpersonationRoleEffect" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMailboxDetails" OutputProperty="*" Verb="Get" Noun="MailboxDetail" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -192,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImpersonationRoles" OutputProperty="Roles" Verb="Get" Noun="ImpersonationRoleList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -292,6 +316,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDefaultMailDomain" Verb="Update" Noun="DefaultMailDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImpersonationRole" Verb="Update" Noun="ImpersonationRole" ShouldProcessTarget="ImpersonationRoleId" PipelineParameter="ImpersonationRoleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
