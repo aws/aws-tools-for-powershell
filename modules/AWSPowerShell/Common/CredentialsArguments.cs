@@ -397,18 +397,20 @@ namespace Amazon.PowerShell.Common
         String, Saved, RegionObject, Session, Environment, InstanceMetadata, Unknown
     }
 
-    internal interface IAWSRegionArguments
+    public interface IAWSRegionArguments
     {
         object Region { get; }
         string ProfileLocation { get; }
     }
-    // Standalone arguments to resolve a region passed in as a parameter without a full BaseCmdlet implementation
+    /// <summary>
+    /// Standalone class to resolve a region without a full BaseCmdlet implementation
+    /// </summary>
     public class StandaloneRegionArguments : IAWSRegionArguments
     {
         public object Region { get; set; }
         public string ProfileLocation { get; set; }
     }
-    internal static class IAWSRegionArgumentsMethods
+    public static class IAWSRegionArgumentsMethods
     {
         public static bool TryGetRegion(this IAWSRegionArguments self, bool useInstanceMetadata, out RegionEndpoint region, out RegionSource source, SessionState sessionState)
         {
