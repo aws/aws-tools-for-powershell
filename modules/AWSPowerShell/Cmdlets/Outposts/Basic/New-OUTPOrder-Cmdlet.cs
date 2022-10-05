@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter PaymentOption
         /// <summary>
         /// <para>
-        /// <para>The payment option for the order.</para>
+        /// <para>The payment option.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter PaymentTerm
         /// <summary>
         /// <para>
-        /// <para>The payment terms for the order.</para>
+        /// <para>The payment terms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

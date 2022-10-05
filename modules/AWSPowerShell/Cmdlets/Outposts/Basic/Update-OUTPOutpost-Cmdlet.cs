@@ -63,10 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OutpostId
         /// <summary>
         /// <para>
-        /// <para> The ID or the Amazon Resource Name (ARN) of the Outpost. </para><note><para>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or
-        /// an ID for Outposts and sites throughout the Outposts Query API. To address backwards
-        /// compatibility, the parameter names <code>OutpostID</code> or <code>SiteID</code> remain
-        /// in use. Despite the parameter name, you can make the request with an ARN.</para></note>
+        /// <para> The ID or the Amazon Resource Name (ARN) of the Outpost. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

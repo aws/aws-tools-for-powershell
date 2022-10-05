@@ -727,6 +727,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJobFromSourceControl" OutputProperty="JobName" Verb="Update" Noun="JobFromSourceControl" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMLTransform" OutputProperty="TransformId" Verb="Update" Noun="MLTransform" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -740,6 +744,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSchema" OutputProperty="*" Verb="Update" Noun="Schema" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="SchemaId_SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSourceControlFromJob" OutputProperty="JobName" Verb="Update" Noun="SourceControlFromJob" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

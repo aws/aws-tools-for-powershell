@@ -28,15 +28,15 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Updates the site address. 
+    /// Updates the address of the specified site.
     /// 
     ///  
     /// <para>
-    ///  To update a site address with an order <code>IN_PROGRESS</code>, you must wait for
-    /// the order to complete or cancel the order. 
+    /// You can't update a site address if there is an order in progress. You must wait for
+    /// the order to complete or cancel the order.
     /// </para><para>
     /// You can update the operating address before you place an order at the site, or after
-    /// all Outposts that belong to the site have been deactivated. 
+    /// all Outposts that belong to the site have been deactivated.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "OUTPSiteAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -196,10 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter SiteId
         /// <summary>
         /// <para>
-        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para><note><para>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or
-        /// an ID for Outposts and sites throughout the Outposts Query API. To address backwards
-        /// compatibility, the parameter names <code>OutpostID</code> or <code>SiteID</code> remain
-        /// in use. Despite the parameter name, you can make the request with an ARN.</para></note>
+        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

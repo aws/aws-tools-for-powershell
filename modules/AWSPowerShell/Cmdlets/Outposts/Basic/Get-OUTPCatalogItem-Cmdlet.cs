@@ -28,7 +28,7 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Gets information about a catalog item.
+    /// Gets information about the specified catalog item.
     /// </summary>
     [Cmdlet("Get", "OUTPCatalogItem")]
     [OutputType("Amazon.Outposts.Model.CatalogItem")]

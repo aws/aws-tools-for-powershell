@@ -130,7 +130,7 @@ $OUTP_Completers = {
         # Amazon.Outposts.PaymentTerm
         "New-OUTPOrder/PaymentTerm"
         {
-            $v = "THREE_YEARS"
+            $v = "ONE_YEAR","THREE_YEARS"
             break
         }
 

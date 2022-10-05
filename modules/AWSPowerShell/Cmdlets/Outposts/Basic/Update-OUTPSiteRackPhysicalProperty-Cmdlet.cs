@@ -51,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter FiberOpticCableType
         /// <summary>
         /// <para>
-        /// <para> Specify the type of fiber that you will use to attach the Outpost to your network.
-        /// </para>
+        /// <para>The type of fiber that you will use to attach the Outpost to your network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter MaximumSupportedWeightLb
         /// <summary>
         /// <para>
-        /// <para> Specify the maximum rack weight that this site can support. <code>NO_LIMIT</code>
-        /// is over 2000lbs. </para>
+        /// <para>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
+        /// 2000lbs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,10 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OpticalStandard
         /// <summary>
         /// <para>
-        /// <para>Specify the type of optical standard that you will use to attach the Outpost to your
-        /// network. This field is dependent on uplink speed, fiber type, and distance to the
-        /// upstream device. For more information about networking requirements for racks, see
-        /// <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
+        /// <para>The type of optical standard that you will use to attach the Outpost to your network.
+        /// This field is dependent on uplink speed, fiber type, and distance to the upstream
+        /// device. For more information about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
         /// in the Amazon Web Services Outposts User Guide. </para><ul><li><para><code>OPTIC_10GBASE_SR</code>: 10GBASE-SR</para></li><li><para><code>OPTIC_10GBASE_IR</code>: 10GBASE-IR</para></li><li><para><code>OPTIC_10GBASE_LR</code>: 10GBASE-LR</para></li><li><para><code>OPTIC_40GBASE_SR</code>: 40GBASE-SR</para></li><li><para><code>OPTIC_40GBASE_ESR</code>: 40GBASE-ESR</para></li><li><para><code>OPTIC_40GBASE_IR4_LR4L</code>: 40GBASE-IR (LR4L)</para></li><li><para><code>OPTIC_40GBASE_LR4</code>: 40GBASE-LR4</para></li><li><para><code>OPTIC_100GBASE_SR4</code>: 100GBASE-SR4</para></li><li><para><code>OPTIC_100GBASE_CWDM4</code>: 100GBASE-CWDM4</para></li><li><para><code>OPTIC_100GBASE_LR4</code>: 100GBASE-LR4</para></li><li><para><code>OPTIC_100G_PSM4_MSA</code>: 100G PSM4 MSA</para></li><li><para><code>OPTIC_1000BASE_LX</code>: 1000Base-LX</para></li><li><para><code>OPTIC_1000BASE_SX</code> : 1000Base-SX</para></li></ul>
         /// </para>
         /// </summary>
@@ -91,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter PowerConnector
         /// <summary>
         /// <para>
-        /// <para> Specify the power connector that Amazon Web Services should plan to provide for connections
+        /// <para>The power connector that Amazon Web Services should plan to provide for connections
         /// to the hardware. Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>.
         /// </para><ul><li><para>Single-phase AC feed</para><ul><li><para><b>L6-30P</b> – (common in US); 30A; single phase</para></li><li><para><b>IEC309 (blue)</b> – P+N+E, 6hr; 32 A; single phase</para></li></ul></li><li><para>Three-phase AC feed</para><ul><li><para><b>AH530P7W (red)</b> – 3P+N+E, 7hr; 30A; three phase</para></li><li><para><b>AH532P6W (red)</b> – 3P+N+E, 6hr; 32A; three phase</para></li></ul></li></ul>
         /// </para>
@@ -104,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter PowerDrawKva
         /// <summary>
         /// <para>
-        /// <para>Specify in kVA the power draw available at the hardware placement position for the
-        /// rack.</para>
+        /// <para>The power draw, in kVA, available at the hardware placement position for the rack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter PowerFeedDrop
         /// <summary>
         /// <para>
-        /// <para> Specify whether the power feed comes above or below the rack. </para>
+        /// <para>Indicates whether the power feed comes above or below the rack. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter PowerPhase
         /// <summary>
         /// <para>
-        /// <para> Specify the power option that you can provide for hardware. </para><ul><li><para>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</para></li><li><para>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</para></li></ul>
+        /// <para>The power option that you can provide for hardware. </para><ul><li><para>Single-phase AC feed: 200 V to 277 V, 50 Hz or 60 Hz</para></li><li><para>Three-phase AC feed: 346 V to 480 V, 50 Hz or 60 Hz</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,10 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter SiteId
         /// <summary>
         /// <para>
-        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para><note><para>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or
-        /// an ID for Outposts and sites throughout the Outposts Query API. To address backwards
-        /// compatibility, the parameter names <code>OutpostID</code> or <code>SiteID</code> remain
-        /// in use. Despite the parameter name, you can make the request with an ARN.</para></note>
+        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -173,8 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter UplinkGbp
         /// <summary>
         /// <para>
-        /// <para> Specify the uplink speed the rack should support for the connection to the Region.
-        /// </para>
+        /// <para>The uplink speed the rack should support for the connection to the Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

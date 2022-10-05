@@ -1,4 +1,16 @@
-﻿### 4.1.181 (2022-10-04 20:33Z)
+﻿### 4.1.182 (2022-10-05 20:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.371.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Glue
+    * Added cmdlet Update-GLUEJobFromSourceControl leveraging the UpdateJobFromSourceControl service API.
+    * Added cmdlet Update-GLUESourceControlFromJob leveraging the UpdateSourceControlFromJob service API.
+    * Modified cmdlet New-GLUEJob: added parameters SourceControlDetails_AuthStrategy, SourceControlDetails_AuthToken, SourceControlDetails_Branch, SourceControlDetails_Folder, SourceControlDetails_LastCommitId, SourceControlDetails_Owner, SourceControlDetails_Provider and SourceControlDetails_Repository.
+  * Amazon Network Firewall
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameter StatefulEngineOptions_StreamExceptionPolicy.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameter StatefulEngineOptions_StreamExceptionPolicy.
+  * Amazon Outposts
+    * Modified cmdlet Get-OUTPAssetList: added parameter StatusFilter.
+
+### 4.1.181 (2022-10-04 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.370.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Cases. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCAS and can be listed using the command 'Get-AWSCmdletName -Service CCAS'.
   * Amazon Elastic Compute Cloud (EC2)

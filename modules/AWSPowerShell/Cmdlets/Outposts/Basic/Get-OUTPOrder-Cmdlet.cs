@@ -28,7 +28,7 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Gets an order.
+    /// Gets information about the specified order.
     /// </summary>
     [Cmdlet("Get", "OUTPOrder")]
     [OutputType("Amazon.Outposts.Model.Order")]

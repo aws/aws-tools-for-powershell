@@ -222,6 +222,28 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.Model.StatelessRuleGroupReference[] FirewallPolicy_StatelessRuleGroupReference { get; set; }
         #endregion
         
+        #region Parameter StatefulEngineOptions_StreamExceptionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Configures how Network Firewall processes traffic when a network connection breaks
+        /// midstream. Network connections can break due to disruptions in external networks or
+        /// within the firewall itself.</para><ul><li><para><code>DROP</code> - Network Firewall fails closed and drops all subsequent traffic
+        /// going to the firewall. This is the default behavior.</para></li><li><para><code>CONTINUE</code> - Network Firewall continues to apply rules to the subsequent
+        /// traffic without context from traffic before the break. This impacts the behavior of
+        /// rules that depend on this context. For example, if you have a stateful rule to <code>drop
+        /// http</code> traffic, Network Firewall won't match the traffic for this rule because
+        /// the service won't have the context from session initialization defining the application
+        /// layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule
+        /// using a <code>flow:stateless</code> rule would still match, as would the <code>aws:drop_strict</code>
+        /// default action.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy")]
+        [AWSConstantClassSource("Amazon.NetworkFirewall.StreamExceptionPolicy")]
+        public Amazon.NetworkFirewall.StreamExceptionPolicy StatefulEngineOptions_StreamExceptionPolicy { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -315,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.FirewallPolicy_StatefulDefaultAction = new List<System.String>(this.FirewallPolicy_StatefulDefaultAction);
             }
             context.StatefulEngineOptions_RuleOrder = this.StatefulEngineOptions_RuleOrder;
+            context.StatefulEngineOptions_StreamExceptionPolicy = this.StatefulEngineOptions_StreamExceptionPolicy;
             if (this.FirewallPolicy_StatefulRuleGroupReference != null)
             {
                 context.FirewallPolicy_StatefulRuleGroupReference = new List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference>(this.FirewallPolicy_StatefulRuleGroupReference);
@@ -490,6 +513,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 requestFirewallPolicy_firewallPolicy_StatefulEngineOptions.RuleOrder = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_RuleOrder;
                 requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull = false;
             }
+            Amazon.NetworkFirewall.StreamExceptionPolicy requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_StreamExceptionPolicy = null;
+            if (cmdletContext.StatefulEngineOptions_StreamExceptionPolicy != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_StreamExceptionPolicy = cmdletContext.StatefulEngineOptions_StreamExceptionPolicy;
+            }
+            if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_StreamExceptionPolicy != null)
+            {
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptions.StreamExceptionPolicy = requestFirewallPolicy_firewallPolicy_StatefulEngineOptions_statefulEngineOptions_StreamExceptionPolicy;
+                requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull = false;
+            }
              // determine if requestFirewallPolicy_firewallPolicy_StatefulEngineOptions should be set to null
             if (requestFirewallPolicy_firewallPolicy_StatefulEngineOptionsIsNull)
             {
@@ -580,6 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
             public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
             public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
+            public Amazon.NetworkFirewall.StreamExceptionPolicy StatefulEngineOptions_StreamExceptionPolicy { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatefulRuleGroupReference> FirewallPolicy_StatefulRuleGroupReference { get; set; }
             public List<Amazon.NetworkFirewall.Model.CustomAction> FirewallPolicy_StatelessCustomAction { get; set; }
             public List<System.String> FirewallPolicy_StatelessDefaultAction { get; set; }

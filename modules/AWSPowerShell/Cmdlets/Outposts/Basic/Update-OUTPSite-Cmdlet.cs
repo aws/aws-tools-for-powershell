@@ -28,7 +28,7 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Updates the site.
+    /// Updates the specified site.
     /// </summary>
     [Cmdlet("Update", "OUTPSite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Outposts.Model.Site")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter Note
         /// <summary>
         /// <para>
-        /// <para> Notes about a site. </para>
+        /// <para>Notes about a site.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter SiteId
         /// <summary>
         /// <para>
-        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para><note><para>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or
-        /// an ID for Outposts and sites throughout the Outposts Query API. To address backwards
-        /// compatibility, the parameter names <code>OutpostID</code> or <code>SiteID</code> remain
-        /// in use. Despite the parameter name, you can make the request with an ARN.</para></note>
+        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

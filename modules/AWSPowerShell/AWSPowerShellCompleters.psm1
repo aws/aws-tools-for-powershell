@@ -23586,6 +23586,28 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.SourceControlAuthStrategy
+        {
+            ($_ -eq "Update-GLUEJobFromSourceControl/AuthStrategy") -Or
+            ($_ -eq "Update-GLUESourceControlFromJob/AuthStrategy") -Or
+            ($_ -eq "New-GLUEJob/SourceControlDetails_AuthStrategy")
+        }
+        {
+            $v = "AWS_SECRETS_MANAGER","PERSONAL_ACCESS_TOKEN"
+            break
+        }
+
+        # Amazon.Glue.SourceControlProvider
+        {
+            ($_ -eq "Update-GLUEJobFromSourceControl/Provider") -Or
+            ($_ -eq "Update-GLUESourceControlFromJob/Provider") -Or
+            ($_ -eq "New-GLUEJob/SourceControlDetails_Provider")
+        }
+        {
+            $v = "AWS_CODE_COMMIT","GITHUB"
+            break
+        }
+
         # Amazon.Glue.TaskRunSortColumnType
         "Get-GLUEMLTaskRunList/Sort_Column"
         {
@@ -23669,6 +23691,7 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
+    "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
@@ -23684,11 +23707,14 @@ $GLUE_map = @{
     "LineageConfiguration_CrawlerLineageSettings"=@("New-GLUECrawler","Update-GLUECrawler")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
+    "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "RecrawlPolicy_RecrawlBehavior"=@("New-GLUECrawler","Update-GLUECrawler")
     "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "SchemaDiffType"=@("Get-GLUESchemaVersionsDiff")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
+    "SourceControlDetails_Provider"=@("New-GLUEJob")
     "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("New-GLUETrigger")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
@@ -23920,10 +23946,12 @@ $GLUE_SelectMap = @{
                "Update-GLUEDatabase",
                "Update-GLUEDevEndpoint",
                "Update-GLUEJob",
+               "Update-GLUEJobFromSourceControl",
                "Update-GLUEMLTransform",
                "Update-GLUEPartition",
                "Update-GLUERegistry",
                "Update-GLUESchema",
+               "Update-GLUESourceControlFromJob",
                "Update-GLUETable",
                "Update-GLUETrigger",
                "Update-GLUEUserDefinedFunction",
@@ -37117,6 +37145,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.StreamExceptionPolicy
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy")
+        }
+        {
+            $v = "CONTINUE","DROP"
+            break
+        }
+
 
     }
 
@@ -37128,6 +37166,7 @@ $NWFW_Completers = {
 $NWFW_map = @{
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
@@ -38350,7 +38389,7 @@ $OUTP_Completers = {
         # Amazon.Outposts.PaymentTerm
         "New-OUTPOrder/PaymentTerm"
         {
-            $v = "THREE_YEARS"
+            $v = "ONE_YEAR","THREE_YEARS"
             break
         }
 

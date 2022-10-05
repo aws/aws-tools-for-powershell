@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
     /// <note><para>
     ///  Amazon Web Services uses this action to install Outpost servers.
     /// </para></note><para>
-    ///  Gets information about a specified connection. 
+    ///  Gets information about the specified connection. 
     /// </para><para>
     ///  Use CloudTrail to monitor this action or Amazon Web Services managed policy for Amazon
     /// Web Services Outposts to secure it. For more information, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/security-iam-awsmanpol.html">
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para> The ID of the connection you request. </para>
+        /// <para> The ID of the connection. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

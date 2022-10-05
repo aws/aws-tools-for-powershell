@@ -28,14 +28,15 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Lists the Outpost sites for your Amazon Web Services account. Add operating address
-    /// filters to your request to return a more specific list of results. Use filters to
-    /// match site city, country code, or state/region of the operating address. 
+    /// Lists the Outpost sites for your Amazon Web Services account. Use filters to return
+    /// specific results.
     /// 
     ///  
     /// <para>
-    /// If you specify multiple filters, the filters are joined with an <code>AND</code>,
-    /// and the request returns only results that match all of the specified filters.
+    /// Use filters to return specific results. If you specify multiple filters, the results
+    /// include only the resources that match all of the specified filters. For a filter where
+    /// you can specify multiple values, the results include items that match any of the values
+    /// that you specify for the filter.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OUTPSiteList")]
@@ -51,9 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OperatingAddressCityFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the city of the Outpost site. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
-        /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values.</para>
+        /// <para>Filters the results by city.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,9 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OperatingAddressCountryCodeFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the country code of the Outpost site. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
-        /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values.</para>
+        /// <para>Filters the results by country code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,9 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OperatingAddressStateOrRegionFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the state/region of the Outpost site. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
-        /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values.</para>
+        /// <para>Filters the results by state or region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -40,6 +40,38 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEJobCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter SourceControlDetails_AuthStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication, which can be an authentication token stored in Amazon
+        /// Web Services Secrets Manager, or a personal access token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.SourceControlAuthStrategy")]
+        public Amazon.Glue.SourceControlAuthStrategy SourceControlDetails_AuthStrategy { get; set; }
+        #endregion
+        
+        #region Parameter SourceControlDetails_AuthToken
+        /// <summary>
+        /// <para>
+        /// <para>The value of an authorization token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceControlDetails_AuthToken { get; set; }
+        #endregion
+        
+        #region Parameter SourceControlDetails_Branch
+        /// <summary>
+        /// <para>
+        /// <para>An optional branch in the remote repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceControlDetails_Branch { get; set; }
+        #endregion
+        
         #region Parameter CodeGenConfigurationNode
         /// <summary>
         /// <para>
@@ -122,6 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
         #endregion
         
+        #region Parameter SourceControlDetails_Folder
+        /// <summary>
+        /// <para>
+        /// <para>An optional folder in the remote repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceControlDetails_Folder { get; set; }
+        #endregion
+        
         #region Parameter GlueVersion
         /// <summary>
         /// <para>
@@ -133,6 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GlueVersion { get; set; }
+        #endregion
+        
+        #region Parameter SourceControlDetails_LastCommitId
+        /// <summary>
+        /// <para>
+        /// <para>The last commit ID for a commit in the remote repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceControlDetails_LastCommitId { get; set; }
         #endregion
         
         #region Parameter LogUri
@@ -238,6 +290,37 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NumberOfWorkers")]
         public System.Int32? NumberOfWorker { get; set; }
+        #endregion
+        
+        #region Parameter SourceControlDetails_Owner
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the remote repository that contains the job artifacts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceControlDetails_Owner { get; set; }
+        #endregion
+        
+        #region Parameter SourceControlDetails_Provider
+        /// <summary>
+        /// <para>
+        /// <para>The provider for the remote repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.SourceControlProvider")]
+        public Amazon.Glue.SourceControlProvider SourceControlDetails_Provider { get; set; }
+        #endregion
+        
+        #region Parameter SourceControlDetails_Repository
+        /// <summary>
+        /// <para>
+        /// <para>The name of the remote repository that contains the job artifacts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceControlDetails_Repository { get; set; }
         #endregion
         
         #region Parameter Role
@@ -451,6 +534,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.SecurityConfiguration = this.SecurityConfiguration;
+            context.SourceControlDetails_AuthStrategy = this.SourceControlDetails_AuthStrategy;
+            context.SourceControlDetails_AuthToken = this.SourceControlDetails_AuthToken;
+            context.SourceControlDetails_Branch = this.SourceControlDetails_Branch;
+            context.SourceControlDetails_Folder = this.SourceControlDetails_Folder;
+            context.SourceControlDetails_LastCommitId = this.SourceControlDetails_LastCommitId;
+            context.SourceControlDetails_Owner = this.SourceControlDetails_Owner;
+            context.SourceControlDetails_Provider = this.SourceControlDetails_Provider;
+            context.SourceControlDetails_Repository = this.SourceControlDetails_Repository;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -596,6 +687,95 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
             }
+            
+             // populate SourceControlDetails
+            var requestSourceControlDetailsIsNull = true;
+            request.SourceControlDetails = new Amazon.Glue.Model.SourceControlDetails();
+            Amazon.Glue.SourceControlAuthStrategy requestSourceControlDetails_sourceControlDetails_AuthStrategy = null;
+            if (cmdletContext.SourceControlDetails_AuthStrategy != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_AuthStrategy = cmdletContext.SourceControlDetails_AuthStrategy;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_AuthStrategy != null)
+            {
+                request.SourceControlDetails.AuthStrategy = requestSourceControlDetails_sourceControlDetails_AuthStrategy;
+                requestSourceControlDetailsIsNull = false;
+            }
+            System.String requestSourceControlDetails_sourceControlDetails_AuthToken = null;
+            if (cmdletContext.SourceControlDetails_AuthToken != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_AuthToken = cmdletContext.SourceControlDetails_AuthToken;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_AuthToken != null)
+            {
+                request.SourceControlDetails.AuthToken = requestSourceControlDetails_sourceControlDetails_AuthToken;
+                requestSourceControlDetailsIsNull = false;
+            }
+            System.String requestSourceControlDetails_sourceControlDetails_Branch = null;
+            if (cmdletContext.SourceControlDetails_Branch != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_Branch = cmdletContext.SourceControlDetails_Branch;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_Branch != null)
+            {
+                request.SourceControlDetails.Branch = requestSourceControlDetails_sourceControlDetails_Branch;
+                requestSourceControlDetailsIsNull = false;
+            }
+            System.String requestSourceControlDetails_sourceControlDetails_Folder = null;
+            if (cmdletContext.SourceControlDetails_Folder != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_Folder = cmdletContext.SourceControlDetails_Folder;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_Folder != null)
+            {
+                request.SourceControlDetails.Folder = requestSourceControlDetails_sourceControlDetails_Folder;
+                requestSourceControlDetailsIsNull = false;
+            }
+            System.String requestSourceControlDetails_sourceControlDetails_LastCommitId = null;
+            if (cmdletContext.SourceControlDetails_LastCommitId != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_LastCommitId = cmdletContext.SourceControlDetails_LastCommitId;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_LastCommitId != null)
+            {
+                request.SourceControlDetails.LastCommitId = requestSourceControlDetails_sourceControlDetails_LastCommitId;
+                requestSourceControlDetailsIsNull = false;
+            }
+            System.String requestSourceControlDetails_sourceControlDetails_Owner = null;
+            if (cmdletContext.SourceControlDetails_Owner != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_Owner = cmdletContext.SourceControlDetails_Owner;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_Owner != null)
+            {
+                request.SourceControlDetails.Owner = requestSourceControlDetails_sourceControlDetails_Owner;
+                requestSourceControlDetailsIsNull = false;
+            }
+            Amazon.Glue.SourceControlProvider requestSourceControlDetails_sourceControlDetails_Provider = null;
+            if (cmdletContext.SourceControlDetails_Provider != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_Provider = cmdletContext.SourceControlDetails_Provider;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_Provider != null)
+            {
+                request.SourceControlDetails.Provider = requestSourceControlDetails_sourceControlDetails_Provider;
+                requestSourceControlDetailsIsNull = false;
+            }
+            System.String requestSourceControlDetails_sourceControlDetails_Repository = null;
+            if (cmdletContext.SourceControlDetails_Repository != null)
+            {
+                requestSourceControlDetails_sourceControlDetails_Repository = cmdletContext.SourceControlDetails_Repository;
+            }
+            if (requestSourceControlDetails_sourceControlDetails_Repository != null)
+            {
+                request.SourceControlDetails.Repository = requestSourceControlDetails_sourceControlDetails_Repository;
+                requestSourceControlDetailsIsNull = false;
+            }
+             // determine if request.SourceControlDetails should be set to null
+            if (requestSourceControlDetailsIsNull)
+            {
+                request.SourceControlDetails = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -688,6 +868,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? NumberOfWorker { get; set; }
             public System.String Role { get; set; }
             public System.String SecurityConfiguration { get; set; }
+            public Amazon.Glue.SourceControlAuthStrategy SourceControlDetails_AuthStrategy { get; set; }
+            public System.String SourceControlDetails_AuthToken { get; set; }
+            public System.String SourceControlDetails_Branch { get; set; }
+            public System.String SourceControlDetails_Folder { get; set; }
+            public System.String SourceControlDetails_LastCommitId { get; set; }
+            public System.String SourceControlDetails_Owner { get; set; }
+            public Amazon.Glue.SourceControlProvider SourceControlDetails_Provider { get; set; }
+            public System.String SourceControlDetails_Repository { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Glue.WorkerType WorkerType { get; set; }

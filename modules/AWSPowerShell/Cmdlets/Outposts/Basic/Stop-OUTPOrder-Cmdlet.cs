@@ -28,7 +28,7 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Cancels an order for an Outpost.
+    /// Cancels the specified order for an Outpost.
     /// </summary>
     [Cmdlet("Stop", "OUTPOrder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter OrderId
         /// <summary>
         /// <para>
-        /// <para> The ID of the order to cancel. </para>
+        /// <para> The ID of the order. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

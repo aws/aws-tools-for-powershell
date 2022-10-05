@@ -28,9 +28,15 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Lists the hardware assets in an Outpost. If you are using Dedicated Hosts on Amazon
-    /// Web Services Outposts, you can filter your request by host ID to return a list of
-    /// hardware assets that allocate resources for Dedicated Hosts.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the hardware assets for the specified Outpost.
+    /// 
+    ///  
+    /// <para>
+    /// Use filters to return specific results. If you specify multiple filters, the results
+    /// include only the resources that match all of the specified filters. For a filter where
+    /// you can specify multiple values, the results include items that match any of the values
+    /// that you specify for the filter.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OUTPAssetList")]
     [OutputType("Amazon.Outposts.Model.AssetInfo")]
@@ -45,9 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter HostIdFilter
         /// <summary>
         /// <para>
-        /// <para> A filter for the host ID of Dedicated Hosts on the Outpost. </para><para>Filter values are case sensitive. If you specify multiple values for a filter, the
-        /// values are joined with an <code>OR</code>, and the request returns all results that
-        /// match any of the specified values.</para>
+        /// <para>Filters the results by the host ID of a Dedicated Host.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OutpostIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter StatusFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the results by state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] StatusFilter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -164,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
                 WriteWarning("You are passing $null as a value for parameter OutpostIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.StatusFilter != null)
+            {
+                context.StatusFilter = new List<System.String>(this.StatusFilter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             if (cmdletContext.OutpostIdentifier != null)
             {
                 request.OutpostIdentifier = cmdletContext.OutpostIdentifier;
+            }
+            if (cmdletContext.StatusFilter != null)
+            {
+                request.StatusFilter = cmdletContext.StatusFilter;
             }
             
             // Initialize loop variant and commence piping
@@ -285,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OutpostIdentifier { get; set; }
+            public List<System.String> StatusFilter { get; set; }
             public System.Func<Amazon.Outposts.Model.ListAssetsResponse, GetOUTPAssetListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Assets;
         }

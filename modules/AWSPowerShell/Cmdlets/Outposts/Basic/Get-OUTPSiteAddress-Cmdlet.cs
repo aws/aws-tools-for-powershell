@@ -28,7 +28,7 @@ using Amazon.Outposts.Model;
 namespace Amazon.PowerShell.Cmdlets.OUTP
 {
     /// <summary>
-    /// Gets the site address.
+    /// Gets the site address of the specified site.
     /// </summary>
     [Cmdlet("Get", "OUTPSiteAddress")]
     [OutputType("Amazon.Outposts.Model.GetSiteAddressResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter AddressType
         /// <summary>
         /// <para>
-        /// <para> The type of the address you request. </para>
+        /// <para>The type of the address you request. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,10 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.OUTP
         #region Parameter SiteId
         /// <summary>
         /// <para>
-        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para><note><para>In requests, Amazon Web Services Outposts accepts the Amazon Resource Name (ARN) or
-        /// an ID for Outposts and sites throughout the Outposts Query API. To address backwards
-        /// compatibility, the parameter names <code>OutpostID</code> or <code>SiteID</code> remain
-        /// in use. Despite the parameter name, you can make the request with an ARN.</para></note>
+        /// <para> The ID or the Amazon Resource Name (ARN) of the site. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

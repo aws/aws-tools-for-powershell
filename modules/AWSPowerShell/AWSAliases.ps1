@@ -10482,10 +10482,12 @@ Set-Alias -Name GLUE-UpdateCrawlerSchedule -Value Update-GLUECrawlerSchedule
 Set-Alias -Name GLUE-UpdateDatabase -Value Update-GLUEDatabase
 Set-Alias -Name GLUE-UpdateDevEndpoint -Value Update-GLUEDevEndpoint
 Set-Alias -Name GLUE-UpdateJob -Value Update-GLUEJob
+Set-Alias -Name GLUE-UpdateJobFromSourceControl -Value Update-GLUEJobFromSourceControl
 Set-Alias -Name GLUE-UpdateMLTransform -Value Update-GLUEMLTransform
 Set-Alias -Name GLUE-UpdatePartition -Value Update-GLUEPartition
 Set-Alias -Name GLUE-UpdateRegistry -Value Update-GLUERegistry
 Set-Alias -Name GLUE-UpdateSchema -Value Update-GLUESchema
+Set-Alias -Name GLUE-UpdateSourceControlFromJob -Value Update-GLUESourceControlFromJob
 Set-Alias -Name GLUE-UpdateTable -Value Update-GLUETable
 Set-Alias -Name GLUE-UpdateTrigger -Value Update-GLUETrigger
 Set-Alias -Name GLUE-UpdateUserDefinedFunction -Value Update-GLUEUserDefinedFunction

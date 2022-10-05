@@ -144,6 +144,16 @@ $NWFW_Completers = {
             break
         }
 
+        # Amazon.NetworkFirewall.StreamExceptionPolicy
+        {
+            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy")
+        }
+        {
+            $v = "CONTINUE","DROP"
+            break
+        }
+
 
     }
 
@@ -155,6 +165,7 @@ $NWFW_Completers = {
 $NWFW_map = @{
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "ManagedType"=@("Get-NWFWRuleGroupList")
     "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
