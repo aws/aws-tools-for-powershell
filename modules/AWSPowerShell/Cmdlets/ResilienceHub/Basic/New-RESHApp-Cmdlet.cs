@@ -34,11 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// application name, resources from one or more–up to five–CloudFormation stacks, and
     /// an appropriate resiliency policy.
     /// 
-    ///  <pre><code> &lt;p&gt;After you create a Resilience Hub application, you publish it
-    /// so that you can run a resiliency assessment on it. You can then use recommendations
-    /// from the assessment to improve resiliency by running another assessment, comparing
-    /// results, and then iterating the process until you achieve your goals for recovery
-    /// time objective (RTO) and recovery point objective (RPO).&lt;/p&gt; </code></pre>
+    ///  
+    /// <para>
+    /// After you create a Resilience Hub application, you publish it so that you can run
+    /// a resiliency assessment on it. You can then use recommendations from the assessment
+    /// to improve resiliency by running another assessment, comparing results, and then iterating
+    /// the process until you achieve your goals for recovery time objective (RTO) and recovery
+    /// point objective (RPO).
+    /// </para>
     /// </summary>
     [Cmdlet("New", "RESHApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.App")]

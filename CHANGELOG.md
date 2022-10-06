@@ -1,4 +1,7 @@
-﻿### 4.1.182 (2022-10-05 20:17Z)
+﻿### 4.1.183 (2022-10-06 20:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.371.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.182 (2022-10-05 20:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.371.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Glue
     * Added cmdlet Update-GLUEJobFromSourceControl leveraging the UpdateJobFromSourceControl service API.
