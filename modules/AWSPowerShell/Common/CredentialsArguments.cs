@@ -396,14 +396,26 @@ namespace Amazon.PowerShell.Common
     {
         String, Saved, RegionObject, Session, Environment, InstanceMetadata, Unknown
     }
-
-    internal interface IAWSRegionArguments
+    /// <summary>
+    /// This interface is used for classes that need to do region resolution with the full BaseCmdlet Implementation
+    /// </summary>
+    public interface IAWSRegionArguments
     {
         object Region { get; }
         string ProfileLocation { get; }
     }
-
-    internal static class IAWSRegionArgumentsMethods
+    /// <summary>
+    /// Standalone class to resolve a region without a full BaseCmdlet implementation
+    /// </summary>
+    public class StandaloneRegionArguments : IAWSRegionArguments
+    {
+        public object Region { get; set; }
+        public string ProfileLocation { get; set; }
+    }
+    /// <summary>
+    /// This class contains the methods used to do region resolution and load a user's profile.
+    /// </summary>
+    public static class IAWSRegionArgumentsMethods
     {
         public static bool TryGetRegion(this IAWSRegionArguments self, bool useInstanceMetadata, out RegionEndpoint region, out RegionSource source, SessionState sessionState)
         {
