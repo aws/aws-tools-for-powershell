@@ -1,4 +1,0 @@
-{
-    "Type": "Patch",
-    "Description": "Added a new parameter called SourceRegion in the CopyS3Object cmdlet to fix cross-region copies for S3 objects"
-  }

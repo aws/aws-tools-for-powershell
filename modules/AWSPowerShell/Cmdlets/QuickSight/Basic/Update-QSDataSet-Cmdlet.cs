@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates a dataset. This operation doesn't support datasets that include uploaded files
-    /// as a source.
+    /// as a source. Partial updates are not supported by this operation.
     /// </summary>
     [Cmdlet("Update", "QSDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDataSetResponse")]

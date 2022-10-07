@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para>The S3 object key for a build artifacts .zip file that contains .jar or .class files.
         /// This is required for a code review with security analysis. For more information, see
-        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/code-review-security.html">Create
-        /// code reviews with security analysis</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.</para>
+        /// <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/working-with-cicd.html">Create
+        /// code reviews with GitHub Actions</a> in the <i>Amazon CodeGuru Reviewer User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

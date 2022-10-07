@@ -1,4 +1,13 @@
-﻿### 4.1.183 (2022-10-06 20:46Z)
+﻿### 4.1.184 (2022-10-07 20:35Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.372.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSource: added parameter Credentials_SecretArn.
+    * Modified cmdlet Update-QSDataSource: added parameter Credentials_SecretArn.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Copy-S3Object: added parameter SourceRegion.
+  * Added a new parameter called SourceRegion in the CopyS3Object cmdlet to fix cross-region copies for S3 objects
+
+### 4.1.183 (2022-10-06 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.371.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.182 (2022-10-05 20:17Z)

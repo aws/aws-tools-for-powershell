@@ -650,6 +650,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TwitterParameters_Query { get; set; }
         #endregion
         
+        #region Parameter Credentials_SecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon
+        /// Secrets Manager.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_SecretArn { get; set; }
+        #endregion
+        
         #region Parameter JiraParameters_SiteBaseUrl
         /// <summary>
         /// <para>
@@ -790,6 +801,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             context.CredentialPair_Password = this.CredentialPair_Password;
             context.CredentialPair_Username = this.CredentialPair_Username;
+            context.Credentials_SecretArn = this.Credentials_SecretArn;
             context.DataSourceId = this.DataSourceId;
             #if MODULAR
             if (this.DataSourceId == null && ParameterWasBound(nameof(this.DataSourceId)))
@@ -888,6 +900,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestCredentials_credentials_CopySourceArn != null)
             {
                 request.Credentials.CopySourceArn = requestCredentials_credentials_CopySourceArn;
+                requestCredentialsIsNull = false;
+            }
+            System.String requestCredentials_credentials_SecretArn = null;
+            if (cmdletContext.Credentials_SecretArn != null)
+            {
+                requestCredentials_credentials_SecretArn = cmdletContext.Credentials_SecretArn;
+            }
+            if (requestCredentials_credentials_SecretArn != null)
+            {
+                request.Credentials.SecretArn = requestCredentials_credentials_SecretArn;
                 requestCredentialsIsNull = false;
             }
             Amazon.QuickSight.Model.CredentialPair requestCredentials_credentials_CredentialPair = null;
@@ -1906,6 +1928,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.DataSourceParameters> CredentialPair_AlternateDataSourceParameter { get; set; }
             public System.String CredentialPair_Password { get; set; }
             public System.String CredentialPair_Username { get; set; }
+            public System.String Credentials_SecretArn { get; set; }
             public System.String DataSourceId { get; set; }
             public System.String AmazonElasticsearchParameters_Domain { get; set; }
             public System.String AmazonOpenSearchParameters_Domain { get; set; }
