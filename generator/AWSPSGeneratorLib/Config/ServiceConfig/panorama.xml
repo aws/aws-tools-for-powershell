@@ -148,6 +148,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SignalApplicationInstanceNodeInstances" OutputProperty="ApplicationInstanceId" Verb="Send" Noun="ApplicationInstanceNodeInstance" ShouldProcessTarget="ApplicationInstanceId" PipelineParameter="ApplicationInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -77,7 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter DataExtraDimension
         /// <summary>
         /// <para>
-        /// <para> (Optional) A list of vehicle attributes to associate with a campaign. </para><para>Default: An empty array</para>
+        /// <para> (Optional) A list of vehicle attributes to associate with a campaign. </para><para>Enrich the data with specified vehicle attributes. For example, add <code>make</code>
+        /// and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will
+        /// associate the data with those attributes as dimensions in Amazon Timestream. You can
+        /// then query the data against <code>make</code> and <code>model</code>.</para><para>Default: An empty array</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

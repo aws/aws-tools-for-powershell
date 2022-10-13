@@ -28,12 +28,12 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    /// Starts an asynchronous batch translation job. Batch translation jobs can be used to
-    /// translate large volumes of text across multiple documents at once. For more information,
-    /// see <a>async</a>.
-    /// 
-    ///  
-    /// <para>
+    /// Starts an asynchronous batch translation job. Use batch translation jobs to translate
+    /// large volumes of text across multiple documents at once. For batch translation, the
+    /// input documents must share the same source language. You can specify one or more target
+    /// languages. Batch translation translates each input document into each of the target
+    /// languages. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous
+    /// batch processing</a><para>
     /// Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a>
     /// operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with
     /// the <a>StopTextTranslationJob</a> operation.
@@ -85,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
         /// that grants Amazon Translate read access to your input data. For more information,
-        /// see <a>identity-and-access-management</a>.</para>
+        /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/identity-and-access-management.html">Identity
+        /// and access management </a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,15 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Formality
         /// <summary>
         /// <para>
-        /// <para>You can optionally specify the desired level of formality for real-time translations
-        /// to supported target languages. The formality setting controls the level of formal
-        /// language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
+        /// <para>You can optionally specify the desired level of formality for translations to supported
+        /// target languages. The formality setting controls the level of formal language usage
+        /// (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
         /// in the translation output. You can set the value to informal or formal. If you don't
         /// specify a value for formality, or if the target language doesn't support formality,
-        /// the translation will ignore the formality setting.</para><para>Note that asynchronous translation jobs don't support formality. If you provide a
-        /// value for formality, the <code>StartTextTranslationJob</code> API throws an exception
-        /// (InvalidRequestException).</para><para>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
-        /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
+        /// the translation will ignore the formality setting.</para><para> If you specify multiple target languages for the job, translate ignores the formality
+        /// setting for any unsupported target language.</para><para>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting
+        /// Formality</a> in the Amazon Translate Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,11 +143,13 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>The name of a parallel data resource to add to the translation job. This resource
-        /// consists of examples that show how you want segments of text to be translated. When
-        /// you add parallel data to a translation job, you create an <i>Active Custom Translation</i>
+        /// consists of examples that show how you want segments of text to be translated. If
+        /// you specify multiple target languages for the job, the parallel data file must include
+        /// translations for all the target languages.</para><para>When you add parallel data to a translation job, you create an <i>Active Custom Translation</i>
         /// job. </para><para>This parameter accepts only one parallel data resource.</para><note><para>Active Custom Translation jobs are priced at a higher rate than other jobs that don't
         /// use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon
-        /// Translate pricing</a>.</para></note><para>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</para><para>For more information, see <a>customizing-translations-parallel-data</a>.</para>
+        /// Translate pricing</a>.</para></note><para>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-parallel-data.html">
+        /// Customizing your translations with parallel data</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
         /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
         /// regardless of the length or number of words.</para><para>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
-        /// that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
-        /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
+        /// that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html">Masking
+        /// profanity</a> in the Amazon Translate Developer Guide.</para><para>If you specify multiple target languages for the job, all the target languages must
+        /// support profanity masking. If any of the target languages don't support profanity
+        /// masking, the translation job won't mask profanity for any target language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter SourceLanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</para><para>Amazon Translate does not automatically detect a source language during batch translation
+        /// <para>The language code of the input language. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// languages</a>.</para><para>Amazon Translate does not automatically detect a source language during batch translation
         /// jobs.</para>
         /// </para>
         /// </summary>
@@ -232,7 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TargetLanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the output language.</para>
+        /// <para>The target languages of the translation job. Enter up to 10 language codes. Each input
+        /// file is translated into each target language.</para><para>Each language code is two or five characters long. For a list of language codes, see
+        /// <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// languages</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -251,8 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>The name of a custom terminology resource to add to the translation job. This resource
-        /// lists examples source terms and the desired translation for each term.</para><para>This parameter accepts only one custom terminology resource.</para><para>For a list of available custom terminology resources, use the <a>ListTerminologies</a>
-        /// operation.</para><para>For more information, see <a>how-custom-terminology</a>.</para>
+        /// lists examples source terms and the desired translation for each term.</para><para>This parameter accepts only one custom terminology resource.</para><para>If you specify multiple target languages for the job, translate uses the designated
+        /// terminology for each requested target language that has an entry for the source term
+        /// in the terminology file.</para><para>For a list of available custom terminology resources, use the <a>ListTerminologies</a>
+        /// operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom
+        /// terminology</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

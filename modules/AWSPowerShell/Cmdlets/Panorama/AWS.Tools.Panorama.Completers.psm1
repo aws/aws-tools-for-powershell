@@ -93,14 +93,14 @@ $PAN_Completers = {
         # Amazon.Panorama.DeviceAggregatedStatus
         "Get-PANDeviceList/DeviceAggregatedStatusFilter"
         {
-            $v = "AWAITING_PROVISIONING","DELETING","ERROR","FAILED","LEASE_EXPIRED","OFFLINE","ONLINE","PENDING","UPDATE_NEEDED"
+            $v = "AWAITING_PROVISIONING","DELETING","ERROR","FAILED","LEASE_EXPIRED","OFFLINE","ONLINE","PENDING","REBOOTING","UPDATE_NEEDED"
             break
         }
 
         # Amazon.Panorama.JobType
         "New-PANJobForDevice/JobType"
         {
-            $v = "OTA"
+            $v = "OTA","REBOOT"
             break
         }
 
@@ -246,6 +246,7 @@ $PAN_SelectMap = @{
                "Register-PANDevice",
                "Register-PANPackageVersion",
                "Remove-PANApplicationInstance",
+               "Send-PANApplicationInstanceNodeInstance",
                "Add-PANResourceTag",
                "Remove-PANResourceTag",
                "Update-PANDeviceMetadata")

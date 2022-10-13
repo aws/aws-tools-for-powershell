@@ -6434,6 +6434,8 @@ Set-Alias -Name DS-DescribeSnapshots -Value Get-DSSnapshot
 Set-Alias -Name Describe-DSTrusts -Value Get-DSTrust
 Set-Alias -Name Describe-DSTrust -Value Get-DSTrust
 Set-Alias -Name DS-DescribeTrusts -Value Get-DSTrust
+Set-Alias -Name Describe-DSUpdateDirectory -Value Get-DSUpdateDirectory
+Set-Alias -Name DS-DescribeUpdateDirectory -Value Get-DSUpdateDirectory
 Set-Alias -Name DS-DisableClientAuthentication -Value Disable-DSClientAuthentication
 Set-Alias -Name DS-DisableLDAPS -Value Disable-DSLDAPS
 Set-Alias -Name DS-DisableRadius -Value Disable-DSRadius
@@ -6478,6 +6480,7 @@ Set-Alias -Name Unshare-DSDirectory -Value Disable-DSDirectoryShare
 Set-Alias -Name Unshare-DSDirectoryShare -Value Disable-DSDirectoryShare
 Set-Alias -Name DS-UnshareDirectory -Value Disable-DSDirectoryShare
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
+Set-Alias -Name DS-UpdateDirectorySetup -Value Update-DSDirectorySetup
 Set-Alias -Name Update-DSNumberOfDomainControllers -Value Set-DSDomainControllerCount
 Set-Alias -Name Update-DSDomainControllerCount -Value Set-DSDomainControllerCount
 Set-Alias -Name DS-UpdateNumberOfDomainControllers -Value Set-DSDomainControllerCount
@@ -16661,6 +16664,9 @@ Set-Alias -Name Provision-PANDevice -Value Register-PANDevice
 Set-Alias -Name PAN-ProvisionDevice -Value Register-PANDevice
 Set-Alias -Name PAN-RegisterPackageVersion -Value Register-PANPackageVersion
 Set-Alias -Name PAN-RemoveApplicationInstance -Value Remove-PANApplicationInstance
+Set-Alias -Name Signal-PANApplicationInstanceNodeInstances -Value Send-PANApplicationInstanceNodeInstance
+Set-Alias -Name Signal-PANApplicationInstanceNodeInstance -Value Send-PANApplicationInstanceNodeInstance
+Set-Alias -Name PAN-SignalApplicationInstanceNodeInstances -Value Send-PANApplicationInstanceNodeInstance
 Set-Alias -Name PAN-TagResource -Value Add-PANResourceTag
 Set-Alias -Name PAN-UntagResource -Value Remove-PANResourceTag
 Set-Alias -Name PAN-UpdateDeviceMetadata -Value Update-PANDeviceMetadata
@@ -22764,8 +22770,6 @@ Set-Alias -Name WSDM-ListKnowledgeBases -Value Get-WSDMKnowledgeBasisList
 Set-Alias -Name WSDM-ListTagsForResource -Value Get-WSDMResourceTag
 Set-Alias -Name Notify-WSDMRecommendationsReceived -Value Remove-WSDMRecommendationsReceived
 Set-Alias -Name WSDM-NotifyRecommendationsReceived -Value Remove-WSDMRecommendationsReceived
-Set-Alias -Name Put-WSDMFeedback -Value Write-WSDMFeedback
-Set-Alias -Name WSDM-PutFeedback -Value Write-WSDMFeedback
 Set-Alias -Name Query-WSDMAssistant -Value Search-WSDMAssistant
 Set-Alias -Name WSDM-QueryAssistant -Value Search-WSDMAssistant
 Set-Alias -Name WSDM-RemoveKnowledgeBaseTemplateUri -Value Remove-WSDMKnowledgeBaseTemplateUri

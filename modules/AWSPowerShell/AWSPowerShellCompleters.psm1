@@ -2264,6 +2264,16 @@ $AF_Completers = {
             break
         }
 
+        # Amazon.Appflow.SalesforceDataTransferApi
+        {
+            ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi") -Or
+            ($_ -eq "Update-AFFlow/SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi")
+        }
+        {
+            $v = "AUTOMATIC","BULKV2","REST_SYNC"
+            break
+        }
+
         # Amazon.Appflow.TriggerType
         {
             ($_ -eq "New-AFFlow/TriggerConfig_TriggerType") -Or
@@ -2288,6 +2298,7 @@ $AF_map = @{
     "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
+    "SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerType"=@("New-AFFlow","Update-AFFlow")
 }
@@ -15914,6 +15925,13 @@ $DS_Completers = {
             break
         }
 
+        # Amazon.DirectoryService.OSVersion
+        "Update-DSDirectorySetup/OSUpdateSettings_OSVersion"
+        {
+            $v = "SERVER_2012","SERVER_2019"
+            break
+        }
+
         # Amazon.DirectoryService.RadiusAuthenticationProtocol
         {
             ($_ -eq "Enable-DSRadius/RadiusSettings_AuthenticationProtocol") -Or
@@ -15965,6 +15983,16 @@ $DS_Completers = {
             break
         }
 
+        # Amazon.DirectoryService.UpdateType
+        {
+            ($_ -eq "Get-DSUpdateDirectory/UpdateType") -Or
+            ($_ -eq "Update-DSDirectorySetup/UpdateType")
+        }
+        {
+            $v = "OS"
+            break
+        }
+
 
     }
 
@@ -15975,6 +16003,7 @@ $DS_Completers = {
 
 $DS_map = @{
     "Edition"=@("New-DSMicrosoftAD")
+    "OSUpdateSettings_OSVersion"=@("Update-DSDirectorySetup")
     "RadiusSettings_AuthenticationProtocol"=@("Enable-DSRadius","Update-DSRadius")
     "SelectiveAuth"=@("New-DSTrust","Update-DSTrust")
     "ShareMethod"=@("Enable-DSDirectoryShare")
@@ -15985,6 +16014,7 @@ $DS_map = @{
     "TrustType"=@("New-DSTrust")
     "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSClientAuthenticationSetting","Get-DSLDAPSSetting","Register-DSCertificate")
     "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
+    "UpdateType"=@("Get-DSUpdateDirectory","Update-DSDirectorySetup")
 }
 
 _awsArgumentCompleterRegistration $DS_Completers $DS_map
@@ -16070,6 +16100,7 @@ $DS_SelectMap = @{
                "Get-DSSharedDirectory",
                "Get-DSSnapshot",
                "Get-DSTrust",
+               "Get-DSUpdateDirectory",
                "Disable-DSClientAuthentication",
                "Disable-DSLDAPS",
                "Disable-DSRadius",
@@ -16097,6 +16128,7 @@ $DS_SelectMap = @{
                "Start-DSSchemaExtension",
                "Disable-DSDirectoryShare",
                "Update-DSConditionalForwarder",
+               "Update-DSDirectorySetup",
                "Set-DSDomainControllerCount",
                "Update-DSRadius",
                "Update-DSSetting",
@@ -38596,14 +38628,14 @@ $PAN_Completers = {
         # Amazon.Panorama.DeviceAggregatedStatus
         "Get-PANDeviceList/DeviceAggregatedStatusFilter"
         {
-            $v = "AWAITING_PROVISIONING","DELETING","ERROR","FAILED","LEASE_EXPIRED","OFFLINE","ONLINE","PENDING","UPDATE_NEEDED"
+            $v = "AWAITING_PROVISIONING","DELETING","ERROR","FAILED","LEASE_EXPIRED","OFFLINE","ONLINE","PENDING","REBOOTING","UPDATE_NEEDED"
             break
         }
 
         # Amazon.Panorama.JobType
         "New-PANJobForDevice/JobType"
         {
-            $v = "OTA"
+            $v = "OTA","REBOOT"
             break
         }
 
@@ -38749,6 +38781,7 @@ $PAN_SelectMap = @{
                "Register-PANDevice",
                "Register-PANPackageVersion",
                "Remove-PANApplicationInstance",
+               "Send-PANApplicationInstanceNodeInstance",
                "Add-PANResourceTag",
                "Remove-PANResourceTag",
                "Update-PANDeviceMetadata")
@@ -48978,7 +49011,7 @@ $SSM_Completers = {
             ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
         }
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","DEBIAN","MACOS","ORACLE_LINUX","RASPBIAN","REDHAT_ENTERPRISE_LINUX","ROCKY_LINUX","SUSE","UBUNTU","WINDOWS"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","AMAZON_LINUX_2022","CENTOS","DEBIAN","MACOS","ORACLE_LINUX","RASPBIAN","REDHAT_ENTERPRISE_LINUX","ROCKY_LINUX","SUSE","UBUNTU","WINDOWS"
             break
         }
 
@@ -49464,7 +49497,7 @@ $SSMI_Completers = {
             ($_ -eq "Update-SSMIRelatedItem/RelatedItemsUpdate_ItemToRemove_Type")
         }
         {
-            $v = "ANALYSIS","ATTACHMENT","AUTOMATION","INCIDENT","INVOLVED_RESOURCE","METRIC","OTHER","PARENT"
+            $v = "ANALYSIS","ATTACHMENT","AUTOMATION","INCIDENT","INVOLVED_RESOURCE","METRIC","OTHER","PARENT","TASK"
             break
         }
 
@@ -52568,20 +52601,6 @@ $WSDM_Completers = {
             break
         }
 
-        # Amazon.ConnectWisdomService.Relevance
-        "Write-WSDMFeedback/Feedback_Relevance"
-        {
-            $v = "HELPFUL","NOT_HELPFUL"
-            break
-        }
-
-        # Amazon.ConnectWisdomService.TargetType
-        "Write-WSDMFeedback/TargetType"
-        {
-            $v = "RECOMMENDATION","RESULT"
-            break
-        }
-
 
     }
 
@@ -52592,9 +52611,7 @@ $WSDM_Completers = {
 
 $WSDM_map = @{
     "AssociationType"=@("New-WSDMAssistantAssociation")
-    "Feedback_Relevance"=@("Write-WSDMFeedback")
     "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
-    "TargetType"=@("Write-WSDMFeedback")
     "Type"=@("New-WSDMAssistant")
 }
 
@@ -52670,7 +52687,6 @@ $WSDM_SelectMap = @{
                "Get-WSDMKnowledgeBasisList",
                "Get-WSDMResourceTag",
                "Remove-WSDMRecommendationsReceived",
-               "Write-WSDMFeedback",
                "Search-WSDMAssistant",
                "Remove-WSDMKnowledgeBaseTemplateUri",
                "Search-WSDMContent",

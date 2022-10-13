@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Updates the description for the host key specified by the specified by the <code>ServerId</code>
+    /// Updates the description for the host key that's specified by the <code>ServerId</code>
     /// and <code>HostKeyId</code> parameters.
     /// </summary>
     [Cmdlet("Update", "TFRHostKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Provide an updated description for the host key.</para>
+        /// <para>An updated description for the host key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HostKeyId
         /// <summary>
         /// <para>
-        /// <para>Provide the ID of the host key that you are updating.</para>
+        /// <para>The identifier of the host key that you are updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>Provide the ID of the server that contains the host key that you are updating.</para>
+        /// <para>The identifier of the server that contains the host key that you are updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

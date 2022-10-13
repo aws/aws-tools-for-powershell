@@ -128,6 +128,36 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public Amazon.Appflow.DataPullMode Scheduled_DataPullMode { get; set; }
         #endregion
         
+        #region Parameter Salesforce_DataTransferApi
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers
+        /// data from Salesforce.</para><dl><dt>AUTOMATIC</dt><dd><para>The default. Amazon AppFlow selects which API to use based on the number of records
+        /// that your flow transfers from Salesforce. If your flow transfers fewer than 1,000,000
+        /// records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000,000
+        /// records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.</para><para>Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects
+        /// the API automatically, be aware that, for recurring flows, the data output might vary
+        /// from one flow run to the next. For example, if a flow runs daily, it might use REST
+        /// API on one day to transfer 900,000 records, and it might use Bulk API 2.0 on the next
+        /// day to transfer 1,100,000 records. For each of these flow runs, the respective Salesforce
+        /// API formats the data differently. Some of the differences include how dates are formatted
+        /// and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound
+        /// fields.</para><para>By choosing this option, you optimize flow performance for both small and large data
+        /// transfers, but the tradeoff is inconsistent formatting in the output.</para></dd><dt>BULKV2</dt><dd><para>Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data
+        /// transfers, and it's optimal for large sets of data. By choosing this option, you ensure
+        /// that your flow writes consistent output, but you optimize performance only for large
+        /// data transfers.</para><para>Note that Bulk API 2.0 does not transfer Salesforce compound fields.</para></dd><dt>REST_SYNC</dt><dd><para>Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure
+        /// that your flow writes consistent output, but you decrease performance for large data
+        /// transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts
+        /// to transfer a vary large set of data, it might fail with a timed out error.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi")]
+        [AWSConstantClassSource("Amazon.Appflow.SalesforceDataTransferApi")]
+        public Amazon.Appflow.SalesforceDataTransferApi Salesforce_DataTransferApi { get; set; }
+        #endregion
+        
         #region Parameter IncrementalPullConfig_DatetimeTypeFieldName
         /// <summary>
         /// <para>
@@ -688,6 +718,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.S3_BucketName = this.S3_BucketName;
             context.S3_BucketPrefix = this.S3_BucketPrefix;
             context.S3InputFormatConfig_S3InputFileType = this.S3InputFormatConfig_S3InputFileType;
+            context.Salesforce_DataTransferApi = this.Salesforce_DataTransferApi;
             context.Salesforce_EnableDynamicFieldUpdate = this.Salesforce_EnableDynamicFieldUpdate;
             context.Salesforce_IncludeDeletedRecord = this.Salesforce_IncludeDeletedRecord;
             context.Salesforce_Object = this.Salesforce_Object;
@@ -1231,6 +1262,16 @@ namespace Amazon.PowerShell.Cmdlets.AF
              // populate Salesforce
             var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SalesforceIsNull = true;
             requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce = new Amazon.Appflow.Model.SalesforceSourceProperties();
+            Amazon.Appflow.SalesforceDataTransferApi requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce_salesforce_DataTransferApi = null;
+            if (cmdletContext.Salesforce_DataTransferApi != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce_salesforce_DataTransferApi = cmdletContext.Salesforce_DataTransferApi;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce_salesforce_DataTransferApi != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce.DataTransferApi = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce_salesforce_DataTransferApi;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SalesforceIsNull = false;
+            }
             System.Boolean? requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Salesforce_salesforce_EnableDynamicFieldUpdate = null;
             if (cmdletContext.Salesforce_EnableDynamicFieldUpdate != null)
             {
@@ -1568,6 +1609,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String S3_BucketName { get; set; }
             public System.String S3_BucketPrefix { get; set; }
             public Amazon.Appflow.S3InputFileType S3InputFormatConfig_S3InputFileType { get; set; }
+            public Amazon.Appflow.SalesforceDataTransferApi Salesforce_DataTransferApi { get; set; }
             public System.Boolean? Salesforce_EnableDynamicFieldUpdate { get; set; }
             public System.Boolean? Salesforce_IncludeDeletedRecord { get; set; }
             public System.String Salesforce_Object { get; set; }

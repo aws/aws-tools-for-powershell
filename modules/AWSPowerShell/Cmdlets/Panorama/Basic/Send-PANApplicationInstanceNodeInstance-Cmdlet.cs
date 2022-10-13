@@ -22,29 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Transfer;
-using Amazon.Transfer.Model;
+using Amazon.Panorama;
+using Amazon.Panorama.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TFR
+namespace Amazon.PowerShell.Cmdlets.PAN
 {
     /// <summary>
-    /// Returns the details of the host key that's specified by the <code>HostKeyId</code>
-    /// and <code>ServerId</code>.
+    /// Signal camera nodes to stop or resume.
     /// </summary>
-    [Cmdlet("Get", "TFRHostKey")]
-    [OutputType("Amazon.Transfer.Model.DescribedHostKey")]
-    [AWSCmdlet("Calls the AWS Transfer for SFTP DescribeHostKey API operation.", Operation = new[] {"DescribeHostKey"}, SelectReturnType = typeof(Amazon.Transfer.Model.DescribeHostKeyResponse))]
-    [AWSCmdletOutput("Amazon.Transfer.Model.DescribedHostKey or Amazon.Transfer.Model.DescribeHostKeyResponse",
-        "This cmdlet returns an Amazon.Transfer.Model.DescribedHostKey object.",
-        "The service call response (type Amazon.Transfer.Model.DescribeHostKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Send", "PANApplicationInstanceNodeInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Panorama SignalApplicationInstanceNodeInstances API operation.", Operation = new[] {"SignalApplicationInstanceNodeInstances"}, SelectReturnType = typeof(Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetTFRHostKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
+    public partial class SendPANApplicationInstanceNodeInstanceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
-        #region Parameter HostKeyId
+        #region Parameter ApplicationInstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the host key that you want described.</para>
+        /// <para>An application instance ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,50 +54,67 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HostKeyId { get; set; }
+        public System.String ApplicationInstanceId { get; set; }
         #endregion
         
-        #region Parameter ServerId
+        #region Parameter NodeSignal
         /// <summary>
         /// <para>
-        /// <para>The identifier of the server that contains the host key that you want described.</para>
+        /// <para>A list of signals.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServerId { get; set; }
+        [Alias("NodeSignals")]
+        public Amazon.Panorama.Model.NodeSignal[] NodeSignal { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'HostKey'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Transfer.Model.DescribeHostKeyResponse).
-        /// Specifying the name of a property of type Amazon.Transfer.Model.DescribeHostKeyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationInstanceId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse).
+        /// Specifying the name of a property of type Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "HostKey";
+        public string Select { get; set; } = "ApplicationInstanceId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the HostKeyId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^HostKeyId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationInstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationInstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HostKeyId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationInstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationInstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-PANApplicationInstanceNodeInstance (SignalApplicationInstanceNodeInstances)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -108,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Transfer.Model.DescribeHostKeyResponse, GetTFRHostKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse, SendPANApplicationInstanceNodeInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,21 +133,24 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.HostKeyId;
+                context.Select = (response, cmdlet) => this.ApplicationInstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.HostKeyId = this.HostKeyId;
+            context.ApplicationInstanceId = this.ApplicationInstanceId;
             #if MODULAR
-            if (this.HostKeyId == null && ParameterWasBound(nameof(this.HostKeyId)))
+            if (this.ApplicationInstanceId == null && ParameterWasBound(nameof(this.ApplicationInstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter HostKeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationInstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ServerId = this.ServerId;
-            #if MODULAR
-            if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
+            if (this.NodeSignal != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.NodeSignal = new List<Amazon.Panorama.Model.NodeSignal>(this.NodeSignal);
+            }
+            #if MODULAR
+            if (this.NodeSignal == null && ParameterWasBound(nameof(this.NodeSignal)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NodeSignal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -148,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Transfer.Model.DescribeHostKeyRequest();
+            var request = new Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesRequest();
             
-            if (cmdletContext.HostKeyId != null)
+            if (cmdletContext.ApplicationInstanceId != null)
             {
-                request.HostKeyId = cmdletContext.HostKeyId;
+                request.ApplicationInstanceId = cmdletContext.ApplicationInstanceId;
             }
-            if (cmdletContext.ServerId != null)
+            if (cmdletContext.NodeSignal != null)
             {
-                request.ServerId = cmdletContext.ServerId;
+                request.NodeSignals = cmdletContext.NodeSignal;
             }
             
             CmdletOutput output;
@@ -191,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         #region AWS Service Operation Call
         
-        private Amazon.Transfer.Model.DescribeHostKeyResponse CallAWSServiceOperation(IAmazonTransfer client, Amazon.Transfer.Model.DescribeHostKeyRequest request)
+        private Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse CallAWSServiceOperation(IAmazonPanorama client, Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "DescribeHostKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Panorama", "SignalApplicationInstanceNodeInstances");
             try
             {
                 #if DESKTOP
-                return client.DescribeHostKey(request);
+                return client.SignalApplicationInstanceNodeInstances(request);
                 #elif CORECLR
-                return client.DescribeHostKeyAsync(request).GetAwaiter().GetResult();
+                return client.SignalApplicationInstanceNodeInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -219,10 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String HostKeyId { get; set; }
-            public System.String ServerId { get; set; }
-            public System.Func<Amazon.Transfer.Model.DescribeHostKeyResponse, GetTFRHostKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.HostKey;
+            public System.String ApplicationInstanceId { get; set; }
+            public List<Amazon.Panorama.Model.NodeSignal> NodeSignal { get; set; }
+            public System.Func<Amazon.Panorama.Model.SignalApplicationInstanceNodeInstancesResponse, SendPANApplicationInstanceNodeInstanceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ApplicationInstanceId;
         }
         
     }

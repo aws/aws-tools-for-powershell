@@ -101,20 +101,6 @@ $WSDM_Completers = {
             break
         }
 
-        # Amazon.ConnectWisdomService.Relevance
-        "Write-WSDMFeedback/Feedback_Relevance"
-        {
-            $v = "HELPFUL","NOT_HELPFUL"
-            break
-        }
-
-        # Amazon.ConnectWisdomService.TargetType
-        "Write-WSDMFeedback/TargetType"
-        {
-            $v = "RECOMMENDATION","RESULT"
-            break
-        }
-
 
     }
 
@@ -125,9 +111,7 @@ $WSDM_Completers = {
 
 $WSDM_map = @{
     "AssociationType"=@("New-WSDMAssistantAssociation")
-    "Feedback_Relevance"=@("Write-WSDMFeedback")
     "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
-    "TargetType"=@("Write-WSDMFeedback")
     "Type"=@("New-WSDMAssistant")
 }
 
@@ -203,7 +187,6 @@ $WSDM_SelectMap = @{
                "Get-WSDMKnowledgeBasisList",
                "Get-WSDMResourceTag",
                "Remove-WSDMRecommendationsReceived",
-               "Write-WSDMFeedback",
                "Search-WSDMAssistant",
                "Remove-WSDMKnowledgeBaseTemplateUri",
                "Search-WSDMContent",

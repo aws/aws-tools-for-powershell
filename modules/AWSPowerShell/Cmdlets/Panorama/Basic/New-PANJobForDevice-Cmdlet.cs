@@ -28,7 +28,8 @@ using Amazon.Panorama.Model;
 namespace Amazon.PowerShell.Cmdlets.PAN
 {
     /// <summary>
-    /// Creates a job to run on one or more devices.
+    /// Creates a job to run on one or more devices. A job can update a device's software
+    /// or reboot it.
     /// </summary>
     [Cmdlet("New", "PANJobForDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Panorama.Model.Job")]

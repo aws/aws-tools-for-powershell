@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter Schema
         /// <summary>
         /// <para>
-        /// <para>The name of the database schema.</para>
+        /// <para>The name of the database schema.</para><note><para>Currently, the <code>schema</code> parameter isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

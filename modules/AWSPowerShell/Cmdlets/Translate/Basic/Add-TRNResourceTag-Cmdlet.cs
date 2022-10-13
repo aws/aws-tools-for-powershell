@@ -28,7 +28,9 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    
+    /// Associates a specific tag with a resource. A tag is a key-value pair that adds as
+    /// a metadata to a resource. For more information, see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html">
+    /// Tagging your resources</a>.
     /// </summary>
     [Cmdlet("Add", "TRNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the given Amazon Translate resource to which you
+        /// want to associate the tags. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Tags being associated with a specific Amazon Translate resource. There can be a maximum
+        /// of 50 tags (both existing and pending) associated with a specific resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

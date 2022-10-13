@@ -28,7 +28,9 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    
+    /// Lists all tags associated with a given Amazon Translate resource. For more information,
+    /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging
+    /// your resources</a>.
     /// </summary>
     [Cmdlet("Get", "TRNResourceTag")]
     [OutputType("Amazon.Translate.Model.Tag")]
@@ -43,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the given Amazon Translate resource you are querying.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -383,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter LoggingInfo_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of an S3 bucket where execution logs are stored .</para>
+        /// <para>The name of an S3 bucket where execution logs are stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

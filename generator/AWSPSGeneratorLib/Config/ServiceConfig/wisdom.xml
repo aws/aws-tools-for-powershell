@@ -106,10 +106,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFeedback" OutputProperty="*" Verb="Write" Noun="Feedback" ShouldProcessTarget="TargetId" PipelineParameter="TargetId" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="QueryAssistant" OutputProperty="Results" Verb="Search" Noun="Assistant" ShouldProcessTarget="AssistantId" PipelineParameter="AssistantId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

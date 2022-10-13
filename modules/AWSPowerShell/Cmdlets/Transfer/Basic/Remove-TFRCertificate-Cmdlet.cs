@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter CertificateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate object that you are deleting.</para>
+        /// <para>The identifier of the certificate object that you are deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

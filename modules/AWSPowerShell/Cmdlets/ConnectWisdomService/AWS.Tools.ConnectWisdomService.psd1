@@ -116,8 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Search-WSDMSession', 
         'Start-WSDMContentUpload', 
         'Update-WSDMContent', 
-        'Update-WSDMKnowledgeBaseTemplateUri', 
-        'Write-WSDMFeedback')
+        'Update-WSDMKnowledgeBaseTemplateUri')
 
     # Variables to export from this module
     VariablesToExport = '*'

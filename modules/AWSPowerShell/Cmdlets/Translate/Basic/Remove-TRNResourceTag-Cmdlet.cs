@@ -28,7 +28,9 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    
+    /// Removes a specific tag associated with an Amazon Translate resource. For more information,
+    /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging
+    /// your resources</a>.
     /// </summary>
     [Cmdlet("Remove", "TRNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The Amazon Resource Name (ARN) of the given Amazon Translate resource from which
+        /// you want to remove the tags. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The initial part of a key-value pair that forms a tag being removed from a given resource.
+        /// Keys must be unique and cannot be duplicated for a particular resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

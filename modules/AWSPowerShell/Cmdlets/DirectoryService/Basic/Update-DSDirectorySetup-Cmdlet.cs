@@ -22,29 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Transfer;
-using Amazon.Transfer.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TFR
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Delete the agreement that's specified in the provided <code>AgreementId</code>.
+    /// Updates the directory for a particular update type.
     /// </summary>
-    [Cmdlet("Remove", "TFRAgreement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Update", "DSDirectorySetup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Transfer for SFTP DeleteAgreement API operation.", Operation = new[] {"DeleteAgreement"}, SelectReturnType = typeof(Amazon.Transfer.Model.DeleteAgreementResponse))]
-    [AWSCmdletOutput("None or Amazon.Transfer.Model.DeleteAgreementResponse",
+    [AWSCmdlet("Calls the AWS Directory Service UpdateDirectorySetup API operation.", Operation = new[] {"UpdateDirectorySetup"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.UpdateDirectorySetupResponse))]
+    [AWSCmdletOutput("None or Amazon.DirectoryService.Model.UpdateDirectorySetupResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Transfer.Model.DeleteAgreementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.UpdateDirectorySetupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveTFRAgreementCmdlet : AmazonTransferClientCmdlet, IExecutor
+    public partial class UpdateDSDirectorySetupCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter AgreementId
+        #region Parameter CreateSnapshotBeforeUpdate
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the agreement. This identifier is returned when you create
-        /// an agreement.</para>
+        /// <para> The boolean that specifies if a snapshot for the directory needs to be taken before
+        /// updating the directory. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CreateSnapshotBeforeUpdate { get; set; }
+        #endregion
+        
+        #region Parameter DirectoryId
+        /// <summary>
+        /// <para>
+        /// <para> The identifier of the directory on which you want to perform the update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,30 +65,42 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AgreementId { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter ServerId
+        #region Parameter OSUpdateSettings_OSVersion
         /// <summary>
         /// <para>
-        /// <para>The server identifier associated with the agreement that you are deleting.</para>
+        /// <para> OS version that the directory needs to be updated to. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DirectoryService.OSVersion")]
+        public Amazon.DirectoryService.OSVersion OSUpdateSettings_OSVersion { get; set; }
+        #endregion
+        
+        #region Parameter UpdateType
+        /// <summary>
+        /// <para>
+        /// <para> The type of update that needs to be performed on the directory. For example, OS.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServerId { get; set; }
+        [AWSConstantClassSource("Amazon.DirectoryService.UpdateType")]
+        public Amazon.DirectoryService.UpdateType UpdateType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Transfer.Model.DeleteAgreementResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.UpdateDirectorySetupResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AgreementId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AgreementId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AgreementId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AgreementId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TFRAgreement (DeleteAgreement)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DirectoryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSDirectorySetup (UpdateDirectorySetup)"))
             {
                 return;
             }
@@ -123,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Transfer.Model.DeleteAgreementResponse, RemoveTFRAgreementCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.UpdateDirectorySetupResponse, UpdateDSDirectorySetupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,21 +154,23 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AgreementId;
+                context.Select = (response, cmdlet) => this.DirectoryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AgreementId = this.AgreementId;
+            context.CreateSnapshotBeforeUpdate = this.CreateSnapshotBeforeUpdate;
+            context.DirectoryId = this.DirectoryId;
             #if MODULAR
-            if (this.AgreementId == null && ParameterWasBound(nameof(this.AgreementId)))
+            if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AgreementId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ServerId = this.ServerId;
+            context.OSUpdateSettings_OSVersion = this.OSUpdateSettings_OSVersion;
+            context.UpdateType = this.UpdateType;
             #if MODULAR
-            if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
+            if (this.UpdateType == null && ParameterWasBound(nameof(this.UpdateType)))
             {
-                WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter UpdateType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -163,15 +187,38 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Transfer.Model.DeleteAgreementRequest();
+            var request = new Amazon.DirectoryService.Model.UpdateDirectorySetupRequest();
             
-            if (cmdletContext.AgreementId != null)
+            if (cmdletContext.CreateSnapshotBeforeUpdate != null)
             {
-                request.AgreementId = cmdletContext.AgreementId;
+                request.CreateSnapshotBeforeUpdate = cmdletContext.CreateSnapshotBeforeUpdate.Value;
             }
-            if (cmdletContext.ServerId != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.ServerId = cmdletContext.ServerId;
+                request.DirectoryId = cmdletContext.DirectoryId;
+            }
+            
+             // populate OSUpdateSettings
+            var requestOSUpdateSettingsIsNull = true;
+            request.OSUpdateSettings = new Amazon.DirectoryService.Model.OSUpdateSettings();
+            Amazon.DirectoryService.OSVersion requestOSUpdateSettings_oSUpdateSettings_OSVersion = null;
+            if (cmdletContext.OSUpdateSettings_OSVersion != null)
+            {
+                requestOSUpdateSettings_oSUpdateSettings_OSVersion = cmdletContext.OSUpdateSettings_OSVersion;
+            }
+            if (requestOSUpdateSettings_oSUpdateSettings_OSVersion != null)
+            {
+                request.OSUpdateSettings.OSVersion = requestOSUpdateSettings_oSUpdateSettings_OSVersion;
+                requestOSUpdateSettingsIsNull = false;
+            }
+             // determine if request.OSUpdateSettings should be set to null
+            if (requestOSUpdateSettingsIsNull)
+            {
+                request.OSUpdateSettings = null;
+            }
+            if (cmdletContext.UpdateType != null)
+            {
+                request.UpdateType = cmdletContext.UpdateType;
             }
             
             CmdletOutput output;
@@ -206,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         #region AWS Service Operation Call
         
-        private Amazon.Transfer.Model.DeleteAgreementResponse CallAWSServiceOperation(IAmazonTransfer client, Amazon.Transfer.Model.DeleteAgreementRequest request)
+        private Amazon.DirectoryService.Model.UpdateDirectorySetupResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.UpdateDirectorySetupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "DeleteAgreement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "UpdateDirectorySetup");
             try
             {
                 #if DESKTOP
-                return client.DeleteAgreement(request);
+                return client.UpdateDirectorySetup(request);
                 #elif CORECLR
-                return client.DeleteAgreementAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDirectorySetupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,9 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AgreementId { get; set; }
-            public System.String ServerId { get; set; }
-            public System.Func<Amazon.Transfer.Model.DeleteAgreementResponse, RemoveTFRAgreementCmdlet, object> Select { get; set; } =
+            public System.Boolean? CreateSnapshotBeforeUpdate { get; set; }
+            public System.String DirectoryId { get; set; }
+            public Amazon.DirectoryService.OSVersion OSUpdateSettings_OSVersion { get; set; }
+            public Amazon.DirectoryService.UpdateType UpdateType { get; set; }
+            public System.Func<Amazon.DirectoryService.Model.UpdateDirectorySetupResponse, UpdateDSDirectorySetupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

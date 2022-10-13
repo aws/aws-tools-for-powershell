@@ -317,10 +317,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
-        /// in different ways, such as by purpose, owner, or environment. For example, you might
-        /// want to tag an association to identify the type of resource to which it applies, the
-        /// environment, or the purpose of the association.</para>
+        /// <para>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i> are
+        /// metadata that you can assign to your Amazon Web Services resources. Tags enable you
+        /// to categorize your resources in different ways, for example, by purpose, owner, or
+        /// environment. Each tag consists of a key and an optional value, both of which you define.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

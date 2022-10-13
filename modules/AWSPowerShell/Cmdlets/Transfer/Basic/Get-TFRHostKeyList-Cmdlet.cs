@@ -28,8 +28,8 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Returns a list of host keys for the server specified by the <code>ServerId</code>
-    /// paramter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of host keys for the server that's specified by the <code>ServerId</code>
+    /// parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRHostKeyList")]
     [OutputType("Amazon.Transfer.Model.ListHostKeysResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>Provide the ID of the server that contains the host keys that you want to view.</para>
+        /// <para>The identifier of the server that contains the host keys that you want to view.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,30 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GuardDuty;
-using Amazon.GuardDuty.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GD
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Returns a list of malware scans. Each member account can view the malware scans for
-    /// their own accounts. An administrator can view the malware scans for all the member
-    /// accounts.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the updates of a directory for a particular update type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GDMalwareScan")]
-    [OutputType("Amazon.GuardDuty.Model.Scan")]
-    [AWSCmdlet("Calls the Amazon GuardDuty DescribeMalwareScans API operation.", Operation = new[] {"DescribeMalwareScans"}, SelectReturnType = typeof(Amazon.GuardDuty.Model.DescribeMalwareScansResponse))]
-    [AWSCmdletOutput("Amazon.GuardDuty.Model.Scan or Amazon.GuardDuty.Model.DescribeMalwareScansResponse",
-        "This cmdlet returns a collection of Amazon.GuardDuty.Model.Scan objects.",
-        "The service call response (type Amazon.GuardDuty.Model.DescribeMalwareScansResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSUpdateDirectory")]
+    [OutputType("Amazon.DirectoryService.Model.UpdateInfoEntry")]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeUpdateDirectory API operation.", Operation = new[] {"DescribeUpdateDirectory"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.UpdateInfoEntry or Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse",
+        "This cmdlet returns a collection of Amazon.DirectoryService.Model.UpdateInfoEntry objects.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGDMalwareScanCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    public partial class GetDSUpdateDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter DetectorId
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector that the request is associated with.</para>
+        /// <para> The unique identifier of the directory. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,49 +54,41 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter FilterCriteria_FilterCriterion
+        #region Parameter RegionName
         /// <summary>
         /// <para>
-        /// <para>Represents a condition that when matched will be added to the response of the operation.</para>
+        /// <para> The name of the Region. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.GuardDuty.Model.FilterCriterion[] FilterCriteria_FilterCriterion { get; set; }
+        public System.String RegionName { get; set; }
         #endregion
         
-        #region Parameter SortCriterion
+        #region Parameter UpdateType
         /// <summary>
         /// <para>
-        /// <para>Represents the criteria used for sorting scan entries.</para>
+        /// <para> The type of updates you want to describe for the directory. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SortCriteria")]
-        public Amazon.GuardDuty.Model.SortCriteria SortCriterion { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>You can use this parameter to indicate the maximum number of items that you want in
-        /// the response. The default value is 50. The maximum value is 50.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.DirectoryService.UpdateType")]
+        public Amazon.DirectoryService.UpdateType UpdateType { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the list action. For subsequent calls to the action,
-        /// fill nextToken in the request with the value of NextToken from the previous response
-        /// to continue listing data.</para>
+        /// <para> The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call
+        /// to <a>DescribeUpdateDirectory</a>. Pass null if this is the first call. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -111,21 +101,21 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Scans'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GuardDuty.Model.DescribeMalwareScansResponse).
-        /// Specifying the name of a property of type Amazon.GuardDuty.Model.DescribeMalwareScansResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UpdateActivities'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Scans";
+        public string Select { get; set; } = "UpdateActivities";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DetectorId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DetectorId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -152,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GuardDuty.Model.DescribeMalwareScansResponse, GetGDMalwareScanCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse, GetDSUpdateDirectoryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -161,23 +151,25 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DetectorId;
+                context.Select = (response, cmdlet) => this.DirectoryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DetectorId = this.DetectorId;
+            context.DirectoryId = this.DirectoryId;
             #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.FilterCriteria_FilterCriterion != null)
-            {
-                context.FilterCriteria_FilterCriterion = new List<Amazon.GuardDuty.Model.FilterCriterion>(this.FilterCriteria_FilterCriterion);
-            }
-            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.SortCriterion = this.SortCriterion;
+            context.RegionName = this.RegionName;
+            context.UpdateType = this.UpdateType;
+            #if MODULAR
+            if (this.UpdateType == null && ParameterWasBound(nameof(this.UpdateType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UpdateType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -196,38 +188,19 @@ namespace Amazon.PowerShell.Cmdlets.GD
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.GuardDuty.Model.DescribeMalwareScansRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeUpdateDirectoryRequest();
             
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.DirectoryId != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.DirectoryId = cmdletContext.DirectoryId;
             }
-            
-             // populate FilterCriteria
-            var requestFilterCriteriaIsNull = true;
-            request.FilterCriteria = new Amazon.GuardDuty.Model.FilterCriteria();
-            List<Amazon.GuardDuty.Model.FilterCriterion> requestFilterCriteria_filterCriteria_FilterCriterion = null;
-            if (cmdletContext.FilterCriteria_FilterCriterion != null)
+            if (cmdletContext.RegionName != null)
             {
-                requestFilterCriteria_filterCriteria_FilterCriterion = cmdletContext.FilterCriteria_FilterCriterion;
+                request.RegionName = cmdletContext.RegionName;
             }
-            if (requestFilterCriteria_filterCriteria_FilterCriterion != null)
+            if (cmdletContext.UpdateType != null)
             {
-                request.FilterCriteria.FilterCriterion = requestFilterCriteria_filterCriteria_FilterCriterion;
-                requestFilterCriteriaIsNull = false;
-            }
-             // determine if request.FilterCriteria should be set to null
-            if (requestFilterCriteriaIsNull)
-            {
-                request.FilterCriteria = null;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.SortCriterion != null)
-            {
-                request.SortCriteria = cmdletContext.SortCriterion;
+                request.UpdateType = cmdletContext.UpdateType;
             }
             
             // Initialize loop variant and commence piping
@@ -286,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         #region AWS Service Operation Call
         
-        private Amazon.GuardDuty.Model.DescribeMalwareScansResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.DescribeMalwareScansRequest request)
+        private Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeUpdateDirectoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "DescribeMalwareScans");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeUpdateDirectory");
             try
             {
                 #if DESKTOP
-                return client.DescribeMalwareScans(request);
+                return client.DescribeUpdateDirectory(request);
                 #elif CORECLR
-                return client.DescribeMalwareScansAsync(request).GetAwaiter().GetResult();
+                return client.DescribeUpdateDirectoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -314,13 +287,12 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DetectorId { get; set; }
-            public List<Amazon.GuardDuty.Model.FilterCriterion> FilterCriteria_FilterCriterion { get; set; }
-            public System.Int32? MaxResult { get; set; }
+            public System.String DirectoryId { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.GuardDuty.Model.SortCriteria SortCriterion { get; set; }
-            public System.Func<Amazon.GuardDuty.Model.DescribeMalwareScansResponse, GetGDMalwareScanCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Scans;
+            public System.String RegionName { get; set; }
+            public Amazon.DirectoryService.UpdateType UpdateType { get; set; }
+            public System.Func<Amazon.DirectoryService.Model.DescribeUpdateDirectoryResponse, GetDSUpdateDirectoryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UpdateActivities;
         }
         
     }

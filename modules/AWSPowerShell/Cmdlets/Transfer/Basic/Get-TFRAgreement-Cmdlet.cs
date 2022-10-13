@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>The server ID that's associated with the agreement.</para>
+        /// <para>The server identifier that's associated with the agreement.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

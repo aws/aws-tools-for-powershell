@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Disassociates GuardDuty member accounts (to the current GuardDuty administrator account)
-    /// specified by the account IDs.
+    /// Disassociates GuardDuty member accounts (to the current administrator account) specified
+    /// by the account IDs.
     /// </summary>
     [Cmdlet("Unregister", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

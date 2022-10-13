@@ -132,12 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HostKey
         /// <summary>
         /// <para>
-        /// <para>The RSA, ECDSA, or ED25519 private key to use for your server.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger
+        /// <para>The RSA, ECDSA, or ED25519 private key to use for your SFTP-enabled server. You can
+        /// add multiple host keys, in case you want to rotate keys, or have a set of active keys
+        /// that use different algorithms.</para><para>Use the following command to generate an RSA 2048 bit key with no passphrase:</para><para><code>ssh-keygen -t rsa -b 2048 -N "" -m PEM -f my-new-server-key</code>.</para><para>Use a minimum value of 2048 for the <code>-b</code> option. You can create a stronger
         /// key by using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
         /// of your choice.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
         /// to a new server, don't update the host key. Accidentally changing a server's host
-        /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
-        /// the host key for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</para>
+        /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update
+        /// host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String LoggingRole { get; set; }
         #endregion
         
+        #region Parameter WorkflowDetails_OnPartialUpload
+        /// <summary>
+        /// <para>
+        /// <para>A trigger that starts a workflow if a file is only partially uploaded. You can attach
+        /// a workflow to a server that executes whenever there is a partial upload.</para><para>A <i>partial upload</i> occurs when a file is open when the session disconnects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Transfer.Model.WorkflowDetail[] WorkflowDetails_OnPartialUpload { get; set; }
+        #endregion
+        
         #region Parameter WorkflowDetails_OnUpload
         /// <summary>
         /// <para>
@@ -183,11 +196,23 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para> Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address,
         /// such as the public IP address of a firewall, router, or load balancer. For example:
-        /// </para><para><code> aws transfer update-server --protocol-details PassiveIp=<i>0.0.0.0</i></code></para><para>Replace <code><i>0.0.0.0</i></code> in the example above with the actual IP address
-        /// you want to use.</para><note><para> If you change the <code>PassiveIp</code> value, you must stop and then restart your
+        /// </para><para><code>aws transfer update-server --protocol-details PassiveIp=0.0.0.0</code></para><para>Replace <code>0.0.0.0</code> in the example above with the actual IP address you want
+        /// to use.</para><note><para> If you change the <code>PassiveIp</code> value, you must stop and then restart your
         /// Transfer Family server for the change to take effect. For details on using passive
         /// mode (PASV) in a NAT environment, see <a href="http://aws.amazon.com/blogs/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/">Configuring
-        /// your FTPS server behind a firewall or NAT with Transfer Family</a>. </para></note>
+        /// your FTPS server behind a firewall or NAT with Transfer Family</a>. </para></note><para><i>Special values</i></para><para>The <code>AUTO</code> and <code>0.0.0.0</code> are special values for the <code>PassiveIp</code>
+        /// parameter. The value <code>PassiveIp=AUTO</code> is assigned by default to FTP and
+        /// FTPS type servers. In this case, the server automatically responds with one of the
+        /// endpoint IPs within the PASV response. <code>PassiveIp=0.0.0.0</code> has a more unique
+        /// application for its usage. For example, if you have a High Availability (HA) Network
+        /// Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a
+        /// single IP address using the <code>PassiveIp</code> parameter. This reduces the effectiveness
+        /// of having High Availability. In this case, you can specify <code>PassiveIp=0.0.0.0</code>.
+        /// This tells the client to use the same IP address as the Control connection and utilize
+        /// all AZs for their connections. Note, however, that not all FTP clients support the
+        /// <code>PassiveIp=0.0.0.0</code> response. FileZilla and WinSCP do support it. If you
+        /// are using other clients, check to see if your client supports the <code>PassiveIp=0.0.0.0</code>
+        /// response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,7 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para></note>
+        /// <para>The identifier of the VPC endpoint.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para><para>For more information, see https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#deprecate-vpc-endpoint.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcId
         /// <summary>
         /// <para>
-        /// <para>The VPC ID of the VPC in which a server's endpoint will be hosted.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// <para>The VPC identifier of the VPC in which a server's endpoint will be hosted.</para><note><para>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.WorkflowDetails_OnPartialUpload != null)
+            {
+                context.WorkflowDetails_OnPartialUpload = new List<Amazon.Transfer.Model.WorkflowDetail>(this.WorkflowDetails_OnPartialUpload);
+            }
             if (this.WorkflowDetails_OnUpload != null)
             {
                 context.WorkflowDetails_OnUpload = new List<Amazon.Transfer.Model.WorkflowDetail>(this.WorkflowDetails_OnUpload);
@@ -695,6 +724,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate WorkflowDetails
             var requestWorkflowDetailsIsNull = true;
             request.WorkflowDetails = new Amazon.Transfer.Model.WorkflowDetails();
+            List<Amazon.Transfer.Model.WorkflowDetail> requestWorkflowDetails_workflowDetails_OnPartialUpload = null;
+            if (cmdletContext.WorkflowDetails_OnPartialUpload != null)
+            {
+                requestWorkflowDetails_workflowDetails_OnPartialUpload = cmdletContext.WorkflowDetails_OnPartialUpload;
+            }
+            if (requestWorkflowDetails_workflowDetails_OnPartialUpload != null)
+            {
+                request.WorkflowDetails.OnPartialUpload = requestWorkflowDetails_workflowDetails_OnPartialUpload;
+                requestWorkflowDetailsIsNull = false;
+            }
             List<Amazon.Transfer.Model.WorkflowDetail> requestWorkflowDetails_workflowDetails_OnUpload = null;
             if (cmdletContext.WorkflowDetails_OnUpload != null)
             {
@@ -793,6 +832,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public List<System.String> Protocol { get; set; }
             public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }
+            public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnPartialUpload { get; set; }
             public List<Amazon.Transfer.Model.WorkflowDetail> WorkflowDetails_OnUpload { get; set; }
             public System.Func<Amazon.Transfer.Model.UpdateServerResponse, UpdateTFRServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerId;

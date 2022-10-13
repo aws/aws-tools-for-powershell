@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PANDevice', 
         'Remove-PANPackage', 
         'Remove-PANResourceTag', 
+        'Send-PANApplicationInstanceNodeInstance', 
         'Unregister-PANPackageVersion', 
         'Update-PANDeviceMetadata')
 

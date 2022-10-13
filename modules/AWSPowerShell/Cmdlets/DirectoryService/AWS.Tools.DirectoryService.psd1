@@ -122,6 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DSSnapshot', 
         'Get-DSSnapshotLimit', 
         'Get-DSTrust', 
+        'Get-DSUpdateDirectory', 
         'New-DSAlias', 
         'New-DSComputer', 
         'New-DSConditionalForwarder', 
@@ -148,6 +149,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-DSCertificate', 
         'Unregister-DSEventTopic', 
         'Update-DSConditionalForwarder', 
+        'Update-DSDirectorySetup', 
         'Update-DSRadius', 
         'Update-DSSetting', 
         'Update-DSTrust')

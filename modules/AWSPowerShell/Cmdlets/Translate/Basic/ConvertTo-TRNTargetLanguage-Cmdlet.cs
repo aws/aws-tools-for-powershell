@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
     /// Translates input text from the source language to the target language. For a list
-    /// of available languages and language codes, see <a>what-is-languages</a>.
+    /// of available languages and language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+    /// languages</a>.
     /// </summary>
     [Cmdlet("ConvertTo", "TRNTargetLanguage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Translate.Model.TranslateTextResponse")]
@@ -43,15 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Settings_Formality
         /// <summary>
         /// <para>
-        /// <para>You can optionally specify the desired level of formality for real-time translations
-        /// to supported target languages. The formality setting controls the level of formal
-        /// language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
+        /// <para>You can optionally specify the desired level of formality for translations to supported
+        /// target languages. The formality setting controls the level of formal language usage
+        /// (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>)
         /// in the translation output. You can set the value to informal or formal. If you don't
         /// specify a value for formality, or if the target language doesn't support formality,
-        /// the translation will ignore the formality setting.</para><para>Note that asynchronous translation jobs don't support formality. If you provide a
-        /// value for formality, the <code>StartTextTranslationJob</code> API throws an exception
-        /// (InvalidRequestException).</para><para>For target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
-        /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
+        /// the translation will ignore the formality setting.</para><para> If you specify multiple target languages for the job, translate ignores the formality
+        /// setting for any unsupported target language.</para><para>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting
+        /// Formality</a> in the Amazon Translate Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
         /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
         /// regardless of the length or number of words.</para><para>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
-        /// that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html">Supported
-        /// Languages and Language Codes in the Amazon Translate Developer Guide</a>.</para>
+        /// that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html">Masking
+        /// profanity</a> in the Amazon Translate Developer Guide.</para><para>If you specify multiple target languages for the job, all the target languages must
+        /// support profanity masking. If any of the target languages don't support profanity
+        /// masking, the translation job won't mask profanity for any target language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>The language code for the language of the source text. The language must be a language
-        /// supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
+        /// supported by Amazon Translate. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
         /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
         /// Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
         /// Comprehend</a> to determine the source language.</para><note><para>If you specify <code>auto</code>, you must send the <code>TranslateText</code> request

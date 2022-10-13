@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>The ID of the profile that you are deleting.</para>
+        /// <para>The identifier of the profile that you are deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

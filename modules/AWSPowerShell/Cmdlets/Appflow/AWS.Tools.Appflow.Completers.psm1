@@ -132,6 +132,16 @@ $AF_Completers = {
             break
         }
 
+        # Amazon.Appflow.SalesforceDataTransferApi
+        {
+            ($_ -eq "New-AFFlow/SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi") -Or
+            ($_ -eq "Update-AFFlow/SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi")
+        }
+        {
+            $v = "AUTOMATIC","BULKV2","REST_SYNC"
+            break
+        }
+
         # Amazon.Appflow.TriggerType
         {
             ($_ -eq "New-AFFlow/TriggerConfig_TriggerType") -Or
@@ -156,6 +166,7 @@ $AF_map = @{
     "ConnectorType"=@("Get-AFConnector","Get-AFConnectorEntity","Get-AFConnectorEntityList","Get-AFConnectorProfile","New-AFConnectorProfile")
     "SourceFlowConfig_ConnectorType"=@("New-AFFlow","Update-AFFlow")
     "SourceFlowConfig_SourceConnectorProperties_S3_S3InputFormatConfig_S3InputFileType"=@("New-AFFlow","Update-AFFlow")
+    "SourceFlowConfig_SourceConnectorProperties_Salesforce_DataTransferApi"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-AFFlow","Update-AFFlow")
     "TriggerConfig_TriggerType"=@("New-AFFlow","Update-AFFlow")
 }

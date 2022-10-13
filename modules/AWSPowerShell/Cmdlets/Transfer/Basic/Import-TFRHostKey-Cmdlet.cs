@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Adds a host key to the server specified by the <code>ServerId</code> parameter.
+    /// Adds a host key to the server that's specified by the <code>ServerId</code> parameter.
     /// </summary>
     [Cmdlet("Import", "TFRHostKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Transfer.Model.ImportHostKeyResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Enter a text description to identify this host key.</para>
+        /// <para>The text description that identifies this host key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>Provide the ID of the server that contains the host key that you are importing.</para>
+        /// <para>The identifier of the server that contains the host key that you are importing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

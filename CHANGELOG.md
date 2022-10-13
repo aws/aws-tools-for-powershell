@@ -1,4 +1,20 @@
-﻿### 4.1.184 (2022-10-07 20:35Z)
+﻿### 4.1.185 (2022-10-13 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.373.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameter Salesforce_DataTransferApi.
+    * Modified cmdlet Update-AFFlow: added parameter Salesforce_DataTransferApi.
+  * WSDM
+    * [Breaking Change] Removed cmdlet Write-WSDMFeedback.
+  * Amazon Directory Service
+    * Added cmdlet Get-DSUpdateDirectory leveraging the DescribeUpdateDirectory service API.
+    * Added cmdlet Update-DSDirectorySetup leveraging the UpdateDirectorySetup service API.
+  * Amazon Panorama
+    * Added cmdlet Send-PANApplicationInstanceNodeInstance leveraging the SignalApplicationInstanceNodeInstances service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter WorkflowDetails_OnPartialUpload.
+    * Modified cmdlet Update-TFRServer: added parameter WorkflowDetails_OnPartialUpload.
+
+### 4.1.184 (2022-10-07 20:35Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.372.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon QuickSight
     * Modified cmdlet New-QSDataSource: added parameter Credentials_SecretArn.

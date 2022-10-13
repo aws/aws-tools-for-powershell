@@ -118,7 +118,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Tags to be associated with this resource. A tag is a key-value pair that adds metadata
+        /// to a resource. Each tag key for the resource must be unique. For more information,
+        /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/tagging.html"> Tagging
+        /// your resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

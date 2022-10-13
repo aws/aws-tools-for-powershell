@@ -28,8 +28,8 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Begins an outbound file transfer. You specify the <code>ConnectorId</code> and the
-    /// file paths for where to send the files.
+    /// Begins an outbound file transfer to a remote AS2 server. You specify the <code>ConnectorId</code>
+    /// and the file paths for where to send the files.
     /// </summary>
     [Cmdlet("Start", "TFRFileTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

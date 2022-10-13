@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HostKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the host key that you are deleting.</para>
+        /// <para>The identifier of the host key that you are deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>Provide the ID of the server that contains the host key that you are deleting.</para>
+        /// <para>The identifier of the server that contains the host key that you are deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

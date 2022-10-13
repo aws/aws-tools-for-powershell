@@ -133,6 +133,13 @@ $DS_Completers = {
             break
         }
 
+        # Amazon.DirectoryService.OSVersion
+        "Update-DSDirectorySetup/OSUpdateSettings_OSVersion"
+        {
+            $v = "SERVER_2012","SERVER_2019"
+            break
+        }
+
         # Amazon.DirectoryService.RadiusAuthenticationProtocol
         {
             ($_ -eq "Enable-DSRadius/RadiusSettings_AuthenticationProtocol") -Or
@@ -184,6 +191,16 @@ $DS_Completers = {
             break
         }
 
+        # Amazon.DirectoryService.UpdateType
+        {
+            ($_ -eq "Get-DSUpdateDirectory/UpdateType") -Or
+            ($_ -eq "Update-DSDirectorySetup/UpdateType")
+        }
+        {
+            $v = "OS"
+            break
+        }
+
 
     }
 
@@ -194,6 +211,7 @@ $DS_Completers = {
 
 $DS_map = @{
     "Edition"=@("New-DSMicrosoftAD")
+    "OSUpdateSettings_OSVersion"=@("Update-DSDirectorySetup")
     "RadiusSettings_AuthenticationProtocol"=@("Enable-DSRadius","Update-DSRadius")
     "SelectiveAuth"=@("New-DSTrust","Update-DSTrust")
     "ShareMethod"=@("Enable-DSDirectoryShare")
@@ -204,6 +222,7 @@ $DS_map = @{
     "TrustType"=@("New-DSTrust")
     "Type"=@("Disable-DSClientAuthentication","Disable-DSLDAPS","Enable-DSClientAuthentication","Enable-DSLDAPS","Get-DSClientAuthenticationSetting","Get-DSLDAPSSetting","Register-DSCertificate")
     "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
+    "UpdateType"=@("Get-DSUpdateDirectory","Update-DSDirectorySetup")
 }
 
 _awsArgumentCompleterRegistration $DS_Completers $DS_map
@@ -289,6 +308,7 @@ $DS_SelectMap = @{
                "Get-DSSharedDirectory",
                "Get-DSSnapshot",
                "Get-DSTrust",
+               "Get-DSUpdateDirectory",
                "Disable-DSClientAuthentication",
                "Disable-DSLDAPS",
                "Disable-DSRadius",
@@ -316,6 +336,7 @@ $DS_SelectMap = @{
                "Start-DSSchemaExtension",
                "Disable-DSDirectoryShare",
                "Update-DSConditionalForwarder",
+               "Update-DSDirectorySetup",
                "Set-DSDomainControllerCount",
                "Update-DSRadius",
                "Update-DSSetting",
