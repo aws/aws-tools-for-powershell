@@ -1,4 +1,7 @@
-﻿### 4.1.185 (2022-10-13 20:47Z)
+﻿### 4.1.186 (2022-10-14 20:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.374.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.185 (2022-10-13 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.373.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Modified cmdlet New-AFFlow: added parameter Salesforce_DataTransferApi.
