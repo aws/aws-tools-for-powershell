@@ -33,6 +33,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// and values for hyperparameters within ranges that you specify. It then chooses the
     /// hyperparameter values that result in a model that performs the best, as measured by
     /// an objective metric that you choose.
+    /// 
+    ///  
+    /// <para>
+    /// A hyperparameter tuning job automatically creates Amazon SageMaker experiments, trials,
+    /// and trial components for each training job that it runs. You can view these entities
+    /// in Amazon SageMaker Studio. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view">View
+    /// Experiments, Trials, and Trial Components</a>.
+    /// </para><important><para>
+    /// Do not include any security-sensitive information including account access IDs, secrets
+    /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
+    /// are detected, SageMaker will reject your training job request and return an exception
+    /// error.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "SMHyperParameterTuningJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A JMESPath boolean expression used to filter which records to explain. Explanations
-        /// are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker-dg/src/AWSIronmanApiDoc/build/server-root/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable"><code>EnableExplanations</code></a>for additional information.</para>
+        /// are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable"><code>EnableExplanations</code></a>for additional information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Provides the JMESPath expression to extract the features from a model container input
         /// in JSON Lines format. For example, if <code>FeaturesAttribute</code> is the JMESPath
         /// expression <code>'myfeatures'</code>, it extracts a list of features <code>[1,2,3]</code>
-        /// from request data <code>'{"myfeatures":[1,2,3}'</code>.</para>
+        /// from request data <code>'{"myfeatures":[1,2,3]}'</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -204,8 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputConfig_FrameworkVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies the framework version to use. This API field is only supported for the PyTorch
-        /// and TensorFlow frameworks.</para><para>For information about framework versions supported for cloud targets and edge devices,
+        /// <para>Specifies the framework version to use. This API field is only supported for the MXNet,
+        /// PyTorch, TensorFlow and TensorFlow Lite frameworks.</para><para>For information about framework versions supported for cloud targets and edge devices,
         /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud
         /// Supported Instance Types and Frameworks</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge
         /// Supported Frameworks</a>.</para>

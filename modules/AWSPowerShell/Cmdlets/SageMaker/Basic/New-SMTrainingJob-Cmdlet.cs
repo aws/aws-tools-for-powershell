@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
     /// 
     /// </para><important><para>
-    /// You must not include any security-sensitive information, such as account access IDs,
-    /// secrets, and tokens, in the dictionary for configuring hyperparameters. SageMaker
-    /// rejects the training job request and returns an exception error for detected credentials,
-    /// if such user input is found.
+    /// Do not include any security-sensitive information including account access IDs, secrets
+    /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
+    /// are detected, SageMaker will reject your training job request and return an exception
+    /// error.
     /// </para></important></li><li><para><code>InputDataConfig</code> - Describes the training dataset and the Amazon S3,
     /// EFS, or FSx location where it is stored.
     /// </para></li><li><para><code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want SageMaker
@@ -214,10 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para><para>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a key-value
         /// pair. Each key and value is limited to 256 characters, as specified by the <code>Length
-        /// Constraint</code>. </para><important><para>You must not include any security-sensitive information, such as account access IDs,
-        /// secrets, and tokens, in the dictionary for configuring hyperparameters. SageMaker
-        /// rejects the training job request and returns an exception error for detected credentials,
-        /// if such user input is found.</para></important>
+        /// Constraint</code>. </para><important><para>Do not include any security-sensitive information including account access IDs, secrets
+        /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
+        /// are detected, SageMaker will reject your training job request and return an exception
+        /// error.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
