@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter KmsEncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>The KMS encryption key ARN.</para>
+        /// <para>The KMS encryption key ARN.</para><para>The KMS key must be single-Region key. Amazon Fraud Detector does not support multi-Region
+        /// KMS key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

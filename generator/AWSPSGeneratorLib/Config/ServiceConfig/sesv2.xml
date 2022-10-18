@@ -135,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDedicatedIpPool" OutputProperty="DedicatedIpPool" Verb="Get" Noun="DedicatedIpPool" PipelineParameter="PoolName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

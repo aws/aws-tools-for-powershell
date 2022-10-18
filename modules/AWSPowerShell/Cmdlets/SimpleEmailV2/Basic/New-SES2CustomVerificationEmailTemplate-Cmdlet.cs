@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// 
     ///  
     /// <para>
-    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using
-    /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+    /// custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <para>
         /// <para>The content of the custom verification email. The total size of the email must be
         /// less than 10 MB. The message body may contain HTML, with some limitations. For more
-        /// information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom
-        /// Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</para>
+        /// information, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom-faq">Custom
+        /// verification email frequently asked questions</a> in the <i>Amazon SES Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

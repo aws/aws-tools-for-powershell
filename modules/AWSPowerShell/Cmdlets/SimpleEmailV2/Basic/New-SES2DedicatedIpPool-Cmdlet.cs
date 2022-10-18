@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String PoolName { get; set; }
         #endregion
         
+        #region Parameter ScalingMode
+        /// <summary>
+        /// <para>
+        /// <para>The type of scaling mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.ScalingMode")]
+        public Amazon.SimpleEmailV2.ScalingMode ScalingMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -139,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 WriteWarning("You are passing $null as a value for parameter PoolName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ScalingMode = this.ScalingMode;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
@@ -162,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (cmdletContext.PoolName != null)
             {
                 request.PoolName = cmdletContext.PoolName;
+            }
+            if (cmdletContext.ScalingMode != null)
+            {
+                request.ScalingMode = cmdletContext.ScalingMode;
             }
             if (cmdletContext.Tag != null)
             {
@@ -229,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PoolName { get; set; }
+            public Amazon.SimpleEmailV2.ScalingMode ScalingMode { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateDedicatedIpPoolResponse, NewSES2DedicatedIpPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

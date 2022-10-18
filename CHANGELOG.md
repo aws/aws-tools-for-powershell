@@ -1,4 +1,16 @@
-﻿### 4.1.187 (2022-10-17 20:16Z)
+﻿### 4.1.188 (2022-10-18 20:30Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.376.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDataQualityJobDefinition: added parameters BatchTransformInput_DataCapturedDestinationS3Uri, BatchTransformInput_EndTimeOffset, BatchTransformInput_FeaturesAttribute, BatchTransformInput_InferenceAttribute, BatchTransformInput_LocalPath, BatchTransformInput_ProbabilityAttribute, BatchTransformInput_ProbabilityThresholdAttribute, BatchTransformInput_S3DataDistributionType, BatchTransformInput_S3InputMode, BatchTransformInput_StartTimeOffset, Csv_Header, DatasetFormat_Parquet and Json_Line.
+    * Modified cmdlet New-SMModelBiasJobDefinition: added parameters BatchTransformInput_DataCapturedDestinationS3Uri, BatchTransformInput_EndTimeOffset, BatchTransformInput_FeaturesAttribute, BatchTransformInput_InferenceAttribute, BatchTransformInput_LocalPath, BatchTransformInput_ProbabilityAttribute, BatchTransformInput_ProbabilityThresholdAttribute, BatchTransformInput_S3DataDistributionType, BatchTransformInput_S3InputMode, BatchTransformInput_StartTimeOffset, Csv_Header, DatasetFormat_Parquet and Json_Line.
+    * Modified cmdlet New-SMModelExplainabilityJobDefinition: added parameters BatchTransformInput_DataCapturedDestinationS3Uri, BatchTransformInput_EndTimeOffset, BatchTransformInput_FeaturesAttribute, BatchTransformInput_InferenceAttribute, BatchTransformInput_LocalPath, BatchTransformInput_ProbabilityAttribute, BatchTransformInput_ProbabilityThresholdAttribute, BatchTransformInput_S3DataDistributionType, BatchTransformInput_S3InputMode, BatchTransformInput_StartTimeOffset, Csv_Header, DatasetFormat_Parquet and Json_Line.
+    * Modified cmdlet New-SMModelQualityJobDefinition: added parameters BatchTransformInput_DataCapturedDestinationS3Uri, BatchTransformInput_EndTimeOffset, BatchTransformInput_FeaturesAttribute, BatchTransformInput_InferenceAttribute, BatchTransformInput_LocalPath, BatchTransformInput_ProbabilityAttribute, BatchTransformInput_ProbabilityThresholdAttribute, BatchTransformInput_S3DataDistributionType, BatchTransformInput_S3InputMode, BatchTransformInput_StartTimeOffset, Csv_Header, DatasetFormat_Parquet and Json_Line.
+    * Modified cmdlet New-SMTransformJob: added parameters DataCaptureConfig_DestinationS3Uri, DataCaptureConfig_GenerateInferenceId and DataCaptureConfig_KmsKeyId.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2DedicatedIpPool leveraging the GetDedicatedIpPool service API.
+    * Modified cmdlet New-SES2DedicatedIpPool: added parameter ScalingMode.
+
+### 4.1.187 (2022-10-17 20:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.375.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.186 (2022-10-14 20:32Z)

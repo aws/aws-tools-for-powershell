@@ -28,88 +28,85 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Deletes an existing custom verification email template.
-    /// 
-    ///  
-    /// <para>
-    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
-    /// custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para><para>
-    /// You can execute this operation no more than once per second.
-    /// </para>
+    /// Retrieve information about the dedicated pool.
     /// </summary>
-    [Cmdlet("Remove", "SES2CustomVerificationEmailTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) DeleteCustomVerificationEmailTemplate API operation.", Operation = new[] {"DeleteCustomVerificationEmailTemplate"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SES2DedicatedIpPool")]
+    [OutputType("Amazon.SimpleEmailV2.Model.DedicatedIpPool")]
+    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetDedicatedIpPool API operation.", Operation = new[] {"GetDedicatedIpPool"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse))]
+    [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.DedicatedIpPool or Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse",
+        "This cmdlet returns an Amazon.SimpleEmailV2.Model.DedicatedIpPool object.",
+        "The service call response (type Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSES2CustomVerificationEmailTemplateCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class GetSES2DedicatedIpPoolCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter TemplateName
+        #region Parameter PoolName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom verification email template that you want to delete.</para>
+        /// <para>The name of the dedicated IP pool to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateName { get; set; }
+        public System.String PoolName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DedicatedIpPool'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse).
+        /// Specifying the name of a property of type Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DedicatedIpPool";
         #endregion
         
-        #region Parameter Force
+        #region Parameter PassThru
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// Changes the cmdlet behavior to return the value passed to the PoolName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PoolName' instead. This parameter will be removed in a future version.
         /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PoolName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TemplateName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SES2CustomVerificationEmailTemplate (DeleteCustomVerificationEmailTemplate)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse, RemoveSES2CustomVerificationEmailTemplateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse, GetSES2DedicatedIpPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.TemplateName = this.TemplateName;
-            #if MODULAR
-            if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.PoolName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.PoolName = this.PoolName;
+            #if MODULAR
+            if (this.PoolName == null && ParameterWasBound(nameof(this.PoolName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PoolName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateRequest();
+            var request = new Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolRequest();
             
-            if (cmdletContext.TemplateName != null)
+            if (cmdletContext.PoolName != null)
             {
-                request.TemplateName = cmdletContext.TemplateName;
+                request.PoolName = cmdletContext.PoolName;
             }
             
             CmdletOutput output;
@@ -165,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateRequest request)
+        private Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "DeleteCustomVerificationEmailTemplate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetDedicatedIpPool");
             try
             {
                 #if DESKTOP
-                return client.DeleteCustomVerificationEmailTemplate(request);
+                return client.GetDedicatedIpPool(request);
                 #elif CORECLR
-                return client.DeleteCustomVerificationEmailTemplateAsync(request).GetAwaiter().GetResult();
+                return client.GetDedicatedIpPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TemplateName { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.DeleteCustomVerificationEmailTemplateResponse, RemoveSES2CustomVerificationEmailTemplateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String PoolName { get; set; }
+            public System.Func<Amazon.SimpleEmailV2.Model.GetDedicatedIpPoolResponse, GetSES2DedicatedIpPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DedicatedIpPool;
         }
         
     }

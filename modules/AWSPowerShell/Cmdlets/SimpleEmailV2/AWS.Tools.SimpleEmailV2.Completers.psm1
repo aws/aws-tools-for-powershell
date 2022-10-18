@@ -139,6 +139,13 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.ScalingMode
+        "New-SES2DedicatedIpPool/ScalingMode"
+        {
+            $v = "MANAGED","STANDARD"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SubscriptionStatus
         "Get-SES2ContactCollection/Filter_FilteredStatus"
         {
@@ -190,6 +197,7 @@ $SES2_map = @{
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "Reason"=@("Write-SES2SuppressedDestination")
+    "ScalingMode"=@("New-SES2DedicatedIpPool")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
@@ -274,6 +282,7 @@ $SES2_SelectMap = @{
                "Get-SES2ContactList",
                "Get-SES2CustomVerificationEmailTemplate",
                "Get-SES2DedicatedIp",
+               "Get-SES2DedicatedIpPool",
                "Get-SES2DedicatedIpList",
                "Get-SES2DeliverabilityDashboardOption",
                "Get-SES2DeliverabilityTestReport",

@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// the resulting DNS name for the service is <code>backend.example.com</code>. Service
     /// instances that are registered using a private DNS namespace can be discovered using
     /// either a <code>DiscoverInstances</code> request or using DNS. For the current quota
-    /// on the number of namespaces that you can create using the same account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
+    /// on the number of namespaces that you can create using the same Amazon Web Services
+    /// account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">Cloud
     /// Map quotas</a> in the <i>Cloud Map Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "SDPrivateDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>The name that you want to assign to this namespace. When you create a private DNS
-        /// namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone
+        /// namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone
         /// that has the same name as the namespace.</para>
         /// </para>
         /// </summary>

@@ -130,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String TransformInput_ContentType { get; set; }
         #endregion
         
+        #region Parameter DataCaptureConfig_DestinationS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location being used to capture the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataCaptureConfig_DestinationS3Uri { get; set; }
+        #endregion
+        
         #region Parameter Environment
         /// <summary>
         /// <para>
@@ -149,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExperimentConfig_ExperimentName { get; set; }
+        #endregion
+        
+        #region Parameter DataCaptureConfig_GenerateInferenceId
+        /// <summary>
+        /// <para>
+        /// <para>Flag that indicates whether to append inference id to the output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataCaptureConfig_GenerateInferenceId { get; set; }
         #endregion
         
         #region Parameter DataProcessing_InputFilter
@@ -247,6 +267,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.JoinSource")]
         public Amazon.SageMaker.JoinSource DataProcessing_JoinSource { get; set; }
+        #endregion
+        
+        #region Parameter DataCaptureConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
+        /// that SageMaker uses to encrypt data on the storage volume attached to the ML compute
+        /// instance that hosts the batch transform job.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataCaptureConfig_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter TransformOutput_KmsKeyId
@@ -570,6 +602,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BatchStrategy = this.BatchStrategy;
+            context.DataCaptureConfig_DestinationS3Uri = this.DataCaptureConfig_DestinationS3Uri;
+            context.DataCaptureConfig_GenerateInferenceId = this.DataCaptureConfig_GenerateInferenceId;
+            context.DataCaptureConfig_KmsKeyId = this.DataCaptureConfig_KmsKeyId;
             context.DataProcessing_InputFilter = this.DataProcessing_InputFilter;
             context.DataProcessing_JoinSource = this.DataProcessing_JoinSource;
             context.DataProcessing_OutputFilter = this.DataProcessing_OutputFilter;
@@ -667,6 +702,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.BatchStrategy != null)
             {
                 request.BatchStrategy = cmdletContext.BatchStrategy;
+            }
+            
+             // populate DataCaptureConfig
+            var requestDataCaptureConfigIsNull = true;
+            request.DataCaptureConfig = new Amazon.SageMaker.Model.BatchDataCaptureConfig();
+            System.String requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri = null;
+            if (cmdletContext.DataCaptureConfig_DestinationS3Uri != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri = cmdletContext.DataCaptureConfig_DestinationS3Uri;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri != null)
+            {
+                request.DataCaptureConfig.DestinationS3Uri = requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri;
+                requestDataCaptureConfigIsNull = false;
+            }
+            System.Boolean? requestDataCaptureConfig_dataCaptureConfig_GenerateInferenceId = null;
+            if (cmdletContext.DataCaptureConfig_GenerateInferenceId != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_GenerateInferenceId = cmdletContext.DataCaptureConfig_GenerateInferenceId.Value;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_GenerateInferenceId != null)
+            {
+                request.DataCaptureConfig.GenerateInferenceId = requestDataCaptureConfig_dataCaptureConfig_GenerateInferenceId.Value;
+                requestDataCaptureConfigIsNull = false;
+            }
+            System.String requestDataCaptureConfig_dataCaptureConfig_KmsKeyId = null;
+            if (cmdletContext.DataCaptureConfig_KmsKeyId != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_KmsKeyId = cmdletContext.DataCaptureConfig_KmsKeyId;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_KmsKeyId != null)
+            {
+                request.DataCaptureConfig.KmsKeyId = requestDataCaptureConfig_dataCaptureConfig_KmsKeyId;
+                requestDataCaptureConfigIsNull = false;
+            }
+             // determine if request.DataCaptureConfig should be set to null
+            if (requestDataCaptureConfigIsNull)
+            {
+                request.DataCaptureConfig = null;
             }
             
              // populate DataProcessing
@@ -1038,6 +1112,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SageMaker.BatchStrategy BatchStrategy { get; set; }
+            public System.String DataCaptureConfig_DestinationS3Uri { get; set; }
+            public System.Boolean? DataCaptureConfig_GenerateInferenceId { get; set; }
+            public System.String DataCaptureConfig_KmsKeyId { get; set; }
             public System.String DataProcessing_InputFilter { get; set; }
             public Amazon.SageMaker.JoinSource DataProcessing_JoinSource { get; set; }
             public System.String DataProcessing_OutputFilter { get; set; }

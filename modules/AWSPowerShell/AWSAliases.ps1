@@ -20678,6 +20678,7 @@ Set-Alias -Name SES2-GetContact -Value Get-SES2Contact
 Set-Alias -Name SES2-GetContactList -Value Get-SES2ContactList
 Set-Alias -Name SES2-GetCustomVerificationEmailTemplate -Value Get-SES2CustomVerificationEmailTemplate
 Set-Alias -Name SES2-GetDedicatedIp -Value Get-SES2DedicatedIp
+Set-Alias -Name SES2-GetDedicatedIpPool -Value Get-SES2DedicatedIpPool
 Set-Alias -Name Get-SES2DedicatedIps -Value Get-SES2DedicatedIpList
 Set-Alias -Name SES2-GetDedicatedIps -Value Get-SES2DedicatedIpList
 Set-Alias -Name Get-SES2DeliverabilityDashboardOptions -Value Get-SES2DeliverabilityDashboardOption

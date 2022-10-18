@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// 
     ///  
     /// <para>
-    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using
-    /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+    /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/dg/creating-identities.html#send-email-verify-address-custom">Using
+    /// custom verification email templates</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

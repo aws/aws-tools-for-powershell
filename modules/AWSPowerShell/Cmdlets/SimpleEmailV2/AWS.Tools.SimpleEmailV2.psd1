@@ -100,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SES2CustomVerificationEmailTemplateList', 
         'Get-SES2DedicatedIp', 
         'Get-SES2DedicatedIpList', 
+        'Get-SES2DedicatedIpPool', 
         'Get-SES2DedicatedIpPoolList', 
         'Get-SES2DeliverabilityDashboardOption', 
         'Get-SES2DeliverabilityTestReport', 

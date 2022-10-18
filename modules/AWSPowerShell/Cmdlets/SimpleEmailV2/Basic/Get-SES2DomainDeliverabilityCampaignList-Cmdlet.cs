@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EndDate
         /// <summary>
         /// <para>
-        /// <para>The last day, in Unix time format, that you want to obtain deliverability data for.
-        /// This value has to be less than or equal to 30 days after the value of the <code>StartDate</code>
-        /// parameter.</para>
+        /// <para>The last day that you want to obtain deliverability data for. This value has to be
+        /// less than or equal to 30 days after the value of the <code>StartDate</code> parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>The first day, in Unix time format, that you want to obtain deliverability data for.</para>
+        /// <para>The first day that you want to obtain deliverability data for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

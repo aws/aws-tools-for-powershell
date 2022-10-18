@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The new status.</para>
+        /// <para>The new status.</para><para>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Used to filter the list of suppressed email destinations so that it only includes
-        /// addresses that were added to the list before a specific date. The date that you specify
-        /// should be in Unix time format.</para>
+        /// addresses that were added to the list before a specific date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>Used to filter the list of suppressed email destinations so that it only includes
-        /// addresses that were added to the list after a specific date. The date that you specify
-        /// should be in Unix time format.</para>
+        /// addresses that were added to the list after a specific date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

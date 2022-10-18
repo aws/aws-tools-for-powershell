@@ -720,9 +720,13 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ProcessingS3DataDistributionType
         {
+            ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_BatchTransformInput_S3DataDistributionType") -Or
             ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_EndpointInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_BatchTransformInput_S3DataDistributionType") -Or
             ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_EndpointInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_BatchTransformInput_S3DataDistributionType") -Or
             ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_EndpointInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_BatchTransformInput_S3DataDistributionType") -Or
             ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_EndpointInput_S3DataDistributionType")
         }
         {
@@ -732,9 +736,13 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ProcessingS3InputMode
         {
+            ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_BatchTransformInput_S3InputMode") -Or
             ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_EndpointInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_BatchTransformInput_S3InputMode") -Or
             ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_EndpointInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_BatchTransformInput_S3InputMode") -Or
             ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_EndpointInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_BatchTransformInput_S3InputMode") -Or
             ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_EndpointInput_S3InputMode")
         }
         {
@@ -1112,6 +1120,8 @@ $SM_map = @{
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
+    "DataQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
+    "DataQualityJobInput_BatchTransformInput_S3InputMode"=@("New-SMDataQualityJobDefinition")
     "DataQualityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
     "DataQualityJobInput_EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition")
     "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
@@ -1137,12 +1147,18 @@ $SM_map = @{
     "JobResources_ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "JobType"=@("New-SMInferenceRecommendationsJob")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
+    "ModelBiasJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
+    "ModelBiasJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
     "ModelBiasJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
     "ModelBiasJobInput_EndpointInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
+    "ModelExplainabilityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelExplainabilityJobDefinition")
+    "ModelExplainabilityJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelExplainabilityJobDefinition")
     "ModelExplainabilityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelExplainabilityJobDefinition")
     "ModelExplainabilityJobInput_EndpointInput_S3InputMode"=@("New-SMModelExplainabilityJobDefinition")
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
+    "ModelQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelQualityJobDefinition")
+    "ModelQualityJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelQualityJobDefinition")
     "ModelQualityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelQualityJobDefinition")
     "ModelQualityJobInput_EndpointInput_S3InputMode"=@("New-SMModelQualityJobDefinition")
     "MonitoringTypeEquals"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")

@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelBiasAppSpecification_ConfigUri { get; set; }
         #endregion
         
+        #region Parameter BatchTransformInput_DataCapturedDestinationS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location being used to capture the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_DataCapturedDestinationS3Uri")]
+        public System.String BatchTransformInput_DataCapturedDestinationS3Uri { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfig_EnableInterContainerTrafficEncryption
         /// <summary>
         /// <para>
@@ -99,16 +110,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// enabled.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ModelBiasJobInput_EndpointInput_EndpointName")]
         public System.String EndpointInput_EndpointName { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_EndTimeOffset
+        /// <summary>
+        /// <para>
+        /// <para>If specified, monitoring jobs substract this time from the end time. For information
+        /// about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule
+        /// Model Quality Monitoring Jobs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_EndTimeOffset")]
+        public System.String BatchTransformInput_EndTimeOffset { get; set; }
         #endregion
         
         #region Parameter EndpointInput_EndTimeOffset
@@ -134,6 +151,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable ModelBiasAppSpecification_Environment { get; set; }
         #endregion
         
+        #region Parameter BatchTransformInput_FeaturesAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The attributes of the input data that are the input features.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_FeaturesAttribute")]
+        public System.String BatchTransformInput_FeaturesAttribute { get; set; }
+        #endregion
+        
         #region Parameter EndpointInput_FeaturesAttribute
         /// <summary>
         /// <para>
@@ -143,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ModelBiasJobInput_EndpointInput_FeaturesAttribute")]
         public System.String EndpointInput_FeaturesAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Csv_Header
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the CSV data has a header.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_DatasetFormat_Csv_Header")]
+        public System.Boolean? Csv_Header { get; set; }
         #endregion
         
         #region Parameter ModelBiasAppSpecification_ImageUri
@@ -160,6 +199,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ModelBiasAppSpecification_ImageUri { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_InferenceAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The attribute of the input data that represents the ground truth label.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_InferenceAttribute")]
+        public System.String BatchTransformInput_InferenceAttribute { get; set; }
         #endregion
         
         #region Parameter EndpointInput_InferenceAttribute
@@ -239,20 +289,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ModelBiasJobOutputConfig_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter Json_Line
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the file should be read as a json object per line. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_DatasetFormat_Json_Line")]
+        public System.Boolean? Json_Line { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_LocalPath
+        /// <summary>
+        /// <para>
+        /// <para>Path to the filesystem where the batch transform data is available to the container.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_LocalPath")]
+        public System.String BatchTransformInput_LocalPath { get; set; }
+        #endregion
+        
         #region Parameter EndpointInput_LocalPath
         /// <summary>
         /// <para>
         /// <para>Path to the filesystem where the endpoint data is available to the container.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ModelBiasJobInput_EndpointInput_LocalPath")]
         public System.String EndpointInput_LocalPath { get; set; }
         #endregion
@@ -289,6 +354,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.MonitoringOutput[] ModelBiasJobOutputConfig_MonitoringOutput { get; set; }
         #endregion
         
+        #region Parameter DatasetFormat_Parquet
+        /// <summary>
+        /// <para>
+        /// <para>The Parquet dataset used in the monitoring job</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_DatasetFormat_Parquet")]
+        public Amazon.SageMaker.Model.MonitoringParquetDatasetFormat DatasetFormat_Parquet { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_ProbabilityAttribute
+        /// <summary>
+        /// <para>
+        /// <para>In a classification problem, the attribute that represents the class probability.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_ProbabilityAttribute")]
+        public System.String BatchTransformInput_ProbabilityAttribute { get; set; }
+        #endregion
+        
         #region Parameter EndpointInput_ProbabilityAttribute
         /// <summary>
         /// <para>
@@ -298,6 +385,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ModelBiasJobInput_EndpointInput_ProbabilityAttribute")]
         public System.String EndpointInput_ProbabilityAttribute { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_ProbabilityThresholdAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The threshold for the class probability to be evaluated as a positive result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_ProbabilityThresholdAttribute")]
+        public System.Double? BatchTransformInput_ProbabilityThresholdAttribute { get; set; }
         #endregion
         
         #region Parameter EndpointInput_ProbabilityThresholdAttribute
@@ -329,6 +427,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter BatchTransformInput_S3DataDistributionType
+        /// <summary>
+        /// <para>
+        /// <para>Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3
+        /// key. Defaults to <code>FullyReplicated</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_S3DataDistributionType")]
+        [AWSConstantClassSource("Amazon.SageMaker.ProcessingS3DataDistributionType")]
+        public Amazon.SageMaker.ProcessingS3DataDistributionType BatchTransformInput_S3DataDistributionType { get; set; }
+        #endregion
+        
         #region Parameter EndpointInput_S3DataDistributionType
         /// <summary>
         /// <para>
@@ -340,6 +451,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Alias("ModelBiasJobInput_EndpointInput_S3DataDistributionType")]
         [AWSConstantClassSource("Amazon.SageMaker.ProcessingS3DataDistributionType")]
         public Amazon.SageMaker.ProcessingS3DataDistributionType EndpointInput_S3DataDistributionType { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_S3InputMode
+        /// <summary>
+        /// <para>
+        /// <para>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for transferring
+        /// data for the monitoring job. <code>Pipe</code> mode is recommended for large datasets.
+        /// <code>File</code> mode is useful for small files that fit in memory. Defaults to <code>File</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_S3InputMode")]
+        [AWSConstantClassSource("Amazon.SageMaker.ProcessingS3InputMode")]
+        public Amazon.SageMaker.ProcessingS3InputMode BatchTransformInput_S3InputMode { get; set; }
         #endregion
         
         #region Parameter EndpointInput_S3InputMode
@@ -388,6 +513,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfig_VpcConfig_SecurityGroupIds")]
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter BatchTransformInput_StartTimeOffset
+        /// <summary>
+        /// <para>
+        /// <para>If specified, monitoring jobs substract this time from the start time. For information
+        /// about using offsets for scheduling monitoring jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-model-quality-schedule.html">Schedule
+        /// Model Quality Monitoring Jobs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelBiasJobInput_BatchTransformInput_StartTimeOffset")]
+        public System.String BatchTransformInput_StartTimeOffset { get; set; }
         #endregion
         
         #region Parameter EndpointInput_StartTimeOffset
@@ -574,23 +712,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.ModelBiasBaselineConfig_BaseliningJobName = this.ModelBiasBaselineConfig_BaseliningJobName;
             context.ConstraintsResource_S3Uri = this.ConstraintsResource_S3Uri;
+            context.BatchTransformInput_DataCapturedDestinationS3Uri = this.BatchTransformInput_DataCapturedDestinationS3Uri;
+            context.Csv_Header = this.Csv_Header;
+            context.Json_Line = this.Json_Line;
+            context.DatasetFormat_Parquet = this.DatasetFormat_Parquet;
+            context.BatchTransformInput_EndTimeOffset = this.BatchTransformInput_EndTimeOffset;
+            context.BatchTransformInput_FeaturesAttribute = this.BatchTransformInput_FeaturesAttribute;
+            context.BatchTransformInput_InferenceAttribute = this.BatchTransformInput_InferenceAttribute;
+            context.BatchTransformInput_LocalPath = this.BatchTransformInput_LocalPath;
+            context.BatchTransformInput_ProbabilityAttribute = this.BatchTransformInput_ProbabilityAttribute;
+            context.BatchTransformInput_ProbabilityThresholdAttribute = this.BatchTransformInput_ProbabilityThresholdAttribute;
+            context.BatchTransformInput_S3DataDistributionType = this.BatchTransformInput_S3DataDistributionType;
+            context.BatchTransformInput_S3InputMode = this.BatchTransformInput_S3InputMode;
+            context.BatchTransformInput_StartTimeOffset = this.BatchTransformInput_StartTimeOffset;
             context.EndpointInput_EndpointName = this.EndpointInput_EndpointName;
-            #if MODULAR
-            if (this.EndpointInput_EndpointName == null && ParameterWasBound(nameof(this.EndpointInput_EndpointName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EndpointInput_EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EndpointInput_EndTimeOffset = this.EndpointInput_EndTimeOffset;
             context.EndpointInput_FeaturesAttribute = this.EndpointInput_FeaturesAttribute;
             context.EndpointInput_InferenceAttribute = this.EndpointInput_InferenceAttribute;
             context.EndpointInput_LocalPath = this.EndpointInput_LocalPath;
-            #if MODULAR
-            if (this.EndpointInput_LocalPath == null && ParameterWasBound(nameof(this.EndpointInput_LocalPath)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EndpointInput_LocalPath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EndpointInput_ProbabilityAttribute = this.EndpointInput_ProbabilityAttribute;
             context.EndpointInput_ProbabilityThresholdAttribute = this.EndpointInput_ProbabilityThresholdAttribute;
             context.EndpointInput_S3DataDistributionType = this.EndpointInput_S3DataDistributionType;
@@ -941,6 +1080,196 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ModelBiasJobInput.EndpointInput = requestModelBiasJobInput_modelBiasJobInput_EndpointInput;
                 requestModelBiasJobInputIsNull = false;
             }
+            Amazon.SageMaker.Model.BatchTransformInput requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput = null;
+            
+             // populate BatchTransformInput
+            var requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = true;
+            requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput = new Amazon.SageMaker.Model.BatchTransformInput();
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_DataCapturedDestinationS3Uri = null;
+            if (cmdletContext.BatchTransformInput_DataCapturedDestinationS3Uri != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_DataCapturedDestinationS3Uri = cmdletContext.BatchTransformInput_DataCapturedDestinationS3Uri;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_DataCapturedDestinationS3Uri != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.DataCapturedDestinationS3Uri = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_DataCapturedDestinationS3Uri;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_EndTimeOffset = null;
+            if (cmdletContext.BatchTransformInput_EndTimeOffset != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_EndTimeOffset = cmdletContext.BatchTransformInput_EndTimeOffset;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_EndTimeOffset != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.EndTimeOffset = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_EndTimeOffset;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_FeaturesAttribute = null;
+            if (cmdletContext.BatchTransformInput_FeaturesAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_FeaturesAttribute = cmdletContext.BatchTransformInput_FeaturesAttribute;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_FeaturesAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.FeaturesAttribute = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_FeaturesAttribute;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_InferenceAttribute = null;
+            if (cmdletContext.BatchTransformInput_InferenceAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_InferenceAttribute = cmdletContext.BatchTransformInput_InferenceAttribute;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_InferenceAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.InferenceAttribute = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_InferenceAttribute;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_LocalPath = null;
+            if (cmdletContext.BatchTransformInput_LocalPath != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_LocalPath = cmdletContext.BatchTransformInput_LocalPath;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_LocalPath != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.LocalPath = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_LocalPath;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityAttribute = null;
+            if (cmdletContext.BatchTransformInput_ProbabilityAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityAttribute = cmdletContext.BatchTransformInput_ProbabilityAttribute;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.ProbabilityAttribute = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityAttribute;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.Double? requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityThresholdAttribute = null;
+            if (cmdletContext.BatchTransformInput_ProbabilityThresholdAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityThresholdAttribute = cmdletContext.BatchTransformInput_ProbabilityThresholdAttribute.Value;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityThresholdAttribute != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.ProbabilityThresholdAttribute = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_ProbabilityThresholdAttribute.Value;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            Amazon.SageMaker.ProcessingS3DataDistributionType requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3DataDistributionType = null;
+            if (cmdletContext.BatchTransformInput_S3DataDistributionType != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3DataDistributionType = cmdletContext.BatchTransformInput_S3DataDistributionType;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3DataDistributionType != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.S3DataDistributionType = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3DataDistributionType;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            Amazon.SageMaker.ProcessingS3InputMode requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3InputMode = null;
+            if (cmdletContext.BatchTransformInput_S3InputMode != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3InputMode = cmdletContext.BatchTransformInput_S3InputMode;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3InputMode != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.S3InputMode = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_S3InputMode;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            System.String requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_StartTimeOffset = null;
+            if (cmdletContext.BatchTransformInput_StartTimeOffset != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_StartTimeOffset = cmdletContext.BatchTransformInput_StartTimeOffset;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_StartTimeOffset != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.StartTimeOffset = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_batchTransformInput_StartTimeOffset;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+            Amazon.SageMaker.Model.MonitoringDatasetFormat requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat = null;
+            
+             // populate DatasetFormat
+            var requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormatIsNull = true;
+            requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat = new Amazon.SageMaker.Model.MonitoringDatasetFormat();
+            Amazon.SageMaker.Model.MonitoringParquetDatasetFormat requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet = null;
+            if (cmdletContext.DatasetFormat_Parquet != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet = cmdletContext.DatasetFormat_Parquet;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat.Parquet = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_datasetFormat_Parquet;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormatIsNull = false;
+            }
+            Amazon.SageMaker.Model.MonitoringCsvDatasetFormat requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv = null;
+            
+             // populate Csv
+            var requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_CsvIsNull = true;
+            requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv = new Amazon.SageMaker.Model.MonitoringCsvDatasetFormat();
+            System.Boolean? requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv_csv_Header = null;
+            if (cmdletContext.Csv_Header != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv_csv_Header = cmdletContext.Csv_Header.Value;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv_csv_Header != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv.Header = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv_csv_Header.Value;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_CsvIsNull = false;
+            }
+             // determine if requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv should be set to null
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_CsvIsNull)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv = null;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat.Csv = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Csv;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormatIsNull = false;
+            }
+            Amazon.SageMaker.Model.MonitoringJsonDatasetFormat requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json = null;
+            
+             // populate Json
+            var requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_JsonIsNull = true;
+            requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json = new Amazon.SageMaker.Model.MonitoringJsonDatasetFormat();
+            System.Boolean? requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json_json_Line = null;
+            if (cmdletContext.Json_Line != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json_json_Line = cmdletContext.Json_Line.Value;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json_json_Line != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json.Line = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json_json_Line.Value;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_JsonIsNull = false;
+            }
+             // determine if requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json should be set to null
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_JsonIsNull)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json = null;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat.Json = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat_modelBiasJobInput_BatchTransformInput_DatasetFormat_Json;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormatIsNull = false;
+            }
+             // determine if requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat should be set to null
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormatIsNull)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat = null;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat != null)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput.DatasetFormat = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput_modelBiasJobInput_BatchTransformInput_DatasetFormat;
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull = false;
+            }
+             // determine if requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput should be set to null
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInputIsNull)
+            {
+                requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput = null;
+            }
+            if (requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput != null)
+            {
+                request.ModelBiasJobInput.BatchTransformInput = requestModelBiasJobInput_modelBiasJobInput_BatchTransformInput;
+                requestModelBiasJobInputIsNull = false;
+            }
              // determine if request.ModelBiasJobInput should be set to null
             if (requestModelBiasJobInputIsNull)
             {
@@ -1137,6 +1466,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ModelBiasAppSpecification_ImageUri { get; set; }
             public System.String ModelBiasBaselineConfig_BaseliningJobName { get; set; }
             public System.String ConstraintsResource_S3Uri { get; set; }
+            public System.String BatchTransformInput_DataCapturedDestinationS3Uri { get; set; }
+            public System.Boolean? Csv_Header { get; set; }
+            public System.Boolean? Json_Line { get; set; }
+            public Amazon.SageMaker.Model.MonitoringParquetDatasetFormat DatasetFormat_Parquet { get; set; }
+            public System.String BatchTransformInput_EndTimeOffset { get; set; }
+            public System.String BatchTransformInput_FeaturesAttribute { get; set; }
+            public System.String BatchTransformInput_InferenceAttribute { get; set; }
+            public System.String BatchTransformInput_LocalPath { get; set; }
+            public System.String BatchTransformInput_ProbabilityAttribute { get; set; }
+            public System.Double? BatchTransformInput_ProbabilityThresholdAttribute { get; set; }
+            public Amazon.SageMaker.ProcessingS3DataDistributionType BatchTransformInput_S3DataDistributionType { get; set; }
+            public Amazon.SageMaker.ProcessingS3InputMode BatchTransformInput_S3InputMode { get; set; }
+            public System.String BatchTransformInput_StartTimeOffset { get; set; }
             public System.String EndpointInput_EndpointName { get; set; }
             public System.String EndpointInput_EndTimeOffset { get; set; }
             public System.String EndpointInput_FeaturesAttribute { get; set; }
