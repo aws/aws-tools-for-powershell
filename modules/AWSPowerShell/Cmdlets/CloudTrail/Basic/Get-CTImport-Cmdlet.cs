@@ -28,7 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Returns information for the specified import.
+    /// Returns information about a specific import.
     /// </summary>
     [Cmdlet("Get", "CTImport")]
     [OutputType("Amazon.CloudTrail.Model.GetImportResponse")]

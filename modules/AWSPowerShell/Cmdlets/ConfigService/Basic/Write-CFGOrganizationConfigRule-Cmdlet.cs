@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    ///  Only a master account and a delegated administrator can create or update an organization
+    ///  Only a management account and a delegated administrator can create or update an organization
     /// Config rule. When calling this API with a delegated administrator, you must ensure
     /// Organizations <code>ListDelegatedAdministrator</code> permissions are added. An organization
     /// can have up to 3 delegated administrators.
     /// </para><para>
     /// This API enables organization service access through the <code>EnableAWSServiceAccess</code>
     /// action and creates a service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
-    /// in the master or delegated administrator account of your organization. The service-linked
+    /// in the management or delegated administrator account of your organization. The service-linked
     /// role is created only when the role does not exist in the caller account. Config verifies
     /// the existence of role with <code>GetRole</code> action.
     /// </para><para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// GitHub Repository</a>) is a policy-as-code language that allows you to write policies
     /// that are enforced by Config Custom Policy rules. Lambda uses custom code that you
     /// upload to evaluate a custom rule. If you are adding a new Custom Lambda rule, you
-    /// first need to create an Lambda function in the master account or a delegated administrator
+    /// first need to create an Lambda function in the management account or a delegated administrator
     /// that the rule invokes to evaluate your resources. You also need to create an IAM role
     /// in the managed account that can be assumed by the Lambda function. When you use <code>PutOrganizationConfigRule</code>
     /// to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN)

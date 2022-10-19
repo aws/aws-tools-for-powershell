@@ -80,6 +80,13 @@ $MBC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ManagedBlockchain.AccessorType
+        "New-MBCAccessor/AccessorType"
+        {
+            $v = "BILLING_TOKEN"
+            break
+        }
+
         # Amazon.ManagedBlockchain.Edition
         "New-MBCNetwork/FrameworkConfiguration_Fabric_Edition"
         {
@@ -148,6 +155,7 @@ $MBC_Completers = {
 }
 
 $MBC_map = @{
+    "AccessorType"=@("New-MBCAccessor")
     "Framework"=@("Get-MBCNetworkList","New-MBCNetwork")
     "FrameworkConfiguration_Fabric_Edition"=@("New-MBCNetwork")
     "NodeConfiguration_StateDB"=@("New-MBCNode")
@@ -206,16 +214,20 @@ $MBC_SelectCompleters = {
 }
 
 $MBC_SelectMap = @{
-    "Select"=@("New-MBCMember",
+    "Select"=@("New-MBCAccessor",
+               "New-MBCMember",
                "New-MBCNetwork",
                "New-MBCNode",
                "New-MBCProposal",
+               "Remove-MBCAccessor",
                "Remove-MBCMember",
                "Remove-MBCNode",
+               "Get-MBCAccessor",
                "Get-MBCMember",
                "Get-MBCNetwork",
                "Get-MBCNode",
                "Get-MBCProposal",
+               "Get-MBCAccessorList",
                "Get-MBCInvitationList",
                "Get-MBCMemberList",
                "Get-MBCNetworkList",

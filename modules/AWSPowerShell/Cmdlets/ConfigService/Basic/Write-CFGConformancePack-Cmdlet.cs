@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Creates or updates a conformance pack. A conformance pack is a collection of Config
-    /// rules that can be easily deployed in an account and a region and across Amazon Web
-    /// Services Organization. For information on how many conformance packs you can have
-    /// per account, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"><b>Service Limits</b></a> in the Config Developer Guide.
+    /// rules that can be easily deployed in an account and a region and across an organization.
+    /// For information on how many conformance packs you can have per account, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html"><b>Service Limits</b></a> in the Config Developer Guide.
     /// 
     ///  
     /// <para>
@@ -39,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// in your account. The service-linked role is created only when the role does not exist
     /// in your account. 
     /// </para><note><para>
-    /// You must specify one and only one of the<code>TemplateS3Uri</code>, <code>TemplateBody</code>
-    /// or <code>TemplateSSMDocumentDetails</code> parameters.
+    /// You must specify only one of the follow parameters: <code>TemplateS3Uri</code>, <code>TemplateBody</code>
+    /// or <code>TemplateSSMDocumentDetails</code>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -105,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance
-        /// pack. If you use the Document Name, Config checks only your account and region for
-        /// the SSM document. If you want to use an SSM document from another region or account,
-        /// you must provide the ARN.</para>
+        /// pack. If you use the document name, Config checks only your account and Amazon Web
+        /// Services Region for the SSM document. If you want to use an SSM document from another
+        /// Region or account, you must provide the ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>A string containing the full conformance pack template body. The structure containing
-        /// the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can only use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>)
+        /// the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</para><note><para>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>)
         /// and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</para></note>
         /// </para>
         /// </summary>
@@ -142,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The location of the file containing the template body (<code>s3://bucketname/prefix</code>).
         /// The uri must point to a conformance pack template (max size: 300 KB) that is located
-        /// in an Amazon S3 bucket in the same region as the conformance pack. </para><note><para>You must have access to read Amazon S3 bucket.</para></note>
+        /// in an Amazon S3 bucket in the same Region as the conformance pack. </para><note><para>You must have access to read Amazon S3 bucket.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

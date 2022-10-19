@@ -20,6 +20,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccessor" OutputProperty="*" Verb="New" Noun="Accessor" ShouldProcessTarget="AccessorType" PipelineParameter="AccessorType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMember" OutputProperty="MemberId" Verb="New" Noun="Member" ShouldProcessTarget="MemberConfiguration_Name" PipelineParameter="MemberConfiguration_Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -36,11 +40,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessor" Verb="Remove" Noun="Accessor" ShouldProcessTarget="AccessorId" PipelineParameter="AccessorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNode" Verb="Remove" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessor" OutputProperty="Accessor" Verb="Get" Noun="Accessor" PipelineParameter="AccessorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -57,6 +69,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetProposal" OutputProperty="Proposal" Verb="Get" Noun="Proposal" PipelineParameter="ProposalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessors" OutputProperty="Accessors" Verb="Get" Noun="AccessorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -160,6 +160,7 @@ $SUP_SelectMap = @{
                "Get-SUPSlackChannelConfigurationList",
                "Get-SUPSlackWorkspaceConfigurationList",
                "Set-SUPAccountAlias",
+               "Register-SUPSlackWorkspaceForOrganization",
                "Update-SUPSlackChannelConfiguration")
 }
 

@@ -134,8 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. If a create request is received more than once with same client token,
-        /// subsequent requests return the previous response without creating a vocabulary again.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>. If a create request is received more than once
+        /// with same client token, subsequent requests return the previous response without creating
+        /// a vocabulary again.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

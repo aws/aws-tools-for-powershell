@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Starts a CloudTrail Lake query. The required <code>QueryStatement</code> parameter
-    /// provides your SQL query, enclosed in single quotation marks.
+    /// provides your SQL query, enclosed in single quotation marks. Use the optional <code>DeliveryS3Uri</code>
+    /// parameter to deliver the query results to an S3 bucket.
     /// </summary>
     [Cmdlet("Start", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -40,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
     )]
     public partial class StartCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeliveryS3Uri
+        /// <summary>
+        /// <para>
+        /// <para> The URI for the S3 bucket where CloudTrail delivers the query results. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeliveryS3Uri { get; set; }
+        #endregion
         
         #region Parameter QueryStatement
         /// <summary>
@@ -119,6 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = (response, cmdlet) => this.QueryStatement;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DeliveryS3Uri = this.DeliveryS3Uri;
             context.QueryStatement = this.QueryStatement;
             #if MODULAR
             if (this.QueryStatement == null && ParameterWasBound(nameof(this.QueryStatement)))
@@ -142,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request
             var request = new Amazon.CloudTrail.Model.StartQueryRequest();
             
+            if (cmdletContext.DeliveryS3Uri != null)
+            {
+                request.DeliveryS3Uri = cmdletContext.DeliveryS3Uri;
+            }
             if (cmdletContext.QueryStatement != null)
             {
                 request.QueryStatement = cmdletContext.QueryStatement;
@@ -207,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DeliveryS3Uri { get; set; }
             public System.String QueryStatement { get; set; }
             public System.Func<Amazon.CloudTrail.Model.StartQueryResponse, StartCTQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueryId;

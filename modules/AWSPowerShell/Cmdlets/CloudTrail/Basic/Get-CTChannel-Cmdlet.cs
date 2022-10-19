@@ -28,8 +28,10 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Returns the specified CloudTrail service-linked channel. Amazon Web Services services
-    /// create service-linked channels to view CloudTrail events.
+    /// Returns information about a specific channel. Amazon Web Services services create
+    /// service-linked channels to get information about CloudTrail events on your behalf.
+    /// For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
+    /// service-linked channels for CloudTrail by using the CLI.</a>.
     /// </summary>
     [Cmdlet("Get", "CTChannel")]
     [OutputType("Amazon.CloudTrail.Model.GetChannelResponse")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Channel
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the CloudTrail service-linked channel. </para>
+        /// <para>The ARN or <code>UUID</code> of a channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

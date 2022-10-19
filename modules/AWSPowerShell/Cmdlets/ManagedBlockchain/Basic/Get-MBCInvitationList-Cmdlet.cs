@@ -28,7 +28,7 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Returns a list of all invitations for the current AWS account.
+    /// Returns a list of all invitations for the current Amazon Web Services account.
     /// 
     ///  
     /// <para>

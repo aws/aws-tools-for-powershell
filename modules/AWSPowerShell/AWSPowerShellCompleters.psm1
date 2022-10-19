@@ -12041,7 +12041,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::AccessAnalyzer::Analyzer","AWS::ACM::Certificate","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::Athena::DataCatalog","AWS::Athena::WorkGroup","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::Batch::ComputeEnvironment","AWS::Batch::JobQueue","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::CodeDeploy::Application","AWS::CodeDeploy::DeploymentConfig","AWS::CodeDeploy::DeploymentGroup","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::Detective::Graph","AWS::DMS::Certificate","AWS::DMS::EventSubscription","AWS::DMS::ReplicationSubnetGroup","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::LaunchTemplate","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::TransitGateway","AWS::EC2::TransitGatewayAttachment","AWS::EC2::TransitGatewayRouteTable","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::PublicRepository","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Cluster","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::Listener","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::EMR::SecurityConfiguration","AWS::GlobalAccelerator::Accelerator","AWS::GlobalAccelerator::EndpointGroup","AWS::GlobalAccelerator::Listener","AWS::GuardDuty::Detector","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::OpenSearch::Domain","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::Route53Resolver::ResolverEndpoint","AWS::Route53Resolver::ResolverRule","AWS::Route53Resolver::ResolverRuleAssociation","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::SageMaker::CodeRepository","AWS::SageMaker::Model","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::StepFunctions::Activity","AWS::StepFunctions::StateMachine","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::WorkSpaces::ConnectionAlias","AWS::WorkSpaces::Workspace","AWS::XRay::EncryptionConfig"
+            $v = "AWS::AccessAnalyzer::Analyzer","AWS::ACM::Certificate","AWS::ApiGateway::RestApi","AWS::ApiGateway::Stage","AWS::ApiGatewayV2::Api","AWS::ApiGatewayV2::Stage","AWS::AppConfig::Application","AWS::AppSync::GraphQLApi","AWS::Athena::DataCatalog","AWS::Athena::WorkGroup","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::Backup::BackupPlan","AWS::Backup::BackupSelection","AWS::Backup::BackupVault","AWS::Backup::RecoveryPoint","AWS::Batch::ComputeEnvironment","AWS::Batch::JobQueue","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::CodeDeploy::Application","AWS::CodeDeploy::DeploymentConfig","AWS::CodeDeploy::DeploymentGroup","AWS::CodePipeline::Pipeline","AWS::Config::ConformancePackCompliance","AWS::Config::ResourceCompliance","AWS::DataSync::LocationEFS","AWS::DataSync::LocationFSxLustre","AWS::DataSync::LocationNFS","AWS::DataSync::LocationS3","AWS::DataSync::LocationSMB","AWS::DataSync::Task","AWS::Detective::Graph","AWS::DMS::Certificate","AWS::DMS::EventSubscription","AWS::DMS::ReplicationSubnetGroup","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EgressOnlyInternetGateway","AWS::EC2::EIP","AWS::EC2::FlowLog","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::LaunchTemplate","AWS::EC2::NatGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInsightsAccessScopeAnalysis","AWS::EC2::NetworkInterface","AWS::EC2::RegisteredHAInstance","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::TransitGateway","AWS::EC2::TransitGatewayAttachment","AWS::EC2::TransitGatewayRouteTable","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPCEndpoint","AWS::EC2::VPCEndpointService","AWS::EC2::VPCPeeringConnection","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ECR::PublicRepository","AWS::ECR::Repository","AWS::ECS::Cluster","AWS::ECS::Service","AWS::ECS::TaskDefinition","AWS::EFS::AccessPoint","AWS::EFS::FileSystem","AWS::EKS::Cluster","AWS::EKS::FargateProfile","AWS::ElasticBeanstalk::Application","AWS::ElasticBeanstalk::ApplicationVersion","AWS::ElasticBeanstalk::Environment","AWS::ElasticLoadBalancing::LoadBalancer","AWS::ElasticLoadBalancingV2::Listener","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::Elasticsearch::Domain","AWS::EMR::SecurityConfiguration","AWS::GlobalAccelerator::Accelerator","AWS::GlobalAccelerator::EndpointGroup","AWS::GlobalAccelerator::Listener","AWS::Glue::Job","AWS::GuardDuty::Detector","AWS::GuardDuty::IPSet","AWS::GuardDuty::ThreatIntelSet","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::MSK::Cluster","AWS::NetworkFirewall::Firewall","AWS::NetworkFirewall::FirewallPolicy","AWS::NetworkFirewall::RuleGroup","AWS::OpenSearch::Domain","AWS::QLDB::Ledger","AWS::RDS::DBCluster","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::Route53::HostedZone","AWS::Route53Resolver::ResolverEndpoint","AWS::Route53Resolver::ResolverRule","AWS::Route53Resolver::ResolverRuleAssociation","AWS::S3::AccountPublicAccessBlock","AWS::S3::Bucket","AWS::SageMaker::CodeRepository","AWS::SageMaker::Model","AWS::SageMaker::NotebookInstanceLifecycleConfig","AWS::SageMaker::Workteam","AWS::SecretsManager::Secret","AWS::ServiceCatalog::CloudFormationProduct","AWS::ServiceCatalog::CloudFormationProvisionedProduct","AWS::ServiceCatalog::Portfolio","AWS::ServiceDiscovery::PublicDnsNamespace","AWS::ServiceDiscovery::Service","AWS::SES::ConfigurationSet","AWS::SES::ContactList","AWS::Shield::Protection","AWS::ShieldRegional::Protection","AWS::SNS::Topic","AWS::SQS::Queue","AWS::SSM::AssociationCompliance","AWS::SSM::FileData","AWS::SSM::ManagedInstanceInventory","AWS::SSM::PatchCompliance","AWS::StepFunctions::Activity","AWS::StepFunctions::StateMachine","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::RuleGroup","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::RuleGroup","AWS::WAFRegional::WebACL","AWS::WAFv2::IPSet","AWS::WAFv2::ManagedRuleSet","AWS::WAFv2::RegexPatternSet","AWS::WAFv2::RuleGroup","AWS::WAFv2::WebACL","AWS::WorkSpaces::ConnectionAlias","AWS::WorkSpaces::Workspace","AWS::XRay::EncryptionConfig"
             break
         }
 
@@ -12564,6 +12564,7 @@ $CONN_SelectMap = @{
                "New-CONNRoutingProfile",
                "New-CONNSecurityProfile",
                "New-CONNTaskTemplate",
+               "New-CONNTrafficDistributionGroup",
                "New-CONNUseCase",
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
@@ -12576,6 +12577,7 @@ $CONN_SelectMap = @{
                "Remove-CONNQuickConnect",
                "Remove-CONNSecurityProfile",
                "Remove-CONNTaskTemplate",
+               "Remove-CONNTrafficDistributionGroup",
                "Remove-CONNUseCase",
                "Remove-CONNUser",
                "Remove-CONNUserHierarchyGroup",
@@ -12593,6 +12595,7 @@ $CONN_SelectMap = @{
                "Get-CONNQuickConnect",
                "Get-CONNRoutingProfile",
                "Get-CONNSecurityProfile",
+               "Get-CONNTrafficDistributionGroup",
                "Get-CONNUser",
                "Get-CONNUserHierarchyGroup",
                "Get-CONNUserHierarchyStructure",
@@ -12612,6 +12615,7 @@ $CONN_SelectMap = @{
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
                "Get-CONNTaskTemplate",
+               "Get-CONNTrafficDistribution",
                "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
@@ -12639,11 +12643,13 @@ $CONN_SelectMap = @{
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
                "Get-CONNTaskTemplateList",
+               "Get-CONNTrafficDistributionGroupList",
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
                "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
+               "Copy-CONNInstance",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
                "Search-CONNQueue",
@@ -12689,6 +12695,7 @@ $CONN_SelectMap = @{
                "Update-CONNRoutingProfileQueue",
                "Update-CONNSecurityProfile",
                "Update-CONNTaskTemplate",
+               "Update-CONNTrafficDistribution",
                "Update-CONNUserHierarchy",
                "Update-CONNUserHierarchyGroupName",
                "Update-CONNUserHierarchyStructure",
@@ -33248,6 +33255,13 @@ $MBC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ManagedBlockchain.AccessorType
+        "New-MBCAccessor/AccessorType"
+        {
+            $v = "BILLING_TOKEN"
+            break
+        }
+
         # Amazon.ManagedBlockchain.Edition
         "New-MBCNetwork/FrameworkConfiguration_Fabric_Edition"
         {
@@ -33316,6 +33330,7 @@ $MBC_Completers = {
 }
 
 $MBC_map = @{
+    "AccessorType"=@("New-MBCAccessor")
     "Framework"=@("Get-MBCNetworkList","New-MBCNetwork")
     "FrameworkConfiguration_Fabric_Edition"=@("New-MBCNetwork")
     "NodeConfiguration_StateDB"=@("New-MBCNode")
@@ -33374,16 +33389,20 @@ $MBC_SelectCompleters = {
 }
 
 $MBC_SelectMap = @{
-    "Select"=@("New-MBCMember",
+    "Select"=@("New-MBCAccessor",
+               "New-MBCMember",
                "New-MBCNetwork",
                "New-MBCNode",
                "New-MBCProposal",
+               "Remove-MBCAccessor",
                "Remove-MBCMember",
                "Remove-MBCNode",
+               "Get-MBCAccessor",
                "Get-MBCMember",
                "Get-MBCNetwork",
                "Get-MBCNode",
                "Get-MBCProposal",
+               "Get-MBCAccessorList",
                "Get-MBCInvitationList",
                "Get-MBCMemberList",
                "Get-MBCNetworkList",
@@ -50472,6 +50491,7 @@ $SUP_SelectMap = @{
                "Get-SUPSlackChannelConfigurationList",
                "Get-SUPSlackWorkspaceConfigurationList",
                "Set-SUPAccountAlias",
+               "Register-SUPSlackWorkspaceForOrganization",
                "Update-SUPSlackChannelConfiguration")
 }
 
@@ -53698,22 +53718,26 @@ $WSW_SelectMap = @{
     "Select"=@("Register-WSWBrowserSetting",
                "Register-WSWNetworkSetting",
                "Register-WSWTrustStore",
+               "Register-WSWUserAccessLoggingSetting",
                "Register-WSWUserSetting",
                "New-WSWBrowserSetting",
                "New-WSWIdentityProvider",
                "New-WSWNetworkSetting",
                "New-WSWPortal",
                "New-WSWTrustStore",
+               "New-WSWUserAccessLoggingSetting",
                "New-WSWUserSetting",
                "Remove-WSWBrowserSetting",
                "Remove-WSWIdentityProvider",
                "Remove-WSWNetworkSetting",
                "Remove-WSWPortal",
                "Remove-WSWTrustStore",
+               "Remove-WSWUserAccessLoggingSetting",
                "Remove-WSWUserSetting",
                "Unregister-WSWBrowserSetting",
                "Unregister-WSWNetworkSetting",
                "Unregister-WSWTrustStore",
+               "Unregister-WSWUserAccessLoggingSetting",
                "Unregister-WSWUserSetting",
                "Get-WSWBrowserSetting",
                "Get-WSWIdentityProvider",
@@ -53722,6 +53746,7 @@ $WSW_SelectMap = @{
                "Get-WSWPortalServiceProviderMetadata",
                "Get-WSWTrustStore",
                "Get-WSWTrustStoreCertificate",
+               "Get-WSWUserAccessLoggingSetting",
                "Get-WSWUserSetting",
                "Get-WSWBrowserSettingList",
                "Get-WSWIdentityProviderList",
@@ -53730,6 +53755,7 @@ $WSW_SelectMap = @{
                "Get-WSWResourceTag",
                "Get-WSWTrustStoreCertificateList",
                "Get-WSWTrustStoreList",
+               "Get-WSWUserAccessLoggingSettingList",
                "Get-WSWUserSettingList",
                "Add-WSWResourceTag",
                "Remove-WSWResourceTag",
@@ -53738,6 +53764,7 @@ $WSW_SelectMap = @{
                "Update-WSWNetworkSetting",
                "Update-WSWPortal",
                "Update-WSWTrustStore",
+               "Update-WSWUserAccessLoggingSetting",
                "Update-WSWUserSetting")
 }
 

@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateUserAccessLoggingSettings" OutputProperty="*" Verb="Register" Noun="UserAccessLoggingSetting" AnonymousShouldProcessTarget="true" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateUserSettings" OutputProperty="*" Verb="Register" Noun="UserSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrustStore" OutputProperty="TrustStoreArn" Verb="New" Noun="TrustStore" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettingsArn" Verb="New" Noun="UserAccessLoggingSetting" ShouldProcessTarget="KinesisStreamArn" PipelineParameter="KinesisStreamArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -78,6 +86,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserAccessLoggingSettings" Verb="Remove" Noun="UserAccessLoggingSetting" ShouldProcessTarget="UserAccessLoggingSettingsArn" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUserSettings" Verb="Remove" Noun="UserSetting" ShouldProcessTarget="UserSettingsArn" PipelineParameter="UserSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -91,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateTrustStore" Verb="Unregister" Noun="TrustStore" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateUserAccessLoggingSettings" Verb="Unregister" Noun="UserAccessLoggingSetting" ShouldProcessTarget="PortalArn" PipelineParameter="PortalArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,6 +142,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Get" Noun="UserAccessLoggingSetting" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUserSettings" OutputProperty="UserSettings" Verb="Get" Noun="UserSetting" PipelineParameter="UserSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -158,6 +178,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Get" Noun="UserAccessLoggingSettingList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUserSettings" OutputProperty="UserSettings" Verb="Get" Noun="UserSettingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -187,6 +211,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrustStore" OutputProperty="TrustStoreArn" Verb="Update" Noun="TrustStore" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserAccessLoggingSettings" OutputProperty="UserAccessLoggingSettings" Verb="Update" Noun="UserAccessLoggingSetting" ShouldProcessTarget="UserAccessLoggingSettingsArn" PipelineParameter="UserAccessLoggingSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

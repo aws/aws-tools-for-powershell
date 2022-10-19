@@ -28,8 +28,15 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Updates your claimed phone number from its current Amazon Connect instance to another
-    /// Amazon Connect instance in the same Region.
+    /// Updates your claimed phone number from its current Amazon Connect instance or traffic
+    /// distribution group to another Amazon Connect instance or traffic distribution group
+    /// in the same Amazon Web Services Region.
+    /// 
+    ///  <important><para>
+    /// You can call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a>
+    /// API to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html">UpdatePhoneNumber</a>
+    /// operation.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "CONNPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.UpdatePhoneNumberResponse")]
@@ -60,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are
-        /// claimed to.</para>
+        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
+        /// groups that phone numbers are claimed to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

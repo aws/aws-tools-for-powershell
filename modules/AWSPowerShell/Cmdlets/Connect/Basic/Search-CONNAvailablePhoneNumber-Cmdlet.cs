@@ -28,7 +28,10 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Searches for available phone numbers that you can claim to your Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches for available phone numbers that you can claim to your Amazon Connect instance
+    /// or traffic distribution group. If the provided <code>TargetArn</code> is a traffic
+    /// distribution group, you can call this API in both Amazon Web Services Regions associated
+    /// with the traffic distribution group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNAvailablePhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.AvailableNumberSummary")]
@@ -88,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are
-        /// claimed to.</para>
+        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
+        /// groups that phone numbers are claimed to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

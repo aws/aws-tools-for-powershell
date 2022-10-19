@@ -28,7 +28,10 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Lists phone numbers claimed to your Amazon Connect instance. 
+    /// Lists phone numbers claimed to your Amazon Connect instance or traffic distribution
+    /// group. If the provided <code>TargetArn</code> is a traffic distribution group, you
+    /// can call this API in both Amazon Web Services Regions associated with traffic distribution
+    /// group.
     /// 
     ///  
     /// <para>
@@ -83,9 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are
-        /// claimed to. If <code>TargetArn</code> input is not provided, this API lists numbers
-        /// claimed to all the Amazon Connect instances belonging to your account.</para>
+        /// <para>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution
+        /// groups that phone numbers are claimed to. If <code>TargetArn</code> input is not provided,
+        /// this API lists numbers claimed to all the Amazon Connect instances belonging to your
+        /// account in the same Amazon Web Services Region as the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

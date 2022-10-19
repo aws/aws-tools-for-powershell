@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para> The destination event data store. </para>
+        /// <para> The ARN of the destination event data store. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

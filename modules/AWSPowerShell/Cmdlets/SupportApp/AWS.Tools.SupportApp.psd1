@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SUPSlackChannelConfigurationList', 
         'Get-SUPSlackWorkspaceConfigurationList', 
         'New-SUPSlackChannelConfiguration', 
+        'Register-SUPSlackWorkspaceForOrganization', 
         'Remove-SUPAccountAlias', 
         'Remove-SUPSlackChannelConfiguration', 
         'Remove-SUPSlackWorkspaceConfiguration', 

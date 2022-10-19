@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter LexRegion
         /// <summary>
         /// <para>
-        /// <para>The Region in which the Amazon Lex bot has been created.</para>
+        /// <para>The Amazon Web Services Region in which the Amazon Lex bot has been created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

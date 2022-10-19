@@ -112,6 +112,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrafficDistributionGroup" OutputProperty="*" Verb="New" Noun="TrafficDistributionGroup" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUseCase" OutputProperty="*" Verb="New" Noun="UseCase" ShouldProcessTarget="UseCaseType" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -157,6 +161,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTaskTemplate" Verb="Remove" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrafficDistributionGroup" Verb="Remove" Noun="TrafficDistributionGroup" ShouldProcessTarget="TrafficDistributionGroupId" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,6 +233,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityProfile" OutputProperty="SecurityProfile" Verb="Get" Noun="SecurityProfile" PipelineParameter="SecurityProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrafficDistributionGroup" OutputProperty="TrafficDistributionGroup" Verb="Get" Noun="TrafficDistributionGroup" PipelineParameter="TrafficDistributionGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -301,6 +313,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTaskTemplate" OutputProperty="*" Verb="Get" Noun="TaskTemplate" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrafficDistribution" OutputProperty="*" Verb="Get" Noun="TrafficDistribution" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -412,6 +428,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrafficDistributionGroups" OutputProperty="TrafficDistributionGroupSummaryList" Verb="Get" Noun="TrafficDistributionGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUseCases" OutputProperty="UseCaseSummaryList" Verb="Get" Noun="UseCaseList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -429,6 +449,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReleasePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplicateInstance" OutputProperty="*" Verb="Copy" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -642,6 +666,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTaskTemplate" OutputProperty="*" Verb="Update" Noun="TaskTemplate" ShouldProcessTarget="TaskTemplateId" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrafficDistribution" Verb="Update" Noun="TrafficDistribution" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

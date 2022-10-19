@@ -73,10 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the operation. An idempotent operation completes no more than one time. This identifier
+        /// <para>This is a unique, case-sensitive identifier that you provide to ensure the idempotency
+        /// of the operation. An idempotent operation completes no more than once. This identifier
         /// is required only if you make a service request directly using an HTTP client. It is
-        /// generated automatically if you use an AWS SDK or the AWS CLI.</para>
+        /// generated automatically if you use an Amazon Web Services SDK or the Amazon Web Services
+        /// CLI. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,13 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter MemberConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the customer managed key in AWS Key Management Service
-        /// (AWS KMS) to use for encryption at rest in the member. This parameter is inherited
-        /// by any nodes that this member creates.</para><para>Use one of the following options to specify this parameter:</para><ul><li><para><b>Undefined or empty string</b> - The member uses an AWS owned KMS key for encryption
-        /// by default.</para></li><li><para><b>A valid symmetric customer managed KMS key</b> - The member uses the specified
-        /// key for encryption.</para><para>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see
+        /// <para>The Amazon Resource Name (ARN) of the customer managed key in Key Management Service
+        /// (KMS) to use for encryption at rest in the member. This parameter is inherited by
+        /// any nodes that this member creates. For more information, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html">Encryption
+        /// at Rest</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para><para>Use one of the following options to specify this parameter:</para><ul><li><para><b>Undefined or empty string</b> - By default, use an KMS key that is owned and managed
+        /// by Amazon Web Services on your behalf.</para></li><li><para><b>A valid symmetric customer managed KMS key</b> - Use the specified KMS key in
+        /// your account that you create, own, and manage.</para><para>Amazon Managed Blockchain doesn't support asymmetric keys. For more information, see
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
-        /// symmetric and asymmetric keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
+        /// symmetric and asymmetric keys</a> in the <i>Key Management Service Developer Guide</i>.</para><para>The following is an example of a KMS key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>The duration from the time that a proposal is created until it expires. If members
         /// cast neither the required number of <code>YES</code> votes to approve the proposal
         /// nor the number of <code>NO</code> votes required to reject it before the duration
-        /// expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> are
-        /// not carried out.</para>
+        /// expires, the proposal is <code>EXPIRED</code> and <code>ProposalActions</code> aren't
+        /// carried out.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

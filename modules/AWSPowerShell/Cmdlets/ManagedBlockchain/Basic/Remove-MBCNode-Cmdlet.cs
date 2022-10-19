@@ -28,8 +28,8 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Deletes a node that your AWS account owns. All data on the node is lost and cannot
-    /// be recovered.
+    /// Deletes a node that your Amazon Web Services account owns. All data on the node is
+    /// lost and cannot be recovered.
     /// 
     ///  
     /// <para>

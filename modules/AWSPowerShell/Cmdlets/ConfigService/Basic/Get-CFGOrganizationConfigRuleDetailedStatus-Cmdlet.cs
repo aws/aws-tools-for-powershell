@@ -54,11 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_MemberAccountRuleStatus
         /// <summary>
         /// <para>
-        /// <para>Indicates deployment status for Config rule in the member account. When master account
-        /// calls <code>PutOrganizationConfigRule</code> action for the first time, Config rule
-        /// status is created in the member account. When master account calls <code>PutOrganizationConfigRule</code>
+        /// <para>Indicates deployment status for Config rule in the member account. When management
+        /// account calls <code>PutOrganizationConfigRule</code> action for the first time, Config
+        /// rule status is created in the member account. When management account calls <code>PutOrganizationConfigRule</code>
         /// action for the second time, Config rule status is updated in the member account. Config
-        /// rule status is deleted when the master account deletes <code>OrganizationConfigRule</code>
+        /// rule status is deleted when the management account deletes <code>OrganizationConfigRule</code>
         /// and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
         /// </para><para>Config sets the state of the rule to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account.</para></li><li><para><code>CREATE_IN_PROGRESS</code> when Config rule is being created in the member account.</para></li><li><para><code>CREATE_FAILED</code> when Config rule creation has failed in the member account.</para></li><li><para><code>DELETE_FAILED</code> when Config rule deletion has failed in the member account.</para></li><li><para><code>DELETE_IN_PROGRESS</code> when Config rule is being deleted in the member account.</para></li><li><para><code>DELETE_SUCCESSFUL</code> when Config rule has been deleted in the member account.</para></li><li><para><code>UPDATE_SUCCESSFUL</code> when Config rule has been updated in the member account.</para></li><li><para><code>UPDATE_IN_PROGRESS</code> when Config rule is being updated in the member account.</para></li><li><para><code>UPDATE_FAILED</code> when Config rule deletion has failed in the member account.</para></li></ul>
         /// </para>

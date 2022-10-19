@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SUP
         #region Parameter TeamId
         /// <summary>
         /// <para>
-        /// <para>The team ID in Slack. This ID uniquely identifies a Slack workspace.</para>
+        /// <para>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

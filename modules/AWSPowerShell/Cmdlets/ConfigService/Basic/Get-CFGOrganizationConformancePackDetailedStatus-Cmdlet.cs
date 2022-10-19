@@ -72,13 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_Status
         /// <summary>
         /// <para>
-        /// <para>Indicates deployment status for conformance pack in a member account. When master
+        /// <para>Indicates deployment status for conformance pack in a member account. When management
         /// account calls <code>PutOrganizationConformancePack</code> action for the first time,
-        /// conformance pack status is created in the member account. When master account calls
-        /// <code>PutOrganizationConformancePack</code> action for the second time, conformance
+        /// conformance pack status is created in the member account. When management account
+        /// calls <code>PutOrganizationConformancePack</code> action for the second time, conformance
         /// pack status is updated in the member account. Conformance pack status is deleted when
-        /// the master account deletes <code>OrganizationConformancePack</code> and disables service
-        /// access for <code>config-multiaccountsetup.amazonaws.com</code>. </para><para> Config sets the state of the conformance pack to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member
+        /// the management account deletes <code>OrganizationConformancePack</code> and disables
+        /// service access for <code>config-multiaccountsetup.amazonaws.com</code>. </para><para> Config sets the state of the conformance pack to:</para><ul><li><para><code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member
         /// account. </para></li><li><para><code>CREATE_IN_PROGRESS</code> when conformance pack is being created in the member
         /// account.</para></li><li><para><code>CREATE_FAILED</code> when conformance pack creation has failed in the member
         /// account.</para></li><li><para><code>DELETE_FAILED</code> when conformance pack deletion has failed in the member

@@ -28,7 +28,10 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Returns all CloudTrail channels.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the channels in the current account, and their source names. Amazon Web Services
+    /// services create service-linked channels get information about CloudTrail events on
+    /// your behalf. For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
+    /// service-linked channels for CloudTrail by using the CLI</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTChannelSummary")]
     [OutputType("Amazon.CloudTrail.Model.Channel")]
@@ -54,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token you can use to get the next page of results. </para>
+        /// <para>The token to use to get the next page of results after a previous API call. This token
+        /// must be passed in with the same parameters that were specified in the original call.
+        /// For example, if the original call specified an AttributeKey of 'Username' with a value
+        /// of 'root', the call with NextToken should include those same parameters.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

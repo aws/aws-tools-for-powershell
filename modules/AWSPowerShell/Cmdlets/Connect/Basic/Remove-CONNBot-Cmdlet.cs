@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter LexBot_LexRegion
         /// <summary>
         /// <para>
-        /// <para>The Region that the Amazon Lex bot was created in.</para>
+        /// <para>The Amazon Web Services Region where the Amazon Lex bot was created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

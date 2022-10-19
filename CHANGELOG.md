@@ -1,4 +1,32 @@
-﻿### 4.1.188 (2022-10-18 20:30Z)
+﻿### 4.1.189 (2022-10-19 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.377.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudTrail
+    * Modified cmdlet Start-CTQuery: added parameter DeliveryS3Uri.
+  * Amazon Connect Service
+    * Added cmdlet Copy-CONNInstance leveraging the ReplicateInstance service API.
+    * Added cmdlet Get-CONNTrafficDistribution leveraging the GetTrafficDistribution service API.
+    * Added cmdlet Get-CONNTrafficDistributionGroup leveraging the DescribeTrafficDistributionGroup service API.
+    * Added cmdlet Get-CONNTrafficDistributionGroupList leveraging the ListTrafficDistributionGroups service API.
+    * Added cmdlet New-CONNTrafficDistributionGroup leveraging the CreateTrafficDistributionGroup service API.
+    * Added cmdlet Remove-CONNTrafficDistributionGroup leveraging the DeleteTrafficDistributionGroup service API.
+    * Added cmdlet Update-CONNTrafficDistribution leveraging the UpdateTrafficDistribution service API.
+  * Amazon Managed Blockchain
+    * Added cmdlet Get-MBCAccessor leveraging the GetAccessor service API.
+    * Added cmdlet Get-MBCAccessorList leveraging the ListAccessors service API.
+    * Added cmdlet New-MBCAccessor leveraging the CreateAccessor service API.
+    * Added cmdlet Remove-MBCAccessor leveraging the DeleteAccessor service API.
+  * Amazon Support App
+    * Added cmdlet Register-SUPSlackWorkspaceForOrganization leveraging the RegisterSlackWorkspaceForOrganization service API.
+  * Amazon WorkSpaces Web
+    * Added cmdlet Get-WSWUserAccessLoggingSetting leveraging the GetUserAccessLoggingSettings service API.
+    * Added cmdlet Get-WSWUserAccessLoggingSettingList leveraging the ListUserAccessLoggingSettings service API.
+    * Added cmdlet New-WSWUserAccessLoggingSetting leveraging the CreateUserAccessLoggingSettings service API.
+    * Added cmdlet Register-WSWUserAccessLoggingSetting leveraging the AssociateUserAccessLoggingSettings service API.
+    * Added cmdlet Remove-WSWUserAccessLoggingSetting leveraging the DeleteUserAccessLoggingSettings service API.
+    * Added cmdlet Unregister-WSWUserAccessLoggingSetting leveraging the DisassociateUserAccessLoggingSettings service API.
+    * Added cmdlet Update-WSWUserAccessLoggingSetting leveraging the UpdateUserAccessLoggingSettings service API.
+
+### 4.1.188 (2022-10-18 20:30Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.376.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon SageMaker Service
     * Modified cmdlet New-SMDataQualityJobDefinition: added parameters BatchTransformInput_DataCapturedDestinationS3Uri, BatchTransformInput_EndTimeOffset, BatchTransformInput_FeaturesAttribute, BatchTransformInput_InferenceAttribute, BatchTransformInput_LocalPath, BatchTransformInput_ProbabilityAttribute, BatchTransformInput_ProbabilityThresholdAttribute, BatchTransformInput_S3DataDistributionType, BatchTransformInput_S3InputMode, BatchTransformInput_StartTimeOffset, Csv_Header, DatasetFormat_Parquet and Json_Line.

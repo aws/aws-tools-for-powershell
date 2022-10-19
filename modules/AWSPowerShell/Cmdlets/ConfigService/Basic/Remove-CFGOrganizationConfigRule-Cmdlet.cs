@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// Only a master account and a delegated administrator account can delete an organization
+    /// Only a management account and a delegated administrator account can delete an organization
     /// Config rule. When calling this API with a delegated administrator, you must ensure
     /// Organizations <code>ListDelegatedAdministrator</code> permissions are added.
     /// </para><para>

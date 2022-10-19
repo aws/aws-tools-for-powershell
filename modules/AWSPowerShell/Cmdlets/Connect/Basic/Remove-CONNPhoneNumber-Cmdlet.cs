@@ -28,7 +28,18 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Releases a phone number previously claimed to an Amazon Connect instance.
+    /// Releases a phone number previously claimed to an Amazon Connect instance or traffic
+    /// distribution group. You can call this API only in the Amazon Web Services Region where
+    /// the number was claimed.
+    /// 
+    ///  <important><para>
+    /// To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code>
+    /// API, not the Amazon Connect console.
+    /// </para><para>
+    /// After releasing a phone number, the phone number enters into a cooldown period of
+    /// 30 days. It cannot be searched for or claimed again until the period has ended. If
+    /// you accidentally release a phone number, contact Amazon Web Services Support.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "CONNPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -61,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

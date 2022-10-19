@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
         /// the operation. An idempotent operation completes no more than one time. This identifier
         /// is required only if you make a service request directly using an HTTP client. It is
-        /// generated automatically if you use an AWS SDK or the AWS CLI.</para>
+        /// generated automatically if you use an Amazon Web Services SDK or the CLI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter Actions_Invitation
         /// <summary>
         /// <para>
-        /// <para> The actions to perform for an <code>APPROVED</code> proposal to invite an AWS account
-        /// to create a member and join the network. </para>
+        /// <para> The actions to perform for an <code>APPROVED</code> proposal to invite an Amazon
+        /// Web Services account to create a member and join the network. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <para>
         /// <para>The unique identifier of the member that is creating the proposal. This identifier
         /// is especially useful for identifying the member making the proposal when multiple
-        /// members exist in a single AWS account.</para>
+        /// members exist in a single Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

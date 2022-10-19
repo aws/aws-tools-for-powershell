@@ -4848,6 +4848,8 @@ Set-Alias -Name Create-CONNSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name CONN-CreateSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name Create-CONNTaskTemplate -Value New-CONNTaskTemplate
 Set-Alias -Name CONN-CreateTaskTemplate -Value New-CONNTaskTemplate
+Set-Alias -Name Create-CONNTrafficDistributionGroup -Value New-CONNTrafficDistributionGroup
+Set-Alias -Name CONN-CreateTrafficDistributionGroup -Value New-CONNTrafficDistributionGroup
 Set-Alias -Name Create-CONNUseCase -Value New-CONNUseCase
 Set-Alias -Name CONN-CreateUseCase -Value New-CONNUseCase
 Set-Alias -Name Create-CONNUser -Value New-CONNUser
@@ -4872,6 +4874,8 @@ Set-Alias -Name Delete-CONNSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name CONN-DeleteSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name Delete-CONNTaskTemplate -Value Remove-CONNTaskTemplate
 Set-Alias -Name CONN-DeleteTaskTemplate -Value Remove-CONNTaskTemplate
+Set-Alias -Name Delete-CONNTrafficDistributionGroup -Value Remove-CONNTrafficDistributionGroup
+Set-Alias -Name CONN-DeleteTrafficDistributionGroup -Value Remove-CONNTrafficDistributionGroup
 Set-Alias -Name Delete-CONNUseCase -Value Remove-CONNUseCase
 Set-Alias -Name CONN-DeleteUseCase -Value Remove-CONNUseCase
 Set-Alias -Name Delete-CONNUser -Value Remove-CONNUser
@@ -4906,6 +4910,8 @@ Set-Alias -Name Describe-CONNRoutingProfile -Value Get-CONNRoutingProfile
 Set-Alias -Name CONN-DescribeRoutingProfile -Value Get-CONNRoutingProfile
 Set-Alias -Name Describe-CONNSecurityProfile -Value Get-CONNSecurityProfile
 Set-Alias -Name CONN-DescribeSecurityProfile -Value Get-CONNSecurityProfile
+Set-Alias -Name Describe-CONNTrafficDistributionGroup -Value Get-CONNTrafficDistributionGroup
+Set-Alias -Name CONN-DescribeTrafficDistributionGroup -Value Get-CONNTrafficDistributionGroup
 Set-Alias -Name Describe-CONNUser -Value Get-CONNUser
 Set-Alias -Name CONN-DescribeUser -Value Get-CONNUser
 Set-Alias -Name Describe-CONNUserHierarchyGroup -Value Get-CONNUserHierarchyGroup
@@ -4941,6 +4947,7 @@ Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
 Set-Alias -Name CONN-GetTaskTemplate -Value Get-CONNTaskTemplate
+Set-Alias -Name CONN-GetTrafficDistribution -Value Get-CONNTrafficDistribution
 Set-Alias -Name List-CONNAgentStatuses -Value Get-CONNAgentStatusList
 Set-Alias -Name List-CONNAgentStatusList -Value Get-CONNAgentStatusList
 Set-Alias -Name CONN-ListAgentStatuses -Value Get-CONNAgentStatusList
@@ -5020,6 +5027,9 @@ Set-Alias -Name CONN-ListTagsForResource -Value Get-CONNResourceTag
 Set-Alias -Name List-CONNTaskTemplates -Value Get-CONNTaskTemplateList
 Set-Alias -Name List-CONNTaskTemplateList -Value Get-CONNTaskTemplateList
 Set-Alias -Name CONN-ListTaskTemplates -Value Get-CONNTaskTemplateList
+Set-Alias -Name List-CONNTrafficDistributionGroups -Value Get-CONNTrafficDistributionGroupList
+Set-Alias -Name List-CONNTrafficDistributionGroupList -Value Get-CONNTrafficDistributionGroupList
+Set-Alias -Name CONN-ListTrafficDistributionGroups -Value Get-CONNTrafficDistributionGroupList
 Set-Alias -Name List-CONNUseCases -Value Get-CONNUseCaseList
 Set-Alias -Name List-CONNUseCaseList -Value Get-CONNUseCaseList
 Set-Alias -Name CONN-ListUseCases -Value Get-CONNUseCaseList
@@ -5033,6 +5043,8 @@ Set-Alias -Name Put-CONNUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name CONN-PutUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name Release-CONNPhoneNumber -Value Remove-CONNPhoneNumber
 Set-Alias -Name CONN-ReleasePhoneNumber -Value Remove-CONNPhoneNumber
+Set-Alias -Name Replicate-CONNInstance -Value Copy-CONNInstance
+Set-Alias -Name CONN-ReplicateInstance -Value Copy-CONNInstance
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
@@ -5088,6 +5100,7 @@ Set-Alias -Name Update-CONNRoutingProfileQueues -Value Update-CONNRoutingProfile
 Set-Alias -Name CONN-UpdateRoutingProfileQueues -Value Update-CONNRoutingProfileQueue
 Set-Alias -Name CONN-UpdateSecurityProfile -Value Update-CONNSecurityProfile
 Set-Alias -Name CONN-UpdateTaskTemplate -Value Update-CONNTaskTemplate
+Set-Alias -Name CONN-UpdateTrafficDistribution -Value Update-CONNTrafficDistribution
 Set-Alias -Name CONN-UpdateUserHierarchy -Value Update-CONNUserHierarchy
 Set-Alias -Name CONN-UpdateUserHierarchyGroupName -Value Update-CONNUserHierarchyGroupName
 Set-Alias -Name CONN-UpdateUserHierarchyStructure -Value Update-CONNUserHierarchyStructure
@@ -14614,6 +14627,8 @@ Set-Alias -Name MAC2-UpdateMacieSession -Value Update-MAC2MacieSession
 Set-Alias -Name MAC2-UpdateMemberSession -Value Update-MAC2MemberSession
 Set-Alias -Name MAC2-UpdateOrganizationConfiguration -Value Update-MAC2OrganizationConfiguration
 Set-Alias -Name MAC2-UpdateRevealConfiguration -Value Update-MAC2RevealConfiguration
+Set-Alias -Name Create-MBCAccessor -Value New-MBCAccessor
+Set-Alias -Name MBC-CreateAccessor -Value New-MBCAccessor
 Set-Alias -Name Create-MBCMember -Value New-MBCMember
 Set-Alias -Name MBC-CreateMember -Value New-MBCMember
 Set-Alias -Name Create-MBCNetwork -Value New-MBCNetwork
@@ -14622,14 +14637,20 @@ Set-Alias -Name Create-MBCNode -Value New-MBCNode
 Set-Alias -Name MBC-CreateNode -Value New-MBCNode
 Set-Alias -Name Create-MBCProposal -Value New-MBCProposal
 Set-Alias -Name MBC-CreateProposal -Value New-MBCProposal
+Set-Alias -Name Delete-MBCAccessor -Value Remove-MBCAccessor
+Set-Alias -Name MBC-DeleteAccessor -Value Remove-MBCAccessor
 Set-Alias -Name Delete-MBCMember -Value Remove-MBCMember
 Set-Alias -Name MBC-DeleteMember -Value Remove-MBCMember
 Set-Alias -Name Delete-MBCNode -Value Remove-MBCNode
 Set-Alias -Name MBC-DeleteNode -Value Remove-MBCNode
+Set-Alias -Name MBC-GetAccessor -Value Get-MBCAccessor
 Set-Alias -Name MBC-GetMember -Value Get-MBCMember
 Set-Alias -Name MBC-GetNetwork -Value Get-MBCNetwork
 Set-Alias -Name MBC-GetNode -Value Get-MBCNode
 Set-Alias -Name MBC-GetProposal -Value Get-MBCProposal
+Set-Alias -Name List-MBCAccessors -Value Get-MBCAccessorList
+Set-Alias -Name List-MBCAccessorList -Value Get-MBCAccessorList
+Set-Alias -Name MBC-ListAccessors -Value Get-MBCAccessorList
 Set-Alias -Name List-MBCInvitations -Value Get-MBCInvitationList
 Set-Alias -Name List-MBCInvitationList -Value Get-MBCInvitationList
 Set-Alias -Name MBC-ListInvitations -Value Get-MBCInvitationList
@@ -21853,6 +21874,7 @@ Set-Alias -Name List-SUPSlackWorkspaceConfigurationList -Value Get-SUPSlackWorks
 Set-Alias -Name SUP-ListSlackWorkspaceConfigurations -Value Get-SUPSlackWorkspaceConfigurationList
 Set-Alias -Name Put-SUPAccountAlias -Value Set-SUPAccountAlias
 Set-Alias -Name SUP-PutAccountAlias -Value Set-SUPAccountAlias
+Set-Alias -Name SUP-RegisterSlackWorkspaceForOrganization -Value Register-SUPSlackWorkspaceForOrganization
 Set-Alias -Name SUP-UpdateSlackChannelConfiguration -Value Update-SUPSlackChannelConfiguration
 Set-Alias -Name Count-SWFClosedWorkflowExecutions -Value Get-SWFClosedWorkflowExecutionCount
 Set-Alias -Name Count-SWFClosedWorkflowExecutionCount -Value Get-SWFClosedWorkflowExecutionCount
@@ -23241,6 +23263,9 @@ Set-Alias -Name Associate-WSWNetworkSetting -Value Register-WSWNetworkSetting
 Set-Alias -Name WSW-AssociateNetworkSettings -Value Register-WSWNetworkSetting
 Set-Alias -Name Associate-WSWTrustStore -Value Register-WSWTrustStore
 Set-Alias -Name WSW-AssociateTrustStore -Value Register-WSWTrustStore
+Set-Alias -Name Associate-WSWUserAccessLoggingSettings -Value Register-WSWUserAccessLoggingSetting
+Set-Alias -Name Associate-WSWUserAccessLoggingSetting -Value Register-WSWUserAccessLoggingSetting
+Set-Alias -Name WSW-AssociateUserAccessLoggingSettings -Value Register-WSWUserAccessLoggingSetting
 Set-Alias -Name Associate-WSWUserSettings -Value Register-WSWUserSetting
 Set-Alias -Name Associate-WSWUserSetting -Value Register-WSWUserSetting
 Set-Alias -Name WSW-AssociateUserSettings -Value Register-WSWUserSetting
@@ -23256,6 +23281,9 @@ Set-Alias -Name Create-WSWPortal -Value New-WSWPortal
 Set-Alias -Name WSW-CreatePortal -Value New-WSWPortal
 Set-Alias -Name Create-WSWTrustStore -Value New-WSWTrustStore
 Set-Alias -Name WSW-CreateTrustStore -Value New-WSWTrustStore
+Set-Alias -Name Create-WSWUserAccessLoggingSettings -Value New-WSWUserAccessLoggingSetting
+Set-Alias -Name Create-WSWUserAccessLoggingSetting -Value New-WSWUserAccessLoggingSetting
+Set-Alias -Name WSW-CreateUserAccessLoggingSettings -Value New-WSWUserAccessLoggingSetting
 Set-Alias -Name Create-WSWUserSettings -Value New-WSWUserSetting
 Set-Alias -Name Create-WSWUserSetting -Value New-WSWUserSetting
 Set-Alias -Name WSW-CreateUserSettings -Value New-WSWUserSetting
@@ -23271,6 +23299,9 @@ Set-Alias -Name Delete-WSWPortal -Value Remove-WSWPortal
 Set-Alias -Name WSW-DeletePortal -Value Remove-WSWPortal
 Set-Alias -Name Delete-WSWTrustStore -Value Remove-WSWTrustStore
 Set-Alias -Name WSW-DeleteTrustStore -Value Remove-WSWTrustStore
+Set-Alias -Name Delete-WSWUserAccessLoggingSettings -Value Remove-WSWUserAccessLoggingSetting
+Set-Alias -Name Delete-WSWUserAccessLoggingSetting -Value Remove-WSWUserAccessLoggingSetting
+Set-Alias -Name WSW-DeleteUserAccessLoggingSettings -Value Remove-WSWUserAccessLoggingSetting
 Set-Alias -Name Delete-WSWUserSettings -Value Remove-WSWUserSetting
 Set-Alias -Name Delete-WSWUserSetting -Value Remove-WSWUserSetting
 Set-Alias -Name WSW-DeleteUserSettings -Value Remove-WSWUserSetting
@@ -23282,6 +23313,9 @@ Set-Alias -Name Disassociate-WSWNetworkSetting -Value Unregister-WSWNetworkSetti
 Set-Alias -Name WSW-DisassociateNetworkSettings -Value Unregister-WSWNetworkSetting
 Set-Alias -Name Disassociate-WSWTrustStore -Value Unregister-WSWTrustStore
 Set-Alias -Name WSW-DisassociateTrustStore -Value Unregister-WSWTrustStore
+Set-Alias -Name Disassociate-WSWUserAccessLoggingSettings -Value Unregister-WSWUserAccessLoggingSetting
+Set-Alias -Name Disassociate-WSWUserAccessLoggingSetting -Value Unregister-WSWUserAccessLoggingSetting
+Set-Alias -Name WSW-DisassociateUserAccessLoggingSettings -Value Unregister-WSWUserAccessLoggingSetting
 Set-Alias -Name Disassociate-WSWUserSettings -Value Unregister-WSWUserSetting
 Set-Alias -Name Disassociate-WSWUserSetting -Value Unregister-WSWUserSetting
 Set-Alias -Name WSW-DisassociateUserSettings -Value Unregister-WSWUserSetting
@@ -23294,6 +23328,8 @@ Set-Alias -Name WSW-GetPortal -Value Get-WSWPortal
 Set-Alias -Name WSW-GetPortalServiceProviderMetadata -Value Get-WSWPortalServiceProviderMetadata
 Set-Alias -Name WSW-GetTrustStore -Value Get-WSWTrustStore
 Set-Alias -Name WSW-GetTrustStoreCertificate -Value Get-WSWTrustStoreCertificate
+Set-Alias -Name Get-WSWUserAccessLoggingSettings -Value Get-WSWUserAccessLoggingSetting
+Set-Alias -Name WSW-GetUserAccessLoggingSettings -Value Get-WSWUserAccessLoggingSetting
 Set-Alias -Name Get-WSWUserSettings -Value Get-WSWUserSetting
 Set-Alias -Name WSW-GetUserSettings -Value Get-WSWUserSetting
 Set-Alias -Name List-WSWBrowserSettings -Value Get-WSWBrowserSettingList
@@ -23315,6 +23351,9 @@ Set-Alias -Name WSW-ListTrustStoreCertificates -Value Get-WSWTrustStoreCertifica
 Set-Alias -Name List-WSWTrustStores -Value Get-WSWTrustStoreList
 Set-Alias -Name List-WSWTrustStoreList -Value Get-WSWTrustStoreList
 Set-Alias -Name WSW-ListTrustStores -Value Get-WSWTrustStoreList
+Set-Alias -Name List-WSWUserAccessLoggingSettings -Value Get-WSWUserAccessLoggingSettingList
+Set-Alias -Name List-WSWUserAccessLoggingSettingList -Value Get-WSWUserAccessLoggingSettingList
+Set-Alias -Name WSW-ListUserAccessLoggingSettings -Value Get-WSWUserAccessLoggingSettingList
 Set-Alias -Name List-WSWUserSettings -Value Get-WSWUserSettingList
 Set-Alias -Name List-WSWUserSettingList -Value Get-WSWUserSettingList
 Set-Alias -Name WSW-ListUserSettings -Value Get-WSWUserSettingList
@@ -23327,6 +23366,8 @@ Set-Alias -Name Update-WSWNetworkSettings -Value Update-WSWNetworkSetting
 Set-Alias -Name WSW-UpdateNetworkSettings -Value Update-WSWNetworkSetting
 Set-Alias -Name WSW-UpdatePortal -Value Update-WSWPortal
 Set-Alias -Name WSW-UpdateTrustStore -Value Update-WSWTrustStore
+Set-Alias -Name Update-WSWUserAccessLoggingSettings -Value Update-WSWUserAccessLoggingSetting
+Set-Alias -Name WSW-UpdateUserAccessLoggingSettings -Value Update-WSWUserAccessLoggingSetting
 Set-Alias -Name Update-WSWUserSettings -Value Update-WSWUserSetting
 Set-Alias -Name WSW-UpdateUserSettings -Value Update-WSWUserSetting
 Set-Alias -Name Batch-XRGetTraces -Value Get-XRTraceBatch
