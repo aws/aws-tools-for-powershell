@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-GACLByoipCidrProvision', 
         'Add-GACLCustomRoutingEndpoint', 
+        'Add-GACLEndpoint', 
         'Add-GACLResourceTag', 
         'Disable-GACLCustomRoutingTraffic', 
         'Enable-GACLCustomRoutingTraffic', 
@@ -121,6 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GACLCustomRoutingEndpoint', 
         'Remove-GACLCustomRoutingEndpointGroup', 
         'Remove-GACLCustomRoutingListener', 
+        'Remove-GACLEndpoint', 
         'Remove-GACLEndpointGroup', 
         'Remove-GACLListener', 
         'Remove-GACLResourceTag', 

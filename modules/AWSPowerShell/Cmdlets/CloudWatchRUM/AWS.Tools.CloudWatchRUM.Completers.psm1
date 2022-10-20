@@ -75,6 +75,39 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service CloudWatch RUM
 
 
+$CWRUM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudWatchRUM.MetricDestination
+        {
+            ($_ -eq "Add-CWRUMCreateRumMetricDefinition/Destination") -Or
+            ($_ -eq "Get-CWRUMGetRumMetricDefinition/Destination") -Or
+            ($_ -eq "Remove-CWRUMDeleteRumMetricDefinition/Destination") -Or
+            ($_ -eq "Remove-CWRUMRumMetricsDestination/Destination") -Or
+            ($_ -eq "Update-CWRUMRumMetricDefinition/Destination") -Or
+            ($_ -eq "Write-CWRUMRumMetricsDestination/Destination")
+        }
+        {
+            $v = "CloudWatch","Evidently"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWRUM_map = @{
+    "Destination"=@("Add-CWRUMCreateRumMetricDefinition","Get-CWRUMGetRumMetricDefinition","Remove-CWRUMDeleteRumMetricDefinition","Remove-CWRUMRumMetricsDestination","Update-CWRUMRumMetricDefinition","Write-CWRUMRumMetricsDestination")
+}
+
+_awsArgumentCompleterRegistration $CWRUM_Completers $CWRUM_map
+
 $CWRUM_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,16 +156,23 @@ $CWRUM_SelectCompleters = {
 }
 
 $CWRUM_SelectMap = @{
-    "Select"=@("New-CWRUMAppMonitor",
+    "Select"=@("Add-CWRUMCreateRumMetricDefinition",
+               "Remove-CWRUMDeleteRumMetricDefinition",
+               "Get-CWRUMGetRumMetricDefinition",
+               "New-CWRUMAppMonitor",
                "Remove-CWRUMAppMonitor",
+               "Remove-CWRUMRumMetricsDestination",
                "Get-CWRUMAppMonitor",
                "Get-CWRUMAppMonitorData",
                "Get-CWRUMAppMonitorList",
+               "Get-CWRUMRumMetricsDestinationList",
                "Get-CWRUMResourceTag",
                "Write-CWRUMRumEvent",
+               "Write-CWRUMRumMetricsDestination",
                "Add-CWRUMResourceTag",
                "Remove-CWRUMResourceTag",
-               "Update-CWRUMAppMonitor")
+               "Update-CWRUMAppMonitor",
+               "Update-CWRUMRumMetricDefinition")
 }
 
 _awsArgumentCompleterRegistration $CWRUM_SelectCompleters $CWRUM_SelectMap

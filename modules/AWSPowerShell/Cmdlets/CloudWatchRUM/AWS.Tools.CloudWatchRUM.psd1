@@ -86,16 +86,23 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CWRUMCreateRumMetricDefinition', 
         'Add-CWRUMResourceTag', 
         'Get-CWRUMAppMonitor', 
         'Get-CWRUMAppMonitorData', 
         'Get-CWRUMAppMonitorList', 
+        'Get-CWRUMGetRumMetricDefinition', 
         'Get-CWRUMResourceTag', 
+        'Get-CWRUMRumMetricsDestinationList', 
         'New-CWRUMAppMonitor', 
         'Remove-CWRUMAppMonitor', 
+        'Remove-CWRUMDeleteRumMetricDefinition', 
         'Remove-CWRUMResourceTag', 
+        'Remove-CWRUMRumMetricsDestination', 
         'Update-CWRUMAppMonitor', 
-        'Write-CWRUMRumEvent')
+        'Update-CWRUMRumMetricDefinition', 
+        'Write-CWRUMRumEvent', 
+        'Write-CWRUMRumMetricsDestination')
 
     # Variables to export from this module
     VariablesToExport = '*'

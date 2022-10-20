@@ -1,4 +1,18 @@
-﻿### 4.1.189 (2022-10-19 20:37Z)
+﻿### 4.1.190 (2022-10-20 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.378.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch RUM
+    * Added cmdlet Add-CWRUMCreateRumMetricDefinition leveraging the BatchCreateRumMetricDefinitions service API.
+    * Added cmdlet Get-CWRUMGetRumMetricDefinition leveraging the BatchGetRumMetricDefinitions service API.
+    * Added cmdlet Get-CWRUMRumMetricsDestinationList leveraging the ListRumMetricsDestinations service API.
+    * Added cmdlet Remove-CWRUMDeleteRumMetricDefinition leveraging the BatchDeleteRumMetricDefinitions service API.
+    * Added cmdlet Remove-CWRUMRumMetricsDestination leveraging the DeleteRumMetricsDestination service API.
+    * Added cmdlet Update-CWRUMRumMetricDefinition leveraging the UpdateRumMetricDefinition service API.
+    * Added cmdlet Write-CWRUMRumMetricsDestination leveraging the PutRumMetricsDestination service API.
+  * Amazon Global Accelerator
+    * Added cmdlet Add-GACLEndpoint leveraging the AddEndpoints service API.
+    * Added cmdlet Remove-GACLEndpoint leveraging the RemoveEndpoints service API.
+
+### 4.1.189 (2022-10-19 20:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.377.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudTrail
     * Modified cmdlet Start-CTQuery: added parameter DeliveryS3Uri.

@@ -188,6 +188,7 @@ $GACL_SelectCompleters = {
 
 $GACL_SelectMap = @{
     "Select"=@("Add-GACLCustomRoutingEndpoint",
+               "Add-GACLEndpoint",
                "Start-GACLAdvertisingByoipCidr",
                "Enable-GACLCustomRoutingTraffic",
                "New-GACLAccelerator",
@@ -224,6 +225,7 @@ $GACL_SelectMap = @{
                "Get-GACLResourceTag",
                "Add-GACLByoipCidrProvision",
                "Remove-GACLCustomRoutingEndpoint",
+               "Remove-GACLEndpoint",
                "Add-GACLResourceTag",
                "Remove-GACLResourceTag",
                "Update-GACLAccelerator",

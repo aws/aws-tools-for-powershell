@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AddEndpoints" OutputProperty="*" Verb="Add" Noun="Endpoint" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AdvertiseByoipCidr" OutputProperty="ByoipCidr" Verb="Start" Noun="AdvertisingByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -164,6 +168,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveCustomRoutingEndpoints" Verb="Remove" Noun="CustomRoutingEndpoint" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveEndpoints" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

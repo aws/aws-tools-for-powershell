@@ -47,13 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <para> The permission status of a resource. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.DevOpsGuru.ResourcePermission")]
         public Amazon.DevOpsGuru.ResourcePermission Filters_ResourcePermission { get; set; }
         #endregion
@@ -64,14 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         /// <para> The type of resource that you wish to retrieve, such as log groups. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Filters_ResourceTypeFilters")]
         public System.String[] Filters_ResourceTypeFilter { get; set; }
         #endregion
@@ -159,22 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Filters_ResourcePermission = this.Filters_ResourcePermission;
-            #if MODULAR
-            if (this.Filters_ResourcePermission == null && ParameterWasBound(nameof(this.Filters_ResourcePermission)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Filters_ResourcePermission which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Filters_ResourceTypeFilter != null)
             {
                 context.Filters_ResourceTypeFilter = new List<System.String>(this.Filters_ResourceTypeFilter);
             }
-            #if MODULAR
-            if (this.Filters_ResourceTypeFilter == null && ParameterWasBound(nameof(this.Filters_ResourceTypeFilter)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Filters_ResourceTypeFilter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             

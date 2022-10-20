@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter AppMonitorConfiguration_FavoritePage
         /// <summary>
         /// <para>
-        /// <para>A list of pages in the CloudWatch RUM console that are to be displayed with a "favorite"
-        /// icon.</para>
+        /// <para>A list of pages in your application that are to be displayed with a "favorite" icon
+        /// in the CloudWatch RUM console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter AppMonitorConfiguration_SessionSampleRate
         /// <summary>
         /// <para>
-        /// <para>Specifies the percentage of user sessions to use for RUM data collection. Choosing
-        /// a higher percentage gives you more data but also incurs more costs.</para><para>The number you specify is the percentage of user sessions that will be used.</para><para>If you omit this parameter, the default of 10 is used.</para>
+        /// <para>Specifies the portion of user sessions to use for RUM data collection. Choosing a
+        /// higher portion gives you more data but also incurs more costs.</para><para>The range for this value is 0 to 1 inclusive. Setting this to 1 means that 100% of
+        /// user sessions are sampled, and setting it to 0.1 means that 10% of user sessions are
+        /// sampled.</para><para>If you omit this parameter, the default of 0.1 is used, and 10% of sessions will be
+        /// sampled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

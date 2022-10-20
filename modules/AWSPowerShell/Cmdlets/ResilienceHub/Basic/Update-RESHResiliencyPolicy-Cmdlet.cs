@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>The type of resiliency policy to be created, including the recovery time objective
-        /// (RTO) and recovery point objective (RPO) in seconds.</para><note><para>If you do not want to specify regional targets for a regional policy, you must set
-        /// the values of <code>rpoInSecs</code> and <code>rtoInSecs</code> to <code>-1</code>.</para></note>
+        /// (RTO) and recovery point objective (RPO) in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

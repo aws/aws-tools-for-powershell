@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in one operation. </para>
+        /// <para>The maximum number of results to return in one operation. The default is 50. The maximum
+        /// that you can specify is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
