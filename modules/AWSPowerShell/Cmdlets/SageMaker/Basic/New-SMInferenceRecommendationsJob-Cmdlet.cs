@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.EndpointInputConfiguration[] InputConfig_EndpointConfiguration { get; set; }
         #endregion
         
+        #region Parameter InputConfig_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>Existing customer endpoints on which to run an Inference Recommender job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_Endpoints")]
+        public Amazon.SageMaker.Model.EndpointInfo[] InputConfig_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfig_Framework
         /// <summary>
         /// <para>
@@ -449,6 +460,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.InputConfig_EndpointConfiguration = new List<Amazon.SageMaker.Model.EndpointInputConfiguration>(this.InputConfig_EndpointConfiguration);
             }
+            if (this.InputConfig_Endpoint != null)
+            {
+                context.InputConfig_Endpoint = new List<Amazon.SageMaker.Model.EndpointInfo>(this.InputConfig_Endpoint);
+            }
             context.InputConfig_JobDurationInSecond = this.InputConfig_JobDurationInSecond;
             context.InputConfig_ModelPackageVersionArn = this.InputConfig_ModelPackageVersionArn;
             #if MODULAR
@@ -526,6 +541,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_EndpointConfiguration != null)
             {
                 request.InputConfig.EndpointConfigurations = requestInputConfig_inputConfig_EndpointConfiguration;
+                requestInputConfigIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.EndpointInfo> requestInputConfig_inputConfig_Endpoint = null;
+            if (cmdletContext.InputConfig_Endpoint != null)
+            {
+                requestInputConfig_inputConfig_Endpoint = cmdletContext.InputConfig_Endpoint;
+            }
+            if (requestInputConfig_inputConfig_Endpoint != null)
+            {
+                request.InputConfig.Endpoints = requestInputConfig_inputConfig_Endpoint;
                 requestInputConfigIsNull = false;
             }
             System.Int32? requestInputConfig_inputConfig_JobDurationInSecond = null;
@@ -906,6 +931,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> ContainerConfig_SupportedInstanceType { get; set; }
             public System.String ContainerConfig_Task { get; set; }
             public List<Amazon.SageMaker.Model.EndpointInputConfiguration> InputConfig_EndpointConfiguration { get; set; }
+            public List<Amazon.SageMaker.Model.EndpointInfo> InputConfig_Endpoint { get; set; }
             public System.Int32? InputConfig_JobDurationInSecond { get; set; }
             public System.String InputConfig_ModelPackageVersionArn { get; set; }
             public System.Int32? ResourceLimit_MaxNumberOfTest { get; set; }

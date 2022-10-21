@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of authentication events to return.</para>
+        /// <para>The maximum number of authentication events to return. Returns 60 events if you set
+        /// <code>MaxResults</code> to 0, or if you don't include a <code>MaxResults</code> parameter.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

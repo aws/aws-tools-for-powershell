@@ -158,6 +158,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.DeletionProtectionType
+        {
+            ($_ -eq "New-CGIPUserPool/DeletionProtection") -Or
+            ($_ -eq "Update-CGIPUserPool/DeletionProtection")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.DeviceRememberedStatusType
         {
             ($_ -eq "Edit-CGIPDeviceStatus/DeviceRememberedStatus") -Or
@@ -252,6 +262,7 @@ $CGIP_map = @{
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
     "CompromisedCredentialsRiskConfiguration_Actions_EventAction"=@("Set-CGIPRiskConfiguration")
+    "DeletionProtection"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
     "EmailConfiguration_EmailSendingAccount"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")

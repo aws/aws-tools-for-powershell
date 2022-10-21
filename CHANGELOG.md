@@ -1,4 +1,14 @@
-﻿### 4.1.190 (2022-10-20 21:04Z)
+﻿### 4.1.191 (2022-10-21 22:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.401.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameter DeletionProtection.
+    * Modified cmdlet Update-CGIPUserPool: added parameter DeletionProtection.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameter InputConfig_Endpoint.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Select-S3ObjectContent: added parameter BucketName.
+
+### 4.1.190 (2022-10-20 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.378.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch RUM
     * Added cmdlet Add-CWRUMCreateRumMetricDefinition leveraging the BatchCreateRumMetricDefinitions service API.

@@ -190,6 +190,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String LambdaConfig_DefineAuthChallenge { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>When active, <code>DeletionProtection</code> prevents accidental deletion of your
+        /// user pool. Before you can delete a user pool that you have protected against deletion,
+        /// you must deactivate this feature.</para><para>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API
+        /// request, Amazon Cognito returns an <code>InvalidParameterException</code> error. To
+        /// delete a protected user pool, send a new <code>DeleteUserPool</code> request after
+        /// you deactivate deletion protection in an <code>UpdateUserPool</code> API request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.DeletionProtectionType")]
+        public Amazon.CognitoIdentityProvider.DeletionProtectionType DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt
         /// <summary>
         /// <para>
@@ -255,8 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// you use the default option, Amazon Cognito allows only a limited number of emails
         /// each day for your user pool. For typical production environments, the default email
         /// limit is less than the required delivery volume. To achieve a higher delivery volume,
-        /// specify DEVELOPER to use your Amazon SES email configuration.</para><para>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits
-        /// in </a> in the <i> Developer Guide</i>.</para><para>The default FROM address is <code>no-reply@verificationemail.com</code>. To customize
+        /// specify DEVELOPER to use your Amazon SES email configuration.</para><para>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>Amazon Cognito Developer Guide</i>.</para><para>The default FROM address is <code>no-reply@verificationemail.com</code>. To customize
         /// the FROM address, provide the Amazon Resource Name (ARN) of an Amazon SES verified
         /// email address for the <code>SourceArn</code> parameter.</para></dd><dt>DEVELOPER</dt><dd><para>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon
         /// Cognito calls Amazon SES on your behalf to send email from your verified email address.
@@ -264,10 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// to your Amazon SES verified email address in your Amazon Web Services account.</para><para>If you use this option, provide the ARN of an Amazon SES verified email address for
         /// the <code>SourceArn</code> parameter.</para><para>Before Amazon Cognito can email your users, it requires additional permissions to
         /// call Amazon SES on your behalf. When you update your user pool with this option, Amazon
-        /// Cognito creates a <i>service-linked role</i>, which is a type of role, in your Amazon
-        /// Web Services account. This role contains the permissions that allow to access Amazon
-        /// SES and send email messages with your address. For more information about the service-linked
-        /// role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using
+        /// Cognito creates a <i>service-linked role</i>, which is a type of role in your Amazon
+        /// Web Services account. This role contains the permissions that allow you to access
+        /// Amazon SES and send email messages from your email address. For more information about
+        /// the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using
         /// Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</para></dd></dl>
         /// </para>
         /// </summary>
@@ -815,6 +831,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AutoVerifiedAttribute = new List<System.String>(this.AutoVerifiedAttribute);
             }
+            context.DeletionProtection = this.DeletionProtection;
             context.DeviceConfiguration_ChallengeRequiredOnNewDevice = this.DeviceConfiguration_ChallengeRequiredOnNewDevice;
             context.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt = this.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt;
             context.EmailConfiguration_ConfigurationSet = this.EmailConfiguration_ConfigurationSet;
@@ -989,6 +1006,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.AutoVerifiedAttribute != null)
             {
                 request.AutoVerifiedAttributes = cmdletContext.AutoVerifiedAttribute;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection;
             }
             
              // populate DeviceConfiguration
@@ -1593,6 +1614,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String InviteMessageTemplate_SMSMessage { get; set; }
             public System.Int32? AdminCreateUserConfig_UnusedAccountValidityDay { get; set; }
             public List<System.String> AutoVerifiedAttribute { get; set; }
+            public Amazon.CognitoIdentityProvider.DeletionProtectionType DeletionProtection { get; set; }
             public System.Boolean? DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
             public System.Boolean? DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }
             public System.String EmailConfiguration_ConfigurationSet { get; set; }

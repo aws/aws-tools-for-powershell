@@ -40,14 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     public partial class SelectS3ObjectContentCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
-        #region Parameter Bucket
+        #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The S3 Bucket.
+        /// The S3 Bucket name.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Bucket { get; set; }
+        public System.String BucketName { get; set; }
         #endregion
         
         #region Parameter ScanRange_End
@@ -173,6 +173,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Int64? ScanRange_Start { get; set; }
         #endregion
         
+        #region Parameter Bucket
+        /// <summary>
+        /// <para>
+        /// The S3 Bucket.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use BucketName instead")]
+        public System.String Bucket { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Payload'.
@@ -218,7 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = (response, cmdlet) => this.Expression;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Bucket = this.Bucket;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BucketName = this.BucketName;
             context.Key = this.Key;
             context.ServerSideCustomerEncryptionMethod = this.ServerSideCustomerEncryptionMethod;
             context.ServerSideEncryptionCustomerProvidedKey = this.ServerSideEncryptionCustomerProvidedKey;
@@ -247,9 +262,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.SelectObjectContentRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Bucket != null)
             {
                 request.Bucket = cmdletContext.Bucket;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.BucketName != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
             }
             if (cmdletContext.Key != null)
             {
@@ -381,7 +402,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.String Bucket { get; set; }
+            public System.String BucketName { get; set; }
             public System.String Key { get; set; }
             public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideCustomerEncryptionMethod { get; set; }
             public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
