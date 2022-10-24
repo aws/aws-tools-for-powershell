@@ -28,8 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about an Amazon FSx for Lustre location, such as information about
-    /// its path.
+    /// Provides details about how an DataSync location for an Amazon FSx for Lustre file
+    /// system is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationFsxLustre")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationFsxLustreResponse")]

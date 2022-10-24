@@ -28,12 +28,12 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Activates an DataSync agent that you have deployed on your host. The activation process
-    /// associates your agent with your account. In the activation process, you specify information
-    /// such as the Amazon Web Services Region that you want to activate the agent in. You
-    /// activate the agent in the Amazon Web Services Region where your target locations (in
-    /// Amazon S3 or Amazon EFS) reside. Your tasks are created in this Amazon Web Services
-    /// Region.
+    /// Activates an DataSync agent that you have deployed in your storage environment. The
+    /// activation process associates your agent with your account. In the activation process,
+    /// you specify information such as the Amazon Web Services Region that you want to activate
+    /// the agent in. You activate the agent in the Amazon Web Services Region where your
+    /// target locations (in Amazon S3 or Amazon EFS) reside. Your tasks are created in this
+    /// Amazon Web Services Region.
     /// 
     ///  
     /// <para>

@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// <summary>
     /// Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP
     /// file system is configured.
+    /// 
+    ///  <note><para>
+    /// If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
+    /// actually return a <code>Password</code>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DSYNLocationFsxOntap")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationFsxOntapResponse")]

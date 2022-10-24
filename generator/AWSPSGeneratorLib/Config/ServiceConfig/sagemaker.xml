@@ -775,6 +775,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceRecommendationsJobSteps" OutputProperty="Steps" Verb="Get" Noun="InferenceRecommendationsJobStepList" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLabelingJobs" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

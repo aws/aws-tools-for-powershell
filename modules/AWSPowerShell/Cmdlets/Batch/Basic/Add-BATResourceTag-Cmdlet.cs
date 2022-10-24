@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// changed. When a resource is deleted, the tags that are associated with that resource
     /// are deleted as well. Batch resources that support tags are compute environments, jobs,
     /// job definitions, job queues, and scheduling policies. ARNs for child jobs of array
-    /// and multi-node parallel (MNP) jobs are not supported.
+    /// and multi-node parallel (MNP) jobs aren't supported.
     /// </summary>
     [Cmdlet("Add", "BATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The Amazon Resource Name (ARN) of the resource that tags are added to. Batch resources
         /// that support tags are compute environments, jobs, job definitions, job queues, and
         /// scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs
-        /// are not supported.</para>
+        /// aren't supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -471,6 +471,13 @@ $PCA_Completers = {
             break
         }
 
+        # Amazon.ACMPCA.CertificateAuthorityUsageMode
+        "New-PCACertificateAuthority/UsageMode"
+        {
+            $v = "GENERAL_PURPOSE","SHORT_LIVED_CERTIFICATE"
+            break
+        }
+
         # Amazon.ACMPCA.KeyStorageSecurityStandard
         "New-PCACertificateAuthority/KeyStorageSecurityStandard"
         {
@@ -515,6 +522,7 @@ $PCA_map = @{
     "RevocationReason"=@("Revoke-PCACertificate")
     "SigningAlgorithm"=@("New-PCACertificate")
     "Status"=@("Update-PCACertificateAuthority")
+    "UsageMode"=@("New-PCACertificateAuthority")
 }
 
 _awsArgumentCompleterRegistration $PCA_Completers $PCA_map
@@ -45781,7 +45789,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.RecommendationJobStatus
-        "Get-SMInferenceRecommendationsJobList/StatusEquals"
+        {
+            ($_ -eq "Get-SMInferenceRecommendationsJobStepList/Status") -Or
+            ($_ -eq "Get-SMInferenceRecommendationsJobList/StatusEquals")
+        }
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS","PENDING","STOPPED","STOPPING"
             break
@@ -45791,6 +45802,13 @@ $SM_Completers = {
         "New-SMInferenceRecommendationsJob/JobType"
         {
             $v = "Advanced","Default"
+            break
+        }
+
+        # Amazon.SageMaker.RecommendationStepType
+        "Get-SMInferenceRecommendationsJobStepList/StepType"
+        {
+            $v = "BENCHMARK"
             break
         }
 
@@ -46193,9 +46211,10 @@ $SM_map = @{
     "SearchExpression_Operator"=@("Search-SMResource")
     "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
     "SortOrder"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineExecutionStepList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList","Search-SMResource")
-    "Status"=@("New-SMAction","Update-SMAction")
+    "Status"=@("Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
     "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")
@@ -46439,6 +46458,7 @@ $SM_SelectMap = @{
                "Get-SMImageList",
                "Get-SMImageVersionList",
                "Get-SMInferenceRecommendationsJobList",
+               "Get-SMInferenceRecommendationsJobStepList",
                "Get-SMLabelingJobList",
                "Get-SMLabelingJobListForWorkteam",
                "Get-SMLineageGroupList",

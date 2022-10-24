@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// is specified, the job queue uses a fair share scheduling policy. If this parameter
         /// isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy.
         /// After a job queue is created, you can replace but can't remove the fair share scheduling
-        /// policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i></code>. An example is <code>aws:aws:batch:us-west-2:012345678910:scheduling-policy/MySchedulingPolicy</code>.</para>
+        /// policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i></code>. An example is <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

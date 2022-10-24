@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
         /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that's only used to retrieve
-        /// the next items in a list and not for other programmatic purposes.</para></note>
+        /// are no more results to return.</para><note><para>Treat this token as an opaque identifier that's only used to retrieve the next items
+        /// in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

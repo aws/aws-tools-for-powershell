@@ -19928,6 +19928,9 @@ Set-Alias -Name SM-ListImageVersions -Value Get-SMImageVersionList
 Set-Alias -Name List-SMInferenceRecommendationsJobs -Value Get-SMInferenceRecommendationsJobList
 Set-Alias -Name List-SMInferenceRecommendationsJobList -Value Get-SMInferenceRecommendationsJobList
 Set-Alias -Name SM-ListInferenceRecommendationsJobs -Value Get-SMInferenceRecommendationsJobList
+Set-Alias -Name List-SMInferenceRecommendationsJobSteps -Value Get-SMInferenceRecommendationsJobStepList
+Set-Alias -Name List-SMInferenceRecommendationsJobStepList -Value Get-SMInferenceRecommendationsJobStepList
+Set-Alias -Name SM-ListInferenceRecommendationsJobSteps -Value Get-SMInferenceRecommendationsJobStepList
 Set-Alias -Name List-SMLabelingJobs -Value Get-SMLabelingJobList
 Set-Alias -Name List-SMLabelingJobList -Value Get-SMLabelingJobList
 Set-Alias -Name SM-ListLabelingJobs -Value Get-SMLabelingJobList

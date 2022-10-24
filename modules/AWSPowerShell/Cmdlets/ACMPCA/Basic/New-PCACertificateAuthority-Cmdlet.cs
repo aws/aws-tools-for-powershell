@@ -157,6 +157,20 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         public Amazon.ACMPCA.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter UsageMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the CA issues general-purpose certificates that typically require
+        /// a revocation mechanism, or short-lived certificates that may optionally omit revocation
+        /// because they expire quickly. Short-lived certificate validity is limited to seven
+        /// days.</para><para>The default value is GENERAL_PURPOSE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ACMPCA.CertificateAuthorityUsageMode")]
+        public Amazon.ACMPCA.CertificateAuthorityUsageMode UsageMode { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CertificateAuthorityArn'.
@@ -219,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             {
                 context.Tag = new List<Amazon.ACMPCA.Model.Tag>(this.Tag);
             }
+            context.UsageMode = this.UsageMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -258,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.UsageMode != null)
+            {
+                request.UsageMode = cmdletContext.UsageMode;
             }
             
             CmdletOutput output;
@@ -326,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             public Amazon.ACMPCA.KeyStorageSecurityStandard KeyStorageSecurityStandard { get; set; }
             public Amazon.ACMPCA.Model.RevocationConfiguration RevocationConfiguration { get; set; }
             public List<Amazon.ACMPCA.Model.Tag> Tag { get; set; }
+            public Amazon.ACMPCA.CertificateAuthorityUsageMode UsageMode { get; set; }
             public System.Func<Amazon.ACMPCA.Model.CreateCertificateAuthorityResponse, NewPCACertificateAuthorityCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CertificateAuthorityArn;
         }

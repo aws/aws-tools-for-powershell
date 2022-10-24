@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// <summary>
     /// Lists the tags for an Batch resource. Batch resources that support tags are compute
     /// environments, jobs, job definitions, job queues, and scheduling policies. ARNs for
-    /// child jobs of array and multi-node parallel (MNP) jobs are not supported.
+    /// child jobs of array and multi-node parallel (MNP) jobs aren't supported.
     /// </summary>
     [Cmdlet("Get", "BATResourceTag")]
     [OutputType("Amazon.Batch.Model.ListTagsForResourceResponse")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The Amazon Resource Name (ARN) that identifies the resource that tags are listed for.
         /// Batch resources that support tags are compute environments, jobs, job definitions,
         /// job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel
-        /// (MNP) jobs are not supported.</para>
+        /// (MNP) jobs aren't supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

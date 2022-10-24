@@ -61,14 +61,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>A value used to reserve some of the available maximum vCPU for fair share identifiers
-        /// that have not yet been used.</para><para>The reserved ratio is <code>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i></code> where <code><i>ActiveFairShares</i></code> is the number of active fair
-        /// share identifiers.</para><para>For example, a <code>computeReservation</code> value of 50 indicates that Batch should
-        /// reserve 50% of the maximum available vCPU if there is only one fair share identifier,
-        /// 25% if there are two fair share identifiers, and 12.5% if there are three fair share
-        /// identifiers. A <code>computeReservation</code> value of 25 indicates that Batch should
-        /// reserve 25% of the maximum available vCPU if there is only one fair share identifier,
-        /// 6.25% if there are two fair share identifiers, and 1.56% if there are three fair share
-        /// identifiers.</para><para>The minimum value is 0 and the maximum value is 99.</para>
+        /// that aren't already used.</para><para>The reserved ratio is <code>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i></code> where <code><i>ActiveFairShares</i></code> is the number of active fair
+        /// share identifiers.</para><para>For example, a <code>computeReservation</code> value of 50 indicates that Batchreserves
+        /// 50% of the maximum available vCPU if there's only one fair share identifier. It reserves
+        /// 25% if there are two fair share identifiers. It reserves 12.5% if there are three
+        /// fair share identifiers. A <code>computeReservation</code> value of 25 indicates that
+        /// Batch should reserve 25% of the maximum available vCPU if there's only one fair share
+        /// identifier, 6.25% if there are two fair share identifiers, and 1.56% if there are
+        /// three fair share identifiers.</para><para>The minimum value is 0 and the maximum value is 99.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter FairsharePolicy_ShareDecaySecond
         /// <summary>
         /// <para>
-        /// <para>The time period to use to calculate a fair share percentage for each fair share identifier
-        /// in use, in seconds. A value of zero (0) indicates that only current usage should be
-        /// measured. The decay allows for more recently run jobs to have more weight than jobs
-        /// that ran earlier. The maximum supported value is 604800 (1 week).</para>
+        /// <para>The amount of time (in seconds) to use to calculate a fair share percentage for each
+        /// fair share identifier in use. A value of zero (0) indicates that only current usage
+        /// is measured. The decay allows for more recently run jobs to have more weight than
+        /// jobs that ran earlier. The maximum supported value is 604800 (1 week).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

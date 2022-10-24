@@ -28,9 +28,9 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates some of the parameters of a previously created location for self-managed object
-    /// storage server access. For information about creating a self-managed object storage
-    /// location, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
+    /// Updates some parameters of an existing object storage location that DataSync accesses
+    /// for a transfer. For information about creating a self-managed object storage location,
+    /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Creating
     /// a location for object storage</a>.
     /// </summary>
     [Cmdlet("Update", "DSYNLocationObjectStorage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,10 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter BucketAccessKey
         /// <summary>
         /// <para>
-        /// <para>Optional. The access key is used if credentials are required to access the self-managed
-        /// object storage server. If your object storage requires a user name and password to
-        /// authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the
-        /// user name and password, respectively.</para>
+        /// <para>Specifies the access key (for example, a user name) if credentials are required to
+        /// authenticate with the object storage server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the agents associated with the self-managed object
-        /// storage server location.</para>
+        /// <para>Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can securely
+        /// connect with your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the self-managed object storage server location
-        /// to be updated.</para>
+        /// <para>Specifies the ARN of the object storage system location that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,22 +86,34 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter BucketSecretKey
         /// <summary>
         /// <para>
-        /// <para>Optional. The secret key is used if credentials are required to access the self-managed
-        /// object storage server. If your object storage requires a user name and password to
-        /// authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the
-        /// user name and password, respectively.</para>
+        /// <para>Specifies the secret key (for example, a password) if credentials are required to
+        /// authenticate with the object storage server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String BucketSecretKey { get; set; }
         #endregion
         
+        #region Parameter ServerCertificate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a certificate to authenticate with an object storage system that uses a
+        /// private or self-signed certificate authority (CA). You must specify a Base64-encoded
+        /// <code>.pem</code> file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
+        /// The certificate can be up to 32768 bytes (before Base64 encoding).</para><para>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</para><para>Updating the certificate doesn't interfere with tasks that you have in progress.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] ServerCertificate { get; set; }
+        #endregion
+        
         #region Parameter ServerPort
         /// <summary>
         /// <para>
-        /// <para>The port that your self-managed object storage server accepts inbound network traffic
-        /// on. The server port is set by default to TCP 80 (HTTP) or TCP 443 (HTTPS). You can
-        /// specify a custom port if your self-managed object storage server requires one.</para>
+        /// <para>Specifies the port that your object storage server accepts inbound network traffic
+        /// on (for example, port 443).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerProtocol
         /// <summary>
         /// <para>
-        /// <para>The protocol that the object storage server uses to communicate. Valid values are
-        /// <code>HTTP</code> or <code>HTTPS</code>.</para>
+        /// <para>Specifies the protocol that your object storage server uses to communicate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>The subdirectory in the self-managed object storage server that is used to read data
-        /// from.</para>
+        /// <para>Specifies the object prefix for your object storage server. If this is a source location,
+        /// DataSync only copies objects with this prefix. If this is a destination location,
+        /// DataSync writes all objects with this prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             #endif
             context.BucketSecretKey = this.BucketSecretKey;
+            context.ServerCertificate = this.ServerCertificate;
             context.ServerPort = this.ServerPort;
             context.ServerProtocol = this.ServerProtocol;
             context.Subdirectory = this.Subdirectory;
@@ -222,60 +232,77 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.DataSync.Model.UpdateLocationObjectStorageRequest();
+            System.IO.MemoryStream _ServerCertificateStream = null;
             
-            if (cmdletContext.BucketAccessKey != null)
-            {
-                request.AccessKey = cmdletContext.BucketAccessKey;
-            }
-            if (cmdletContext.AgentArn != null)
-            {
-                request.AgentArns = cmdletContext.AgentArn;
-            }
-            if (cmdletContext.LocationArn != null)
-            {
-                request.LocationArn = cmdletContext.LocationArn;
-            }
-            if (cmdletContext.BucketSecretKey != null)
-            {
-                request.SecretKey = cmdletContext.BucketSecretKey;
-            }
-            if (cmdletContext.ServerPort != null)
-            {
-                request.ServerPort = cmdletContext.ServerPort.Value;
-            }
-            if (cmdletContext.ServerProtocol != null)
-            {
-                request.ServerProtocol = cmdletContext.ServerProtocol;
-            }
-            if (cmdletContext.Subdirectory != null)
-            {
-                request.Subdirectory = cmdletContext.Subdirectory;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.DataSync.Model.UpdateLocationObjectStorageRequest();
+                
+                if (cmdletContext.BucketAccessKey != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.AccessKey = cmdletContext.BucketAccessKey;
+                }
+                if (cmdletContext.AgentArn != null)
+                {
+                    request.AgentArns = cmdletContext.AgentArn;
+                }
+                if (cmdletContext.LocationArn != null)
+                {
+                    request.LocationArn = cmdletContext.LocationArn;
+                }
+                if (cmdletContext.BucketSecretKey != null)
+                {
+                    request.SecretKey = cmdletContext.BucketSecretKey;
+                }
+                if (cmdletContext.ServerCertificate != null)
+                {
+                    _ServerCertificateStream = new System.IO.MemoryStream(cmdletContext.ServerCertificate);
+                    request.ServerCertificate = _ServerCertificateStream;
+                }
+                if (cmdletContext.ServerPort != null)
+                {
+                    request.ServerPort = cmdletContext.ServerPort.Value;
+                }
+                if (cmdletContext.ServerProtocol != null)
+                {
+                    request.ServerProtocol = cmdletContext.ServerProtocol;
+                }
+                if (cmdletContext.Subdirectory != null)
+                {
+                    request.Subdirectory = cmdletContext.Subdirectory;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _ServerCertificateStream != null)
+                {
+                    _ServerCertificateStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -319,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public List<System.String> AgentArn { get; set; }
             public System.String LocationArn { get; set; }
             public System.String BucketSecretKey { get; set; }
+            public byte[] ServerCertificate { get; set; }
             public System.Int32? ServerPort { get; set; }
             public Amazon.DataSync.ObjectStorageServerProtocol ServerProtocol { get; set; }
             public System.String Subdirectory { get; set; }

@@ -28,7 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon FSx for OpenZFS file system.
+    /// Creates an endpoint for an Amazon FSx for OpenZFS file system that DataSync can access
+    /// for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-openzfs-location.html">Creating
+    /// a location for FSx for OpenZFS</a>.
+    /// 
+    ///  <note><para>
+    /// Request parameters related to <code>SMB</code> aren't supported with the <code>CreateLocationFsxOpenZfs</code>
+    /// operation.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "DSYNLocationFsxOpenZf", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

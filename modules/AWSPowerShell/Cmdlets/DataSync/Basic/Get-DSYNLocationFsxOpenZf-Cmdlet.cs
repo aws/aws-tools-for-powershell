@@ -28,8 +28,13 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about an Amazon FSx for OpenZFS location, such as information about
-    /// its path.
+    /// Provides details about how an DataSync location for an Amazon FSx for OpenZFS file
+    /// system is configured.
+    /// 
+    ///  <note><para>
+    /// Response elements related to <code>SMB</code> aren't supported with the <code>DescribeLocationFsxOpenZfs</code>
+    /// operation.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DSYNLocationFsxOpenZf")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationFsxOpenZfsResponse")]

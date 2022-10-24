@@ -1,4 +1,18 @@
-﻿### 4.1.191 (2022-10-21 22:46Z)
+﻿### 4.1.192 (2022-10-24 21:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.402.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameters EksConfiguration_EksClusterArn and EksConfiguration_KubernetesNamespace.
+    * Modified cmdlet Register-BATJobDefinition: added parameters PodProperties_Container, PodProperties_DnsPolicy, PodProperties_HostNetwork, PodProperties_ServiceAccountName and PodProperties_Volume.
+    * Modified cmdlet Submit-BATJob: added parameter PodProperties_Container.
+  * Amazon Certificate Manager Private Certificate Authority
+    * Modified cmdlet New-PCACertificateAuthority: added parameter UsageMode.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNLocationObjectStorage: added parameter ServerCertificate.
+    * Modified cmdlet Update-DSYNLocationObjectStorage: added parameter ServerCertificate.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMInferenceRecommendationsJobStepList leveraging the ListInferenceRecommendationsJobSteps service API.
+
+### 4.1.191 (2022-10-21 22:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.401.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameter DeletionProtection.

@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String[] ContainerOverrides_Command { get; set; }
         #endregion
         
+        #region Parameter PodProperties_Container
+        /// <summary>
+        /// <para>
+        /// <para>The overrides for the container that's used on the Amazon EKS pod.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksPropertiesOverride_PodProperties_Containers")]
+        public Amazon.Batch.Model.EksContainerOverride[] PodProperties_Container { get; set; }
+        #endregion
+        
         #region Parameter DependsOn
         /// <summary>
         /// <para>
@@ -98,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The environment variables to send to the container. You can add new environment variables,
         /// which are added to the container at launch, or you can override the existing environment
-        /// variables from the Docker image or the job definition.</para><note><para>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
-        /// is reserved for variables that are set by the Batch service.</para></note>
+        /// variables from the Docker image or the job definition.</para><note><para>Environment variables cannot start with "<code>AWS_BATCH</code>". This naming convention
+        /// is reserved for variables that Batch sets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RetryStrategy_EvaluateOnExit
         /// <summary>
         /// <para>
-        /// <para>Array of up to 5 objects that specify conditions under which the job should be retried
-        /// or failed. If this parameter is specified, then the <code>attempts</code> parameter
-        /// must also be specified.</para>
+        /// <para>Array of up to 5 objects that specify the conditions where jobs are retried or failed.
+        /// If this parameter is specified, then the <code>attempts</code> parameter must also
+        /// be specified. If none of the listed conditions match, then the job is retried.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,10 +211,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The number of nodes to use with a multi-node parallel job. This value overrides the
-        /// number of nodes that are specified in the job definition. To use this override:</para><ul><li><para>There must be at least one node range in your job definition that has an open upper
-        /// boundary (such as <code>:</code> or <code>n:</code>).</para></li><li><para>The lower boundary of the node range specified in the job definition must be fewer
-        /// than the number of nodes specified in the override.</para></li><li><para>The main node index specified in the job definition must be fewer than the number
-        /// of nodes specified in the override.</para></li></ul>
+        /// number of nodes that are specified in the job definition. To use this override, you
+        /// must meet the following conditions:</para><ul><li><para>There must be at least one node range in your job definition that has an open upper
+        /// boundary, such as <code>:</code> or <code>n:</code>.</para></li><li><para>The lower boundary of the node range that's specified in the job definition must be
+        /// fewer than the number of nodes specified in the override.</para></li><li><para>The main node index that's specified in the job definition must be fewer than the
+        /// number of nodes specified in the override.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,10 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter SchedulingPriorityOverride
         /// <summary>
         /// <para>
-        /// <para>The scheduling priority for the job. This will only affect jobs in job queues with
-        /// a fair share policy. Jobs with a higher scheduling priority will be scheduled before
-        /// jobs with a lower scheduling priority. This will override any scheduling priority
-        /// in the job definition.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
+        /// <para>The scheduling priority for the job. This only affects jobs in job queues with a fair
+        /// share policy. Jobs with a higher scheduling priority are scheduled before jobs with
+        /// a lower scheduling priority. This overrides any scheduling priority in the job definition.</para><para>The minimum supported value is 0 and the maximum supported value is 9999.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ShareIdentifier
         /// <summary>
         /// <para>
-        /// <para>The share identifier for the job. If the job queue does not have a scheduling policy,
+        /// <para>The share identifier for the job. If the job queue doesn't have a scheduling policy,
         /// then this parameter must not be specified. If the job queue has a scheduling policy,
         /// then this parameter must be specified.</para>
         /// </para>
@@ -324,12 +335,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
         /// memory requirements specified in the job definition. It's not supported for jobs running
-        /// on Fargate resources. For jobs running on EC2 resources, it overrides the <code>memory</code>
-        /// parameter set in the job definition, but doesn't override any memory requirement specified
-        /// in the <code>resourceRequirements</code> structure in the job definition. To override
-        /// memory requirements that are specified in the <code>resourceRequirements</code> structure
-        /// in the job definition, <code>resourceRequirements</code> must be specified in the
-        /// <code>SubmitJob</code> request, with <code>type</code> set to <code>MEMORY</code>
+        /// on Fargate resources. For jobs that run on EC2 resources, it overrides the <code>memory</code>
+        /// parameter set in the job definition, but doesn't override any memory requirement that's
+        /// specified in the <code>resourceRequirements</code> structure in the job definition.
+        /// To override memory requirements that are specified in the <code>resourceRequirements</code>
+        /// structure in the job definition, <code>resourceRequirements</code> must be specified
+        /// in the <code>SubmitJob</code> request, with <code>type</code> set to <code>MEMORY</code>
         /// and <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
         /// override job definition resource requirements</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
@@ -345,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <code>resourceRequirements</code> to override the
         /// <code>vcpus</code> parameter that's set in the job definition. It's not supported
-        /// for jobs running on Fargate resources. For jobs running on EC2 resources, it overrides
+        /// for jobs running on Fargate resources. For jobs that run on EC2 resources, it overrides
         /// the <code>vcpus</code> parameter set in the job definition, but doesn't override any
         /// vCPU requirement specified in the <code>resourceRequirements</code> structure in the
         /// job definition. To override vCPU requirements that are specified in the <code>resourceRequirements</code>
@@ -445,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (this.DependsOn != null)
             {
                 context.DependsOn = new List<Amazon.Batch.Model.JobDependency>(this.DependsOn);
+            }
+            if (this.PodProperties_Container != null)
+            {
+                context.PodProperties_Container = new List<Amazon.Batch.Model.EksContainerOverride>(this.PodProperties_Container);
             }
             context.JobDefinition = this.JobDefinition;
             #if MODULAR
@@ -608,6 +623,40 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.DependsOn != null)
             {
                 request.DependsOn = cmdletContext.DependsOn;
+            }
+            
+             // populate EksPropertiesOverride
+            var requestEksPropertiesOverrideIsNull = true;
+            request.EksPropertiesOverride = new Amazon.Batch.Model.EksPropertiesOverride();
+            Amazon.Batch.Model.EksPodPropertiesOverride requestEksPropertiesOverride_eksPropertiesOverride_PodProperties = null;
+            
+             // populate PodProperties
+            var requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull = true;
+            requestEksPropertiesOverride_eksPropertiesOverride_PodProperties = new Amazon.Batch.Model.EksPodPropertiesOverride();
+            List<Amazon.Batch.Model.EksContainerOverride> requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container = null;
+            if (cmdletContext.PodProperties_Container != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container = cmdletContext.PodProperties_Container;
+            }
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties.Containers = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container;
+                requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull = false;
+            }
+             // determine if requestEksPropertiesOverride_eksPropertiesOverride_PodProperties should be set to null
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties = null;
+            }
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties != null)
+            {
+                request.EksPropertiesOverride.PodProperties = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties;
+                requestEksPropertiesOverrideIsNull = false;
+            }
+             // determine if request.EksPropertiesOverride should be set to null
+            if (requestEksPropertiesOverrideIsNull)
+            {
+                request.EksPropertiesOverride = null;
             }
             if (cmdletContext.JobDefinition != null)
             {
@@ -774,6 +823,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             [System.ObsoleteAttribute]
             public System.Int32? ContainerOverrides_Vcpus { get; set; }
             public List<Amazon.Batch.Model.JobDependency> DependsOn { get; set; }
+            public List<Amazon.Batch.Model.EksContainerOverride> PodProperties_Container { get; set; }
             public System.String JobDefinition { get; set; }
             public System.String JobName { get; set; }
             public System.String JobQueue { get; set; }

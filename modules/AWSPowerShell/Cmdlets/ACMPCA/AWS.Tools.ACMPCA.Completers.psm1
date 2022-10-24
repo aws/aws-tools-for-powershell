@@ -101,6 +101,13 @@ $PCA_Completers = {
             break
         }
 
+        # Amazon.ACMPCA.CertificateAuthorityUsageMode
+        "New-PCACertificateAuthority/UsageMode"
+        {
+            $v = "GENERAL_PURPOSE","SHORT_LIVED_CERTIFICATE"
+            break
+        }
+
         # Amazon.ACMPCA.KeyStorageSecurityStandard
         "New-PCACertificateAuthority/KeyStorageSecurityStandard"
         {
@@ -145,6 +152,7 @@ $PCA_map = @{
     "RevocationReason"=@("Revoke-PCACertificate")
     "SigningAlgorithm"=@("New-PCACertificate")
     "Status"=@("Update-PCACertificateAuthority")
+    "UsageMode"=@("New-PCACertificateAuthority")
 }
 
 _awsArgumentCompleterRegistration $PCA_Completers $PCA_map

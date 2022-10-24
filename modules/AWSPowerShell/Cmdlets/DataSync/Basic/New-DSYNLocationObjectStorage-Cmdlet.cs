@@ -100,6 +100,21 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public System.String BucketSecretKey { get; set; }
         #endregion
         
+        #region Parameter ServerCertificate
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a certificate to authenticate with an object storage system that uses a
+        /// private or self-signed certificate authority (CA). You must specify a Base64-encoded
+        /// <code>.pem</code> file (for example, <code>file:///home/user/.ssh/storage_sys_certificate.pem</code>).
+        /// The certificate can be up to 32768 bytes (before Base64 encoding).</para><para>To use this parameter, configure <code>ServerProtocol</code> to <code>HTTPS</code>.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] ServerCertificate { get; set; }
+        #endregion
+        
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
@@ -225,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             #endif
             context.BucketSecretKey = this.BucketSecretKey;
+            context.ServerCertificate = this.ServerCertificate;
             context.ServerHostname = this.ServerHostname;
             #if MODULAR
             if (this.ServerHostname == null && ParameterWasBound(nameof(this.ServerHostname)))
@@ -251,68 +267,85 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.DataSync.Model.CreateLocationObjectStorageRequest();
+            System.IO.MemoryStream _ServerCertificateStream = null;
             
-            if (cmdletContext.BucketAccessKey != null)
-            {
-                request.AccessKey = cmdletContext.BucketAccessKey;
-            }
-            if (cmdletContext.AgentArn != null)
-            {
-                request.AgentArns = cmdletContext.AgentArn;
-            }
-            if (cmdletContext.BucketName != null)
-            {
-                request.BucketName = cmdletContext.BucketName;
-            }
-            if (cmdletContext.BucketSecretKey != null)
-            {
-                request.SecretKey = cmdletContext.BucketSecretKey;
-            }
-            if (cmdletContext.ServerHostname != null)
-            {
-                request.ServerHostname = cmdletContext.ServerHostname;
-            }
-            if (cmdletContext.ServerPort != null)
-            {
-                request.ServerPort = cmdletContext.ServerPort.Value;
-            }
-            if (cmdletContext.ServerProtocol != null)
-            {
-                request.ServerProtocol = cmdletContext.ServerProtocol;
-            }
-            if (cmdletContext.Subdirectory != null)
-            {
-                request.Subdirectory = cmdletContext.Subdirectory;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.DataSync.Model.CreateLocationObjectStorageRequest();
+                
+                if (cmdletContext.BucketAccessKey != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.AccessKey = cmdletContext.BucketAccessKey;
+                }
+                if (cmdletContext.AgentArn != null)
+                {
+                    request.AgentArns = cmdletContext.AgentArn;
+                }
+                if (cmdletContext.BucketName != null)
+                {
+                    request.BucketName = cmdletContext.BucketName;
+                }
+                if (cmdletContext.BucketSecretKey != null)
+                {
+                    request.SecretKey = cmdletContext.BucketSecretKey;
+                }
+                if (cmdletContext.ServerCertificate != null)
+                {
+                    _ServerCertificateStream = new System.IO.MemoryStream(cmdletContext.ServerCertificate);
+                    request.ServerCertificate = _ServerCertificateStream;
+                }
+                if (cmdletContext.ServerHostname != null)
+                {
+                    request.ServerHostname = cmdletContext.ServerHostname;
+                }
+                if (cmdletContext.ServerPort != null)
+                {
+                    request.ServerPort = cmdletContext.ServerPort.Value;
+                }
+                if (cmdletContext.ServerProtocol != null)
+                {
+                    request.ServerProtocol = cmdletContext.ServerProtocol;
+                }
+                if (cmdletContext.Subdirectory != null)
+                {
+                    request.Subdirectory = cmdletContext.Subdirectory;
+                }
+                if (cmdletContext.Tag != null)
+                {
+                    request.Tags = cmdletContext.Tag;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _ServerCertificateStream != null)
+                {
+                    _ServerCertificateStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -356,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public List<System.String> AgentArn { get; set; }
             public System.String BucketName { get; set; }
             public System.String BucketSecretKey { get; set; }
+            public byte[] ServerCertificate { get; set; }
             public System.String ServerHostname { get; set; }
             public System.Int32? ServerPort { get; set; }
             public Amazon.DataSync.ObjectStorageServerProtocol ServerProtocol { get; set; }
