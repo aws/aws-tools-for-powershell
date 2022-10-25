@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Updates a specific VOD source in a specific source location.
+    /// Updates a VOD source's configuration.
     /// </summary>
     [Cmdlet("Update", "EMTVodSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.UpdateVodSourceResponse")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location associated with this VOD Source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter VodSourceName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the VOD source you are working on.</para>
+        /// <para>The name of the VOD source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

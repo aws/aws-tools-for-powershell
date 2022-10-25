@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Deletes a specific live source in a specific source location.
+    /// The live source to delete.
     /// </summary>
     [Cmdlet("Remove", "EMTLiveSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter LiveSourceName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the live source you are working on.</para>
+        /// <para>The name of the live source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location associated with this Live Source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

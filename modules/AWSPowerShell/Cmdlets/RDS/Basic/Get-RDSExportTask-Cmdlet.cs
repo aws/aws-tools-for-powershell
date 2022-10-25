@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String SourceArn { get; set; }
         #endregion
         
+        #region Parameter SourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of source for the export.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.ExportSourceType")]
+        public Amazon.RDS.ExportSourceType SourceType { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -170,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Marker = this.Marker;
             context.MaxRecord = this.MaxRecord;
             context.SourceArn = this.SourceArn;
+            context.SourceType = this.SourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceArn != null)
             {
                 request.SourceArn = cmdletContext.SourceArn;
+            }
+            if (cmdletContext.SourceType != null)
+            {
+                request.SourceType = cmdletContext.SourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -296,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Marker { get; set; }
             public System.Int32? MaxRecord { get; set; }
             public System.String SourceArn { get; set; }
+            public Amazon.RDS.ExportSourceType SourceType { get; set; }
             public System.Func<Amazon.RDS.Model.DescribeExportTasksResponse, GetRDSExportTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExportTasks;
         }

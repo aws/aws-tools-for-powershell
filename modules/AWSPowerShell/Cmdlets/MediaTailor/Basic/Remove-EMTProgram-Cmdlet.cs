@@ -28,7 +28,8 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Deletes a specific program on a specific channel.
+    /// Deletes a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working
+    /// with programs</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "EMTProgram", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the channel you are working on.</para>
+        /// <para>The name of the channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ProgramName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the program you are working on.</para>
+        /// <para>The name of the program.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

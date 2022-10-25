@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates a new prefetch schedule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the prefetch schedules for a playback configuration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMTPrefetchScheduleList")]
     [OutputType("Amazon.MediaTailor.Model.PrefetchSchedule")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PlaybackConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the playback configuration.</para>
+        /// <para>Retrieves the prefetch schedule(s) for a specific playback configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The maximum number of prefetch schedules that you want MediaTailor to return in response
-        /// to the current request. If the playback configuration has more than MaxResults prefetch
-        /// schedules, use the value of NextToken in the response to get the next page of results.</para>
+        /// to the current request. If there are more than <code>MaxResults</code> prefetch schedules,
+        /// use the value of <code>NextToken</code> in the response to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If the playback configuration has more than MaxResults prefetch schedules,
-        /// use NextToken to get the second and subsequent pages of results.</para><para>For the first ListPrefetchSchedulesRequest request, omit this value.</para><para>For the second and subsequent requests, get the value of NextToken from the previous
-        /// response and specify that value for NextToken in the request.</para><para>If the previous response didn't include a NextToken element, there are no more prefetch
-        /// schedules to get.</para>
+        /// <para>(Optional) If the playback configuration has more than <code>MaxResults</code> prefetch
+        /// schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</para><para> For the first <code>ListPrefetchSchedulesRequest</code> request, omit this value.</para><para> For the second and subsequent requests, get the value of <code>NextToken</code> from
+        /// the previous response and specify that value for <code>NextToken</code> in the request.</para><para> If the previous response didn't include a <code>NextToken</code> element, there are
+        /// no more prefetch schedules to get.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

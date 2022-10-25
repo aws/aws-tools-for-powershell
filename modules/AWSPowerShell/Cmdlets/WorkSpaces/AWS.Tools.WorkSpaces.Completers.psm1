@@ -144,7 +144,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.RunningMode
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_RunningMode"
         {
-            $v = "ALWAYS_ON","AUTO_STOP"
+            $v = "ALWAYS_ON","AUTO_STOP","MANUAL"
             break
         }
 
@@ -172,7 +172,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.WorkspaceImageIngestionProcess
         "Import-WKSWorkspaceImage/IngestionProcess"
         {
-            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_GRAPHICS_G4DN","BYOL_REGULAR","BYOL_REGULAR_WSP"
+            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_GRAPHICS_G4DN","BYOL_GRAPHICS_G4DN_BYOP","BYOL_REGULAR","BYOL_REGULAR_BYOP","BYOL_REGULAR_WSP"
             break
         }
 

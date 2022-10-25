@@ -89,13 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Geometry_Polygon
         /// <summary>
         /// <para>
-        /// <para>An array of 1 or more linear rings. A linear ring is an array of 4 or more vertices,
-        /// where the first and last vertex are the same to form a closed boundary. Each vertex
-        /// is a 2-dimensional point of the form: <code>[longitude, latitude]</code>. </para><para>The first linear ring is an outer ring, describing the polygon's boundary. Subsequent
-        /// linear rings may be inner or outer rings to describe holes and islands. Outer rings
-        /// must list their vertices in counter-clockwise order around the ring's center, where
-        /// the left side is the polygon's exterior. Inner rings must list their vertices in clockwise
-        /// order, where the left side is the polygon's interior.</para><para>A geofence polygon can consist of between 4 and 1,000 vertices.</para>
+        /// <para>A polygon is a list of linear rings which are each made up of a list of vertices.</para><para>Each vertex is a 2-dimensional point of the form: <code>[longitude, latitude]</code>.
+        /// This is represented as an array of doubles of length 2 (so <code>[double, double]</code>).</para><para>An array of 4 or more vertices, where the first and last vertex are the same (to form
+        /// a closed boundary), is called a linear ring. The linear ring vertices must be listed
+        /// in counter-clockwise order around the ring’s interior. The linear ring is represented
+        /// as an array of vertices, or an array of arrays of doubles (<code>[[double, double],
+        /// ...]</code>).</para><para>A geofence consists of a single linear ring. To allow for future expansion, the Polygon
+        /// parameter takes an array of linear rings, which is represented as an array of arrays
+        /// of arrays of doubles (<code>[[[double, double], ...], ...]</code>).</para><para>A linear ring for use in geofences can consist of between 4 and 1,000 vertices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

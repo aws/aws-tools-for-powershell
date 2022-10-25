@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The maximum size of the connection pool for each target in a target group. The value
         /// is expressed as a percentage of the <code>max_connections</code> setting for the RDS
-        /// DB instance or Aurora DB cluster used by the target group.</para><para>Default: 10 for RDS for Microsoft SQL Server, and 100 for all other engines</para><para>Constraints: Must be between 1 and 100.</para>
+        /// DB instance or Aurora DB cluster used by the target group.</para><para>If you specify <code>MaxIdleConnectionsPercent</code>, then you must also include
+        /// a value for this parameter.</para><para>Default: 10 for RDS for Microsoft SQL Server, and 100 for all other engines</para><para>Constraints: Must be between 1 and 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// pool. The value is expressed as a percentage of the <code>max_connections</code> setting
         /// for the RDS DB instance or Aurora DB cluster used by the target group. With a high
         /// value, the proxy leaves a high percentage of idle database connections open. A low
-        /// value causes the proxy to close more idle connections and return them to the database.</para><para>Default: The default value is half of the value of <code>MaxConnectionsPercent</code>.
+        /// value causes the proxy to close more idle connections and return them to the database.</para><para>If you specify this parameter, then you must also include a value for <code>MaxConnectionsPercent</code>.</para><para>Default: The default value is half of the value of <code>MaxConnectionsPercent</code>.
         /// For example, if <code>MaxConnectionsPercent</code> is 80, then the default value of
         /// <code>MaxIdleConnectionsPercent</code> is 40. If the value of <code>MaxConnectionsPercent</code>
         /// isn't specified, then for SQL Server, <code>MaxIdleConnectionsPercent</code> is 5,

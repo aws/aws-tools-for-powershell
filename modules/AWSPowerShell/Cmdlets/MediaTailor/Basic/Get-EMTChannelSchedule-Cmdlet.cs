@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the channel you are working on.</para>
+        /// <para>The name of the channel associated with this Channel Schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter DurationMinute
         /// <summary>
         /// <para>
-        /// <para>The schedule duration in minutes. The maximum duration is 4320 minutes (three days).</para>
+        /// <para>The duration in minutes of the channel schedule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Upper bound on number of records to return. The maximum number of results is 100.</para>
+        /// <para>The maximum number of channel schedules that you want MediaTailor to return in response
+        /// to the current request. If there are more than <code>MaxResults</code> channel schedules,
+        /// use the value of <code>NextToken</code> in the response to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,8 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token from the GET list request. Use the token to fetch the next page of
-        /// results.</para>
+        /// <para>(Optional) If the playback configuration has more than <code>MaxResults</code> channel
+        /// schedules, use <code>NextToken</code> to get the second and subsequent pages of results.</para><para>For the first <code>GetChannelScheduleRequest</code> request, omit this value.</para><para>For the second and subsequent requests, get the value of <code>NextToken</code> from
+        /// the previous response and specify that value for <code>NextToken</code> in the request.</para><para>If the previous response didn't include a <code>NextToken</code> element, there are
+        /// no more channel schedules to get.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

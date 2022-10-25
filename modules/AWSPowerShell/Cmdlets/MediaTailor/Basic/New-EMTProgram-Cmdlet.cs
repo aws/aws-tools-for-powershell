@@ -28,7 +28,8 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates a program.
+    /// Creates a program within a channel. For information about programs, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-programs.html">Working
+    /// with programs</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EMTProgram", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.CreateProgramResponse")]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the channel you are working on.</para>
+        /// <para>The name of the channel for this Program.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ProgramName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the program you are working on.</para>
+        /// <para>The name of the Program.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Transition_RelativePosition
         /// <summary>
         /// <para>
-        /// <para>The position where this program will be inserted relative to the RelativePosition.</para>
+        /// <para>The position where this program will be inserted relative to the <code>RelativePosition</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -127,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The name of the program that this program will be inserted next to, as defined by
-        /// RelativePosition.</para>
+        /// <code>RelativePosition</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Transition_Type
         /// <summary>
         /// <para>
-        /// <para>Defines when the program plays in the schedule. You can set the value to ABSOLUTE
-        /// or RELATIVE.</para><para>ABSOLUTE - The program plays at a specific wall clock time. This setting can only
-        /// be used for channels using the LINEAR PlaybackMode.</para><para>Note the following considerations when using ABSOLUTE transitions:</para><para>If the preceding program in the schedule has a duration that extends past the wall
-        /// clock time, MediaTailor truncates the preceding program on a common segment boundary.</para><para>If there are gaps in playback, MediaTailor plays the FillerSlate you configured for
-        /// your linear channel.</para><para>RELATIVE - The program is inserted into the schedule either before or after a program
-        /// that you specify via RelativePosition.</para>
+        /// <para>Defines when the program plays in the schedule. You can set the value to <code>ABSOLUTE</code>
+        /// or <code>RELATIVE</code>.</para><para><code>ABSOLUTE</code> - The program plays at a specific wall clock time. This setting
+        /// can only be used for channels using the <code>LINEAR</code><code>PlaybackMode</code>.</para><para>Note the following considerations when using <code>ABSOLUTE</code> transitions:</para><para>If the preceding program in the schedule has a duration that extends past the wall
+        /// clock time, MediaTailor truncates the preceding program on a common segment boundary.</para><para>If there are gaps in playback, MediaTailor plays the <code>FillerSlate</code> you
+        /// configured for your linear channel.</para><para><code>RELATIVE</code> - The program is inserted into the schedule either before or
+        /// after a program that you specify via <code>RelativePosition</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

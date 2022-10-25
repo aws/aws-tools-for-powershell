@@ -30,7 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// <summary>
     /// Modifies the specified WorkSpace properties. For important information about how to
     /// modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
-    /// Modify a WorkSpace</a>.
+    /// Modify a WorkSpace</a>. 
+    /// 
+    ///  <note><para>
+    /// The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces
+    /// Core. Contact your account team to be allow-listed to use this value. For more information,
+    /// see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "WKSWorkspaceProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -70,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage
-        /// the WorkSpace Running Mode</a>.</para>
+        /// the WorkSpace Running Mode</a>.</para><note><para>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact
+        /// your account team to be allow-listed to use this value. For more information, see
+        /// <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

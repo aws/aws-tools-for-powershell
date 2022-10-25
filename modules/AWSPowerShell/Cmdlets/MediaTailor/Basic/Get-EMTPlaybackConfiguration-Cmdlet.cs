@@ -28,7 +28,9 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Returns the playback configuration for the specified name.
+    /// Retrieves a playback configuration. For information about MediaTailor configurations,
+    /// see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working
+    /// with configurations in AWS Elemental MediaTailor</a>.
     /// </summary>
     [Cmdlet("Get", "EMTPlaybackConfiguration")]
     [OutputType("Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse")]

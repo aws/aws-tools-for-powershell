@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Returns a list of alerts for the given resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the alerts that are associated with a MediaTailor channel assembly resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMTAlertList")]
     [OutputType("Amazon.MediaTailor.Model.Alert")]
@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Upper bound on number of records to return. The maximum number of results is 100.</para>
+        /// <para>The maximum number of alerts that you want MediaTailor to return in response to the
+        /// current request. If there are more than <code>MaxResults</code> alerts, use the value
+        /// of <code>NextToken</code> in the response to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token from the GET list request. Use the token to fetch the next page of
-        /// results.</para>
+        /// <para>Pagination token returned by the list request when results exceed the maximum allowed.
+        /// Use the token to fetch the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

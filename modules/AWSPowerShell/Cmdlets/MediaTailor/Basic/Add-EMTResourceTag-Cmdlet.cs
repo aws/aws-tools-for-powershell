@@ -28,8 +28,10 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Adds tags to the specified playback configuration resource. You can specify one or
-    /// more tags to add.
+    /// The resource to tag. Tags are key-value pairs that you can associate with Amazon resources
+    /// to help with organization, access control, and cost tracking. For more information,
+    /// see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+    /// AWS Elemental MediaTailor Resources</a>.
     /// </summary>
     [Cmdlet("Add", "EMTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the playback configuration. You can get this from
-        /// the response to any playback configuration request.</para>
+        /// <para>The Amazon Resource Name (ARN) associated with the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of tag key:value pairs.</para>
+        /// <para>The tags to assign to the resource. Tags are key-value pairs that you can associate
+        /// with Amazon resources to help with organization, access control, and cost tracking.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

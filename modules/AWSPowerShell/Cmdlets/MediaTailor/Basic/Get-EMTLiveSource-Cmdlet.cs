@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Provides details about a specific live source in a specific source location.
+    /// The live source to describe.
     /// </summary>
     [Cmdlet("Get", "EMTLiveSource")]
     [OutputType("Amazon.MediaTailor.Model.DescribeLiveSourceResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter LiveSourceName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the live source you are working on.</para>
+        /// <para>The name of the live source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location associated with this Live Source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         public System.String ResourceArn { get; set; }
         #endregion
         
+        #region Parameter ResourceOwnerAccount
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID that owns the resource. For most Amazon Web Services
+        /// resources, the owning account is the account in which the resource was created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceOwnerAccount { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -149,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceOwnerAccount = this.ResourceOwnerAccount;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.ResourceOwnerAccount != null)
+            {
+                request.ResourceOwnerAccount = cmdletContext.ResourceOwnerAccount;
             }
             
             CmdletOutput output;
@@ -236,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             public System.String AnalyzerArn { get; set; }
             public System.String ResourceArn { get; set; }
+            public System.String ResourceOwnerAccount { get; set; }
             public System.Func<Amazon.AccessAnalyzer.Model.StartResourceScanResponse, StartIAMAAResourceScanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -28,7 +28,9 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Deletes a source location on a specific channel.
+    /// Deletes a source location. A source location is a container for sources. For more
+    /// information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working
+    /// with source locations</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "EMTSourceLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

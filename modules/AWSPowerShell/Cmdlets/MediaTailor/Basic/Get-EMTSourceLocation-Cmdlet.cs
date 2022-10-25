@@ -28,7 +28,9 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Retrieves the properties of the requested source location.
+    /// Describes a source location. A source location is a container for sources. For more
+    /// information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working
+    /// with source locations</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "EMTSourceLocation")]
     [OutputType("Amazon.MediaTailor.Model.DescribeSourceLocationResponse")]
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

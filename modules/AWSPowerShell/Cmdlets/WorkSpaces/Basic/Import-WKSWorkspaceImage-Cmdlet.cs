@@ -28,10 +28,10 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon WorkSpaces.
-    /// The image must be an already licensed Amazon EC2 image that is in your Amazon Web
-    /// Services account, and you must own the image. For more information about creating
-    /// BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+    /// Imports the specified Windows 10 Bring Your Own License (BYOL) or Windows Server 2016
+    /// BYOL image into Amazon WorkSpaces. The image must be an already licensed Amazon EC2
+    /// image that is in your Amazon Web Services account, and you must own the image. For
+    /// more information about creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
     /// Bring Your Own Windows Desktop Licenses</a>.
     /// </summary>
     [Cmdlet("Import", "WKSWorkspaceImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -113,10 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The ingestion process to be used when importing the image, depending on which protocol
-        /// you want to use for your BYOL Workspace image, either PCoIP or WorkSpaces Streaming
-        /// Protocol (WSP). To use WSP, specify a value that ends in <code>_WSP</code>. To use
-        /// PCoIP, specify a value that does not end in <code>_WSP</code>. </para><para>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-        /// <code>BYOL_REGULAR</code> or <code>BYOL_REGULAR_WSP</code>, depending on the protocol.</para>
+        /// you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming
+        /// Protocol (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that
+        /// ends in <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>.
+        /// To use BYOP, specify a value that ends in <code>_BYOP</code>.</para><para>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
+        /// <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>,
+        /// depending on the protocol.</para><note><para>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values
+        /// are only supported by Amazon WorkSpaces Core. Contact your account team to be allow-listed
+        /// to use these values. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon
+        /// WorkSpaces Core</a>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

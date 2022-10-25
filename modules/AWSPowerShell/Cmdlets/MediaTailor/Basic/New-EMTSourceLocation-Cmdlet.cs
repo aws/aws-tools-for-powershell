@@ -28,7 +28,9 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates a source location on a specific channel.
+    /// Creates a source location. A source location is a container for sources. For more
+    /// information about source locations, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-source-locations.html">Working
+    /// with source locations</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EMTSourceLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.CreateSourceLocationResponse")]
@@ -42,12 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter AccessConfiguration_AccessType
         /// <summary>
         /// <para>
-        /// <para>The type of authentication used to access content from HttpConfiguration::BaseUrl
-        /// on your source location. Accepted value: S3_SIGV4.</para><para>S3_SIGV4 - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style
-        /// access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use
-        /// AWS Signature Version 4 (SigV4) authentication to access the bucket where your source
-        /// content is stored. Your MediaTailor source location baseURL must follow the S3 virtual
-        /// hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</para><para>Before you can use S3_SIGV4, you must meet these requirements:</para><para>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com
+        /// <para>The type of authentication used to access content from <code>HttpConfiguration::BaseUrl</code>
+        /// on your source location. Accepted value: <code>S3_SIGV4</code>.</para><para><code>S3_SIGV4</code> - AWS Signature Version 4 authentication for Amazon S3 hosted
+        /// virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor
+        /// can use AWS Signature Version 4 (SigV4) authentication to access the bucket where
+        /// your source content is stored. Your MediaTailor source location baseURL must follow
+        /// the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</para><para>Before you can use <code>S3_SIGV4</code>, you must meet these requirements:</para><para>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com
         /// principal access in IAM. For information about configuring access in IAM, see Access
         /// management in the IAM User Guide.</para><para>• The mediatailor.amazonaws.com service principal must have permissions to read all
         /// top level manifests referenced by the VodSource packaging configurations.</para><para>• The caller of the API must have s3:GetObject IAM permissions to read all top level
@@ -139,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name associated with the source location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the source location.</para>
+        /// <para>The tags to assign to the source location. Tags are key-value pairs that you can associate
+        /// with Amazon resources to help with organization, access control, and cost tracking.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

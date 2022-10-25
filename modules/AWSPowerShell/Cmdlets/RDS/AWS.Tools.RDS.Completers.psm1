@@ -122,6 +122,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.ExportSourceType
+        "Get-RDSExportTask/SourceType"
+        {
+            $v = "CLUSTER","SNAPSHOT"
+            break
+        }
+
         # Amazon.RDS.ReplicaMode
         {
             ($_ -eq "Edit-RDSDBInstance/ReplicaMode") -Or
@@ -153,7 +160,7 @@ $RDS_map = @{
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
-    "SourceType"=@("Get-RDSEvent")
+    "SourceType"=@("Get-RDSEvent","Get-RDSExportTask")
     "Status"=@("Edit-RDSCustomDBEngineVersion")
     "TargetRole"=@("New-RDSDBProxyEndpoint")
 }

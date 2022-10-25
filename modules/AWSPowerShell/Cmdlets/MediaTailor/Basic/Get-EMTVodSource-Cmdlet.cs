@@ -28,7 +28,8 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Provides details about a specific VOD source in a specific source location.
+    /// Provides details about a specific video on demand (VOD) source in a specific source
+    /// location.
     /// </summary>
     [Cmdlet("Get", "EMTVodSource")]
     [OutputType("Amazon.MediaTailor.Model.DescribeVodSourceResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location associated with this VOD Source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter VodSourceName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the VOD source you are working on.</para>
+        /// <para>The name of the VOD Source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

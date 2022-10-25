@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Configures Amazon CloudWatch log settings for a playback configuration.
+    /// Amazon CloudWatch log settings for a playback configuration.
     /// </summary>
     [Cmdlet("Add", "EMTLogsForPlaybackConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.ConfigureLogsForPlaybackConfigurationResponse")]
@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>
         /// <para>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.
         /// For example, if your playback configuration has 1000 sessions and percentEnabled is
-        /// set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor
-        /// decides at random which of the playback configuration sessions to send logs for. If
-        /// you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug
-        /// log mode</a>.</para><para>Valid values: 0 - 100</para>
+        /// set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch
+        /// Logs. MediaTailor decides at random which of the playback configuration sessions to
+        /// send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug
+        /// log mode</a>.</para><para>Valid values: <code>0</code> - <code>100</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

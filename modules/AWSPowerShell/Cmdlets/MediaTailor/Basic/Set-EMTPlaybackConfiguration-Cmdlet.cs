@@ -28,7 +28,9 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Adds a new playback configuration to AWS Elemental MediaTailor.
+    /// Creates a playback configuration. For information about MediaTailor configurations,
+    /// see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working
+    /// with configurations in AWS Elemental MediaTailor</a>.
     /// </summary>
     [Cmdlet("Set", "EMTPlaybackConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.PutPlaybackConfigurationResponse")]
@@ -124,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter LivePreRollConfiguration_MaxDurationSecond
         /// <summary>
         /// <para>
-        /// The maximum allowed duration for the
-        /// pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this
-        /// duration, regardless of the total duration of ads that the ADS returns.
+        /// <para>The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor
+        /// won't play pre-roll ads to exceed this duration, regardless of the total duration
+        /// of ads that the ADS returns.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,9 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks
-        /// are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression
-        /// is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value
-        /// time in the manifest lookback window.</para>
+        /// are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad
+        /// suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression
+        /// Value time in the manifest lookback window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The identifier for the playback configuration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -203,7 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the playback configuration.</para>
+        /// <para>The tags to assign to the playback configuration. Tags are key-value pairs that you
+        /// can associate with Amazon resources to help with organization, access control, and
+        /// cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,6 +342,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
             context.AdMarkerPassthrough_Enabled = this.AdMarkerPassthrough_Enabled;
             context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.PersonalizationThresholdSecond = this.PersonalizationThresholdSecond;
             context.SlateAdUrl = this.SlateAdUrl;
             if (this.Tag != null)

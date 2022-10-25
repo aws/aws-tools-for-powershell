@@ -28,7 +28,8 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates an IAM policy for the channel.
+    /// Creates an IAM policy for the channel. IAM policies are used to control access to
+    /// your channel.
     /// </summary>
     [Cmdlet("Write", "EMTChannelPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the channel you are working on.</para>
+        /// <para>The channel name associated with this Channel Policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

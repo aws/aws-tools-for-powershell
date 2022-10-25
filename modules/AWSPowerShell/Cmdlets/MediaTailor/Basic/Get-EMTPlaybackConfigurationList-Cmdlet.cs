@@ -28,11 +28,9 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Returns a list of the playback configurations defined in AWS Elemental MediaTailor.
-    /// You can specify a maximum number of configurations to return at a time. The default
-    /// maximum is 50. Results are returned in pagefuls. If MediaTailor has more configurations
-    /// than the specified maximum, it provides parameters in the response that you can use
-    /// to retrieve the next pageful.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves existing playback configurations. For information about MediaTailor configurations,
+    /// see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/configurations.html">Working
+    /// with Configurations in AWS Elemental MediaTailor</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMTPlaybackConfigurationList")]
     [OutputType("Amazon.MediaTailor.Model.PlaybackConfiguration")]
@@ -47,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of records to return.</para>
+        /// <para>The maximum number of playback configurations that you want MediaTailor to return
+        /// in response to the current request. If there are more than <code>MaxResults</code>
+        /// playback configurations, use the value of <code>NextToken</code> in the response to
+        /// get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -64,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token returned by the GET list request when results exceed the maximum
-        /// allowed. Use the token to fetch the next page of results.</para>
+        /// <para>Pagination token returned by the list request when results exceed the maximum allowed.
+        /// Use the token to fetch the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

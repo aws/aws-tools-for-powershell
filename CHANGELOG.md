@@ -1,4 +1,11 @@
-﻿### 4.1.192 (2022-10-24 21:22Z)
+﻿### 4.1.193 (2022-10-25 20:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.403.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IAM Access Analyzer
+    * Modified cmdlet Start-IAMAAResourceScan: added parameter ResourceOwnerAccount.
+  * Amazon Relational Database Service
+    * Modified cmdlet Get-RDSExportTask: added parameter SourceType.
+
+### 4.1.192 (2022-10-24 21:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.402.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Batch
     * Modified cmdlet New-BATComputeEnvironment: added parameters EksConfiguration_EksClusterArn and EksConfiguration_KubernetesNamespace.

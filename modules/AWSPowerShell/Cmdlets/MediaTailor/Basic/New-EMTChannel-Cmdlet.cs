@@ -28,7 +28,8 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates a channel.
+    /// Creates a channel. For information about MediaTailor channels, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-channels.html">Working
+    /// with channels</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EMTChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.CreateChannelResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the channel you are working on.</para>
+        /// <para>The name of the channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PlaybackMode
         /// <summary>
         /// <para>
-        /// <para>The type of playback mode to use for this channel.</para><para>LINEAR - The programs in the schedule play once back-to-back in the schedule.</para><para>LOOP - The programs in the schedule play back-to-back in an endless loop. When the
-        /// last program in the schedule stops playing, playback loops back to the first program
-        /// in the schedule.</para>
+        /// <para>The type of playback mode to use for this channel.</para><para><code>LINEAR</code> - The programs in the schedule play once back-to-back in the
+        /// schedule.</para><para><code>LOOP</code> - The programs in the schedule play back-to-back in an endless
+        /// loop. When the last program in the schedule stops playing, playback loops back to
+        /// the first program in the schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the channel.</para>
+        /// <para>The tags to assign to the channel. Tags are key-value pairs that you can associate
+        /// with Amazon resources to help with organization, access control, and cost tracking.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

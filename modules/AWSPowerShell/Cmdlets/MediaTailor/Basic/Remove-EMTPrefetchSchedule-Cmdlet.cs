@@ -28,8 +28,10 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Deletes a prefetch schedule for a specific playback configuration. If you call DeletePrefetchSchedule
-    /// on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.
+    /// Deletes a prefetch schedule for a specific playback configuration. If you call <code>DeletePrefetchSchedule</code>
+    /// on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code. For
+    /// more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using
+    /// ad prefetching</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "EMTPrefetchSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier for the playback configuration.</para>
+        /// <para>The name of the prefetch schedule. If the action is successful, the service sends
+        /// back an HTTP 204 response with an empty HTTP body.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PlaybackConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the playback configuration.</para>
+        /// <para>The name of the playback configuration for this prefetch schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

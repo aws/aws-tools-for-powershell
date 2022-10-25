@@ -111,7 +111,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::SQS::Queue"
+            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 
@@ -41419,6 +41419,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.ExportSourceType
+        "Get-RDSExportTask/SourceType"
+        {
+            $v = "CLUSTER","SNAPSHOT"
+            break
+        }
+
         # Amazon.RDS.ReplicaMode
         {
             ($_ -eq "Edit-RDSDBInstance/ReplicaMode") -Or
@@ -41450,7 +41457,7 @@ $RDS_map = @{
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
-    "SourceType"=@("Get-RDSEvent")
+    "SourceType"=@("Get-RDSEvent","Get-RDSExportTask")
     "Status"=@("Edit-RDSCustomDBEngineVersion")
     "TargetRole"=@("New-RDSDBProxyEndpoint")
 }
@@ -53502,7 +53509,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.RunningMode
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_RunningMode"
         {
-            $v = "ALWAYS_ON","AUTO_STOP"
+            $v = "ALWAYS_ON","AUTO_STOP","MANUAL"
             break
         }
 
@@ -53530,7 +53537,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.WorkspaceImageIngestionProcess
         "Import-WKSWorkspaceImage/IngestionProcess"
         {
-            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_GRAPHICS_G4DN","BYOL_REGULAR","BYOL_REGULAR_WSP"
+            $v = "BYOL_GRAPHICS","BYOL_GRAPHICSPRO","BYOL_GRAPHICS_G4DN","BYOL_GRAPHICS_G4DN_BYOP","BYOL_REGULAR","BYOL_REGULAR_BYOP","BYOL_REGULAR_WSP"
             break
         }
 

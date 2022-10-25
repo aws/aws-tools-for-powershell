@@ -28,8 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Removes tags from the specified playback configuration resource. You can specify one
-    /// or more tags to remove.
+    /// The resource to untag.
     /// </summary>
     [Cmdlet("Remove", "EMTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the playback configuration. You can get this from
-        /// the response to any playback configuration request.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to untag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of the tag keys to remove from the playback configuration.</para>
+        /// <para>The tag keys associated with the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,10 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Returns a list of the tags assigned to the specified playback configuration resource.
+    /// A list of tags that are associated with this resource. Tags are key-value pairs that
+    /// you can associate with Amazon resources to help with organization, access control,
+    /// and cost tracking. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+    /// AWS Elemental MediaTailor Resources</a>.
     /// </summary>
     [Cmdlet("Get", "EMTResourceTag")]
     [OutputType("System.String")]
@@ -43,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the playback configuration. You can get this from
-        /// the response to any playback configuration request.</para>
+        /// <para>The Amazon Resource Name (ARN) associated with this resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

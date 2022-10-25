@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates name for a specific VOD source in a source location.
+    /// The VOD source configuration parameters.
     /// </summary>
     [Cmdlet("New", "EMTVodSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.CreateVodSourceResponse")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter SourceLocationName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the source location you are working on.</para>
+        /// <para>The name of the source location for this VOD source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the VOD source.</para>
+        /// <para>The tags to assign to the VOD source. Tags are key-value pairs that you can associate
+        /// with Amazon resources to help with organization, access control, and cost tracking.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html">Tagging
+        /// AWS Elemental MediaTailor Resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter VodSourceName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the VOD source you are working on.</para>
+        /// <para>The name associated with the VOD source.&gt;</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,10 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Creates a new prefetch schedule for the specified playback configuration.
+    /// Creates a prefetch schedule for a playback configuration. A prefetch schedule allows
+    /// you to tell MediaTailor to fetch and prepare certain ads before an ad break happens.
+    /// For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using
+    /// ad prefetching</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EMTPrefetchSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.CreatePrefetchScheduleResponse")]
@@ -43,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>If you only want MediaTailor to insert prefetched ads into avails (ad breaks) that
-        /// match specific dynamic variables, such as scte.event_id, set the avail matching criteria.</para>
+        /// match specific dynamic variables, such as <code>scte.event_id</code>, set the avail
+        /// matching criteria.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,10 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The dynamic variables to use for substitution during prefetch requests to the ad decision
-        /// server (ADS).</para><para>You intially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic
+        /// server (ADS).</para><para>You initially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic
         /// variables</a> for the ADS URL when you set up your playback configuration. When you
-        /// specify DynamicVariables for prefetch retrieval, MediaTailor includes the dynamic
-        /// variables in the request to the ADS.</para>
+        /// specify <code>DynamicVariables</code> for prefetch retrieval, MediaTailor includes
+        /// the dynamic variables in the request to the ADS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The time when MediaTailor no longer considers the prefetched ads for use in an ad
         /// break. MediaTailor automatically deletes prefetch schedules no less than seven days
         /// after the end time. If you'd like to manually delete the prefetch schedule, you can
-        /// call DeletePrefetchSchedule.</para>
+        /// call <code>DeletePrefetchSchedule</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier for the playback configuration.</para>
+        /// <para>The name to assign to the schedule request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PlaybackConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the playback configuration.</para>
+        /// <para>The name to assign to the playback configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>The time when prefetched ads are considered for use in an ad break. If you don't specify
-        /// StartTime, the prefetched ads are available after MediaTailor retrives them from the
-        /// ad decision server.</para>
+        /// <code>StartTime</code>, the prefetched ads are available after MediaTailor retrives
+        /// them from the ad decision server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,10 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <summary>
         /// <para>
         /// <para>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams
-        /// that use the same playback configuration. If StreamId is specified, MediaTailor returns
-        /// all of the prefetch schedules with an exact match on StreamId. If not specified, MediaTailor
-        /// returns all of the prefetch schedules for the playback configuration, regardless of
-        /// StreamId.</para>
+        /// that use the same playback configuration. If <code>StreamId</code> is specified, MediaTailor
+        /// returns all of the prefetch schedules with an exact match on <code>StreamId</code>.
+        /// If not specified, MediaTailor returns all of the prefetch schedules for the playback
+        /// configuration, regardless of <code>StreamId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

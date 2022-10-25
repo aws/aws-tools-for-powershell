@@ -94,13 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// a detailed basemap for the world symbolized with a custom navigation map style that's
         /// designed for use during the day in mobile devices.</para></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
         /// Technologies map styles</a>:</para><ul><li><para><code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a high
-        /// contrast detailed base map of the world that blends 3D and 2D rendering.</para></li><li><para><code>VectorHereExplore</code> – A default HERE map style containing a neutral, global
+        /// contrast detailed base map of the world that blends 3D and 2D rendering.</para><note><para>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>.
+        /// <code>VectorHereBerlin</code> has been deprecated, but will continue to work in applications
+        /// that use it.</para></note></li><li><para><code>VectorHereExplore</code> – A default HERE map style containing a neutral, global
         /// map and its features including roads, buildings, landmarks, and water features. It
         /// also now includes a fully designed map of Japan.</para></li><li><para><code>VectorHereExploreTruck</code> – A global map containing truck restrictions
         /// and attributes (e.g. width / height / HAZMAT) symbolized with highlighted segments
-        /// and icons on top of HERE Explore to support use cases within transport and logistics.</para></li></ul><note><para>The <code>VectorHereContrast</code> style has been renamed from <code>VectorHereBerlin</code>.
-        /// <code>VectorHereBerlin</code> has been deprecated, but will continue to work in applications
-        /// that use it.</para></note>
+        /// and icons on top of HERE Explore to support use cases within transport and logistics.</para></li><li><para><code>RasterHereExploreSatellite</code> – A global map containing high resolution
+        /// satellite imagery.</para></li><li><para><code>HybridHereExploreSatellite</code> – A global map displaying the road network,
+        /// street names, and city labels over satellite imagery. This style will automatically
+        /// retrieve both raster and vector tiles, and your charges will be based on total tiles
+        /// retrieved.</para><note><para>Hybrid styles use both vector and raster tiles when rendering the map that you see.
+        /// This means that more tiles are retrieved than when using either vector or raster tiles
+        /// alone. Your charges will include all tiles retrieved.</para></note></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

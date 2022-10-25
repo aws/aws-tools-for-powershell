@@ -28,9 +28,10 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Returns information about the prefetch schedule for a specific playback configuration.
-    /// If you call GetPrefetchSchedule on an expired prefetch schedule, MediaTailor returns
-    /// an HTTP 404 status code.
+    /// Retrieves a prefetch schedule for a playback configuration. A prefetch schedule allows
+    /// you to tell MediaTailor to fetch and prepare certain ads before an ad break happens.
+    /// For more information about ad prefetching, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/prefetching-ads.html">Using
+    /// ad prefetching</a> in the <i>MediaTailor User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "EMTPrefetchSchedule")]
     [OutputType("Amazon.MediaTailor.Model.GetPrefetchScheduleResponse")]
@@ -44,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier for the playback configuration.</para>
+        /// <para>The name of the prefetch schedule. The name must be unique among all prefetch schedules
+        /// that are associated with the specified playback configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter PlaybackConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the playback configuration.</para>
+        /// <para>Returns information about the prefetch schedule for a specific playback configuration.
+        /// If you call <code>GetPrefetchSchedule</code> on an expired prefetch schedule, MediaTailor
+        /// returns an HTTP 404 status code.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
