@@ -73,8 +73,6 @@ try {
       Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
       Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
       Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
-      Remove-Item ./Include/sdk/_sdk-versions.json
-      Move-Item ./Include/sdktmp/_sdk-versions.json ./Include/sdk/_sdk-versions.json
       Remove-Item ./Include/sdktmp -Recurse
     }
     elseif ($Environment -eq "DEV") {
