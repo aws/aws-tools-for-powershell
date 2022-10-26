@@ -1,4 +1,16 @@
-﻿### 4.1.193 (2022-10-25 20:40Z)
+﻿### 4.1.194 (2022-10-26 20:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.404.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Update-MSKStorage leveraging the UpdateStorage service API.
+    * Modified cmdlet New-MSKCluster: added parameter StorageMode.
+    * Modified cmdlet New-MSKClusterV2: added parameter Provisioned_StorageMode.
+  * Amazon Neptune
+    * Modified cmdlet Edit-NPTDBCluster: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet New-NPTDBCluster: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-NPTDBClusterFromSnapshot: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+    * Modified cmdlet Restore-NPTDBClusterToPointInTime: added parameters ServerlessV2ScalingConfiguration_MaxCapacity and ServerlessV2ScalingConfiguration_MinCapacity.
+
+### 4.1.193 (2022-10-25 20:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.403.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IAM Access Analyzer
     * Modified cmdlet Start-IAMAAResourceScan: added parameter ResourceOwnerAccount.

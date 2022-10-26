@@ -12905,6 +12905,7 @@ Set-Alias -Name MSK-UpdateConfiguration -Value Update-MSKConfiguration
 Set-Alias -Name MSK-UpdateConnectivity -Value Update-MSKConnectivity
 Set-Alias -Name MSK-UpdateMonitoring -Value Update-MSKMonitoring
 Set-Alias -Name MSK-UpdateSecurity -Value Update-MSKSecurity
+Set-Alias -Name MSK-UpdateStorage -Value Update-MSKStorage
 Set-Alias -Name Create-MSKCConnector -Value New-MSKCConnector
 Set-Alias -Name MSKC-CreateConnector -Value New-MSKCConnector
 Set-Alias -Name Create-MSKCCustomPlugin -Value New-MSKCCustomPlugin

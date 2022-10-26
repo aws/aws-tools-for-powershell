@@ -102,6 +102,17 @@ $MSK_Completers = {
             break
         }
 
+        # Amazon.Kafka.StorageMode
+        {
+            ($_ -eq "New-MSKClusterV2/Provisioned_StorageMode") -Or
+            ($_ -eq "New-MSKCluster/StorageMode") -Or
+            ($_ -eq "Update-MSKStorage/StorageMode")
+        }
+        {
+            $v = "LOCAL","TIERED"
+            break
+        }
+
 
     }
 
@@ -115,6 +126,8 @@ $MSK_map = @{
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
     "Provisioned_EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKClusterV2")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
+    "Provisioned_StorageMode"=@("New-MSKClusterV2")
+    "StorageMode"=@("New-MSKCluster","Update-MSKStorage")
 }
 
 _awsArgumentCompleterRegistration $MSK_Completers $MSK_map
@@ -201,7 +214,8 @@ $MSK_SelectMap = @{
                "Update-MSKConfiguration",
                "Update-MSKConnectivity",
                "Update-MSKMonitoring",
-               "Update-MSKSecurity")
+               "Update-MSKSecurity",
+               "Update-MSKStorage")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap

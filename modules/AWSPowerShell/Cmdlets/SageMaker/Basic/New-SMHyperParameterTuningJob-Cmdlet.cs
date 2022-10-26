@@ -309,13 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum number of training jobs that a hyperparameter tuning job can launch.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("HyperParameterTuningJobConfig_ResourceLimits_MaxNumberOfTrainingJobs")]
         public System.Int32? ResourceLimits_MaxNumberOfTrainingJob { get; set; }
         #endregion
@@ -811,12 +805,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ParameterRanges_IntegerParameterRange = new List<Amazon.SageMaker.Model.IntegerParameterRange>(this.ParameterRanges_IntegerParameterRange);
             }
             context.ResourceLimits_MaxNumberOfTrainingJob = this.ResourceLimits_MaxNumberOfTrainingJob;
-            #if MODULAR
-            if (this.ResourceLimits_MaxNumberOfTrainingJob == null && ParameterWasBound(nameof(this.ResourceLimits_MaxNumberOfTrainingJob)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceLimits_MaxNumberOfTrainingJob which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResourceLimits_MaxParallelTrainingJob = this.ResourceLimits_MaxParallelTrainingJob;
             #if MODULAR
             if (this.ResourceLimits_MaxParallelTrainingJob == null && ParameterWasBound(nameof(this.ResourceLimits_MaxParallelTrainingJob)))

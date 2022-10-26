@@ -332,6 +332,17 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Int64? ConfigurationInfo_Revision { get; set; }
         #endregion
         
+        #region Parameter StorageMode
+        /// <summary>
+        /// <para>
+        /// <para>This controls storage mode for supported storage tiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kafka.StorageMode")]
+        public Amazon.Kafka.StorageMode StorageMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -455,6 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             #endif
             context.JmxExporter_EnabledInBroker = this.JmxExporter_EnabledInBroker;
             context.NodeExporter_EnabledInBroker = this.NodeExporter_EnabledInBroker;
+            context.StorageMode = this.StorageMode;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -944,6 +956,10 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 request.OpenMonitoring = null;
             }
+            if (cmdletContext.StorageMode != null)
+            {
+                request.StorageMode = cmdletContext.StorageMode;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1033,6 +1049,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Int32? NumberOfBrokerNode { get; set; }
             public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
             public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
+            public Amazon.Kafka.StorageMode StorageMode { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Kafka.Model.CreateClusterResponse, NewMSKClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

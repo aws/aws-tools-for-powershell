@@ -324,6 +324,17 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.Int64? ConfigurationInfo_Revision { get; set; }
         #endregion
         
+        #region Parameter Provisioned_StorageMode
+        /// <summary>
+        /// <para>
+        /// <para>This controls storage mode for supported storage tiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kafka.StorageMode")]
+        public Amazon.Kafka.StorageMode Provisioned_StorageMode { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -440,6 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             context.Provisioned_NumberOfBrokerNode = this.Provisioned_NumberOfBrokerNode;
             context.JmxExporter_EnabledInBroker = this.JmxExporter_EnabledInBroker;
             context.NodeExporter_EnabledInBroker = this.NodeExporter_EnabledInBroker;
+            context.Provisioned_StorageMode = this.Provisioned_StorageMode;
             context.Serverless_ClientAuthentication_Sasl_Iam_Enabled = this.Serverless_ClientAuthentication_Sasl_Iam_Enabled;
             if (this.Serverless_VpcConfig != null)
             {
@@ -515,6 +527,16 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestProvisioned_provisioned_NumberOfBrokerNode != null)
             {
                 request.Provisioned.NumberOfBrokerNodes = requestProvisioned_provisioned_NumberOfBrokerNode.Value;
+                requestProvisionedIsNull = false;
+            }
+            Amazon.Kafka.StorageMode requestProvisioned_provisioned_StorageMode = null;
+            if (cmdletContext.Provisioned_StorageMode != null)
+            {
+                requestProvisioned_provisioned_StorageMode = cmdletContext.Provisioned_StorageMode;
+            }
+            if (requestProvisioned_provisioned_StorageMode != null)
+            {
+                request.Provisioned.StorageMode = requestProvisioned_provisioned_StorageMode;
                 requestProvisionedIsNull = false;
             }
             Amazon.Kafka.Model.LoggingInfo requestProvisioned_provisioned_LoggingInfo = null;
@@ -1160,6 +1182,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.Int32? Provisioned_NumberOfBrokerNode { get; set; }
             public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
             public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
+            public Amazon.Kafka.StorageMode Provisioned_StorageMode { get; set; }
             public System.Boolean? Serverless_ClientAuthentication_Sasl_Iam_Enabled { get; set; }
             public List<Amazon.Kafka.Model.VpcConfig> Serverless_VpcConfig { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
