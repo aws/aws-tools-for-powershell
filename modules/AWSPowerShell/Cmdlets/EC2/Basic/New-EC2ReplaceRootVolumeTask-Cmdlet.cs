@@ -28,9 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a root volume replacement task for an Amazon EC2 instance. The root volume
-    /// can either be restored to its initial launch state, or it can be restored using a
-    /// specific snapshot.
+    /// Replaces the EBS-backed root volume for a <code>running</code> instance with a new
+    /// volume that is restored to the original root volume's launch state, that is restored
+    /// to a specific snapshot taken from the original root volume, or that is restored from
+    /// an AMI that has the same key characteristics as that of the instance.
     /// 
     ///  
     /// <para>
@@ -47,6 +48,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class NewEC2ReplaceRootVolumeTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeleteReplacedRootVolume
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to automatically delete the original root volume after the root
+        /// volume replacement task completes. To delete the original root volume, specify <code>true</code>.
+        /// If you choose to keep the original root volume after the replacement task completes,
+        /// you must manually delete it when you no longer need it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeleteReplacedRootVolume { get; set; }
+        #endregion
+        
+        #region Parameter ImageId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AMI to use to restore the root volume. The specified AMI must have the
+        /// same product code, billing information, architecture type, and virtualization type
+        /// as that of the instance.</para><para>If you want to restore the replacement volume from a specific snapshot, or if you
+        /// want to restore it to its launch state, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageId { get; set; }
+        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -68,8 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The ID of the snapshot from which to restore the replacement root volume. If you want
-        /// to restore the volume to the initial launch state, omit this parameter.</para>
+        /// <para>The ID of the snapshot from which to restore the replacement root volume. The specified
+        /// snapshot must be a snapshot that you previously created from the original root volume.</para><para>If you want to restore the replacement root volume to the initial launch state, or
+        /// if you want to restore the replacement root volume from an AMI, omit this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,6 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.DeleteReplacedRootVolume = this.DeleteReplacedRootVolume;
+            context.ImageId = this.ImageId;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -193,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DeleteReplacedRootVolume != null)
+            {
+                request.DeleteReplacedRootVolume = cmdletContext.DeleteReplacedRootVolume.Value;
+            }
+            if (cmdletContext.ImageId != null)
+            {
+                request.ImageId = cmdletContext.ImageId;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -268,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? DeleteReplacedRootVolume { get; set; }
+            public System.String ImageId { get; set; }
             public System.String InstanceId { get; set; }
             public System.String SnapshotId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

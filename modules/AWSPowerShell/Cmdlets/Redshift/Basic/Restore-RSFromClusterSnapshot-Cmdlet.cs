@@ -187,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ElasticIp
         /// <summary>
         /// <para>
-        /// <para>The elastic IP (EIP) address for the cluster.</para>
+        /// <para>The Elastic IP (EIP) address for the cluster. Don't specify the Elastic IP address
+        /// for a publicly accessible cluster with availability zone relocation turned on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

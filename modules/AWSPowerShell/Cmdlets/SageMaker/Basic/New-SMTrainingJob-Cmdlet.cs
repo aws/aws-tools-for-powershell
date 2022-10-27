@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// or tokens in any hyperparameter field. If the use of security-sensitive credentials
     /// are detected, SageMaker will reject your training job request and return an exception
     /// error.
-    /// </para></important></li><li><para><code>InputDataConfig</code> - Describes the training dataset and the Amazon S3,
-    /// EFS, or FSx location where it is stored.
+    /// </para></important></li><li><para><code>InputDataConfig</code> - Describes the input required by the training job and
+    /// the Amazon S3, EFS, or FSx location where it is stored.
     /// </para></li><li><para><code>OutputDataConfig</code> - Identifies the Amazon S3 bucket where you want SageMaker
     /// to save the results of model training. 
     /// </para></li><li><para><code>ResourceConfig</code> - Identifies the resources, ML compute instances, and

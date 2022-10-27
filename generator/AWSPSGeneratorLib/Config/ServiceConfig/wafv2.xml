@@ -40,7 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWebACL" OutputProperty="Summary" Verb="New" Noun="WebACL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" NewName="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" Alias="ImmunityTimeProperty_ImmunityTime" />
+                <Param Name="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" NewName="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" />
+            </Params>
             <TypesNotToFlatten>
                 <Type>Amazon.WAFV2.Model.AllowAction</Type>
                 <Type>Amazon.WAFV2.Model.BlockAction</Type>
@@ -211,7 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWebACL" OutputProperty="NextLockToken" Verb="Update" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" NewName="CaptchaConfig_ImmunityTimeProperty_ImmunityTime" Alias="ImmunityTimeProperty_ImmunityTime" />
+                <Param Name="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" NewName="ChallengeConfig_ImmunityTimeProperty_ImmunityTime" />
+            </Params>
             <TypesNotToFlatten>
                 <Type>Amazon.WAFV2.Model.AllowAction</Type>
                 <Type>Amazon.WAFV2.Model.BlockAction</Type>

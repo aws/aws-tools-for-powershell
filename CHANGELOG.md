@@ -1,4 +1,15 @@
-﻿### 4.1.194 (2022-10-26 20:26Z)
+﻿### 4.1.195 (2022-10-27 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.405.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2ReplaceRootVolumeTask: added parameters DeleteReplacedRootVolume and ImageId.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEClassifier: added parameters CsvClassifier_CustomDatatype and CsvClassifier_CustomDatatypeConfigured.
+    * Modified cmdlet Update-GLUEClassifier: added parameters CsvClassifier_CustomDatatype and CsvClassifier_CustomDatatypeConfigured.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameters ChallengeConfig_ImmunityTimeProperty_ImmunityTime and TokenDomain.
+    * Modified cmdlet Update-WAF2WebACL: added parameters ChallengeConfig_ImmunityTimeProperty_ImmunityTime and TokenDomain.
+
+### 4.1.194 (2022-10-26 20:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.404.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Managed Streaming for Apache Kafka (MSK)
     * Added cmdlet Update-MSKStorage leveraging the UpdateStorage service API.

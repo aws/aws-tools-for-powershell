@@ -63,6 +63,27 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.CsvHeaderOption CsvClassifier_ContainsHeader { get; set; }
         #endregion
         
+        #region Parameter CsvClassifier_CustomDatatypeConfigured
+        /// <summary>
+        /// <para>
+        /// <para>Enables the configuration of custom datatypes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CsvClassifier_CustomDatatypeConfigured { get; set; }
+        #endregion
+        
+        #region Parameter CsvClassifier_CustomDatatype
+        /// <summary>
+        /// <para>
+        /// <para>Creates a list of supported custom datatypes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CsvClassifier_CustomDatatypes")]
+        public System.String[] CsvClassifier_CustomDatatype { get; set; }
+        #endregion
+        
         #region Parameter CsvClassifier_Delimiter
         /// <summary>
         /// <para>
@@ -199,6 +220,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.CsvClassifier_AllowSingleColumn = this.CsvClassifier_AllowSingleColumn;
             context.CsvClassifier_ContainsHeader = this.CsvClassifier_ContainsHeader;
+            context.CsvClassifier_CustomDatatypeConfigured = this.CsvClassifier_CustomDatatypeConfigured;
+            if (this.CsvClassifier_CustomDatatype != null)
+            {
+                context.CsvClassifier_CustomDatatype = new List<System.String>(this.CsvClassifier_CustomDatatype);
+            }
             context.CsvClassifier_Delimiter = this.CsvClassifier_Delimiter;
             context.CsvClassifier_DisableValueTrimming = this.CsvClassifier_DisableValueTrimming;
             if (this.CsvClassifier_Header != null)
@@ -249,6 +275,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestCsvClassifier_csvClassifier_ContainsHeader != null)
             {
                 request.CsvClassifier.ContainsHeader = requestCsvClassifier_csvClassifier_ContainsHeader;
+                requestCsvClassifierIsNull = false;
+            }
+            System.Boolean? requestCsvClassifier_csvClassifier_CustomDatatypeConfigured = null;
+            if (cmdletContext.CsvClassifier_CustomDatatypeConfigured != null)
+            {
+                requestCsvClassifier_csvClassifier_CustomDatatypeConfigured = cmdletContext.CsvClassifier_CustomDatatypeConfigured.Value;
+            }
+            if (requestCsvClassifier_csvClassifier_CustomDatatypeConfigured != null)
+            {
+                request.CsvClassifier.CustomDatatypeConfigured = requestCsvClassifier_csvClassifier_CustomDatatypeConfigured.Value;
+                requestCsvClassifierIsNull = false;
+            }
+            List<System.String> requestCsvClassifier_csvClassifier_CustomDatatype = null;
+            if (cmdletContext.CsvClassifier_CustomDatatype != null)
+            {
+                requestCsvClassifier_csvClassifier_CustomDatatype = cmdletContext.CsvClassifier_CustomDatatype;
+            }
+            if (requestCsvClassifier_csvClassifier_CustomDatatype != null)
+            {
+                request.CsvClassifier.CustomDatatypes = requestCsvClassifier_csvClassifier_CustomDatatype;
                 requestCsvClassifierIsNull = false;
             }
             System.String requestCsvClassifier_csvClassifier_Delimiter = null;
@@ -406,6 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.Boolean? CsvClassifier_AllowSingleColumn { get; set; }
             public Amazon.Glue.CsvHeaderOption CsvClassifier_ContainsHeader { get; set; }
+            public System.Boolean? CsvClassifier_CustomDatatypeConfigured { get; set; }
+            public List<System.String> CsvClassifier_CustomDatatype { get; set; }
             public System.String CsvClassifier_Delimiter { get; set; }
             public System.Boolean? CsvClassifier_DisableValueTrimming { get; set; }
             public List<System.String> CsvClassifier_Header { get; set; }

@@ -156,16 +156,27 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String Id { get; set; }
         #endregion
         
-        #region Parameter ImmunityTimeProperty_ImmunityTime
+        #region Parameter CaptchaConfig_ImmunityTimeProperty_ImmunityTime
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default
-        /// setting is 300.</para>
+        /// <para>The amount of time, in seconds, that a <code>CAPTCHA</code> or challenge timestamp
+        /// is considered valid by WAF. The default setting is 300. </para><para>For the Challenge action, the minimum setting is 300. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("CaptchaConfig_ImmunityTimeProperty_ImmunityTime")]
-        public System.Int64? ImmunityTimeProperty_ImmunityTime { get; set; }
+        [Alias("ImmunityTimeProperty_ImmunityTime")]
+        public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
+        #endregion
+        
+        #region Parameter ChallengeConfig_ImmunityTimeProperty_ImmunityTime
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, that a <code>CAPTCHA</code> or challenge timestamp
+        /// is considered valid by WAF. The default setting is 300. </para><para>For the Challenge action, the minimum setting is 300. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
         #endregion
         
         #region Parameter LockToken
@@ -282,6 +293,22 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
         
+        #region Parameter TokenDomain
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the domains that WAF should accept in a web request token. This enables
+        /// the use of tokens across multiple protected websites. When WAF provides a token, it
+        /// uses the domain of the Amazon Web Services resource that the web ACL is protecting.
+        /// If you don't specify a list of token domains, WAF accepts tokens only for the domain
+        /// of the protected resource. With a token domain list, WAF accepts the resource's host
+        /// domain plus all domains in the token domain list, including their prefixed subdomains.</para><para>Example JSON: <code>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TokenDomains")]
+        public System.String[] TokenDomain { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'NextLockToken'.
@@ -343,7 +370,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ImmunityTimeProperty_ImmunityTime = this.ImmunityTimeProperty_ImmunityTime;
+            context.CaptchaConfig_ImmunityTimeProperty_ImmunityTime = this.CaptchaConfig_ImmunityTimeProperty_ImmunityTime;
+            context.ChallengeConfig_ImmunityTimeProperty_ImmunityTime = this.ChallengeConfig_ImmunityTimeProperty_ImmunityTime;
             if (this.CustomResponseBody != null)
             {
                 context.CustomResponseBody = new Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody>(StringComparer.Ordinal);
@@ -387,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TokenDomain != null)
+            {
+                context.TokenDomain = new List<System.String>(this.TokenDomain);
+            }
             context.VisibilityConfig_CloudWatchMetricsEnabled = this.VisibilityConfig_CloudWatchMetricsEnabled;
             #if MODULAR
             if (this.VisibilityConfig_CloudWatchMetricsEnabled == null && ParameterWasBound(nameof(this.VisibilityConfig_CloudWatchMetricsEnabled)))
@@ -433,14 +465,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
              // populate ImmunityTimeProperty
             var requestCaptchaConfig_captchaConfig_ImmunityTimePropertyIsNull = true;
             requestCaptchaConfig_captchaConfig_ImmunityTimeProperty = new Amazon.WAFV2.Model.ImmunityTimeProperty();
-            System.Int64? requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime = null;
-            if (cmdletContext.ImmunityTimeProperty_ImmunityTime != null)
+            System.Int64? requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_captchaConfig_ImmunityTimeProperty_ImmunityTime = null;
+            if (cmdletContext.CaptchaConfig_ImmunityTimeProperty_ImmunityTime != null)
             {
-                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime = cmdletContext.ImmunityTimeProperty_ImmunityTime.Value;
+                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_captchaConfig_ImmunityTimeProperty_ImmunityTime = cmdletContext.CaptchaConfig_ImmunityTimeProperty_ImmunityTime.Value;
             }
-            if (requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime != null)
+            if (requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_captchaConfig_ImmunityTimeProperty_ImmunityTime != null)
             {
-                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty.ImmunityTime = requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_immunityTimeProperty_ImmunityTime.Value;
+                requestCaptchaConfig_captchaConfig_ImmunityTimeProperty.ImmunityTime = requestCaptchaConfig_captchaConfig_ImmunityTimeProperty_captchaConfig_ImmunityTimeProperty_ImmunityTime.Value;
                 requestCaptchaConfig_captchaConfig_ImmunityTimePropertyIsNull = false;
             }
              // determine if requestCaptchaConfig_captchaConfig_ImmunityTimeProperty should be set to null
@@ -457,6 +489,40 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (requestCaptchaConfigIsNull)
             {
                 request.CaptchaConfig = null;
+            }
+            
+             // populate ChallengeConfig
+            var requestChallengeConfigIsNull = true;
+            request.ChallengeConfig = new Amazon.WAFV2.Model.ChallengeConfig();
+            Amazon.WAFV2.Model.ImmunityTimeProperty requestChallengeConfig_challengeConfig_ImmunityTimeProperty = null;
+            
+             // populate ImmunityTimeProperty
+            var requestChallengeConfig_challengeConfig_ImmunityTimePropertyIsNull = true;
+            requestChallengeConfig_challengeConfig_ImmunityTimeProperty = new Amazon.WAFV2.Model.ImmunityTimeProperty();
+            System.Int64? requestChallengeConfig_challengeConfig_ImmunityTimeProperty_challengeConfig_ImmunityTimeProperty_ImmunityTime = null;
+            if (cmdletContext.ChallengeConfig_ImmunityTimeProperty_ImmunityTime != null)
+            {
+                requestChallengeConfig_challengeConfig_ImmunityTimeProperty_challengeConfig_ImmunityTimeProperty_ImmunityTime = cmdletContext.ChallengeConfig_ImmunityTimeProperty_ImmunityTime.Value;
+            }
+            if (requestChallengeConfig_challengeConfig_ImmunityTimeProperty_challengeConfig_ImmunityTimeProperty_ImmunityTime != null)
+            {
+                requestChallengeConfig_challengeConfig_ImmunityTimeProperty.ImmunityTime = requestChallengeConfig_challengeConfig_ImmunityTimeProperty_challengeConfig_ImmunityTimeProperty_ImmunityTime.Value;
+                requestChallengeConfig_challengeConfig_ImmunityTimePropertyIsNull = false;
+            }
+             // determine if requestChallengeConfig_challengeConfig_ImmunityTimeProperty should be set to null
+            if (requestChallengeConfig_challengeConfig_ImmunityTimePropertyIsNull)
+            {
+                requestChallengeConfig_challengeConfig_ImmunityTimeProperty = null;
+            }
+            if (requestChallengeConfig_challengeConfig_ImmunityTimeProperty != null)
+            {
+                request.ChallengeConfig.ImmunityTimeProperty = requestChallengeConfig_challengeConfig_ImmunityTimeProperty;
+                requestChallengeConfigIsNull = false;
+            }
+             // determine if request.ChallengeConfig should be set to null
+            if (requestChallengeConfigIsNull)
+            {
+                request.ChallengeConfig = null;
             }
             if (cmdletContext.CustomResponseBody != null)
             {
@@ -514,6 +580,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.Scope != null)
             {
                 request.Scope = cmdletContext.Scope;
+            }
+            if (cmdletContext.TokenDomain != null)
+            {
+                request.TokenDomains = cmdletContext.TokenDomain;
             }
             
              // populate VisibilityConfig
@@ -615,7 +685,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int64? ImmunityTimeProperty_ImmunityTime { get; set; }
+            public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
+            public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody> CustomResponseBody { get; set; }
             public Amazon.WAFV2.Model.AllowAction DefaultAction_Allow { get; set; }
             public Amazon.WAFV2.Model.BlockAction DefaultAction_Block { get; set; }
@@ -625,6 +696,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public System.String Name { get; set; }
             public List<Amazon.WAFV2.Model.Rule> Rule { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
+            public List<System.String> TokenDomain { get; set; }
             public System.Boolean? VisibilityConfig_CloudWatchMetricsEnabled { get; set; }
             public System.String VisibilityConfig_MetricName { get; set; }
             public System.Boolean? VisibilityConfig_SampledRequestsEnabled { get; set; }
