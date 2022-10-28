@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// operation.</para><ul><li><para><code>INTERSECTION</code>: StackSets deploys to the accounts specified in <code>Accounts</code>
         /// parameter. </para></li><li><para><code>DIFFERENCE</code>: StackSets excludes the accounts specified in <code>Accounts</code>
         /// parameter. This enables user to avoid certain accounts within an OU such as suspended
-        /// accounts.</para></li><li><para><code>UNION</code>: (default value) StackSets includes additional accounts deployment
-        /// targets. </para><para>This is the default value if <code>AccountFilterType</code> is not provided. This
+        /// accounts.</para></li><li><para><code>UNION</code>: StackSets includes additional accounts deployment targets. </para><para>This is the default value if <code>AccountFilterType</code> is not provided. This
         /// enables user to update an entire OU and individual accounts from a different OU in
         /// one request, which used to be two separate requests.</para></li><li><para><code>NONE</code>: Deploys to all the accounts in specified organizational units
         /// (OU).</para></li></ul>

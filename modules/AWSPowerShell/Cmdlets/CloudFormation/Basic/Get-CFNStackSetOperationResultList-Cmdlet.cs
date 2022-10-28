@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.CallAs CallAs { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filter to apply to operation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.CloudFormation.Model.OperationResultFilter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter OperationId
         /// <summary>
         /// <para>
@@ -184,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CallAs = this.CallAs;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.CloudFormation.Model.OperationResultFilter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -233,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.CallAs != null)
             {
                 request.CallAs = cmdletContext.CallAs;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -304,6 +323,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.CallAs != null)
             {
                 request.CallAs = cmdletContext.CallAs;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.OperationId != null)
             {
@@ -433,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CloudFormation.CallAs CallAs { get; set; }
+            public List<Amazon.CloudFormation.Model.OperationResultFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OperationId { get; set; }

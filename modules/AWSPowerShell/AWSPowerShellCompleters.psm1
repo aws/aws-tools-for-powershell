@@ -3152,7 +3152,7 @@ $AAR_Completers = {
             ($_ -eq "Update-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime")
         }
         {
-            $v = "CORRETTO_11","CORRETTO_8","NODEJS_12","NODEJS_14","NODEJS_16","PYTHON_3"
+            $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","PHP_81","PYTHON_3","RUBY_31"
             break
         }
 
@@ -3304,7 +3304,17 @@ $APS_Completers = {
             ($_ -eq "Remove-APSUser/AuthenticationType")
         }
         {
-            $v = "API","SAML","USERPOOL"
+            $v = "API","AWS_AD","SAML","USERPOOL"
+            break
+        }
+
+        # Amazon.AppStream.CertificateBasedAuthStatus
+        {
+            ($_ -eq "New-APSDirectoryConfig/CertificateBasedAuthProperties_Status") -Or
+            ($_ -eq "Update-APSDirectoryConfig/CertificateBasedAuthProperties_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED","ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"
             break
         }
 
@@ -3370,6 +3380,7 @@ $APS_Completers = {
 $APS_map = @{
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
+    "CertificateBasedAuthProperties_Status"=@("New-APSDirectoryConfig","Update-APSDirectoryConfig")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
     "Platform"=@("New-APSFleet","Update-APSFleet")

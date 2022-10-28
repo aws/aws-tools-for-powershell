@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String ServiceAccountCredentials_AccountPassword { get; set; }
         #endregion
         
+        #region Parameter CertificateBasedAuthProperties_CertificateAuthorityArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the AWS Certificate Manager Private CA resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CertificateBasedAuthProperties_CertificateAuthorityArn { get; set; }
+        #endregion
+        
         #region Parameter DirectoryName
         /// <summary>
         /// <para>
@@ -90,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OrganizationalUnitDistinguishedNames")]
         public System.String[] OrganizationalUnitDistinguishedName { get; set; }
+        #endregion
+        
+        #region Parameter CertificateBasedAuthProperties_Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the certificate-based authentication properties.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.CertificateBasedAuthStatus")]
+        public Amazon.AppStream.CertificateBasedAuthStatus CertificateBasedAuthProperties_Status { get; set; }
         #endregion
         
         #region Parameter Select
@@ -153,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 context.Select = (response, cmdlet) => this.DirectoryName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CertificateBasedAuthProperties_CertificateAuthorityArn = this.CertificateBasedAuthProperties_CertificateAuthorityArn;
+            context.CertificateBasedAuthProperties_Status = this.CertificateBasedAuthProperties_Status;
             context.DirectoryName = this.DirectoryName;
             #if MODULAR
             if (this.DirectoryName == null && ParameterWasBound(nameof(this.DirectoryName)))
@@ -182,6 +205,35 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.UpdateDirectoryConfigRequest();
             
+            
+             // populate CertificateBasedAuthProperties
+            var requestCertificateBasedAuthPropertiesIsNull = true;
+            request.CertificateBasedAuthProperties = new Amazon.AppStream.Model.CertificateBasedAuthProperties();
+            System.String requestCertificateBasedAuthProperties_certificateBasedAuthProperties_CertificateAuthorityArn = null;
+            if (cmdletContext.CertificateBasedAuthProperties_CertificateAuthorityArn != null)
+            {
+                requestCertificateBasedAuthProperties_certificateBasedAuthProperties_CertificateAuthorityArn = cmdletContext.CertificateBasedAuthProperties_CertificateAuthorityArn;
+            }
+            if (requestCertificateBasedAuthProperties_certificateBasedAuthProperties_CertificateAuthorityArn != null)
+            {
+                request.CertificateBasedAuthProperties.CertificateAuthorityArn = requestCertificateBasedAuthProperties_certificateBasedAuthProperties_CertificateAuthorityArn;
+                requestCertificateBasedAuthPropertiesIsNull = false;
+            }
+            Amazon.AppStream.CertificateBasedAuthStatus requestCertificateBasedAuthProperties_certificateBasedAuthProperties_Status = null;
+            if (cmdletContext.CertificateBasedAuthProperties_Status != null)
+            {
+                requestCertificateBasedAuthProperties_certificateBasedAuthProperties_Status = cmdletContext.CertificateBasedAuthProperties_Status;
+            }
+            if (requestCertificateBasedAuthProperties_certificateBasedAuthProperties_Status != null)
+            {
+                request.CertificateBasedAuthProperties.Status = requestCertificateBasedAuthProperties_certificateBasedAuthProperties_Status;
+                requestCertificateBasedAuthPropertiesIsNull = false;
+            }
+             // determine if request.CertificateBasedAuthProperties should be set to null
+            if (requestCertificateBasedAuthPropertiesIsNull)
+            {
+                request.CertificateBasedAuthProperties = null;
+            }
             if (cmdletContext.DirectoryName != null)
             {
                 request.DirectoryName = cmdletContext.DirectoryName;
@@ -280,6 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CertificateBasedAuthProperties_CertificateAuthorityArn { get; set; }
+            public Amazon.AppStream.CertificateBasedAuthStatus CertificateBasedAuthProperties_Status { get; set; }
             public System.String DirectoryName { get; set; }
             public List<System.String> OrganizationalUnitDistinguishedName { get; set; }
             public System.String ServiceAccountCredentials_AccountName { get; set; }

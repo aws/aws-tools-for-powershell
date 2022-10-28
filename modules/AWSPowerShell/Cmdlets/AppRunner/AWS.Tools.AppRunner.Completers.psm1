@@ -133,7 +133,7 @@ $AAR_Completers = {
             ($_ -eq "Update-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime")
         }
         {
-            $v = "CORRETTO_11","CORRETTO_8","NODEJS_12","NODEJS_14","NODEJS_16","PYTHON_3"
+            $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","PHP_81","PYTHON_3","RUBY_31"
             break
         }
 

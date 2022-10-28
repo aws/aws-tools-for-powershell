@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The status that stack instances are filtered by.</para>
+        /// <para>The filter to apply to stack instances</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

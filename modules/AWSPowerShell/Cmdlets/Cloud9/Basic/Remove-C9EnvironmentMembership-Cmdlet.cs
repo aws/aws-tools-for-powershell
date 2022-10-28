@@ -28,7 +28,7 @@ using Amazon.Cloud9.Model;
 namespace Amazon.PowerShell.Cmdlets.C9
 {
     /// <summary>
-    /// Deletes an environment member from an Cloud9 development environment.
+    /// Deletes an environment member from a development environment.
     /// </summary>
     [Cmdlet("Remove", "C9EnvironmentMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

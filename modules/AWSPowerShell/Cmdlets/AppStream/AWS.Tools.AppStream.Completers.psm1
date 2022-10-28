@@ -101,7 +101,17 @@ $APS_Completers = {
             ($_ -eq "Remove-APSUser/AuthenticationType")
         }
         {
-            $v = "API","SAML","USERPOOL"
+            $v = "API","AWS_AD","SAML","USERPOOL"
+            break
+        }
+
+        # Amazon.AppStream.CertificateBasedAuthStatus
+        {
+            ($_ -eq "New-APSDirectoryConfig/CertificateBasedAuthProperties_Status") -Or
+            ($_ -eq "Update-APSDirectoryConfig/CertificateBasedAuthProperties_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED","ENABLED_NO_DIRECTORY_LOGIN_FALLBACK"
             break
         }
 
@@ -167,6 +177,7 @@ $APS_Completers = {
 $APS_map = @{
     "AppVisibility"=@("New-APSEntitlement","Update-APSEntitlement")
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
+    "CertificateBasedAuthProperties_Status"=@("New-APSDirectoryConfig","Update-APSDirectoryConfig")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
     "Platform"=@("New-APSFleet","Update-APSFleet")

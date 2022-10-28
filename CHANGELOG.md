@@ -1,4 +1,12 @@
-﻿### 4.1.195 (2022-10-27 21:45Z)
+﻿### 4.1.196 (2022-10-28 20:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.406.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppStream
+    * Modified cmdlet New-APSDirectoryConfig: added parameters CertificateBasedAuthProperties_CertificateAuthorityArn and CertificateBasedAuthProperties_Status.
+    * Modified cmdlet Update-APSDirectoryConfig: added parameters CertificateBasedAuthProperties_CertificateAuthorityArn and CertificateBasedAuthProperties_Status.
+  * Amazon CloudFormation
+    * Modified cmdlet Get-CFNStackSetOperationResultList: added parameter Filter.
+
+### 4.1.195 (2022-10-27 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.405.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2ReplaceRootVolumeTask: added parameters DeleteReplacedRootVolume and ImageId.
