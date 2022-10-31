@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="New" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionName" PipelineParameter="VpcIngressConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Remove" Noun="AutoScalingConfiguration" ShouldProcessTarget="AutoScalingConfigurationArn" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Remove" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAutoScalingConfiguration" OutputProperty="AutoScalingConfiguration" Verb="Get" Noun="AutoScalingConfiguration" PipelineParameter="AutoScalingConfigurationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeVpcConnector" OutputProperty="VpcConnector" Verb="Get" Noun="VpcConnector" PipelineParameter="VpcConnectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Get" Noun="VpcIngressConnection" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +127,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcIngressConnections" OutputProperty="VpcIngressConnectionSummaryList" Verb="Get" Noun="VpcIngressConnectionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PauseService" OutputProperty="*" Verb="Suspend" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" OutputProperty="*" Verb="Update" Noun="Service" ShouldProcessTarget="ServiceArn" PipelineParameter="ServiceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVpcIngressConnection" OutputProperty="VpcIngressConnection" Verb="Update" Noun="VpcIngressConnection" ShouldProcessTarget="VpcIngressConnectionArn" PipelineParameter="VpcIngressConnectionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

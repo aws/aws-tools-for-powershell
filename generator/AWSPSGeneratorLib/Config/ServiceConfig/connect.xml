@@ -292,6 +292,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DismissUserContact" Verb="Write" Noun="UserContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetContactAttributes" OutputProperty="Attributes" Verb="Get" Noun="ContactAttribute" PipelineParameter="InitialContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

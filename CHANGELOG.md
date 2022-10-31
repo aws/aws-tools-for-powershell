@@ -1,4 +1,36 @@
-﻿### 4.1.196 (2022-10-28 20:44Z)
+﻿### 4.1.197 (2022-10-31 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.407.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Runner
+    * Added cmdlet Get-AARVpcIngressConnection leveraging the DescribeVpcIngressConnection service API.
+    * Added cmdlet Get-AARVpcIngressConnectionList leveraging the ListVpcIngressConnections service API.
+    * Added cmdlet New-AARVpcIngressConnection leveraging the CreateVpcIngressConnection service API.
+    * Added cmdlet Remove-AARVpcIngressConnection leveraging the DeleteVpcIngressConnection service API.
+    * Added cmdlet Update-AARVpcIngressConnection leveraging the UpdateVpcIngressConnection service API.
+    * Modified cmdlet New-AARService: added parameter IngressConfiguration_IsPubliclyAccessible.
+    * Modified cmdlet Update-AARService: added parameter IngressConfiguration_IsPubliclyAccessible.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Add-CWLResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CWLResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CWLResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Write-CWLDestination: added parameter Tag.
+  * Amazon Connect Service
+    * Added cmdlet Write-CONNUserContact leveraging the DismissUserContact service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Approve-EC2AddressTransfer leveraging the AcceptAddressTransfer service API.
+    * Added cmdlet Disable-EC2AddressTransfer leveraging the DisableAddressTransfer service API.
+    * Added cmdlet Enable-EC2AddressTransfer leveraging the EnableAddressTransfer service API.
+    * Added cmdlet Get-EC2AddressTransfer leveraging the DescribeAddressTransfers service API.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameters Location_DeviceId, Location_Latitude, Location_Longitude, Location_RoleArn, Location_TrackerName, TopicRulePayload_ErrorAction_Location_Timestamp_Unit and TopicRulePayload_ErrorAction_Location_Timestamp_Value.
+    * Modified cmdlet Set-IOTTopicRule: added parameters Location_DeviceId, Location_Latitude, Location_Longitude, Location_RoleArn, Location_TrackerName, TopicRulePayload_ErrorAction_Location_Timestamp_Unit and TopicRulePayload_ErrorAction_Location_Timestamp_Value.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Get-SES2BatchMetricData leveraging the BatchGetMetricData service API.
+    * Added cmdlet Get-SES2RecommendationList leveraging the ListRecommendations service API.
+    * Added cmdlet Write-SES2AccountVdmAttribute leveraging the PutAccountVdmAttributes service API.
+    * Added cmdlet Write-SES2ConfigurationSetVdmOption leveraging the PutConfigurationSetVdmOptions service API.
+    * Modified cmdlet New-SES2ConfigurationSet: added parameters DashboardOptions_EngagementMetric and GuardianOptions_OptimizedSharedDelivery.
+
+### 4.1.196 (2022-10-28 20:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.406.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppStream
     * Modified cmdlet New-APSDirectoryConfig: added parameters CertificateBasedAuthProperties_CertificateAuthorityArn and CertificateBasedAuthProperties_Status.

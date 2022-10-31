@@ -244,6 +244,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Kafka_DestinationArn { get; set; }
         #endregion
         
+        #region Parameter Location_DeviceId
+        /// <summary>
+        /// <para>
+        /// <para>The unique ID of the device providing the location data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Location_DeviceId")]
+        public System.String Location_DeviceId { get; set; }
+        #endregion
+        
         #region Parameter Timestream_Dimension
         /// <summary>
         /// <para>
@@ -424,6 +435,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String S3_Key { get; set; }
         #endregion
         
+        #region Parameter Location_Latitude
+        /// <summary>
+        /// <para>
+        /// <para>A string that evaluates to a double value that represents the latitude of the device's
+        /// location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Location_Latitude")]
+        public System.String Location_Latitude { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogs_LogGroupName
         /// <summary>
         /// <para>
@@ -433,6 +456,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_CloudwatchLogs_LogGroupName")]
         public System.String CloudwatchLogs_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter Location_Longitude
+        /// <summary>
+        /// <para>
+        /// <para>A string that evaluates to a double value that represents the longitude of the device's
+        /// location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Location_Longitude")]
+        public System.String Location_Longitude { get; set; }
         #endregion
         
         #region Parameter Sns_MessageFormat
@@ -771,6 +806,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Kinesis_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Location_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role that grants permission to write to the Amazon Location resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Location_RoleArn")]
+        public System.String Location_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter OpenSearch_RoleArn
         /// <summary>
         /// <para>
@@ -1064,6 +1110,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Republish_Topic { get; set; }
         #endregion
         
+        #region Parameter Location_TrackerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the tracker resource in Amazon Location in which the location is updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Location_TrackerName")]
+        public System.String Location_TrackerName { get; set; }
+        #endregion
+        
         #region Parameter Elasticsearch_Type
         /// <summary>
         /// <para>
@@ -1084,6 +1141,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_OpenSearch_Type")]
         public System.String OpenSearch_Type { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_Location_Timestamp_Unit
+        /// <summary>
+        /// <para>
+        /// <para>The precision of the timestamp value that results from the expression described in
+        /// <code>value</code>.</para><para>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code>
+        /// | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_Location_Timestamp_Unit { get; set; }
         #endregion
         
         #region Parameter Timestamp_Unit
@@ -1133,6 +1202,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Sqs_UseBase64")]
         public System.Boolean? Sqs_UseBase64 { get; set; }
+        #endregion
+        
+        #region Parameter TopicRulePayload_ErrorAction_Location_Timestamp_Value
+        /// <summary>
+        /// <para>
+        /// <para>An expression that returns a long epoch time value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TopicRulePayload_ErrorAction_Location_Timestamp_Value { get; set; }
         #endregion
         
         #region Parameter Timestamp_Value
@@ -1277,6 +1356,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Kinesis_RoleArn = this.Kinesis_RoleArn;
             context.Kinesis_StreamName = this.Kinesis_StreamName;
             context.Lambda_FunctionArn = this.Lambda_FunctionArn;
+            context.Location_DeviceId = this.Location_DeviceId;
+            context.Location_Latitude = this.Location_Latitude;
+            context.Location_Longitude = this.Location_Longitude;
+            context.Location_RoleArn = this.Location_RoleArn;
+            context.TopicRulePayload_ErrorAction_Location_Timestamp_Unit = this.TopicRulePayload_ErrorAction_Location_Timestamp_Unit;
+            context.TopicRulePayload_ErrorAction_Location_Timestamp_Value = this.TopicRulePayload_ErrorAction_Location_Timestamp_Value;
+            context.Location_TrackerName = this.Location_TrackerName;
             context.OpenSearch_Endpoint = this.OpenSearch_Endpoint;
             context.OpenSearch_Id = this.OpenSearch_Id;
             context.OpenSearch_Index = this.OpenSearch_Index;
@@ -2545,6 +2631,106 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.CloudwatchMetric = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchMetric;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.LocationAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location = null;
+            
+             // populate Location
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location = new Amazon.IoT.Model.LocationAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_DeviceId = null;
+            if (cmdletContext.Location_DeviceId != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_DeviceId = cmdletContext.Location_DeviceId;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_DeviceId != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location.DeviceId = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_DeviceId;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Latitude = null;
+            if (cmdletContext.Location_Latitude != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Latitude = cmdletContext.Location_Latitude;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Latitude != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location.Latitude = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Latitude;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Longitude = null;
+            if (cmdletContext.Location_Longitude != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Longitude = cmdletContext.Location_Longitude;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Longitude != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location.Longitude = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_Longitude;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_RoleArn = null;
+            if (cmdletContext.Location_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_RoleArn = cmdletContext.Location_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_TrackerName = null;
+            if (cmdletContext.Location_TrackerName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_TrackerName = cmdletContext.Location_TrackerName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_TrackerName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location.TrackerName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_location_TrackerName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = false;
+            }
+            Amazon.IoT.Model.LocationTimestamp requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp = null;
+            
+             // populate Timestamp
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_TimestampIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp = new Amazon.IoT.Model.LocationTimestamp();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Unit = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_Location_Timestamp_Unit != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Unit = cmdletContext.TopicRulePayload_ErrorAction_Location_Timestamp_Unit;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Unit != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp.Unit = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Unit;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_TimestampIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Value = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_Location_Timestamp_Value != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Value = cmdletContext.TopicRulePayload_ErrorAction_Location_Timestamp_Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Value != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp.Value = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp_topicRulePayload_ErrorAction_Location_Timestamp_Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_TimestampIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_TimestampIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location.Timestamp = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location_topicRulePayload_ErrorAction_Location_Timestamp;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_LocationIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.Location = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Location;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.DynamoDBAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_DynamoDB = null;
             
              // populate DynamoDB
@@ -2799,6 +2985,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Kinesis_RoleArn { get; set; }
             public System.String Kinesis_StreamName { get; set; }
             public System.String Lambda_FunctionArn { get; set; }
+            public System.String Location_DeviceId { get; set; }
+            public System.String Location_Latitude { get; set; }
+            public System.String Location_Longitude { get; set; }
+            public System.String Location_RoleArn { get; set; }
+            public System.String TopicRulePayload_ErrorAction_Location_Timestamp_Unit { get; set; }
+            public System.String TopicRulePayload_ErrorAction_Location_Timestamp_Value { get; set; }
+            public System.String Location_TrackerName { get; set; }
             public System.String OpenSearch_Endpoint { get; set; }
             public System.String OpenSearch_Id { get; set; }
             public System.String OpenSearch_Index { get; set; }

@@ -211,6 +211,19 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public System.Int32? HealthCheckConfiguration_Interval { get; set; }
         #endregion
         
+        #region Parameter IngressConfiguration_IsPubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether your App Runner service is publicly accessible. To make the service
+        /// publicly accessible set it to <code>True</code>. To make the service privately accessible,
+        /// from only within an Amazon VPC set it to <code>False</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkConfiguration_IngressConfiguration_IsPubliclyAccessible")]
+        public System.Boolean? IngressConfiguration_IsPubliclyAccessible { get; set; }
+        #endregion
+        
         #region Parameter InstanceConfiguration_Memory
         /// <summary>
         /// <para>
@@ -508,6 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.InstanceConfiguration_Memory = this.InstanceConfiguration_Memory;
             context.EgressConfiguration_EgressType = this.EgressConfiguration_EgressType;
             context.EgressConfiguration_VpcConnectorArn = this.EgressConfiguration_VpcConnectorArn;
+            context.IngressConfiguration_IsPubliclyAccessible = this.IngressConfiguration_IsPubliclyAccessible;
             context.ObservabilityConfiguration_ObservabilityConfigurationArn = this.ObservabilityConfiguration_ObservabilityConfigurationArn;
             context.ObservabilityConfiguration_ObservabilityEnabled = this.ObservabilityConfiguration_ObservabilityEnabled;
             context.ServiceArn = this.ServiceArn;
@@ -680,6 +694,31 @@ namespace Amazon.PowerShell.Cmdlets.AAR
              // populate NetworkConfiguration
             var requestNetworkConfigurationIsNull = true;
             request.NetworkConfiguration = new Amazon.AppRunner.Model.NetworkConfiguration();
+            Amazon.AppRunner.Model.IngressConfiguration requestNetworkConfiguration_networkConfiguration_IngressConfiguration = null;
+            
+             // populate IngressConfiguration
+            var requestNetworkConfiguration_networkConfiguration_IngressConfigurationIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_IngressConfiguration = new Amazon.AppRunner.Model.IngressConfiguration();
+            System.Boolean? requestNetworkConfiguration_networkConfiguration_IngressConfiguration_ingressConfiguration_IsPubliclyAccessible = null;
+            if (cmdletContext.IngressConfiguration_IsPubliclyAccessible != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_IngressConfiguration_ingressConfiguration_IsPubliclyAccessible = cmdletContext.IngressConfiguration_IsPubliclyAccessible.Value;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_IngressConfiguration_ingressConfiguration_IsPubliclyAccessible != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_IngressConfiguration.IsPubliclyAccessible = requestNetworkConfiguration_networkConfiguration_IngressConfiguration_ingressConfiguration_IsPubliclyAccessible.Value;
+                requestNetworkConfiguration_networkConfiguration_IngressConfigurationIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_IngressConfiguration should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_IngressConfigurationIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_IngressConfiguration = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_IngressConfiguration != null)
+            {
+                request.NetworkConfiguration.IngressConfiguration = requestNetworkConfiguration_networkConfiguration_IngressConfiguration;
+                requestNetworkConfigurationIsNull = false;
+            }
             Amazon.AppRunner.Model.EgressConfiguration requestNetworkConfiguration_networkConfiguration_EgressConfiguration = null;
             
              // populate EgressConfiguration
@@ -1110,6 +1149,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public System.String InstanceConfiguration_Memory { get; set; }
             public Amazon.AppRunner.EgressType EgressConfiguration_EgressType { get; set; }
             public System.String EgressConfiguration_VpcConnectorArn { get; set; }
+            public System.Boolean? IngressConfiguration_IsPubliclyAccessible { get; set; }
             public System.String ObservabilityConfiguration_ObservabilityConfigurationArn { get; set; }
             public System.Boolean? ObservabilityConfiguration_ObservabilityEnabled { get; set; }
             public System.String ServiceArn { get; set; }

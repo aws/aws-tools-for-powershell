@@ -22,78 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Returns a Device Defender's ML Detect Security Profile training model's status. 
-    /// 
-    ///  
-    /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetBehaviorModelTrainingSummaries</a>
-    /// action.
-    /// </para>
+    /// Displays the tags associated with a CloudWatch Logs resource. Currently, log groups
+    /// and destinations support tagging.
     /// </summary>
-    [Cmdlet("Get", "IOTBehaviorModelTrainingSummary")]
-    [OutputType("Amazon.IoT.Model.BehaviorModelTrainingSummary")]
-    [AWSCmdlet("Calls the AWS IoT GetBehaviorModelTrainingSummaries API operation.", Operation = new[] {"GetBehaviorModelTrainingSummaries"}, SelectReturnType = typeof(Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.BehaviorModelTrainingSummary or Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse",
-        "This cmdlet returns a collection of Amazon.IoT.Model.BehaviorModelTrainingSummary objects.",
-        "The service call response (type Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWLResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTBehaviorModelTrainingSummaryCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetCWLResourceTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
-        #region Parameter SecurityProfileName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The name of the security profile. </para>
+        /// <para>The ARN of the resource that you want to view tags for.</para><para>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></para><para>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch
+        /// Logs resources and operations</a>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String SecurityProfileName { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para> The maximum number of results to return at one time. The default is 10. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para> The token for the next set of results. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Summaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Summaries";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SecurityProfileName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SecurityProfileName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SecurityProfileName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse, GetIOTBehaviorModelTrainingSummaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse, GetCWLResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,12 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SecurityProfileName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SecurityProfileName = this.SecurityProfileName;
+            context.ResourceArn = this.ResourceArn;
+            #if MODULAR
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,19 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.GetBehaviorModelTrainingSummariesRequest();
+            var request = new Amazon.CloudWatchLogs.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SecurityProfileName != null)
-            {
-                request.SecurityProfileName = cmdletContext.SecurityProfileName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -186,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetBehaviorModelTrainingSummariesRequest request)
+        private Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "GetBehaviorModelTrainingSummaries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetBehaviorModelTrainingSummaries(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetBehaviorModelTrainingSummariesAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,11 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SecurityProfileName { get; set; }
-            public System.Func<Amazon.IoT.Model.GetBehaviorModelTrainingSummariesResponse, GetIOTBehaviorModelTrainingSummaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Summaries;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.CloudWatchLogs.Model.ListTagsForResourceResponse, GetCWLResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

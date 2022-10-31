@@ -125,6 +125,21 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.FeatureStatus
+        {
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_DashboardAttributes_EngagementMetrics") -Or
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_GuardianAttributes_OptimizedSharedDelivery") -Or
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_VdmEnabled") -Or
+            ($_ -eq "New-SES2ConfigurationSet/VdmOptions_DashboardOptions_EngagementMetrics") -Or
+            ($_ -eq "Write-SES2ConfigurationSetVdmOption/VdmOptions_DashboardOptions_EngagementMetrics") -Or
+            ($_ -eq "New-SES2ConfigurationSet/VdmOptions_GuardianOptions_OptimizedSharedDelivery") -Or
+            ($_ -eq "Write-SES2ConfigurationSetVdmOption/VdmOptions_GuardianOptions_OptimizedSharedDelivery")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
@@ -201,6 +216,11 @@ $SES2_map = @{
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
+    "VdmAttributes_DashboardAttributes_EngagementMetrics"=@("Write-SES2AccountVdmAttribute")
+    "VdmAttributes_GuardianAttributes_OptimizedSharedDelivery"=@("Write-SES2AccountVdmAttribute")
+    "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
+    "VdmOptions_DashboardOptions_EngagementMetrics"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
+    "VdmOptions_GuardianOptions_OptimizedSharedDelivery"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
 }
 
 _awsArgumentCompleterRegistration $SES2_Completers $SES2_map
@@ -253,7 +273,8 @@ $SES2_SelectCompleters = {
 }
 
 $SES2_SelectMap = @{
-    "Select"=@("New-SES2ConfigurationSet",
+    "Select"=@("Get-SES2BatchMetricData",
+               "New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
                "New-SES2Contact",
                "New-SES2ContactList",
@@ -303,17 +324,20 @@ $SES2_SelectMap = @{
                "Get-SES2EmailIdentityList",
                "Get-SES2EmailTemplateList",
                "Get-SES2ImportJobList",
+               "Get-SES2RecommendationList",
                "Get-SES2SuppressedDestinationList",
                "Get-SES2ResourceTag",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
                "Write-SES2AccountDetail",
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
+               "Write-SES2AccountVdmAttribute",
                "Write-SES2ConfigurationSetDeliveryOption",
                "Write-SES2ConfigurationSetReputationOption",
                "Write-SES2ConfigurationSetSendingOption",
                "Write-SES2ConfigurationSetSuppressionOption",
                "Write-SES2ConfigurationSetTrackingOption",
+               "Write-SES2ConfigurationSetVdmOption",
                "Write-SES2DedicatedIpInPool",
                "Write-SES2DedicatedIpWarmupAttribute",
                "Write-SES2DeliverabilityDashboardOption",

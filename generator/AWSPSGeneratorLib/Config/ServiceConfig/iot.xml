@@ -207,7 +207,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopicRule" Verb="New" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Value" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Value" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Value" NewName="Timestamp_Value" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Unit" NewName="Timestamp_Unit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="New" Noun="TopicRuleDestination" ShouldProcessTarget="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" PipelineParameter="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" NoPipelineParameter="false">
@@ -876,7 +881,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReplaceTopicRule" Verb="Set" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Value" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Value" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Value" NewName="Timestamp_Value" />
+                <Param Name="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" NewName="TopicRulePayload_ErrorAction_Location_Timestamp_Unit" />
+                <Param Name="TopicRulePayload_ErrorAction_Timestream_Timestamp_Unit" NewName="Timestamp_Unit" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchIndex" OutputProperty="*" Verb="Search" Noun="Index" ShouldProcessTarget="IndexName" PipelineParameter="QueryString" NoPipelineParameter="false">

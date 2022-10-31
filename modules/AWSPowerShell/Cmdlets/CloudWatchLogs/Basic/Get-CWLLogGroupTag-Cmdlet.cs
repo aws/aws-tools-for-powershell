@@ -28,7 +28,13 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
+    /// <important><para>
+    /// The ListTagsLogGroup operation is on the path to deprecation. We recommend that you
+    /// use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
+    /// instead.
+    /// </para></important><para>
     /// Lists the tags for the specified log group.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CWLLogGroupTag")]
     [OutputType("System.String")]
@@ -37,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         "This cmdlet returns a collection of System.String objects.",
         "The service call response (type Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Please use the generic tagging API ListTagsForResource")]
     public partial class GetCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         

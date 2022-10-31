@@ -201,6 +201,7 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
+               "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
@@ -213,8 +214,10 @@ $CWL_SelectMap = @{
                "Start-CWLQuery",
                "Stop-CWLQuery",
                "Add-CWLLogGroupTag",
+               "Add-CWLResourceTag",
                "Test-CWLMetricFilter",
-               "Remove-CWLLogGroupTag")
+               "Remove-CWLLogGroupTag",
+               "Remove-CWLResourceTag")
 }
 
 _awsArgumentCompleterRegistration $CWL_SelectCompleters $CWL_SelectMap

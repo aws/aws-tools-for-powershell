@@ -1190,7 +1190,8 @@ $EC2_SelectCompleters = {
 }
 
 $EC2_SelectMap = @{
-    "Select"=@("Approve-EC2ReservedInstancesExchangeQuote",
+    "Select"=@("Approve-EC2AddressTransfer",
+               "Approve-EC2ReservedInstancesExchangeQuote",
                "Approve-EC2TransitGatewayMulticastDomainAssociation",
                "Approve-EC2TransitGatewayPeeringAttachment",
                "Approve-EC2TransitGatewayVpcAttachment",
@@ -1391,6 +1392,7 @@ $EC2_SelectMap = @{
                "Get-EC2AccountAttribute",
                "Get-EC2Address",
                "Get-EC2AddressesAttribute",
+               "Get-EC2AddressTransfer",
                "Get-EC2AggregateIdFormat",
                "Get-EC2AvailabilityZone",
                "Get-EC2BundleTask",
@@ -1527,6 +1529,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2NetworkInterface",
                "Dismount-EC2Volume",
                "Dismount-EC2VpnGateway",
+               "Disable-EC2AddressTransfer",
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
@@ -1549,6 +1552,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2TransitGatewayRouteTable",
                "Unregister-EC2TrunkInterface",
                "Unregister-EC2VpcCidrBlock",
+               "Enable-EC2AddressTransfer",
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",

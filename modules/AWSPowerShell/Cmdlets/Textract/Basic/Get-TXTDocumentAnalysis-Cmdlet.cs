@@ -58,10 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// are returned (including text that doesn't have a relationship with the value of the
     /// <code>StartDocumentAnalysis</code><code>FeatureTypes</code> input parameter). 
     /// </para></li><li><para>
-    /// Queries. A QUERIES_RESULT Block object contains the answer to the query, the alias
-    /// associated and an ID that connect it to the query asked. This Block also contains
-    /// a location and attached confidence score
-    /// </para></li></ul><para>
+    /// Query. A QUERY Block object contains the query text, alias and link to the associated
+    /// Query results block object.
+    /// </para></li><li><para>
+    /// Query Results. A QUERY_RESULT Block object contains the answer to the query and an
+    /// ID that connects it to the query asked. This Block also contains a confidence score.
+    /// </para></li></ul><note><para>
+    /// While processing a document with queries, look out for <code>INVALID_REQUEST_PARAMETERS</code>
+    /// output. This indicates that either the per page query limit has been exceeded or that
+    /// the operation is trying to query a page in the document which doesn’t exist. 
+    /// </para></note><para>
     /// Selection elements such as check boxes and option buttons (radio buttons) can be detected
     /// in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
     /// information about a selection element, including the selection status.

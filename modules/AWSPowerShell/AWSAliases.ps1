@@ -1087,6 +1087,8 @@ Set-Alias -Name Create-AARService -Value New-AARService
 Set-Alias -Name AAR-CreateService -Value New-AARService
 Set-Alias -Name Create-AARVpcConnector -Value New-AARVpcConnector
 Set-Alias -Name AAR-CreateVpcConnector -Value New-AARVpcConnector
+Set-Alias -Name Create-AARVpcIngressConnection -Value New-AARVpcIngressConnection
+Set-Alias -Name AAR-CreateVpcIngressConnection -Value New-AARVpcIngressConnection
 Set-Alias -Name Delete-AARAutoScalingConfiguration -Value Remove-AARAutoScalingConfiguration
 Set-Alias -Name AAR-DeleteAutoScalingConfiguration -Value Remove-AARAutoScalingConfiguration
 Set-Alias -Name Delete-AARConnection -Value Remove-AARConnection
@@ -1097,6 +1099,8 @@ Set-Alias -Name Delete-AARService -Value Remove-AARService
 Set-Alias -Name AAR-DeleteService -Value Remove-AARService
 Set-Alias -Name Delete-AARVpcConnector -Value Remove-AARVpcConnector
 Set-Alias -Name AAR-DeleteVpcConnector -Value Remove-AARVpcConnector
+Set-Alias -Name Delete-AARVpcIngressConnection -Value Remove-AARVpcIngressConnection
+Set-Alias -Name AAR-DeleteVpcIngressConnection -Value Remove-AARVpcIngressConnection
 Set-Alias -Name Describe-AARAutoScalingConfiguration -Value Get-AARAutoScalingConfiguration
 Set-Alias -Name AAR-DescribeAutoScalingConfiguration -Value Get-AARAutoScalingConfiguration
 Set-Alias -Name Describe-AARCustomDomains -Value Get-AARCustomDomain
@@ -1108,6 +1112,8 @@ Set-Alias -Name Describe-AARService -Value Get-AARService
 Set-Alias -Name AAR-DescribeService -Value Get-AARService
 Set-Alias -Name Describe-AARVpcConnector -Value Get-AARVpcConnector
 Set-Alias -Name AAR-DescribeVpcConnector -Value Get-AARVpcConnector
+Set-Alias -Name Describe-AARVpcIngressConnection -Value Get-AARVpcIngressConnection
+Set-Alias -Name AAR-DescribeVpcIngressConnection -Value Get-AARVpcIngressConnection
 Set-Alias -Name Disassociate-AARCustomDomain -Value Remove-AARCustomDomain
 Set-Alias -Name AAR-DisassociateCustomDomain -Value Remove-AARCustomDomain
 Set-Alias -Name List-AARAutoScalingConfigurations -Value Get-AARAutoScalingConfigurationList
@@ -1129,6 +1135,9 @@ Set-Alias -Name AAR-ListTagsForResource -Value Get-AARResourceTag
 Set-Alias -Name List-AARVpcConnectors -Value Get-AARVpcConnectorList
 Set-Alias -Name List-AARVpcConnectorList -Value Get-AARVpcConnectorList
 Set-Alias -Name AAR-ListVpcConnectors -Value Get-AARVpcConnectorList
+Set-Alias -Name List-AARVpcIngressConnections -Value Get-AARVpcIngressConnectionList
+Set-Alias -Name List-AARVpcIngressConnectionList -Value Get-AARVpcIngressConnectionList
+Set-Alias -Name AAR-ListVpcIngressConnections -Value Get-AARVpcIngressConnectionList
 Set-Alias -Name Pause-AARService -Value Suspend-AARService
 Set-Alias -Name AAR-PauseService -Value Suspend-AARService
 Set-Alias -Name AAR-ResumeService -Value Resume-AARService
@@ -1136,6 +1145,7 @@ Set-Alias -Name AAR-StartDeployment -Value Start-AARDeployment
 Set-Alias -Name AAR-TagResource -Value Add-AARResourceTag
 Set-Alias -Name AAR-UntagResource -Value Remove-AARResourceTag
 Set-Alias -Name AAR-UpdateService -Value Update-AARService
+Set-Alias -Name AAR-UpdateVpcIngressConnection -Value Update-AARVpcIngressConnection
 Set-Alias -Name Associate-APSApplicationFleet -Value Register-APSApplicationFleet
 Set-Alias -Name APS-AssociateApplicationFleet -Value Register-APSApplicationFleet
 Set-Alias -Name Associate-APSApplicationToEntitlement -Value Add-APSApplicationToEntitlement
@@ -4940,6 +4950,8 @@ Set-Alias -Name Disassociate-CONNRoutingProfileQueue -Value Disconnect-CONNRouti
 Set-Alias -Name CONN-DisassociateRoutingProfileQueues -Value Disconnect-CONNRoutingProfileQueue
 Set-Alias -Name Disassociate-CONNSecurityKey -Value Remove-CONNSecurityKey
 Set-Alias -Name CONN-DisassociateSecurityKey -Value Remove-CONNSecurityKey
+Set-Alias -Name Dismiss-CONNUserContact -Value Write-CONNUserContact
+Set-Alias -Name CONN-DismissUserContact -Value Write-CONNUserContact
 Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
@@ -6612,6 +6624,8 @@ Set-Alias -Name EBS-ListSnapshotBlocks -Value Get-EBSSnapshotBlockList
 Set-Alias -Name Put-EBSSnapshotBlock -Value Write-EBSSnapshotBlock
 Set-Alias -Name EBS-PutSnapshotBlock -Value Write-EBSSnapshotBlock
 Set-Alias -Name EBS-StartSnapshot -Value Start-EBSSnapshot
+Set-Alias -Name Accept-EC2AddressTransfer -Value Approve-EC2AddressTransfer
+Set-Alias -Name EC2-AcceptAddressTransfer -Value Approve-EC2AddressTransfer
 Set-Alias -Name Accept-EC2ReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name EC2-AcceptReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name Accept-EC2TransitGatewayMulticastDomainAssociations -Value Approve-EC2TransitGatewayMulticastDomainAssociation
@@ -7040,6 +7054,9 @@ Set-Alias -Name Describe-EC2Address -Value Get-EC2Address
 Set-Alias -Name EC2-DescribeAddresses -Value Get-EC2Address
 Set-Alias -Name Describe-EC2AddressesAttribute -Value Get-EC2AddressesAttribute
 Set-Alias -Name EC2-DescribeAddressesAttribute -Value Get-EC2AddressesAttribute
+Set-Alias -Name Describe-EC2AddressTransfers -Value Get-EC2AddressTransfer
+Set-Alias -Name Describe-EC2AddressTransfer -Value Get-EC2AddressTransfer
+Set-Alias -Name EC2-DescribeAddressTransfers -Value Get-EC2AddressTransfer
 Set-Alias -Name Describe-EC2AggregateIdFormat -Value Get-EC2AggregateIdFormat
 Set-Alias -Name EC2-DescribeAggregateIdFormat -Value Get-EC2AggregateIdFormat
 Set-Alias -Name Describe-EC2AvailabilityZones -Value Get-EC2AvailabilityZone
@@ -7422,6 +7439,7 @@ Set-Alias -Name Detach-EC2Volume -Value Dismount-EC2Volume
 Set-Alias -Name EC2-DetachVolume -Value Dismount-EC2Volume
 Set-Alias -Name Detach-EC2VpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DetachVpnGateway -Value Dismount-EC2VpnGateway
+Set-Alias -Name EC2-DisableAddressTransfer -Value Disable-EC2AddressTransfer
 Set-Alias -Name EC2-DisableEbsEncryptionByDefault -Value Disable-EC2EbsEncryptionByDefault
 Set-Alias -Name EC2-DisableFastLaunch -Value Disable-EC2FastLaunch
 Set-Alias -Name Disable-EC2FastSnapshotRestores -Value Disable-EC2FastSnapshotRestore
@@ -7457,6 +7475,7 @@ Set-Alias -Name Disassociate-EC2TrunkInterface -Value Unregister-EC2TrunkInterfa
 Set-Alias -Name EC2-DisassociateTrunkInterface -Value Unregister-EC2TrunkInterface
 Set-Alias -Name Disassociate-EC2VpcCidrBlock -Value Unregister-EC2VpcCidrBlock
 Set-Alias -Name EC2-DisassociateVpcCidrBlock -Value Unregister-EC2VpcCidrBlock
+Set-Alias -Name EC2-EnableAddressTransfer -Value Enable-EC2AddressTransfer
 Set-Alias -Name EC2-EnableEbsEncryptionByDefault -Value Enable-EC2EbsEncryptionByDefault
 Set-Alias -Name EC2-EnableFastLaunch -Value Enable-EC2FastLaunch
 Set-Alias -Name Enable-EC2FastSnapshotRestores -Value Enable-EC2FastSnapshotRestore
@@ -14179,6 +14198,7 @@ Set-Alias -Name CWL-GetLogGroupFields -Value Get-CWLLogGroupField
 Set-Alias -Name CWL-GetLogRecord -Value Get-CWLLogRecord
 Set-Alias -Name Get-CWLQueryResults -Value Get-CWLQueryResult
 Set-Alias -Name CWL-GetQueryResults -Value Get-CWLQueryResult
+Set-Alias -Name CWL-ListTagsForResource -Value Get-CWLResourceTag
 Set-Alias -Name List-CWLTagsLogGroup -Value Get-CWLLogGroupTag
 Set-Alias -Name List-CWLLogGroupTag -Value Get-CWLLogGroupTag
 Set-Alias -Name CWL-ListTagsLogGroup -Value Get-CWLLogGroupTag
@@ -14204,10 +14224,12 @@ Set-Alias -Name CWL-StopQuery -Value Stop-CWLQuery
 Set-Alias -Name Tag-CWLLogGroup -Value Add-CWLLogGroupTag
 Set-Alias -Name Tag-CWLLogGroupTag -Value Add-CWLLogGroupTag
 Set-Alias -Name CWL-TagLogGroup -Value Add-CWLLogGroupTag
+Set-Alias -Name CWL-TagResource -Value Add-CWLResourceTag
 Set-Alias -Name CWL-TestMetricFilter -Value Test-CWLMetricFilter
 Set-Alias -Name Untag-CWLLogGroup -Value Remove-CWLLogGroupTag
 Set-Alias -Name Untag-CWLLogGroupTag -Value Remove-CWLLogGroupTag
 Set-Alias -Name CWL-UntagLogGroup -Value Remove-CWLLogGroupTag
+Set-Alias -Name CWL-UntagResource -Value Remove-CWLResourceTag
 Set-Alias -Name Create-L4EDataset -Value New-L4EDataset
 Set-Alias -Name L4E-CreateDataset -Value New-L4EDataset
 Set-Alias -Name Create-L4EInferenceScheduler -Value New-L4EInferenceScheduler
@@ -20672,6 +20694,9 @@ Set-Alias -Name SQ-PutServiceQuotaIncreaseRequestIntoTemplate -Value Write-SQSer
 Set-Alias -Name SQ-RequestServiceQuotaIncrease -Value Request-SQServiceQuotaIncrease
 Set-Alias -Name SQ-TagResource -Value Add-SQResourceTag
 Set-Alias -Name SQ-UntagResource -Value Remove-SQResourceTag
+Set-Alias -Name Batch-SES2GetMetricData -Value Get-SES2BatchMetricData
+Set-Alias -Name Batch-SES2BatchMetricData -Value Get-SES2BatchMetricData
+Set-Alias -Name SES2-BatchGetMetricData -Value Get-SES2BatchMetricData
 Set-Alias -Name Create-SES2ConfigurationSet -Value New-SES2ConfigurationSet
 Set-Alias -Name SES2-CreateConfigurationSet -Value New-SES2ConfigurationSet
 Set-Alias -Name Create-SES2ConfigurationSetEventDestination -Value New-SES2ConfigurationSetEventDestination
@@ -20768,6 +20793,9 @@ Set-Alias -Name SES2-ListEmailTemplates -Value Get-SES2EmailTemplateList
 Set-Alias -Name List-SES2ImportJobs -Value Get-SES2ImportJobList
 Set-Alias -Name List-SES2ImportJobList -Value Get-SES2ImportJobList
 Set-Alias -Name SES2-ListImportJobs -Value Get-SES2ImportJobList
+Set-Alias -Name List-SES2Recommendations -Value Get-SES2RecommendationList
+Set-Alias -Name List-SES2RecommendationList -Value Get-SES2RecommendationList
+Set-Alias -Name SES2-ListRecommendations -Value Get-SES2RecommendationList
 Set-Alias -Name List-SES2SuppressedDestinations -Value Get-SES2SuppressedDestinationList
 Set-Alias -Name List-SES2SuppressedDestinationList -Value Get-SES2SuppressedDestinationList
 Set-Alias -Name SES2-ListSuppressedDestinations -Value Get-SES2SuppressedDestinationList
@@ -20784,6 +20812,9 @@ Set-Alias -Name SES2-PutAccountSendingAttributes -Value Write-SES2AccountSending
 Set-Alias -Name Put-SES2AccountSuppressionAttributes -Value Write-SES2AccountSuppressionAttribute
 Set-Alias -Name Put-SES2AccountSuppressionAttribute -Value Write-SES2AccountSuppressionAttribute
 Set-Alias -Name SES2-PutAccountSuppressionAttributes -Value Write-SES2AccountSuppressionAttribute
+Set-Alias -Name Put-SES2AccountVdmAttributes -Value Write-SES2AccountVdmAttribute
+Set-Alias -Name Put-SES2AccountVdmAttribute -Value Write-SES2AccountVdmAttribute
+Set-Alias -Name SES2-PutAccountVdmAttributes -Value Write-SES2AccountVdmAttribute
 Set-Alias -Name Put-SES2ConfigurationSetDeliveryOptions -Value Write-SES2ConfigurationSetDeliveryOption
 Set-Alias -Name Put-SES2ConfigurationSetDeliveryOption -Value Write-SES2ConfigurationSetDeliveryOption
 Set-Alias -Name SES2-PutConfigurationSetDeliveryOptions -Value Write-SES2ConfigurationSetDeliveryOption
@@ -20799,6 +20830,9 @@ Set-Alias -Name SES2-PutConfigurationSetSuppressionOptions -Value Write-SES2Conf
 Set-Alias -Name Put-SES2ConfigurationSetTrackingOptions -Value Write-SES2ConfigurationSetTrackingOption
 Set-Alias -Name Put-SES2ConfigurationSetTrackingOption -Value Write-SES2ConfigurationSetTrackingOption
 Set-Alias -Name SES2-PutConfigurationSetTrackingOptions -Value Write-SES2ConfigurationSetTrackingOption
+Set-Alias -Name Put-SES2ConfigurationSetVdmOptions -Value Write-SES2ConfigurationSetVdmOption
+Set-Alias -Name Put-SES2ConfigurationSetVdmOption -Value Write-SES2ConfigurationSetVdmOption
+Set-Alias -Name SES2-PutConfigurationSetVdmOptions -Value Write-SES2ConfigurationSetVdmOption
 Set-Alias -Name Put-SES2DedicatedIpInPool -Value Write-SES2DedicatedIpInPool
 Set-Alias -Name SES2-PutDedicatedIpInPool -Value Write-SES2DedicatedIpInPool
 Set-Alias -Name Put-SES2DedicatedIpWarmupAttributes -Value Write-SES2DedicatedIpWarmupAttribute

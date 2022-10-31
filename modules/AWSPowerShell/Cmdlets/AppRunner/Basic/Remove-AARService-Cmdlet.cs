@@ -35,7 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     /// This is an asynchronous operation. On a successful call, you can use the returned
     /// <code>OperationId</code> and the <a>ListOperations</a> call to track the operation's
     /// progress.
-    /// </para>
+    /// </para><note><para>
+    /// Make sure that you don't have any active VPCIngressConnections associated with the
+    /// service you want to delete. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "AARService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppRunner.Model.DeleteServiceResponse")]

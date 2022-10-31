@@ -22,42 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// <important><para>
-    /// The UntagLogGroup operation is on the path to deprecation. We recommend that you use
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>
-    /// instead.
-    /// </para></important><para>
-    /// Removes the specified tags from the specified log group.
-    /// </para><para>
-    /// To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
-    /// To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.
-    /// </para><para>
-    /// CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified
-    /// tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code>
-    /// condition keys. 
-    /// </para><br/><br/>This operation is deprecated.
+    /// Accepts an Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#using-instance-addressing-eips-transfer-accept">Accept
+    /// a transferred Elastic IP address</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
-    [Cmdlet("Remove", "CWLLogGroupTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs UntagLogGroup API operation.", Operation = new[] {"UntagLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UntagLogGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UntagLogGroupResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Approve", "EC2AddressTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.AddressTransfer")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AcceptAddressTransfer API operation.", Operation = new[] {"AcceptAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.AcceptAddressTransferResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.AddressTransfer or Amazon.EC2.Model.AcceptAddressTransferResponse",
+        "This cmdlet returns an Amazon.EC2.Model.AddressTransfer object.",
+        "The service call response (type Amazon.EC2.Model.AcceptAddressTransferResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("Please use the generic tagging API UntagResource")]
-    public partial class RemoveCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class ApproveEC2AddressTransferCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter LogGroupName
+        #region Parameter Address
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The Elastic IP address you are accepting for transfer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,43 +55,41 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LogGroupName { get; set; }
+        public System.String Address { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tag keys. The corresponding tags are removed from the log group.</para>
+        /// <para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.String[] Tag { get; set; }
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.UntagLogGroupResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AddressTransfer'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.AcceptAddressTransferResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.AcceptAddressTransferResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AddressTransfer";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LogGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Address parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Address' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Address' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LogGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWLLogGroupTag (UntagLogGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Address), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-EC2AddressTransfer (AcceptAddressTransfer)"))
             {
                 return;
             }
@@ -137,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.UntagLogGroupResponse, RemoveCWLLogGroupTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.AcceptAddressTransferResponse, ApproveEC2AddressTransferCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,26 +131,20 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LogGroupName;
+                context.Select = (response, cmdlet) => this.Address;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LogGroupName = this.LogGroupName;
+            context.Address = this.Address;
             #if MODULAR
-            if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
+            if (this.Address == null && ParameterWasBound(nameof(this.Address)))
             {
-                WriteWarning("You are passing $null as a value for parameter LogGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Address which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.TagSpecification != null)
             {
-                context.Tag = new List<System.String>(this.Tag);
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -180,15 +159,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.UntagLogGroupRequest();
+            var request = new Amazon.EC2.Model.AcceptAddressTransferRequest();
             
-            if (cmdletContext.LogGroupName != null)
+            if (cmdletContext.Address != null)
             {
-                request.LogGroupName = cmdletContext.LogGroupName;
+                request.Address = cmdletContext.Address;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.TagSpecification != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -223,15 +202,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.UntagLogGroupResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.UntagLogGroupRequest request)
+        private Amazon.EC2.Model.AcceptAddressTransferResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AcceptAddressTransferRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "UntagLogGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AcceptAddressTransfer");
             try
             {
                 #if DESKTOP
-                return client.UntagLogGroup(request);
+                return client.AcceptAddressTransfer(request);
                 #elif CORECLR
-                return client.UntagLogGroupAsync(request).GetAwaiter().GetResult();
+                return client.AcceptAddressTransferAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,10 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LogGroupName { get; set; }
-            public List<System.String> Tag { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.UntagLogGroupResponse, RemoveCWLLogGroupTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Address { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
+            public System.Func<Amazon.EC2.Model.AcceptAddressTransferResponse, ApproveEC2AddressTransferCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AddressTransfer;
         }
         
     }

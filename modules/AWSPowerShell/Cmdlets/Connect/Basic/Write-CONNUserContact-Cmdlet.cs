@@ -22,42 +22,67 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// <important><para>
-    /// The UntagLogGroup operation is on the path to deprecation. We recommend that you use
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>
-    /// instead.
-    /// </para></important><para>
-    /// Removes the specified tags from the specified log group.
-    /// </para><para>
-    /// To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
-    /// To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.
-    /// </para><para>
-    /// CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified
-    /// tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code>
-    /// condition keys. 
-    /// </para><br/><br/>This operation is deprecated.
+    /// Dismisses contacts from an agent’s CCP and returns the agent to an available state,
+    /// which allows the agent to receive a new routed contact. Contacts can only be dismissed
+    /// if they are in a <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code>
+    /// state in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
+    /// Event Stream</a>.
     /// </summary>
-    [Cmdlet("Remove", "CWLLogGroupTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "CONNUserContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs UntagLogGroup API operation.", Operation = new[] {"UntagLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UntagLogGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UntagLogGroupResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service DismissUserContact API operation.", Operation = new[] {"DismissUserContact"}, SelectReturnType = typeof(Amazon.Connect.Model.DismissUserContactResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.DismissUserContactResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.DismissUserContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("Please use the generic tagging API UntagResource")]
-    public partial class RemoveCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class WriteCONNUserContactCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter LogGroupName
+        #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The identifier of the contact.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ContactId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
+        /// ARN of the instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the user account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,31 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LogGroupName { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tag keys. The corresponding tags are removed from the log group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.String[] Tag { get; set; }
+        public System.String UserId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.UntagLogGroupResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DismissUserContactResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LogGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UserId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LogGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWLLogGroupTag (UntagLogGroup)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CONNUserContact (DismissUserContact)"))
             {
                 return;
             }
@@ -137,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.UntagLogGroupResponse, RemoveCWLLogGroupTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DismissUserContactResponse, WriteCONNUserContactCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,24 +153,28 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LogGroupName;
+                context.Select = (response, cmdlet) => this.UserId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LogGroupName = this.LogGroupName;
+            context.ContactId = this.ContactId;
             #if MODULAR
-            if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
+            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LogGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<System.String>(this.Tag);
-            }
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UserId = this.UserId;
+            #if MODULAR
+            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -180,15 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.UntagLogGroupRequest();
+            var request = new Amazon.Connect.Model.DismissUserContactRequest();
             
-            if (cmdletContext.LogGroupName != null)
+            if (cmdletContext.ContactId != null)
             {
-                request.LogGroupName = cmdletContext.LogGroupName;
+                request.ContactId = cmdletContext.ContactId;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.UserId != null)
+            {
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -223,15 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.UntagLogGroupResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.UntagLogGroupRequest request)
+        private Amazon.Connect.Model.DismissUserContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DismissUserContactRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "UntagLogGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DismissUserContact");
             try
             {
                 #if DESKTOP
-                return client.UntagLogGroup(request);
+                return client.DismissUserContact(request);
                 #elif CORECLR
-                return client.UntagLogGroupAsync(request).GetAwaiter().GetResult();
+                return client.DismissUserContactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LogGroupName { get; set; }
-            public List<System.String> Tag { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.UntagLogGroupResponse, RemoveCWLLogGroupTagCmdlet, object> Select { get; set; } =
+            public System.String ContactId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.Connect.Model.DismissUserContactResponse, WriteCONNUserContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

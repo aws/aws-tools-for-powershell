@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// 
     ///  
     /// <para>
-    /// Information is returned as <code>ExpenseDocuments</code> and seperated as follows.
+    /// Information is returned as <code>ExpenseDocuments</code> and seperated as follows:
     /// </para><ul><li><para><code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store
     /// information about the lines of text, such as an item purchased and its price on a
     /// receipt.

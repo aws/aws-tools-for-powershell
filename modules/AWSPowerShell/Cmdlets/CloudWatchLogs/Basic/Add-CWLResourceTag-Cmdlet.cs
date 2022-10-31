@@ -28,36 +28,43 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// <important><para>
-    /// The UntagLogGroup operation is on the path to deprecation. We recommend that you use
-    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>
-    /// instead.
-    /// </para></important><para>
-    /// Removes the specified tags from the specified log group.
+    /// Assigns one or more tags (key-value pairs) to the specified CloudWatch Logs resource.
+    /// Currently, the only CloudWatch Logs resources that can be tagged are log groups and
+    /// destinations. 
+    /// 
+    ///  
+    /// <para>
+    /// Tags can help you organize and categorize your resources. You can also use them to
+    /// scope user permissions by granting a user permission to access or change only resources
+    /// with certain tag values.
     /// </para><para>
-    /// To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
-    /// To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>.
+    /// Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
+    /// as strings of characters.
     /// </para><para>
-    /// CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified
-    /// tags to log groups using the <code>aws:Resource/<i>key-name</i></code> or <code>aws:TagKeys</code>
-    /// condition keys. 
-    /// </para><br/><br/>This operation is deprecated.
+    /// You can use the <code>TagResource</code> action with a resource that already has tags.
+    /// If you specify a new tag key for the alarm, this tag is appended to the list of tags
+    /// associated with the alarm. If you specify a tag key that is already associated with
+    /// the alarm, the new tag value that you specify replaces the previous value for that
+    /// tag.
+    /// </para><para>
+    /// You can associate as many as 50 tags with a CloudWatch Logs resource.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "CWLLogGroupTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Add", "CWLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs UntagLogGroup API operation.", Operation = new[] {"UntagLogGroup"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UntagLogGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UntagLogGroupResponse",
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudWatchLogs.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    [System.ObsoleteAttribute("Please use the generic tagging API UntagResource")]
-    public partial class RemoveCWLLogGroupTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class AddCWLResourceTagCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
-        #region Parameter LogGroupName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The ARN of the resource that you're adding tags to.</para><para>The ARN format of a log group is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:log-group:<i>log-group-name</i></code></para><para>The ARN format of a destination is <code>arn:aws:logs:<i>Region</i>:<i>account-id</i>:destination:<i>destination-name</i></code></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch
+        /// Logs resources and operations</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,13 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LogGroupName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag keys. The corresponding tags are removed from the log group.</para>
+        /// <para>The list of key-value pairs to associate with the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,13 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Tags")]
-        public System.String[] Tag { get; set; }
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.UntagLogGroupResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LogGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LogGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LogGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CWLLogGroupTag (UntagLogGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CWLResourceTag (TagResource)"))
             {
                 return;
             }
@@ -137,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.UntagLogGroupResponse, RemoveCWLLogGroupTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.TagResourceResponse, AddCWLResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,19 +153,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LogGroupName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LogGroupName = this.LogGroupName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter LogGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
             {
-                context.Tag = new List<System.String>(this.Tag);
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             #if MODULAR
             if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
@@ -180,11 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.UntagLogGroupRequest();
+            var request = new Amazon.CloudWatchLogs.Model.TagResourceRequest();
             
-            if (cmdletContext.LogGroupName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.LogGroupName = cmdletContext.LogGroupName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -223,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.UntagLogGroupResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.UntagLogGroupRequest request)
+        private Amazon.CloudWatchLogs.Model.TagResourceResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "UntagLogGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.UntagLogGroup(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.UntagLogGroupAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,9 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LogGroupName { get; set; }
-            public List<System.String> Tag { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.UntagLogGroupResponse, RemoveCWLLogGroupTagCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.CloudWatchLogs.Model.TagResourceResponse, AddCWLResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

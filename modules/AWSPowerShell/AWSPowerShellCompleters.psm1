@@ -3248,16 +3248,19 @@ $AAR_SelectMap = @{
                "New-AARObservabilityConfiguration",
                "New-AARService",
                "New-AARVpcConnector",
+               "New-AARVpcIngressConnection",
                "Remove-AARAutoScalingConfiguration",
                "Remove-AARConnection",
                "Remove-AARObservabilityConfiguration",
                "Remove-AARService",
                "Remove-AARVpcConnector",
+               "Remove-AARVpcIngressConnection",
                "Get-AARAutoScalingConfiguration",
                "Get-AARCustomDomain",
                "Get-AARObservabilityConfiguration",
                "Get-AARService",
                "Get-AARVpcConnector",
+               "Get-AARVpcIngressConnection",
                "Remove-AARCustomDomain",
                "Get-AARAutoScalingConfigurationList",
                "Get-AARConnectionList",
@@ -3266,12 +3269,14 @@ $AAR_SelectMap = @{
                "Get-AARServiceList",
                "Get-AARResourceTag",
                "Get-AARVpcConnectorList",
+               "Get-AARVpcIngressConnectionList",
                "Suspend-AARService",
                "Resume-AARService",
                "Start-AARDeployment",
                "Add-AARResourceTag",
                "Remove-AARResourceTag",
-               "Update-AARService")
+               "Update-AARService",
+               "Update-AARVpcIngressConnection")
 }
 
 _awsArgumentCompleterRegistration $AAR_SelectCompleters $AAR_SelectMap
@@ -12639,6 +12644,7 @@ $CONN_SelectMap = @{
                "Remove-CONNQueueQuickConnect",
                "Disconnect-CONNRoutingProfileQueue",
                "Remove-CONNSecurityKey",
+               "Write-CONNUserContact",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
@@ -17774,7 +17780,8 @@ $EC2_SelectCompleters = {
 }
 
 $EC2_SelectMap = @{
-    "Select"=@("Approve-EC2ReservedInstancesExchangeQuote",
+    "Select"=@("Approve-EC2AddressTransfer",
+               "Approve-EC2ReservedInstancesExchangeQuote",
                "Approve-EC2TransitGatewayMulticastDomainAssociation",
                "Approve-EC2TransitGatewayPeeringAttachment",
                "Approve-EC2TransitGatewayVpcAttachment",
@@ -17975,6 +17982,7 @@ $EC2_SelectMap = @{
                "Get-EC2AccountAttribute",
                "Get-EC2Address",
                "Get-EC2AddressesAttribute",
+               "Get-EC2AddressTransfer",
                "Get-EC2AggregateIdFormat",
                "Get-EC2AvailabilityZone",
                "Get-EC2BundleTask",
@@ -18111,6 +18119,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2NetworkInterface",
                "Dismount-EC2Volume",
                "Dismount-EC2VpnGateway",
+               "Disable-EC2AddressTransfer",
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
@@ -18133,6 +18142,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2TransitGatewayRouteTable",
                "Unregister-EC2TrunkInterface",
                "Unregister-EC2VpcCidrBlock",
+               "Enable-EC2AddressTransfer",
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
@@ -32212,6 +32222,7 @@ $CWL_SelectMap = @{
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
+               "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
@@ -32224,8 +32235,10 @@ $CWL_SelectMap = @{
                "Start-CWLQuery",
                "Stop-CWLQuery",
                "Add-CWLLogGroupTag",
+               "Add-CWLResourceTag",
                "Test-CWLMetricFilter",
-               "Remove-CWLLogGroupTag")
+               "Remove-CWLLogGroupTag",
+               "Remove-CWLResourceTag")
 }
 
 _awsArgumentCompleterRegistration $CWL_SelectCompleters $CWL_SelectMap
@@ -48017,6 +48030,21 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.FeatureStatus
+        {
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_DashboardAttributes_EngagementMetrics") -Or
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_GuardianAttributes_OptimizedSharedDelivery") -Or
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_VdmEnabled") -Or
+            ($_ -eq "New-SES2ConfigurationSet/VdmOptions_DashboardOptions_EngagementMetrics") -Or
+            ($_ -eq "Write-SES2ConfigurationSetVdmOption/VdmOptions_DashboardOptions_EngagementMetrics") -Or
+            ($_ -eq "New-SES2ConfigurationSet/VdmOptions_GuardianOptions_OptimizedSharedDelivery") -Or
+            ($_ -eq "Write-SES2ConfigurationSetVdmOption/VdmOptions_GuardianOptions_OptimizedSharedDelivery")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
@@ -48093,6 +48121,11 @@ $SES2_map = @{
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
+    "VdmAttributes_DashboardAttributes_EngagementMetrics"=@("Write-SES2AccountVdmAttribute")
+    "VdmAttributes_GuardianAttributes_OptimizedSharedDelivery"=@("Write-SES2AccountVdmAttribute")
+    "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
+    "VdmOptions_DashboardOptions_EngagementMetrics"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
+    "VdmOptions_GuardianOptions_OptimizedSharedDelivery"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
 }
 
 _awsArgumentCompleterRegistration $SES2_Completers $SES2_map
@@ -48145,7 +48178,8 @@ $SES2_SelectCompleters = {
 }
 
 $SES2_SelectMap = @{
-    "Select"=@("New-SES2ConfigurationSet",
+    "Select"=@("Get-SES2BatchMetricData",
+               "New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
                "New-SES2Contact",
                "New-SES2ContactList",
@@ -48195,17 +48229,20 @@ $SES2_SelectMap = @{
                "Get-SES2EmailIdentityList",
                "Get-SES2EmailTemplateList",
                "Get-SES2ImportJobList",
+               "Get-SES2RecommendationList",
                "Get-SES2SuppressedDestinationList",
                "Get-SES2ResourceTag",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
                "Write-SES2AccountDetail",
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
+               "Write-SES2AccountVdmAttribute",
                "Write-SES2ConfigurationSetDeliveryOption",
                "Write-SES2ConfigurationSetReputationOption",
                "Write-SES2ConfigurationSetSendingOption",
                "Write-SES2ConfigurationSetSuppressionOption",
                "Write-SES2ConfigurationSetTrackingOption",
+               "Write-SES2ConfigurationSetVdmOption",
                "Write-SES2DedicatedIpInPool",
                "Write-SES2DedicatedIpWarmupAttribute",
                "Write-SES2DeliverabilityDashboardOption",

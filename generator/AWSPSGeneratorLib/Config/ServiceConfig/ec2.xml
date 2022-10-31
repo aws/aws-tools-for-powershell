@@ -69,6 +69,10 @@
         <Property>SpotFleetRequestId</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptAddressTransfer" OutputProperty="AddressTransfer" Verb="Approve" Noun="AddressTransfer" ShouldProcessTarget="Address" PipelineParameter="Address" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Approve" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote">
             <Params />
             <TypesNotToFlatten />
@@ -907,6 +911,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAddressTransfers" OutputProperty="AddressTransfers" Verb="Get" Noun="AddressTransfer" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1498,6 +1506,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableAddressTransfer" OutputProperty="AddressTransfer" Verb="Disable" Noun="AddressTransfer" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1585,6 +1597,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateVpcCidrBlock" OutputProperty="*" Verb="Unregister" Noun="VpcCidrBlock" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableAddressTransfer" OutputProperty="AddressTransfer" Verb="Enable" Noun="AddressTransfer" ShouldProcessTarget="AllocationId" PipelineParameter="AllocationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

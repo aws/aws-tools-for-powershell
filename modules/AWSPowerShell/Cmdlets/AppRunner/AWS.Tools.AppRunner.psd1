@@ -100,11 +100,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AARServiceList', 
         'Get-AARVpcConnector', 
         'Get-AARVpcConnectorList', 
+        'Get-AARVpcIngressConnection', 
+        'Get-AARVpcIngressConnectionList', 
         'New-AARAutoScalingConfiguration', 
         'New-AARConnection', 
         'New-AARObservabilityConfiguration', 
         'New-AARService', 
         'New-AARVpcConnector', 
+        'New-AARVpcIngressConnection', 
         'Remove-AARAutoScalingConfiguration', 
         'Remove-AARConnection', 
         'Remove-AARCustomDomain', 
@@ -112,10 +115,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AARResourceTag', 
         'Remove-AARService', 
         'Remove-AARVpcConnector', 
+        'Remove-AARVpcIngressConnection', 
         'Resume-AARService', 
         'Start-AARDeployment', 
         'Suspend-AARService', 
-        'Update-AARService')
+        'Update-AARService', 
+        'Update-AARVpcIngressConnection')
 
     # Variables to export from this module
     VariablesToExport = '*'

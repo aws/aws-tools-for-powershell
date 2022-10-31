@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-CWLLogGroupTag', 
+        'Add-CWLResourceTag', 
         'Get-CWLDestination', 
         'Get-CWLExportTask', 
         'Get-CWLFilteredLogEvent', 
@@ -101,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWLQueryDefinition', 
         'Get-CWLQueryResult', 
         'Get-CWLResourcePolicy', 
+        'Get-CWLResourceTag', 
         'Get-CWLSubscriptionFilter', 
         'New-CWLExportTask', 
         'New-CWLLogGroup', 
@@ -113,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWLMetricFilter', 
         'Remove-CWLQueryDefinition', 
         'Remove-CWLResourcePolicy', 
+        'Remove-CWLResourceTag', 
         'Remove-CWLRetentionPolicy', 
         'Remove-CWLSubscriptionFilter', 
         'Start-CWLQuery', 

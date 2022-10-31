@@ -229,16 +229,19 @@ $AAR_SelectMap = @{
                "New-AARObservabilityConfiguration",
                "New-AARService",
                "New-AARVpcConnector",
+               "New-AARVpcIngressConnection",
                "Remove-AARAutoScalingConfiguration",
                "Remove-AARConnection",
                "Remove-AARObservabilityConfiguration",
                "Remove-AARService",
                "Remove-AARVpcConnector",
+               "Remove-AARVpcIngressConnection",
                "Get-AARAutoScalingConfiguration",
                "Get-AARCustomDomain",
                "Get-AARObservabilityConfiguration",
                "Get-AARService",
                "Get-AARVpcConnector",
+               "Get-AARVpcIngressConnection",
                "Remove-AARCustomDomain",
                "Get-AARAutoScalingConfigurationList",
                "Get-AARConnectionList",
@@ -247,12 +250,14 @@ $AAR_SelectMap = @{
                "Get-AARServiceList",
                "Get-AARResourceTag",
                "Get-AARVpcConnectorList",
+               "Get-AARVpcIngressConnectionList",
                "Suspend-AARService",
                "Resume-AARService",
                "Start-AARDeployment",
                "Add-AARResourceTag",
                "Remove-AARResourceTag",
-               "Update-AARService")
+               "Update-AARService",
+               "Update-AARVpcIngressConnection")
 }
 
 _awsArgumentCompleterRegistration $AAR_SelectCompleters $AAR_SelectMap

@@ -72,6 +72,21 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String TrackingOptions_CustomRedirectDomain { get; set; }
         #endregion
         
+        #region Parameter DashboardOptions_EngagementMetric
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the status of your VDM engagement metrics collection. Can be one of the
+        /// following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration
+        /// set.</para></li><li><para><code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration
+        /// set.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VdmOptions_DashboardOptions_EngagementMetrics")]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.FeatureStatus")]
+        public Amazon.SimpleEmailV2.FeatureStatus DashboardOptions_EngagementMetric { get; set; }
+        #endregion
+        
         #region Parameter ReputationOptions_LastFreshStart
         /// <summary>
         /// <para>
@@ -82,6 +97,20 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? ReputationOptions_LastFreshStart { get; set; }
+        #endregion
+        
+        #region Parameter GuardianOptions_OptimizedSharedDelivery
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</para><ul><li><para><code>ENABLED</code> – Amazon SES enables optimized shared delivery for the configuration
+        /// set.</para></li><li><para><code>DISABLED</code> – Amazon SES disables optimized shared delivery for the configuration
+        /// set.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VdmOptions_GuardianOptions_OptimizedSharedDelivery")]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.FeatureStatus")]
+        public Amazon.SimpleEmailV2.FeatureStatus GuardianOptions_OptimizedSharedDelivery { get; set; }
         #endregion
         
         #region Parameter ReputationOptions_ReputationMetricsEnabled
@@ -238,6 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
             }
             context.TrackingOptions_CustomRedirectDomain = this.TrackingOptions_CustomRedirectDomain;
+            context.DashboardOptions_EngagementMetric = this.DashboardOptions_EngagementMetric;
+            context.GuardianOptions_OptimizedSharedDelivery = this.GuardianOptions_OptimizedSharedDelivery;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -378,6 +409,65 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 request.TrackingOptions = null;
             }
             
+             // populate VdmOptions
+            var requestVdmOptionsIsNull = true;
+            request.VdmOptions = new Amazon.SimpleEmailV2.Model.VdmOptions();
+            Amazon.SimpleEmailV2.Model.DashboardOptions requestVdmOptions_vdmOptions_DashboardOptions = null;
+            
+             // populate DashboardOptions
+            var requestVdmOptions_vdmOptions_DashboardOptionsIsNull = true;
+            requestVdmOptions_vdmOptions_DashboardOptions = new Amazon.SimpleEmailV2.Model.DashboardOptions();
+            Amazon.SimpleEmailV2.FeatureStatus requestVdmOptions_vdmOptions_DashboardOptions_dashboardOptions_EngagementMetric = null;
+            if (cmdletContext.DashboardOptions_EngagementMetric != null)
+            {
+                requestVdmOptions_vdmOptions_DashboardOptions_dashboardOptions_EngagementMetric = cmdletContext.DashboardOptions_EngagementMetric;
+            }
+            if (requestVdmOptions_vdmOptions_DashboardOptions_dashboardOptions_EngagementMetric != null)
+            {
+                requestVdmOptions_vdmOptions_DashboardOptions.EngagementMetrics = requestVdmOptions_vdmOptions_DashboardOptions_dashboardOptions_EngagementMetric;
+                requestVdmOptions_vdmOptions_DashboardOptionsIsNull = false;
+            }
+             // determine if requestVdmOptions_vdmOptions_DashboardOptions should be set to null
+            if (requestVdmOptions_vdmOptions_DashboardOptionsIsNull)
+            {
+                requestVdmOptions_vdmOptions_DashboardOptions = null;
+            }
+            if (requestVdmOptions_vdmOptions_DashboardOptions != null)
+            {
+                request.VdmOptions.DashboardOptions = requestVdmOptions_vdmOptions_DashboardOptions;
+                requestVdmOptionsIsNull = false;
+            }
+            Amazon.SimpleEmailV2.Model.GuardianOptions requestVdmOptions_vdmOptions_GuardianOptions = null;
+            
+             // populate GuardianOptions
+            var requestVdmOptions_vdmOptions_GuardianOptionsIsNull = true;
+            requestVdmOptions_vdmOptions_GuardianOptions = new Amazon.SimpleEmailV2.Model.GuardianOptions();
+            Amazon.SimpleEmailV2.FeatureStatus requestVdmOptions_vdmOptions_GuardianOptions_guardianOptions_OptimizedSharedDelivery = null;
+            if (cmdletContext.GuardianOptions_OptimizedSharedDelivery != null)
+            {
+                requestVdmOptions_vdmOptions_GuardianOptions_guardianOptions_OptimizedSharedDelivery = cmdletContext.GuardianOptions_OptimizedSharedDelivery;
+            }
+            if (requestVdmOptions_vdmOptions_GuardianOptions_guardianOptions_OptimizedSharedDelivery != null)
+            {
+                requestVdmOptions_vdmOptions_GuardianOptions.OptimizedSharedDelivery = requestVdmOptions_vdmOptions_GuardianOptions_guardianOptions_OptimizedSharedDelivery;
+                requestVdmOptions_vdmOptions_GuardianOptionsIsNull = false;
+            }
+             // determine if requestVdmOptions_vdmOptions_GuardianOptions should be set to null
+            if (requestVdmOptions_vdmOptions_GuardianOptionsIsNull)
+            {
+                requestVdmOptions_vdmOptions_GuardianOptions = null;
+            }
+            if (requestVdmOptions_vdmOptions_GuardianOptions != null)
+            {
+                request.VdmOptions.GuardianOptions = requestVdmOptions_vdmOptions_GuardianOptions;
+                requestVdmOptionsIsNull = false;
+            }
+             // determine if request.VdmOptions should be set to null
+            if (requestVdmOptionsIsNull)
+            {
+                request.VdmOptions = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -447,6 +537,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public List<System.String> SuppressionOptions_SuppressedReason { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TrackingOptions_CustomRedirectDomain { get; set; }
+            public Amazon.SimpleEmailV2.FeatureStatus DashboardOptions_EngagementMetric { get; set; }
+            public Amazon.SimpleEmailV2.FeatureStatus GuardianOptions_OptimizedSharedDelivery { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse, NewSES2ConfigurationSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

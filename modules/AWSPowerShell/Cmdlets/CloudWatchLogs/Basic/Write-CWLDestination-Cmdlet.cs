@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of key-value pairs to associate with the resource.</para><para>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services resources</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetArn
         /// <summary>
         /// <para>
@@ -184,6 +196,14 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.TargetArn = this.TargetArn;
             #if MODULAR
             if (this.TargetArn == null && ParameterWasBound(nameof(this.TargetArn)))
@@ -214,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TargetArn != null)
             {
@@ -282,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.String DestinationName { get; set; }
             public System.String RoleArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TargetArn { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.PutDestinationResponse, WriteCWLDestinationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Destination;

@@ -22,48 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Updates the traffic distribution for a given traffic distribution group. 
-    /// 
-    ///  
-    /// <para>
-    /// For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update
-    /// telephony traffic distribution across Amazon Web Services Regions </a> in the <i>Amazon
-    /// Connect Administrator Guide</i>. 
-    /// </para>
+    /// Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
+    /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
-    [Cmdlet("Update", "CONNTrafficDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UpdateTrafficDistribution API operation.", Operation = new[] {"UpdateTrafficDistribution"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateTrafficDistributionResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateTrafficDistributionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateTrafficDistributionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Disable", "EC2AddressTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.AddressTransfer")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableAddressTransfer API operation.", Operation = new[] {"DisableAddressTransfer"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableAddressTransferResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.AddressTransfer or Amazon.EC2.Model.DisableAddressTransferResponse",
+        "This cmdlet returns an Amazon.EC2.Model.AddressTransfer object.",
+        "The service call response (type Amazon.EC2.Model.DisableAddressTransferResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCONNTrafficDistributionCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class DisableEC2AddressTransferCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter TelephonyConfig_Distribution
+        #region Parameter AllocationId
         /// <summary>
         /// <para>
-        /// <para>Information about traffic distributions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TelephonyConfig_Distributions")]
-        public Amazon.Connect.Model.Distribution[] TelephonyConfig_Distribution { get; set; }
-        #endregion
-        
-        #region Parameter Id
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the traffic distribution group. This can be the ID or the ARN if
-        /// the API is being called in the Region where the traffic distribution group was created.
-        /// The ARN must be provided if the call is from the replicated Region.</para>
+        /// <para>The allocation ID of an Elastic IP address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,25 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
+        public System.String AllocationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateTrafficDistributionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AddressTransfer'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableAddressTransferResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DisableAddressTransferResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AddressTransfer";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AllocationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AllocationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AllocationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNTrafficDistribution (UpdateTrafficDistribution)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AllocationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2AddressTransfer (DisableAddressTransfer)"))
             {
                 return;
             }
@@ -125,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateTrafficDistributionResponse, UpdateCONNTrafficDistributionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableAddressTransferResponse, DisableEC2AddressTransferCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,20 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.AllocationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
+            context.AllocationId = this.AllocationId;
             #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            if (this.AllocationId == null && ParameterWasBound(nameof(this.AllocationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AllocationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TelephonyConfig_Distribution != null)
-            {
-                context.TelephonyConfig_Distribution = new List<Amazon.Connect.Model.Distribution>(this.TelephonyConfig_Distribution);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,30 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UpdateTrafficDistributionRequest();
+            var request = new Amazon.EC2.Model.DisableAddressTransferRequest();
             
-            if (cmdletContext.Id != null)
+            if (cmdletContext.AllocationId != null)
             {
-                request.Id = cmdletContext.Id;
-            }
-            
-             // populate TelephonyConfig
-            var requestTelephonyConfigIsNull = true;
-            request.TelephonyConfig = new Amazon.Connect.Model.TelephonyConfig();
-            List<Amazon.Connect.Model.Distribution> requestTelephonyConfig_telephonyConfig_Distribution = null;
-            if (cmdletContext.TelephonyConfig_Distribution != null)
-            {
-                requestTelephonyConfig_telephonyConfig_Distribution = cmdletContext.TelephonyConfig_Distribution;
-            }
-            if (requestTelephonyConfig_telephonyConfig_Distribution != null)
-            {
-                request.TelephonyConfig.Distributions = requestTelephonyConfig_telephonyConfig_Distribution;
-                requestTelephonyConfigIsNull = false;
-            }
-             // determine if request.TelephonyConfig should be set to null
-            if (requestTelephonyConfigIsNull)
-            {
-                request.TelephonyConfig = null;
+                request.AllocationId = cmdletContext.AllocationId;
             }
             
             CmdletOutput output;
@@ -220,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UpdateTrafficDistributionResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateTrafficDistributionRequest request)
+        private Amazon.EC2.Model.DisableAddressTransferResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableAddressTransferRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateTrafficDistribution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableAddressTransfer");
             try
             {
                 #if DESKTOP
-                return client.UpdateTrafficDistribution(request);
+                return client.DisableAddressTransfer(request);
                 #elif CORECLR
-                return client.UpdateTrafficDistributionAsync(request).GetAwaiter().GetResult();
+                return client.DisableAddressTransferAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,10 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
-            public List<Amazon.Connect.Model.Distribution> TelephonyConfig_Distribution { get; set; }
-            public System.Func<Amazon.Connect.Model.UpdateTrafficDistributionResponse, UpdateCONNTrafficDistributionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AllocationId { get; set; }
+            public System.Func<Amazon.EC2.Model.DisableAddressTransferResponse, DisableEC2AddressTransferCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AddressTransfer;
         }
         
     }
