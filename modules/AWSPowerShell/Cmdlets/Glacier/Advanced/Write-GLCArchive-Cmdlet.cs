@@ -184,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                     return;
 
                 context.FilePath = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.FilePath.Trim());
+                context.Description = this.Description;
             }
 
             if (this.ParameterWasBound("AccountId"))
