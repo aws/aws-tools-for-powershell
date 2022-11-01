@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.407.0",
+    "ProductVersion" : "3.7.408.0",
     "CoreVersion"    : "3.7.100.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.101.5",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.7"
@@ -1378,7 +1378,7 @@
             "InPreview"               : false
         },
         "Textract"                        : {
-            "Version" : "3.7.101.0",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.7"

@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The amount of storage in gibibytes (GiB) to allocate for the DB instance.</para><para>Type: Integer</para><para><b>Amazon Aurora</b></para><para>Not applicable. Aurora cluster volumes automatically grow as the amount of data in
         /// your database increases, though you are only charged for the space that you use in
-        /// an Aurora cluster volume.</para><para><b>Amazon RDS Custom</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom
-        /// for Oracle, 16384 for RDS Custom for SQL Server.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom
-        /// for Oracle, 16384 for RDS Custom for SQL Server.</para></li></ul><para><b>MySQL</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>MariaDB</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>Oracle</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 10 to 3072.</para></li></ul><para><b>SQL Server</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 20 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 16384.</para></li></ul></li><li><para>Provisioned IOPS storage (io1):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 100 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 100 to 16384.</para></li></ul></li><li><para>Magnetic storage (standard):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 20 to 1024.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 1024.</para></li></ul></li></ul>
+        /// an Aurora cluster volume.</para><para><b>Amazon RDS Custom</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 40 to 65536 for
+        /// RDS Custom for Oracle, 16384 for RDS Custom for SQL Server.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom
+        /// for Oracle, 16384 for RDS Custom for SQL Server.</para></li></ul><para><b>MySQL</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>MariaDB</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 5 to 3072.</para></li></ul><para><b>Oracle</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</para></li><li><para>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</para></li><li><para>Magnetic storage (standard): Must be an integer from 10 to 3072.</para></li></ul><para><b>SQL Server</b></para><para>Constraints to the amount of storage for each storage type are the following:</para><ul><li><para>General Purpose (SSD) storage (gp2, gp3):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 20 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 16384.</para></li></ul></li><li><para>Provisioned IOPS storage (io1):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 100 to 16384.</para></li><li><para>Web and Express editions: Must be an integer from 100 to 16384.</para></li></ul></li><li><para>Magnetic storage (standard):</para><ul><li><para>Enterprise and Standard editions: Must be an integer from 20 to 1024.</para></li><li><para>Web and Express editions: Must be an integer from 20 to 1024.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -408,10 +408,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
-        /// allocated for the DB instance. For information about valid <code>Iops</code> values,
-        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS storage to improve performance</a> in the <i>Amazon RDS User
-        /// Guide</i>.</para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple
+        /// allocated for the DB instance. For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon
+        /// RDS DB instance storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple
         /// between .5 and 50 of the storage amount for the DB instance. For SQL Server DB instances,
         /// must be a multiple between 1 and 50 of the storage amount for the DB instance.</para><para><b>Amazon Aurora</b></para><para>Not applicable. Storage is managed by the DB cluster.</para>
         /// </para>
@@ -685,11 +683,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter StorageThroughput
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage throughput value for the DB instance.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageThroughput { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>standard | gp2 | io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// for the <code>Iops</code> parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para><para><b>Amazon Aurora</b></para><para>Not applicable. Storage is managed by the DB cluster.</para>
         /// </para>
         /// </summary>
@@ -885,6 +893,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PromotionTier = this.PromotionTier;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.StorageEncrypted = this.StorageEncrypted;
+            context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
@@ -1093,6 +1102,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
+            if (cmdletContext.StorageThroughput != null)
+            {
+                request.StorageThroughput = cmdletContext.StorageThroughput.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -1223,6 +1236,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TdeCredentialArn { get; set; }

@@ -678,6 +678,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? ResumeFullAutomationModeMinute { get; set; }
         #endregion
         
+        #region Parameter StorageThroughput
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage throughput value for the DB instance.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageThroughput { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
@@ -692,7 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance are
         /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// read replica for the instance, and creating a DB snapshot of the instance.</para><para>Valid values: <code>standard | gp2 | io1</code></para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// read replica for the instance, and creating a DB snapshot of the instance.</para><para>Valid values: <code>gp2 | gp3 | io1 | standard</code></para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para>
         /// </para>
         /// </summary>
@@ -868,6 +878,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReplicaMode = this.ReplicaMode;
             context.ResumeFullAutomationModeMinute = this.ResumeFullAutomationModeMinute;
+            context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
@@ -1089,6 +1100,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ResumeFullAutomationModeMinutes = cmdletContext.ResumeFullAutomationModeMinute.Value;
             }
+            if (cmdletContext.StorageThroughput != null)
+            {
+                request.StorageThroughput = cmdletContext.StorageThroughput.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -1214,6 +1229,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? PubliclyAccessible { get; set; }
             public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
             public System.Int32? ResumeFullAutomationModeMinute { get; set; }
+            public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }

@@ -57,8 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user-supplied DB cluster identifier. If this parameter is specified, information
-        /// from only the specific DB cluster is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DBClusterIdentifier.</para></li></ul>
+        /// <para>The user-supplied DB cluster identifier or the Amazon Resource Name (ARN) of the DB
+        /// cluster. If this parameter is specified, information from only the specific DB cluster
+        /// is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing DBClusterIdentifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

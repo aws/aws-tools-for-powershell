@@ -1,4 +1,14 @@
-﻿### 4.1.197 (2022-10-31 20:45Z)
+﻿### 4.1.198 (2022-11-01 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.408.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBInstance: added parameter StorageThroughput.
+    * Modified cmdlet New-RDSDBInstance: added parameter StorageThroughput.
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter StorageThroughput.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter StorageThroughput.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter StorageThroughput.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter StorageThroughput.
+
+### 4.1.197 (2022-10-31 20:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.407.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon App Runner
     * Added cmdlet Get-AARVpcIngressConnection leveraging the DescribeVpcIngressConnection service API.

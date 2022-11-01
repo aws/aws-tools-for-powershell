@@ -306,8 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// The conversion takes additional time, though your DB instance is available for connections
         /// before the conversion starts.</para><para>The provisioned IOPS value must follow the requirements for your database engine.
         /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
-        /// Guide.</i></para><para>Constraints: Must be an integer greater than 1000.</para>
+        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints: Must be an integer greater than 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -399,11 +398,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter StorageThroughput
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage throughput value for the DB instance.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageThroughput { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>standard | gp2 | io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// for the <code>Iops</code> parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para>
         /// </para>
         /// </summary>
@@ -570,6 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.ProcessorFeature = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
             }
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
@@ -702,6 +712,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
+            if (cmdletContext.StorageThroughput != null)
+            {
+                request.StorageThroughput = cmdletContext.StorageThroughput.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -813,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TdeCredentialArn { get; set; }

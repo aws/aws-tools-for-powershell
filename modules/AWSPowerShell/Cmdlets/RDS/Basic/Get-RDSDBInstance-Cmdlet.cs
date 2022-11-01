@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user-supplied instance identifier. If this parameter is specified, information
-        /// from only the specific DB instance is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
+        /// <para>The user-supplied instance identifier or the Amazon Resource Name (ARN) of the DB
+        /// instance. If this parameter is specified, information from only the specific DB instance
+        /// is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

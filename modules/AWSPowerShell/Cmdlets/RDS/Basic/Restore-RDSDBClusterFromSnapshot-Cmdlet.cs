@@ -285,9 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
-        /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
-        /// Guide</i>.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
+        /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
         /// instance.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>

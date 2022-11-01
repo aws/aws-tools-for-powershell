@@ -400,11 +400,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String SourceDbiResourceId { get; set; }
         #endregion
         
+        #region Parameter StorageThroughput
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage throughput value for the DB instance.</para><para>This setting doesn't apply to RDS Custom or Amazon Aurora.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StorageThroughput { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>standard | gp2 | io1</code></para><para>If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// <para>Specifies the storage type to be associated with the DB instance.</para><para>Valid values: <code>gp2 | gp3 | io1 | standard</code></para><para>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value
+        /// for the <code>Iops</code> parameter.</para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para>
         /// </para>
         /// </summary>
@@ -607,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.SourceDBInstanceAutomatedBackupsArn = this.SourceDBInstanceAutomatedBackupsArn;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
             context.SourceDbiResourceId = this.SourceDbiResourceId;
+            context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
@@ -762,6 +773,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.SourceDbiResourceId = cmdletContext.SourceDbiResourceId;
             }
+            if (cmdletContext.StorageThroughput != null)
+            {
+                request.StorageThroughput = cmdletContext.StorageThroughput.Value;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -894,6 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String SourceDBInstanceAutomatedBackupsArn { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
             public System.String SourceDbiResourceId { get; set; }
+            public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.String TargetDBInstanceIdentifier { get; set; }
