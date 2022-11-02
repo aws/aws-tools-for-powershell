@@ -12454,9 +12454,15 @@ Set-Alias -Name IOTSW-GetInterpolatedAssetPropertyValues -Value Get-IOTSWInterpo
 Set-Alias -Name List-IOTSWAccessPolicies -Value Get-IOTSWAccessPolicyList
 Set-Alias -Name List-IOTSWAccessPolicyList -Value Get-IOTSWAccessPolicyList
 Set-Alias -Name IOTSW-ListAccessPolicies -Value Get-IOTSWAccessPolicyList
+Set-Alias -Name List-IOTSWAssetModelProperties -Value Get-IOTSWAssetModelPropertyList
+Set-Alias -Name List-IOTSWAssetModelPropertyList -Value Get-IOTSWAssetModelPropertyList
+Set-Alias -Name IOTSW-ListAssetModelProperties -Value Get-IOTSWAssetModelPropertyList
 Set-Alias -Name List-IOTSWAssetModels -Value Get-IOTSWAssetModelList
 Set-Alias -Name List-IOTSWAssetModelList -Value Get-IOTSWAssetModelList
 Set-Alias -Name IOTSW-ListAssetModels -Value Get-IOTSWAssetModelList
+Set-Alias -Name List-IOTSWAssetProperties -Value Get-IOTSWAssetPropertyList
+Set-Alias -Name List-IOTSWAssetPropertyList -Value Get-IOTSWAssetPropertyList
+Set-Alias -Name IOTSW-ListAssetProperties -Value Get-IOTSWAssetPropertyList
 Set-Alias -Name List-IOTSWAssetRelationships -Value Get-IOTSWAssetRelationshipList
 Set-Alias -Name List-IOTSWAssetRelationshipList -Value Get-IOTSWAssetRelationshipList
 Set-Alias -Name IOTSW-ListAssetRelationships -Value Get-IOTSWAssetRelationshipList

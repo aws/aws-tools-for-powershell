@@ -1,4 +1,14 @@
-﻿### 4.1.198 (2022-11-01 20:31Z)
+﻿### 4.1.199 (2022-11-02 21:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.409.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT SiteWise
+    * Added cmdlet Get-IOTSWAssetModelPropertyList leveraging the ListAssetModelProperties service API.
+    * Added cmdlet Get-IOTSWAssetPropertyList leveraging the ListAssetProperties service API.
+    * Modified cmdlet Get-IOTSWAsset: added parameter ExcludeProperty.
+    * Modified cmdlet Get-IOTSWAssetModel: added parameter ExcludeProperty.
+  * Amazon Systems Manager Incident Manager
+    * Modified cmdlet New-SSMIReplicationSet: added parameter Tag.
+
+### 4.1.198 (2022-11-01 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.408.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Relational Database Service
     * Modified cmdlet Edit-RDSDBInstance: added parameter StorageThroughput.

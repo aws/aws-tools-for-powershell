@@ -199,7 +199,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetModelProperties" OutputProperty="AssetModelPropertySummaries" Verb="Get" Noun="AssetModelPropertyList" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAssetModels" OutputProperty="AssetModelSummaries" Verb="Get" Noun="AssetModelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetProperties" OutputProperty="AssetPropertySummaries" Verb="Get" Noun="AssetPropertyList" PipelineParameter="AssetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
+        /// <para>A token that ensures that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

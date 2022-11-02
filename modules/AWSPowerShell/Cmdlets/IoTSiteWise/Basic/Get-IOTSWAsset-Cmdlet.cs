@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String AssetId { get; set; }
         #endregion
         
+        #region Parameter ExcludeProperty
+        /// <summary>
+        /// <para>
+        /// <para> Whether or not to exclude asset properties from the response. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeProperties")]
+        public System.Boolean? ExcludeProperty { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -108,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter AssetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExcludeProperty = this.ExcludeProperty;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.AssetId != null)
             {
                 request.AssetId = cmdletContext.AssetId;
+            }
+            if (cmdletContext.ExcludeProperty != null)
+            {
+                request.ExcludeProperties = cmdletContext.ExcludeProperty.Value;
             }
             
             CmdletOutput output;
@@ -190,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssetId { get; set; }
+            public System.Boolean? ExcludeProperty { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DescribeAssetResponse, GetIOTSWAssetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

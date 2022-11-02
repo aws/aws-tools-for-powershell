@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Group_Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services SSO ID of the group.</para>
+        /// <para>The IAM Identity Center ID of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter User_Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services SSO ID of the user.</para>
+        /// <para>The IAM Identity Center ID of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication set you're updating.</para>
+        /// <para>The Amazon Resource Name (ARN) of the replication set to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter DeletionProtected
         /// <summary>
         /// <para>
-        /// <para>Details if deletion protection is enabled or disabled in your account.</para>
+        /// <para>Specifies if deletion protection is turned on or off in your account. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
+        /// <para>A token that ensures that the operation is called only once with the specified details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

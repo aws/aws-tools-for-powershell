@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Creates a portal, which can contain projects and dashboards. IoT SiteWise Monitor
-    /// uses Amazon Web Services SSO or IAM to authenticate portal users and manage user permissions.
+    /// uses IAM Identity Center or IAM to authenticate portal users and manage user permissions.
     /// 
     ///  <note><para>
     /// Before you can sign in to a new portal, you must add at least one identity to that
@@ -100,12 +100,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The service to use to authenticate users to the portal. Choose from the following
-        /// options:</para><ul><li><para><code>SSO</code> – The portal uses Amazon Web Services Single Sign On to authenticate
-        /// users and manage user permissions. Before you can create a portal that uses Amazon
-        /// Web Services SSO, you must enable Amazon Web Services SSO. For more information, see
-        /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
-        /// Amazon Web Services SSO</a> in the <i>IoT SiteWise User Guide</i>. This option is
-        /// only available in Amazon Web Services Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses Identity and Access Management to authenticate
+        /// options:</para><ul><li><para><code>SSO</code> – The portal uses IAM Identity Center (successor to Single Sign-On)
+        /// to authenticate users and manage user permissions. Before you can create a portal
+        /// that uses IAM Identity Center, you must enable IAM Identity Center. For more information,
+        /// see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
+        /// IAM Identity Center</a> in the <i>IoT SiteWise User Guide</i>. This option is only
+        /// available in Amazon Web Services Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses Identity and Access Management to authenticate
         /// users and manage user permissions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
         /// </para>
         /// </summary>

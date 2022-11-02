@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The name of the tag you're removing from the response plan.</para>
+        /// <para>The name of the tag to remove from the response plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

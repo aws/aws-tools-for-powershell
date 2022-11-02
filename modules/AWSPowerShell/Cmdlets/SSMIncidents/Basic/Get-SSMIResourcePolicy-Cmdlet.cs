@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of resource policies to display per page of results.</para>
+        /// <para>The maximum number of resource policies to display for each page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

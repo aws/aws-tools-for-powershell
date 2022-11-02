@@ -28,81 +28,56 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves a paginated list of access policies for an identity (an IAM Identity Center
-    /// user, an IAM Identity Center group, or an IAM user) or an IoT SiteWise Monitor resource
-    /// (a portal or project).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of properties associated with an asset model. If you update
+    /// properties associated with the model before you finish listing all the properties,
+    /// you need to start all over again.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTSWAccessPolicyList")]
-    [OutputType("Amazon.IoTSiteWise.Model.AccessPolicySummary")]
-    [AWSCmdlet("Calls the AWS IoT SiteWise ListAccessPolicies API operation.", Operation = new[] {"ListAccessPolicies"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse))]
-    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.AccessPolicySummary or Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse",
-        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.AccessPolicySummary objects.",
-        "The service call response (type Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTSWAssetModelPropertyList")]
+    [OutputType("Amazon.IoTSiteWise.Model.AssetModelPropertySummary")]
+    [AWSCmdlet("Calls the AWS IoT SiteWise ListAssetModelProperties API operation.", Operation = new[] {"ListAssetModelProperties"}, SelectReturnType = typeof(Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse))]
+    [AWSCmdletOutput("Amazon.IoTSiteWise.Model.AssetModelPropertySummary or Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse",
+        "This cmdlet returns a collection of Amazon.IoTSiteWise.Model.AssetModelPropertySummary objects.",
+        "The service call response (type Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTSWAccessPolicyListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
+    public partial class GetIOTSWAssetModelPropertyListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
-        #region Parameter IamArn
+        #region Parameter AssetModelId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
-        /// ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <code>IAM</code>
-        /// for <code>identityType</code>.</para>
+        /// <para>The ID of the asset model.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String IamArn { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AssetModelId { get; set; }
         #endregion
         
-        #region Parameter IdentityId
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The ID of the identity. This parameter is required if you specify <code>USER</code>
-        /// or <code>GROUP</code> for <code>identityType</code>.</para>
+        /// <para> Filters the requested list of asset model properties. You can choose one of the following
+        /// options:</para><ul><li><para><code>ALL</code> – The list includes all asset model properties for a given asset
+        /// model ID. </para></li><li><para><code>BASE</code> – The list includes only base asset model properties for a given
+        /// asset model ID. </para></li></ul><para>Default: <code>BASE</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String IdentityId { get; set; }
-        #endregion
-        
-        #region Parameter IdentityType
-        /// <summary>
-        /// <para>
-        /// <para>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM
-        /// user). This parameter is required if you specify <code>identityId</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.IoTSiteWise.IdentityType")]
-        public Amazon.IoTSiteWise.IdentityType IdentityType { get; set; }
-        #endregion
-        
-        #region Parameter ResourceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the resource. This parameter is required if you specify <code>resourceType</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The type of resource (portal or project). This parameter is required if you specify
-        /// <code>resourceId</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.IoTSiteWise.ResourceType")]
-        public Amazon.IoTSiteWise.ResourceType ResourceType { get; set; }
+        [AWSConstantClassSource("Amazon.IoTSiteWise.ListAssetModelPropertiesFilter")]
+        public Amazon.IoTSiteWise.ListAssetModelPropertiesFilter Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return for each paginated request.</para><para>Default: 50</para>
+        /// <para>The maximum number of results to return for each paginated request. If not specified,
+        /// the default value is 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,13 +101,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessPolicySummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse).
-        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AssetModelPropertySummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse).
+        /// Specifying the name of a property of type Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AccessPolicySummaries";
+        public string Select { get; set; } = "AssetModelPropertySummaries";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AssetModelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssetModelId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssetModelId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -154,18 +139,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse, GetIOTSWAccessPolicyListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse, GetIOTSWAssetModelPropertyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.IamArn = this.IamArn;
-            context.IdentityId = this.IdentityId;
-            context.IdentityType = this.IdentityType;
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.AssetModelId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetModelId = this.AssetModelId;
+            #if MODULAR
+            if (this.AssetModelId == null && ParameterWasBound(nameof(this.AssetModelId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ResourceId = this.ResourceId;
-            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,34 +177,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTSiteWise.Model.ListAccessPoliciesRequest();
+            var request = new Amazon.IoTSiteWise.Model.ListAssetModelPropertiesRequest();
             
-            if (cmdletContext.IamArn != null)
+            if (cmdletContext.AssetModelId != null)
             {
-                request.IamArn = cmdletContext.IamArn;
+                request.AssetModelId = cmdletContext.AssetModelId;
             }
-            if (cmdletContext.IdentityId != null)
+            if (cmdletContext.Filter != null)
             {
-                request.IdentityId = cmdletContext.IdentityId;
-            }
-            if (cmdletContext.IdentityType != null)
-            {
-                request.IdentityType = cmdletContext.IdentityType;
+                request.Filter = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ResourceId != null)
-            {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -265,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListAccessPoliciesRequest request)
+        private Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse CallAWSServiceOperation(IAmazonIoTSiteWise client, Amazon.IoTSiteWise.Model.ListAssetModelPropertiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListAccessPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT SiteWise", "ListAssetModelProperties");
             try
             {
                 #if DESKTOP
-                return client.ListAccessPolicies(request);
+                return client.ListAssetModelProperties(request);
                 #elif CORECLR
-                return client.ListAccessPoliciesAsync(request).GetAwaiter().GetResult();
+                return client.ListAssetModelPropertiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -293,15 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IamArn { get; set; }
-            public System.String IdentityId { get; set; }
-            public Amazon.IoTSiteWise.IdentityType IdentityType { get; set; }
+            public System.String AssetModelId { get; set; }
+            public Amazon.IoTSiteWise.ListAssetModelPropertiesFilter Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceId { get; set; }
-            public Amazon.IoTSiteWise.ResourceType ResourceType { get; set; }
-            public System.Func<Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse, GetIOTSWAccessPolicyListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AccessPolicySummaries;
+            public System.Func<Amazon.IoTSiteWise.Model.ListAssetModelPropertiesResponse, GetIOTSWAssetModelPropertyListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AssetModelPropertySummaries;
         }
         
     }

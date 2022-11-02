@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Engagement
         /// <summary>
         /// <para>
-        /// <para>The contacts and escalation plans that Incident Manager engages at the start of the
-        /// incident.</para>
+        /// <para>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
+        /// plan engages during an incident.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentTemplateTag
         /// <summary>
         /// <para>
-        /// <para>Tags to apply to an incident when calling the <code>StartIncident</code> API action.
+        /// <para>Tags to assign to the template. When the <code>StartIncident</code> API action is
+        /// called, Incident Manager assigns the tags specified in the template to the incident.
         /// To call this action, you must also have permission to call the <code>TagResource</code>
         /// API action for the incident record resource.</para>
         /// </para>

@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Configuration_AllowedFeature
         /// <summary>
         /// <para>
-        /// <para>A container for allowed features. Valid inputs are <code>GetObject-Range</code> and
-        /// <code>GetObject-PartNumber</code>.</para>
+        /// <para>A container for allowed features. Valid inputs are <code>GetObject-Range</code>, <code>GetObject-PartNumber</code>,
+        /// <code>HeadObject-Range</code>, and <code>HeadObject-PartNumber</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,9 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Creates an access policy that grants the specified identity (Amazon Web Services SSO
-    /// user, Amazon Web Services SSO group, or IAM user) access to the specified IoT SiteWise
-    /// Monitor portal or project resource.
+    /// Creates an access policy that grants the specified identity (IAM Identity Center user,
+    /// IAM Identity Center group, or IAM user) access to the specified IoT SiteWise Monitor
+    /// portal or project resource.
     /// </summary>
     [Cmdlet("New", "IOTSWAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateAccessPolicyResponse")]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Group_Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services SSO ID of the group.</para>
+        /// <para>The IAM Identity Center ID of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter User_Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services SSO ID of the user.</para>
+        /// <para>The IAM Identity Center ID of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

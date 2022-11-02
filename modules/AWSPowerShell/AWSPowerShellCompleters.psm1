@@ -27805,6 +27805,20 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.ListAssetModelPropertiesFilter
+        "Get-IOTSWAssetModelPropertyList/Filter"
+        {
+            $v = "ALL","BASE"
+            break
+        }
+
+        # Amazon.IoTSiteWise.ListAssetPropertiesFilter
+        "Get-IOTSWAssetPropertyList/Filter"
+        {
+            $v = "ALL","BASE"
+            break
+        }
+
         # Amazon.IoTSiteWise.ListAssetsFilter
         "Get-IOTSWAssetList/Filter"
         {
@@ -27907,7 +27921,7 @@ $IOTSW_map = @{
     "AccessPolicyPermission"=@("New-IOTSWAccessPolicy","Update-IOTSWAccessPolicy")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
-    "Filter"=@("Get-IOTSWAssetList","Get-IOTSWBulkImportJobList")
+    "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
     "PortalAuthMode"=@("New-IOTSWPortal")
@@ -28018,7 +28032,9 @@ $IOTSW_SelectMap = @{
                "Get-IOTSWAssetPropertyValueHistory",
                "Get-IOTSWInterpolatedAssetPropertyValue",
                "Get-IOTSWAccessPolicyList",
+               "Get-IOTSWAssetModelPropertyList",
                "Get-IOTSWAssetModelList",
+               "Get-IOTSWAssetPropertyList",
                "Get-IOTSWAssetRelationshipList",
                "Get-IOTSWAssetList",
                "Get-IOTSWAssociatedAssetList",

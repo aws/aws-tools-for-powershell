@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags that you are adding to the response plan.</para>
+        /// <para>A list of tags to add to the response plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

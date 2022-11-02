@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
     /// <summary>
     /// Adds a resource policy to the specified response plan. The resource policy is used
     /// to share the response plan using Resource Access Manager (RAM). For more information
-    /// about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/xa.html">Setting
-    /// up cross-account functionality</a>.
+    /// about cross-account sharing, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-manager-cross-account-cross-region.html">Cross-Region
+    /// and cross-account incident management</a>.
     /// </summary>
     [Cmdlet("Write", "SSMIResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the response plan you're adding the resource policy
-        /// to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the response plan to add the resource policy to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
