@@ -1,4 +1,9 @@
-﻿### 4.1.199 (2022-11-02 21:10Z)
+﻿### 4.1.200 (2022-11-03 20:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.410.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon MemoryDB
+    * Modified cmdlet New-MDBCluster: added parameter DataTiering.
+
+### 4.1.199 (2022-11-02 21:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.409.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IoT SiteWise
     * Added cmdlet Get-IOTSWAssetModelPropertyList leveraging the ListAssetModelProperties service API.

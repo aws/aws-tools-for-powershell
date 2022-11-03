@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.409.0",
+    "ProductVersion" : "3.7.410.0",
     "CoreVersion"    : "3.7.100.8",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.105.0",
+            "Version" : "3.7.106.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.8"
@@ -2218,7 +2218,7 @@
             "InPreview"               : false
         },
         "MemoryDB"                        : {
-            "Version" : "3.7.100.8",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.8"

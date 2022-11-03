@@ -87,6 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter DataTiering
+        /// <summary>
+        /// <para>
+        /// <para>Enables data tiering. Data tiering is only supported for clusters using the r6gd node
+        /// type. This parameter must be set when using r6gd nodes. For more information, see
+        /// <a href="https://docs.aws.amazon.com/memorydb/latest/devguide/data-tiering.html">Data
+        /// tiering</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataTiering { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -121,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         /// <summary>
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
-        /// It is specified as a range in the format <code>ddd:hh24:mi-ddd:hh24:mi</code> (24H
-        /// Clock UTC). The minimum maintenance window is a 60 minute period.</para>
+        /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
+        /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <code>ddd</code> are:</para><ul><li><para><code>sun</code></para></li><li><para><code>mon</code></para></li><li><para><code>tue</code></para></li><li><para><code>wed</code></para></li><li><para><code>thu</code></para></li><li><para><code>fri</code></para></li><li><para><code>sat</code></para></li></ul><para>Example: <code>sun:23:00-mon:01:30</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DataTiering = this.DataTiering;
             context.Description = this.Description;
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
@@ -427,6 +441,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.DataTiering != null)
+            {
+                request.DataTiering = cmdletContext.DataTiering.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -564,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String ACLName { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String ClusterName { get; set; }
+            public System.Boolean? DataTiering { get; set; }
             public System.String Description { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }
