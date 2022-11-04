@@ -233,6 +233,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelImageLaunchPermission" OutputProperty="Return" Verb="Stop" Noun="ImageLaunchPermission" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="ImportTask" ShouldProcessTarget="ImportTaskId" PipelineParameter="ImportTaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

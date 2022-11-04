@@ -89,15 +89,29 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         /// <para>The execution role ARN for the job run.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ExecutionRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter JobTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The job template ID to be used to start the job run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter JobTemplateParameter
+        /// <summary>
+        /// <para>
+        /// <para>The values of job template parameters to start a job run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobTemplateParameters")]
+        public System.Collections.Hashtable JobTemplateParameter { get; set; }
         #endregion
         
         #region Parameter CloudWatchMonitoringConfiguration_LogGroupName
@@ -161,14 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         /// <para>The Amazon EMR release version to use for the job run.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReleaseLabel { get; set; }
         #endregion
         
@@ -303,12 +310,6 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             context.MonitoringConfiguration_PersistentAppUI = this.MonitoringConfiguration_PersistentAppUI;
             context.S3MonitoringConfiguration_LogUri = this.S3MonitoringConfiguration_LogUri;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
-            #if MODULAR
-            if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SparkSqlJobDriver_EntryPoint = this.SparkSqlJobDriver_EntryPoint;
             context.SparkSqlJobDriver_SparkSqlParameter = this.SparkSqlJobDriver_SparkSqlParameter;
             context.SparkSubmitJobDriver_EntryPoint = this.SparkSubmitJobDriver_EntryPoint;
@@ -317,14 +318,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.SparkSubmitJobDriver_EntryPointArgument = new List<System.String>(this.SparkSubmitJobDriver_EntryPointArgument);
             }
             context.SparkSubmitJobDriver_SparkSubmitParameter = this.SparkSubmitJobDriver_SparkSubmitParameter;
+            context.JobTemplateId = this.JobTemplateId;
+            if (this.JobTemplateParameter != null)
+            {
+                context.JobTemplateParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.JobTemplateParameter.Keys)
+                {
+                    context.JobTemplateParameter.Add((String)hashKey, (String)(this.JobTemplateParameter[hashKey]));
+                }
+            }
             context.Name = this.Name;
             context.ReleaseLabel = this.ReleaseLabel;
-            #if MODULAR
-            if (this.ReleaseLabel == null && ParameterWasBound(nameof(this.ReleaseLabel)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ReleaseLabel which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -557,6 +561,14 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             {
                 request.JobDriver = null;
             }
+            if (cmdletContext.JobTemplateId != null)
+            {
+                request.JobTemplateId = cmdletContext.JobTemplateId;
+            }
+            if (cmdletContext.JobTemplateParameter != null)
+            {
+                request.JobTemplateParameters = cmdletContext.JobTemplateParameter;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -646,6 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public System.String SparkSubmitJobDriver_EntryPoint { get; set; }
             public List<System.String> SparkSubmitJobDriver_EntryPointArgument { get; set; }
             public System.String SparkSubmitJobDriver_SparkSubmitParameter { get; set; }
+            public System.String JobTemplateId { get; set; }
+            public Dictionary<System.String, System.String> JobTemplateParameter { get; set; }
             public System.String Name { get; set; }
             public System.String ReleaseLabel { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

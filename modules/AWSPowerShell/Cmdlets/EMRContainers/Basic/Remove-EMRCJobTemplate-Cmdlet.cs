@@ -22,53 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.EMRContainers;
+using Amazon.EMRContainers.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.EMRC
 {
     /// <summary>
-    /// Enables deprecation of the specified AMI at the specified date and time.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate
-    /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para>
+    /// Deletes a job template. Job template stores values of StartJobRun API request in a
+    /// template and can be used to start a job run. Job template allows two use cases: avoid
+    /// repeating recurring StartJobRun API request values, enforcing certain values in StartJobRun
+    /// API request.
     /// </summary>
-    [Cmdlet("Enable", "EC2ImageDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableImageDeprecation API operation.", Operation = new[] {"EnableImageDeprecation"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableImageDeprecationResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableImageDeprecationResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.EnableImageDeprecationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EMRCJobTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon EMR Containers DeleteJobTemplate API operation.", Operation = new[] {"DeleteJobTemplate"}, SelectReturnType = typeof(Amazon.EMRContainers.Model.DeleteJobTemplateResponse))]
+    [AWSCmdletOutput("System.String or Amazon.EMRContainers.Model.DeleteJobTemplateResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.EMRContainers.Model.DeleteJobTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableEC2ImageDeprecationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RemoveEMRCJobTemplateCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
-        #region Parameter DeprecateAt
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-        /// If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</para><para>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code>
-        /// is 10 years from now, except for public AMIs, where the upper limit is 2 years from
-        /// the creation date.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? DeprecateAt { get; set; }
-        #endregion
-        
-        #region Parameter ImageId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the AMI.</para>
+        /// <para>The ID of the job template that will be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ImageId { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Return'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.EnableImageDeprecationResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.EnableImageDeprecationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRContainers.Model.DeleteJobTemplateResponse).
+        /// Specifying the name of a property of type Amazon.EMRContainers.Model.DeleteJobTemplateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Return";
+        public string Select { get; set; } = "Id";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ImageId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImageId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2ImageDeprecation (EnableImageDeprecation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EMRCJobTemplate (DeleteJobTemplate)"))
             {
                 return;
             }
@@ -131,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableImageDeprecationResponse, EnableEC2ImageDeprecationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EMRContainers.Model.DeleteJobTemplateResponse, RemoveEMRCJobTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,21 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ImageId;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DeprecateAt = this.DeprecateAt;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.DeprecateAt == null && ParameterWasBound(nameof(this.DeprecateAt)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter DeprecateAt which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ImageId = this.ImageId;
-            #if MODULAR
-            if (this.ImageId == null && ParameterWasBound(nameof(this.ImageId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ImageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.EnableImageDeprecationRequest();
+            var request = new Amazon.EMRContainers.Model.DeleteJobTemplateRequest();
             
-            if (cmdletContext.DeprecateAt != null)
+            if (cmdletContext.Id != null)
             {
-                request.DeprecateAt = cmdletContext.DeprecateAt.Value;
-            }
-            if (cmdletContext.ImageId != null)
-            {
-                request.ImageId = cmdletContext.ImageId;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -214,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.EnableImageDeprecationResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableImageDeprecationRequest request)
+        private Amazon.EMRContainers.Model.DeleteJobTemplateResponse CallAWSServiceOperation(IAmazonEMRContainers client, Amazon.EMRContainers.Model.DeleteJobTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableImageDeprecation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EMR Containers", "DeleteJobTemplate");
             try
             {
                 #if DESKTOP
-                return client.EnableImageDeprecation(request);
+                return client.DeleteJobTemplate(request);
                 #elif CORECLR
-                return client.EnableImageDeprecationAsync(request).GetAwaiter().GetResult();
+                return client.DeleteJobTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? DeprecateAt { get; set; }
-            public System.String ImageId { get; set; }
-            public System.Func<Amazon.EC2.Model.EnableImageDeprecationResponse, EnableEC2ImageDeprecationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Return;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.EMRContainers.Model.DeleteJobTemplateResponse, RemoveEMRCJobTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Id;
         }
         
     }

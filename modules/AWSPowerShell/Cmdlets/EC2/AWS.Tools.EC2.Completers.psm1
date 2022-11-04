@@ -1230,6 +1230,7 @@ $EC2_SelectMap = @{
                "Remove-EC2CapacityReservation",
                "Stop-EC2CapacityReservationFleet",
                "Stop-EC2ExportTask",
+               "Stop-EC2ImageLaunchPermission",
                "Stop-EC2ImportTask",
                "Stop-EC2ReservedInstancesListing",
                "Stop-EC2SpotFleetRequest",

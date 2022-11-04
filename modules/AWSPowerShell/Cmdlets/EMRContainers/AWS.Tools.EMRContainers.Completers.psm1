@@ -165,14 +165,18 @@ $EMRC_SelectCompleters = {
 
 $EMRC_SelectMap = @{
     "Select"=@("Stop-EMRCJobRun",
+               "New-EMRCJobTemplate",
                "New-EMRCManagedEndpoint",
                "New-EMRCVirtualCluster",
+               "Remove-EMRCJobTemplate",
                "Remove-EMRCManagedEndpoint",
                "Remove-EMRCVirtualCluster",
                "Get-EMRCJobRun",
+               "Get-EMRCJobTemplate",
                "Get-EMRCManagedEndpoint",
                "Get-EMRCVirtualCluster",
                "Get-EMRCJobRunList",
+               "Get-EMRCJobTemplateList",
                "Get-EMRCManagedEndpointList",
                "Get-EMRCResourceTag",
                "Get-EMRCVirtualClusterList",

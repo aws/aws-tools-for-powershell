@@ -33,6 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
+    /// You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.
+    /// </para><para>
     /// By default, this operation returns as many log events as can fit in 1 MB (up to 10,000
     /// log events) or all the events found within the time range that you specify. If the
     /// results include a token, then there are more log events available, and you can get

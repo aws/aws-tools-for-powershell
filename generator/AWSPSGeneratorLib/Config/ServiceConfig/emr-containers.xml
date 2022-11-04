@@ -22,11 +22,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateJobTemplate" OutputProperty="*" Verb="New" Noun="JobTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateManagedEndpoint" OutputProperty="*" Verb="New" Noun="ManagedEndpoint" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualCluster" OutputProperty="*" Verb="New" Noun="VirtualCluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJobTemplate" OutputProperty="Id" Verb="Remove" Noun="JobTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,6 +50,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobTemplate" OutputProperty="JobTemplate" Verb="Get" Noun="JobTemplate" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeManagedEndpoint" OutputProperty="Endpoint" Verb="Get" Noun="ManagedEndpoint" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +63,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="VirtualClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="Templates" Verb="Get" Noun="JobTemplateList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1,4 +1,15 @@
-﻿### 4.1.200 (2022-11-03 20:23Z)
+﻿### 4.1.201 (2022-11-04 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.411.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Stop-EC2ImageLaunchPermission leveraging the CancelImageLaunchPermission service API.
+  * Amazon EMR Containers
+    * Added cmdlet Get-EMRCJobTemplate leveraging the DescribeJobTemplate service API.
+    * Added cmdlet Get-EMRCJobTemplateList leveraging the ListJobTemplates service API.
+    * Added cmdlet New-EMRCJobTemplate leveraging the CreateJobTemplate service API.
+    * Added cmdlet Remove-EMRCJobTemplate leveraging the DeleteJobTemplate service API.
+    * Modified cmdlet Start-EMRCJobRun: added parameters JobTemplateId and JobTemplateParameter.
+
+### 4.1.200 (2022-11-03 20:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.410.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon MemoryDB
     * Modified cmdlet New-MDBCluster: added parameter DataTiering.

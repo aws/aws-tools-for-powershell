@@ -38,6 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para><para>
     /// Queries time out after 15 minutes of execution. If your queries are timing out, reduce
     /// the time range being searched or partition your query into a number of queries.
+    /// </para><para>
+    ///  You are limited to 20 concurrent CloudWatch Logs insights queries, including queries
+    /// that have been added to dashboards. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CWLQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

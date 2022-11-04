@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items returned. If you don't specify a value, the default is
-        /// up to 50 items.</para>
+        /// <para>The maximum number of items returned. If you don't specify a value, the default maximum
+        /// value of 50 items is used.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
