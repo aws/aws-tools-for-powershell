@@ -25,6 +25,7 @@ namespace AWSPowerShellGenerator.Generators
             IsGenericDictionary,
             IsGenericListOfGenericList,
             IsGenericListOfGenericListOfGenericList,
+            IsGenericListOfGenericListOfGenericListOfGenericList,
             IsGenericListOfGenericDictionary
         }
 

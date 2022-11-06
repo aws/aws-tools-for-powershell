@@ -470,7 +470,7 @@ namespace AWSPowerShellGenerator.Analysis
                 // and (of course) the request object property. It would affect help though.
                 // Note that some services also employ List<List<T>>, so we have to detect inner
                 // case too.
-                // Note services started using List<List<List<T>>>.
+                // Note services started using List<List<List<List<T>>>>.
                 if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`"))
                 {
                     genericCollectionTypes = property.PropertyType.GetGenericArguments();
@@ -485,10 +485,18 @@ namespace AWSPowerShellGenerator.Analysis
                         {
                             if (genericCollectionTypes[0].GenericTypeArguments[0].GenericTypeArguments[0].Name.StartsWith("List`"))
                             {
-                                throw new UnexpectedPropertyTypeException($"Only three levels of List<T> are supported, detected four or more for property {property.Name}");
+                                if (genericCollectionTypes[0].GenericTypeArguments[0].GenericTypeArguments[0].GenericTypeArguments[0].Name.StartsWith("List`"))
+                                {
+                                    throw new UnexpectedPropertyTypeException($"Only four levels of List<T> are supported, detected five or more for property {property.Name}");
+                                }
+                                genericCollectionTypes = genericCollectionTypes[0].GenericTypeArguments[0].GenericTypeArguments[0].GetGenericArguments();
+                                collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericListOfGenericList;
                             }
-                            genericCollectionTypes = genericCollectionTypes[0].GenericTypeArguments[0].GetGenericArguments();
-                            collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericList;
+                            else
+                            {
+                                genericCollectionTypes = genericCollectionTypes[0].GenericTypeArguments[0].GetGenericArguments();
+                                collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericList;
+                            }
                         }
                         else
                         {
@@ -1335,23 +1343,36 @@ namespace AWSPowerShellGenerator.Analysis
             if (property.PropertyType.IsGenericType)
             {
                 singleResultProperty.GenericCollectionTypes = property.PropertyType.GetGenericArguments();
+
+                // evaluate List<T>
                 if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`", StringComparison.Ordinal))
                 {
                     var innerCollectionType = property.PropertyType.GetGenericArguments();
+                    
+                    // evaluate List<List<T>>
                     if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
                     {
                         var additionalNested = innerCollectionType[0].GenericTypeArguments[0];
 
+                        // evaluate List<List<List<T>>>
                         if (additionalNested.IsNested)
                         {
+                            // evaluate List<List<List<List<T>>>>
                             if (additionalNested.GenericTypeArguments[0].IsNested)
                             {
-                                throw new UnexpectedPropertyTypeException($"Only three levels of List<T> are supported, detected four or more for property {property.Name}");
+                                // evaluate List<List<list<List<List<T>>>>>
+                                if (additionalNested.GenericTypeArguments[0].GenericTypeArguments[0].IsNested)
+                                {
+                                    throw new UnexpectedPropertyTypeException($"Only four levels of List<T> are supported, detected five or more for property {property.Name}");
+                                }
+                                singleResultProperty.GenericCollectionTypes = new[] { additionalNested.GenericTypeArguments[0] };
+                                singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericListOfGenericList;
                             }
-                            singleResultProperty.GenericCollectionTypes = new[] { additionalNested};
-
-                            singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType
-                                .IsGenericListOfGenericListOfGenericList;
+                            else
+                            {
+                                singleResultProperty.GenericCollectionTypes = new[] { additionalNested };
+                                singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericList;
+                            }
                         }
                         else
                         {

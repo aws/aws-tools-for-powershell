@@ -671,6 +671,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine($"public {property.GenericCollectionTypes[0].FullName}[][][] {property.CmdletParameterName} {{ get; set; }}");
                         }
                         break;
+                    case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericListOfGenericList:
+                        {
+                            writer.WriteLine($"public {property.GenericCollectionTypes[0].FullName}[][][][] {property.CmdletParameterName} {{ get; set; }}");
+                        }
+                        break;
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary:
                         {
                             writer.WriteLine($"public System.Collections.Hashtable[] {property.CmdletParameterName} {{ get; set; }}");
@@ -1049,6 +1054,64 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                             {
                                                 writer.WriteLine($"var innermostListCopy = new List<{innerDictionaryTypes[0].FullName}>(innermostList);");
                                                 writer.WriteLine("innerListCopy.Add(innermostListCopy);");
+                                            }
+                                            writer.CloseRegion();
+                                        }
+                                        writer.CloseRegion();
+                                    }
+                                    writer.CloseRegion();
+                                }
+                                break;
+
+                            case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericListOfGenericListOfGenericList:
+                                {
+                                    /* generates code pattern of:
+                                        context.PROPERTY = new List<List<List<List<T>>>>();
+                                        foreach (var innerList in this.PROPERTY)
+                                        {
+                                            var innerListCopy = new List<List<List<T>>>();
+                                            context.PROPERTY.Add(innerListCopy);
+
+                                            foreach (var secondInnerList in innerList)
+                                            {
+                                                var secondInnerListCopy = new List<List<T>>();
+                                                innerListCopy.Add(secondInnerListCopy);
+                                                
+                                                foreach (var innermostList in secondInnerList)
+                                                {
+                                                    var innermostListCopy = new List<T>(innermostList);
+                                                    secondInnerListCopy.Add(innermostListCopy);
+                                                }
+                                            }
+                                        }
+                                    */
+
+                                    writer.WriteLine($"if (this.{property.CmdletParameterName} != null)");
+                                    writer.OpenRegion();
+                                    {
+                                        // simple property info ctor has already dived down to get the inner types for us
+                                        var innerDictionaryTypes = property.GenericCollectionTypes;
+
+                                        writer.WriteLine($"context.{property.CmdletParameterName} = new {property.PropertyTypeName}();");
+                                        writer.WriteLine($"foreach (var innerList in this.{property.CmdletParameterName})");
+                                        writer.OpenRegion();
+                                        {
+                                            writer.WriteLine($"var innerListCopy = new List<List<List<{innerDictionaryTypes[0].FullName}>>>();");
+                                            writer.WriteLine($"context.{property.CmdletParameterName}.Add(innerListCopy);");
+
+                                            writer.WriteLine("foreach (var secondInnerList in innerList)");
+                                            writer.OpenRegion();
+                                            {
+                                                writer.WriteLine($"var secondInnerListCopy = new List<List<{innerDictionaryTypes[0].FullName}>>();");
+                                                writer.WriteLine("innerListCopy.Add(secondInnerListCopy);");
+
+                                                writer.WriteLine("foreach (var innermostList in secondInnerList)");
+                                                writer.OpenRegion();
+                                                {
+                                                    writer.WriteLine($"var innermostListCopy = new List<{innerDictionaryTypes[0].FullName}>(innermostList);");
+                                                    writer.WriteLine("secondInnerListCopy.Add(innermostListCopy);");
+                                                }
+                                                writer.CloseRegion();
                                             }
                                             writer.CloseRegion();
                                         }
