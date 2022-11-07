@@ -147,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para><para><b>M3 node types:</b><code>cache.m3.medium</code>, <code>cache.m3.large</code>,
         /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
-        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized with data tiering:</para><ul><li><para>Current generation: </para><para><b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</para><para><code>cache.r6gd.xlarge</code>, <code>cache.r6gd.2xlarge</code>, <code>cache.r6gd.4xlarge</code>,
-        /// <code>cache.r6gd.8xlarge</code>, <code>cache.r6gd.12xlarge</code>, <code>cache.r6gd.16xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
+        /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
         /// Memcached engine version 1.5.16 onward).</para><para><code>cache.r6g.large</code>, <code>cache.r6g.xlarge</code>, <code>cache.r6g.2xlarge</code>,
         /// <code>cache.r6g.4xlarge</code>, <code>cache.r6g.8xlarge</code>, <code>cache.r6g.12xlarge</code>,
         /// <code>cache.r6g.16xlarge</code></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
@@ -254,6 +253,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String GlobalReplicationGroupId { get; set; }
         #endregion
         
+        #region Parameter IpDiscovery
+        /// <summary>
+        /// <para>
+        /// <para>The network type you choose when creating a replication group, either <code>ipv4</code>
+        /// | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2
+        /// onward or Memcached engine version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.IpDiscovery")]
+        public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -285,6 +298,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? MultiAZEnabled { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
+        /// is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+        /// version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.NetworkType")]
+        public Amazon.ElastiCache.NetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter NodeGroupConfiguration
@@ -623,12 +650,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.GlobalReplicationGroupId = this.GlobalReplicationGroupId;
+            context.IpDiscovery = this.IpDiscovery;
             context.KmsKeyId = this.KmsKeyId;
             if (this.LogDeliveryConfiguration != null)
             {
                 context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
             }
             context.MultiAZEnabled = this.MultiAZEnabled;
+            context.NetworkType = this.NetworkType;
             if (this.NodeGroupConfiguration != null)
             {
                 context.NodeGroupConfiguration = new List<Amazon.ElastiCache.Model.NodeGroupConfiguration>(this.NodeGroupConfiguration);
@@ -742,6 +771,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.GlobalReplicationGroupId = cmdletContext.GlobalReplicationGroupId;
             }
+            if (cmdletContext.IpDiscovery != null)
+            {
+                request.IpDiscovery = cmdletContext.IpDiscovery;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
@@ -753,6 +786,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.MultiAZEnabled != null)
             {
                 request.MultiAZEnabled = cmdletContext.MultiAZEnabled.Value;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.NodeGroupConfiguration != null)
             {
@@ -903,9 +940,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalReplicationGroupId { get; set; }
+            public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
             public System.Boolean? MultiAZEnabled { get; set; }
+            public Amazon.ElastiCache.NetworkType NetworkType { get; set; }
             public List<Amazon.ElastiCache.Model.NodeGroupConfiguration> NodeGroupConfiguration { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.Int32? NumCacheCluster { get; set; }

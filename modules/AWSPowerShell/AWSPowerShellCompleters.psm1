@@ -8932,6 +8932,7 @@ $CT_SelectMap = @{
                "New-CTTrail",
                "Remove-CTEventDataStore",
                "Remove-CTTrail",
+               "Unregister-CTOrganizationDelegatedAdmin",
                "Get-CTQuery",
                "Get-CTTrail",
                "Get-CTChannel",
@@ -8953,6 +8954,7 @@ $CT_SelectMap = @{
                "Find-CTEvent",
                "Write-CTEventSelector",
                "Write-CTInsightSelector",
+               "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
                "Start-CTImport",
@@ -19125,6 +19127,28 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.IpDiscovery
+        {
+            ($_ -eq "Edit-ECCacheCluster/IpDiscovery") -Or
+            ($_ -eq "Edit-ECReplicationGroup/IpDiscovery") -Or
+            ($_ -eq "New-ECCacheCluster/IpDiscovery") -Or
+            ($_ -eq "New-ECReplicationGroup/IpDiscovery")
+        }
+        {
+            $v = "ipv4","ipv6"
+            break
+        }
+
+        # Amazon.ElastiCache.NetworkType
+        {
+            ($_ -eq "New-ECCacheCluster/NetworkType") -Or
+            ($_ -eq "New-ECReplicationGroup/NetworkType")
+        }
+        {
+            $v = "dual_stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.ElastiCache.OutpostMode
         "New-ECCacheCluster/OutpostMode"
         {
@@ -19150,6 +19174,8 @@ $EC_Completers = {
 $EC_map = @{
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
+    "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
+    "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
     "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
 }
@@ -36392,7 +36418,10 @@ $LMBV2_SelectCompleters = {
 }
 
 $LMBV2_SelectMap = @{
-    "Select"=@("Invoke-LMBV2BuildBotLocale",
+    "Select"=@("New-LMBV2CustomVocabularyItem",
+               "Remove-LMBV2CustomVocabularyItem",
+               "Edit-LMBV2CustomVocabularyItem",
+               "Invoke-LMBV2BuildBotLocale",
                "New-LMBV2Bot",
                "New-LMBV2BotAlias",
                "New-LMBV2BotLocale",
@@ -36437,6 +36466,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2BotVersionList",
                "Get-LMBV2BuiltInIntentList",
                "Get-LMBV2BuiltInSlotTypeList",
+               "Get-LMBV2CustomVocabularyItemList",
                "Get-LMBV2ExportList",
                "Get-LMBV2ImportList",
                "Get-LMBV2IntentList",
@@ -52649,6 +52679,16 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.TrustedAdvisorIntegrationStatus
+        {
+            ($_ -eq "New-WATWorkload/DiscoveryConfig_TrustedAdvisorIntegrationStatus") -Or
+            ($_ -eq "Update-WATWorkload/DiscoveryConfig_TrustedAdvisorIntegrationStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.WorkloadEnvironment
         {
             ($_ -eq "New-WATWorkload/Environment") -Or
@@ -52675,6 +52715,7 @@ $WAT_Completers = {
 }
 
 $WAT_map = @{
+    "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "ImprovementStatus"=@("Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
@@ -52758,6 +52799,8 @@ $WAT_SelectMap = @{
                "Get-WATWorkload",
                "Import-WATLens",
                "Get-WATAnswerList",
+               "Get-WATCheckDetailList",
+               "Get-WATCheckSummaryList",
                "Get-WATLensList",
                "Get-WATLensReviewImprovementList",
                "Get-WATLensReviewList",

@@ -28,7 +28,12 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// Update a workload invitation.
+    /// Update a workload or custom lens share invitation.
+    /// 
+    ///  <note><para>
+    /// This API operation can be called independently of any resource. Previous documentation
+    /// implied that a workload ARN must be specified.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "WATShareInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.ShareInvitation")]

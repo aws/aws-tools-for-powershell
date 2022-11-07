@@ -145,6 +145,16 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.TrustedAdvisorIntegrationStatus
+        {
+            ($_ -eq "New-WATWorkload/DiscoveryConfig_TrustedAdvisorIntegrationStatus") -Or
+            ($_ -eq "Update-WATWorkload/DiscoveryConfig_TrustedAdvisorIntegrationStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.WorkloadEnvironment
         {
             ($_ -eq "New-WATWorkload/Environment") -Or
@@ -171,6 +181,7 @@ $WAT_Completers = {
 }
 
 $WAT_map = @{
+    "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "ImprovementStatus"=@("Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
@@ -254,6 +265,8 @@ $WAT_SelectMap = @{
                "Get-WATWorkload",
                "Import-WATLens",
                "Get-WATAnswerList",
+               "Get-WATCheckDetailList",
+               "Get-WATCheckSummaryList",
                "Get-WATLensList",
                "Get-WATLensReviewImprovementList",
                "Get-WATLensReviewList",

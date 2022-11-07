@@ -480,7 +480,10 @@ $LMBV2_SelectCompleters = {
 }
 
 $LMBV2_SelectMap = @{
-    "Select"=@("Invoke-LMBV2BuildBotLocale",
+    "Select"=@("New-LMBV2CustomVocabularyItem",
+               "Remove-LMBV2CustomVocabularyItem",
+               "Edit-LMBV2CustomVocabularyItem",
+               "Invoke-LMBV2BuildBotLocale",
                "New-LMBV2Bot",
                "New-LMBV2BotAlias",
                "New-LMBV2BotLocale",
@@ -525,6 +528,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2BotVersionList",
                "Get-LMBV2BuiltInIntentList",
                "Get-LMBV2BuiltInSlotTypeList",
+               "Get-LMBV2CustomVocabularyItemList",
                "Get-LMBV2ExportList",
                "Get-LMBV2ImportList",
                "Get-LMBV2IntentList",

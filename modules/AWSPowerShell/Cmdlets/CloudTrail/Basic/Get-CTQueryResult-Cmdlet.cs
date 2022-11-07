@@ -40,24 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.CT
     public partial class GetCTQueryResultCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter EventDataStore
-        /// <summary>
-        /// <para>
-        /// <para>The ARN (or ID suffix of the ARN) of the event data store against which the query
-        /// was run.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EventDataStore { get; set; }
-        #endregion
-        
         #region Parameter MaxQueryResult
         /// <summary>
         /// <para>
@@ -84,6 +66,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryId { get; set; }
+        #endregion
+        
+        #region Parameter EventDataStore
+        /// <summary>
+        /// <para>
+        /// <para>The ARN (or ID suffix of the ARN) of the event data store against which the query
+        /// was run.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("EventDataStore is no longer required by GetQueryResultsRequest")]
+        public System.String EventDataStore { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -155,13 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.Select = (response, cmdlet) => this.QueryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EventDataStore = this.EventDataStore;
-            #if MODULAR
-            if (this.EventDataStore == null && ParameterWasBound(nameof(this.EventDataStore)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EventDataStore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxQueryResult = this.MaxQueryResult;
             context.NextToken = this.NextToken;
             context.QueryId = this.QueryId;
@@ -191,10 +182,12 @@ namespace Amazon.PowerShell.Cmdlets.CT
             // create request and set iteration invariants
             var request = new Amazon.CloudTrail.Model.GetQueryResultsRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.EventDataStore != null)
             {
                 request.EventDataStore = cmdletContext.EventDataStore;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MaxQueryResult != null)
             {
                 request.MaxQueryResults = cmdletContext.MaxQueryResult.Value;
@@ -288,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.String EventDataStore { get; set; }
             public System.Int32? MaxQueryResult { get; set; }
             public System.String NextToken { get; set; }

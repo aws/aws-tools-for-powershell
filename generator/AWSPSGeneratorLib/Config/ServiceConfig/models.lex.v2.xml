@@ -21,6 +21,18 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateCustomVocabularyItem" OutputProperty="*" Verb="New" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteCustomVocabularyItem" OutputProperty="*" Verb="Remove" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateCustomVocabularyItem" OutputProperty="*" Verb="Edit" Noun="CustomVocabularyItem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BuildBotLocale" OutputProperty="*" Verb="Invoke" Noun="BuildBotLocale" ShouldProcessTarget="LocaleId" PipelineParameter="LocaleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -513,6 +525,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListBuiltInSlotTypes" OutputProperty="*" Verb="Get" Noun="BuiltInSlotTypeList" PipelineParameter="LocaleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomVocabularyItems" OutputProperty="*" Verb="Get" Noun="CustomVocabularyItemList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

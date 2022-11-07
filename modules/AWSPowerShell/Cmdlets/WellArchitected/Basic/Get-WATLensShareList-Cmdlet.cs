@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         #region Parameter SharedWithPrefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID or IAM role with which the lens is shared.</para>
+        /// <para>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit
+        /// (OU) ID with which the lens is shared.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

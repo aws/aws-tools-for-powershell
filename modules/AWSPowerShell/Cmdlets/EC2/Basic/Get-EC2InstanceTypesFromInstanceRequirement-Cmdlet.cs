@@ -90,6 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] InstanceRequirements_AcceleratorType { get; set; }
         #endregion
         
+        #region Parameter InstanceRequirements_AllowedInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance types to apply your specified attributes against. All other instance
+        /// types are ignored, even if they match your specified attributes.</para><para>You can use strings with one or more wild cards, represented by an asterisk (<code>*</code>),
+        /// to allow an instance type, size, or generation. The following are examples: <code>m5.8xlarge</code>,
+        /// <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>.</para><para>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance
+        /// family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>,
+        /// Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.</para><note><para>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</para></note><para>Default: All instance types</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceRequirements_AllowedInstanceTypes")]
+        public System.String[] InstanceRequirements_AllowedInstanceType { get; set; }
+        #endregion
+        
         #region Parameter ArchitectureType
         /// <summary>
         /// <para>
@@ -153,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>, <code>r*</code>,
         /// <code>*3*</code>.</para><para>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5
         /// instance family, which includes all C5a and C5n instance types. If you specify <code>m5a.*</code>,
-        /// Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</para><para>Default: No excluded instance types</para>
+        /// Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.</para><note><para>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</para></note><para>Default: No excluded instance types</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,6 +274,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? MemoryMiB_Max { get; set; }
         #endregion
         
+        #region Parameter NetworkBandwidthGbps_Max
+        /// <summary>
+        /// <para>
+        /// <para>The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit
+        /// this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceRequirements_NetworkBandwidthGbps_Max")]
+        public System.Double? NetworkBandwidthGbps_Max { get; set; }
+        #endregion
+        
         #region Parameter NetworkInterfaceCount_Max
         /// <summary>
         /// <para>
@@ -353,6 +381,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceRequirements_MemoryMiB_Min")]
         public System.Int32? MemoryMiB_Min { get; set; }
+        #endregion
+        
+        #region Parameter NetworkBandwidthGbps_Min
+        /// <summary>
+        /// <para>
+        /// <para>The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit
+        /// this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceRequirements_NetworkBandwidthGbps_Min")]
+        public System.Double? NetworkBandwidthGbps_Min { get; set; }
         #endregion
         
         #region Parameter NetworkInterfaceCount_Min
@@ -544,6 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.InstanceRequirements_AcceleratorType = new List<System.String>(this.InstanceRequirements_AcceleratorType);
             }
+            if (this.InstanceRequirements_AllowedInstanceType != null)
+            {
+                context.InstanceRequirements_AllowedInstanceType = new List<System.String>(this.InstanceRequirements_AllowedInstanceType);
+            }
             context.InstanceRequirements_BareMetal = this.InstanceRequirements_BareMetal;
             context.BaselineEbsBandwidthMbps_Max = this.BaselineEbsBandwidthMbps_Max;
             context.BaselineEbsBandwidthMbps_Min = this.BaselineEbsBandwidthMbps_Min;
@@ -575,6 +619,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter MemoryMiB_Min which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkBandwidthGbps_Max = this.NetworkBandwidthGbps_Max;
+            context.NetworkBandwidthGbps_Min = this.NetworkBandwidthGbps_Min;
             context.NetworkInterfaceCount_Max = this.NetworkInterfaceCount_Max;
             context.NetworkInterfaceCount_Min = this.NetworkInterfaceCount_Min;
             context.InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice = this.InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice;
@@ -656,6 +702,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestInstanceRequirements_instanceRequirements_AcceleratorType != null)
             {
                 request.InstanceRequirements.AcceleratorTypes = requestInstanceRequirements_instanceRequirements_AcceleratorType;
+                requestInstanceRequirementsIsNull = false;
+            }
+            List<System.String> requestInstanceRequirements_instanceRequirements_AllowedInstanceType = null;
+            if (cmdletContext.InstanceRequirements_AllowedInstanceType != null)
+            {
+                requestInstanceRequirements_instanceRequirements_AllowedInstanceType = cmdletContext.InstanceRequirements_AllowedInstanceType;
+            }
+            if (requestInstanceRequirements_instanceRequirements_AllowedInstanceType != null)
+            {
+                request.InstanceRequirements.AllowedInstanceTypes = requestInstanceRequirements_instanceRequirements_AllowedInstanceType;
                 requestInstanceRequirementsIsNull = false;
             }
             Amazon.EC2.BareMetal requestInstanceRequirements_instanceRequirements_BareMetal = null;
@@ -933,6 +989,41 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.InstanceRequirements.MemoryMiB = requestInstanceRequirements_instanceRequirements_MemoryMiB;
                 requestInstanceRequirementsIsNull = false;
             }
+            Amazon.EC2.Model.NetworkBandwidthGbpsRequest requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps = null;
+            
+             // populate NetworkBandwidthGbps
+            var requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbpsIsNull = true;
+            requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps = new Amazon.EC2.Model.NetworkBandwidthGbpsRequest();
+            System.Double? requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Max = null;
+            if (cmdletContext.NetworkBandwidthGbps_Max != null)
+            {
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Max = cmdletContext.NetworkBandwidthGbps_Max.Value;
+            }
+            if (requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Max != null)
+            {
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps.Max = requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Max.Value;
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbpsIsNull = false;
+            }
+            System.Double? requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Min = null;
+            if (cmdletContext.NetworkBandwidthGbps_Min != null)
+            {
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Min = cmdletContext.NetworkBandwidthGbps_Min.Value;
+            }
+            if (requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Min != null)
+            {
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps.Min = requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps_networkBandwidthGbps_Min.Value;
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbpsIsNull = false;
+            }
+             // determine if requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps should be set to null
+            if (requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbpsIsNull)
+            {
+                requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps = null;
+            }
+            if (requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps != null)
+            {
+                request.InstanceRequirements.NetworkBandwidthGbps = requestInstanceRequirements_instanceRequirements_NetworkBandwidthGbps;
+                requestInstanceRequirementsIsNull = false;
+            }
             Amazon.EC2.Model.NetworkInterfaceCountRequest requestInstanceRequirements_instanceRequirements_NetworkInterfaceCount = null;
             
              // populate NetworkInterfaceCount
@@ -1144,6 +1235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? AcceleratorTotalMemoryMiB_Max { get; set; }
             public System.Int32? AcceleratorTotalMemoryMiB_Min { get; set; }
             public List<System.String> InstanceRequirements_AcceleratorType { get; set; }
+            public List<System.String> InstanceRequirements_AllowedInstanceType { get; set; }
             public Amazon.EC2.BareMetal InstanceRequirements_BareMetal { get; set; }
             public System.Int32? BaselineEbsBandwidthMbps_Max { get; set; }
             public System.Int32? BaselineEbsBandwidthMbps_Min { get; set; }
@@ -1157,6 +1249,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Double? MemoryGiBPerVCpu_Min { get; set; }
             public System.Int32? MemoryMiB_Max { get; set; }
             public System.Int32? MemoryMiB_Min { get; set; }
+            public System.Double? NetworkBandwidthGbps_Max { get; set; }
+            public System.Double? NetworkBandwidthGbps_Min { get; set; }
             public System.Int32? NetworkInterfaceCount_Max { get; set; }
             public System.Int32? NetworkInterfaceCount_Min { get; set; }
             public System.Int32? InstanceRequirements_OnDemandMaxPricePercentageOverLowestPrice { get; set; }

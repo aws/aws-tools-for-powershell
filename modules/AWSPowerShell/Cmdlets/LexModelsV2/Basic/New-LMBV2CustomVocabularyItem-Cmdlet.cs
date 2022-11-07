@@ -28,22 +28,21 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Gets a list of recommended intents provided by the bot recommendation that you can
-    /// use in your bot. Intents in the response are ordered by relevance.
+    /// Batch create custom vocabulary item for the specified locale in the specified bot.
     /// </summary>
-    [Cmdlet("Get", "LMBV2RecommendedIntentList")]
-    [OutputType("Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse")]
-    [AWSCmdlet("Calls the Amazon Lex Model Building V2 ListRecommendedIntents API operation.", Operation = new[] {"ListRecommendedIntents"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse))]
-    [AWSCmdletOutput("Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse",
-        "This cmdlet returns an Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "LMBV2CustomVocabularyItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse")]
+    [AWSCmdlet("Calls the Amazon Lex Model Building V2 BatchCreateCustomVocabularyItem API operation.", Operation = new[] {"BatchCreateCustomVocabularyItem"}, SelectReturnType = typeof(Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse))]
+    [AWSCmdletOutput("Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse",
+        "This cmdlet returns an Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLMBV2RecommendedIntentListCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
+    public partial class NewLMBV2CustomVocabularyItemCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
         #region Parameter BotId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the bot associated with the recommended intents.</para>
+        /// <para>The unique identifier of the bot to batch create the custom vocabulary item for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,27 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotId { get; set; }
         #endregion
         
-        #region Parameter BotRecommendationId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the bot recommendation that contains the recommended intents.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BotRecommendationId { get; set; }
-        #endregion
-        
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot that contains the recommended intents.</para>
+        /// <para>The bot version of the bot to batch create the custom vocabulary item for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,10 +73,29 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotVersion { get; set; }
         #endregion
         
+        #region Parameter CustomVocabularyItemList
+        /// <summary>
+        /// <para>
+        /// <para>The custom vocabulary item list of the bot to batch create the custom vocabulary item
+        /// for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public Amazon.LexModelsV2.Model.NewCustomVocabularyItem[] CustomVocabularyItemList { get; set; }
+        #endregion
+        
         #region Parameter LocaleId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the language and locale of the recommended intents.</para>
+        /// <para>The unique locale identifier of the bot to batch create the custom vocabulary item
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,87 +109,52 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String LocaleId { get; set; }
         #endregion
         
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of bot recommendations to return in each page of results. If there
-        /// are fewer results than the max page size, only the actual number of results are returned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>If the response from the ListRecommendedIntents operation contains more results than
-        /// specified in the maxResults parameter, a token is returned in the response. Use that
-        /// token in the nextToken parameter to return the next page of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse).
-        /// Specifying the name of a property of type Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse).
+        /// Specifying the name of a property of type Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Force
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BotRecommendationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BotRecommendationId' instead. This parameter will be removed in a future version.
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BotRecommendationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-LMBV2CustomVocabularyItem (BatchCreateCustomVocabularyItem)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse, GetLMBV2RecommendedIntentListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse, NewLMBV2CustomVocabularyItemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.BotRecommendationId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BotId = this.BotId;
             #if MODULAR
             if (this.BotId == null && ParameterWasBound(nameof(this.BotId)))
             {
                 WriteWarning("You are passing $null as a value for parameter BotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.BotRecommendationId = this.BotRecommendationId;
-            #if MODULAR
-            if (this.BotRecommendationId == null && ParameterWasBound(nameof(this.BotRecommendationId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BotRecommendationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.BotVersion = this.BotVersion;
@@ -198,6 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter BotVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CustomVocabularyItemList != null)
+            {
+                context.CustomVocabularyItemList = new List<Amazon.LexModelsV2.Model.NewCustomVocabularyItem>(this.CustomVocabularyItemList);
+            }
+            #if MODULAR
+            if (this.CustomVocabularyItemList == null && ParameterWasBound(nameof(this.CustomVocabularyItemList)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CustomVocabularyItemList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.LocaleId = this.LocaleId;
             #if MODULAR
             if (this.LocaleId == null && ParameterWasBound(nameof(this.LocaleId)))
@@ -205,8 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter LocaleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -221,31 +195,23 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LexModelsV2.Model.ListRecommendedIntentsRequest();
+            var request = new Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemRequest();
             
             if (cmdletContext.BotId != null)
             {
                 request.BotId = cmdletContext.BotId;
             }
-            if (cmdletContext.BotRecommendationId != null)
-            {
-                request.BotRecommendationId = cmdletContext.BotRecommendationId;
-            }
             if (cmdletContext.BotVersion != null)
             {
                 request.BotVersion = cmdletContext.BotVersion;
             }
+            if (cmdletContext.CustomVocabularyItemList != null)
+            {
+                request.CustomVocabularyItemList = cmdletContext.CustomVocabularyItemList;
+            }
             if (cmdletContext.LocaleId != null)
             {
                 request.LocaleId = cmdletContext.LocaleId;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -280,15 +246,15 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         
         #region AWS Service Operation Call
         
-        private Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse CallAWSServiceOperation(IAmazonLexModelsV2 client, Amazon.LexModelsV2.Model.ListRecommendedIntentsRequest request)
+        private Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse CallAWSServiceOperation(IAmazonLexModelsV2 client, Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex Model Building V2", "ListRecommendedIntents");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex Model Building V2", "BatchCreateCustomVocabularyItem");
             try
             {
                 #if DESKTOP
-                return client.ListRecommendedIntents(request);
+                return client.BatchCreateCustomVocabularyItem(request);
                 #elif CORECLR
-                return client.ListRecommendedIntentsAsync(request).GetAwaiter().GetResult();
+                return client.BatchCreateCustomVocabularyItemAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -309,12 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BotId { get; set; }
-            public System.String BotRecommendationId { get; set; }
             public System.String BotVersion { get; set; }
+            public List<Amazon.LexModelsV2.Model.NewCustomVocabularyItem> CustomVocabularyItemList { get; set; }
             public System.String LocaleId { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.LexModelsV2.Model.ListRecommendedIntentsResponse, GetLMBV2RecommendedIntentListCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LexModelsV2.Model.BatchCreateCustomVocabularyItemResponse, NewLMBV2CustomVocabularyItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-LMBV2ResourceTag', 
+        'Edit-LMBV2CustomVocabularyItem', 
         'Get-LMBV2AggregatedUtteranceList', 
         'Get-LMBV2Bot', 
         'Get-LMBV2BotAlias', 
@@ -100,6 +101,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMBV2BotVersionList', 
         'Get-LMBV2BuiltInIntentList', 
         'Get-LMBV2BuiltInSlotTypeList', 
+        'Get-LMBV2CustomVocabularyItemList', 
         'Get-LMBV2CustomVocabularyMetadata', 
         'Get-LMBV2Export', 
         'Get-LMBV2ExportList', 
@@ -119,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-LMBV2BotAlias', 
         'New-LMBV2BotLocale', 
         'New-LMBV2BotVersion', 
+        'New-LMBV2CustomVocabularyItem', 
         'New-LMBV2Export', 
         'New-LMBV2Intent', 
         'New-LMBV2ResourcePolicy', 
@@ -131,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMBV2BotLocale', 
         'Remove-LMBV2BotVersion', 
         'Remove-LMBV2CustomVocabulary', 
+        'Remove-LMBV2CustomVocabularyItem', 
         'Remove-LMBV2Export', 
         'Remove-LMBV2Import', 
         'Remove-LMBV2Intent', 

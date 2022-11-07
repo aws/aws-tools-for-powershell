@@ -3428,6 +3428,8 @@ Set-Alias -Name Delete-CTEventDataStore -Value Remove-CTEventDataStore
 Set-Alias -Name CT-DeleteEventDataStore -Value Remove-CTEventDataStore
 Set-Alias -Name Delete-CTTrail -Value Remove-CTTrail
 Set-Alias -Name CT-DeleteTrail -Value Remove-CTTrail
+Set-Alias -Name Deregister-CTOrganizationDelegatedAdmin -Value Unregister-CTOrganizationDelegatedAdmin
+Set-Alias -Name CT-DeregisterOrganizationDelegatedAdmin -Value Unregister-CTOrganizationDelegatedAdmin
 Set-Alias -Name Describe-CTQuery -Value Get-CTQuery
 Set-Alias -Name CT-DescribeQuery -Value Get-CTQuery
 Set-Alias -Name Describe-CTTrails -Value Get-CTTrail
@@ -3477,6 +3479,7 @@ Set-Alias -Name CT-PutEventSelectors -Value Write-CTEventSelector
 Set-Alias -Name Put-CTInsightSelectors -Value Write-CTInsightSelector
 Set-Alias -Name Put-CTInsightSelector -Value Write-CTInsightSelector
 Set-Alias -Name CT-PutInsightSelectors -Value Write-CTInsightSelector
+Set-Alias -Name CT-RegisterOrganizationDelegatedAdmin -Value Register-CTOrganizationDelegatedAdmin
 Set-Alias -Name Remove-CTTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RemoveTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RestoreEventDataStore -Value Restore-CTEventDataStore
@@ -15446,6 +15449,15 @@ Set-Alias -Name List-MOBLProjects -Value Get-MOBLProjectList
 Set-Alias -Name List-MOBLProjectList -Value Get-MOBLProjectList
 Set-Alias -Name MOBL-ListProjects -Value Get-MOBLProjectList
 Set-Alias -Name MOBL-UpdateProject -Value Update-MOBLProject
+Set-Alias -Name Batch-LMBV2CreateCustomVocabularyItem -Value New-LMBV2CustomVocabularyItem
+Set-Alias -Name Batch-LMBV2CustomVocabularyItem -Value New-LMBV2CustomVocabularyItem
+Set-Alias -Name LMBV2-BatchCreateCustomVocabularyItem -Value New-LMBV2CustomVocabularyItem
+Set-Alias -Name Batch-LMBV2DeleteCustomVocabularyItem -Value Remove-LMBV2CustomVocabularyItem
+Set-Alias -Name Batch-LMBV2CustomVocabularyItem -Value Remove-LMBV2CustomVocabularyItem
+Set-Alias -Name LMBV2-BatchDeleteCustomVocabularyItem -Value Remove-LMBV2CustomVocabularyItem
+Set-Alias -Name Batch-LMBV2UpdateCustomVocabularyItem -Value Edit-LMBV2CustomVocabularyItem
+Set-Alias -Name Batch-LMBV2CustomVocabularyItem -Value Edit-LMBV2CustomVocabularyItem
+Set-Alias -Name LMBV2-BatchUpdateCustomVocabularyItem -Value Edit-LMBV2CustomVocabularyItem
 Set-Alias -Name Build-LMBV2BotLocale -Value Invoke-LMBV2BuildBotLocale
 Set-Alias -Name Build-LMBV2BuildBotLocale -Value Invoke-LMBV2BuildBotLocale
 Set-Alias -Name LMBV2-BuildBotLocale -Value Invoke-LMBV2BuildBotLocale
@@ -15546,6 +15558,9 @@ Set-Alias -Name LMBV2-ListBuiltInIntents -Value Get-LMBV2BuiltInIntentList
 Set-Alias -Name List-LMBV2BuiltInSlotTypes -Value Get-LMBV2BuiltInSlotTypeList
 Set-Alias -Name List-LMBV2BuiltInSlotTypeList -Value Get-LMBV2BuiltInSlotTypeList
 Set-Alias -Name LMBV2-ListBuiltInSlotTypes -Value Get-LMBV2BuiltInSlotTypeList
+Set-Alias -Name List-LMBV2CustomVocabularyItems -Value Get-LMBV2CustomVocabularyItemList
+Set-Alias -Name List-LMBV2CustomVocabularyItemList -Value Get-LMBV2CustomVocabularyItemList
+Set-Alias -Name LMBV2-ListCustomVocabularyItems -Value Get-LMBV2CustomVocabularyItemList
 Set-Alias -Name List-LMBV2Exports -Value Get-LMBV2ExportList
 Set-Alias -Name List-LMBV2ExportList -Value Get-LMBV2ExportList
 Set-Alias -Name LMBV2-ListExports -Value Get-LMBV2ExportList
@@ -22789,6 +22804,12 @@ Set-Alias -Name WAT-ImportLens -Value Import-WATLens
 Set-Alias -Name List-WATAnswers -Value Get-WATAnswerList
 Set-Alias -Name List-WATAnswerList -Value Get-WATAnswerList
 Set-Alias -Name WAT-ListAnswers -Value Get-WATAnswerList
+Set-Alias -Name List-WATCheckDetails -Value Get-WATCheckDetailList
+Set-Alias -Name List-WATCheckDetailList -Value Get-WATCheckDetailList
+Set-Alias -Name WAT-ListCheckDetails -Value Get-WATCheckDetailList
+Set-Alias -Name List-WATCheckSummaries -Value Get-WATCheckSummaryList
+Set-Alias -Name List-WATCheckSummaryList -Value Get-WATCheckSummaryList
+Set-Alias -Name WAT-ListCheckSummaries -Value Get-WATCheckSummaryList
 Set-Alias -Name List-WATLenses -Value Get-WATLensList
 Set-Alias -Name List-WATLensList -Value Get-WATLensList
 Set-Alias -Name WAT-ListLenses -Value Get-WATLensList

@@ -102,6 +102,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCheckDetails" OutputProperty="CheckDetails" Verb="Get" Noun="CheckDetailList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCheckSummaries" OutputProperty="CheckSummaries" Verb="Get" Noun="CheckSummaryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLenses" OutputProperty="LensSummaries" Verb="Get" Noun="LensList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WATLenseList">
             <Params />
             <TypesNotToFlatten />

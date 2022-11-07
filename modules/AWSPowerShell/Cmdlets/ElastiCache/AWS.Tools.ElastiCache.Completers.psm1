@@ -100,6 +100,28 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.IpDiscovery
+        {
+            ($_ -eq "Edit-ECCacheCluster/IpDiscovery") -Or
+            ($_ -eq "Edit-ECReplicationGroup/IpDiscovery") -Or
+            ($_ -eq "New-ECCacheCluster/IpDiscovery") -Or
+            ($_ -eq "New-ECReplicationGroup/IpDiscovery")
+        }
+        {
+            $v = "ipv4","ipv6"
+            break
+        }
+
+        # Amazon.ElastiCache.NetworkType
+        {
+            ($_ -eq "New-ECCacheCluster/NetworkType") -Or
+            ($_ -eq "New-ECReplicationGroup/NetworkType")
+        }
+        {
+            $v = "dual_stack","ipv4","ipv6"
+            break
+        }
+
         # Amazon.ElastiCache.OutpostMode
         "New-ECCacheCluster/OutpostMode"
         {
@@ -125,6 +147,8 @@ $EC_Completers = {
 $EC_map = @{
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
+    "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
+    "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
     "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
 }

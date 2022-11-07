@@ -160,6 +160,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter IpDiscovery
+        /// <summary>
+        /// <para>
+        /// <para>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>.
+        /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
+        /// engine version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.IpDiscovery")]
+        public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
+        #endregion
+        
         #region Parameter LogDeliveryConfiguration
         /// <summary>
         /// <para>
@@ -420,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.EngineVersion = this.EngineVersion;
+            context.IpDiscovery = this.IpDiscovery;
             if (this.LogDeliveryConfiguration != null)
             {
                 context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
@@ -507,6 +522,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.IpDiscovery != null)
+            {
+                request.IpDiscovery = cmdletContext.IpDiscovery;
             }
             if (cmdletContext.LogDeliveryConfiguration != null)
             {
@@ -644,6 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
             public System.String EngineVersion { get; set; }
+            public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
             public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
             public System.Boolean? MultiAZEnabled { get; set; }
             [System.ObsoleteAttribute]

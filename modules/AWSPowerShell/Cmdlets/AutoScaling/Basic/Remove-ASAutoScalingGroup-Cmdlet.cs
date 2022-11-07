@@ -33,10 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// If the group has instances or scaling activities in progress, you must specify the
-    /// option to force the deletion in order for it to succeed.
-    /// </para><para>
-    /// If the group has policies, deleting the group deletes the policies, the underlying
-    /// alarm actions, and any alarm that no longer has an associated action.
+    /// option to force the deletion in order for it to succeed. The force delete operation
+    /// will also terminate the EC2 instances. If the group has a warm pool, the force delete
+    /// option also deletes the warm pool.
     /// </para><para>
     /// To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a>
     /// API with the list of instances and the option to decrement the desired capacity. This
@@ -44,6 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a>
     /// API and set the minimum size and desired capacity of the Auto Scaling group to zero.
+    /// </para><para>
+    /// If the group has scaling policies, deleting the group deletes the policies, the underlying
+    /// alarm actions, and any alarm that no longer has an associated action.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html">Delete
+    /// your Auto Scaling infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -1,4 +1,34 @@
-﻿### 4.1.201 (2022-11-04 22:18Z)
+﻿### 4.1.202 (2022-11-07 21:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.412.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Modified cmdlet Start-ATHQueryExecution: added parameters ResultReuseByAgeConfiguration_Enabled and ResultReuseByAgeConfiguration_MaxAgeInMinute.
+  * Amazon CloudTrail
+    * Added cmdlet Register-CTOrganizationDelegatedAdmin leveraging the RegisterOrganizationDelegatedAdmin service API.
+    * Added cmdlet Unregister-CTOrganizationDelegatedAdmin leveraging the DeregisterOrganizationDelegatedAdmin service API.
+    * Modified cmdlet New-CTEventDataStore: added parameter KmsKeyId.
+    * Modified cmdlet Update-CTEventDataStore: added parameter KmsKeyId.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Get-EC2InstanceTypesFromInstanceRequirement: added parameters InstanceRequirements_AllowedInstanceType, NetworkBandwidthGbps_Max and NetworkBandwidthGbps_Min.
+    * Modified cmdlet Get-EC2SpotPlacementScore: added parameters InstanceRequirements_AllowedInstanceType, NetworkBandwidthGbps_Max and NetworkBandwidthGbps_Min.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECCacheCluster: added parameter IpDiscovery.
+    * Modified cmdlet Edit-ECReplicationGroup: added parameter IpDiscovery.
+    * Modified cmdlet New-ECCacheCluster: added parameters IpDiscovery and NetworkType.
+    * Modified cmdlet New-ECReplicationGroup: added parameters IpDiscovery and NetworkType.
+  * Amazon Lex Model Building V2
+    * Added cmdlet Edit-LMBV2CustomVocabularyItem leveraging the BatchUpdateCustomVocabularyItem service API.
+    * Added cmdlet Get-LMBV2CustomVocabularyItemList leveraging the ListCustomVocabularyItems service API.
+    * Added cmdlet New-LMBV2CustomVocabularyItem leveraging the BatchCreateCustomVocabularyItem service API.
+    * Added cmdlet Remove-LMBV2CustomVocabularyItem leveraging the BatchDeleteCustomVocabularyItem service API.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Get-WATCheckDetailList leveraging the ListCheckDetails service API.
+    * Added cmdlet Get-WATCheckSummaryList leveraging the ListCheckSummaries service API.
+    * Modified cmdlet New-WATWorkload: added parameters Application and DiscoveryConfig_TrustedAdvisorIntegrationStatus.
+    * Modified cmdlet Update-WATWorkload: added parameters Application and DiscoveryConfig_TrustedAdvisorIntegrationStatus.
+  * Amazon WorkSpaces
+    * Modified cmdlet Edit-WKSWorkspaceProperty: added parameter WorkspaceProperties_Protocol.
+
+### 4.1.201 (2022-11-04 22:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.411.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Stop-EC2ImageLaunchPermission leveraging the CancelImageLaunchPermission service API.

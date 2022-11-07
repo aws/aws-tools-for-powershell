@@ -53,12 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// and <code>instance</code> resource types are supported.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
-    /// Fleet requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Fleet requests</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><important><para>
     /// We strongly discourage using the RequestSpotFleet API because it is a legacy API with
     /// no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
-    /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
-    /// Instances</i>.
+    /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The strategy that determines how to allocate the target Spot Instance capacity across
         /// the Spot Instance pools specified by the Spot Fleet launch configuration. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Allocation
-        /// strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para><code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot
+        /// strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</para><para><code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot
         /// Instance pool that has available capacity. If the cheapest pool doesn't have available
         /// capacity, the Spot Instances come from the next cheapest pool that has available capacity.
         /// If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet
@@ -161,9 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
         /// grants the Spot Fleet the permission to request, launch, terminate, and tag instances
         /// on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
-        /// Fleet prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot
-        /// Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request
-        /// using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a>
+        /// Fleet prerequisites</a> in the <i>Amazon EC2 User Guide</i>. Spot Fleet can terminate
+        /// Spot Instances on your behalf when you cancel its Spot Fleet request using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a>
         /// or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</para>
         /// </para>
         /// </summary>

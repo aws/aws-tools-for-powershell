@@ -60,6 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
         #endregion
         
+        #region Parameter WorkspaceProperties_Protocol
+        /// <summary>
+        /// <para>
+        /// <para>The protocol. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html">
+        /// Protocols for Amazon WorkSpaces</a>.</para><note><ul><li><para>Only available for WorkSpaces created with PCoIP bundles.</para></li><li><para>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code>
+        /// or <code>WSP</code>.</para></li><li><para>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles (Graphics,
+        /// GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkspaceProperties_Protocols")]
+        public System.String[] WorkspaceProperties_Protocol { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceProperties_RootVolumeSizeGib
         /// <summary>
         /// <para>
@@ -195,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             }
             #endif
             context.WorkspaceProperties_ComputeTypeName = this.WorkspaceProperties_ComputeTypeName;
+            if (this.WorkspaceProperties_Protocol != null)
+            {
+                context.WorkspaceProperties_Protocol = new List<System.String>(this.WorkspaceProperties_Protocol);
+            }
             context.WorkspaceProperties_RootVolumeSizeGib = this.WorkspaceProperties_RootVolumeSizeGib;
             context.WorkspaceProperties_RunningMode = this.WorkspaceProperties_RunningMode;
             context.WorkspaceProperties_RunningModeAutoStopTimeoutInMinute = this.WorkspaceProperties_RunningModeAutoStopTimeoutInMinute;
@@ -231,6 +249,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceProperties_workspaceProperties_ComputeTypeName != null)
             {
                 request.WorkspaceProperties.ComputeTypeName = requestWorkspaceProperties_workspaceProperties_ComputeTypeName;
+                requestWorkspacePropertiesIsNull = false;
+            }
+            List<System.String> requestWorkspaceProperties_workspaceProperties_Protocol = null;
+            if (cmdletContext.WorkspaceProperties_Protocol != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_Protocol = cmdletContext.WorkspaceProperties_Protocol;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_Protocol != null)
+            {
+                request.WorkspaceProperties.Protocols = requestWorkspaceProperties_workspaceProperties_Protocol;
                 requestWorkspacePropertiesIsNull = false;
             }
             System.Int32? requestWorkspaceProperties_workspaceProperties_RootVolumeSizeGib = null;
@@ -341,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             public System.String WorkspaceId { get; set; }
             public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
+            public List<System.String> WorkspaceProperties_Protocol { get; set; }
             public System.Int32? WorkspaceProperties_RootVolumeSizeGib { get; set; }
             public Amazon.WorkSpaces.RunningMode WorkspaceProperties_RunningMode { get; set; }
             public System.Int32? WorkspaceProperties_RunningModeAutoStopTimeoutInMinute { get; set; }

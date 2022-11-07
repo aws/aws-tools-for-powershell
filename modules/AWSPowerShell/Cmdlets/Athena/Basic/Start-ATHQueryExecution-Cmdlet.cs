@@ -81,6 +81,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String QueryExecutionContext_Database { get; set; }
         #endregion
         
+        #region Parameter ResultReuseByAgeConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>True if previous query results can be reused when the query is run; otherwise, false.
+        /// The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResultReuseConfiguration_ResultReuseByAgeConfiguration_Enabled")]
+        public System.Boolean? ResultReuseByAgeConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
@@ -138,6 +150,18 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResultConfiguration_EncryptionConfiguration_KmsKey")]
         public System.String EncryptionConfiguration_KmsKey { get; set; }
+        #endregion
+        
+        #region Parameter ResultReuseByAgeConfiguration_MaxAgeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies, in minutes, the maximum age of a previous query result that Athena should
+        /// consider for reuse. The default is 60.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResultReuseConfiguration_ResultReuseByAgeConfiguration_MaxAgeInMinutes")]
+        public System.Int32? ResultReuseByAgeConfiguration_MaxAgeInMinute { get; set; }
         #endregion
         
         #region Parameter ResultConfiguration_OutputLocation
@@ -280,6 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ResultConfiguration_ExpectedBucketOwner = this.ResultConfiguration_ExpectedBucketOwner;
             context.ResultConfiguration_OutputLocation = this.ResultConfiguration_OutputLocation;
+            context.ResultReuseByAgeConfiguration_Enabled = this.ResultReuseByAgeConfiguration_Enabled;
+            context.ResultReuseByAgeConfiguration_MaxAgeInMinute = this.ResultReuseByAgeConfiguration_MaxAgeInMinute;
             context.WorkGroup = this.WorkGroup;
             
             // allow further manipulation of loaded context prior to processing
@@ -427,6 +453,50 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             {
                 request.ResultConfiguration = null;
             }
+            
+             // populate ResultReuseConfiguration
+            var requestResultReuseConfigurationIsNull = true;
+            request.ResultReuseConfiguration = new Amazon.Athena.Model.ResultReuseConfiguration();
+            Amazon.Athena.Model.ResultReuseByAgeConfiguration requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration = null;
+            
+             // populate ResultReuseByAgeConfiguration
+            var requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfigurationIsNull = true;
+            requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration = new Amazon.Athena.Model.ResultReuseByAgeConfiguration();
+            System.Boolean? requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_Enabled = null;
+            if (cmdletContext.ResultReuseByAgeConfiguration_Enabled != null)
+            {
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_Enabled = cmdletContext.ResultReuseByAgeConfiguration_Enabled.Value;
+            }
+            if (requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_Enabled != null)
+            {
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration.Enabled = requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_Enabled.Value;
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfigurationIsNull = false;
+            }
+            System.Int32? requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_MaxAgeInMinute = null;
+            if (cmdletContext.ResultReuseByAgeConfiguration_MaxAgeInMinute != null)
+            {
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_MaxAgeInMinute = cmdletContext.ResultReuseByAgeConfiguration_MaxAgeInMinute.Value;
+            }
+            if (requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_MaxAgeInMinute != null)
+            {
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration.MaxAgeInMinutes = requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration_resultReuseByAgeConfiguration_MaxAgeInMinute.Value;
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfigurationIsNull = false;
+            }
+             // determine if requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration should be set to null
+            if (requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfigurationIsNull)
+            {
+                requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration = null;
+            }
+            if (requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration != null)
+            {
+                request.ResultReuseConfiguration.ResultReuseByAgeConfiguration = requestResultReuseConfiguration_resultReuseConfiguration_ResultReuseByAgeConfiguration;
+                requestResultReuseConfigurationIsNull = false;
+            }
+             // determine if request.ResultReuseConfiguration should be set to null
+            if (requestResultReuseConfigurationIsNull)
+            {
+                request.ResultReuseConfiguration = null;
+            }
             if (cmdletContext.WorkGroup != null)
             {
                 request.WorkGroup = cmdletContext.WorkGroup;
@@ -502,6 +572,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String EncryptionConfiguration_KmsKey { get; set; }
             public System.String ResultConfiguration_ExpectedBucketOwner { get; set; }
             public System.String ResultConfiguration_OutputLocation { get; set; }
+            public System.Boolean? ResultReuseByAgeConfiguration_Enabled { get; set; }
+            public System.Int32? ResultReuseByAgeConfiguration_MaxAgeInMinute { get; set; }
             public System.String WorkGroup { get; set; }
             public System.Func<Amazon.Athena.Model.StartQueryExecutionResponse, StartATHQueryExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueryExecutionId;

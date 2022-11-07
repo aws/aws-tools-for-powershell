@@ -39,7 +39,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
     /// configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    /// </para>
+    /// </para><note><para>
+    /// Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group
+    /// using either a launch template or a launch configuration. We strongly recommend that
+    /// you do not use launch configurations. They do not provide full functionality for Amazon
+    /// EC2 Auto Scaling or Amazon EC2. For information about using launch templates, see
+    /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html">Launch
+    /// templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "ASLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -86,10 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCId
         /// <summary>
         /// <para>
-        /// <para><i>EC2-Classic retires on August 15, 2022. This property is not supported after that
-        /// date.</i></para><para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// <para>Available for backward compatibility.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ClassicLinkVPCSecurityGroup
         /// <summary>
         /// <para>
-        /// <para><i>EC2-Classic retires on August 15, 2022. This property is not supported after that
-        /// date.</i></para><para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.</para><para>If you specify the <code>ClassicLinkVPCId</code> property, you must specify <code>ClassicLinkVPCSecurityGroups</code>.</para>
+        /// <para>Available for backward compatibility.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

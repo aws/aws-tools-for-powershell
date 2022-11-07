@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String[] AccountId { get; set; }
         #endregion
         
+        #region Parameter Application
+        /// <summary>
+        /// <para>
+        /// <para>List of AppRegistry application ARNs to associate to the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Applications")]
+        public System.String[] Application { get; set; }
+        #endregion
+        
         #region Parameter ArchitecturalDesign
         /// <summary>
         /// <para>
@@ -179,6 +190,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String ReviewOwner { get; set; }
         #endregion
         
+        #region Parameter DiscoveryConfig_TrustedAdvisorIntegrationStatus
+        /// <summary>
+        /// <para>
+        /// <para>Discovery integration status in respect to Trusted Advisor for the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.TrustedAdvisorIntegrationStatus")]
+        public Amazon.WellArchitected.TrustedAdvisorIntegrationStatus DiscoveryConfig_TrustedAdvisorIntegrationStatus { get; set; }
+        #endregion
+        
         #region Parameter WorkloadId
         /// <summary>
         /// <para>
@@ -271,12 +293,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 context.AccountId = new List<System.String>(this.AccountId);
             }
+            if (this.Application != null)
+            {
+                context.Application = new List<System.String>(this.Application);
+            }
             context.ArchitecturalDesign = this.ArchitecturalDesign;
             if (this.AwsRegion != null)
             {
                 context.AwsRegion = new List<System.String>(this.AwsRegion);
             }
             context.Description = this.Description;
+            context.DiscoveryConfig_TrustedAdvisorIntegrationStatus = this.DiscoveryConfig_TrustedAdvisorIntegrationStatus;
             context.Environment = this.Environment;
             context.ImprovementStatus = this.ImprovementStatus;
             context.Industry = this.Industry;
@@ -320,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 request.AccountIds = cmdletContext.AccountId;
             }
+            if (cmdletContext.Application != null)
+            {
+                request.Applications = cmdletContext.Application;
+            }
             if (cmdletContext.ArchitecturalDesign != null)
             {
                 request.ArchitecturalDesign = cmdletContext.ArchitecturalDesign;
@@ -331,6 +362,25 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DiscoveryConfig
+            var requestDiscoveryConfigIsNull = true;
+            request.DiscoveryConfig = new Amazon.WellArchitected.Model.WorkloadDiscoveryConfig();
+            Amazon.WellArchitected.TrustedAdvisorIntegrationStatus requestDiscoveryConfig_discoveryConfig_TrustedAdvisorIntegrationStatus = null;
+            if (cmdletContext.DiscoveryConfig_TrustedAdvisorIntegrationStatus != null)
+            {
+                requestDiscoveryConfig_discoveryConfig_TrustedAdvisorIntegrationStatus = cmdletContext.DiscoveryConfig_TrustedAdvisorIntegrationStatus;
+            }
+            if (requestDiscoveryConfig_discoveryConfig_TrustedAdvisorIntegrationStatus != null)
+            {
+                request.DiscoveryConfig.TrustedAdvisorIntegrationStatus = requestDiscoveryConfig_discoveryConfig_TrustedAdvisorIntegrationStatus;
+                requestDiscoveryConfigIsNull = false;
+            }
+             // determine if request.DiscoveryConfig should be set to null
+            if (requestDiscoveryConfigIsNull)
+            {
+                request.DiscoveryConfig = null;
             }
             if (cmdletContext.Environment != null)
             {
@@ -438,9 +488,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AccountId { get; set; }
+            public List<System.String> Application { get; set; }
             public System.String ArchitecturalDesign { get; set; }
             public List<System.String> AwsRegion { get; set; }
             public System.String Description { get; set; }
+            public Amazon.WellArchitected.TrustedAdvisorIntegrationStatus DiscoveryConfig_TrustedAdvisorIntegrationStatus { get; set; }
             public Amazon.WellArchitected.WorkloadEnvironment Environment { get; set; }
             public Amazon.WellArchitected.WorkloadImprovementStatus ImprovementStatus { get; set; }
             public System.String Industry { get; set; }

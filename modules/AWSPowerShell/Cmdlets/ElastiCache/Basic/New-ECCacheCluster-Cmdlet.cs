@@ -199,6 +199,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter IpDiscovery
+        /// <summary>
+        /// <para>
+        /// <para>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>.
+        /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
+        /// engine version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.IpDiscovery")]
+        public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
+        #endregion
+        
         #region Parameter LogDeliveryConfiguration
         /// <summary>
         /// <para>
@@ -208,6 +222,20 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogDeliveryConfigurations")]
         public Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest[] LogDeliveryConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6
+        /// is supported for workloads using Redis engine version 6.2 onward or Memcached engine
+        /// version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.NetworkType")]
+        public Amazon.ElastiCache.NetworkType NetworkType { get; set; }
         #endregion
         
         #region Parameter NotificationTopicArn
@@ -407,10 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A flag that enables in-transit encryption when set to true. You cannot modify the
-        /// value of <code>TransitEncryptionEnabled</code> after the cluster is created. To enable
-        /// in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code>
-        /// to true when you create a cluster. </para><para><b>Required:</b> Only available when creating a cache cluster in an Amazon VPC using
-        /// Memcached version <code>1.6.12</code> or later.</para>
+        /// value of TransitEncryptionEnabled after the cluster is created. To enable in-transit
+        /// encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true
+        /// when you create a cluster.</para><para> Only available when creating a cache cluster in an Amazon VPC using Memcached version
+        /// 1.6.12 or later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -497,10 +525,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.IpDiscovery = this.IpDiscovery;
             if (this.LogDeliveryConfiguration != null)
             {
                 context.LogDeliveryConfiguration = new List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest>(this.LogDeliveryConfiguration);
             }
+            context.NetworkType = this.NetworkType;
             context.NotificationTopicArn = this.NotificationTopicArn;
             context.NumCacheNode = this.NumCacheNode;
             context.OutpostMode = this.OutpostMode;
@@ -589,9 +619,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.IpDiscovery != null)
+            {
+                request.IpDiscovery = cmdletContext.IpDiscovery;
+            }
             if (cmdletContext.LogDeliveryConfiguration != null)
             {
                 request.LogDeliveryConfigurations = cmdletContext.LogDeliveryConfiguration;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.NotificationTopicArn != null)
             {
@@ -732,7 +770,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheSubnetGroupName { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
             public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }
+            public Amazon.ElastiCache.NetworkType NetworkType { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.Int32? NumCacheNode { get; set; }
             public Amazon.ElastiCache.OutpostMode OutpostMode { get; set; }

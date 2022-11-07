@@ -37,8 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Spot Fleet events are available for 48 hours.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor
-    /// fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide for Linux
-    /// Instances</i>.
+    /// fleet events using Amazon EventBridge</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>In the AWS.Tools.EC2 module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetRequestHistory")]

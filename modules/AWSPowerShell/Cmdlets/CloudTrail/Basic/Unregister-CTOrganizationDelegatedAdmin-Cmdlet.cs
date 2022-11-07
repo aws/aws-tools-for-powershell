@@ -28,26 +28,24 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Cancels a query if the query is not in a terminated state, such as <code>CANCELLED</code>,
-    /// <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>FINISHED</code>. You must specify
-    /// an ARN value for <code>EventDataStore</code>. The ID of the query that you want to
-    /// cancel is also required. When you run <code>CancelQuery</code>, the query status might
-    /// show as <code>CANCELLED</code> even if the operation is not yet finished.
+    /// Removes CloudTrail delegated administrator permissions from a member account in an
+    /// organization.
     /// </summary>
-    [Cmdlet("Stop", "CTQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudTrail.Model.CancelQueryResponse")]
-    [AWSCmdlet("Calls the AWS CloudTrail CancelQuery API operation.", Operation = new[] {"CancelQuery"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.CancelQueryResponse))]
-    [AWSCmdletOutput("Amazon.CloudTrail.Model.CancelQueryResponse",
-        "This cmdlet returns an Amazon.CloudTrail.Model.CancelQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unregister", "CTOrganizationDelegatedAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS CloudTrail DeregisterOrganizationDelegatedAdmin API operation.", Operation = new[] {"DeregisterOrganizationDelegatedAdmin"}, SelectReturnType = typeof(Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse))]
+    [AWSCmdletOutput("None or Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopCTQueryCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
+    public partial class UnregisterCTOrganizationDelegatedAdminCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
     {
         
-        #region Parameter QueryId
+        #region Parameter DelegatedAdminAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the
-        /// response of a <code>StartQuery</code> operation.</para>
+        /// <para>A delegated administrator account ID. This is a member account in an organization
+        /// that is currently designated as a delegated administrator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,27 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.CT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryId { get; set; }
-        #endregion
-        
-        #region Parameter EventDataStore
-        /// <summary>
-        /// <para>
-        /// <para>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
-        /// query is running.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [System.ObsoleteAttribute("EventDataStore is no longer required by CancelQueryRequest")]
-        public System.String EventDataStore { get; set; }
+        public System.String DelegatedAdminAccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.CancelQueryResponse).
-        /// Specifying the name of a property of type Amazon.CloudTrail.Model.CancelQueryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DelegatedAdminAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DelegatedAdminAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DelegatedAdminAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-CTQuery (CancelQuery)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DelegatedAdminAccountId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unregister-CTOrganizationDelegatedAdmin (DeregisterOrganizationDelegatedAdmin)"))
             {
                 return;
             }
@@ -123,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.CancelQueryResponse, StopCTQueryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse, UnregisterCTOrganizationDelegatedAdminCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,17 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.QueryId;
+                context.Select = (response, cmdlet) => this.DelegatedAdminAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EventDataStore = this.EventDataStore;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.QueryId = this.QueryId;
+            context.DelegatedAdminAccountId = this.DelegatedAdminAccountId;
             #if MODULAR
-            if (this.QueryId == null && ParameterWasBound(nameof(this.QueryId)))
+            if (this.DelegatedAdminAccountId == null && ParameterWasBound(nameof(this.DelegatedAdminAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DelegatedAdminAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,17 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudTrail.Model.CancelQueryRequest();
+            var request = new Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminRequest();
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.EventDataStore != null)
+            if (cmdletContext.DelegatedAdminAccountId != null)
             {
-                request.EventDataStore = cmdletContext.EventDataStore;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (cmdletContext.QueryId != null)
-            {
-                request.QueryId = cmdletContext.QueryId;
+                request.DelegatedAdminAccountId = cmdletContext.DelegatedAdminAccountId;
             }
             
             CmdletOutput output;
@@ -204,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudTrail.Model.CancelQueryResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.CancelQueryRequest request)
+        private Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse CallAWSServiceOperation(IAmazonCloudTrail client, Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "CancelQuery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudTrail", "DeregisterOrganizationDelegatedAdmin");
             try
             {
                 #if DESKTOP
-                return client.CancelQuery(request);
+                return client.DeregisterOrganizationDelegatedAdmin(request);
                 #elif CORECLR
-                return client.CancelQueryAsync(request).GetAwaiter().GetResult();
+                return client.DeregisterOrganizationDelegatedAdminAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -232,11 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            [System.ObsoleteAttribute]
-            public System.String EventDataStore { get; set; }
-            public System.String QueryId { get; set; }
-            public System.Func<Amazon.CloudTrail.Model.CancelQueryResponse, StopCTQueryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String DelegatedAdminAccountId { get; set; }
+            public System.Func<Amazon.CloudTrail.Model.DeregisterOrganizationDelegatedAdminResponse, UnregisterCTOrganizationDelegatedAdminCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
