@@ -28,7 +28,7 @@ using Amazon.BillingConductor.Model;
 namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
-    /// List the resources associated to a custom line item.
+    /// List the resources that are associated to a custom line item.
     /// </summary>
     [Cmdlet("Get", "ABCResourcesAssociatedToCustomLineItemList")]
     [OutputType("Amazon.BillingConductor.Model.ListResourcesAssociatedToCustomLineItemResponse")]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> (Optional) The pagination token returned by a previous request. </para>
+        /// <para> (Optional) The pagination token that's returned by a previous request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

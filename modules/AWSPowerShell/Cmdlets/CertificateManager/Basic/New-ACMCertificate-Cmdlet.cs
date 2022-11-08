@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will
         /// be used to issue the certificate. If you do not provide an ARN and you are trying
         /// to request a private certificate, ACM will attempt to issue a public certificate.
-        /// For more information about private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">Certificate
-        /// Manager Private Certificate Authority</a> user guide. The ARN must have the following
+        /// For more information about private CAs, see the <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html">Amazon
+        /// Web Services Private Certificate Authority</a> user guide. The ARN must have the following
         /// form: </para><para><code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code></para>
         /// </para>
         /// </summary>
@@ -135,6 +135,24 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter KeyAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the algorithm of the public and private key pair that your certificate uses
+        /// to encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve
+        /// Digital Signature Algorithm (ECDSA) keys are smaller, offering security comparable
+        /// to RSA keys but with greater computing efficiency. However, ECDSA is not supported
+        /// by all network clients. Some AWS services may require RSA keys, or only support ECDSA
+        /// keys of a particular size, while others allow the use of either RSA and ECDSA keys
+        /// to ensure that compatibility is not broken. Check the requirements for the AWS service
+        /// where you plan to deploy your certificate.</para><para>Default: RSA_2048</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CertificateManager.KeyAlgorithm")]
+        public Amazon.CertificateManager.KeyAlgorithm KeyAlgorithm { get; set; }
         #endregion
         
         #region Parameter SubjectAlternativeName
@@ -238,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 context.DomainValidationOption = new List<Amazon.CertificateManager.Model.DomainValidationOption>(this.DomainValidationOption);
             }
             context.IdempotencyToken = this.IdempotencyToken;
+            context.KeyAlgorithm = this.KeyAlgorithm;
             context.Options_CertificateTransparencyLoggingPreference = this.Options_CertificateTransparencyLoggingPreference;
             if (this.SubjectAlternativeName != null)
             {
@@ -279,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
+            }
+            if (cmdletContext.KeyAlgorithm != null)
+            {
+                request.KeyAlgorithm = cmdletContext.KeyAlgorithm;
             }
             
              // populate Options
@@ -376,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public System.String DomainName { get; set; }
             public List<Amazon.CertificateManager.Model.DomainValidationOption> DomainValidationOption { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public Amazon.CertificateManager.KeyAlgorithm KeyAlgorithm { get; set; }
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public List<System.String> SubjectAlternativeName { get; set; }
             public List<Amazon.CertificateManager.Model.Tag> Tag { get; set; }

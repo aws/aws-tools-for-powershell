@@ -202,6 +202,7 @@ $ABC_SelectMap = @{
                "Get-ABCBillingGroupCostReportList",
                "Get-ABCBillingGroupList",
                "Get-ABCCustomLineItemList",
+               "Get-ABCCustomLineItemVersionList",
                "Get-ABCPricingPlanList",
                "Get-ABCPricingPlansAssociatedWithPricingRuleList",
                "Get-ABCPricingRuleList",

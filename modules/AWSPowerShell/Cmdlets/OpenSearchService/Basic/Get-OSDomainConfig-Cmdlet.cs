@@ -28,8 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Provides cluster configuration information about the specified domain, such as the
-    /// state, creation date, update version, and update date for cluster options.
+    /// Returns the configuration of an Amazon OpenSearch Service domain.
     /// </summary>
     [Cmdlet("Get", "OSDomainConfig")]
     [OutputType("Amazon.OpenSearchService.Model.DomainConfig")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain you want to get information about.</para>
+        /// <para>Name of the OpenSearch Service domain configuration that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

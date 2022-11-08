@@ -28,8 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Returns domain configuration information about the specified domain, including the
-    /// domain ID, domain endpoint, and domain ARN.
+    /// Describes the domain configuration for the specified Amazon OpenSearch Service domain,
+    /// including the domain ID, domain service endpoint, and domain ARN.
     /// </summary>
     [Cmdlet("Get", "OSDomain")]
     [OutputType("Amazon.OpenSearchService.Model.DomainStatus")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain for which you want information.</para>
+        /// <para>The name of the domain that you want information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

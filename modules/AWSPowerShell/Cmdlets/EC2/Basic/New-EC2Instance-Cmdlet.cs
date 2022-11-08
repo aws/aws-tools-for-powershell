@@ -334,6 +334,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? PrivateDnsNameOptions_EnableResourceNameDnsARecord { get; set; }
         #endregion
         
+        #region Parameter Placement_GroupId
+        /// <summary>
+        /// <para>
+        /// <para>The Group Id of the placement group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Placement_GroupId { get; set; }
+        #endregion
+        
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
@@ -910,6 +920,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.Placement_Affinity = this.Placement_Affinity;
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
+            context.Placement_GroupId = this.Placement_GroupId;
             context.Placement_GroupName = this.Placement_GroupName;
             context.Placement_HostId = this.Placement_HostId;
             context.Placement_HostResourceGroupArn = this.Placement_HostResourceGroupArn;
@@ -1285,6 +1296,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Placement.AvailabilityZone = requestPlacement_placement_AvailabilityZone;
                 requestPlacementIsNull = false;
             }
+            System.String requestPlacement_placement_GroupId = null;
+            if (cmdletContext.Placement_GroupId != null)
+            {
+                requestPlacement_placement_GroupId = cmdletContext.Placement_GroupId;
+            }
+            if (requestPlacement_placement_GroupId != null)
+            {
+                request.Placement.GroupId = requestPlacement_placement_GroupId;
+                requestPlacementIsNull = false;
+            }
             System.String requestPlacement_placement_GroupName = null;
             if (cmdletContext.Placement_GroupName != null)
             {
@@ -1517,6 +1538,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> NetworkInterface { get; set; }
             public System.String Placement_Affinity { get; set; }
             public System.String Placement_AvailabilityZone { get; set; }
+            public System.String Placement_GroupId { get; set; }
             public System.String Placement_GroupName { get; set; }
             public System.String Placement_HostId { get; set; }
             public System.String Placement_HostResourceGroupArn { get; set; }

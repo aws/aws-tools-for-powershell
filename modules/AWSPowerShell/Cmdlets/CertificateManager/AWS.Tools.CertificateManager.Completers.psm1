@@ -90,6 +90,13 @@ $ACM_Completers = {
             break
         }
 
+        # Amazon.CertificateManager.KeyAlgorithm
+        "New-ACMCertificate/KeyAlgorithm"
+        {
+            $v = "EC_prime256v1","EC_secp384r1","EC_secp521r1","RSA_1024","RSA_2048","RSA_3072","RSA_4096"
+            break
+        }
+
         # Amazon.CertificateManager.SortBy
         "Get-ACMCertificateList/SortBy"
         {
@@ -120,6 +127,7 @@ $ACM_Completers = {
 }
 
 $ACM_map = @{
+    "KeyAlgorithm"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "SortBy"=@("Get-ACMCertificateList")
     "SortOrder"=@("Get-ACMCertificateList")

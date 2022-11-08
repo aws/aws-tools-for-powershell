@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token used on subsequent call to get pricing plans. </para>
+        /// <para>The pagination token that's used on subsequent call to get pricing plans. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.BillingConductor.Model;
 namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
-    /// Deletes the pricing rule identified by the input Amazon Resource Name (ARN).
+    /// Deletes the pricing rule that's identified by the input Amazon Resource Name (ARN).
     /// </summary>
     [Cmdlet("Remove", "ABCPricingRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the pricing rule you are deleting. </para>
+        /// <para> The Amazon Resource Name (ARN) of the pricing rule that you are deleting. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

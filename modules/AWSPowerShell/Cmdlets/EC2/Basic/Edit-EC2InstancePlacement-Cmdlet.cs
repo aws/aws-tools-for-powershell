@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Affinity Affinity { get; set; }
         #endregion
         
+        #region Parameter GroupId
+        /// <summary>
+        /// <para>
+        /// <para>The Group Id of a placement group. You must specify the Placement Group <b>Group Id</b>
+        /// to launch an instance in a shared placement group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GroupId { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Affinity = this.Affinity;
+            context.GroupId = this.GroupId;
             context.GroupName = this.GroupName;
             context.HostId = this.HostId;
             context.HostResourceGroupArn = this.HostResourceGroupArn;
@@ -239,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Affinity != null)
             {
                 request.Affinity = cmdletContext.Affinity;
+            }
+            if (cmdletContext.GroupId != null)
+            {
+                request.GroupId = cmdletContext.GroupId;
             }
             if (cmdletContext.GroupName != null)
             {
@@ -326,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.EC2.Affinity Affinity { get; set; }
+            public System.String GroupId { get; set; }
             public System.String GroupName { get; set; }
             public System.String HostId { get; set; }
             public System.String HostResourceGroupArn { get; set; }

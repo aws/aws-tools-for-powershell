@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Associates a package with an Amazon OpenSearch Service domain.
+    /// Associates a package with an Amazon OpenSearch Service domain. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Start", "OSAssociatePackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.DomainPackageDetails")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain to associate the package with.</para>
+        /// <para>Name of the domain to associate the package with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// <br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all instance types and available features for a given OpenSearch or Elasticsearch
+    /// version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSInstanceTypeDetailList")]
     [OutputType("Amazon.OpenSearchService.Model.InstanceTypeDetails")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Name of the domain to list instance type details for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+        /// Defaults to the latest version of OpenSearch.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An optional parameter that specifies the maximum number of results to return. You
+        /// can use <code>nextToken</code> to get the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -86,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If your initial <code>ListInstanceTypeDetails</code> operation returns a <code>nextToken</code>,
+        /// you can include the returned <code>nextToken</code> in subsequent <code>ListInstanceTypeDetails</code>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

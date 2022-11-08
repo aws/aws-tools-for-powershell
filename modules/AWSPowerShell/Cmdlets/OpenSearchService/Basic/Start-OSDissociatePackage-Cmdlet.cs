@@ -28,7 +28,11 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Dissociates a package from the Amazon OpenSearch Service domain.
+    /// Removes a package from the specified Amazon OpenSearch Service domain. The package
+    /// can't be in use with any OpenSearch index for the dissociation to succeed. The package
+    /// is still available in OpenSearch Service for association later. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Start", "OSDissociatePackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.DomainPackageDetails")]
@@ -43,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain to associate the package with.</para>
+        /// <para>Name of the domain to dissociate the package from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageID
         /// <summary>
         /// <para>
-        /// <para>The internal ID of the package to associate with a domain. Use <code>DescribePackages</code>
-        /// to find this value. </para>
+        /// <para>Internal ID of the package to dissociate from the domain. Use <code>ListPackagesForDomain</code>
+        /// to find this value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeVpcEndpointAccess" OutputProperty="AuthorizedPrincipal" Verb="Approve" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Stop" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -54,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="DomainArn" PipelineParameter="DomainArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpoint" OutputProperty="VpcEndpointSummary" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="*" Verb="Get" Noun="VpcEndpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -158,6 +174,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcEndpointAccess" OutputProperty="AuthorizedPrincipalList" Verb="Get" Noun="VpcEndpointAccessList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcEndpoints" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcEndpointsForDomain" OutputProperty="VpcEndpointSummaryList" Verb="Get" Noun="VpcEndpointsForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedInstanceOffering" ShouldProcessTarget="ReservedInstanceOfferingId" PipelineParameter="ReservedInstanceOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -170,6 +198,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RevokeVpcEndpointAccess" Verb="Revoke" Noun="VpcEndpointAccess" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartServiceSoftwareUpdate" OutputProperty="ServiceSoftwareOptions" Verb="Start" Noun="ServiceSoftwareUpdate" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -179,6 +211,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVpcEndpoint" OutputProperty="VpcEndpoint" Verb="Update" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

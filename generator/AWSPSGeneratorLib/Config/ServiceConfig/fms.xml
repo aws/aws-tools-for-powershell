@@ -30,6 +30,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateResource" OutputProperty="*" Verb="Add" Noun="AssociatedResource" ShouldProcessTarget="ResourceSetIdentifier" PipelineParameter="ResourceSetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateResource" OutputProperty="*" Verb="Remove" Noun="AssociatedResource" ShouldProcessTarget="ResourceSetIdentifier" PipelineParameter="ResourceSetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAppsList" Verb="Remove" Noun="AppList" ShouldProcessTarget="ListId" PipelineParameter="ListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProtocolsList" Verb="Remove" Noun="ProtocolList" ShouldProcessTarget="ListId" PipelineParameter="ListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceSet" Verb="Remove" Noun="ResourceSet" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -82,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceSet" OutputProperty="*" Verb="Get" Noun="ResourceSet" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetThirdPartyFirewallAssociationStatus" OutputProperty="*" Verb="Get" Noun="ThirdPartyFirewallAssociationStatus" PipelineParameter="ThirdPartyFirewall" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,6 +114,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="Items" Verb="Read" Noun="DiscoveredResourceList" IgnoreSupportsShouldProcess="true" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -107,6 +127,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProtocolsLists" OutputProperty="ProtocolsLists" Verb="Get" Noun="ProtocolsListList" PipelineParameter="DefaultLists" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceSetResources" OutputProperty="Items" Verb="Read" Noun="ResourceSetResourceList" IgnoreSupportsShouldProcess="true" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceSets" OutputProperty="ResourceSets" Verb="Get" Noun="ResourceSetList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,6 +159,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutProtocolsList" OutputProperty="*" Verb="Write" Noun="ProtocolList" ShouldProcessTarget="ProtocolsList_ListName" PipelineParameter="ProtocolsList_ListName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourceSet" OutputProperty="*" Verb="Write" Noun="ResourceSet" ShouldProcessTarget="ResourceSet_Name" PipelineParameter="ResourceSet_Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

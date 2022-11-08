@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ModifierPercentage
         /// <summary>
         /// <para>
-        /// <para> A percentage modifier applied on the public pricing rates. </para>
+        /// <para> A percentage modifier that's applied on the public pricing rates. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para> The scope of pricing rule that indicates if it is globally applicable, or is service-specific.
+        /// <para> The scope of pricing rule that indicates if it's globally applicable, or it's service-specific.
         /// </para>
         /// </para>
         /// </summary>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> The token that is needed to support idempotency. Idempotency isn't currently supported,
+        /// <para> The token that's needed to support idempotency. Idempotency isn't currently supported,
         /// but will be implemented in a future update. </para>
         /// </para>
         /// </summary>

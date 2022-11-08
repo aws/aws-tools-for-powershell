@@ -28,8 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Allows you to either upgrade your domain or perform an upgrade eligibility check to
-    /// a compatible version of OpenSearch or Elasticsearch.
+    /// Allows you to either upgrade your Amazon OpenSearch Service domain or perform an upgrade
+    /// eligibility check to a compatible version of OpenSearch or Elasticsearch.
     /// </summary>
     [Cmdlet("Update", "OSDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.UpgradeDomainResponse")]
@@ -43,7 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AdvancedOption
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Only supports the <code>override_main_response_version</code> parameter and not other
+        /// advanced options. You can only include this option when upgrading to an OpenSearch
+        /// version. Specifies whether the domain reports its version as 7.10 so that it continues
+        /// to work with Elasticsearch OSS clients and plugins.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Name of the OpenSearch Service domain that you want to upgrade.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PerformCheckOnly
         /// <summary>
         /// <para>
-        /// <para> When true, indicates that an upgrade eligibility check needs to be performed. Does
-        /// not actually perform the upgrade. </para>
+        /// <para>When true, indicates that an upgrade eligibility check needs to be performed. Does
+        /// not actually perform the upgrade.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter TargetVersion
         /// <summary>
         /// <para>
-        /// <para>The version of OpenSearch you intend to upgrade the domain to.</para>
+        /// <para>OpenSearch or Elasticsearch version to which you want to upgrade, in the format Opensearch_X.Y
+        /// or Elasticsearch_X.Y.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

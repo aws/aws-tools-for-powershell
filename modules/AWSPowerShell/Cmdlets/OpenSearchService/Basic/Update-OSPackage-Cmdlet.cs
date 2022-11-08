@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Updates a package for use with Amazon OpenSearch Service domains.
+    /// Updates a package for use with Amazon OpenSearch Service domains. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Update", "OSPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.PackageDetails")]
@@ -43,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CommitMessage
         /// <summary>
         /// <para>
-        /// <para>A commit message for the new version which is shown as part of <code>GetPackageVersionHistoryResponse</code>.
-        /// </para>
+        /// <para>Commit message for the updated file, which is shown as part of <code>GetPackageVersionHistoryResponse</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

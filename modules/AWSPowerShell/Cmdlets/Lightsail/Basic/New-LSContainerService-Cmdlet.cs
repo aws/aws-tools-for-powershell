@@ -193,8 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>The name for the container service.</para><para>The name that you specify for your container service will make up part of its default
         /// domain. The default domain of a container service is typically <code>https://&lt;ServiceName&gt;.&lt;RandomGUID&gt;.&lt;AWSRegion&gt;.cs.amazonlightsail.com</code>.
         /// If the name of your container service is <code>container-service-1</code>, and it's
-        /// located in the US East (Ohio) AWS region (<code>us-east-2</code>), then the domain
-        /// for your container service will be like the following example: <code>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</code></para><para>The following are the requirements for container service names:</para><ul><li><para>Must be unique within each Amazon Web Services Region in your Lightsail account.</para></li><li><para>Must contain 1 to 63 characters.</para></li><li><para>Must contain only alphanumeric characters and hyphens.</para></li><li><para>A hyphen (-) can separate words but cannot be at the start or end of the name.</para></li></ul>
+        /// located in the US East (Ohio) Amazon Web Services Region (<code>us-east-2</code>),
+        /// then the domain for your container service will be like the following example: <code>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</code></para><para>The following are the requirements for container service names:</para><ul><li><para>Must be unique within each Amazon Web Services Region in your Lightsail account.</para></li><li><para>Must contain 1 to 63 characters.</para></li><li><para>Must contain only alphanumeric characters and hyphens.</para></li><li><para>A hyphen (-) can separate words but cannot be at the start or end of the name.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

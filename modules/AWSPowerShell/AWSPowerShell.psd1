@@ -302,6 +302,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.RedshiftServerless.dll',
         'AWSSDK.Rekognition.dll',
         'AWSSDK.ResilienceHub.dll',
+        'AWSSDK.ResourceExplorer2.dll',
         'AWSSDK.ResourceGroups.dll',
         'AWSSDK.ResourceGroupsTaggingAPI.dll',
         'AWSSDK.RoboMaker.dll',

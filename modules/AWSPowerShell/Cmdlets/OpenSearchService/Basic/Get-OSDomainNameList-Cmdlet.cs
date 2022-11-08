@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Returns the names of all domains owned by the current user's account.
+    /// Returns the names of all Amazon OpenSearch Service domains owned by the current user
+    /// in the active Region.
     /// </summary>
     [Cmdlet("Get", "OSDomainNameList")]
     [OutputType("Amazon.OpenSearchService.Model.DomainInfo")]
@@ -43,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EngineType
         /// <summary>
         /// <para>
-        /// <para> Optional parameter to filter the output by domain engine type. Acceptable values
-        /// are 'Elasticsearch' and 'OpenSearch'. </para>
+        /// <para>Filters the output by domain engine type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

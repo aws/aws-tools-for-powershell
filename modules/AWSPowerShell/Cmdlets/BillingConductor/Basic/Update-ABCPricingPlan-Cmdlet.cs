@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the pricing plan you're updating. </para>
+        /// <para>The Amazon Resource Name (ARN) of the pricing plan that you're updating. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The pricing plan description. </para>
+        /// <para>The description of the pricing plan. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

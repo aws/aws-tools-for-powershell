@@ -28,9 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Returns a list of upgrade-compatible versions of OpenSearch/Elasticsearch. You can
-    /// optionally pass a <code><a>DomainName</a></code> to get all upgrade-compatible versions
-    /// of OpenSearch/Elasticsearch for that specific domain.
+    /// Returns a map of OpenSearch or Elasticsearch versions and the versions you can upgrade
+    /// them to.
     /// </summary>
     [Cmdlet("Get", "OSCompatibleVersion")]
     [OutputType("Amazon.OpenSearchService.Model.CompatibleVersionsMap")]
@@ -45,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of an existing domain. Provide this parameter to limit the results to a single
+        /// domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

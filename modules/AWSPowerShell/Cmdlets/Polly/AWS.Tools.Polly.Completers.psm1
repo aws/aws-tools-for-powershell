@@ -135,7 +135,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Hiujin","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Suvi","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 

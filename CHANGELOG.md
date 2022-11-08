@@ -1,4 +1,34 @@
-﻿### 4.1.202 (2022-11-07 21:54Z)
+﻿### 4.1.203 (2022-11-08 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.413.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AWSBillingConductor
+    * Added cmdlet Get-ABCCustomLineItemVersionList leveraging the ListCustomLineItemVersions service API.
+  * Amazon Certificate Manager
+    * Modified cmdlet New-ACMCertificate: added parameter KeyAlgorithm.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Instance: added parameter Placement_GroupId.
+    * Modified cmdlet Edit-EC2InstancePlacement: added parameter GroupId.
+  * Amazon Firewall Management Service
+    * Added cmdlet Add-FMSAssociatedResource leveraging the BatchAssociateResource service API.
+    * Added cmdlet Get-FMSResourceSet leveraging the GetResourceSet service API.
+    * Added cmdlet Get-FMSResourceSetList leveraging the ListResourceSets service API.
+    * Added cmdlet Read-FMSDiscoveredResourceList leveraging the ListDiscoveredResources service API.
+    * Added cmdlet Read-FMSResourceSetResourceList leveraging the ListResourceSetResources service API.
+    * Added cmdlet Remove-FMSAssociatedResource leveraging the BatchDisassociateResource service API.
+    * Added cmdlet Remove-FMSResourceSet leveraging the DeleteResourceSet service API.
+    * Added cmdlet Write-FMSResourceSet leveraging the PutResourceSet service API.
+  * Amazon OpenSearch Service
+    * Added cmdlet Approve-OSVpcEndpointAccess leveraging the AuthorizeVpcEndpointAccess service API.
+    * Added cmdlet Get-OSVpcEndpoint leveraging the DescribeVpcEndpoints service API.
+    * Added cmdlet Get-OSVpcEndpointAccessList leveraging the ListVpcEndpointAccess service API.
+    * Added cmdlet Get-OSVpcEndpointList leveraging the ListVpcEndpoints service API.
+    * Added cmdlet Get-OSVpcEndpointsForDomainList leveraging the ListVpcEndpointsForDomain service API.
+    * Added cmdlet New-OSVpcEndpoint leveraging the CreateVpcEndpoint service API.
+    * Added cmdlet Remove-OSVpcEndpoint leveraging the DeleteVpcEndpoint service API.
+    * Added cmdlet Revoke-OSVpcEndpointAccess leveraging the RevokeVpcEndpointAccess service API.
+    * Added cmdlet Update-OSVpcEndpoint leveraging the UpdateVpcEndpoint service API.
+  * Amazon Resource Explorer. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AREX and can be listed using the command 'Get-AWSCmdletName -Service AREX'.
+
+### 4.1.202 (2022-11-07 21:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.412.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Athena
     * Modified cmdlet Start-ATHQueryExecution: added parameters ResultReuseByAgeConfiguration_Enabled and ResultReuseByAgeConfiguration_MaxAgeInMinute.

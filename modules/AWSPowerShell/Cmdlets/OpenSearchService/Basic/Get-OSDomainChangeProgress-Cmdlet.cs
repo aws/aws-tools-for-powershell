@@ -28,8 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Returns information about the current blue/green deployment happening on a domain,
-    /// including a change ID, status, and progress stages.
+    /// Returns information about the current blue/green deployment happening on an Amazon
+    /// OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes.html">Making
+    /// configuration changes in Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Get", "OSDomainChangeProgress")]
     [OutputType("Amazon.OpenSearchService.Model.ChangeProgressStatusDetails")]
@@ -44,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ChangeId
         /// <summary>
         /// <para>
-        /// <para>The specific change ID for which you want to get progress information. This is an
-        /// optional parameter. If omitted, the service returns information about the most recent
-        /// configuration change. </para>
+        /// <para>The specific change ID for which you want to get progress information. If omitted,
+        /// the request returns information about the most recent configuration change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain you want to get the progress information about.</para>
+        /// <para>The name of the domain to get progress information for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

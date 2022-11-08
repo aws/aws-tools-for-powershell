@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token used on subsequent calls to get billing groups. </para>
+        /// <para>The pagination token that's used on subsequent calls to get billing groups. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

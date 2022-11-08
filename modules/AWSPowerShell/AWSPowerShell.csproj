@@ -802,6 +802,9 @@
     <Reference Include="AWSSDK.ResilienceHub">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResilienceHub.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ResourceExplorer2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceExplorer2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ResourceGroups">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ResourceGroups.dll</HintPath>
     </Reference>
@@ -1736,6 +1739,9 @@
     </Reference>
     <Reference Include="AWSSDK.ResilienceHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResilienceHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ResourceExplorer2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResourceExplorer2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ResourceGroups">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ResourceGroups.dll</HintPath>

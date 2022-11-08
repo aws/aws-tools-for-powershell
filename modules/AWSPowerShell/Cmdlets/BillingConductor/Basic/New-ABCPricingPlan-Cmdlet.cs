@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The pricing plan description. </para>
+        /// <para>The description of the pricing plan. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The pricing plan name. The names must be unique to each pricing plan. </para>
+        /// <para>The name of the pricing plan. The names must be unique to each pricing plan. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Describes all packages available to Amazon OpenSearch Service domains. Includes options
-    /// for filtering, limiting the number of results, and pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes all packages available to OpenSearch Service. For more information, see
+    /// <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSPackage")]
     [OutputType("Amazon.OpenSearchService.Model.PackageDetails")]
@@ -44,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Only returns packages that match the <code>DescribePackagesFilterList</code> values.
-        /// </para>
+        /// <para>Only returns packages that match the <code>DescribePackagesFilterList</code> values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Limits results to a maximum number of packages.</para>
+        /// <para>An optional parameter that specifies the maximum number of results to return. You
+        /// can use <code>nextToken</code> to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Used for pagination. Only necessary if a previous API call includes a non-null NextToken
-        /// value. If provided, returns results for the next page. </para>
+        /// <para>If your initial <code>DescribePackageFilters</code> operation returns a <code>nextToken</code>,
+        /// you can include the returned <code>nextToken</code> in subsequent <code>DescribePackageFilters</code>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur on your database.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region, occurring on a random day of the week.</para><para>Constraints:</para><ul><li><para>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</para></li><li><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be at least 30 minutes.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Example: <code>Tue:17:00-Tue:17:30</code></para></li></ul>
+        /// for each Amazon Web Services Region, occurring on a random day of the week.</para><para>Constraints:</para><ul><li><para>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</para></li><li><para>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para></li><li><para>Must be at least 30 minutes.</para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Example: <code>Tue:17:00-Tue:17:30</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

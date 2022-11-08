@@ -38,10 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Update your distribution's bundle if your distribution is going over its monthly network
     /// transfer quota and is incurring an overage fee.
     /// </para><para>
-    /// You can update your distribution's bundle only one time within your monthly AWS billing
-    /// cycle. To determine if you can update your distribution's bundle, use the <code>GetDistributions</code>
-    /// action. The <code>ableToUpdateBundle</code> parameter in the result will indicate
-    /// whether you can currently update your distribution's bundle.
+    /// You can update your distribution's bundle only one time within your monthly Amazon
+    /// Web Services billing cycle. To determine if you can update your distribution's bundle,
+    /// use the <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code>
+    /// parameter in the result will indicate whether you can currently update your distribution's
+    /// bundle.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LSDistributionBundle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

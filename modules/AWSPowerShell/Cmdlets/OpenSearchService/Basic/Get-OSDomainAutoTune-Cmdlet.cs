@@ -28,8 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Provides scheduled Auto-Tune action details for the domain, such as Auto-Tune action
-    /// type, description, severity, and scheduled date.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch
+    /// Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune
+    /// for Amazon OpenSearch Service</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSDomainAutoTune")]
     [OutputType("Amazon.OpenSearchService.Model.AutoTune")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name for which you want Auto-Tune action details.</para>
+        /// <para>Name of the domain that you want Auto-Tune details about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Set this value to limit the number of results returned. If not specified, defaults
-        /// to 100.</para>
+        /// <para>An optional parameter that specifies the maximum number of results to return. You
+        /// can use <code>nextToken</code> to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>NextToken is sent in case the earlier API call results contain the NextToken. Used
-        /// for pagination.</para>
+        /// <para>If your initial <code>DescribeDomainAutoTunes</code> operation returns a <code>nextToken</code>,
+        /// you can include the returned <code>nextToken</code> in subsequent <code>DescribeDomainAutoTunes</code>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

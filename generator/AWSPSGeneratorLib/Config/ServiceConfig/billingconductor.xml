@@ -90,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCustomLineItemVersions" OutputProperty="CustomLineItemVersions" Verb="Get" Noun="CustomLineItemVersionList" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPricingPlans" OutputProperty="*" Verb="Get" Noun="PricingPlanList" PipelineParameter="BillingPeriod" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

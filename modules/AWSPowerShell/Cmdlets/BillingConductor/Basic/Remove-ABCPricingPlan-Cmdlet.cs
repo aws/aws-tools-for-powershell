@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the pricing plan you're deleting. </para>
+        /// <para>The Amazon Resource Name (ARN) of the pricing plan that you're deleting. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

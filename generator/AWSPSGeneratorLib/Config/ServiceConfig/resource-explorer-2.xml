@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>resource-explorer-2</C2jFilename>
+    <AssemblyName>ResourceExplorer2</AssemblyName>
+    <ServiceNounPrefix>AREX</ServiceNounPrefix>
+    <ServiceName>AWS Resource Explorer</ServiceName>
+    <ServiceClientInterface>IAmazonResourceExplorer2</ServiceClientInterface>
+    <ServiceClient>AmazonResourceExplorer2Client</ServiceClient>
+    <ServiceModuleGuid>23770a75-67df-47b3-8ccc-87c6822a31e7</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateDefaultView" OutputProperty="ViewArn" Verb="Register" Noun="DefaultView" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetView" OutputProperty="*" Verb="Get" Noun="ViewBatch" PipelineParameter="ViewArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="*" Verb="New" Noun="Index" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateView" OutputProperty="View" Verb="New" Noun="View" ShouldProcessTarget="ViewName" PipelineParameter="ViewName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndex" OutputProperty="*" Verb="Remove" Noun="Index" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteView" OutputProperty="ViewArn" Verb="Remove" Noun="View" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDefaultView" Verb="Unregister" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDefaultView" OutputProperty="ViewArn" Verb="Get" Noun="DefaultView" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetView" OutputProperty="*" Verb="Get" Noun="View" PipelineParameter="ViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndexes" OutputProperty="Indexes" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Regions" NewName="RegionList" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceTypeList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListViews" OutputProperty="Views" Verb="Get" Noun="ViewArnList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Search" OutputProperty="*" Verb="Search" Noun="Resource" IgnoreSupportsShouldProcess="true" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIndexType" OutputProperty="*" Verb="Update" Noun="IndexType" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateView" OutputProperty="View" Verb="Update" Noun="View" ShouldProcessTarget="ViewArn" PipelineParameter="ViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

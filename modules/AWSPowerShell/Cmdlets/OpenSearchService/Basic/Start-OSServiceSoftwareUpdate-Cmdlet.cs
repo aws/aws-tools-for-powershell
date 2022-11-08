@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Schedules a service software update for an Amazon OpenSearch Service domain.
+    /// Schedules a service software update for an Amazon OpenSearch Service domain. For more
+    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
+    /// software updates in Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Start", "OSServiceSoftwareUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.ServiceSoftwareOptions")]

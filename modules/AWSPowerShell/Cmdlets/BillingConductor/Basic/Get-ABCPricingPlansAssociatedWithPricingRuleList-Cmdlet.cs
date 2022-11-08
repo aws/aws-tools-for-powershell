@@ -28,7 +28,7 @@ using Amazon.BillingConductor.Model;
 namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
-    /// A list of the pricing plans associated with a pricing rule.
+    /// A list of the pricing plans that are associated with a pricing rule.
     /// </summary>
     [Cmdlet("Get", "ABCPricingPlansAssociatedWithPricingRuleList")]
     [OutputType("Amazon.BillingConductor.Model.ListPricingPlansAssociatedWithPricingRuleResponse")]

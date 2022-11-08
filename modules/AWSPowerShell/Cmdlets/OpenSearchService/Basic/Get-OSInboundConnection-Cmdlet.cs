@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Lists all the inbound cross-cluster connections for a remote domain.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the inbound cross-cluster search connections for a destination (remote)
+    /// Amazon OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster
+    /// search for Amazon OpenSearch Service</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSInboundConnection")]
     [OutputType("Amazon.OpenSearchService.Model.InboundConnection")]
@@ -43,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> A list of filters used to match properties for inbound cross-cluster connections.
-        /// Available <code><a>Filter</a></code> values are: <ul><li>connection-id</li><li>local-domain-info.domain-name</li><li>local-domain-info.owner-id</li><li>local-domain-info.region</li><li>remote-domain-info.domain-name</li></ul></para>
+        /// <para> A list of filters used to match properties for inbound cross-cluster connections.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Set this value to limit the number of results returned. If not specified, defaults
-        /// to 100.</para>
+        /// <para>An optional parameter that specifies the maximum number of results to return. You
+        /// can use <code>nextToken</code> to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If more results are available and NextToken is present, make the next request to the
-        /// same API with the received NextToken to paginate the remaining results.</para>
+        /// <para>If your initial <code>DescribeInboundConnections</code> operation returns a <code>nextToken</code>,
+        /// you can include the returned <code>nextToken</code> in subsequent <code>DescribeInboundConnections</code>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

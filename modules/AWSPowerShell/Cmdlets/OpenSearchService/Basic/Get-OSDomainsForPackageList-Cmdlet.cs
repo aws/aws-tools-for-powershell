@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Lists all Amazon OpenSearch Service domains associated with the package.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all Amazon OpenSearch Service domains associated with a given package. For more
+    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSDomainsForPackageList")]
     [OutputType("Amazon.OpenSearchService.Model.DomainPackageDetails")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageID
         /// <summary>
         /// <para>
-        /// <para>The package for which to list associated domains.</para>
+        /// <para>The unique identifier of the package for which to list associated domains.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Limits the results to a maximum number of domains.</para>
+        /// <para>An optional parameter that specifies the maximum number of results to return. You
+        /// can use <code>nextToken</code> to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,8 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Used for pagination. Only necessary if a previous API call includes a non-null NextToken
-        /// value. If provided, returns results for the next page. </para>
+        /// <para>If your initial <code>ListDomainsForPackage</code> operation returns a <code>nextToken</code>,
+        /// you can include the returned <code>nextToken</code> in subsequent <code>ListDomainsForPackage</code>
+        /// operations, which returns results in the next page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

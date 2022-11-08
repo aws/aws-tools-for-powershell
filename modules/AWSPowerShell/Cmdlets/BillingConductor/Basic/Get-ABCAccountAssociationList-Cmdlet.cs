@@ -28,15 +28,10 @@ using Amazon.BillingConductor.Model;
 namespace Amazon.PowerShell.Cmdlets.ABC
 {
     /// <summary>
-    /// <i><b>Amazon Web Services Billing Conductor is in beta release and is subject to
-    /// change. Your use of Amazon Web Services Billing Conductor is subject to the Beta Service
-    /// Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon
-    /// Web Services Service Terms</a> (Section 1.10).</b></i><para>
-    ///  This is a paginated call to list linked accounts that are linked to the payer account
+    /// This is a paginated call to list linked accounts that are linked to the payer account
     /// for the specified time period. If no information is provided, the current billing
-    /// period is used. The response will optionally include the billing group associated
+    /// period is used. The response will optionally include the billing group that's associated
     /// with the linked account.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "ABCAccountAssociationList")]
     [OutputType("Amazon.BillingConductor.Model.AccountAssociationsListElement")]
@@ -82,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token used on subsequent calls to retrieve accounts. </para>
+        /// <para> The pagination token that's used on subsequent calls to retrieve accounts. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ABCBillingGroupCostReportList', 
         'Get-ABCBillingGroupList', 
         'Get-ABCCustomLineItemList', 
+        'Get-ABCCustomLineItemVersionList', 
         'Get-ABCPricingPlanList', 
         'Get-ABCPricingPlansAssociatedWithPricingRuleList', 
         'Get-ABCPricingRuleList', 

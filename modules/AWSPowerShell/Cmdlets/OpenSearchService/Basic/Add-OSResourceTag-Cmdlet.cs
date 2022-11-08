@@ -28,8 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Attaches tags to an existing domain. Tags are a set of case-sensitive key value pairs.
-    /// An domain can have up to 10 tags. See <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging" target="_blank"> Tagging Amazon OpenSearch Service domains</a> for more information.
+    /// Attaches tags to an existing Amazon OpenSearch Service domain. Tags are a set of case-sensitive
+    /// key-value pairs. An domain can have up to 10 tags. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-awsresorcetagging">
+    /// Tagging Amazon OpenSearch Service domains</a>.
     /// </summary>
     [Cmdlet("Add", "OSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para>Specify the <code>ARN</code> of the domain you want to add tags to. </para>
+        /// <para>Amazon Resource Name (ARN) for the OpenSearch Service domain to which you want to
+        /// attach resource tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter TagList
         /// <summary>
         /// <para>
-        /// <para>List of <code>Tag</code> to add to the domain. </para>
+        /// <para>List of resource tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

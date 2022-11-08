@@ -28,8 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Retrieves the latest status of the last upgrade or upgrade eligibility check performed
-    /// on the domain.
+    /// Returns the most recent status of the last upgrade or upgrade eligibility check performed
+    /// on an Amazon OpenSearch Service domain.
     /// </summary>
     [Cmdlet("Get", "OSUpgradeStatus")]
     [OutputType("Amazon.OpenSearchService.Model.GetUpgradeStatusResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The domain of the domain to get upgrade status information for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The billing group description. </para>
+        /// <para>The description of the billing group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter ComputationPreference_PricingPlanArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the pricing plan used to compute the Amazon Web
-        /// Services charges for a billing group. </para>
+        /// <para> The Amazon Resource Name (ARN) of the pricing plan that's used to compute the Amazon
+        /// Web Services charges for a billing group. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

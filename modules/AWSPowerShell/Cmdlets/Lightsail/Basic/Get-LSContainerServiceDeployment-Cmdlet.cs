@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </para><note><para>
     /// A set number of deployments are kept before the oldest one is replaced with the newest
     /// one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon
-    /// Lightsail endpoints and quotas</a> in the <i>AWS General Reference</i>.
+    /// Lightsail endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LSContainerServiceDeployment")]

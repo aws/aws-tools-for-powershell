@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Returns all tags for the given domain.
+    /// Returns all resource tags for an Amazon OpenSearch Service domain. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-awsresourcetagging.html">Tagging
+    /// Amazon OpenSearch Service domains</a>.
     /// </summary>
     [Cmdlet("Get", "OSResourceTag")]
     [OutputType("Amazon.OpenSearchService.Model.Tag")]
@@ -43,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ARN
         /// <summary>
         /// <para>
-        /// <para>Specify the <code>ARN</code> of the domain that the tags you want to view are attached
-        /// to. </para>
+        /// <para>Amazon Resource Name (ARN) for the domain to view tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

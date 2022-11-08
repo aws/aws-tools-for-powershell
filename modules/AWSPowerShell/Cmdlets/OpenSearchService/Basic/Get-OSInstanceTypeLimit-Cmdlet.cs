@@ -28,9 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Describe the limits for a given instance type and OpenSearch or Elasticsearch version.
-    /// When modifying an existing domain, specify the <code><a>DomainName</a></code> to
-    /// see which limits you can modify.
+    /// Describes the instance count, storage, and master node limits for a given OpenSearch
+    /// or Elasticsearch version and instance type.
     /// </summary>
     [Cmdlet("Get", "OSInstanceTypeLimit")]
     [OutputType("System.String")]
@@ -45,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> The name of the domain you want to modify. Only include this value if you're querying
-        /// OpenSearch <code><a>Limits</a></code> for an existing domain. </para>
+        /// <para>The name of the domain. Only specify if you need the limits for an existing domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para> Version of OpenSearch for which <code><a>Limits</a></code> are needed. </para>
+        /// <para>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+        /// Defaults to the latest version of OpenSearch.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para> The instance type for an OpenSearch cluster for which OpenSearch <code><a>Limits</a></code> are needed. </para>
+        /// <para>The OpenSearch Service instance type for which you need limit information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

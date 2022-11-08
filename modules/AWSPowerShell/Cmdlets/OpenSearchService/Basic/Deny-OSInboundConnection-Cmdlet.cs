@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Allows the remote domain owner to reject an inbound cross-cluster connection request.
+    /// Allows the remote Amazon OpenSearch Service domain owner to reject an inbound cross-cluster
+    /// connection request.
     /// </summary>
     [Cmdlet("Deny", "OSInboundConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.InboundConnection")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the inbound connection to reject.</para>
+        /// <para>The unique identifier of the inbound connection to reject.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

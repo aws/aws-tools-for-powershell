@@ -28,8 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Modifies the cluster configuration of the specified domain, such as setting the instance
-    /// type and the number of instances.
+    /// Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.
     /// </summary>
     [Cmdlet("Update", "OSDomainConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.DomainConfig")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AccessPolicy
         /// <summary>
         /// <para>
-        /// <para>IAM access policy as a JSON-formatted string.</para>
+        /// <para>Identity and Access Management (IAM) access policy as a JSON-formatted string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,9 +54,21 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AdvancedOption
         /// <summary>
         /// <para>
-        /// <para>Modifies the advanced option to allow references to indices in an HTTP request body.
-        /// Must be <code>false</code> when configuring access to individual sub-resources. By
-        /// default, the value is <code>true</code>. See <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options" target="_blank">Advanced options </a> for more information. </para>
+        /// <para>Key-value pairs to specify advanced configuration options. The following key-value
+        /// pairs are supported:</para><ul><li><para><code>"rest.action.multi.allow_explicit_index": "true" | "false"</code> - Note the
+        /// use of a string rather than a boolean. Specifies whether explicit references to indexes
+        /// are allowed inside the body of HTTP requests. If you want to configure access policies
+        /// for domain sub-resources, such as specific indexes and domain APIs, you must disable
+        /// this property. Default is true.</para></li><li><para><code>"indices.fielddata.cache.size": "80" </code> - Note the use of a string rather
+        /// than a boolean. Specifies the percentage of heap space allocated to field data. Default
+        /// is unbounded.</para></li><li><para><code>"indices.query.bool.max_clause_count": "1024"</code> - Note the use of a string
+        /// rather than a boolean. Specifies the maximum number of clauses allowed in a Lucene
+        /// boolean query. Default is 1,024. Queries with more than the permitted number of clauses
+        /// result in a <code>TooManyClauses</code> error.</para></li><li><para><code>"override_main_response_version": "true" | "false"</code> - Note the use of
+        /// a string rather than a boolean. Specifies whether the domain reports its version as
+        /// 7.10 to allow Elasticsearch OSS clients and plugins to continue working with it. Default
+        /// is false when creating a domain and true when upgrading a domain.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options">Advanced
+        /// cluster parameters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AdvancedSecurityOptions_AnonymousAuthEnabled
         /// <summary>
         /// <para>
-        /// <para>True if Anonymous auth is enabled. Anonymous auth can be enabled only when AdvancedSecurity
-        /// is enabled on existing domains.</para>
+        /// <para>True to enable a 30-day migration period during which administrators can create role
+        /// mappings. Only necessary when <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing">enabling
+        /// fine-grained access control on an existing domain</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SnapshotOptions_AutomatedSnapshotStartHour
         /// <summary>
         /// <para>
-        /// <para>The time, in UTC format, when the service takes a daily automated snapshot of the
-        /// specified domain. Default is <code>0</code> hours. </para>
+        /// <para>The time, in UTC format, when OpenSearch Service takes a daily automated snapshot
+        /// of the specified domain. Default is <code>0</code> hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ZoneAwarenessConfig_AvailabilityZoneCount
         /// <summary>
         /// <para>
-        /// <para>An integer value to indicate the number of availability zones for a domain when zone
-        /// awareness is enabled. This should be equal to number of subnets if VPC endpoints is
-        /// enabled. </para>
+        /// <para>If you enabled multiple Availability Zones, this value is the number of zones that
+        /// you want the domain to use. Valid values are <code>2</code> and <code>3</code>. If
+        /// your domain is provisioned within a VPC, this value be equal to number of subnets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainEndpointOptions_CustomEndpoint
         /// <summary>
         /// <para>
-        /// <para>The fully qualified domain for your custom endpoint.</para>
+        /// <para>The fully qualified URL for the custom endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainEndpointOptions_CustomEndpointCertificateArn
         /// <summary>
         /// <para>
-        /// <para>The ACM certificate ARN for your custom endpoint.</para>
+        /// <para>The ARN for your security certificate, managed in Amazon Web Services Certificate
+        /// Manager (ACM).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_DedicatedMasterCount
         /// <summary>
         /// <para>
-        /// <para>Total number of dedicated master nodes, active and on standby, for the cluster.</para>
+        /// <para>Number of dedicated master nodes in the cluster. This number must be greater than
+        /// 1, otherwise you receive a validation exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_DedicatedMasterEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean value to indicate whether a dedicated master node is enabled. See <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains.html#managedomains-dedicatedmasternodes" target="_blank">Dedicated master nodes in Amazon OpenSearch Service </a> for more
-        /// information. </para>
+        /// <para>Indicates whether dedicated master nodes are enabled for the cluster.<code>True</code>
+        /// if the cluster will use a dedicated master node.<code>False</code> if the cluster
+        /// will not.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_DedicatedMasterType
         /// <summary>
         /// <para>
-        /// <para>The instance type for a dedicated master node.</para>
+        /// <para>OpenSearch Service instance type of the dedicated master nodes in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AutoTuneOptions_DesiredState
         /// <summary>
         /// <para>
-        /// <para>The Auto-Tune desired state. Valid values are ENABLED and DISABLED.</para>
+        /// <para>Whether Auto-Tune is enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain you're updating.</para>
+        /// <para>The name of the domain that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -194,8 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request
-        /// should return the results of validation checks (DryRunResults) without actually applying
-        /// the change.</para>
+        /// should return the results of validation check without actually applying the change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,7 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EBSOptions_EBSEnabled
         /// <summary>
         /// <para>
-        /// <para>Whether EBS-based storage is enabled.</para>
+        /// <para>Indicates whether EBS volumes are attached to data nodes in an OpenSearch Service
+        /// domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AdvancedSecurityOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>True if advanced security is enabled.</para>
+        /// <para>True to enable fine-grained access control.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SAMLOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>True if SAML is enabled.</para>
+        /// <para>True to enable SAML authentication for a domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ColdStorageOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>Enable cold storage option. Accepted values true or false</para>
+        /// <para>Whether to enable or disable cold storage on the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CognitoOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>The option to enable Cognito for OpenSearch Dashboards authentication.</para>
+        /// <para>Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EncryptionAtRestOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>The option to enable encryption at rest.</para>
+        /// <para>True to enable encryption at rest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainEndpointOptions_EnforceHTTPS
         /// <summary>
         /// <para>
-        /// <para>Whether only HTTPS endpoint should be enabled for the domain.</para>
+        /// <para>True to require that all traffic to the domain arrive over HTTPS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Idp_EntityId
         /// <summary>
         /// <para>
-        /// <para>The unique entity ID of the application in SAML identity provider.</para>
+        /// <para>The unique entity ID of the application in the SAML identity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,7 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CognitoOptions_IdentityPoolId
         /// <summary>
         /// <para>
-        /// <para>The Cognito identity pool ID for OpenSearch Dashboards authentication.</para>
+        /// <para>The Amazon Cognito identity pool ID that you want OpenSearch Service to use for OpenSearch
+        /// Dashboards authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -308,7 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of instances in the specified domain cluster.</para>
+        /// <para>Number of dedicated master nodes in the cluster. This number must be greater than
+        /// 1, otherwise you receive a validation exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -318,8 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type for an OpenSearch cluster. UltraWarm instance types are not supported
-        /// for data instances. </para>
+        /// <para>Instance type of data nodes in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AdvancedSecurityOptions_InternalUserDatabaseEnabled
         /// <summary>
         /// <para>
-        /// <para>True if the internal user database is enabled.</para>
+        /// <para>True to enable the internal user database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,7 +356,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EBSOptions_Iops
         /// <summary>
         /// <para>
-        /// <para>The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).</para>
+        /// <para>Specifies the baseline input/output (I/O) performance of EBS volumes attached to data
+        /// nodes. Applicable only for the <code>gp3</code> and provisioned IOPS EBS volume types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EncryptionAtRestOptions_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key ID for encryption at rest options.</para>
+        /// <para>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,8 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter LogPublishingOption
         /// <summary>
         /// <para>
-        /// <para>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing
-        /// options to publish a given type of OpenSearch log. </para>
+        /// <para>Options to publish OpenSearch lots to Amazon CloudWatch Logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,8 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AutoTuneOptions_MaintenanceSchedule
         /// <summary>
         /// <para>
-        /// <para>A list of maintenance schedules. See <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html" target="_blank"> Auto-Tune for Amazon OpenSearch Service </a> for more information.
-        /// </para>
+        /// <para>A list of maintenance schedules during which Auto-Tune can deploy changes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +410,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MasterUserOptions_MasterUserARN
         /// <summary>
         /// <para>
-        /// <para>ARN for the master user (if IAM is enabled).</para>
+        /// <para>Amazon Resource Name (ARN) for the master user. Only specify if <code>InternalUserDatabaseEnabled</code>
+        /// is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,8 +422,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MasterUserOptions_MasterUserName
         /// <summary>
         /// <para>
-        /// <para>The master user's username, which is stored in the Amazon OpenSearch Service domain's
-        /// internal database.</para>
+        /// <para>User name for the master user. Only specify if <code>InternalUserDatabaseEnabled</code>
+        /// is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,8 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SAMLOptions_MasterUserName
         /// <summary>
         /// <para>
-        /// <para>The SAML master username, which is stored in the Amazon OpenSearch Service domain's
-        /// internal database.</para>
+        /// <para>The SAML master user name, which is stored in the domain's internal user database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,8 +445,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MasterUserOptions_MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The master user's password, which is stored in the Amazon OpenSearch Service domain's
-        /// internal database.</para>
+        /// <para>Password for the master user. Only specify if <code>InternalUserDatabaseEnabled</code>
+        /// is <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -442,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Idp_MetadataContent
         /// <summary>
         /// <para>
-        /// <para>The metadata of the SAML application in XML format.</para>
+        /// <para>The metadata of the SAML application, in XML format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -453,7 +468,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CognitoOptions_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN that provides OpenSearch permissions for accessing Cognito resources.</para>
+        /// <para>The <code>AmazonOpenSearchServiceCognitoAccess</code> role that allows OpenSearch
+        /// Service to configure your user pool and identity pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -463,7 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SAMLOptions_RolesKey
         /// <summary>
         /// <para>
-        /// <para>Element of the SAML assertion to use for backend roles. Default is roles.</para>
+        /// <para>Element of the SAML assertion to use for backend roles. Default is <code>roles</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -474,8 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter AutoTuneOptions_RollbackOnDisable
         /// <summary>
         /// <para>
-        /// <para>The rollback state while disabling Auto-Tune for the domain. Valid values are NO_ROLLBACK
-        /// and DEFAULT_ROLLBACK. </para>
+        /// <para>When disabling Auto-Tune, specify <code>NO_ROLLBACK</code> to retain all prior Auto-Tune
+        /// settings or <code>DEFAULT_ROLLBACK</code> to revert to the OpenSearch Service defaults.
+        /// If you specify <code>DEFAULT_ROLLBACK</code>, you must include a <code>MaintenanceSchedule</code>
+        /// in the request. Otherwise, OpenSearch Service is unable to perform the rollback.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -486,7 +504,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter VPCOptions_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security groups for the VPC endpoint.</para>
+        /// <para>The list of security group IDs associated with the VPC endpoints for the domain. If
+        /// you do not provide a security group ID, OpenSearch Service uses the default security
+        /// group for the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -498,7 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>The duration, in minutes, after which a user session becomes inactive. Acceptable
-        /// values are between 1 and 1440, and the default value is 60. </para>
+        /// values are between 1 and 1440, and the default value is 60.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -509,7 +529,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter SAMLOptions_SubjectKey
         /// <summary>
         /// <para>
-        /// <para>Element of the SAML assertion to use for username. Default is NameID.</para>
+        /// <para>Element of the SAML assertion to use for the user name. Default is <code>NameID</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -520,7 +540,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter VPCOptions_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnets for the VPC endpoint.</para>
+        /// <para>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain
+        /// uses multiple Availability Zones, you need to provide two subnet IDs, one per zone.
+        /// Otherwise, provide only one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -531,7 +553,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EBSOptions_Throughput
         /// <summary>
         /// <para>
-        /// <para>The Throughput for GP3 EBS volume (SSD).</para>
+        /// <para>Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable
+        /// only for the <code>gp3</code> volume type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -541,10 +564,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainEndpointOptions_TLSSecurityPolicy
         /// <summary>
         /// <para>
-        /// <para>Specify the TLS security policy to apply to the HTTPS endpoint of the domain. <br />
-        /// Can be one of the following values: <ul><li><b>Policy-Min-TLS-1-0-2019-07:</b> TLS
-        /// security policy which supports TLSv1.0 and higher. </li><li><b>Policy-Min-TLS-1-2-2019-07:</b>
-        /// TLS security policy which supports only TLSv1.2 </li></ul></para>
+        /// <para>Specify the TLS security policy to apply to the HTTPS endpoint of the domain.</para><para> Can be one of the following values:</para><ul><li><para><b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy which supports TLS version
+        /// 1.0 and higher.</para></li><li><para><b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy which supports only TLS version
+        /// 1.2 </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -555,7 +577,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter CognitoOptions_UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The Cognito user pool ID for OpenSearch Dashboards authentication.</para>
+        /// <para>The Amazon Cognito user pool ID that you want OpenSearch Service to use for OpenSearch
+        /// Dashboards authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -565,7 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EBSOptions_VolumeSize
         /// <summary>
         /// <para>
-        /// <para>Integer to specify the size of an EBS volume.</para>
+        /// <para>Specifies the size (in GiB) of EBS volumes attached to data nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -575,7 +598,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EBSOptions_VolumeType
         /// <summary>
         /// <para>
-        /// <para>The volume type for EBS-based storage.</para>
+        /// <para>Specifies the type of EBS volumes attached to data nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -586,7 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_WarmCount
         /// <summary>
         /// <para>
-        /// <para>The number of UltraWarm nodes in the cluster.</para>
+        /// <para>The number of warm nodes in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -596,7 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_WarmEnabled
         /// <summary>
         /// <para>
-        /// <para>True to enable UltraWarm storage.</para>
+        /// <para>Whether to enable warm storage for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -606,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_WarmType
         /// <summary>
         /// <para>
-        /// <para>The instance type for the OpenSearch cluster's warm nodes.</para>
+        /// <para>The instance type for the cluster's warm nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -617,8 +640,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ClusterConfig_ZoneAwarenessEnabled
         /// <summary>
         /// <para>
-        /// <para>A boolean value to indicate whether zone awareness is enabled. See <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html" target="_blank">Configuring a multi-AZ domain in Amazon OpenSearch Service </a> for
-        /// more information. </para>
+        /// <para>Indicates whether multiple Availability Zones are enabled. For more information, see
+        /// <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html">Configuring
+        /// a multi-AZ domain in Amazon OpenSearch Service</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

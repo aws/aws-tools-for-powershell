@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-OSResourceTag', 
         'Approve-OSInboundConnection', 
+        'Approve-OSVpcEndpointAccess', 
         'Deny-OSInboundConnection', 
         'Get-OSCompatibleVersion', 
         'Get-OSDomain', 
@@ -110,22 +111,30 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSUpgradeHistory', 
         'Get-OSUpgradeStatus', 
         'Get-OSVersionList', 
+        'Get-OSVpcEndpoint', 
+        'Get-OSVpcEndpointAccessList', 
+        'Get-OSVpcEndpointList', 
+        'Get-OSVpcEndpointsForDomainList', 
         'New-OSDomain', 
         'New-OSOutboundConnection', 
         'New-OSPackage', 
         'New-OSReservedInstanceOffering', 
+        'New-OSVpcEndpoint', 
         'Remove-OSDomain', 
         'Remove-OSInboundConnection', 
         'Remove-OSOutboundConnection', 
         'Remove-OSPackage', 
         'Remove-OSResourceTag', 
+        'Remove-OSVpcEndpoint', 
+        'Revoke-OSVpcEndpointAccess', 
         'Start-OSAssociatePackage', 
         'Start-OSDissociatePackage', 
         'Start-OSServiceSoftwareUpdate', 
         'Stop-OSServiceSoftwareUpdate', 
         'Update-OSDomain', 
         'Update-OSDomainConfig', 
-        'Update-OSPackage')
+        'Update-OSPackage', 
+        'Update-OSVpcEndpoint')
 
     # Variables to export from this module
     VariablesToExport = '*'

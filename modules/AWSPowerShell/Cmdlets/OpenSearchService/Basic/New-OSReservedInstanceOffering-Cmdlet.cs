@@ -28,7 +28,7 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Allows you to purchase reserved OpenSearch instances.
+    /// Allows you to purchase Amazon OpenSearch Service Reserved Instances.
     /// </summary>
     [Cmdlet("New", "OSReservedInstanceOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.PurchaseReservedInstanceOfferingResponse")]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ReservedInstanceOfferingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the reserved OpenSearch instance offering to purchase.</para>
+        /// <para>The ID of the Reserved Instance offering to purchase.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

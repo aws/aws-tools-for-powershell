@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Returns a list of package versions, along with their creation time and commit message.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of Amazon OpenSearch Service package versions, along with their creation
+    /// time and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSPackageVersionHistory")]
     [OutputType("Amazon.OpenSearchService.Model.GetPackageVersionHistoryResponse")]
@@ -42,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageID
         /// <summary>
         /// <para>
-        /// <para>Returns an audit history of package versions.</para>
+        /// <para>The unique identifier of the package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Limits results to a maximum number of package versions.</para>
+        /// <para>An optional parameter that specifies the maximum number of results to return. You
+        /// can use <code>nextToken</code> to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Used for pagination. Only necessary if a previous API call includes a non-null NextToken
-        /// value. If provided, returns results for the next page. </para>
+        /// <para>If your initial <code>GetPackageVersionHistory</code> operation returns a <code>nextToken</code>,
+        /// you can include the returned <code>nextToken</code> in subsequent <code>GetPackageVersionHistory</code>
+        /// operations, which returns results in the next page. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

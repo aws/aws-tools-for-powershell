@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Allows the remote domain owner to accept an inbound cross-cluster connection request.
+    /// Allows the destination Amazon OpenSearch Service domain owner to accept an inbound
+    /// cross-cluster search connection request. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster
+    /// search for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Approve", "OSInboundConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.InboundConnection")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the inbound connection you want to accept.</para>
+        /// <para>The ID of the inbound connection to accept.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// if automated backups are enabled.</para><para>The default is a 30-minute window selected at random from an 8-hour block of time
         /// for each AWS Region. For more information about the preferred backup window time blocks
         /// for each region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working
-        /// With Backups</a> guide in the Amazon Relational Database Service (Amazon RDS) documentation.</para><para>Constraints:</para><ul><li><para>Must be in the <code>hh24:mi-hh24:mi</code> format.</para><para>Example: <code>16:00-16:30</code></para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// With Backups</a> guide in the Amazon Relational Database Service documentation.</para><para>Constraints:</para><ul><li><para>Must be in the <code>hh24:mi-hh24:mi</code> format.</para><para>Example: <code>16:00-16:30</code></para></li><li><para>Specified in Coordinated Universal Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

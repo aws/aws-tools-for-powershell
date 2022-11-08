@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.OS
     /// <summary>
     /// Cancels a scheduled service software update for an Amazon OpenSearch Service domain.
     /// You can only perform this operation before the <code>AutomatedUpdateDate</code> and
-    /// when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.
+    /// when the domain's <code>UpdateStatus</code> is <code>PENDING_UPDATE</code>. For more
+    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
+    /// software updates in Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Stop", "OSServiceSoftwareUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.ServiceSoftwareOptions")]
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain that you want to stop the latest service software update on.</para>
+        /// <para>Name of the OpenSearch Service domain that you want to cancel the service software
+        /// update on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

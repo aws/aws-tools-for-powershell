@@ -28,8 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Permanently deletes the specified domain and all of its data. Once a domain is deleted,
-    /// it cannot be recovered.
+    /// Deletes an Amazon OpenSearch Service domain and all of its data. You can't recover
+    /// a domain after you delete it.
     /// </summary>
     [Cmdlet("Remove", "OSDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.OpenSearchService.Model.DomainStatus")]

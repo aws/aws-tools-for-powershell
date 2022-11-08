@@ -28,8 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Creates a new cross-cluster connection from a local OpenSearch domain to a remote
-    /// OpenSearch domain.
+    /// Creates a new cross-cluster search connection from a source Amazon OpenSearch Service
+    /// domain to a destination domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster
+    /// search for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("New", "OSOutboundConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.CreateOutboundConnectionResponse")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ConnectionAlias
         /// <summary>
         /// <para>
-        /// <para>The connection alias used used by the customer for this cross-cluster connection.</para>
+        /// <para>Name of the connection.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter LocalDomainInfo_AWSDomainInformation_DomainName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Name of the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter RemoteDomainInfo_AWSDomainInformation_DomainName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Name of the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter LocalDomainInfo_AWSDomainInformation_OwnerId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Web Services account ID of the domain owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter RemoteDomainInfo_AWSDomainInformation_OwnerId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Web Services account ID of the domain owner.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter LocalDomainInfo_AWSDomainInformation_Region
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Web Services Region in which the domain is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter RemoteDomainInfo_AWSDomainInformation_Region
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Web Services Region in which the domain is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

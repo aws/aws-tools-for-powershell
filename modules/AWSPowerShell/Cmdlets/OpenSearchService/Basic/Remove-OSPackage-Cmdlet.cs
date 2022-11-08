@@ -28,7 +28,8 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Deletes the package.
+    /// Deletes an Amazon OpenSearch Service package. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("Remove", "OSPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.OpenSearchService.Model.PackageDetails")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>The internal ID of the package you want to delete. Use <code>DescribePackages</code>
-        /// to find this value. </para>
+        /// to find this value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

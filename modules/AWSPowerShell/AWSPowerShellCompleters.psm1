@@ -338,6 +338,13 @@ $ACM_Completers = {
             break
         }
 
+        # Amazon.CertificateManager.KeyAlgorithm
+        "New-ACMCertificate/KeyAlgorithm"
+        {
+            $v = "EC_prime256v1","EC_secp384r1","EC_secp521r1","RSA_1024","RSA_2048","RSA_3072","RSA_4096"
+            break
+        }
+
         # Amazon.CertificateManager.SortBy
         "Get-ACMCertificateList/SortBy"
         {
@@ -368,6 +375,7 @@ $ACM_Completers = {
 }
 
 $ACM_map = @{
+    "KeyAlgorithm"=@("New-ACMCertificate")
     "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
     "SortBy"=@("Get-ACMCertificateList")
     "SortOrder"=@("Get-ACMCertificateList")
@@ -5283,6 +5291,7 @@ $ABC_SelectMap = @{
                "Get-ABCBillingGroupCostReportList",
                "Get-ABCBillingGroupList",
                "Get-ABCCustomLineItemList",
+               "Get-ABCCustomLineItemVersionList",
                "Get-ABCPricingPlanList",
                "Get-ABCPricingPlansAssociatedWithPricingRuleList",
                "Get-ABCPricingRuleList",
@@ -22018,10 +22027,13 @@ $FMS_SelectCompleters = {
 $FMS_SelectMap = @{
     "Select"=@("Add-FMSAdminAccountAssociation",
                "Register-FMSThirdPartyFirewall",
+               "Add-FMSAssociatedResource",
+               "Remove-FMSAssociatedResource",
                "Remove-FMSAppList",
                "Remove-FMSNotificationChannel",
                "Remove-FMSPolicy",
                "Remove-FMSProtocolList",
+               "Remove-FMSResourceSet",
                "Remove-FMSAdminAccountAssociation",
                "Unregister-FMSThirdPartyFirewall",
                "Get-FMSAdminAccount",
@@ -22031,19 +22043,24 @@ $FMS_SelectMap = @{
                "Get-FMSPolicy",
                "Get-FMSProtectionStatus",
                "Get-FMSProtocolList",
+               "Get-FMSResourceSet",
                "Get-FMSThirdPartyFirewallAssociationStatus",
                "Get-FMSViolationDetail",
                "Get-FMSAppsListList",
                "Get-FMSComplianceStatusList",
+               "Read-FMSDiscoveredResourceList",
                "Get-FMSMemberAccountList",
                "Get-FMSPolicyList",
                "Get-FMSProtocolsListList",
+               "Read-FMSResourceSetResourceList",
+               "Get-FMSResourceSetList",
                "Get-FMSResourceTag",
                "Get-FMSThirdPartyFirewallFirewallPolicyList",
                "Write-FMSAppList",
                "Write-FMSNotificationChannel",
                "Set-FMSPolicy",
                "Write-FMSProtocolList",
+               "Write-FMSResourceSet",
                "Add-FMSResourceTag",
                "Remove-FMSResourceTag")
 }
@@ -37955,14 +37972,17 @@ $OS_SelectMap = @{
     "Select"=@("Approve-OSInboundConnection",
                "Add-OSResourceTag",
                "Start-OSAssociatePackage",
+               "Approve-OSVpcEndpointAccess",
                "Stop-OSServiceSoftwareUpdate",
                "New-OSDomain",
                "New-OSOutboundConnection",
                "New-OSPackage",
+               "New-OSVpcEndpoint",
                "Remove-OSDomain",
                "Remove-OSInboundConnection",
                "Remove-OSOutboundConnection",
                "Remove-OSPackage",
+               "Remove-OSVpcEndpoint",
                "Get-OSDomain",
                "Get-OSDomainAutoTune",
                "Get-OSDomainChangeProgress",
@@ -37974,6 +37994,7 @@ $OS_SelectMap = @{
                "Get-OSPackage",
                "Get-OSReservedInstanceOfferingList",
                "Get-OSReservedInstanceList",
+               "Get-OSVpcEndpoint",
                "Start-OSDissociatePackage",
                "Get-OSCompatibleVersion",
                "Get-OSPackageVersionHistory",
@@ -37985,12 +38006,17 @@ $OS_SelectMap = @{
                "Get-OSPackagesForDomainList",
                "Get-OSResourceTag",
                "Get-OSVersionList",
+               "Get-OSVpcEndpointAccessList",
+               "Get-OSVpcEndpointList",
+               "Get-OSVpcEndpointsForDomainList",
                "New-OSReservedInstanceOffering",
                "Deny-OSInboundConnection",
                "Remove-OSResourceTag",
+               "Revoke-OSVpcEndpointAccess",
                "Start-OSServiceSoftwareUpdate",
                "Update-OSDomainConfig",
                "Update-OSPackage",
+               "Update-OSVpcEndpoint",
                "Update-OSDomain")
 }
 
@@ -40077,7 +40103,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Hiujin","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Suvi","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -42741,6 +42767,108 @@ $RESH_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $RESH_SelectCompleters $RESH_SelectMap
+# Argument completions for service AWS Resource Explorer
+
+
+$AREX_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ResourceExplorer2.IndexType
+        {
+            ($_ -eq "Get-AREXIndexList/Type") -Or
+            ($_ -eq "Update-AREXIndexType/Type")
+        }
+        {
+            $v = "AGGREGATOR","LOCAL"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AREX_map = @{
+    "Type"=@("Get-AREXIndexList","Update-AREXIndexType")
+}
+
+_awsArgumentCompleterRegistration $AREX_Completers $AREX_map
+
+$AREX_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AREX.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AREX_SelectMap = @{
+    "Select"=@("Register-AREXDefaultView",
+               "Get-AREXViewBatch",
+               "New-AREXIndex",
+               "New-AREXView",
+               "Remove-AREXIndex",
+               "Remove-AREXView",
+               "Unregister-AREXDefaultView",
+               "Get-AREXDefaultView",
+               "Get-AREXIndex",
+               "Get-AREXView",
+               "Get-AREXIndexList",
+               "Get-AREXSupportedResourceTypeList",
+               "Get-AREXResourceTag",
+               "Get-AREXViewArnList",
+               "Search-AREXResource",
+               "Add-AREXResourceTag",
+               "Remove-AREXResourceTag",
+               "Update-AREXIndexType",
+               "Update-AREXView")
+}
+
+_awsArgumentCompleterRegistration $AREX_SelectCompleters $AREX_SelectMap
 # Argument completions for service AWS Resource Groups
 
 
@@ -43167,7 +43295,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -43236,7 +43364,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 

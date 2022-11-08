@@ -28,7 +28,9 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Create a package for use with Amazon OpenSearch Service domains.
+    /// Creates a package for use with Amazon OpenSearch Service domains. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// packages for Amazon OpenSearch Service</a>.
     /// </summary>
     [Cmdlet("New", "OSPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchService.Model.PackageDetails")]
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageName
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the package.</para>
+        /// <para>Unique name for the package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageType
         /// <summary>
         /// <para>
-        /// <para>Type of package. Currently supports only TXT-DICTIONARY.</para>
+        /// <para>Type of package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
