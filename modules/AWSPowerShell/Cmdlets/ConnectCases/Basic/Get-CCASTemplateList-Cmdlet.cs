@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>A list of status values to filter on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -134,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.Status != null)
+            {
+                context.Status = new List<System.String>(this.Status);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -226,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String DomainId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> Status { get; set; }
             public System.Func<Amazon.ConnectCases.Model.ListTemplatesResponse, GetCCASTemplateListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Templates;
         }

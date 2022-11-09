@@ -1,4 +1,17 @@
-﻿### 4.1.203 (2022-11-08 21:42Z)
+﻿### 4.1.204 (2022-11-09 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.414.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Cases
+    * Modified cmdlet Get-CCASTemplateList: added parameter Status.
+    * Modified cmdlet New-CCASTemplate: added parameter Status.
+    * Modified cmdlet Update-CCASTemplate: added parameter Status.
+  * Amazon Ground Station
+    * Added cmdlet Get-GSEphemerideList leveraging the ListEphemerides service API.
+    * Added cmdlet Get-GSEphemeris leveraging the DescribeEphemeris service API.
+    * Added cmdlet New-GSEphemeris leveraging the CreateEphemeris service API.
+    * Added cmdlet Remove-GSEphemeris leveraging the DeleteEphemeris service API.
+    * Added cmdlet Update-GSEphemeris leveraging the UpdateEphemeris service API.
+
+### 4.1.203 (2022-11-08 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.413.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AWSBillingConductor
     * Added cmdlet Get-ABCCustomLineItemVersionList leveraging the ListCustomLineItemVersions service API.

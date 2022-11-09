@@ -28,22 +28,23 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Reserves a contact using specified parameters.
+    /// List existing ephemerides.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Add", "GSReservedContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Ground Station ReserveContact API operation.", Operation = new[] {"ReserveContact"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ReserveContactResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GroundStation.Model.ReserveContactResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.GroundStation.Model.ReserveContactResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GSEphemerideList")]
+    [OutputType("Amazon.GroundStation.Model.EphemerisItem")]
+    [AWSCmdlet("Calls the AWS Ground Station ListEphemerides API operation.", Operation = new[] {"ListEphemerides"}, SelectReturnType = typeof(Amazon.GroundStation.Model.ListEphemeridesResponse))]
+    [AWSCmdletOutput("Amazon.GroundStation.Model.EphemerisItem or Amazon.GroundStation.Model.ListEphemeridesResponse",
+        "This cmdlet returns a collection of Amazon.GroundStation.Model.EphemerisItem objects.",
+        "The service call response (type Amazon.GroundStation.Model.ListEphemeridesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddGSReservedContactCmdlet : AmazonGroundStationClientCmdlet, IExecutor
+    public partial class GetGSEphemerideListCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>End time of a contact in UTC.</para>
+        /// <para>The end time to list in UTC. The operation will return an ephemeris if its expiration
+        /// time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.DateTime? EndTime { get; set; }
         #endregion
         
-        #region Parameter GroundStation
+        #region Parameter SatelliteId
         /// <summary>
         /// <para>
-        /// <para>Name of a ground station.</para>
+        /// <para>The AWS Ground Station satellite ID to list ephemeris for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,47 +71,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GroundStation { get; set; }
-        #endregion
-        
-        #region Parameter MissionProfileArn
-        /// <summary>
-        /// <para>
-        /// <para>ARN of a mission profile.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MissionProfileArn { get; set; }
-        #endregion
-        
-        #region Parameter SatelliteArn
-        /// <summary>
-        /// <para>
-        /// <para>ARN of a satellite</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SatelliteArn { get; set; }
+        public System.String SatelliteId { get; set; }
         #endregion
         
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>Start time of a contact in UTC.</para>
+        /// <para>The start time to list in UTC. The operation will return an ephemeris if its expiration
+        /// time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,47 +91,65 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.DateTime? StartTime { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter StatusList
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to a contact.</para>
+        /// <para>The list of ephemeris status to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String[] StatusList { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of ephemerides to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>Pagination token.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.ReserveContactResponse).
-        /// Specifying the name of a property of type Amazon.GroundStation.Model.ReserveContactResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Ephemerides'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GroundStation.Model.ListEphemeridesResponse).
+        /// Specifying the name of a property of type Amazon.GroundStation.Model.ListEphemeridesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactId";
+        public string Select { get; set; } = "Ephemerides";
         #endregion
         
-        #region Parameter Force
+        #region Parameter NoAutoIteration
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MissionProfileArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-GSReservedContact (ReserveContact)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -172,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.ReserveContactResponse, AddGSReservedContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.ListEphemeridesResponse, GetGSEphemerideListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EndTime = this.EndTime;
@@ -182,25 +168,13 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.GroundStation = this.GroundStation;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.SatelliteId = this.SatelliteId;
             #if MODULAR
-            if (this.GroundStation == null && ParameterWasBound(nameof(this.GroundStation)))
+            if (this.SatelliteId == null && ParameterWasBound(nameof(this.SatelliteId)))
             {
-                WriteWarning("You are passing $null as a value for parameter GroundStation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.MissionProfileArn = this.MissionProfileArn;
-            #if MODULAR
-            if (this.MissionProfileArn == null && ParameterWasBound(nameof(this.MissionProfileArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MissionProfileArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SatelliteArn = this.SatelliteArn;
-            #if MODULAR
-            if (this.SatelliteArn == null && ParameterWasBound(nameof(this.SatelliteArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SatelliteArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SatelliteId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.StartTime = this.StartTime;
@@ -210,13 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 WriteWarning("You are passing $null as a value for parameter StartTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.StatusList != null)
             {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
+                context.StatusList = new List<System.String>(this.StatusList);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -231,55 +201,77 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.GroundStation.Model.ReserveContactRequest();
+            var useParameterSelect = this.Select.StartsWith("^");
+            
+            // create request and set iteration invariants
+            var request = new Amazon.GroundStation.Model.ListEphemeridesRequest();
             
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
             }
-            if (cmdletContext.GroundStation != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.GroundStation = cmdletContext.GroundStation;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.MissionProfileArn != null)
+            if (cmdletContext.SatelliteId != null)
             {
-                request.MissionProfileArn = cmdletContext.MissionProfileArn;
-            }
-            if (cmdletContext.SatelliteArn != null)
-            {
-                request.SatelliteArn = cmdletContext.SatelliteArn;
+                request.SatelliteId = cmdletContext.SatelliteId;
             }
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.StatusList != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.StatusList = cmdletContext.StatusList;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -291,15 +283,15 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         #region AWS Service Operation Call
         
-        private Amazon.GroundStation.Model.ReserveContactResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.ReserveContactRequest request)
+        private Amazon.GroundStation.Model.ListEphemeridesResponse CallAWSServiceOperation(IAmazonGroundStation client, Amazon.GroundStation.Model.ListEphemeridesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "ReserveContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Ground Station", "ListEphemerides");
             try
             {
                 #if DESKTOP
-                return client.ReserveContact(request);
+                return client.ListEphemerides(request);
                 #elif CORECLR
-                return client.ReserveContactAsync(request).GetAwaiter().GetResult();
+                return client.ListEphemeridesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -320,13 +312,13 @@ namespace Amazon.PowerShell.Cmdlets.GS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
-            public System.String GroundStation { get; set; }
-            public System.String MissionProfileArn { get; set; }
-            public System.String SatelliteArn { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String SatelliteId { get; set; }
             public System.DateTime? StartTime { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.GroundStation.Model.ReserveContactResponse, AddGSReservedContactCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactId;
+            public List<System.String> StatusList { get; set; }
+            public System.Func<Amazon.GroundStation.Model.ListEphemeridesResponse, GetGSEphemerideListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Ephemerides;
         }
         
     }

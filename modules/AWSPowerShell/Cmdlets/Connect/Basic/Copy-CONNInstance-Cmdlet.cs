@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
-        /// ARN of the instance.</para>
+        /// ARN of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

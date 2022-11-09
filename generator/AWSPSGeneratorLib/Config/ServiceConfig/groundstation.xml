@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>groundstation</C2jFilename>
     <AssemblyName>GroundStation</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -31,6 +31,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateEphemeris" OutputProperty="EphemerisId" Verb="New" Noun="Ephemeris" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Ephemeris_Oem_S3Object_Bucket" NewName="Ephemeris_Oem_S3Object_Bucket" />
+                <Param Name="Ephemeris_Tle_S3Object_Bucket" NewName="Ephemeris_Tle_S3Object_Bucket" />
+                <Param Name="Ephemeris_Oem_S3Object_Version" NewName="Ephemeris_Oem_S3Object_Version" />
+                <Param Name="Ephemeris_Tle_S3Object_Version" NewName="Ephemeris_Tle_S3Object_Version" />
+                <Param Name="Ephemeris_Oem_S3Object_Key" NewName="Ephemeris_Oem_S3Object_Key" />
+                <Param Name="Ephemeris_Tle_S3Object_Key" NewName="Ephemeris_Tle_S3Object_Key" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMissionProfile" OutputProperty="MissionProfileId" Verb="New" Noun="MissionProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,11 +54,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEphemeris" OutputProperty="EphemerisId" Verb="Remove" Noun="Ephemeris" ShouldProcessTarget="EphemerisId" PipelineParameter="EphemerisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMissionProfile" OutputProperty="MissionProfileId" Verb="Remove" Noun="MissionProfile" ShouldProcessTarget="MissionProfileId" PipelineParameter="MissionProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeContact" OutputProperty="*" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEphemeris" OutputProperty="*" Verb="Get" Noun="Ephemeris" PipelineParameter="EphemerisId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +102,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListEphemerides" OutputProperty="Ephemerides" Verb="Get" Noun="EphemerideList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGroundStations" OutputProperty="GroundStationList" Verb="Get" Noun="GroundStationList" PipelineParameter="SatelliteId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -115,13 +138,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEphemeris" OutputProperty="EphemerisId" Verb="Update" Noun="Ephemeris" ShouldProcessTarget="EphemerisId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateMissionProfile" OutputProperty="MissionProfileId" Verb="Update" Noun="MissionProfile" ShouldProcessTarget="MissionProfileId" PipelineParameter="MissionProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.GroundStation.Model.AntennaDownlinkConfig</Type>
         <Type>Amazon.GroundStation.Model.AntennaDownlinkDemodDecodeConfig</Type>

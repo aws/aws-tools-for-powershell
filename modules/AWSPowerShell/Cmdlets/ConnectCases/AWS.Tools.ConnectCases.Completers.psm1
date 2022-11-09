@@ -101,6 +101,16 @@ $CCAS_Completers = {
             break
         }
 
+        # Amazon.ConnectCases.TemplateStatus
+        {
+            ($_ -eq "New-CCASTemplate/Status") -Or
+            ($_ -eq "Update-CCASTemplate/Status")
+        }
+        {
+            $v = "Active","Inactive"
+            break
+        }
+
 
     }
 
@@ -111,6 +121,7 @@ $CCAS_Completers = {
 
 $CCAS_map = @{
     "Content_Comment_ContentType"=@("New-CCASRelatedItem")
+    "Status"=@("New-CCASTemplate","Update-CCASTemplate")
     "Type"=@("New-CCASField","New-CCASRelatedItem")
 }
 

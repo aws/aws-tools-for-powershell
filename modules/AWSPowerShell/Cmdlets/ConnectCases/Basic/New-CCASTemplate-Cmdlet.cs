@@ -29,10 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
     /// Creates a template in the Cases domain. This template is used to define the case object
-    /// model (that is, define what data can be captured on cases) in a Cases domain. A template
-    /// must have a unique name within a domain, and it must reference existing field IDs
-    /// and layout IDs. Additionally, multiple fields with same IDs are not allowed within
-    /// the same Template.
+    /// model (that is, to define what data can be captured on cases) in a Cases domain. A
+    /// template must have a unique name within a domain, and it must reference existing field
+    /// IDs and layout IDs. Additionally, multiple fields with same IDs are not allowed within
+    /// the same Template. A template can be either Active or Inactive, as indicated by its
+    /// status. Inactive templates cannot be used to create cases.
     /// </summary>
     [Cmdlet("New", "CCASTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectCases.Model.CreateTemplateResponse")]
@@ -107,6 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequiredFields")]
         public Amazon.ConnectCases.Model.RequiredField[] RequiredField { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConnectCases.TemplateStatus")]
+        public Amazon.ConnectCases.TemplateStatus Status { get; set; }
         #endregion
         
         #region Parameter Select
@@ -190,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 context.RequiredField = new List<Amazon.ConnectCases.Model.RequiredField>(this.RequiredField);
             }
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (cmdletContext.RequiredField != null)
             {
                 request.RequiredFields = cmdletContext.RequiredField;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -307,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String LayoutConfiguration_DefaultLayout { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ConnectCases.Model.RequiredField> RequiredField { get; set; }
+            public Amazon.ConnectCases.TemplateStatus Status { get; set; }
             public System.Func<Amazon.ConnectCases.Model.CreateTemplateResponse, NewCCASTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

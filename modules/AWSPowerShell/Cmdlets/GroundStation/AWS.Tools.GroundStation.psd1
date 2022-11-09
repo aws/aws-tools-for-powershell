@@ -94,6 +94,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GSContactList', 
         'Get-GSDataflowEndpointGroup', 
         'Get-GSDataflowEndpointGroupList', 
+        'Get-GSEphemerideList', 
+        'Get-GSEphemeris', 
         'Get-GSGroundStationList', 
         'Get-GSMinuteUsage', 
         'Get-GSMissionProfile', 
@@ -103,13 +105,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GSSatelliteList', 
         'New-GSConfig', 
         'New-GSDataflowEndpointGroup', 
+        'New-GSEphemeris', 
         'New-GSMissionProfile', 
         'Remove-GSConfig', 
         'Remove-GSDataflowEndpointGroup', 
+        'Remove-GSEphemeris', 
         'Remove-GSMissionProfile', 
         'Remove-GSResourceTag', 
         'Stop-GSContact', 
         'Update-GSConfig', 
+        'Update-GSEphemeris', 
         'Update-GSMissionProfile')
 
     # Variables to export from this module

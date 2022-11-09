@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
     /// Updates the attributes of an existing template. The template attributes that can be
-    /// modified include <code>name</code>, <code>description</code>, <code>layouts</code>,
-    /// and <code>requiredFields</code>. At least one of these attributes must not be null.
-    /// If a null value is provided for a given attribute, that attribute is ignored and its
-    /// current value is preserved.
+    /// modified include <code>name</code>, <code>description</code>, <code>layoutConfiguration</code>,
+    /// <code>requiredFields</code>, and <code>status</code>. At least one of these attributes
+    /// must not be null. If a null value is provided for a given attribute, that attribute
+    /// is ignored and its current value is preserved.
     /// </summary>
     [Cmdlet("Update", "CCASTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -101,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequiredFields")]
         public Amazon.ConnectCases.Model.RequiredField[] RequiredField { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConnectCases.TemplateStatus")]
+        public Amazon.ConnectCases.TemplateStatus Status { get; set; }
         #endregion
         
         #region Parameter TemplateId
@@ -194,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             {
                 context.RequiredField = new List<Amazon.ConnectCases.Model.RequiredField>(this.RequiredField);
             }
+            context.Status = this.Status;
             context.TemplateId = this.TemplateId;
             #if MODULAR
             if (this.TemplateId == null && ParameterWasBound(nameof(this.TemplateId)))
@@ -251,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (cmdletContext.RequiredField != null)
             {
                 request.RequiredFields = cmdletContext.RequiredField;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             if (cmdletContext.TemplateId != null)
             {
@@ -322,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String LayoutConfiguration_DefaultLayout { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ConnectCases.Model.RequiredField> RequiredField { get; set; }
+            public Amazon.ConnectCases.TemplateStatus Status { get; set; }
             public System.String TemplateId { get; set; }
             public System.Func<Amazon.ConnectCases.Model.UpdateTemplateResponse, UpdateCCASTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

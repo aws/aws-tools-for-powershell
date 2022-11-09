@@ -156,11 +156,14 @@ $GS_SelectMap = @{
     "Select"=@("Stop-GSContact",
                "New-GSConfig",
                "New-GSDataflowEndpointGroup",
+               "New-GSEphemeris",
                "New-GSMissionProfile",
                "Remove-GSConfig",
                "Remove-GSDataflowEndpointGroup",
+               "Remove-GSEphemeris",
                "Remove-GSMissionProfile",
                "Get-GSContact",
+               "Get-GSEphemeris",
                "Get-GSConfig",
                "Get-GSDataflowEndpointGroup",
                "Get-GSMinuteUsage",
@@ -169,6 +172,7 @@ $GS_SelectMap = @{
                "Get-GSConfigList",
                "Get-GSContactList",
                "Get-GSDataflowEndpointGroupList",
+               "Get-GSEphemerideList",
                "Get-GSGroundStationList",
                "Get-GSMissionProfileList",
                "Get-GSSatelliteList",
@@ -177,6 +181,7 @@ $GS_SelectMap = @{
                "Add-GSResourceTag",
                "Remove-GSResourceTag",
                "Update-GSConfig",
+               "Update-GSEphemeris",
                "Update-GSMissionProfile")
 }
 
