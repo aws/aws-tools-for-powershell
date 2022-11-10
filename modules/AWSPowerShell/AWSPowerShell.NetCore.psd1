@@ -320,6 +320,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SageMakerFeatureStoreRuntime.dll',
         'AWSSDK.SageMakerRuntime.dll',
         'AWSSDK.SavingsPlans.dll',
+        'AWSSDK.Scheduler.dll',
         'AWSSDK.Schemas.dll',
         'AWSSDK.SecretsManager.dll',
         'AWSSDK.SecurityHub.dll',

@@ -107,7 +107,7 @@ $EC2_Completers = {
         # Amazon.EC2.AllocationStrategy
         "Request-EC2SpotFleet/SpotFleetRequestConfig_AllocationStrategy"
         {
-            $v = "capacityOptimized","capacityOptimizedPrioritized","diversified","lowestPrice"
+            $v = "capacityOptimized","capacityOptimizedPrioritized","diversified","lowestPrice","priceCapacityOptimized"
             break
         }
 
@@ -840,7 +840,7 @@ $EC2_Completers = {
         # Amazon.EC2.SpotAllocationStrategy
         "New-EC2Fleet/SpotOptions_AllocationStrategy"
         {
-            $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price"
+            $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price","price-capacity-optimized"
             break
         }
 

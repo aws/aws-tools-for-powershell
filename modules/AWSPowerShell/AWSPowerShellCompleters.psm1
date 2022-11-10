@@ -16719,7 +16719,7 @@ $EC2_Completers = {
         # Amazon.EC2.AllocationStrategy
         "Request-EC2SpotFleet/SpotFleetRequestConfig_AllocationStrategy"
         {
-            $v = "capacityOptimized","capacityOptimizedPrioritized","diversified","lowestPrice"
+            $v = "capacityOptimized","capacityOptimizedPrioritized","diversified","lowestPrice","priceCapacityOptimized"
             break
         }
 
@@ -17452,7 +17452,7 @@ $EC2_Completers = {
         # Amazon.EC2.SpotAllocationStrategy
         "New-EC2Fleet/SpotOptions_AllocationStrategy"
         {
-            $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price"
+            $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price","price-capacity-optimized"
             break
         }
 
@@ -18939,6 +18939,7 @@ $ECS_SelectMap = @{
                "Get-ECSTaskDetail",
                "Get-ECSTaskSet",
                "Invoke-ECSCommand",
+               "Get-ECSTaskProtection",
                "Get-ECSAccountSetting",
                "Get-ECSAttributeList",
                "Get-ECSClusterList",
@@ -18966,6 +18967,7 @@ $ECS_SelectMap = @{
                "Update-ECSContainerInstancesState",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",
+               "Update-ECSTaskProtection",
                "Update-ECSTaskSet")
 }
 
@@ -20867,15 +20869,18 @@ $ES_SelectMap = @{
     "Select"=@("Approve-ESInboundCrossClusterSearchConnection",
                "Add-ESResourceTag",
                "Start-ESAssociatePackage",
+               "Approve-ESVpcEndpointAccess",
                "Stop-ESElasticsearchServiceSoftwareUpdate",
                "New-ESDomain",
                "New-ESOutboundCrossClusterSearchConnection",
                "New-ESPackage",
+               "New-ESVpcEndpoint",
                "Remove-ESDomain",
                "Remove-ESElasticsearchServiceRole",
                "Remove-ESInboundCrossClusterSearchConnection",
                "Remove-ESOutboundCrossClusterSearchConnection",
                "Remove-ESPackage",
+               "Remove-ESVpcEndpoint",
                "Get-ESDomainAutoTune",
                "Get-ESDomainChangeProgress",
                "Get-ESDomain",
@@ -20887,6 +20892,7 @@ $ES_SelectMap = @{
                "Get-ESPackage",
                "Get-ESReservedElasticsearchInstanceOfferingList",
                "Get-ESReservedElasticsearchInstanceList",
+               "Get-ESVpcEndpoint",
                "Start-ESDissociatePackage",
                "Get-ESCompatibleElasticsearchVersion",
                "Get-ESPackageVersionHistory",
@@ -20898,12 +20904,17 @@ $ES_SelectMap = @{
                "Get-ESVersionList",
                "Get-ESPackagesForDomainList",
                "Get-ESResourceTag",
+               "Get-ESVpcEndpointAccessList",
+               "Get-ESVpcEndpointList",
+               "Get-ESVpcEndpointsForDomainList",
                "New-ESReservedElasticsearchInstanceOffering",
                "Deny-ESInboundCrossClusterSearchConnection",
                "Remove-ESResourceTag",
+               "Revoke-ESVpcEndpointAccess",
                "Start-ESElasticsearchServiceSoftwareUpdate",
                "Update-ESDomainConfig",
                "Update-ESPackage",
+               "Update-ESVpcEndpoint",
                "Update-ESElasticsearchDomain")
 }
 
@@ -47075,6 +47086,146 @@ $SP_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SP_SelectCompleters $SP_SelectMap
+# Argument completions for service Amazon EventBridge Scheduler
+
+
+$SCH_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Scheduler.AssignPublicIp
+        {
+            ($_ -eq "New-SCHSchedule/Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Update-SCHSchedule/Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Scheduler.FlexibleTimeWindowMode
+        {
+            ($_ -eq "New-SCHSchedule/FlexibleTimeWindow_Mode") -Or
+            ($_ -eq "Update-SCHSchedule/FlexibleTimeWindow_Mode")
+        }
+        {
+            $v = "FLEXIBLE","OFF"
+            break
+        }
+
+        # Amazon.Scheduler.LaunchType
+        {
+            ($_ -eq "New-SCHSchedule/Target_EcsParameters_LaunchType") -Or
+            ($_ -eq "Update-SCHSchedule/Target_EcsParameters_LaunchType")
+        }
+        {
+            $v = "EC2","EXTERNAL","FARGATE"
+            break
+        }
+
+        # Amazon.Scheduler.PropagateTags
+        {
+            ($_ -eq "New-SCHSchedule/Target_EcsParameters_PropagateTags") -Or
+            ($_ -eq "Update-SCHSchedule/Target_EcsParameters_PropagateTags")
+        }
+        {
+            $v = "TASK_DEFINITION"
+            break
+        }
+
+        # Amazon.Scheduler.ScheduleState
+        {
+            ($_ -eq "Get-SCHScheduleList/State") -Or
+            ($_ -eq "New-SCHSchedule/State") -Or
+            ($_ -eq "Update-SCHSchedule/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SCH_map = @{
+    "FlexibleTimeWindow_Mode"=@("New-SCHSchedule","Update-SCHSchedule")
+    "State"=@("Get-SCHScheduleList","New-SCHSchedule","Update-SCHSchedule")
+    "Target_EcsParameters_LaunchType"=@("New-SCHSchedule","Update-SCHSchedule")
+    "Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-SCHSchedule","Update-SCHSchedule")
+    "Target_EcsParameters_PropagateTags"=@("New-SCHSchedule","Update-SCHSchedule")
+}
+
+_awsArgumentCompleterRegistration $SCH_Completers $SCH_map
+
+$SCH_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SCH.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SCH_SelectMap = @{
+    "Select"=@("New-SCHSchedule",
+               "New-SCHScheduleGroup",
+               "Remove-SCHSchedule",
+               "Remove-SCHScheduleGroup",
+               "Get-SCHSchedule",
+               "Get-SCHScheduleGroup",
+               "Get-SCHScheduleGroupList",
+               "Get-SCHScheduleList",
+               "Get-SCHResourceTag",
+               "Add-SCHResourceTag",
+               "Remove-SCHResourceTag",
+               "Update-SCHSchedule")
+}
+
+_awsArgumentCompleterRegistration $SCH_SelectCompleters $SCH_SelectMap
 # Argument completions for service Amazon EventBridge Schema Registry
 
 

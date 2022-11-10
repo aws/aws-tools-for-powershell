@@ -1,4 +1,21 @@
-﻿### 4.1.204 (2022-11-09 21:47Z)
+﻿### 4.1.205 (2022-11-10 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.415.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EC2 Container Service
+    * Added cmdlet Get-ECSTaskProtection leveraging the GetTaskProtection service API.
+    * Added cmdlet Update-ECSTaskProtection leveraging the UpdateTaskProtection service API.
+  * Amazon Elasticsearch
+    * Added cmdlet Approve-ESVpcEndpointAccess leveraging the AuthorizeVpcEndpointAccess service API.
+    * Added cmdlet Get-ESVpcEndpoint leveraging the DescribeVpcEndpoints service API.
+    * Added cmdlet Get-ESVpcEndpointAccessList leveraging the ListVpcEndpointAccess service API.
+    * Added cmdlet Get-ESVpcEndpointList leveraging the ListVpcEndpoints service API.
+    * Added cmdlet Get-ESVpcEndpointsForDomainList leveraging the ListVpcEndpointsForDomain service API.
+    * Added cmdlet New-ESVpcEndpoint leveraging the CreateVpcEndpoint service API.
+    * Added cmdlet Remove-ESVpcEndpoint leveraging the DeleteVpcEndpoint service API.
+    * Added cmdlet Revoke-ESVpcEndpointAccess leveraging the RevokeVpcEndpointAccess service API.
+    * Added cmdlet Update-ESVpcEndpoint leveraging the UpdateVpcEndpoint service API.
+  * Amazon EventBridge Scheduler. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SCH and can be listed using the command 'Get-AWSCmdletName -Service SCH'.
+
+### 4.1.204 (2022-11-09 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.414.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Cases
     * Modified cmdlet Get-CCASTemplateList: added parameter Status.

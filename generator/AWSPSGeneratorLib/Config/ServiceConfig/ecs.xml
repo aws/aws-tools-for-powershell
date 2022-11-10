@@ -109,6 +109,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTaskProtection" OutputProperty="*" Verb="Get" Noun="TaskProtection" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAccountSettings" OutputProperty="Settings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -214,6 +218,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServicePrimaryTaskSet" OutputProperty="TaskSet" Verb="Update" Noun="ServicePrimaryTaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTaskProtection" OutputProperty="*" Verb="Update" Noun="TaskProtection" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

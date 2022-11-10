@@ -375,6 +375,7 @@ $ECS_SelectMap = @{
                "Get-ECSTaskDetail",
                "Get-ECSTaskSet",
                "Invoke-ECSCommand",
+               "Get-ECSTaskProtection",
                "Get-ECSAccountSetting",
                "Get-ECSAttributeList",
                "Get-ECSClusterList",
@@ -402,6 +403,7 @@ $ECS_SelectMap = @{
                "Update-ECSContainerInstancesState",
                "Update-ECSService",
                "Update-ECSServicePrimaryTaskSet",
+               "Update-ECSTaskProtection",
                "Update-ECSTaskSet")
 }
 

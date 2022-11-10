@@ -856,6 +856,9 @@
     <Reference Include="AWSSDK.SavingsPlans">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SavingsPlans.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Scheduler">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Scheduler.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Schemas">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Schemas.dll</HintPath>
     </Reference>
@@ -1793,6 +1796,9 @@
     </Reference>
     <Reference Include="AWSSDK.SavingsPlans">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SavingsPlans.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Scheduler">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Scheduler.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Schemas">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Schemas.dll</HintPath>
