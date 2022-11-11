@@ -93,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter KVSStreamStartSelector_ProducerTimestamp
         /// <summary>
         /// <para>
-        /// <para> The timestamp from the producer corresponding to the fragment. </para>
+        /// <para> The timestamp from the producer corresponding to the fragment, in milliseconds, expressed
+        /// in unix time format. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

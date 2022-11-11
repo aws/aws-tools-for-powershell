@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then
-        /// this is a comma-separated list of Regions that do not aggregate findings to the aggregation
+        /// this is a space-separated list of Regions that do not aggregate findings to the aggregation
         /// Region.</para><para>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is
-        /// a comma-separated list of Regions that do aggregate findings to the aggregation Region.</para>
+        /// a space-separated list of Regions that do aggregate findings to the aggregation Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

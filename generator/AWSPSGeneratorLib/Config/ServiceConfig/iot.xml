@@ -741,6 +741,10 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRelatedResourcesForAuditFinding" OutputProperty="RelatedResources" Verb="Get" Noun="RelatedResourcesForAuditFindingList" PipelineParameter="FindingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />

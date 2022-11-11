@@ -59,6 +59,23 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.String EventData { get; set; }
         #endregion
         
+        #region Parameter EventReference
+        /// <summary>
+        /// <para>
+        /// <para>Adds one or more references to the <code>TimelineEvent</code>. A reference can be
+        /// an Amazon Web Services resource involved in the incident or in some way associated
+        /// with it. When you specify a reference, you enter the Amazon Resource Name (ARN) of
+        /// the resource. You can also specify a related item. As an example, you could specify
+        /// the ARN of an Amazon DynamoDB (DynamoDB) table. The table for this example is the
+        /// resource. You could also specify a Amazon CloudWatch metric for that table. The metric
+        /// is the related item.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventReferences")]
+        public Amazon.SSMIncidents.Model.EventReference[] EventReference { get; set; }
+        #endregion
+        
         #region Parameter EventTime
         /// <summary>
         /// <para>
@@ -188,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 WriteWarning("You are passing $null as a value for parameter EventData which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EventReference != null)
+            {
+                context.EventReference = new List<Amazon.SSMIncidents.Model.EventReference>(this.EventReference);
+            }
             context.EventTime = this.EventTime;
             #if MODULAR
             if (this.EventTime == null && ParameterWasBound(nameof(this.EventTime)))
@@ -232,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (cmdletContext.EventData != null)
             {
                 request.EventData = cmdletContext.EventData;
+            }
+            if (cmdletContext.EventReference != null)
+            {
+                request.EventReferences = cmdletContext.EventReference;
             }
             if (cmdletContext.EventTime != null)
             {
@@ -308,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         {
             public System.String ClientToken { get; set; }
             public System.String EventData { get; set; }
+            public List<Amazon.SSMIncidents.Model.EventReference> EventReference { get; set; }
             public System.DateTime? EventTime { get; set; }
             public System.String EventType { get; set; }
             public System.String IncidentRecordArn { get; set; }

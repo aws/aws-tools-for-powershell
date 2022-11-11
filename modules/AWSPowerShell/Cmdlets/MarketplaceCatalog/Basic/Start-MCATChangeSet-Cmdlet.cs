@@ -28,18 +28,18 @@ using Amazon.MarketplaceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// This operation allows you to request changes for your entities. Within a single ChangeSet,
-    /// you cannot start the same change type against the same entity multiple times. Additionally,
-    /// when a ChangeSet is running, all the entities targeted by the different changes are
-    /// locked until the ChangeSet has completed (either succeeded, cancelled, or failed).
-    /// If you try to start a ChangeSet containing a change against an entity that is already
-    /// locked, you will receive a <code>ResourceInUseException</code>.
+    /// Allows you to request changes for your entities. Within a single <code>ChangeSet</code>,
+    /// you can't start the same change type against the same entity multiple times. Additionally,
+    /// when a <code>ChangeSet</code> is running, all the entities targeted by the different
+    /// changes are locked until the change set has completed (either succeeded, cancelled,
+    /// or failed). If you try to start a change set containing a change against an entity
+    /// that is already locked, you will receive a <code>ResourceInUseException</code> error.
     /// 
     ///  
     /// <para>
-    /// For example, you cannot start the ChangeSet described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a>
-    /// later in this topic, because it contains two changes to execute the same change type
-    /// (<code>AddRevisions</code>) against the same entity (<code>entity-id@1)</code>.
+    /// For example, you can't start the <code>ChangeSet</code> described in the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html#API_StartChangeSet_Examples">example</a>
+    /// later in this topic because it contains two changes to run the same change type (<code>AddRevisions</code>)
+    /// against the same entity (<code>entity-id@1</code>).
     /// </para><para>
     /// For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">
     /// Working with change sets</a>.
@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ChangeSetName { get; set; }
+        #endregion
+        
+        #region Parameter ChangeSetTag
+        /// <summary>
+        /// <para>
+        /// <para>A list of objects specifying each key name and value for the <code>ChangeSetTags</code>
+        /// property.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ChangeSetTags")]
+        public Amazon.MarketplaceCatalog.Model.Tag[] ChangeSetTag { get; set; }
         #endregion
         
         #region Parameter ClientRequestToken
@@ -188,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             }
             #endif
             context.ChangeSetName = this.ChangeSetName;
+            if (this.ChangeSetTag != null)
+            {
+                context.ChangeSetTag = new List<Amazon.MarketplaceCatalog.Model.Tag>(this.ChangeSetTag);
+            }
             context.ClientRequestToken = this.ClientRequestToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -216,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (cmdletContext.ChangeSetName != null)
             {
                 request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.ChangeSetTag != null)
+            {
+                request.ChangeSetTags = cmdletContext.ChangeSetTag;
             }
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -285,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String Catalog { get; set; }
             public List<Amazon.MarketplaceCatalog.Model.Change> ChangeSet { get; set; }
             public System.String ChangeSetName { get; set; }
+            public List<Amazon.MarketplaceCatalog.Model.Tag> ChangeSetTag { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.Func<Amazon.MarketplaceCatalog.Model.StartChangeSetResponse, StartMCATChangeSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

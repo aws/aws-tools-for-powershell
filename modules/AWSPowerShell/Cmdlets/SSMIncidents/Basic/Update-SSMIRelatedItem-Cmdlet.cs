@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.String RelatedItemsUpdate_ItemToRemove_Value_Arn { get; set; }
         #endregion
         
+        #region Parameter ItemToAdd_GeneratedId
+        /// <summary>
+        /// <para>
+        /// <para>A unique ID for a <code>RelatedItem</code>.</para><important><para>Don't specify this parameter when you add a <code>RelatedItem</code> by using the
+        /// <a>UpdateRelatedItems</a> API action.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RelatedItemsUpdate_ItemToAdd_GeneratedId")]
+        public System.String ItemToAdd_GeneratedId { get; set; }
+        #endregion
+        
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
@@ -233,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 WriteWarning("You are passing $null as a value for parameter IncidentRecordArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ItemToAdd_GeneratedId = this.ItemToAdd_GeneratedId;
             context.Identifier_Type = this.Identifier_Type;
             context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn;
             context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition;
@@ -270,11 +283,91 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
              // populate RelatedItemsUpdate
             var requestRelatedItemsUpdateIsNull = true;
             request.RelatedItemsUpdate = new Amazon.SSMIncidents.Model.RelatedItemsUpdate();
+            Amazon.SSMIncidents.Model.ItemIdentifier requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = null;
+            
+             // populate ItemToRemove
+            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull = true;
+            requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = new Amazon.SSMIncidents.Model.ItemIdentifier();
+            Amazon.SSMIncidents.ItemType requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type = null;
+            if (cmdletContext.ItemToRemove_Type != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type = cmdletContext.ItemToRemove_Type;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove.Type = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull = false;
+            }
+            Amazon.SSMIncidents.Model.ItemValue requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = null;
+            
+             // populate Value
+            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = true;
+            requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = new Amazon.SSMIncidents.Model.ItemValue();
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Arn != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Arn;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Arn = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
+            }
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.MetricDefinition = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
+            }
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Url != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Url;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Url = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
+            }
+             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value should be set to null
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = null;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove.Value = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull = false;
+            }
+             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove should be set to null
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = null;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove != null)
+            {
+                request.RelatedItemsUpdate.ItemToRemove = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove;
+                requestRelatedItemsUpdateIsNull = false;
+            }
             Amazon.SSMIncidents.Model.RelatedItem requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd = null;
             
              // populate ItemToAdd
             var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAddIsNull = true;
             requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd = new Amazon.SSMIncidents.Model.RelatedItem();
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_itemToAdd_GeneratedId = null;
+            if (cmdletContext.ItemToAdd_GeneratedId != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_itemToAdd_GeneratedId = cmdletContext.ItemToAdd_GeneratedId;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_itemToAdd_GeneratedId != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd.GeneratedId = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_itemToAdd_GeneratedId;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAddIsNull = false;
+            }
             System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_itemToAdd_Title = null;
             if (cmdletContext.ItemToAdd_Title != null)
             {
@@ -365,76 +458,6 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 request.RelatedItemsUpdate.ItemToAdd = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd;
                 requestRelatedItemsUpdateIsNull = false;
             }
-            Amazon.SSMIncidents.Model.ItemIdentifier requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = null;
-            
-             // populate ItemToRemove
-            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull = true;
-            requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = new Amazon.SSMIncidents.Model.ItemIdentifier();
-            Amazon.SSMIncidents.ItemType requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type = null;
-            if (cmdletContext.ItemToRemove_Type != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type = cmdletContext.ItemToRemove_Type;
-            }
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove.Type = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_itemToRemove_Type;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull = false;
-            }
-            Amazon.SSMIncidents.Model.ItemValue requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = null;
-            
-             // populate Value
-            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = true;
-            requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = new Amazon.SSMIncidents.Model.ItemValue();
-            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn = null;
-            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Arn != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Arn;
-            }
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Arn = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Arn;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
-            }
-            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition = null;
-            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition;
-            }
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.MetricDefinition = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_MetricDefinition;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
-            }
-            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url = null;
-            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Url != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_Url;
-            }
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Url = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
-            }
-             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value should be set to null
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value = null;
-            }
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value != null)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove.Value = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value;
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull = false;
-            }
-             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove should be set to null
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemoveIsNull)
-            {
-                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove = null;
-            }
-            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove != null)
-            {
-                request.RelatedItemsUpdate.ItemToRemove = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove;
-                requestRelatedItemsUpdateIsNull = false;
-            }
              // determine if request.RelatedItemsUpdate should be set to null
             if (requestRelatedItemsUpdateIsNull)
             {
@@ -503,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         {
             public System.String ClientToken { get; set; }
             public System.String IncidentRecordArn { get; set; }
+            public System.String ItemToAdd_GeneratedId { get; set; }
             public Amazon.SSMIncidents.ItemType Identifier_Type { get; set; }
             public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn { get; set; }
             public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition { get; set; }

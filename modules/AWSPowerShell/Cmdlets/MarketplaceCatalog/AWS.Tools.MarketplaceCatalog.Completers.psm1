@@ -157,7 +157,10 @@ $MCAT_SelectMap = @{
                "Get-MCATEntity",
                "Get-MCATChangeSetList",
                "Get-MCATEntityList",
-               "Start-MCATChangeSet")
+               "Get-MCATResourceTag",
+               "Start-MCATChangeSet",
+               "Add-MCATResourceTag",
+               "Remove-MCATResourceTag")
 }
 
 _awsArgumentCompleterRegistration $MCAT_SelectCompleters $MCAT_SelectMap

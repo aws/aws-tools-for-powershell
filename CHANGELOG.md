@@ -1,4 +1,29 @@
-﻿### 4.1.205 (2022-11-10 21:38Z)
+﻿### 4.1.206 (2022-11-11 22:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.416.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT
+    * Added cmdlet Get-IOTRelatedResourcesForAuditFindingList leveraging the ListRelatedResourcesForAuditFinding service API.
+    * Modified cmdlet Get-IOTAuditFindingList: added parameters IssuerCertificateIdentifier_IssuerCertificateSerialNumber, IssuerCertificateIdentifier_IssuerCertificateSubject, IssuerCertificateIdentifier_IssuerId and ResourceIdentifier_DeviceCertificateArn.
+    * Modified cmdlet Get-IOTAuditSuppression: added parameters IssuerCertificateIdentifier_IssuerCertificateSerialNumber, IssuerCertificateIdentifier_IssuerCertificateSubject, IssuerCertificateIdentifier_IssuerId and ResourceIdentifier_DeviceCertificateArn.
+    * Modified cmdlet Get-IOTAuditSuppressionList: added parameters IssuerCertificateIdentifier_IssuerCertificateSerialNumber, IssuerCertificateIdentifier_IssuerCertificateSubject, IssuerCertificateIdentifier_IssuerId and ResourceIdentifier_DeviceCertificateArn.
+    * Modified cmdlet New-IOTAuditSuppression: added parameters IssuerCertificateIdentifier_IssuerCertificateSerialNumber, IssuerCertificateIdentifier_IssuerCertificateSubject, IssuerCertificateIdentifier_IssuerId and ResourceIdentifier_DeviceCertificateArn.
+    * Modified cmdlet Remove-IOTAuditSuppression: added parameters IssuerCertificateIdentifier_IssuerCertificateSerialNumber, IssuerCertificateIdentifier_IssuerCertificateSubject, IssuerCertificateIdentifier_IssuerId and ResourceIdentifier_DeviceCertificateArn.
+    * Modified cmdlet Update-IOTAuditSuppression: added parameters IssuerCertificateIdentifier_IssuerCertificateSerialNumber, IssuerCertificateIdentifier_IssuerCertificateSubject, IssuerCertificateIdentifier_IssuerId and ResourceIdentifier_DeviceCertificateArn.
+  * Amazon License Manager
+    * Added cmdlet Get-LICMReceivedGrantsForOrganizationList leveraging the ListReceivedGrantsForOrganization service API.
+    * Added cmdlet Get-LICMReceivedLicensesForOrganizationList leveraging the ListReceivedLicensesForOrganization service API.
+  * Amazon Marketplace Catalog Service
+    * Added cmdlet Add-MCATResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-MCATResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-MCATResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Start-MCATChangeSet: added parameter ChangeSetTag.
+  * Amazon Rekognition
+    * Modified cmdlet Find-REKLabel: added parameters Feature, GeneralLabels_LabelCategoryExclusionFilter, GeneralLabels_LabelCategoryInclusionFilter, GeneralLabels_LabelExclusionFilter, GeneralLabels_LabelInclusionFilter and ImageProperties_MaxDominantColor.
+  * Amazon Systems Manager Incident Manager
+    * Modified cmdlet New-SSMITimelineEvent: added parameter EventReference.
+    * Modified cmdlet Update-SSMIRelatedItem: added parameter ItemToAdd_GeneratedId.
+    * Modified cmdlet Update-SSMITimelineEvent: added parameter EventReference.
+
+### 4.1.205 (2022-11-10 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.415.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon EC2 Container Service
     * Added cmdlet Get-ECSTaskProtection leveraging the GetTaskProtection service API.

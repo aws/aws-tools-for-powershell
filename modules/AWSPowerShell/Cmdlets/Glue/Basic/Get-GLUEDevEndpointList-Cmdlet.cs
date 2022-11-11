@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves all the development endpoints in this AWS account.
+    /// Retrieves all the development endpoints in this Amazon Web Services account.
     /// 
     ///  <note><para>
     /// When you create a development endpoint in a virtual private cloud (VPC), Glue returns

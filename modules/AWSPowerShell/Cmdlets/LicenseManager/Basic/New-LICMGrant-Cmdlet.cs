@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The grant principals.</para>
+        /// <para>The grant principals. This value should be specified as an Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

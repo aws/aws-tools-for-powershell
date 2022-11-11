@@ -97,6 +97,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String ResourceIdentifier_CognitoIdentityPoolId { get; set; }
         #endregion
         
+        #region Parameter ResourceIdentifier_DeviceCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the identified device certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier_DeviceCertificateArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceIdentifier_DeviceCertificateId
         /// <summary>
         /// <para>
@@ -126,6 +136,39 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResourceIdentifier_IamRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IssuerCertificateIdentifier_IssuerCertificateSerialNumber
+        /// <summary>
+        /// <para>
+        /// <para>The issuer certificate serial number.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSerialNumber")]
+        public System.String IssuerCertificateIdentifier_IssuerCertificateSerialNumber { get; set; }
+        #endregion
+        
+        #region Parameter IssuerCertificateIdentifier_IssuerCertificateSubject
+        /// <summary>
+        /// <para>
+        /// <para>The subject of the issuer certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceIdentifier_IssuerCertificateIdentifier_IssuerCertificateSubject")]
+        public System.String IssuerCertificateIdentifier_IssuerCertificateSubject { get; set; }
+        #endregion
+        
+        #region Parameter IssuerCertificateIdentifier_IssuerId
+        /// <summary>
+        /// <para>
+        /// <para>The issuer ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceIdentifier_IssuerCertificateIdentifier_IssuerId")]
+        public System.String IssuerCertificateIdentifier_IssuerId { get; set; }
         #endregion
         
         #region Parameter ListSuppressedFinding
@@ -278,8 +321,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.ResourceIdentifier_CaCertificateId = this.ResourceIdentifier_CaCertificateId;
             context.ResourceIdentifier_ClientId = this.ResourceIdentifier_ClientId;
             context.ResourceIdentifier_CognitoIdentityPoolId = this.ResourceIdentifier_CognitoIdentityPoolId;
+            context.ResourceIdentifier_DeviceCertificateArn = this.ResourceIdentifier_DeviceCertificateArn;
             context.ResourceIdentifier_DeviceCertificateId = this.ResourceIdentifier_DeviceCertificateId;
             context.ResourceIdentifier_IamRoleArn = this.ResourceIdentifier_IamRoleArn;
+            context.IssuerCertificateIdentifier_IssuerCertificateSerialNumber = this.IssuerCertificateIdentifier_IssuerCertificateSerialNumber;
+            context.IssuerCertificateIdentifier_IssuerCertificateSubject = this.IssuerCertificateIdentifier_IssuerCertificateSubject;
+            context.IssuerCertificateIdentifier_IssuerId = this.IssuerCertificateIdentifier_IssuerId;
             context.PolicyVersionIdentifier_PolicyName = this.PolicyVersionIdentifier_PolicyName;
             context.PolicyVersionIdentifier_PolicyVersionId = this.PolicyVersionIdentifier_PolicyVersionId;
             context.ResourceIdentifier_RoleAliasArn = this.ResourceIdentifier_RoleAliasArn;
@@ -364,6 +411,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.ResourceIdentifier.CognitoIdentityPoolId = requestResourceIdentifier_resourceIdentifier_CognitoIdentityPoolId;
                 requestResourceIdentifierIsNull = false;
             }
+            System.String requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn = null;
+            if (cmdletContext.ResourceIdentifier_DeviceCertificateArn != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn = cmdletContext.ResourceIdentifier_DeviceCertificateArn;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn != null)
+            {
+                request.ResourceIdentifier.DeviceCertificateArn = requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn;
+                requestResourceIdentifierIsNull = false;
+            }
             System.String requestResourceIdentifier_resourceIdentifier_DeviceCertificateId = null;
             if (cmdletContext.ResourceIdentifier_DeviceCertificateId != null)
             {
@@ -427,6 +484,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier != null)
             {
                 request.ResourceIdentifier.PolicyVersionIdentifier = requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier;
+                requestResourceIdentifierIsNull = false;
+            }
+            Amazon.IoT.Model.IssuerCertificateIdentifier requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = null;
+            
+             // populate IssuerCertificateIdentifier
+            var requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = true;
+            requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = new Amazon.IoT.Model.IssuerCertificateIdentifier();
+            System.String requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber = null;
+            if (cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSerialNumber != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber = cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSerialNumber;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier.IssuerCertificateSerialNumber = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber;
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject = null;
+            if (cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSubject != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject = cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSubject;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier.IssuerCertificateSubject = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject;
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId = null;
+            if (cmdletContext.IssuerCertificateIdentifier_IssuerId != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId = cmdletContext.IssuerCertificateIdentifier_IssuerId;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier.IssuerId = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId;
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = false;
+            }
+             // determine if requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier should be set to null
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = null;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier != null)
+            {
+                request.ResourceIdentifier.IssuerCertificateIdentifier = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier;
                 requestResourceIdentifierIsNull = false;
             }
              // determine if request.ResourceIdentifier should be set to null
@@ -553,6 +655,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.ResourceIdentifier.CognitoIdentityPoolId = requestResourceIdentifier_resourceIdentifier_CognitoIdentityPoolId;
                 requestResourceIdentifierIsNull = false;
             }
+            System.String requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn = null;
+            if (cmdletContext.ResourceIdentifier_DeviceCertificateArn != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn = cmdletContext.ResourceIdentifier_DeviceCertificateArn;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn != null)
+            {
+                request.ResourceIdentifier.DeviceCertificateArn = requestResourceIdentifier_resourceIdentifier_DeviceCertificateArn;
+                requestResourceIdentifierIsNull = false;
+            }
             System.String requestResourceIdentifier_resourceIdentifier_DeviceCertificateId = null;
             if (cmdletContext.ResourceIdentifier_DeviceCertificateId != null)
             {
@@ -616,6 +728,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier != null)
             {
                 request.ResourceIdentifier.PolicyVersionIdentifier = requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier;
+                requestResourceIdentifierIsNull = false;
+            }
+            Amazon.IoT.Model.IssuerCertificateIdentifier requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = null;
+            
+             // populate IssuerCertificateIdentifier
+            var requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = true;
+            requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = new Amazon.IoT.Model.IssuerCertificateIdentifier();
+            System.String requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber = null;
+            if (cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSerialNumber != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber = cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSerialNumber;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier.IssuerCertificateSerialNumber = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSerialNumber;
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject = null;
+            if (cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSubject != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject = cmdletContext.IssuerCertificateIdentifier_IssuerCertificateSubject;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier.IssuerCertificateSubject = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerCertificateSubject;
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId = null;
+            if (cmdletContext.IssuerCertificateIdentifier_IssuerId != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId = cmdletContext.IssuerCertificateIdentifier_IssuerId;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier.IssuerId = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier_issuerCertificateIdentifier_IssuerId;
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull = false;
+            }
+             // determine if requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier should be set to null
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifierIsNull)
+            {
+                requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier = null;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier != null)
+            {
+                request.ResourceIdentifier.IssuerCertificateIdentifier = requestResourceIdentifier_resourceIdentifier_IssuerCertificateIdentifier;
                 requestResourceIdentifierIsNull = false;
             }
              // determine if request.ResourceIdentifier should be set to null
@@ -759,8 +916,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String ResourceIdentifier_CaCertificateId { get; set; }
             public System.String ResourceIdentifier_ClientId { get; set; }
             public System.String ResourceIdentifier_CognitoIdentityPoolId { get; set; }
+            public System.String ResourceIdentifier_DeviceCertificateArn { get; set; }
             public System.String ResourceIdentifier_DeviceCertificateId { get; set; }
             public System.String ResourceIdentifier_IamRoleArn { get; set; }
+            public System.String IssuerCertificateIdentifier_IssuerCertificateSerialNumber { get; set; }
+            public System.String IssuerCertificateIdentifier_IssuerCertificateSubject { get; set; }
+            public System.String IssuerCertificateIdentifier_IssuerId { get; set; }
             public System.String PolicyVersionIdentifier_PolicyName { get; set; }
             public System.String PolicyVersionIdentifier_PolicyVersionId { get; set; }
             public System.String ResourceIdentifier_RoleAliasArn { get; set; }

@@ -708,6 +708,7 @@ $IOT_SelectMap = @{
                "Get-IOTPrincipalThingList",
                "Get-IOTProvisioningTemplateList",
                "Get-IOTProvisioningTemplateVersionList",
+               "Get-IOTRelatedResourcesForAuditFindingList",
                "Get-IOTRoleAliasList",
                "Get-IOTScheduledAuditList",
                "Get-IOTSecurityProfileList",

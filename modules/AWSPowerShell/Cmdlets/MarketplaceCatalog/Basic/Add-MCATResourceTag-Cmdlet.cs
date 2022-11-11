@@ -22,36 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Glue;
-using Amazon.Glue.Model;
+using Amazon.MarketplaceCatalog;
+using Amazon.MarketplaceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GLUE
+namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// Returns information on a job bookmark entry.
-    /// 
-    ///  
-    /// <para>
-    /// For more information about enabling and using job bookmarks, see:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking
-    /// processed data using job bookmarks</a></para></li><li><para><a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job
-    /// parameters used by Glue</a></para></li><li><para><a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job
-    /// structure</a></para></li></ul>
+    /// Tags a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a>
+    /// or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change
+    /// set</a>).
     /// </summary>
-    [Cmdlet("Get", "GLUEJobBookmark")]
-    [OutputType("Amazon.Glue.Model.JobBookmarkEntry")]
-    [AWSCmdlet("Calls the AWS Glue GetJobBookmark API operation.", Operation = new[] {"GetJobBookmark"}, SelectReturnType = typeof(Amazon.Glue.Model.GetJobBookmarkResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.JobBookmarkEntry or Amazon.Glue.Model.GetJobBookmarkResponse",
-        "This cmdlet returns an Amazon.Glue.Model.JobBookmarkEntry object.",
-        "The service call response (type Amazon.Glue.Model.GetJobBookmarkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "MCATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Marketplace Catalog Service TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.MarketplaceCatalog.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.MarketplaceCatalog.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGLUEJobBookmarkCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class AddMCATResourceTagCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter JobName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the job in question.</para>
+        /// <para>Required. The Amazon Resource Name (ARN) associated with the resource you want to
+        /// tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,43 +57,67 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter RunId
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The unique run identifier associated with this job run.</para>
+        /// <para>Required. A list of objects specifying each key name and value. Number of objects
+        /// allowed: 1-50.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RunId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Tags")]
+        public Amazon.MarketplaceCatalog.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobBookmarkEntry'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetJobBookmarkResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.GetJobBookmarkResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceCatalog.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "JobBookmarkEntry";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-MCATResourceTag (TagResource)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -108,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetJobBookmarkResponse, GetGLUEJobBookmarkCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceCatalog.Model.TagResourceResponse, AddMCATResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,17 +136,26 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.JobName = this.JobName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RunId = this.RunId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.MarketplaceCatalog.Model.Tag>(this.Tag);
+            }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -142,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.GetJobBookmarkRequest();
+            var request = new Amazon.MarketplaceCatalog.Model.TagResourceRequest();
             
-            if (cmdletContext.JobName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.JobName = cmdletContext.JobName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.RunId != null)
+            if (cmdletContext.Tag != null)
             {
-                request.RunId = cmdletContext.RunId;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -185,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.GetJobBookmarkResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetJobBookmarkRequest request)
+        private Amazon.MarketplaceCatalog.Model.TagResourceResponse CallAWSServiceOperation(IAmazonMarketplaceCatalog client, Amazon.MarketplaceCatalog.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetJobBookmark");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Catalog Service", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.GetJobBookmark(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.GetJobBookmarkAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,10 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobName { get; set; }
-            public System.String RunId { get; set; }
-            public System.Func<Amazon.Glue.Model.GetJobBookmarkResponse, GetGLUEJobBookmarkCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.JobBookmarkEntry;
+            public System.String ResourceArn { get; set; }
+            public List<Amazon.MarketplaceCatalog.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.MarketplaceCatalog.Model.TagResourceResponse, AddMCATResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

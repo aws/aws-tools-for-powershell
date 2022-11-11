@@ -163,7 +163,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListReceivedGrantsForOrganization" OutputProperty="Grants" Verb="Get" Noun="ReceivedGrantsForOrganizationList" PipelineParameter="LicenseArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListReceivedLicenses" OutputProperty="Licenses" Verb="Get" Noun="ReceivedLicenseList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReceivedLicensesForOrganization" OutputProperty="Licenses" Verb="Get" Noun="ReceivedLicensesForOrganizationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

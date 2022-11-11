@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
     /// Checks out the specified license.
+    /// 
+    ///  <note><para>
+    /// If the account that created the license is the same that is performing the check out,
+    /// you must specify the account as the beneficiary.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "LICMLicenseCheckout", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LicenseManager.Model.CheckoutLicenseResponse")]

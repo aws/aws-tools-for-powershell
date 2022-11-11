@@ -27038,6 +27038,7 @@ $IOT_SelectMap = @{
                "Get-IOTPrincipalThingList",
                "Get-IOTProvisioningTemplateList",
                "Get-IOTProvisioningTemplateVersionList",
+               "Get-IOTRelatedResourcesForAuditFindingList",
                "Get-IOTRoleAliasList",
                "Get-IOTScheduledAuditList",
                "Get-IOTSecurityProfileList",
@@ -31394,7 +31395,9 @@ $LICM_SelectMap = @{
                "Get-LICMLicenseSpecificationsForResourceList",
                "Get-LICMLicenseVersionList",
                "Get-LICMReceivedGrantList",
+               "Get-LICMReceivedGrantsForOrganizationList",
                "Get-LICMReceivedLicenseList",
+               "Get-LICMReceivedLicensesForOrganizationList",
                "Get-LICMResourceInventoryList",
                "Get-LICMResourceTagList",
                "Get-LICMTokenList",
@@ -33654,7 +33657,10 @@ $MCAT_SelectMap = @{
                "Get-MCATEntity",
                "Get-MCATChangeSetList",
                "Get-MCATEntityList",
-               "Start-MCATChangeSet")
+               "Get-MCATResourceTag",
+               "Start-MCATChangeSet",
+               "Add-MCATResourceTag",
+               "Remove-MCATResourceTag")
 }
 
 _awsArgumentCompleterRegistration $MCAT_SelectCompleters $MCAT_SelectMap

@@ -172,6 +172,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTProvisioningTemplateVersion', 
         'Get-IOTProvisioningTemplateVersionList', 
         'Get-IOTRegistrationCode', 
+        'Get-IOTRelatedResourcesForAuditFindingList', 
         'Get-IOTRoleAlias', 
         'Get-IOTRoleAliasList', 
         'Get-IOTScheduledAudit', 

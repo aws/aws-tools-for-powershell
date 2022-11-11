@@ -36,47 +36,84 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <para>
     /// For an example, see Analyzing images stored in an Amazon S3 bucket in the Amazon Rekognition
     /// Developer Guide.
-    /// </para><note><para><code>DetectLabels</code> does not support the detection of activities. However,
-    /// activity detection is supported for label detection in videos. For more information,
-    /// see StartLabelDetection in the Amazon Rekognition Developer Guide.
-    /// </para></note><para>
+    /// </para><para>
     /// You pass the input image as base64-encoded image bytes or as a reference to an image
     /// in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
     /// passing image bytes is not supported. The image must be either a PNG or JPEG formatted
     /// file. 
+    /// </para><para><b>Optional Parameters</b></para><para>
+    /// You can specify one or both of the <code>GENERAL_LABELS</code> and <code>IMAGE_PROPERTIES</code>
+    /// feature types when calling the DetectLabels API. Including <code>GENERAL_LABELS</code>
+    /// will ensure the response includes the labels detected in the input image, while including
+    /// <code>IMAGE_PROPERTIES </code>will ensure the response includes information about
+    /// the image quality and color.
     /// </para><para>
-    ///  For each object, scene, and concept the API returns one or more labels. Each label
-    /// provides the object name, and the level of confidence that the image contains the
-    /// object. For example, suppose the input image has a lighthouse, the sea, and a rock.
-    /// The response includes all three labels, one for each object. 
+    /// When using <code>GENERAL_LABELS</code> and/or <code>IMAGE_PROPERTIES</code> you can
+    /// provide filtering criteria to the Settings parameter. You can filter with sets of
+    /// individual labels or with label categories. You can specify inclusive filters, exclusive
+    /// filters, or a combination of inclusive and exclusive filters. For more information
+    /// on filtering see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detect-labels-image.html">Detecting
+    /// Labels in an Image</a>.
+    /// </para><para>
+    /// You can specify <code>MinConfidence</code> to control the confidence threshold for
+    /// the labels returned. The default is 55%. You can also add the <code>MaxLabels</code>
+    /// parameter to limit the number of labels returned. The default and upper limit is 1000
+    /// labels.
+    /// </para><para><b>Response Elements</b></para><para>
+    ///  For each object, scene, and concept the API returns one or more labels. The API returns
+    /// the following types of information regarding labels:
+    /// </para><ul><li><para>
+    ///  Name - The name of the detected label. 
+    /// </para></li><li><para>
+    ///  Confidence - The level of confidence in the label assigned to a detected object.
+    /// 
+    /// </para></li><li><para>
+    ///  Parents - The ancestor labels for a detected label. DetectLabels returns a hierarchical
+    /// taxonomy of detected labels. For example, a detected car might be assigned the label
+    /// car. The label car has two parent labels: Vehicle (its parent) and Transportation
+    /// (its grandparent). The response includes the all ancestors for a label, where every
+    /// ancestor is a unique label. In the previous example, Car, Vehicle, and Transportation
+    /// are returned as unique labels in the response. 
+    /// </para></li><li><para>
+    ///  Aliases - Possible Aliases for the label. 
+    /// </para></li><li><para>
+    ///  Categories - The label categories that the detected label belongs to. A given label
+    /// can belong to more than one category. 
+    /// </para></li><li><para>
+    ///  BoundingBox — Bounding boxes are described for all instances of detected common object
+    /// labels, returned in an array of Instance objects. An Instance object contains a BoundingBox
+    /// object, describing the location of the label on the input image. It also includes
+    /// the confidence for the accuracy of the detected bounding box. 
+    /// </para></li></ul><para>
+    ///  The API returns the following information regarding the image, as part of the ImageProperties
+    /// structure:
+    /// </para><ul><li><para>
+    /// Quality - Information about the Sharpness, Brightness, and Contrast of the input image,
+    /// scored between 0 to 100. Image quality is returned for the entire image, as well as
+    /// the background and the foreground. 
+    /// </para></li><li><para>
+    /// Dominant Color - An array of the dominant colors in the image. 
+    /// </para></li><li><para>
+    /// Foreground - Information about the Sharpness and Brightness of the input image’s foreground.
+    /// 
+    /// </para></li><li><para>
+    /// Background - Information about the Sharpness and Brightness of the input image’s background.
+    /// </para></li></ul><para>
+    /// The list of returned labels will include at least one label for every detected object,
+    /// along with information about that label. In the following example, suppose the input
+    /// image has a lighthouse, the sea, and a rock. The response includes all three labels,
+    /// one for each object, as well as the confidence in the label:
     /// </para><para><code>{Name: lighthouse, Confidence: 98.4629}</code></para><para><code>{Name: rock,Confidence: 79.2097}</code></para><para><code> {Name: sea,Confidence: 75.061}</code></para><para>
-    /// In the preceding example, the operation returns one label for each of the three objects.
-    /// The operation can also return multiple labels for the same object in the image. For
-    /// example, if the input image shows a flower (for example, a tulip), the operation might
-    /// return the following three labels. 
+    /// The list of labels can include multiple labels for the same object. For example, if
+    /// the input image shows a flower (for example, a tulip), the operation might return
+    /// the following three labels. 
     /// </para><para><code>{Name: flower,Confidence: 99.0562}</code></para><para><code>{Name: plant,Confidence: 99.0562}</code></para><para><code>{Name: tulip,Confidence: 99.0562}</code></para><para>
     /// In this example, the detection algorithm more precisely identifies the flower as a
     /// tulip.
-    /// </para><para>
-    /// In response, the API returns an array of labels. In addition, the response also includes
-    /// the orientation correction. Optionally, you can specify <code>MinConfidence</code>
-    /// to control the confidence threshold for the labels returned. The default is 55%. You
-    /// can also add the <code>MaxLabels</code> parameter to limit the number of labels returned.
-    /// 
     /// </para><note><para>
     /// If the object detected is a person, the operation doesn't provide the same facial
     /// details that the <a>DetectFaces</a> operation provides.
-    /// </para></note><para><code>DetectLabels</code> returns bounding boxes for instances of common object labels
-    /// in an array of <a>Instance</a> objects. An <code>Instance</code> object contains a
-    /// <a>BoundingBox</a> object, for the location of the label on the image. It also includes
-    /// the confidence by which the bounding box was detected.
-    /// </para><para><code>DetectLabels</code> also returns a hierarchical taxonomy of detected labels.
-    /// For example, a detected car might be assigned the label <i>car</i>. The label <i>car</i>
-    /// has two parent labels: <i>Vehicle</i> (its parent) and <i>Transportation</i> (its
-    /// grandparent). The response returns the entire list of ancestors for a label. Each
-    /// ancestor is a unique label in the response. In the previous example, <i>Car</i>, <i>Vehicle</i>,
-    /// and <i>Transportation</i> are returned as unique labels in the response. 
-    /// </para><para>
+    /// </para></note><para>
     /// This is a stateless API operation. That is, the operation does not persist any data.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:DetectLabels</code>
@@ -112,6 +149,75 @@ namespace Amazon.PowerShell.Cmdlets.REK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] ImageContent { get; set; }
+        #endregion
+        
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label
+        /// detection feature, while specifying IMAGE_PROPERTIES returns information regarding
+        /// image color and quality. If no option is specified GENERAL_LABELS is used by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public System.String[] Feature { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelCategoryExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The label categories that should be excluded from the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelCategoryExclusionFilters")]
+        public System.String[] GeneralLabels_LabelCategoryExclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelCategoryInclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The label categories that should be included in the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelCategoryInclusionFilters")]
+        public System.String[] GeneralLabels_LabelCategoryInclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The labels that should be excluded from the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelExclusionFilters")]
+        public System.String[] GeneralLabels_LabelExclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelInclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The labels that should be included in the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelInclusionFilters")]
+        public System.String[] GeneralLabels_LabelInclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter ImageProperties_MaxDominantColor
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of dominant colors to return when detecting labels in an image.
+        /// The default value is 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_ImageProperties_MaxDominantColors")]
+        public System.Int32? ImageProperties_MaxDominantColor { get; set; }
         #endregion
         
         #region Parameter MaxLabel
@@ -183,12 +289,33 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DetectLabelsResponse, FindREKLabelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Feature != null)
+            {
+                context.Feature = new List<System.String>(this.Feature);
+            }
             context.ImageContent = this.ImageContent;
             context.ImageBucket = this.ImageBucket;
             context.ImageName = this.ImageName;
             context.ImageVersion = this.ImageVersion;
             context.MaxLabel = this.MaxLabel;
             context.MinConfidence = this.MinConfidence;
+            if (this.GeneralLabels_LabelCategoryExclusionFilter != null)
+            {
+                context.GeneralLabels_LabelCategoryExclusionFilter = new List<System.String>(this.GeneralLabels_LabelCategoryExclusionFilter);
+            }
+            if (this.GeneralLabels_LabelCategoryInclusionFilter != null)
+            {
+                context.GeneralLabels_LabelCategoryInclusionFilter = new List<System.String>(this.GeneralLabels_LabelCategoryInclusionFilter);
+            }
+            if (this.GeneralLabels_LabelExclusionFilter != null)
+            {
+                context.GeneralLabels_LabelExclusionFilter = new List<System.String>(this.GeneralLabels_LabelExclusionFilter);
+            }
+            if (this.GeneralLabels_LabelInclusionFilter != null)
+            {
+                context.GeneralLabels_LabelInclusionFilter = new List<System.String>(this.GeneralLabels_LabelInclusionFilter);
+            }
+            context.ImageProperties_MaxDominantColor = this.ImageProperties_MaxDominantColor;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 // create request
                 var request = new Amazon.Rekognition.Model.DetectLabelsRequest();
                 
+                if (cmdletContext.Feature != null)
+                {
+                    request.Features = cmdletContext.Feature;
+                }
                 
                  // populate Image
                 var requestImageIsNull = true;
@@ -283,6 +414,95 @@ namespace Amazon.PowerShell.Cmdlets.REK
                     request.MinConfidence = cmdletContext.MinConfidence.Value;
                 }
                 
+                 // populate Settings
+                var requestSettingsIsNull = true;
+                request.Settings = new Amazon.Rekognition.Model.DetectLabelsSettings();
+                Amazon.Rekognition.Model.DetectLabelsImagePropertiesSettings requestSettings_settings_ImageProperties = null;
+                
+                 // populate ImageProperties
+                var requestSettings_settings_ImagePropertiesIsNull = true;
+                requestSettings_settings_ImageProperties = new Amazon.Rekognition.Model.DetectLabelsImagePropertiesSettings();
+                System.Int32? requestSettings_settings_ImageProperties_imageProperties_MaxDominantColor = null;
+                if (cmdletContext.ImageProperties_MaxDominantColor != null)
+                {
+                    requestSettings_settings_ImageProperties_imageProperties_MaxDominantColor = cmdletContext.ImageProperties_MaxDominantColor.Value;
+                }
+                if (requestSettings_settings_ImageProperties_imageProperties_MaxDominantColor != null)
+                {
+                    requestSettings_settings_ImageProperties.MaxDominantColors = requestSettings_settings_ImageProperties_imageProperties_MaxDominantColor.Value;
+                    requestSettings_settings_ImagePropertiesIsNull = false;
+                }
+                 // determine if requestSettings_settings_ImageProperties should be set to null
+                if (requestSettings_settings_ImagePropertiesIsNull)
+                {
+                    requestSettings_settings_ImageProperties = null;
+                }
+                if (requestSettings_settings_ImageProperties != null)
+                {
+                    request.Settings.ImageProperties = requestSettings_settings_ImageProperties;
+                    requestSettingsIsNull = false;
+                }
+                Amazon.Rekognition.Model.GeneralLabelsSettings requestSettings_settings_GeneralLabels = null;
+                
+                 // populate GeneralLabels
+                var requestSettings_settings_GeneralLabelsIsNull = true;
+                requestSettings_settings_GeneralLabels = new Amazon.Rekognition.Model.GeneralLabelsSettings();
+                List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter = null;
+                if (cmdletContext.GeneralLabels_LabelCategoryExclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter = cmdletContext.GeneralLabels_LabelCategoryExclusionFilter;
+                }
+                if (requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels.LabelCategoryExclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter;
+                    requestSettings_settings_GeneralLabelsIsNull = false;
+                }
+                List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter = null;
+                if (cmdletContext.GeneralLabels_LabelCategoryInclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter = cmdletContext.GeneralLabels_LabelCategoryInclusionFilter;
+                }
+                if (requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels.LabelCategoryInclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter;
+                    requestSettings_settings_GeneralLabelsIsNull = false;
+                }
+                List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter = null;
+                if (cmdletContext.GeneralLabels_LabelExclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter = cmdletContext.GeneralLabels_LabelExclusionFilter;
+                }
+                if (requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels.LabelExclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter;
+                    requestSettings_settings_GeneralLabelsIsNull = false;
+                }
+                List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter = null;
+                if (cmdletContext.GeneralLabels_LabelInclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter = cmdletContext.GeneralLabels_LabelInclusionFilter;
+                }
+                if (requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter != null)
+                {
+                    requestSettings_settings_GeneralLabels.LabelInclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter;
+                    requestSettings_settings_GeneralLabelsIsNull = false;
+                }
+                 // determine if requestSettings_settings_GeneralLabels should be set to null
+                if (requestSettings_settings_GeneralLabelsIsNull)
+                {
+                    requestSettings_settings_GeneralLabels = null;
+                }
+                if (requestSettings_settings_GeneralLabels != null)
+                {
+                    request.Settings.GeneralLabels = requestSettings_settings_GeneralLabels;
+                    requestSettingsIsNull = false;
+                }
+                 // determine if request.Settings should be set to null
+                if (requestSettingsIsNull)
+                {
+                    request.Settings = null;
+                }
+                
                 CmdletOutput output;
                 
                 // issue call
@@ -351,12 +571,18 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Feature { get; set; }
             public byte[] ImageContent { get; set; }
             public System.String ImageBucket { get; set; }
             public System.String ImageName { get; set; }
             public System.String ImageVersion { get; set; }
             public System.Int32? MaxLabel { get; set; }
             public System.Single? MinConfidence { get; set; }
+            public List<System.String> GeneralLabels_LabelCategoryExclusionFilter { get; set; }
+            public List<System.String> GeneralLabels_LabelCategoryInclusionFilter { get; set; }
+            public List<System.String> GeneralLabels_LabelExclusionFilter { get; set; }
+            public List<System.String> GeneralLabels_LabelInclusionFilter { get; set; }
+            public System.Int32? ImageProperties_MaxDominantColor { get; set; }
             public System.Func<Amazon.Rekognition.Model.DetectLabelsResponse, FindREKLabelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

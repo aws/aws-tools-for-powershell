@@ -12077,6 +12077,9 @@ Set-Alias -Name IOT-ListProvisioningTemplates -Value Get-IOTProvisioningTemplate
 Set-Alias -Name List-IOTProvisioningTemplateVersions -Value Get-IOTProvisioningTemplateVersionList
 Set-Alias -Name List-IOTProvisioningTemplateVersionList -Value Get-IOTProvisioningTemplateVersionList
 Set-Alias -Name IOT-ListProvisioningTemplateVersions -Value Get-IOTProvisioningTemplateVersionList
+Set-Alias -Name List-IOTRelatedResourcesForAuditFinding -Value Get-IOTRelatedResourcesForAuditFindingList
+Set-Alias -Name List-IOTRelatedResourcesForAuditFindingList -Value Get-IOTRelatedResourcesForAuditFindingList
+Set-Alias -Name IOT-ListRelatedResourcesForAuditFinding -Value Get-IOTRelatedResourcesForAuditFindingList
 Set-Alias -Name List-IOTRoleAliases -Value Get-IOTRoleAliasList
 Set-Alias -Name List-IOTRoleAliasList -Value Get-IOTRoleAliasList
 Set-Alias -Name IOT-ListRoleAliases -Value Get-IOTRoleAliasList
@@ -13783,9 +13786,15 @@ Set-Alias -Name LICM-ListLicenseVersions -Value Get-LICMLicenseVersionList
 Set-Alias -Name List-LICMReceivedGrants -Value Get-LICMReceivedGrantList
 Set-Alias -Name List-LICMReceivedGrantList -Value Get-LICMReceivedGrantList
 Set-Alias -Name LICM-ListReceivedGrants -Value Get-LICMReceivedGrantList
+Set-Alias -Name List-LICMReceivedGrantsForOrganization -Value Get-LICMReceivedGrantsForOrganizationList
+Set-Alias -Name List-LICMReceivedGrantsForOrganizationList -Value Get-LICMReceivedGrantsForOrganizationList
+Set-Alias -Name LICM-ListReceivedGrantsForOrganization -Value Get-LICMReceivedGrantsForOrganizationList
 Set-Alias -Name List-LICMReceivedLicenses -Value Get-LICMReceivedLicenseList
 Set-Alias -Name List-LICMReceivedLicenseList -Value Get-LICMReceivedLicenseList
 Set-Alias -Name LICM-ListReceivedLicenses -Value Get-LICMReceivedLicenseList
+Set-Alias -Name List-LICMReceivedLicensesForOrganization -Value Get-LICMReceivedLicensesForOrganizationList
+Set-Alias -Name List-LICMReceivedLicensesForOrganizationList -Value Get-LICMReceivedLicensesForOrganizationList
+Set-Alias -Name LICM-ListReceivedLicensesForOrganization -Value Get-LICMReceivedLicensesForOrganizationList
 Set-Alias -Name List-LICMResourceInventory -Value Get-LICMResourceInventoryList
 Set-Alias -Name List-LICMResourceInventoryList -Value Get-LICMResourceInventoryList
 Set-Alias -Name LICM-ListResourceInventory -Value Get-LICMResourceInventoryList
@@ -14793,7 +14802,10 @@ Set-Alias -Name MCAT-ListChangeSets -Value Get-MCATChangeSetList
 Set-Alias -Name List-MCATEntities -Value Get-MCATEntityList
 Set-Alias -Name List-MCATEntityList -Value Get-MCATEntityList
 Set-Alias -Name MCAT-ListEntities -Value Get-MCATEntityList
+Set-Alias -Name MCAT-ListTagsForResource -Value Get-MCATResourceTag
 Set-Alias -Name MCAT-StartChangeSet -Value Start-MCATChangeSet
+Set-Alias -Name MCAT-TagResource -Value Add-MCATResourceTag
+Set-Alias -Name MCAT-UntagResource -Value Remove-MCATResourceTag
 Set-Alias -Name Generate-MCADataSet -Value New-MCADataSet
 Set-Alias -Name MCA-GenerateDataSet -Value New-MCADataSet
 Set-Alias -Name MCA-StartSupportDataExport -Value Start-MCASupportDataExport
