@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     ///  
     /// <para>
     /// If the environment is associated with an environment account connection, <i>don't</i>
-    /// update or include the <code>protonServiceRoleArn</code> and <code>provisioningRepository</code>
-    /// parameter to update or connect to an environment account connection.
+    /// update or include the <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>,
+    /// and <code>provisioningRepository</code> parameters.
     /// </para><para>
     /// You can only update to a new environment account connection if that connection was
     /// created in the same environment account that the current environment account connection
@@ -45,15 +45,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     /// You <i>can't</i> update or connect the environment to an environment account connection
     /// if it <i>isn't</i> already associated with an environment connection.
     /// </para><para>
-    /// You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-    /// parameter and value. You can’t update both.
+    /// You can update either <code>environmentAccountConnectionId</code> or one or more of
+    /// <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, and <code>provisioningRepository</code>.
     /// </para><para>
-    /// If the environment was configured for Amazon Web Services-managed provisioning, omit
-    /// the <code>provisioningRepository</code> parameter.
+    /// If the environment was configured for Amazon Web Services-managed or CodeBuild-based
+    /// provisioning, omit the <code>provisioningRepository</code> parameter.
     /// </para><para>
     /// If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code>
-    /// parameter and omit the <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code>
-    /// parameters.
+    /// parameter and omit the <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>,
+    /// and <code>provisioningRepository</code> parameters.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a>
     /// and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning
@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProvisioningRepository_Branch { get; set; }
+        #endregion
+        
+        #region Parameter CodebuildRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
+        /// infrastructure using CodeBuild-based provisioning on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CodebuildRoleArn { get; set; }
         #endregion
         
         #region Parameter ComponentRoleArn
@@ -152,7 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter EnvironmentAccountConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment account connection.</para><para>You can only update to a new environment account connection if it was created in the
+        /// <para>The ID of the environment account connection that you provide if you want Proton to
+        /// provision infrastructure resources for your environment or for any of the service
+        /// instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton User guide</i>.</para><para>You can only update to a new environment account connection if it was created in the
         /// same environment account that the current environment account connection was created
         /// in and is associated with the current environment.</para>
         /// </para>
@@ -191,8 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ProtonServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
-        /// API calls to other services your behalf.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
+        /// infrastructure using Amazon Web Services-managed provisioning and CloudFormation on
+        /// your behalf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -301,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CodebuildRoleArn = this.CodebuildRoleArn;
             context.ComponentRoleArn = this.ComponentRoleArn;
             context.DeploymentType = this.DeploymentType;
             #if MODULAR
@@ -341,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateEnvironmentRequest();
             
+            if (cmdletContext.CodebuildRoleArn != null)
+            {
+                request.CodebuildRoleArn = cmdletContext.CodebuildRoleArn;
+            }
             if (cmdletContext.ComponentRoleArn != null)
             {
                 request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
@@ -477,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CodebuildRoleArn { get; set; }
             public System.String ComponentRoleArn { get; set; }
             public Amazon.Proton.DeploymentUpdateType DeploymentType { get; set; }
             public System.String Description { get; set; }

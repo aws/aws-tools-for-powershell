@@ -126,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String CustomIamInstanceProfile { get; set; }
         #endregion
         
+        #region Parameter DBClusterSnapshotIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.</para><para>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+        /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
+        /// User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing Multi-AZ DB cluster snapshot.</para></li><li><para>Can't be specified when <code>DBSnapshotIdentifier</code> is specified.</para></li><li><para>Must be specified when <code>DBSnapshotIdentifier</code> isn't specified.</para></li><li><para>If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the <code>DBClusterSnapshotIdentifier</code>
+        /// must be the ARN of the shared snapshot.</para></li><li><para>Can't be the identifier of an Aurora DB cluster snapshot.</para></li><li><para>Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBClusterSnapshotIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -182,18 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBSnapshot.</para></li><li><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
+        /// <para>The identifier for the DB snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBSnapshot.</para></li><li><para>Can't be specified when <code>DBClusterSnapshotIdentifier</code> is specified.</para></li><li><para>Must be specified when <code>DBClusterSnapshotIdentifier</code> isn't specified.</para></li><li><para>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
         /// must be the ARN of the shared DB snapshot.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DBSnapshotIdentifier { get; set; }
         #endregion
         
@@ -540,6 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.BackupTarget = this.BackupTarget;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.CustomIamInstanceProfile = this.CustomIamInstanceProfile;
+            context.DBClusterSnapshotIdentifier = this.DBClusterSnapshotIdentifier;
             context.DBInstanceClass = this.DBInstanceClass;
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
             #if MODULAR
@@ -551,12 +558,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBName = this.DBName;
             context.DBParameterGroupName = this.DBParameterGroupName;
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
-            #if MODULAR
-            if (this.DBSnapshotIdentifier == null && ParameterWasBound(nameof(this.DBSnapshotIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DBSnapshotIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
@@ -627,6 +628,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CustomIamInstanceProfile != null)
             {
                 request.CustomIamInstanceProfile = cmdletContext.CustomIamInstanceProfile;
+            }
+            if (cmdletContext.DBClusterSnapshotIdentifier != null)
+            {
+                request.DBClusterSnapshotIdentifier = cmdletContext.DBClusterSnapshotIdentifier;
             }
             if (cmdletContext.DBInstanceClass != null)
             {
@@ -806,6 +811,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String BackupTarget { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String CustomIamInstanceProfile { get; set; }
+            public System.String DBClusterSnapshotIdentifier { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBName { get; set; }

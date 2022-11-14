@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.416.0",
+    "ProductVersion" : "3.7.417.0",
     "CoreVersion"    : "3.7.100.16",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.102.9",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"
@@ -690,7 +690,7 @@
             "InPreview"               : false
         },
         "XRay"                            : {
-            "Version" : "3.7.100.16",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"
@@ -754,7 +754,7 @@
             "InPreview"               : false
         },
         "WorkDocs"                        : {
-            "Version" : "3.7.100.16",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"
@@ -1386,7 +1386,7 @@
             "InPreview"               : false
         },
         "ManagedBlockchain"               : {
-            "Version" : "3.7.100.16",
+            "Version" : "3.7.100.17",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"
@@ -1490,7 +1490,7 @@
             "InPreview"               : false
         },
         "LakeFormation"                   : {
-            "Version" : "3.7.100.16",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"
@@ -1962,7 +1962,7 @@
             "InPreview"               : false
         },
         "CustomerProfiles"                : {
-            "Version" : "3.7.100.16",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"
@@ -2162,7 +2162,7 @@
             "InPreview"               : false
         },
         "Proton"                          : {
-            "Version" : "3.7.100.16",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.16"

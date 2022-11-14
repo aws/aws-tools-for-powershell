@@ -22,44 +22,58 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ManagedBlockchain;
-using Amazon.ManagedBlockchain.Model;
+using Amazon.WorkDocs;
+using Amazon.WorkDocs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MBC
+namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Deletes a node that your Amazon Web Services account owns. All data on the node is
-    /// lost and cannot be recovered.
-    /// 
-    ///  
-    /// <para>
-    /// Applies to Hyperledger Fabric and Ethereum.
-    /// </para>
+    /// Deletes a version of an Amazon WorkDocs document. Use the <code>DeletePriorVersions</code>
+    /// parameter to delete prior versions.
     /// </summary>
-    [Cmdlet("Remove", "MBCNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "WDDocumentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Managed Blockchain DeleteNode API operation.", Operation = new[] {"DeleteNode"}, SelectReturnType = typeof(Amazon.ManagedBlockchain.Model.DeleteNodeResponse))]
-    [AWSCmdletOutput("None or Amazon.ManagedBlockchain.Model.DeleteNodeResponse",
+    [AWSCmdlet("Calls the Amazon WorkDocs DeleteDocumentVersion API operation.", Operation = new[] {"DeleteDocumentVersion"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.DeleteDocumentVersionResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkDocs.Model.DeleteDocumentVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ManagedBlockchain.Model.DeleteNodeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.DeleteDocumentVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveMBCNodeCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
+    public partial class RemoveWDDocumentVersionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
-        #region Parameter MemberId
+        #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the member that owns this node.</para><para>Applies only to Hyperledger Fabric and is required for Hyperledger Fabric.</para>
+        /// <para>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials
+        /// to access the API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String MemberId { get; set; }
+        public System.String AuthenticationToken { get; set; }
         #endregion
         
-        #region Parameter NetworkId
+        #region Parameter DeletePriorVersion
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the network that the node is on.</para><para>Ethereum public networks have the following <code>NetworkId</code>s:</para><ul><li><para><code>n-ethereum-mainnet</code></para></li><li><para><code>n-ethereum-goerli</code></para></li><li><para><code>n-ethereum-rinkeby</code></para></li><li><para><code>n-ethereum-ropsten</code></para></li></ul>
+        /// <para>When set to <code>TRUE</code>, deletes the specified version and <i>all prior versions</i>
+        /// of a document.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("DeletePriorVersions")]
+        public System.Boolean? DeletePriorVersion { get; set; }
+        #endregion
+        
+        #region Parameter DocumentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,13 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NetworkId { get; set; }
+        public System.String DocumentId { get; set; }
         #endregion
         
-        #region Parameter NodeId
+        #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the node.</para>
+        /// <para>The version ID of a document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,13 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NodeId { get; set; }
+        public System.String VersionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedBlockchain.Model.DeleteNodeResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkDocs.Model.DeleteDocumentVersionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NodeId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NodeId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the VersionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VersionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NodeId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VersionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -124,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NodeId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MBCNode (DeleteNode)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DocumentId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WDDocumentVersion (DeleteDocumentVersion)"))
             {
                 return;
             }
@@ -138,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedBlockchain.Model.DeleteNodeResponse, RemoveMBCNodeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkDocs.Model.DeleteDocumentVersionResponse, RemoveWDDocumentVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -147,22 +161,29 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NodeId;
+                context.Select = (response, cmdlet) => this.VersionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MemberId = this.MemberId;
-            context.NetworkId = this.NetworkId;
+            context.AuthenticationToken = this.AuthenticationToken;
+            context.DeletePriorVersion = this.DeletePriorVersion;
             #if MODULAR
-            if (this.NetworkId == null && ParameterWasBound(nameof(this.NetworkId)))
+            if (this.DeletePriorVersion == null && ParameterWasBound(nameof(this.DeletePriorVersion)))
             {
-                WriteWarning("You are passing $null as a value for parameter NetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DeletePriorVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NodeId = this.NodeId;
+            context.DocumentId = this.DocumentId;
             #if MODULAR
-            if (this.NodeId == null && ParameterWasBound(nameof(this.NodeId)))
+            if (this.DocumentId == null && ParameterWasBound(nameof(this.DocumentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter NodeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DocumentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VersionId = this.VersionId;
+            #if MODULAR
+            if (this.VersionId == null && ParameterWasBound(nameof(this.VersionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -179,19 +200,23 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedBlockchain.Model.DeleteNodeRequest();
+            var request = new Amazon.WorkDocs.Model.DeleteDocumentVersionRequest();
             
-            if (cmdletContext.MemberId != null)
+            if (cmdletContext.AuthenticationToken != null)
             {
-                request.MemberId = cmdletContext.MemberId;
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
             }
-            if (cmdletContext.NetworkId != null)
+            if (cmdletContext.DeletePriorVersion != null)
             {
-                request.NetworkId = cmdletContext.NetworkId;
+                request.DeletePriorVersions = cmdletContext.DeletePriorVersion.Value;
             }
-            if (cmdletContext.NodeId != null)
+            if (cmdletContext.DocumentId != null)
             {
-                request.NodeId = cmdletContext.NodeId;
+                request.DocumentId = cmdletContext.DocumentId;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -226,15 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedBlockchain.Model.DeleteNodeResponse CallAWSServiceOperation(IAmazonManagedBlockchain client, Amazon.ManagedBlockchain.Model.DeleteNodeRequest request)
+        private Amazon.WorkDocs.Model.DeleteDocumentVersionResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteDocumentVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Blockchain", "DeleteNode");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DeleteDocumentVersion");
             try
             {
                 #if DESKTOP
-                return client.DeleteNode(request);
+                return client.DeleteDocumentVersion(request);
                 #elif CORECLR
-                return client.DeleteNodeAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDocumentVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,10 +279,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String MemberId { get; set; }
-            public System.String NetworkId { get; set; }
-            public System.String NodeId { get; set; }
-            public System.Func<Amazon.ManagedBlockchain.Model.DeleteNodeResponse, RemoveMBCNodeCmdlet, object> Select { get; set; } =
+            public System.String AuthenticationToken { get; set; }
+            public System.Boolean? DeletePriorVersion { get; set; }
+            public System.String DocumentId { get; set; }
+            public System.String VersionId { get; set; }
+            public System.Func<Amazon.WorkDocs.Model.DeleteDocumentVersionResponse, RemoveWDDocumentVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

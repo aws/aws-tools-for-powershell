@@ -28,8 +28,16 @@ using Amazon.CustomerProfiles.Model;
 namespace Amazon.PowerShell.Cmdlets.CPF
 {
     /// <summary>
-    /// Searches for profiles within a specific domain name using name, phone number, email
-    /// address, account number, or a custom defined index.
+    /// Searches for profiles within a specific domain using one or more predefined search
+    /// keys (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search
+    /// keys. A search key is a data type pair that consists of a <code>KeyName</code> and
+    /// <code>Values</code> list.
+    /// 
+    ///  
+    /// <para>
+    /// This operation supports searching for profiles with a minimum of 1 key-value(s) pair
+    /// and up to 5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.
+    /// </para>
     /// </summary>
     [Cmdlet("Search", "CPFProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CustomerProfiles.Model.Profile")]
@@ -40,6 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.CPF
     )]
     public partial class SearchCPFProfileCmdlet : AmazonCustomerProfilesClientCmdlet, IExecutor
     {
+        
+        #region Parameter AdditionalSearchKey
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers
+        /// of a profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code>
+        /// and a list of <code>Values</code> associated with that specific key (i.e., a key-value(s)
+        /// pair). These additional search keys will be used in conjunction with the <code>LogicalOperator</code>
+        /// and the required <code>KeyName</code> and <code>Values</code> parameters to search
+        /// for profiles that satisfy the search criteria. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalSearchKeys")]
+        public Amazon.CustomerProfiles.Model.AdditionalSearchKey[] AdditionalSearchKey { get; set; }
+        #endregion
         
         #region Parameter DomainName
         /// <summary>
@@ -79,6 +103,24 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.String KeyName { get; set; }
         #endregion
         
+        #region Parameter LogicalOperator
+        /// <summary>
+        /// <para>
+        /// <para>Relationship between all specified search keys that will be used to search for profiles.
+        /// This includes the required <code>KeyName</code> and <code>Values</code> parameters
+        /// as well as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code>
+        /// list.</para><para>This parameter influences which profiles will be returned in the response in the following
+        /// manner:</para><ul><li><para><code>AND</code> - The response only includes profiles that match all of the search
+        /// keys.</para></li><li><para><code>OR</code> - The response includes profiles that match at least one of the search
+        /// keys.</para></li></ul><para>The <code>OR</code> relationship is the default behavior if this parameter is not
+        /// included in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CustomerProfiles.LogicalOperator")]
+        public Amazon.CustomerProfiles.LogicalOperator LogicalOperator { get; set; }
+        #endregion
+        
         #region Parameter Value
         /// <summary>
         /// <para>
@@ -100,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of objects returned per page.</para>
+        /// <para>The maximum number of objects returned per page.</para><para>The default is 20 if this parameter is not included in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Select = CreateSelectDelegate<Amazon.CustomerProfiles.Model.SearchProfilesResponse, SearchCPFProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AdditionalSearchKey != null)
+            {
+                context.AdditionalSearchKey = new List<Amazon.CustomerProfiles.Model.AdditionalSearchKey>(this.AdditionalSearchKey);
+            }
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -173,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogicalOperator = this.LogicalOperator;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.Value != null)
@@ -201,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             // create request
             var request = new Amazon.CustomerProfiles.Model.SearchProfilesRequest();
             
+            if (cmdletContext.AdditionalSearchKey != null)
+            {
+                request.AdditionalSearchKeys = cmdletContext.AdditionalSearchKey;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -208,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.KeyName != null)
             {
                 request.KeyName = cmdletContext.KeyName;
+            }
+            if (cmdletContext.LogicalOperator != null)
+            {
+                request.LogicalOperator = cmdletContext.LogicalOperator;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -282,8 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CustomerProfiles.Model.AdditionalSearchKey> AdditionalSearchKey { get; set; }
             public System.String DomainName { get; set; }
             public System.String KeyName { get; set; }
+            public Amazon.CustomerProfiles.LogicalOperator LogicalOperator { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> Value { get; set; }

@@ -47,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class UpdatePROEnvironmentAccountConnectionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        #region Parameter CodebuildRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM service role in the environment account.
+        /// Proton uses this role to provision infrastructure resources using CodeBuild-based
+        /// provisioning in the associated environment account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CodebuildRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ComponentRoleArn
         /// <summary>
         /// <para>
@@ -82,8 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM service role that's associated with the
-        /// environment account connection to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM service role in the environment account.
+        /// Proton uses this role to provision infrastructure resources using Amazon Web Services-managed
+        /// provisioning and CloudFormation in the associated environment account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CodebuildRoleArn = this.CodebuildRoleArn;
             context.ComponentRoleArn = this.ComponentRoleArn;
             context.Id = this.Id;
             #if MODULAR
@@ -176,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateEnvironmentAccountConnectionRequest();
             
+            if (cmdletContext.CodebuildRoleArn != null)
+            {
+                request.CodebuildRoleArn = cmdletContext.CodebuildRoleArn;
+            }
             if (cmdletContext.ComponentRoleArn != null)
             {
                 request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
@@ -249,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CodebuildRoleArn { get; set; }
             public System.String ComponentRoleArn { get; set; }
             public System.String Id { get; set; }
             public System.String RoleArn { get; set; }

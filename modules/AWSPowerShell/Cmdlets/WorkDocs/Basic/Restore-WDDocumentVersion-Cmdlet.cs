@@ -22,44 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.LakeFormation;
-using Amazon.LakeFormation.Model;
+using Amazon.WorkDocs;
+using Amazon.WorkDocs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LKF
+namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Registers the resource as managed by the Data Catalog.
-    /// 
-    ///  
-    /// <para>
-    /// To add or update data, Lake Formation needs read/write access to the chosen Amazon
-    /// S3 path. Choose a role that you know has permission to do this, or choose the AWSServiceRoleForLakeFormationDataAccess
-    /// service-linked role. When you register the first Amazon S3 path, the service-linked
-    /// role and a new inline policy are created on your behalf. Lake Formation adds the first
-    /// path to the inline policy and attaches it to the service-linked role. When you register
-    /// subsequent paths, Lake Formation adds the path to the existing policy.
-    /// </para><para>
-    /// The following request registers a new location and gives Lake Formation permission
-    /// to use the service-linked role to access that location.
-    /// </para><para><code>ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true</code></para><para>
-    /// If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the
-    /// <code>RoleArn</code>:
-    /// </para><para><code>arn:aws:iam::12345:role/my-data-access-role</code></para>
+    /// Recovers a deleted version of an Amazon WorkDocs document.
     /// </summary>
-    [Cmdlet("Register", "LKFResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Restore", "WDDocumentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Lake Formation RegisterResource API operation.", Operation = new[] {"RegisterResource"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.RegisterResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.LakeFormation.Model.RegisterResourceResponse",
+    [AWSCmdlet("Calls the Amazon WorkDocs RestoreDocumentVersions API operation.", Operation = new[] {"RestoreDocumentVersions"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.RegisterResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterLKFResourceCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
+    public partial class RestoreWDDocumentVersionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to register.</para>
+        /// <para>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials
+        /// to access the API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
+        #region Parameter DocumentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the document.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,36 +65,13 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter RoleArn
-        /// <summary>
-        /// <para>
-        /// <para>The identifier for the role that registers the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RoleArn { get; set; }
-        #endregion
-        
-        #region Parameter UseServiceLinkedRole
-        /// <summary>
-        /// <para>
-        /// <para>Designates an Identity and Access Management (IAM) service-linked role by registering
-        /// this role with the Data Catalog. A service-linked role is a unique type of IAM role
-        /// that is linked directly to Lake Formation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html">Using
-        /// Service-Linked Roles for Lake Formation</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? UseServiceLinkedRole { get; set; }
+        public System.String DocumentId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LakeFormation.Model.RegisterResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DocumentId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DocumentId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DocumentId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-LKFResource (RegisterResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DocumentId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-WDDocumentVersion (RestoreDocumentVersions)"))
             {
                 return;
             }
@@ -144,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.RegisterResourceResponse, RegisterLKFResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse, RestoreWDDocumentVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,18 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.DocumentId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.AuthenticationToken = this.AuthenticationToken;
+            context.DocumentId = this.DocumentId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.DocumentId == null && ParameterWasBound(nameof(this.DocumentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DocumentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RoleArn = this.RoleArn;
-            context.UseServiceLinkedRole = this.UseServiceLinkedRole;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,19 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LakeFormation.Model.RegisterResourceRequest();
+            var request = new Amazon.WorkDocs.Model.RestoreDocumentVersionsRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.AuthenticationToken != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
             }
-            if (cmdletContext.RoleArn != null)
+            if (cmdletContext.DocumentId != null)
             {
-                request.RoleArn = cmdletContext.RoleArn;
-            }
-            if (cmdletContext.UseServiceLinkedRole != null)
-            {
-                request.UseServiceLinkedRole = cmdletContext.UseServiceLinkedRole.Value;
+                request.DocumentId = cmdletContext.DocumentId;
             }
             
             CmdletOutput output;
@@ -226,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         #region AWS Service Operation Call
         
-        private Amazon.LakeFormation.Model.RegisterResourceResponse CallAWSServiceOperation(IAmazonLakeFormation client, Amazon.LakeFormation.Model.RegisterResourceRequest request)
+        private Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.RestoreDocumentVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "RegisterResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "RestoreDocumentVersions");
             try
             {
                 #if DESKTOP
-                return client.RegisterResource(request);
+                return client.RestoreDocumentVersions(request);
                 #elif CORECLR
-                return client.RegisterResourceAsync(request).GetAwaiter().GetResult();
+                return client.RestoreDocumentVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,10 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.Boolean? UseServiceLinkedRole { get; set; }
-            public System.Func<Amazon.LakeFormation.Model.RegisterResourceResponse, RegisterLKFResourceCmdlet, object> Select { get; set; } =
+            public System.String AuthenticationToken { get; set; }
+            public System.String DocumentId { get; set; }
+            public System.Func<Amazon.WorkDocs.Model.RestoreDocumentVersionsResponse, RestoreWDDocumentVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

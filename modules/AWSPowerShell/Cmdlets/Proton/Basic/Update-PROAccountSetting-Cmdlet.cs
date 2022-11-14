@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String PipelineProvisioningRepository_Name { get; set; }
         #endregion
         
+        #region Parameter PipelineCodebuildRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the service role you want to use for provisioning
+        /// pipelines. Proton assumes this role for CodeBuild-based provisioning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PipelineCodebuildRoleArn { get; set; }
+        #endregion
+        
         #region Parameter PipelineServiceRoleArn
         /// <summary>
         /// <para>
@@ -137,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DeletePipelineProvisioningRepository = this.DeletePipelineProvisioningRepository;
+            context.PipelineCodebuildRoleArn = this.PipelineCodebuildRoleArn;
             context.PipelineProvisioningRepository_Branch = this.PipelineProvisioningRepository_Branch;
             context.PipelineProvisioningRepository_Name = this.PipelineProvisioningRepository_Name;
             context.PipelineProvisioningRepository_Provider = this.PipelineProvisioningRepository_Provider;
@@ -160,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.DeletePipelineProvisioningRepository != null)
             {
                 request.DeletePipelineProvisioningRepository = cmdletContext.DeletePipelineProvisioningRepository.Value;
+            }
+            if (cmdletContext.PipelineCodebuildRoleArn != null)
+            {
+                request.PipelineCodebuildRoleArn = cmdletContext.PipelineCodebuildRoleArn;
             }
             
              // populate PipelineProvisioningRepository
@@ -266,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DeletePipelineProvisioningRepository { get; set; }
+            public System.String PipelineCodebuildRoleArn { get; set; }
             public System.String PipelineProvisioningRepository_Branch { get; set; }
             public System.String PipelineProvisioningRepository_Name { get; set; }
             public Amazon.Proton.RepositoryProvider PipelineProvisioningRepository_Provider { get; set; }

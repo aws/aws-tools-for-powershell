@@ -50,6 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String ProvisioningRepository_Branch { get; set; }
         #endregion
         
+        #region Parameter CodebuildRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
+        /// infrastructure using CodeBuild-based provisioning on your behalf.</para><para>To use CodeBuild-based provisioning for the environment or for any service instance
+        /// running in the environment, specify either the <code>environmentAccountConnectionId</code>
+        /// or <code>codebuildRoleArn</code> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CodebuildRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ComponentRoleArn
         /// <summary>
         /// <para>
@@ -77,12 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter EnvironmentAccountConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment account connection that you provide if you're provisioning
-        /// your environment infrastructure resources to an environment account. For more information,
-        /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>Proton User guide</i>.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
-        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
+        /// <para>The ID of the environment account connection that you provide if you want Proton to
+        /// provision infrastructure resources for your environment or for any of the service
+        /// instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton User guide</i>.</para><para>If you specify the <code>environmentAccountConnectionId</code> parameter, don't specify
+        /// <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, or <code>provisioningRepository</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ProtonServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
-        /// calls to other services on your behalf.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
-        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
-        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
+        /// infrastructure using Amazon Web Services-managed provisioning and CloudFormation on
+        /// your behalf.</para><para>To use Amazon Web Services-managed provisioning for the environment or for any service
+        /// instance running in the environment, specify either the <code>environmentAccountConnectionId</code>
+        /// or <code>protonServiceRoleArn</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CodebuildRoleArn = this.CodebuildRoleArn;
             context.ComponentRoleArn = this.ComponentRoleArn;
             context.Description = this.Description;
             context.EnvironmentAccountConnectionId = this.EnvironmentAccountConnectionId;
@@ -334,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.CreateEnvironmentRequest();
             
+            if (cmdletContext.CodebuildRoleArn != null)
+            {
+                request.CodebuildRoleArn = cmdletContext.CodebuildRoleArn;
+            }
             if (cmdletContext.ComponentRoleArn != null)
             {
                 request.ComponentRoleArn = cmdletContext.ComponentRoleArn;
@@ -474,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CodebuildRoleArn { get; set; }
             public System.String ComponentRoleArn { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentAccountConnectionId { get; set; }

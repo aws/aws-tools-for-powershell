@@ -13387,6 +13387,13 @@ $CPF_Completers = {
             break
         }
 
+        # Amazon.CustomerProfiles.LogicalOperator
+        "Search-CPFProfile/LogicalOperator"
+        {
+            $v = "AND","OR"
+            break
+        }
+
         # Amazon.CustomerProfiles.PartyType
         {
             ($_ -eq "New-CPFProfile/PartyType") -Or
@@ -13451,6 +13458,7 @@ $CPF_map = @{
     "IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow")
     "IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow")
     "IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerType"=@("New-CPFIntegrationWorkflow")
+    "LogicalOperator"=@("Search-CPFProfile")
     "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
     "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
@@ -53348,7 +53356,7 @@ $WD_Completers = {
         # Amazon.WorkDocs.SubscriptionProtocolType
         "New-WDNotificationSubscription/Protocol"
         {
-            $v = "HTTPS"
+            $v = "HTTPS","SQS"
             break
         }
 
@@ -53468,6 +53476,7 @@ $WD_SelectMap = @{
                "Remove-WDComment",
                "Remove-WDCustomMetadata",
                "Remove-WDDocument",
+               "Remove-WDDocumentVersion",
                "Remove-WDFolder",
                "Remove-WDFolderContent",
                "Remove-WDLabel",
@@ -53491,6 +53500,7 @@ $WD_SelectMap = @{
                "Get-WDResource",
                "Start-WDDocumentVersionUpload",
                "Remove-WDResourcePermission",
+               "Restore-WDDocumentVersion",
                "Update-WDDocument",
                "Update-WDDocumentVersion",
                "Update-WDFolder",

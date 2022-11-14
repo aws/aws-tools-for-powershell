@@ -1,4 +1,22 @@
-﻿### 4.1.206 (2022-11-11 22:27Z)
+﻿### 4.1.207 (2022-11-14 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.417.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Search-CPFProfile: added parameters AdditionalSearchKey and LogicalOperator.
+  * Amazon Lake Formation
+    * Modified cmdlet Write-LKFDataLakeSetting: added parameter DataLakeSettings_Parameter.
+  * Amazon Proton
+    * Modified cmdlet New-PROEnvironment: added parameter CodebuildRoleArn.
+    * Modified cmdlet New-PROEnvironmentAccountConnection: added parameter CodebuildRoleArn.
+    * Modified cmdlet Update-PROAccountSetting: added parameter PipelineCodebuildRoleArn.
+    * Modified cmdlet Update-PROEnvironment: added parameter CodebuildRoleArn.
+    * Modified cmdlet Update-PROEnvironmentAccountConnection: added parameter CodebuildRoleArn.
+  * Amazon Relational Database Service
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter DBClusterSnapshotIdentifier.
+  * Amazon WorkDocs
+    * Added cmdlet Remove-WDDocumentVersion leveraging the DeleteDocumentVersion service API.
+    * Added cmdlet Restore-WDDocumentVersion leveraging the RestoreDocumentVersions service API.
+
+### 4.1.206 (2022-11-11 22:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.416.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IoT
     * Added cmdlet Get-IOTRelatedResourcesForAuditFindingList leveraging the ListRelatedResourcesForAuditFinding service API.

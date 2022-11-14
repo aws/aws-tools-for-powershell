@@ -106,7 +106,15 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Query
         /// <summary>
         /// <para>
-        /// <para>A query to filter users by user name.</para>
+        /// <para>A query to filter users by user name. Remember the following about the <code>Userids</code>
+        /// and <code>Query</code> parameters:</para><ul><li><para>If you don't use either parameter, the API returns a paginated list of all users on
+        /// the site.</para></li><li><para>If you use both parameters, the API ignores the <code>Query</code> parameter.</para></li><li><para>The <code>Userid</code> parameter only returns user names that match a corresponding
+        /// user ID.</para></li><li><para>The <code>Query</code> parameter runs a "prefix" search for users by the <code>GivenName</code>,
+        /// <code>SurName</code>, or <code>UserName</code> fields included in a <a href="https://docs.aws.amazon.com/workdocs/latest/APIReference/API_CreateUser.html">CreateUser</a>
+        /// API call. For example, querying on <code>Ma</code> returns Márcia Oliveira, María
+        /// García, and Mateo Jackson. If you use multiple characters, the API only returns data
+        /// that matches all characters. For example, querying on <code>Ma J</code> only returns
+        /// Mateo Jackson.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

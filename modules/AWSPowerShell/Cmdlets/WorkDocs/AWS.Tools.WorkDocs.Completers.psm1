@@ -169,7 +169,7 @@ $WD_Completers = {
         # Amazon.WorkDocs.SubscriptionProtocolType
         "New-WDNotificationSubscription/Protocol"
         {
-            $v = "HTTPS"
+            $v = "HTTPS","SQS"
             break
         }
 
@@ -289,6 +289,7 @@ $WD_SelectMap = @{
                "Remove-WDComment",
                "Remove-WDCustomMetadata",
                "Remove-WDDocument",
+               "Remove-WDDocumentVersion",
                "Remove-WDFolder",
                "Remove-WDFolderContent",
                "Remove-WDLabel",
@@ -312,6 +313,7 @@ $WD_SelectMap = @{
                "Get-WDResource",
                "Start-WDDocumentVersionUpload",
                "Remove-WDResourcePermission",
+               "Restore-WDDocumentVersion",
                "Update-WDDocument",
                "Update-WDDocumentVersion",
                "Update-WDFolder",

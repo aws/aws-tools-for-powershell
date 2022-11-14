@@ -23069,6 +23069,8 @@ Set-Alias -Name Delete-WDCustomMetadata -Value Remove-WDCustomMetadata
 Set-Alias -Name WD-DeleteCustomMetadata -Value Remove-WDCustomMetadata
 Set-Alias -Name Delete-WDDocument -Value Remove-WDDocument
 Set-Alias -Name WD-DeleteDocument -Value Remove-WDDocument
+Set-Alias -Name Delete-WDDocumentVersion -Value Remove-WDDocumentVersion
+Set-Alias -Name WD-DeleteDocumentVersion -Value Remove-WDDocumentVersion
 Set-Alias -Name Delete-WDFolder -Value Remove-WDFolder
 Set-Alias -Name WD-DeleteFolder -Value Remove-WDFolder
 Set-Alias -Name Delete-WDFolderContents -Value Remove-WDFolderContent
@@ -23119,6 +23121,8 @@ Set-Alias -Name WD-GetResources -Value Get-WDResource
 Set-Alias -Name Initiate-WDDocumentVersionUpload -Value Start-WDDocumentVersionUpload
 Set-Alias -Name WD-InitiateDocumentVersionUpload -Value Start-WDDocumentVersionUpload
 Set-Alias -Name WD-RemoveResourcePermission -Value Remove-WDResourcePermission
+Set-Alias -Name Restore-WDDocumentVersions -Value Restore-WDDocumentVersion
+Set-Alias -Name WD-RestoreDocumentVersions -Value Restore-WDDocumentVersion
 Set-Alias -Name WD-UpdateDocument -Value Update-WDDocument
 Set-Alias -Name WD-UpdateDocumentVersion -Value Update-WDDocumentVersion
 Set-Alias -Name WD-UpdateFolder -Value Update-WDFolder

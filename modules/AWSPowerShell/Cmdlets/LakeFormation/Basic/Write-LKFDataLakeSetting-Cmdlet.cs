@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>Specifies whether access control on newly created database is managed by Lake Formation
-        /// permissions or exclusively by IAM permissions. You can override this default setting
-        /// when you create a database.</para><para>A null value indicates access control by Lake Formation permissions. A value that
+        /// permissions or exclusively by IAM permissions.</para><para>A null value indicates access control by Lake Formation permissions. A value that
         /// assigns ALL to IAM_ALLOWED_PRINCIPALS indicates access control by IAM permissions.
         /// This is referred to as the setting "Use only IAM access control," and is for backward
         /// compatibility with the Glue permission model implemented by IAM permissions.</para><para>The only permitted values are an empty array or an array that contains a single JSON
@@ -143,6 +142,19 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.LakeFormation.Model.DataLakePrincipal[] DataLakeSettings_ExternalDataFilteringAllowList { get; set; }
+        #endregion
+        
+        #region Parameter DataLakeSettings_Parameter
+        /// <summary>
+        /// <para>
+        /// <para>A key-value map that provides an additional configuration on your data lake. CrossAccountVersion
+        /// is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion
+        /// key are 1, 2, and 3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataLakeSettings_Parameters")]
+        public System.Collections.Hashtable DataLakeSettings_Parameter { get; set; }
         #endregion
         
         #region Parameter DataLakeSettings_TrustedResourceOwner
@@ -241,6 +253,14 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             {
                 context.DataLakeSettings_ExternalDataFilteringAllowList = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.DataLakeSettings_ExternalDataFilteringAllowList);
             }
+            if (this.DataLakeSettings_Parameter != null)
+            {
+                context.DataLakeSettings_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DataLakeSettings_Parameter.Keys)
+                {
+                    context.DataLakeSettings_Parameter.Add((String)hashKey, (String)(this.DataLakeSettings_Parameter[hashKey]));
+                }
+            }
             if (this.DataLakeSettings_TrustedResourceOwner != null)
             {
                 context.DataLakeSettings_TrustedResourceOwner = new List<System.String>(this.DataLakeSettings_TrustedResourceOwner);
@@ -329,6 +349,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 request.DataLakeSettings.ExternalDataFilteringAllowList = requestDataLakeSettings_dataLakeSettings_ExternalDataFilteringAllowList;
                 requestDataLakeSettingsIsNull = false;
             }
+            Dictionary<System.String, System.String> requestDataLakeSettings_dataLakeSettings_Parameter = null;
+            if (cmdletContext.DataLakeSettings_Parameter != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_Parameter = cmdletContext.DataLakeSettings_Parameter;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_Parameter != null)
+            {
+                request.DataLakeSettings.Parameters = requestDataLakeSettings_dataLakeSettings_Parameter;
+                requestDataLakeSettingsIsNull = false;
+            }
             List<System.String> requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner = null;
             if (cmdletContext.DataLakeSettings_TrustedResourceOwner != null)
             {
@@ -412,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateTableDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_DataLakeAdmin { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_ExternalDataFilteringAllowList { get; set; }
+            public Dictionary<System.String, System.String> DataLakeSettings_Parameter { get; set; }
             public List<System.String> DataLakeSettings_TrustedResourceOwner { get; set; }
             public System.Func<Amazon.LakeFormation.Model.PutDataLakeSettingsResponse, WriteLKFDataLakeSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

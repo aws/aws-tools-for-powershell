@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html">Subscribe
-    /// to Notifications</a> in the <i>Amazon WorkDocs Developer Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting
+    /// up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "WDNotificationSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
