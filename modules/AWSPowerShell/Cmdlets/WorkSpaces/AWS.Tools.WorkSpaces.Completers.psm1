@@ -96,6 +96,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.CertificateBasedAuthStatusEnum
+        "Edit-WKSCertificateBasedAuthProperty/CertificateBasedAuthProperties_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WorkSpaces.Compute
         {
             ($_ -eq "New-WKSWorkspaceBundle/ComputeType_Name") -Or
@@ -185,6 +192,7 @@ $WKS_Completers = {
 }
 
 $WKS_map = @{
+    "CertificateBasedAuthProperties_Status"=@("Edit-WKSCertificateBasedAuthProperty")
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
@@ -304,6 +312,7 @@ $WKS_SelectMap = @{
                "Get-WKSAvailableManagementCidrRangeList",
                "Start-WKSWorkspaceMigration",
                "Edit-WKSAccount",
+               "Edit-WKSCertificateBasedAuthProperty",
                "Edit-WKSClientProperty",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",

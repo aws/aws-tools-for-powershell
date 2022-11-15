@@ -1,4 +1,13 @@
-﻿### 4.1.207 (2022-11-14 21:33Z)
+﻿### 4.1.208 (2022-11-15 21:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.418.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon GreengrassV2
+    * Modified cmdlet Get-GGV2DeploymentList: added parameter ParentTargetArn.
+    * Modified cmdlet New-GGV2Deployment: added parameter ParentTargetArn.
+  * Amazon Systems Manager for SAP. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMSAP and can be listed using the command 'Get-AWSCmdletName -Service SMSAP'.
+  * Amazon WorkSpaces
+    * Added cmdlet Edit-WKSCertificateBasedAuthProperty leveraging the ModifyCertificateBasedAuthProperties service API.
+
+### 4.1.207 (2022-11-14 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.417.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Customer Profiles
     * Modified cmdlet Search-CPFProfile: added parameters AdditionalSearchKey and LogicalOperator.

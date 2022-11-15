@@ -198,6 +198,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCertificateBasedAuthProperties" Verb="Edit" Noun="CertificateBasedAuthProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyClientProperties" Verb="Edit" Noun="ClientProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ClientProperties_ReconnectEnabled" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

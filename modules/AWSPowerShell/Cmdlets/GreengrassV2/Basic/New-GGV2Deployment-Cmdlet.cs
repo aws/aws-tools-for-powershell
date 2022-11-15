@@ -191,6 +191,17 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         public System.Int32? RateIncreaseCriteria_NumberOfSucceededThing { get; set; }
         #endregion
         
+        #region Parameter ParentTargetArn
+        /// <summary>
+        /// <para>
+        /// <para>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
+        /// within a subdeployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParentTargetArn { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -208,7 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         /// <summary>
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
-        /// of the target IoT thing or thing group.</para>
+        /// of the target IoT thing or thing group. When creating a subdeployment, the targetARN
+        /// can only be a thing group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -348,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             context.RateIncreaseCriteria_NumberOfSucceededThing = this.RateIncreaseCriteria_NumberOfSucceededThing;
             context.JobExecutionsRolloutConfig_MaximumPerMinute = this.JobExecutionsRolloutConfig_MaximumPerMinute;
             context.TimeoutConfig_InProgressTimeoutInMinute = this.TimeoutConfig_InProgressTimeoutInMinute;
+            context.ParentTargetArn = this.ParentTargetArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -624,6 +637,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             {
                 request.IotJobConfiguration = null;
             }
+            if (cmdletContext.ParentTargetArn != null)
+            {
+                request.ParentTargetArn = cmdletContext.ParentTargetArn;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -707,6 +724,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             public System.Int32? RateIncreaseCriteria_NumberOfSucceededThing { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.Int64? TimeoutConfig_InProgressTimeoutInMinute { get; set; }
+            public System.String ParentTargetArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TargetArn { get; set; }
             public System.Func<Amazon.GreengrassV2.Model.CreateDeploymentResponse, NewGGV2DeploymentCmdlet, object> Select { get; set; } =

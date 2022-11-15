@@ -12351,7 +12351,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceAttribute/AttributeType")
         }
         {
-            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
+            $v = "AUTO_RESOLVE_BEST_VOICES","CONTACTFLOW_LOGS","CONTACT_LENS","EARLY_MEDIA","ENHANCED_CONTACT_MONITORING","HIGH_VOLUME_OUTBOUND","INBOUND_CALLS","MULTI_PARTY_CONFERENCE","OUTBOUND_CALLS","USE_CUSTOM_TTS_VOICES"
             break
         }
 
@@ -43336,7 +43336,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -43405,7 +43405,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -50159,6 +50159,114 @@ $SSMI_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SSMI_SelectCompleters $SSMI_SelectMap
+# Argument completions for service AWS Systems Manager for SAP
+
+
+$SMSAP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SsmSap.ApplicationType
+        "Register-SMSAPApplication/ApplicationType"
+        {
+            $v = "HANA"
+            break
+        }
+
+        # Amazon.SsmSap.PermissionActionType
+        {
+            ($_ -eq "Get-SMSAPResourcePermission/ActionType") -Or
+            ($_ -eq "Remove-SMSAPResourcePermission/ActionType") -Or
+            ($_ -eq "Write-SMSAPResourcePermission/ActionType")
+        }
+        {
+            $v = "RESTORE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMSAP_map = @{
+    "ActionType"=@("Get-SMSAPResourcePermission","Remove-SMSAPResourcePermission","Write-SMSAPResourcePermission")
+    "ApplicationType"=@("Register-SMSAPApplication")
+}
+
+_awsArgumentCompleterRegistration $SMSAP_Completers $SMSAP_map
+
+$SMSAP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SMSAP.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMSAP_SelectMap = @{
+    "Select"=@("Remove-SMSAPResourcePermission",
+               "Unregister-SMSAPApplication",
+               "Get-SMSAPApplication",
+               "Get-SMSAPComponent",
+               "Get-SMSAPDatabase",
+               "Get-SMSAPOperation",
+               "Get-SMSAPResourcePermission",
+               "Get-SMSAPApplicationList",
+               "Get-SMSAPComponentList",
+               "Get-SMSAPDatabasisList",
+               "Get-SMSAPResourceTag",
+               "Write-SMSAPResourcePermission",
+               "Register-SMSAPApplication",
+               "Add-SMSAPResourceTag",
+               "Remove-SMSAPResourceTag",
+               "Update-SMSAPApplicationSetting")
+}
+
+_awsArgumentCompleterRegistration $SMSAP_SelectCompleters $SMSAP_SelectMap
 # Argument completions for service AWS Single Sign-On
 
 
@@ -53898,6 +54006,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.CertificateBasedAuthStatusEnum
+        "Edit-WKSCertificateBasedAuthProperty/CertificateBasedAuthProperties_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WorkSpaces.Compute
         {
             ($_ -eq "New-WKSWorkspaceBundle/ComputeType_Name") -Or
@@ -53987,6 +54102,7 @@ $WKS_Completers = {
 }
 
 $WKS_map = @{
+    "CertificateBasedAuthProperties_Status"=@("Edit-WKSCertificateBasedAuthProperty")
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
     "ComputeType_Name"=@("New-WKSWorkspaceBundle")
@@ -54106,6 +54222,7 @@ $WKS_SelectMap = @{
                "Get-WKSAvailableManagementCidrRangeList",
                "Start-WKSWorkspaceMigration",
                "Edit-WKSAccount",
+               "Edit-WKSCertificateBasedAuthProperty",
                "Edit-WKSClientProperty",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
