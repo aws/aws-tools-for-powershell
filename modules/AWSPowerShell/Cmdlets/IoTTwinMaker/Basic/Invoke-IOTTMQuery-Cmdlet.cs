@@ -28,109 +28,39 @@ using Amazon.IoTTwinMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTTM
 {
     /// <summary>
-    /// Gets the property values for a component, component type, entity, or workspace.
-    /// 
-    ///  
-    /// <para>
-    /// You must specify a value for either <code>componentName</code>, <code>componentTypeId</code>,
-    /// <code>entityId</code>, or <code>workspaceId</code>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Run queries to access information from your knowledge graph of entities within individual
+    /// workspaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTTMPropertyValue")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS IoT TwinMaker GetPropertyValue API operation.", Operation = new[] {"GetPropertyValue"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.GetPropertyValueResponse))]
-    [AWSCmdletOutput("System.String or Amazon.IoTTwinMaker.Model.GetPropertyValueResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.GetPropertyValueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Invoke", "IOTTMQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoTTwinMaker.Model.ExecuteQueryResponse")]
+    [AWSCmdlet("Calls the AWS IoT TwinMaker ExecuteQuery API operation.", Operation = new[] {"ExecuteQuery"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.ExecuteQueryResponse))]
+    [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.ExecuteQueryResponse",
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.ExecuteQueryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTTMPropertyValueCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
+    public partial class InvokeIOTTMQueryCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter ComponentName
+        #region Parameter QueryStatement
         /// <summary>
         /// <para>
-        /// <para>The name of the component whose property values the operation returns.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ComponentName { get; set; }
-        #endregion
-        
-        #region Parameter ComponentTypeId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the component type whose property values the operation returns.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ComponentTypeId { get; set; }
-        #endregion
-        
-        #region Parameter EntityId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the entity whose property values the operation returns.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EntityId { get; set; }
-        #endregion
-        
-        #region Parameter TabularConditions_OrderBy
-        /// <summary>
-        /// <para>
-        /// <para>Filter criteria that orders the output. It can be sorted in ascending or descending
-        /// order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.IoTTwinMaker.Model.OrderBy[] TabularConditions_OrderBy { get; set; }
-        #endregion
-        
-        #region Parameter TabularConditions_PropertyFilter
-        /// <summary>
-        /// <para>
-        /// <para>You can filter the request using various logical operators and a key-value format.
-        /// For example:</para><para><code>{"key": "serverType", "value": "webServer"}</code></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TabularConditions_PropertyFilters")]
-        public Amazon.IoTTwinMaker.Model.PropertyFilter[] TabularConditions_PropertyFilter { get; set; }
-        #endregion
-        
-        #region Parameter PropertyGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The property group name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PropertyGroupName { get; set; }
-        #endregion
-        
-        #region Parameter SelectedProperty
-        /// <summary>
-        /// <para>
-        /// <para>The properties whose values the operation returns.</para>
+        /// <para>The query statement.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("SelectedProperties")]
-        public System.String[] SelectedProperty { get; set; }
+        public System.String QueryStatement { get; set; }
         #endregion
         
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace whose values the operation returns.</para>
+        /// <para>The ID of the workspace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,13 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'PropertyValues'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.GetPropertyValueResponse).
-        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.GetPropertyValueResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.ExecuteQueryResponse).
+        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.ExecuteQueryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "PropertyValues";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -188,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -204,6 +144,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         {
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkspaceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-IOTTMQuery (ExecuteQuery)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
@@ -212,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTTwinMaker.Model.GetPropertyValueResponse, GetIOTTMPropertyValueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTTwinMaker.Model.ExecuteQueryResponse, InvokeIOTTMQueryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -224,30 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ComponentName = this.ComponentName;
-            context.ComponentTypeId = this.ComponentTypeId;
-            context.EntityId = this.EntityId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.PropertyGroupName = this.PropertyGroupName;
-            if (this.SelectedProperty != null)
-            {
-                context.SelectedProperty = new List<System.String>(this.SelectedProperty);
-            }
+            context.QueryStatement = this.QueryStatement;
             #if MODULAR
-            if (this.SelectedProperty == null && ParameterWasBound(nameof(this.SelectedProperty)))
+            if (this.QueryStatement == null && ParameterWasBound(nameof(this.QueryStatement)))
             {
-                WriteWarning("You are passing $null as a value for parameter SelectedProperty which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QueryStatement which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TabularConditions_OrderBy != null)
-            {
-                context.TabularConditions_OrderBy = new List<Amazon.IoTTwinMaker.Model.OrderBy>(this.TabularConditions_OrderBy);
-            }
-            if (this.TabularConditions_PropertyFilter != null)
-            {
-                context.TabularConditions_PropertyFilter = new List<Amazon.IoTTwinMaker.Model.PropertyFilter>(this.TabularConditions_PropertyFilter);
-            }
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -273,60 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTTwinMaker.Model.GetPropertyValueRequest();
+            var request = new Amazon.IoTTwinMaker.Model.ExecuteQueryRequest();
             
-            if (cmdletContext.ComponentName != null)
-            {
-                request.ComponentName = cmdletContext.ComponentName;
-            }
-            if (cmdletContext.ComponentTypeId != null)
-            {
-                request.ComponentTypeId = cmdletContext.ComponentTypeId;
-            }
-            if (cmdletContext.EntityId != null)
-            {
-                request.EntityId = cmdletContext.EntityId;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.PropertyGroupName != null)
+            if (cmdletContext.QueryStatement != null)
             {
-                request.PropertyGroupName = cmdletContext.PropertyGroupName;
-            }
-            if (cmdletContext.SelectedProperty != null)
-            {
-                request.SelectedProperties = cmdletContext.SelectedProperty;
-            }
-            
-             // populate TabularConditions
-            var requestTabularConditionsIsNull = true;
-            request.TabularConditions = new Amazon.IoTTwinMaker.Model.TabularConditions();
-            List<Amazon.IoTTwinMaker.Model.OrderBy> requestTabularConditions_tabularConditions_OrderBy = null;
-            if (cmdletContext.TabularConditions_OrderBy != null)
-            {
-                requestTabularConditions_tabularConditions_OrderBy = cmdletContext.TabularConditions_OrderBy;
-            }
-            if (requestTabularConditions_tabularConditions_OrderBy != null)
-            {
-                request.TabularConditions.OrderBy = requestTabularConditions_tabularConditions_OrderBy;
-                requestTabularConditionsIsNull = false;
-            }
-            List<Amazon.IoTTwinMaker.Model.PropertyFilter> requestTabularConditions_tabularConditions_PropertyFilter = null;
-            if (cmdletContext.TabularConditions_PropertyFilter != null)
-            {
-                requestTabularConditions_tabularConditions_PropertyFilter = cmdletContext.TabularConditions_PropertyFilter;
-            }
-            if (requestTabularConditions_tabularConditions_PropertyFilter != null)
-            {
-                request.TabularConditions.PropertyFilters = requestTabularConditions_tabularConditions_PropertyFilter;
-                requestTabularConditionsIsNull = false;
-            }
-             // determine if request.TabularConditions should be set to null
-            if (requestTabularConditionsIsNull)
-            {
-                request.TabularConditions = null;
+                request.QueryStatement = cmdletContext.QueryStatement;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -389,15 +275,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTTwinMaker.Model.GetPropertyValueResponse CallAWSServiceOperation(IAmazonIoTTwinMaker client, Amazon.IoTTwinMaker.Model.GetPropertyValueRequest request)
+        private Amazon.IoTTwinMaker.Model.ExecuteQueryResponse CallAWSServiceOperation(IAmazonIoTTwinMaker client, Amazon.IoTTwinMaker.Model.ExecuteQueryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT TwinMaker", "GetPropertyValue");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT TwinMaker", "ExecuteQuery");
             try
             {
                 #if DESKTOP
-                return client.GetPropertyValue(request);
+                return client.ExecuteQuery(request);
                 #elif CORECLR
-                return client.GetPropertyValueAsync(request).GetAwaiter().GetResult();
+                return client.ExecuteQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -417,18 +303,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ComponentName { get; set; }
-            public System.String ComponentTypeId { get; set; }
-            public System.String EntityId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String PropertyGroupName { get; set; }
-            public List<System.String> SelectedProperty { get; set; }
-            public List<Amazon.IoTTwinMaker.Model.OrderBy> TabularConditions_OrderBy { get; set; }
-            public List<Amazon.IoTTwinMaker.Model.PropertyFilter> TabularConditions_PropertyFilter { get; set; }
+            public System.String QueryStatement { get; set; }
             public System.String WorkspaceId { get; set; }
-            public System.Func<Amazon.IoTTwinMaker.Model.GetPropertyValueResponse, GetIOTTMPropertyValueCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.PropertyValues;
+            public System.Func<Amazon.IoTTwinMaker.Model.ExecuteQueryResponse, InvokeIOTTMQueryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

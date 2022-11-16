@@ -28,30 +28,28 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Changes the Identity and Access Management (IAM) role that is assigned to the on-premises
-    /// server, edge device, or virtual machines (VM). IAM roles are first assigned to these
-    /// hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.
+    /// Deletes a Systems Manager resource policy. A resource policy helps you to define the
+    /// IAM entity (for example, an Amazon Web Services account) that can manage your Systems
+    /// Manager resources. Currently, <code>OpsItemGroup</code> is the only resource that
+    /// supports Systems Manager resource policies. The resource policy for <code>OpsItemGroup</code>
+    /// enables Amazon Web Services accounts to view and interact with OpsCenter operational
+    /// work items (OpsItems).
     /// </summary>
-    [Cmdlet("Update", "SSMManagedInstanceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SSMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateManagedInstanceRole API operation.", Operation = new[] {"UpdateManagedInstanceRole"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse",
+    [AWSCmdlet("Calls the AWS Systems Manager DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSSMManagedInstanceRoleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class RemoveSSMResourcePolicyCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter IamRole
+        #region Parameter PolicyHash
         /// <summary>
         /// <para>
-        /// <para>The name of the Identity and Access Management (IAM) role that you want to assign
-        /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
-        /// Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For
-        /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
-        /// an IAM service role for a hybrid environment</a> in the <i>Amazon Web Services Systems
-        /// Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
-        /// unique role.</para></note>
+        /// <para>ID of the current policy version. The hash helps to prevent multiple calls from attempting
+        /// to overwrite a policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,13 +60,30 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IamRole { get; set; }
+        public System.String PolicyHash { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter PolicyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the managed node where you want to update the role.</para>
+        /// <para>The policy ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PolicyId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of the resource to which the policies are attached.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,13 +94,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMManagedInstanceRole (UpdateManagedInstanceRole)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMResourcePolicy (DeleteResourcePolicy)"))
             {
                 return;
             }
@@ -130,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse, UpdateSSMManagedInstanceRoleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse, RemoveSSMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,21 +154,28 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IamRole = this.IamRole;
+            context.PolicyHash = this.PolicyHash;
             #if MODULAR
-            if (this.IamRole == null && ParameterWasBound(nameof(this.IamRole)))
+            if (this.PolicyHash == null && ParameterWasBound(nameof(this.PolicyHash)))
             {
-                WriteWarning("You are passing $null as a value for parameter IamRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PolicyHash which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.InstanceId = this.InstanceId;
+            context.PolicyId = this.PolicyId;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.PolicyId == null && ParameterWasBound(nameof(this.PolicyId)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PolicyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ResourceArn = this.ResourceArn;
+            #if MODULAR
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,15 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.IamRole != null)
+            if (cmdletContext.PolicyHash != null)
             {
-                request.IamRole = cmdletContext.IamRole;
+                request.PolicyHash = cmdletContext.PolicyHash;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.PolicyId != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.PolicyId = cmdletContext.PolicyId;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -213,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateManagedInstanceRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.UpdateManagedInstanceRole(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.UpdateManagedInstanceRoleAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,9 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IamRole { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse, UpdateSSMManagedInstanceRoleCmdlet, object> Select { get; set; } =
+            public System.String PolicyHash { get; set; }
+            public System.String PolicyId { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.SimpleSystemsManagement.Model.DeleteResourcePolicyResponse, RemoveSSMResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

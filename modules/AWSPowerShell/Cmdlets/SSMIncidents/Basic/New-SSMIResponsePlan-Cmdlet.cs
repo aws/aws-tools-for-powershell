@@ -137,6 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.Collections.Hashtable IncidentTemplate_IncidentTag { get; set; }
         #endregion
         
+        #region Parameter Integration
+        /// <summary>
+        /// <para>
+        /// <para>Information about third-party services integrated into the response plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Integrations")]
+        public Amazon.SSMIncidents.Model.Integration[] Integration { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -318,6 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 WriteWarning("You are passing $null as a value for parameter IncidentTemplate_Title which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Integration != null)
+            {
+                context.Integration = new List<Amazon.SSMIncidents.Model.Integration>(this.Integration);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -463,6 +478,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             {
                 request.IncidentTemplate = null;
             }
+            if (cmdletContext.Integration != null)
+            {
+                request.Integrations = cmdletContext.Integration;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -544,6 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             public List<Amazon.SSMIncidents.Model.NotificationTargetItem> IncidentTemplate_NotificationTarget { get; set; }
             public System.String IncidentTemplate_Summary { get; set; }
             public System.String IncidentTemplate_Title { get; set; }
+            public List<Amazon.SSMIncidents.Model.Integration> Integration { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SSMIncidents.Model.CreateResponsePlanResponse, NewSSMIResponsePlanCmdlet, object> Select { get; set; } =

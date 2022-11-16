@@ -101,6 +101,13 @@ $IOTTM_Completers = {
             break
         }
 
+        # Amazon.IoTTwinMaker.PricingMode
+        "Update-IOTTMPricingPlan/PricingMode"
+        {
+            $v = "BASIC","STANDARD","TIERED_BUNDLE"
+            break
+        }
+
 
     }
 
@@ -113,6 +120,7 @@ $IOTTM_map = @{
     "Interpolation_InterpolationType"=@("Get-IOTTMPropertyValueHistory")
     "OrderByTime"=@("Get-IOTTMPropertyValueHistory")
     "ParentEntityUpdate_UpdateType"=@("Update-IOTTMEntity")
+    "PricingMode"=@("Update-IOTTMPricingPlan")
 }
 
 _awsArgumentCompleterRegistration $IOTTM_Completers $IOTTM_map
@@ -174,8 +182,10 @@ $IOTTM_SelectMap = @{
                "Remove-IOTTMEntity",
                "Remove-IOTTMScene",
                "Remove-IOTTMWorkspace",
+               "Invoke-IOTTMQuery",
                "Get-IOTTMComponentType",
                "Get-IOTTMEntity",
+               "Get-IOTTMPricingPlan",
                "Get-IOTTMPropertyValue",
                "Get-IOTTMPropertyValueHistory",
                "Get-IOTTMScene",
@@ -189,6 +199,7 @@ $IOTTM_SelectMap = @{
                "Remove-IOTTMResourceTag",
                "Update-IOTTMComponentType",
                "Update-IOTTMEntity",
+               "Update-IOTTMPricingPlan",
                "Update-IOTTMScene",
                "Update-IOTTMWorkspace")
 }

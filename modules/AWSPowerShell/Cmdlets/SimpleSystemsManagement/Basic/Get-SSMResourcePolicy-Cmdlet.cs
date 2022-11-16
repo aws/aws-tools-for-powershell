@@ -22,38 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTTwinMaker;
-using Amazon.IoTTwinMaker.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTTM
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists all component types in a workspace.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns an array of the <code>Policy</code> object.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTTMComponentTypeList")]
-    [OutputType("Amazon.IoTTwinMaker.Model.ListComponentTypesResponse")]
-    [AWSCmdlet("Calls the AWS IoT TwinMaker ListComponentTypes API operation.", Operation = new[] {"ListComponentTypes"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.ListComponentTypesResponse))]
-    [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.ListComponentTypesResponse",
-        "This cmdlet returns an Amazon.IoTTwinMaker.Model.ListComponentTypesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMResourcePolicy")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponseEntry")]
+    [AWSCmdlet("Calls the AWS Systems Manager GetResourcePolicies API operation.", Operation = new[] {"GetResourcePolicies"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse))]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponseEntry or Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse",
+        "This cmdlet returns a collection of Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponseEntry objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTTMComponentTypeListCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
+    public partial class GetSSMResourcePolicyCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>A list of objects that filter the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filters")]
-        public Amazon.IoTTwinMaker.Model.ListComponentTypesFilter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter WorkspaceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the workspace.</para>
+        /// <para>Amazon Resource Name (ARN) of the resource to which the policies are attached.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkspaceId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time. The default is 25.</para><para>Valid Range: Minimum value of 1. Maximum value of 250.</para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The string that specifies the next page of results.</para>
+        /// <para>A token to start the list. Use this token to get the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -94,21 +85,21 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.ListComponentTypesResponse).
-        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.ListComponentTypesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Policies'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse).
+        /// Specifying the name of a property of type Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Policies";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkspaceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -135,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTTwinMaker.Model.ListComponentTypesResponse, GetIOTTMComponentTypeListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse, GetSSMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,20 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.WorkspaceId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Filter != null)
-            {
-                context.Filter = new List<Amazon.IoTTwinMaker.Model.ListComponentTypesFilter>(this.Filter);
-            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.WorkspaceId = this.WorkspaceId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,19 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTTwinMaker.Model.ListComponentTypesRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesRequest();
             
-            if (cmdletContext.Filter != null)
-            {
-                request.Filters = cmdletContext.Filter;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.WorkspaceId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.WorkspaceId = cmdletContext.WorkspaceId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variant and commence piping
@@ -249,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTTwinMaker.Model.ListComponentTypesResponse CallAWSServiceOperation(IAmazonIoTTwinMaker client, Amazon.IoTTwinMaker.Model.ListComponentTypesRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT TwinMaker", "ListComponentTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetResourcePolicies");
             try
             {
                 #if DESKTOP
-                return client.ListComponentTypes(request);
+                return client.GetResourcePolicies(request);
                 #elif CORECLR
-                return client.ListComponentTypesAsync(request).GetAwaiter().GetResult();
+                return client.GetResourcePoliciesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -277,12 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.IoTTwinMaker.Model.ListComponentTypesFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String WorkspaceId { get; set; }
-            public System.Func<Amazon.IoTTwinMaker.Model.ListComponentTypesResponse, GetIOTTMComponentTypeListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.SimpleSystemsManagement.Model.GetResourcePoliciesResponse, GetSSMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Policies;
         }
         
     }

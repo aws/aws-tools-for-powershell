@@ -22,56 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoTTwinMaker;
-using Amazon.IoTTwinMaker.Model;
+using Amazon.XRay;
+using Amazon.XRay.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOTTM
+namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
-    /// Lists all tags associated with a resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the list of resource policies in the target Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "IOTTMResourceTag")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS IoT TwinMaker ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("System.String or Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "XRResourcePolicyList")]
+    [OutputType("Amazon.XRay.Model.ResourcePolicy")]
+    [AWSCmdlet("Calls the AWS X-Ray ListResourcePolicies API operation.", Operation = new[] {"ListResourcePolicies"}, SelectReturnType = typeof(Amazon.XRay.Model.ListResourcePoliciesResponse))]
+    [AWSCmdletOutput("Amazon.XRay.Model.ResourcePolicy or Amazon.XRay.Model.ListResourcePoliciesResponse",
+        "This cmdlet returns a collection of Amazon.XRay.Model.ResourcePolicy objects.",
+        "The service call response (type Amazon.XRay.Model.ListResourcePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTTMResourceTagCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
+    public partial class GetXRResourcePolicyListCmdlet : AmazonXRayClientCmdlet, IExecutor
     {
-        
-        #region Parameter ResourceARN
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return at one time. The default is 25.</para><para>Valid Range: Minimum value of 1. Maximum value of 250.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The string that specifies the next page of results.</para>
+        /// <para>Not currently supported.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -84,23 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourcePolicies'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.XRay.Model.ListResourcePoliciesResponse).
+        /// Specifying the name of a property of type Amazon.XRay.Model.ListResourcePoliciesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "ResourcePolicies";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -122,30 +84,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse, GetIOTTMResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.XRay.Model.ListResourcePoliciesResponse, GetXRResourcePolicyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ResourceARN;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ResourceARN = this.ResourceARN;
-            #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,21 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.IoTTwinMaker.Model.ListTagsForResourceRequest();
+            var request = new Amazon.XRay.Model.ListResourcePoliciesRequest();
             
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ResourceARN != null)
-            {
-                request.ResourceARN = cmdletContext.ResourceARN;
-            }
             
             // Initialize loop variant and commence piping
             var _nextToken = cmdletContext.NextToken;
@@ -231,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         #region AWS Service Operation Call
         
-        private Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonIoTTwinMaker client, Amazon.IoTTwinMaker.Model.ListTagsForResourceRequest request)
+        private Amazon.XRay.Model.ListResourcePoliciesResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.ListResourcePoliciesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT TwinMaker", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "ListResourcePolicies");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.ListResourcePolicies(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.ListResourcePoliciesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -259,11 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceARN { get; set; }
-            public System.Func<Amazon.IoTTwinMaker.Model.ListTagsForResourceResponse, GetIOTTMResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.Func<Amazon.XRay.Model.ListResourcePoliciesResponse, GetXRResourcePolicyListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourcePolicies;
         }
         
     }

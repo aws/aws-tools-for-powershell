@@ -388,9 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</para><para>If the value is <code>$Latest</code>, Amazon EKS uses the latest version of the launch
-        /// template.</para><para>If the value is <code>$Default</code>, Amazon EKS uses the default version of the
-        /// launch template.</para><para>Default: The default version of the launch template.</para>
+        /// <para>The version number of the launch template to use. If no version is specified, then
+        /// the template's default version is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -139,6 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] OperationalDataToDelete { get; set; }
         #endregion
         
+        #region Parameter OpsItemArn
+        /// <summary>
+        /// <para>
+        /// <para>The OpsItem Amazon Resource Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpsItemArn { get; set; }
+        #endregion
+        
         #region Parameter OpsItemId
         /// <summary>
         /// <para>
@@ -314,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.OperationalDataToDelete = new List<System.String>(this.OperationalDataToDelete);
             }
+            context.OpsItemArn = this.OpsItemArn;
             context.OpsItemId = this.OpsItemId;
             #if MODULAR
             if (this.OpsItemId == null && ParameterWasBound(nameof(this.OpsItemId)))
@@ -374,6 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.OperationalDataToDelete != null)
             {
                 request.OperationalDataToDelete = cmdletContext.OperationalDataToDelete;
+            }
+            if (cmdletContext.OpsItemArn != null)
+            {
+                request.OpsItemArn = cmdletContext.OpsItemArn;
             }
             if (cmdletContext.OpsItemId != null)
             {
@@ -475,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.OpsItemNotification> Notification { get; set; }
             public Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.OpsItemDataValue> OperationalData { get; set; }
             public List<System.String> OperationalDataToDelete { get; set; }
+            public System.String OpsItemArn { get; set; }
             public System.String OpsItemId { get; set; }
             public System.DateTime? PlannedEndTime { get; set; }
             public System.DateTime? PlannedStartTime { get; set; }

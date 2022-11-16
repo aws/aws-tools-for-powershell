@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.Collections.Hashtable PropertyDefinition { get; set; }
         #endregion
         
+        #region Parameter PropertyGroup
+        /// <summary>
+        /// <para>
+        /// <para>The property groups</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropertyGroups")]
+        public System.Collections.Hashtable PropertyGroup { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
@@ -218,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                     context.PropertyDefinition.Add((String)hashKey, (PropertyDefinitionRequest)(this.PropertyDefinition[hashKey]));
                 }
             }
+            if (this.PropertyGroup != null)
+            {
+                context.PropertyGroup = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyGroupRequest>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PropertyGroup.Keys)
+                {
+                    context.PropertyGroup.Add((String)hashKey, (PropertyGroupRequest)(this.PropertyGroup[hashKey]));
+                }
+            }
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -264,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.PropertyDefinition != null)
             {
                 request.PropertyDefinitions = cmdletContext.PropertyDefinition;
+            }
+            if (cmdletContext.PropertyGroup != null)
+            {
+                request.PropertyGroups = cmdletContext.PropertyGroup;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -336,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.FunctionRequest> Function { get; set; }
             public System.Boolean? IsSingleton { get; set; }
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyDefinitionRequest> PropertyDefinition { get; set; }
+            public Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyGroupRequest> PropertyGroup { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.IoTTwinMaker.Model.UpdateComponentTypeResponse, UpdateIOTTMComponentTypeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -94,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM service role in the environment account.
-        /// Proton uses this role to provision infrastructure resources using Amazon Web Services-managed
-        /// provisioning and CloudFormation in the associated environment account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that's associated with the
+        /// environment account connection to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

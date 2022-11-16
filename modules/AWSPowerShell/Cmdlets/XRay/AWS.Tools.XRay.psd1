@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-XRInsightEvent', 
         'Get-XRInsightImpactGraph', 
         'Get-XRInsightSummary', 
+        'Get-XRResourcePolicyList', 
         'Get-XRResourceTag', 
         'Get-XRSamplingRule', 
         'Get-XRSamplingStatisticSummary', 
@@ -106,11 +107,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-XRGroup', 
         'New-XRSamplingRule', 
         'Remove-XRGroup', 
+        'Remove-XRResourcePolicy', 
         'Remove-XRResourceTag', 
         'Remove-XRSamplingRule', 
         'Update-XRGroup', 
         'Update-XRSamplingRule', 
         'Write-XREncryptionConfig', 
+        'Write-XRResourcePolicy', 
         'Write-XRTelemetryRecord', 
         'Write-XRTraceSegment')
 

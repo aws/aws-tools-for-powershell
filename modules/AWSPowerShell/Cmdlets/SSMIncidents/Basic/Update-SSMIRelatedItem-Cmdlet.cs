@@ -62,6 +62,28 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.String RelatedItemsUpdate_ItemToRemove_Value_Arn { get; set; }
         #endregion
         
+        #region Parameter RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to resolve the PagerDuty incident when you resolve the associated
+        /// Incident Manager incident.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve { get; set; }
+        #endregion
+        
+        #region Parameter RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to resolve the PagerDuty incident when you resolve the associated
+        /// Incident Manager incident.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve { get; set; }
+        #endregion
+        
         #region Parameter ItemToAdd_GeneratedId
         /// <summary>
         /// <para>
@@ -72,6 +94,26 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RelatedItemsUpdate_ItemToAdd_GeneratedId")]
         public System.String ItemToAdd_GeneratedId { get; set; }
+        #endregion
+        
+        #region Parameter RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the incident associated with the PagerDuty service for the response plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id { get; set; }
+        #endregion
+        
+        #region Parameter RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the incident associated with the PagerDuty service for the response plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id { get; set; }
         #endregion
         
         #region Parameter IncidentRecordArn
@@ -110,6 +152,30 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition { get; set; }
+        #endregion
+        
+        #region Parameter RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty
+        /// key, either a General Access REST API Key or User Token REST API Key, and other user
+        /// credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId { get; set; }
+        #endregion
+        
+        #region Parameter RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty
+        /// key, either a General Access REST API Key or User Token REST API Key, and other user
+        /// credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId { get; set; }
         #endregion
         
         #region Parameter ItemToAdd_Title
@@ -249,11 +315,17 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             context.Identifier_Type = this.Identifier_Type;
             context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn;
             context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition;
+            context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve;
+            context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id;
+            context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId;
             context.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url = this.RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url;
             context.ItemToAdd_Title = this.ItemToAdd_Title;
             context.ItemToRemove_Type = this.ItemToRemove_Type;
             context.RelatedItemsUpdate_ItemToRemove_Value_Arn = this.RelatedItemsUpdate_ItemToRemove_Value_Arn;
             context.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition = this.RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition;
+            context.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve = this.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve;
+            context.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id = this.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id;
+            context.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId = this.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId;
             context.RelatedItemsUpdate_ItemToRemove_Value_Url = this.RelatedItemsUpdate_ItemToRemove_Value_Url;
             
             // allow further manipulation of loaded context prior to processing
@@ -331,6 +403,51 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.Url = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_Url;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
+            }
+            Amazon.SSMIncidents.Model.PagerDutyIncidentDetail requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail = null;
+            
+             // populate PagerDutyIncidentDetail
+            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetailIsNull = true;
+            requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail = new Amazon.SSMIncidents.Model.PagerDutyIncidentDetail();
+            System.Boolean? requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve.Value;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail.AutoResolve = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve.Value;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetailIsNull = false;
+            }
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail.Id = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetailIsNull = false;
+            }
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId = cmdletContext.RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail.SecretId = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetailIsNull = false;
+            }
+             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail should be set to null
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetailIsNull)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail = null;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value.PagerDutyIncidentDetail = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value_relatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail;
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_ValueIsNull = false;
             }
              // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToRemove_relatedItemsUpdate_ItemToRemove_Value should be set to null
@@ -426,6 +543,51 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Url != null)
             {
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value.Url = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_Url;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = false;
+            }
+            Amazon.SSMIncidents.Model.PagerDutyIncidentDetail requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail = null;
+            
+             // populate PagerDutyIncidentDetail
+            var requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetailIsNull = true;
+            requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail = new Amazon.SSMIncidents.Model.PagerDutyIncidentDetail();
+            System.Boolean? requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve = cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve.Value;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail.AutoResolve = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve.Value;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetailIsNull = false;
+            }
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id = cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail.Id = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetailIsNull = false;
+            }
+            System.String requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId = null;
+            if (cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId = cmdletContext.RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail.SecretId = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId;
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetailIsNull = false;
+            }
+             // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail should be set to null
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetailIsNull)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail = null;
+            }
+            if (requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail != null)
+            {
+                requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value.PagerDutyIncidentDetail = requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value_relatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail;
                 requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_ValueIsNull = false;
             }
              // determine if requestRelatedItemsUpdate_relatedItemsUpdate_ItemToAdd_relatedItemsUpdate_ItemToAdd_Identifier_relatedItemsUpdate_ItemToAdd_Identifier_Value should be set to null
@@ -530,11 +692,17 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             public Amazon.SSMIncidents.ItemType Identifier_Type { get; set; }
             public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_Arn { get; set; }
             public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_MetricDefinition { get; set; }
+            public System.Boolean? RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve { get; set; }
+            public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id { get; set; }
+            public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId { get; set; }
             public System.String RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url { get; set; }
             public System.String ItemToAdd_Title { get; set; }
             public Amazon.SSMIncidents.ItemType ItemToRemove_Type { get; set; }
             public System.String RelatedItemsUpdate_ItemToRemove_Value_Arn { get; set; }
             public System.String RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition { get; set; }
+            public System.Boolean? RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve { get; set; }
+            public System.String RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id { get; set; }
+            public System.String RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId { get; set; }
             public System.String RelatedItemsUpdate_ItemToRemove_Value_Url { get; set; }
             public System.Func<Amazon.SSMIncidents.Model.UpdateRelatedItemsResponse, UpdateSSMIRelatedItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

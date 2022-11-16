@@ -65,10 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ComponentRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM service role in the environment account.
-        /// Proton uses this role to provision directly defined components in the associated environment
-        /// account. It determines the scope of infrastructure that a component can provision
-        /// in the account.</para><para>You must specify <code>componentRoleArn</code> to allow directly defined components
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning
+        /// directly defined components in the associated environment account. It determines the
+        /// scope of infrastructure that a component can provision in the account.</para><para>You must specify <code>componentRoleArn</code> to allow directly defined components
         /// to be associated with any environments running in this account.</para><para>For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
         /// components</a> in the <i>Proton User Guide</i>.</para>
         /// </para>
@@ -117,9 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM service role in the environment account.
-        /// Proton uses this role to provision infrastructure resources using Amazon Web Services-managed
-        /// provisioning and CloudFormation in the associated environment account.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment
+        /// account. Proton uses this role to provision infrastructure resources in the associated
+        /// environment account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

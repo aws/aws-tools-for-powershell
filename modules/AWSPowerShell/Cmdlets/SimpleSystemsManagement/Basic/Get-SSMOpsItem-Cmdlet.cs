@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter OpsItemArn
+        /// <summary>
+        /// <para>
+        /// <para>The OpsItem Amazon Resource Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OpsItemArn { get; set; }
+        #endregion
+        
         #region Parameter OpsItemId
         /// <summary>
         /// <para>
@@ -113,6 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.OpsItemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.OpsItemArn = this.OpsItemArn;
             context.OpsItemId = this.OpsItemId;
             #if MODULAR
             if (this.OpsItemId == null && ParameterWasBound(nameof(this.OpsItemId)))
@@ -136,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.GetOpsItemRequest();
             
+            if (cmdletContext.OpsItemArn != null)
+            {
+                request.OpsItemArn = cmdletContext.OpsItemArn;
+            }
             if (cmdletContext.OpsItemId != null)
             {
                 request.OpsItemId = cmdletContext.OpsItemId;
@@ -201,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String OpsItemArn { get; set; }
             public System.String OpsItemId { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.GetOpsItemResponse, GetSSMOpsItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OpsItem;

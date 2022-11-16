@@ -105,6 +105,13 @@ $PRO_Completers = {
             break
         }
 
+        # Amazon.Proton.ListServiceInstancesSortBy
+        "Get-PROServiceInstanceList/SortBy"
+        {
+            $v = "createdAt","deploymentStatus","environmentName","lastDeploymentAttemptedAt","name","serviceName","templateName"
+            break
+        }
+
         # Amazon.Proton.Provisioning
         {
             ($_ -eq "New-PROServiceTemplate/PipelineProvisioning") -Or
@@ -137,6 +144,13 @@ $PRO_Completers = {
         "Edit-PROResourceDeploymentStatusChange/Status"
         {
             $v = "FAILED","IN_PROGRESS","SUCCEEDED"
+            break
+        }
+
+        # Amazon.Proton.SortOrder
+        "Get-PROServiceInstanceList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
             break
         }
 
@@ -190,6 +204,8 @@ $PRO_map = @{
     "ProvisioningRepository_Provider"=@("New-PROEnvironment","Update-PROEnvironment")
     "RepositoryProvider"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus","New-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")
     "RequestedBy"=@("Get-PROEnvironmentAccountConnectionList")
+    "SortBy"=@("Get-PROServiceInstanceList")
+    "SortOrder"=@("Get-PROServiceInstanceList")
     "Status"=@("Edit-PROResourceDeploymentStatusChange","Update-PROEnvironmentTemplateVersion","Update-PROServiceTemplateVersion")
     "SyncType"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus")
     "TemplateType"=@("Get-PROTemplateSyncConfig","Get-PROTemplateSyncStatus","New-PROTemplateSyncConfig","Remove-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")

@@ -11,7 +11,9 @@
     <ServiceModuleGuid>6265951c-1b44-4c71-8572-e54be412f008</ServiceModuleGuid>
     <PipelineParameter />
     <AutoIterate Start="NextToken" Next="NextToken" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Execute" To="Invoke" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -55,11 +57,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteQuery" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetComponentType" OutputProperty="*" Verb="Get" Noun="ComponentType" PipelineParameter="ComponentTypeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPricingPlan" OutputProperty="*" Verb="Get" Noun="PricingPlan" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -112,6 +122,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEntity" OutputProperty="*" Verb="Update" Noun="Entity" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePricingPlan" OutputProperty="*" Verb="Update" Noun="PricingPlan" ShouldProcessTarget="PricingMode" PipelineParameter="PricingMode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

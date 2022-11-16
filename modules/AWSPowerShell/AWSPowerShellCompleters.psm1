@@ -5193,7 +5193,7 @@ $ABC_Completers = {
         # Amazon.BillingConductor.PricingRuleScope
         "New-ABCPricingRule/Scope"
         {
-            $v = "GLOBAL","SERVICE"
+            $v = "BILLING_ENTITY","GLOBAL","SERVICE"
             break
         }
 
@@ -7676,7 +7676,7 @@ $CFN_Completers = {
         # Amazon.CloudFormation.HandlerErrorCode
         "Write-CFNHandlerProgress/ErrorCode"
         {
-            $v = "AccessDenied","AlreadyExists","GeneralServiceException","HandlerInternalFailure","InternalFailure","InvalidCredentials","InvalidRequest","InvalidTypeConfiguration","NetworkFailure","NonCompliant","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling","Unknown"
+            $v = "AccessDenied","AlreadyExists","GeneralServiceException","HandlerInternalFailure","InternalFailure","InvalidCredentials","InvalidRequest","InvalidTypeConfiguration","NetworkFailure","NonCompliant","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling","Unknown","UnsupportedTarget"
             break
         }
 
@@ -12694,6 +12694,7 @@ $CONN_SelectMap = @{
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
+               "Start-CONNContactMonitoring",
                "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
                "Copy-CONNInstance",
@@ -19157,6 +19158,16 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.InputAuthenticationType
+        {
+            ($_ -eq "Edit-ECUser/AuthenticationMode_Type") -Or
+            ($_ -eq "New-ECUser/AuthenticationMode_Type")
+        }
+        {
+            $v = "iam","no-password-required","password"
+            break
+        }
+
         # Amazon.ElastiCache.IpDiscovery
         {
             ($_ -eq "Edit-ECCacheCluster/IpDiscovery") -Or
@@ -19202,6 +19213,7 @@ $EC_Completers = {
 }
 
 $EC_map = @{
+    "AuthenticationMode_Type"=@("Edit-ECUser","New-ECUser")
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
@@ -28315,6 +28327,13 @@ $IOTTM_Completers = {
             break
         }
 
+        # Amazon.IoTTwinMaker.PricingMode
+        "Update-IOTTMPricingPlan/PricingMode"
+        {
+            $v = "BASIC","STANDARD","TIERED_BUNDLE"
+            break
+        }
+
 
     }
 
@@ -28327,6 +28346,7 @@ $IOTTM_map = @{
     "Interpolation_InterpolationType"=@("Get-IOTTMPropertyValueHistory")
     "OrderByTime"=@("Get-IOTTMPropertyValueHistory")
     "ParentEntityUpdate_UpdateType"=@("Update-IOTTMEntity")
+    "PricingMode"=@("Update-IOTTMPricingPlan")
 }
 
 _awsArgumentCompleterRegistration $IOTTM_Completers $IOTTM_map
@@ -28388,8 +28408,10 @@ $IOTTM_SelectMap = @{
                "Remove-IOTTMEntity",
                "Remove-IOTTMScene",
                "Remove-IOTTMWorkspace",
+               "Invoke-IOTTMQuery",
                "Get-IOTTMComponentType",
                "Get-IOTTMEntity",
+               "Get-IOTTMPricingPlan",
                "Get-IOTTMPropertyValue",
                "Get-IOTTMPropertyValueHistory",
                "Get-IOTTMScene",
@@ -28403,6 +28425,7 @@ $IOTTM_SelectMap = @{
                "Remove-IOTTMResourceTag",
                "Update-IOTTMComponentType",
                "Update-IOTTMEntity",
+               "Update-IOTTMPricingPlan",
                "Update-IOTTMScene",
                "Update-IOTTMWorkspace")
 }
@@ -40516,6 +40539,13 @@ $PRO_Completers = {
             break
         }
 
+        # Amazon.Proton.ListServiceInstancesSortBy
+        "Get-PROServiceInstanceList/SortBy"
+        {
+            $v = "createdAt","deploymentStatus","environmentName","lastDeploymentAttemptedAt","name","serviceName","templateName"
+            break
+        }
+
         # Amazon.Proton.Provisioning
         {
             ($_ -eq "New-PROServiceTemplate/PipelineProvisioning") -Or
@@ -40548,6 +40578,13 @@ $PRO_Completers = {
         "Edit-PROResourceDeploymentStatusChange/Status"
         {
             $v = "FAILED","IN_PROGRESS","SUCCEEDED"
+            break
+        }
+
+        # Amazon.Proton.SortOrder
+        "Get-PROServiceInstanceList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
             break
         }
 
@@ -40601,6 +40638,8 @@ $PRO_map = @{
     "ProvisioningRepository_Provider"=@("New-PROEnvironment","Update-PROEnvironment")
     "RepositoryProvider"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus","New-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")
     "RequestedBy"=@("Get-PROEnvironmentAccountConnectionList")
+    "SortBy"=@("Get-PROServiceInstanceList")
+    "SortOrder"=@("Get-PROServiceInstanceList")
     "Status"=@("Edit-PROResourceDeploymentStatusChange","Update-PROEnvironmentTemplateVersion","Update-PROServiceTemplateVersion")
     "SyncType"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus")
     "TemplateType"=@("Get-PROTemplateSyncConfig","Get-PROTemplateSyncStatus","New-PROTemplateSyncConfig","Remove-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")
@@ -49773,6 +49812,7 @@ $SSM_SelectMap = @{
                "Remove-SSMParameterCollection",
                "Remove-SSMPatchBaseline",
                "Remove-SSMResourceDataSync",
+               "Remove-SSMResourcePolicy",
                "Unregister-SSMManagedInstance",
                "Unregister-SSMPatchBaselineForPatchGroup",
                "Unregister-SSMTargetFromMaintenanceWindow",
@@ -49833,6 +49873,7 @@ $SSM_SelectMap = @{
                "Get-SSMParametersByPath",
                "Get-SSMPatchBaselineDetail",
                "Get-SSMPatchBaselineForPatchGroup",
+               "Get-SSMResourcePolicy",
                "Get-SSMServiceSetting",
                "Set-SSMParameterVersionLabel",
                "Get-SSMAssociationList",
@@ -49855,6 +49896,7 @@ $SSM_SelectMap = @{
                "Write-SSMComplianceItem",
                "Write-SSMInventory",
                "Write-SSMParameter",
+               "Write-SSMResourcePolicy",
                "Register-SSMDefaultPatchBaseline",
                "Register-SSMPatchBaselineForPatchGroup",
                "Register-SSMTargetWithMaintenanceWindow",
@@ -54500,6 +54542,7 @@ $XR_SelectMap = @{
                "New-XRGroup",
                "New-XRSamplingRule",
                "Remove-XRGroup",
+               "Remove-XRResourcePolicy",
                "Remove-XRSamplingRule",
                "Get-XREncryptionConfig",
                "Get-XRGroup",
@@ -54515,8 +54558,10 @@ $XR_SelectMap = @{
                "Get-XRTimeSeriesServiceStatistic",
                "Get-XRTraceGraph",
                "Get-XRTraceSummary",
+               "Get-XRResourcePolicyList",
                "Get-XRResourceTag",
                "Write-XREncryptionConfig",
+               "Write-XRResourcePolicy",
                "Write-XRTelemetryRecord",
                "Write-XRTraceSegment",
                "Add-XRResourceTag",

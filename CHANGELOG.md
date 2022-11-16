@@ -1,4 +1,42 @@
-﻿### 4.1.208 (2022-11-15 21:49Z)
+﻿### 4.1.209 (2022-11-16 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.419.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet New-ABCPricingRule: added parameter BillingEntity.
+  * Amazon Connect Service
+    * Added cmdlet Start-CONNContactMonitoring leveraging the MonitorContact service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter ControlPlanePlacement_GroupName.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECUser: added parameters AuthenticationMode_Password and AuthenticationMode_Type.
+    * Modified cmdlet New-ECUser: added parameters AuthenticationMode_Password and AuthenticationMode_Type.
+  * Amazon IoT TwinMaker
+    * Added cmdlet Get-IOTTMPricingPlan leveraging the GetPricingPlan service API.
+    * Added cmdlet Invoke-IOTTMQuery leveraging the ExecuteQuery service API.
+    * Added cmdlet Update-IOTTMPricingPlan leveraging the UpdatePricingPlan service API.
+    * Modified cmdlet Get-IOTTMPropertyValue: added parameters MaxResult, NextToken, NoAutoIteration, PropertyGroupName, TabularConditions_OrderBy and TabularConditions_PropertyFilter.
+    * Modified cmdlet New-IOTTMComponentType: added parameter PropertyGroup.
+    * Modified cmdlet Update-IOTTMComponentType: added parameter PropertyGroup.
+  * Amazon Proton
+    * Modified cmdlet Get-PROServiceInstanceList: added parameters Filter, SortBy and SortOrder.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameter DBSystemId.
+  * Amazon Systems Manager
+    * Added cmdlet Get-SSMResourcePolicy leveraging the GetResourcePolicies service API.
+    * Added cmdlet Remove-SSMResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-SSMResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Get-SSMOpsItem: added parameter OpsItemArn.
+    * Modified cmdlet New-SSMOpsItem: added parameter AccountId.
+    * Modified cmdlet Update-SSMOpsItem: added parameter OpsItemArn.
+  * Amazon Systems Manager Incident Manager
+    * Modified cmdlet New-SSMIResponsePlan: added parameter Integration.
+    * Modified cmdlet Update-SSMIRelatedItem: added parameters RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve, RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id, RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId, RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve, RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id and RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId.
+    * Modified cmdlet Update-SSMIResponsePlan: added parameter Integration.
+  * Amazon X-Ray
+    * Added cmdlet Get-XRResourcePolicyList leveraging the ListResourcePolicies service API.
+    * Added cmdlet Remove-XRResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-XRResourcePolicy leveraging the PutResourcePolicy service API.
+
+### 4.1.208 (2022-11-15 21:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.418.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon GreengrassV2
     * Modified cmdlet Get-GGV2DeploymentList: added parameter ParentTargetArn.

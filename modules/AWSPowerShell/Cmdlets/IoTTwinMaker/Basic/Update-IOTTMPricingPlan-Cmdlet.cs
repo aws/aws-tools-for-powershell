@@ -22,70 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.IoTTwinMaker;
+using Amazon.IoTTwinMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.IOTTM
 {
     /// <summary>
-    /// Changes the Identity and Access Management (IAM) role that is assigned to the on-premises
-    /// server, edge device, or virtual machines (VM). IAM roles are first assigned to these
-    /// hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.
+    /// Update the pricing plan.
     /// </summary>
-    [Cmdlet("Update", "SSMManagedInstanceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateManagedInstanceRole API operation.", Operation = new[] {"UpdateManagedInstanceRole"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "IOTTMPricingPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse")]
+    [AWSCmdlet("Calls the AWS IoT TwinMaker UpdatePricingPlan API operation.", Operation = new[] {"UpdatePricingPlan"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse))]
+    [AWSCmdletOutput("Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse",
+        "This cmdlet returns an Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSSMManagedInstanceRoleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateIOTTMPricingPlanCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter IamRole
+        #region Parameter BundleName
         /// <summary>
         /// <para>
-        /// <para>The name of the Identity and Access Management (IAM) role that you want to assign
-        /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
-        /// Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For
-        /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
-        /// an IAM service role for a hybrid environment</a> in the <i>Amazon Web Services Systems
-        /// Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
-        /// unique role.</para></note>
+        /// <para>The bundle names.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IamRole { get; set; }
+        [Alias("BundleNames")]
+        public System.String[] BundleName { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter PricingMode
         /// <summary>
         /// <para>
-        /// <para>The ID of the managed node where you want to update the role.</para>
+        /// <para>The pricing mode.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        [AWSConstantClassSource("Amazon.IoTTwinMaker.PricingMode")]
+        public Amazon.IoTTwinMaker.PricingMode PricingMode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse).
+        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PricingMode parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PricingMode' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PricingMode' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -116,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMManagedInstanceRole (UpdateManagedInstanceRole)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PricingMode), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTTMPricingPlan (UpdatePricingPlan)"))
             {
                 return;
             }
@@ -130,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse, UpdateSSMManagedInstanceRoleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse, UpdateIOTTMPricingPlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -139,21 +125,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.PricingMode;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IamRole = this.IamRole;
-            #if MODULAR
-            if (this.IamRole == null && ParameterWasBound(nameof(this.IamRole)))
+            if (this.BundleName != null)
             {
-                WriteWarning("You are passing $null as a value for parameter IamRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.BundleName = new List<System.String>(this.BundleName);
             }
-            #endif
-            context.InstanceId = this.InstanceId;
+            context.PricingMode = this.PricingMode;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.PricingMode == null && ParameterWasBound(nameof(this.PricingMode)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PricingMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest();
+            var request = new Amazon.IoTTwinMaker.Model.UpdatePricingPlanRequest();
             
-            if (cmdletContext.IamRole != null)
+            if (cmdletContext.BundleName != null)
             {
-                request.IamRole = cmdletContext.IamRole;
+                request.BundleNames = cmdletContext.BundleName;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.PricingMode != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.PricingMode = cmdletContext.PricingMode;
             }
             
             CmdletOutput output;
@@ -213,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
+        private Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse CallAWSServiceOperation(IAmazonIoTTwinMaker client, Amazon.IoTTwinMaker.Model.UpdatePricingPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateManagedInstanceRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT TwinMaker", "UpdatePricingPlan");
             try
             {
                 #if DESKTOP
-                return client.UpdateManagedInstanceRole(request);
+                return client.UpdatePricingPlan(request);
                 #elif CORECLR
-                return client.UpdateManagedInstanceRoleAsync(request).GetAwaiter().GetResult();
+                return client.UpdatePricingPlanAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,10 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IamRole { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse, UpdateSSMManagedInstanceRoleCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> BundleName { get; set; }
+            public Amazon.IoTTwinMaker.PricingMode PricingMode { get; set; }
+            public System.Func<Amazon.IoTTwinMaker.Model.UpdatePricingPlanResponse, UpdateIOTTMPricingPlanCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

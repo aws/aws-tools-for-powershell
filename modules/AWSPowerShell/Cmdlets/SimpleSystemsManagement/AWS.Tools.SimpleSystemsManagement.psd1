@@ -158,6 +158,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SSMPatchProperty', 
         'Get-SSMResourceComplianceSummaryList', 
         'Get-SSMResourceDataSync', 
+        'Get-SSMResourcePolicy', 
         'Get-SSMResourceTag', 
         'Get-SSMServiceSetting', 
         'Get-SSMSession', 
@@ -185,6 +186,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SSMParameterCollection', 
         'Remove-SSMPatchBaseline', 
         'Remove-SSMResourceDataSync', 
+        'Remove-SSMResourcePolicy', 
         'Remove-SSMResourceTag', 
         'Reset-SSMParameterVersionLabel', 
         'Reset-SSMServiceSetting', 
@@ -221,7 +223,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SSMServiceSetting', 
         'Write-SSMComplianceItem', 
         'Write-SSMInventory', 
-        'Write-SSMParameter')
+        'Write-SSMParameter', 
+        'Write-SSMResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

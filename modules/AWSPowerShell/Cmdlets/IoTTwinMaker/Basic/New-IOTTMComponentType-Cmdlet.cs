@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.Collections.Hashtable PropertyDefinition { get; set; }
         #endregion
         
+        #region Parameter PropertyGroup
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PropertyGroups")]
+        public System.Collections.Hashtable PropertyGroup { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -229,6 +240,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                     context.PropertyDefinition.Add((String)hashKey, (PropertyDefinitionRequest)(this.PropertyDefinition[hashKey]));
                 }
             }
+            if (this.PropertyGroup != null)
+            {
+                context.PropertyGroup = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyGroupRequest>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PropertyGroup.Keys)
+                {
+                    context.PropertyGroup.Add((String)hashKey, (PropertyGroupRequest)(this.PropertyGroup[hashKey]));
+                }
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -283,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.PropertyDefinition != null)
             {
                 request.PropertyDefinitions = cmdletContext.PropertyDefinition;
+            }
+            if (cmdletContext.PropertyGroup != null)
+            {
+                request.PropertyGroups = cmdletContext.PropertyGroup;
             }
             if (cmdletContext.Tag != null)
             {
@@ -359,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.FunctionRequest> Function { get; set; }
             public System.Boolean? IsSingleton { get; set; }
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyDefinitionRequest> PropertyDefinition { get; set; }
+            public Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyGroupRequest> PropertyGroup { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.IoTTwinMaker.Model.CreateComponentTypeResponse, NewIOTTMComponentTypeCmdlet, object> Select { get; set; } =

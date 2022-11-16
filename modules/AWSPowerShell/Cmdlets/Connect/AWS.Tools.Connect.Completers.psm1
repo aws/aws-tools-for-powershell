@@ -489,6 +489,7 @@ $CONN_SelectMap = @{
                "Get-CONNUseCaseList",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
+               "Start-CONNContactMonitoring",
                "Write-CONNUserStatus",
                "Remove-CONNPhoneNumber",
                "Copy-CONNInstance",

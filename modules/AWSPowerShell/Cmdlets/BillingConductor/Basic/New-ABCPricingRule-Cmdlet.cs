@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class NewABCPricingRuleCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        #region Parameter BillingEntity
+        /// <summary>
+        /// <para>
+        /// <para> The seller of services provided by Amazon Web Services, their affiliates, or third-party
+        /// providers selling services via Amazon Web Services Marketplace. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingEntity { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 context.Select = CreateSelectDelegate<Amazon.BillingConductor.Model.CreatePricingRuleResponse, NewABCPricingRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.BillingEntity = this.BillingEntity;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.ModifierPercentage = this.ModifierPercentage;
@@ -248,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             // create request
             var request = new Amazon.BillingConductor.Model.CreatePricingRuleRequest();
             
+            if (cmdletContext.BillingEntity != null)
+            {
+                request.BillingEntity = cmdletContext.BillingEntity;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -341,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BillingEntity { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.Double? ModifierPercentage { get; set; }

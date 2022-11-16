@@ -90,11 +90,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster
-        /// on Outposts. The instance type that you specify is used for all Kubernetes control
-        /// plane instances. The instance type can't be changed after cluster creation.</para><para>Choose an instance type based on the number of nodes that your cluster will have.
-        /// If your cluster will have:</para><ul><li><para>1–20 nodes, then we recommend specifying a <code>large</code> instance type.</para></li><li><para>21–100 nodes, then we recommend specifying an <code>xlarge</code> instance type.</para></li><li><para>101–250 nodes, then we recommend specifying a <code>2xlarge</code> instance type.</para></li></ul><para>For a list of the available Amazon EC2 instance types, see Compute and storage in
-        /// <a href="http://aws.amazon.com/outposts/rack/features/">Outposts rack features</a>.
-        /// The control plane is not automatically scaled by Amazon EKS.</para>
+        /// on Outposts. Choose an instance type based on the number of nodes that your cluster
+        /// will have. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+        /// considerations</a> in the <i>Amazon EKS User Guide</i>.</para><para>The instance type that you specify is used for all Kubernetes control plane instances.
+        /// The instance type can't be changed after cluster creation. The control plane is not
+        /// automatically scaled by Amazon EKS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.EKS.Model.EncryptionConfig[] EncryptionConfig { get; set; }
+        #endregion
+        
+        #region Parameter ControlPlanePlacement_GroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the placement group for the Kubernetes control plane instances. This setting
+        /// can't be changed after cluster creation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutpostConfig_ControlPlanePlacement_GroupName")]
+        public System.String ControlPlanePlacement_GroupName { get; set; }
         #endregion
         
         #region Parameter KubernetesNetworkConfig_IpFamily
@@ -325,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.OutpostConfig_ControlPlaneInstanceType = this.OutpostConfig_ControlPlaneInstanceType;
+            context.ControlPlanePlacement_GroupName = this.ControlPlanePlacement_GroupName;
             if (this.OutpostConfig_OutpostArn != null)
             {
                 context.OutpostConfig_OutpostArn = new List<System.String>(this.OutpostConfig_OutpostArn);
@@ -452,6 +465,31 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.OutpostConfig.OutpostArns = requestOutpostConfig_outpostConfig_OutpostArn;
                 requestOutpostConfigIsNull = false;
             }
+            Amazon.EKS.Model.ControlPlanePlacementRequest requestOutpostConfig_outpostConfig_ControlPlanePlacement = null;
+            
+             // populate ControlPlanePlacement
+            var requestOutpostConfig_outpostConfig_ControlPlanePlacementIsNull = true;
+            requestOutpostConfig_outpostConfig_ControlPlanePlacement = new Amazon.EKS.Model.ControlPlanePlacementRequest();
+            System.String requestOutpostConfig_outpostConfig_ControlPlanePlacement_controlPlanePlacement_GroupName = null;
+            if (cmdletContext.ControlPlanePlacement_GroupName != null)
+            {
+                requestOutpostConfig_outpostConfig_ControlPlanePlacement_controlPlanePlacement_GroupName = cmdletContext.ControlPlanePlacement_GroupName;
+            }
+            if (requestOutpostConfig_outpostConfig_ControlPlanePlacement_controlPlanePlacement_GroupName != null)
+            {
+                requestOutpostConfig_outpostConfig_ControlPlanePlacement.GroupName = requestOutpostConfig_outpostConfig_ControlPlanePlacement_controlPlanePlacement_GroupName;
+                requestOutpostConfig_outpostConfig_ControlPlanePlacementIsNull = false;
+            }
+             // determine if requestOutpostConfig_outpostConfig_ControlPlanePlacement should be set to null
+            if (requestOutpostConfig_outpostConfig_ControlPlanePlacementIsNull)
+            {
+                requestOutpostConfig_outpostConfig_ControlPlanePlacement = null;
+            }
+            if (requestOutpostConfig_outpostConfig_ControlPlanePlacement != null)
+            {
+                request.OutpostConfig.ControlPlanePlacement = requestOutpostConfig_outpostConfig_ControlPlanePlacement;
+                requestOutpostConfigIsNull = false;
+            }
              // determine if request.OutpostConfig should be set to null
             if (requestOutpostConfigIsNull)
             {
@@ -541,6 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public System.String OutpostConfig_ControlPlaneInstanceType { get; set; }
+            public System.String ControlPlanePlacement_GroupName { get; set; }
             public List<System.String> OutpostConfig_OutpostArn { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
             public System.String RoleArn { get; set; }

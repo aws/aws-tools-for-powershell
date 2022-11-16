@@ -90,11 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter EnvironmentAccountConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the environment account connection that you provide if you want Proton to
-        /// provision infrastructure resources for your environment or for any of the service
-        /// instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
-        /// account connections</a> in the <i>Proton User guide</i>.</para><para>If you specify the <code>environmentAccountConnectionId</code> parameter, don't specify
-        /// <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, or <code>provisioningRepository</code>.</para>
+        /// <para>The ID of the environment account connection that you provide if you're provisioning
+        /// your environment infrastructure resources to an environment account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment
+        /// account connections</a> in the <i>Proton User guide</i>.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
+        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
+        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,11 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         #region Parameter ProtonServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision
-        /// infrastructure using Amazon Web Services-managed provisioning and CloudFormation on
-        /// your behalf.</para><para>To use Amazon Web Services-managed provisioning for the environment or for any service
-        /// instance running in the environment, specify either the <code>environmentAccountConnectionId</code>
-        /// or <code>protonServiceRoleArn</code> parameter.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make
+        /// calls to other services on your behalf.</para><para>To use Amazon Web Services-managed provisioning for the environment, specify either
+        /// the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code>
+        /// parameter and omit the <code>provisioningRepository</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

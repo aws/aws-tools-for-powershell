@@ -91,6 +91,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTTMComponentTypeList', 
         'Get-IOTTMEntity', 
         'Get-IOTTMEntityList', 
+        'Get-IOTTMPricingPlan', 
         'Get-IOTTMPropertyValue', 
         'Get-IOTTMPropertyValueHistory', 
         'Get-IOTTMResourceTag', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTTMWorkspace', 
         'Get-IOTTMWorkspaceList', 
         'Import-IOTTMPutPropertyValue', 
+        'Invoke-IOTTMQuery', 
         'New-IOTTMComponentType', 
         'New-IOTTMEntity', 
         'New-IOTTMScene', 
@@ -110,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IOTTMWorkspace', 
         'Update-IOTTMComponentType', 
         'Update-IOTTMEntity', 
+        'Update-IOTTMPricingPlan', 
         'Update-IOTTMScene', 
         'Update-IOTTMWorkspace')
 

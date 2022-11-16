@@ -100,6 +100,16 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.InputAuthenticationType
+        {
+            ($_ -eq "Edit-ECUser/AuthenticationMode_Type") -Or
+            ($_ -eq "New-ECUser/AuthenticationMode_Type")
+        }
+        {
+            $v = "iam","no-password-required","password"
+            break
+        }
+
         # Amazon.ElastiCache.IpDiscovery
         {
             ($_ -eq "Edit-ECCacheCluster/IpDiscovery") -Or
@@ -145,6 +155,7 @@ $EC_Completers = {
 }
 
 $EC_map = @{
+    "AuthenticationMode_Type"=@("Edit-ECUser","New-ECUser")
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")

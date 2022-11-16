@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The ISO8601 DateTime of the latest property value to return.</para><para>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</para>
+        /// <para>The ISO8601 DateTime of the latest property value to return.</para><para>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The ISO8601 DateTime of the earliest property value to return.</para><para>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</para>
+        /// <para>The ISO8601 DateTime of the earliest property value to return.</para><para>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return.</para>
+        /// <para>The maximum number of results to return at one time. The default is 25.</para><para>Valid Range: Minimum value of 1. Maximum value of 250.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

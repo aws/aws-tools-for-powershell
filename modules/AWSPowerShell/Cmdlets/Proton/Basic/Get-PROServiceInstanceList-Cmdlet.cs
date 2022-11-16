@@ -28,7 +28,8 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// List service instances with summary data.
+    /// List service instances with summary data. This action lists service instances of all
+    /// services in the Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "PROServiceInstanceList")]
     [OutputType("Amazon.Proton.Model.ServiceInstanceSummary")]
@@ -40,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROServiceInstanceListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>An array of filtering criteria that scope down the result list. By default, all service
+        /// instances in the Amazon Web Services account are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.Proton.Model.ListServiceInstancesFilter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter ServiceName
         /// <summary>
         /// <para>
@@ -48,6 +61,29 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ServiceName { get; set; }
+        #endregion
+        
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The field that the result list is sorted by.</para><para>When you choose to sort by <code>serviceName</code>, service instances within each
+        /// service are sorted by service instance name.</para><para>Default: <code>serviceName</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Proton.ListServiceInstancesSortBy")]
+        public Amazon.Proton.ListServiceInstancesSortBy SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>Result list sort order.</para><para>Default: <code>ASCENDING</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Proton.SortOrder")]
+        public Amazon.Proton.SortOrder SortOrder { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -117,9 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = (response, cmdlet) => this.ServiceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.Proton.Model.ListServiceInstancesFilter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ServiceName = this.ServiceName;
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.ListServiceInstancesRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -147,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             if (cmdletContext.ServiceName != null)
             {
                 request.ServiceName = cmdletContext.ServiceName;
+            }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
             }
             
             CmdletOutput output;
@@ -209,9 +263,12 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Proton.Model.ListServiceInstancesFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ServiceName { get; set; }
+            public Amazon.Proton.ListServiceInstancesSortBy SortBy { get; set; }
+            public Amazon.Proton.SortOrder SortOrder { get; set; }
             public System.Func<Amazon.Proton.Model.ListServiceInstancesResponse, GetPROServiceInstanceListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServiceInstances;
         }

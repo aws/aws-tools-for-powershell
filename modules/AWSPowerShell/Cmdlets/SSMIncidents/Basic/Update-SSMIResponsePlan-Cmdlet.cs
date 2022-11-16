@@ -180,6 +180,17 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         public System.String IncidentTemplateTitle { get; set; }
         #endregion
         
+        #region Parameter Integration
+        /// <summary>
+        /// <para>
+        /// <para>Information about third-party services integrated into the response plan.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Integrations")]
+        public Amazon.SSMIncidents.Model.Integration[] Integration { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -288,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 }
             }
             context.IncidentTemplateTitle = this.IncidentTemplateTitle;
+            if (this.Integration != null)
+            {
+                context.Integration = new List<Amazon.SSMIncidents.Model.Integration>(this.Integration);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -377,6 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             {
                 request.IncidentTemplateTitle = cmdletContext.IncidentTemplateTitle;
             }
+            if (cmdletContext.Integration != null)
+            {
+                request.Integrations = cmdletContext.Integration;
+            }
             
             CmdletOutput output;
             
@@ -451,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
             public System.String IncidentTemplateSummary { get; set; }
             public Dictionary<System.String, System.String> IncidentTemplateTag { get; set; }
             public System.String IncidentTemplateTitle { get; set; }
+            public List<Amazon.SSMIncidents.Model.Integration> Integration { get; set; }
             public System.Func<Amazon.SSMIncidents.Model.UpdateResponsePlanResponse, UpdateSSMIResponsePlanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

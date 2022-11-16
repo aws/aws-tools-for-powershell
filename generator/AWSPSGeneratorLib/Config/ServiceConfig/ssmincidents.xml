@@ -128,6 +128,12 @@
                 <Param Name="RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition" NewName="RelatedItemsUpdate_ItemToRemove_Value_MetricDefinition" />
                 <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_Url" />
                 <Param Name="RelatedItemsUpdate_ItemToRemove_Value_Url" NewName="RelatedItemsUpdate_ItemToRemove_Value_Url" />
+                <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_AutoResolve" />
+                <Param Name="RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve" NewName="RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_AutoResolve" />
+                <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_Id" />
+                <Param Name="RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id" NewName="RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_Id" />
+                <Param Name="RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId" NewName="RelatedItemsUpdate_ItemToAdd_Identifier_Value_PagerDutyIncidentDetail_SecretId" />
+                <Param Name="RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId" NewName="RelatedItemsUpdate_ItemToRemove_Value_PagerDutyIncidentDetail_SecretId" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

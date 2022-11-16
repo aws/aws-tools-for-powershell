@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Boolean? NoPasswordRequired { get; set; }
         #endregion
         
+        #region Parameter AuthenticationMode_Password
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the passwords to use for authentication if <code>Type</code> is set to <code>password</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthenticationMode_Passwords")]
+        public System.String[] AuthenticationMode_Password { get; set; }
+        #endregion
+        
         #region Parameter Password
         /// <summary>
         /// <para>
@@ -78,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Passwords")]
         public System.String[] Password { get; set; }
+        #endregion
+        
+        #region Parameter AuthenticationMode_Type
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the authentication type. Possible options are IAM authentication, password
+        /// and no password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.InputAuthenticationType")]
+        public Amazon.ElastiCache.InputAuthenticationType AuthenticationMode_Type { get; set; }
         #endregion
         
         #region Parameter UserId
@@ -160,6 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccessString = this.AccessString;
             context.AppendAccessString = this.AppendAccessString;
+            if (this.AuthenticationMode_Password != null)
+            {
+                context.AuthenticationMode_Password = new List<System.String>(this.AuthenticationMode_Password);
+            }
+            context.AuthenticationMode_Type = this.AuthenticationMode_Type;
             context.NoPasswordRequired = this.NoPasswordRequired;
             if (this.Password != null)
             {
@@ -195,6 +223,35 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.AppendAccessString != null)
             {
                 request.AppendAccessString = cmdletContext.AppendAccessString;
+            }
+            
+             // populate AuthenticationMode
+            var requestAuthenticationModeIsNull = true;
+            request.AuthenticationMode = new Amazon.ElastiCache.Model.AuthenticationMode();
+            List<System.String> requestAuthenticationMode_authenticationMode_Password = null;
+            if (cmdletContext.AuthenticationMode_Password != null)
+            {
+                requestAuthenticationMode_authenticationMode_Password = cmdletContext.AuthenticationMode_Password;
+            }
+            if (requestAuthenticationMode_authenticationMode_Password != null)
+            {
+                request.AuthenticationMode.Passwords = requestAuthenticationMode_authenticationMode_Password;
+                requestAuthenticationModeIsNull = false;
+            }
+            Amazon.ElastiCache.InputAuthenticationType requestAuthenticationMode_authenticationMode_Type = null;
+            if (cmdletContext.AuthenticationMode_Type != null)
+            {
+                requestAuthenticationMode_authenticationMode_Type = cmdletContext.AuthenticationMode_Type;
+            }
+            if (requestAuthenticationMode_authenticationMode_Type != null)
+            {
+                request.AuthenticationMode.Type = requestAuthenticationMode_authenticationMode_Type;
+                requestAuthenticationModeIsNull = false;
+            }
+             // determine if request.AuthenticationMode should be set to null
+            if (requestAuthenticationModeIsNull)
+            {
+                request.AuthenticationMode = null;
             }
             if (cmdletContext.NoPasswordRequired != null)
             {
@@ -271,6 +328,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             public System.String AccessString { get; set; }
             public System.String AppendAccessString { get; set; }
+            public List<System.String> AuthenticationMode_Password { get; set; }
+            public Amazon.ElastiCache.InputAuthenticationType AuthenticationMode_Type { get; set; }
             public System.Boolean? NoPasswordRequired { get; set; }
             public List<System.String> Password { get; set; }
             public System.String UserId { get; set; }

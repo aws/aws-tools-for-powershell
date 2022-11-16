@@ -5057,6 +5057,9 @@ Set-Alias -Name CONN-ListUserHierarchyGroups -Value Get-CONNUserHierarchyGroupLi
 Set-Alias -Name List-CONNUsers -Value Get-CONNUserList
 Set-Alias -Name List-CONNUserList -Value Get-CONNUserList
 Set-Alias -Name CONN-ListUsers -Value Get-CONNUserList
+Set-Alias -Name Monitor-CONNContact -Value Start-CONNContactMonitoring
+Set-Alias -Name Monitor-CONNContactMonitoring -Value Start-CONNContactMonitoring
+Set-Alias -Name CONN-MonitorContact -Value Start-CONNContactMonitoring
 Set-Alias -Name Put-CONNUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name CONN-PutUserStatus -Value Write-CONNUserStatus
 Set-Alias -Name Release-CONNPhoneNumber -Value Remove-CONNPhoneNumber
@@ -12669,8 +12672,11 @@ Set-Alias -Name Delete-IOTTMScene -Value Remove-IOTTMScene
 Set-Alias -Name IOTTM-DeleteScene -Value Remove-IOTTMScene
 Set-Alias -Name Delete-IOTTMWorkspace -Value Remove-IOTTMWorkspace
 Set-Alias -Name IOTTM-DeleteWorkspace -Value Remove-IOTTMWorkspace
+Set-Alias -Name Execute-IOTTMQuery -Value Invoke-IOTTMQuery
+Set-Alias -Name IOTTM-ExecuteQuery -Value Invoke-IOTTMQuery
 Set-Alias -Name IOTTM-GetComponentType -Value Get-IOTTMComponentType
 Set-Alias -Name IOTTM-GetEntity -Value Get-IOTTMEntity
+Set-Alias -Name IOTTM-GetPricingPlan -Value Get-IOTTMPricingPlan
 Set-Alias -Name IOTTM-GetPropertyValue -Value Get-IOTTMPropertyValue
 Set-Alias -Name IOTTM-GetPropertyValueHistory -Value Get-IOTTMPropertyValueHistory
 Set-Alias -Name IOTTM-GetScene -Value Get-IOTTMScene
@@ -12692,6 +12698,7 @@ Set-Alias -Name IOTTM-TagResource -Value Add-IOTTMResourceTag
 Set-Alias -Name IOTTM-UntagResource -Value Remove-IOTTMResourceTag
 Set-Alias -Name IOTTM-UpdateComponentType -Value Update-IOTTMComponentType
 Set-Alias -Name IOTTM-UpdateEntity -Value Update-IOTTMEntity
+Set-Alias -Name IOTTM-UpdatePricingPlan -Value Update-IOTTMPricingPlan
 Set-Alias -Name IOTTM-UpdateScene -Value Update-IOTTMScene
 Set-Alias -Name IOTTM-UpdateWorkspace -Value Update-IOTTMWorkspace
 Set-Alias -Name Associate-IOTWAwsAccountWithPartnerAccount -Value Join-IOTWAwsAccountWithPartnerAccount
@@ -21419,6 +21426,8 @@ Set-Alias -Name Delete-SSMPatchBaseline -Value Remove-SSMPatchBaseline
 Set-Alias -Name SSM-DeletePatchBaseline -Value Remove-SSMPatchBaseline
 Set-Alias -Name Delete-SSMResourceDataSync -Value Remove-SSMResourceDataSync
 Set-Alias -Name SSM-DeleteResourceDataSync -Value Remove-SSMResourceDataSync
+Set-Alias -Name Delete-SSMResourcePolicy -Value Remove-SSMResourcePolicy
+Set-Alias -Name SSM-DeleteResourcePolicy -Value Remove-SSMResourcePolicy
 Set-Alias -Name Deregister-SSMManagedInstance -Value Unregister-SSMManagedInstance
 Set-Alias -Name SSM-DeregisterManagedInstance -Value Unregister-SSMManagedInstance
 Set-Alias -Name Deregister-SSMPatchBaselineForPatchGroup -Value Unregister-SSMPatchBaselineForPatchGroup
@@ -21542,6 +21551,8 @@ Set-Alias -Name SSM-GetParametersByPath -Value Get-SSMParametersByPath
 Set-Alias -Name Get-SSMPatchBaseline -Value Get-SSMPatchBaselineDetail
 Set-Alias -Name SSM-GetPatchBaseline -Value Get-SSMPatchBaselineDetail
 Set-Alias -Name SSM-GetPatchBaselineForPatchGroup -Value Get-SSMPatchBaselineForPatchGroup
+Set-Alias -Name Get-SSMResourcePolicies -Value Get-SSMResourcePolicy
+Set-Alias -Name SSM-GetResourcePolicies -Value Get-SSMResourcePolicy
 Set-Alias -Name SSM-GetServiceSetting -Value Get-SSMServiceSetting
 Set-Alias -Name Label-SSMParameterVersion -Value Set-SSMParameterVersionLabel
 Set-Alias -Name Label-SSMParameterVersionLabel -Value Set-SSMParameterVersionLabel
@@ -21599,6 +21610,8 @@ Set-Alias -Name Put-SSMInventory -Value Write-SSMInventory
 Set-Alias -Name SSM-PutInventory -Value Write-SSMInventory
 Set-Alias -Name Put-SSMParameter -Value Write-SSMParameter
 Set-Alias -Name SSM-PutParameter -Value Write-SSMParameter
+Set-Alias -Name Put-SSMResourcePolicy -Value Write-SSMResourcePolicy
+Set-Alias -Name SSM-PutResourcePolicy -Value Write-SSMResourcePolicy
 Set-Alias -Name SSM-RegisterDefaultPatchBaseline -Value Register-SSMDefaultPatchBaseline
 Set-Alias -Name SSM-RegisterPatchBaselineForPatchGroup -Value Register-SSMPatchBaselineForPatchGroup
 Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow
@@ -23650,6 +23663,8 @@ Set-Alias -Name Create-XRSamplingRule -Value New-XRSamplingRule
 Set-Alias -Name XR-CreateSamplingRule -Value New-XRSamplingRule
 Set-Alias -Name Delete-XRGroup -Value Remove-XRGroup
 Set-Alias -Name XR-DeleteGroup -Value Remove-XRGroup
+Set-Alias -Name Delete-XRResourcePolicy -Value Remove-XRResourcePolicy
+Set-Alias -Name XR-DeleteResourcePolicy -Value Remove-XRResourcePolicy
 Set-Alias -Name Delete-XRSamplingRule -Value Remove-XRSamplingRule
 Set-Alias -Name XR-DeleteSamplingRule -Value Remove-XRSamplingRule
 Set-Alias -Name XR-GetEncryptionConfig -Value Get-XREncryptionConfig
@@ -23674,9 +23689,14 @@ Set-Alias -Name XR-GetTimeSeriesServiceStatistics -Value Get-XRTimeSeriesService
 Set-Alias -Name XR-GetTraceGraph -Value Get-XRTraceGraph
 Set-Alias -Name Get-XRTraceSummaries -Value Get-XRTraceSummary
 Set-Alias -Name XR-GetTraceSummaries -Value Get-XRTraceSummary
+Set-Alias -Name List-XRResourcePolicies -Value Get-XRResourcePolicyList
+Set-Alias -Name List-XRResourcePolicyList -Value Get-XRResourcePolicyList
+Set-Alias -Name XR-ListResourcePolicies -Value Get-XRResourcePolicyList
 Set-Alias -Name XR-ListTagsForResource -Value Get-XRResourceTag
 Set-Alias -Name Put-XREncryptionConfig -Value Write-XREncryptionConfig
 Set-Alias -Name XR-PutEncryptionConfig -Value Write-XREncryptionConfig
+Set-Alias -Name Put-XRResourcePolicy -Value Write-XRResourcePolicy
+Set-Alias -Name XR-PutResourcePolicy -Value Write-XRResourcePolicy
 Set-Alias -Name Put-XRTelemetryRecords -Value Write-XRTelemetryRecord
 Set-Alias -Name Put-XRTelemetryRecord -Value Write-XRTelemetryRecord
 Set-Alias -Name XR-PutTelemetryRecords -Value Write-XRTelemetryRecord

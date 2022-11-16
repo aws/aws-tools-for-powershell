@@ -118,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <code>ClusterFirst</code> indicates that any DNS query that does not match the configured
         /// cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
         /// For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's
-        /// DNS policy</a> in the <i>Kubernetes documentation</i>.</para><para>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code>
-        /// | <code>None</code></para>
+        /// DNS policy</a> in the <i>Kubernetes documentation</i>.</para><para>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
