@@ -243,6 +243,12 @@
             <Params>
                 <Param Name="StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled" />
                 <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled" NewName="StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled" />
+                <Param Name="StorageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_IsEnabled" NewName="StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

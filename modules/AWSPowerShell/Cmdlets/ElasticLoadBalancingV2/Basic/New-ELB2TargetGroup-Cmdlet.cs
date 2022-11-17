@@ -79,9 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. If the target group protocol is HTTP or HTTPS, the default is 30 seconds.
-        /// If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are
-        /// 10 and 30 seconds and the default is 30 seconds. If the target group protocol is GENEVE,
+        /// target. The range is 5-300. If the target group protocol is TCP, TLS, UDP, TCP_UDP,
+        /// HTTP or HTTPS, the default is 30 seconds. If the target group protocol is GENEVE,
         /// the default is 10 seconds. If the target type is <code>lambda</code>, the default
         /// is 35 seconds.</para>
         /// </para>
@@ -134,10 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response from a target means a failed
-        /// health check. For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default
-        /// is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be
-        /// 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If
-        /// the target type is <code>lambda</code>, the default is 30 seconds.</para>
+        /// health check. The range is 2–120 seconds. For target groups with a protocol of HTTP,
+        /// the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS,
+        /// the default is 10 seconds. For target groups with a protocol of GENEVE, the default
+        /// is 5 seconds. If the target type is <code>lambda</code>, the default is 30 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,10 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter HealthyThresholdCount
         /// <summary>
         /// <para>
-        /// <para>The number of consecutive health checks successes required before considering an unhealthy
-        /// target healthy. For target groups with a protocol of HTTP or HTTPS, the default is
-        /// 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If
-        /// the target type is <code>lambda</code>, the default is 5.</para>
+        /// <para>The number of consecutive health check successes required before considering a target
+        /// healthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS,
+        /// HTTP or HTTPS, the default is 5. For target groups with a protocol of GENEVE, the
+        /// default is 3. If the target type is <code>lambda</code>, the default is 5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,9 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Matcher_HttpCode
         /// <summary>
         /// <para>
-        /// <para>For Application Load Balancers, you can specify values between 200 and 499, and the
-        /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</para><para>Note that when using shorthand syntax, some values such as commas need to be escaped.</para>
+        /// <para>For Application Load Balancers, you can specify values between 200 and 499, with the
+        /// default value being 200. You can specify multiple values (for example, "200,202")
+        /// or a range of values (for example, "200-299").</para><para>For Network Load Balancers, you can specify values between 200 and 599, with the default
+        /// value being 200-399. You can specify multiple values (for example, "200,202") or a
+        /// range of values (for example, "200-299").</para><para>For Gateway Load Balancers, this must be "200–399".</para><para>Note that when using shorthand syntax, some values such as commas need to be escaped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,10 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before considering a target
-        /// unhealthy. If the target group protocol is HTTP or HTTPS, the default is 2. If the
-        /// target group protocol is TCP or TLS, this value must be the same as the healthy threshold
-        /// count. If the target group protocol is GENEVE, the default is 3. If the target type
-        /// is <code>lambda</code>, the default is 2.</para>
+        /// unhealthy. The range is 2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS,
+        /// HTTP or HTTPS, the default is 2. For target groups with a protocol of GENEVE, the
+        /// default is 3. If the target type is <code>lambda</code>, the default is 5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
     public partial class NewEMRServerlessApplicationCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
     {
         
+        #region Parameter Architecture
+        /// <summary>
+        /// <para>
+        /// <para>The CPU architecture of an application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EMRServerless.Architecture")]
+        public Amazon.EMRServerless.Architecture Architecture { get; set; }
+        #endregion
+        
         #region Parameter MaximumCapacity_Cpu
         /// <summary>
         /// <para>
@@ -261,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Architecture = this.Architecture;
             context.AutoStartConfiguration_Enabled = this.AutoStartConfiguration_Enabled;
             context.AutoStopConfiguration_Enabled = this.AutoStopConfiguration_Enabled;
             context.AutoStopConfiguration_IdleTimeoutMinute = this.AutoStopConfiguration_IdleTimeoutMinute;
@@ -323,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             // create request
             var request = new Amazon.EMRServerless.Model.CreateApplicationRequest();
             
+            if (cmdletContext.Architecture != null)
+            {
+                request.Architecture = cmdletContext.Architecture;
+            }
             
              // populate AutoStartConfiguration
             var requestAutoStartConfigurationIsNull = true;
@@ -524,6 +540,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.EMRServerless.Architecture Architecture { get; set; }
             public System.Boolean? AutoStartConfiguration_Enabled { get; set; }
             public System.Boolean? AutoStopConfiguration_Enabled { get; set; }
             public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }

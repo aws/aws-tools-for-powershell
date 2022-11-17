@@ -28,12 +28,21 @@ using Amazon.Ivschat.Model;
 namespace Amazon.PowerShell.Cmdlets.IVSC
 {
     /// <summary>
-    /// Creates an encrypted token that is used to establish an individual WebSocket connection
-    /// to a room. The token is valid for one minute, and a connection (session) established
-    /// with the token is valid for the specified duration.
+    /// Creates an encrypted token that is used by a chat participant to establish an individual
+    /// WebSocket chat connection to a room. When the token is used to connect to chat, the
+    /// connection is valid for the session duration specified in the request. The token becomes
+    /// invalid at the token-expiration timestamp included in the response.
     /// 
     ///  
     /// <para>
+    /// Use the <code>capabilities</code> field to permit an end user to send messages or
+    /// moderate a room.
+    /// </para><para>
+    /// The <code>attributes</code> field securely attaches structured data to the chat session;
+    /// the data is included within each message sent by the end user and received by other
+    /// participants in the room. Common use cases for attributes include passing end-user
+    /// profile data like an icon, display name, colors, badges, and other display features.
+    /// </para><para>
     /// Encryption keys are owned by Amazon IVS Chat and never used directly by your application.
     /// </para>
     /// </summary>

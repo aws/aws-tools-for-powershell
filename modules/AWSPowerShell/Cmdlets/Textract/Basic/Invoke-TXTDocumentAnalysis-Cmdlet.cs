@@ -49,6 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// are returned (including text that doesn't have a relationship with the value of <code>FeatureTypes</code>).
     /// 
     /// </para></li><li><para>
+    /// Signatures. A SIGNATURE <code>Block</code> object contains the location information
+    /// of a signature in a document. If used in conjunction with forms or tables, a signature
+    /// can be given a Key-Value pairing or be detected in the cell of a table.
+    /// </para></li><li><para>
     /// Query. A QUERY Block object contains the query text, alias and link to the associated
     /// Query results block object.
     /// </para></li><li><para>
@@ -123,9 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <para>
         /// <para>A list of the types of analysis to perform. Add TABLES to the list to return information
         /// about the tables that are detected in the input document. Add FORMS to return detected
-        /// form data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>.
-        /// All lines and words detected in the document are included in the response (including
-        /// text that isn't related to the value of <code>FeatureTypes</code>). </para>
+        /// form data. Add SIGNATURES to return the locations of detected signatures. To perform
+        /// both forms and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>.
+        /// To detect signatures within form data and table data, add SIGNATURES to either TABLES
+        /// or FORMS. All lines and words detected in the document are included in the response
+        /// (including text that isn't related to the value of <code>FeatureTypes</code>). </para>
         /// </para>
         /// </summary>
         #if !MODULAR

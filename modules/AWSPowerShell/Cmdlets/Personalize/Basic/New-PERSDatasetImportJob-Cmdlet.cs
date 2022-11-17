@@ -101,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String JobName { get; set; }
         #endregion
         
+        #region Parameter PublishAttributionMetricsToS3
+        /// <summary>
+        /// <para>
+        /// <para>If you created a metric attribution, specify whether to publish metrics for this import
+        /// job to Amazon S3</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PublishAttributionMetricsToS3 { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -207,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter JobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PublishAttributionMetricsToS3 = this.PublishAttributionMetricsToS3;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -264,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.JobName != null)
             {
                 request.JobName = cmdletContext.JobName;
+            }
+            if (cmdletContext.PublishAttributionMetricsToS3 != null)
+            {
+                request.PublishAttributionMetricsToS3 = cmdletContext.PublishAttributionMetricsToS3.Value;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -338,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String DataSource_DataLocation { get; set; }
             public Amazon.Personalize.ImportMode ImportMode { get; set; }
             public System.String JobName { get; set; }
+            public System.Boolean? PublishAttributionMetricsToS3 { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Personalize.Model.CreateDatasetImportJobResponse, NewPERSDatasetImportJobCmdlet, object> Select { get; set; } =

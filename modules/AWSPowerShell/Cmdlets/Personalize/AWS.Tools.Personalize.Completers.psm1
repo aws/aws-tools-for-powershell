@@ -202,6 +202,7 @@ $PERS_SelectMap = @{
                "New-PERSDatasetImportJob",
                "New-PERSEventTracker",
                "New-PERSFilter",
+               "New-PERSMetricAttribution",
                "New-PERSRecommender",
                "New-PERSSchema",
                "New-PERSSolution",
@@ -211,6 +212,7 @@ $PERS_SelectMap = @{
                "Remove-PERSDatasetGroup",
                "Remove-PERSEventTracker",
                "Remove-PERSFilter",
+               "Remove-PERSMetricAttribution",
                "Remove-PERSRecommender",
                "Remove-PERSSchema",
                "Remove-PERSSolution",
@@ -225,6 +227,7 @@ $PERS_SelectMap = @{
                "Get-PERSEventTracker",
                "Get-PERSFeatureTransformation",
                "Get-PERSFilter",
+               "Get-PERSMetricAttribution",
                "Get-PERSRecipe",
                "Get-PERSRecommender",
                "Get-PERSSchema",
@@ -240,6 +243,8 @@ $PERS_SelectMap = @{
                "Get-PERSDatasetList",
                "Get-PERSEventTrackerList",
                "Get-PERSFilterList",
+               "Get-PERSMetricAttributionMetricList",
+               "Get-PERSMetricAttributionList",
                "Get-PERSRecipeList",
                "Get-PERSRecommenderList",
                "Get-PERSSchemaList",
@@ -252,6 +257,7 @@ $PERS_SelectMap = @{
                "Add-PERSResourceTag",
                "Remove-PERSResourceTag",
                "Update-PERSCampaign",
+               "Update-PERSMetricAttribution",
                "Update-PERSRecommender")
 }
 

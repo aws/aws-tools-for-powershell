@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Lists secrets in the requested order. </para>
+        /// <para>Secrets are listed by <code>CreatedDate</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

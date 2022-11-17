@@ -309,7 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para> The platform or framework for an Amplify app. </para>
+        /// <para> The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
+        /// For a dynamic server-side rendered (SSR) app, set the platform type to <code>WEB_COMPUTE</code>.
+        /// For an app requiring Amplify Hosting's original SSR support only, set the platform
+        /// type to <code>WEB_DYNAMIC</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

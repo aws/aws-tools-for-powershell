@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service EMR Serverless
 
 
+$EMRServerless_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EMRServerless.Architecture
+        {
+            ($_ -eq "New-EMRServerlessApplication/Architecture") -Or
+            ($_ -eq "Update-EMRServerlessApplication/Architecture")
+        }
+        {
+            $v = "ARM64","X86_64"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMRServerless_map = @{
+    "Architecture"=@("New-EMRServerlessApplication","Update-EMRServerlessApplication")
+}
+
+_awsArgumentCompleterRegistration $EMRServerless_Completers $EMRServerless_map
+
 $EMRServerless_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

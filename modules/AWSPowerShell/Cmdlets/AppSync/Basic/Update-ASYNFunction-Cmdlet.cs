@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter Code
+        /// <summary>
+        /// <para>
+        /// <para>The <code>function</code> code that contains the request and response functions. When
+        /// code is used, the <code>runtime</code> is required. The <code>runtime</code> value
+        /// must be <code>APPSYNC_JS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code { get; set; }
+        #endregion
+        
         #region Parameter SyncConfig_ConflictDetection
         /// <summary>
         /// <para>
@@ -128,17 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>The <code>version</code> of the request mapping template. Currently, the supported
-        /// value is 2018-05-29.</para>
+        /// value is 2018-05-29. Note that when using VTL and mapping templates, the <code>functionVersion</code>
+        /// is required.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FunctionVersion { get; set; }
         #endregion
         
@@ -180,6 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Runtime_Name
+        /// <summary>
+        /// <para>
+        /// <para>The <code>name</code> of the runtime to use. Currently, the only allowed value is
+        /// <code>APPSYNC_JS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.RuntimeName")]
+        public Amazon.AppSync.RuntimeName Runtime_Name { get; set; }
+        #endregion
+        
         #region Parameter RequestMappingTemplate
         /// <summary>
         /// <para>
@@ -199,6 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResponseMappingTemplate { get; set; }
+        #endregion
+        
+        #region Parameter Runtime_RuntimeVersion
+        /// <summary>
+        /// <para>
+        /// <para>The <code>version</code> of the runtime to use. Currently, the only allowed version
+        /// is <code>1.0.0</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Runtime_RuntimeVersion { get; set; }
         #endregion
         
         #region Parameter Select
@@ -269,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Code = this.Code;
             context.DataSourceName = this.DataSourceName;
             #if MODULAR
             if (this.DataSourceName == null && ParameterWasBound(nameof(this.DataSourceName)))
@@ -285,12 +315,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.FunctionVersion = this.FunctionVersion;
-            #if MODULAR
-            if (this.FunctionVersion == null && ParameterWasBound(nameof(this.FunctionVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FunctionVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxBatchSize = this.MaxBatchSize;
             context.Name = this.Name;
             #if MODULAR
@@ -301,6 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             #endif
             context.RequestMappingTemplate = this.RequestMappingTemplate;
             context.ResponseMappingTemplate = this.ResponseMappingTemplate;
+            context.Runtime_Name = this.Runtime_Name;
+            context.Runtime_RuntimeVersion = this.Runtime_RuntimeVersion;
             context.SyncConfig_ConflictDetection = this.SyncConfig_ConflictDetection;
             context.SyncConfig_ConflictHandler = this.SyncConfig_ConflictHandler;
             context.LambdaConflictHandlerConfig_LambdaConflictHandlerArn = this.LambdaConflictHandlerConfig_LambdaConflictHandlerArn;
@@ -323,6 +349,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ApiId != null)
             {
                 request.ApiId = cmdletContext.ApiId;
+            }
+            if (cmdletContext.Code != null)
+            {
+                request.Code = cmdletContext.Code;
             }
             if (cmdletContext.DataSourceName != null)
             {
@@ -355,6 +385,35 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ResponseMappingTemplate != null)
             {
                 request.ResponseMappingTemplate = cmdletContext.ResponseMappingTemplate;
+            }
+            
+             // populate Runtime
+            var requestRuntimeIsNull = true;
+            request.Runtime = new Amazon.AppSync.Model.AppSyncRuntime();
+            Amazon.AppSync.RuntimeName requestRuntime_runtime_Name = null;
+            if (cmdletContext.Runtime_Name != null)
+            {
+                requestRuntime_runtime_Name = cmdletContext.Runtime_Name;
+            }
+            if (requestRuntime_runtime_Name != null)
+            {
+                request.Runtime.Name = requestRuntime_runtime_Name;
+                requestRuntimeIsNull = false;
+            }
+            System.String requestRuntime_runtime_RuntimeVersion = null;
+            if (cmdletContext.Runtime_RuntimeVersion != null)
+            {
+                requestRuntime_runtime_RuntimeVersion = cmdletContext.Runtime_RuntimeVersion;
+            }
+            if (requestRuntime_runtime_RuntimeVersion != null)
+            {
+                request.Runtime.RuntimeVersion = requestRuntime_runtime_RuntimeVersion;
+                requestRuntimeIsNull = false;
+            }
+             // determine if request.Runtime should be set to null
+            if (requestRuntimeIsNull)
+            {
+                request.Runtime = null;
             }
             
              // populate SyncConfig
@@ -472,6 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApiId { get; set; }
+            public System.String Code { get; set; }
             public System.String DataSourceName { get; set; }
             public System.String Description { get; set; }
             public System.String FunctionId { get; set; }
@@ -480,6 +540,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String Name { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }
+            public Amazon.AppSync.RuntimeName Runtime_Name { get; set; }
+            public System.String Runtime_RuntimeVersion { get; set; }
             public Amazon.AppSync.ConflictDetectionType SyncConfig_ConflictDetection { get; set; }
             public Amazon.AppSync.ConflictHandlerType SyncConfig_ConflictHandler { get; set; }
             public System.String LambdaConflictHandlerConfig_LambdaConflictHandlerArn { get; set; }

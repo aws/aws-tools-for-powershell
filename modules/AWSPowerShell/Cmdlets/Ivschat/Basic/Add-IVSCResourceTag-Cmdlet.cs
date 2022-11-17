@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Array of tags to be added or updated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// <para>Array of tags to be added or updated. Array of maps, each of the form <code>string:string
+        /// (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// AWS Resources</a> for details, including restrictions that apply to tags and "Tag
         /// naming limits and requirements"; Amazon IVS Chat has no constraints beyond what is
         /// documented there.</para>

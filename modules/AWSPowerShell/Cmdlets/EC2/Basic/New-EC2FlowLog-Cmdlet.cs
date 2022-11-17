@@ -130,9 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The fields to include in the flow log record. List the fields in the order in which
-        /// they should appear. For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
-        /// log records</a>. If you omit this parameter, the flow log is created using the default
-        /// format. If you specify this parameter, you must include at least one field.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.
+        /// they should appear. If you omit this parameter, the flow log is created using the
+        /// default format. If you specify this parameter, you must include at least one field.
+        /// For more information about the available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
+        /// log records</a> in the <i>Amazon VPC User Guide</i> or <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html#flow-log-records">Transit
+        /// Gateway Flow Log records</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.
         /// For the CLI, surround this parameter value with single quotes on Linux or double quotes
         /// on Windows.</para>
         /// </para>
@@ -156,7 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum interval of time during which a flow of packets is captured and aggregated
-        /// into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</para><para>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// into a flow log record. The possible values are 60 seconds (1 minute) or 600 seconds
+        /// (10 minutes). This parameter must be 60 seconds for transit gateway resource types.</para><para>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
         /// instance</a>, the aggregation interval is always 60 seconds or less, regardless of
         /// the value that you specify.</para><para>Default: 600</para>
         /// </para>
@@ -180,7 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The IDs of the resources to monitor. For example, if the resource type is <code>VPC</code>,
-        /// specify the IDs of the VPCs.</para><para>Constraints: Maximum of 1000 resources</para>
+        /// specify the IDs of the VPCs.</para><para>Constraints: Maximum of 25 for transit gateway resource types. Maximum of 1000 for
+        /// the other resource types.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -226,7 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TrafficType
         /// <summary>
         /// <para>
-        /// <para>The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).</para>
+        /// <para>The type of traffic to monitor (accepted traffic, rejected traffic, or all traffic).
+        /// This parameter is not supported for transit gateway resource types. It is required
+        /// for the other resource types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

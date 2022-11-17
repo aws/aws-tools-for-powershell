@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
     public partial class GetIVSCRoomListCmdlet : AmazonIvschatClientCmdlet, IExecutor
     {
         
+        #region Parameter LoggingConfigurationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Logging-configuration identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LoggingConfigurationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter MessageReviewHandlerUri
         /// <summary>
         /// <para>
@@ -128,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LoggingConfigurationIdentifier = this.LoggingConfigurationIdentifier;
             context.MaxResult = this.MaxResult;
             context.MessageReviewHandlerUri = this.MessageReviewHandlerUri;
             context.Name = this.Name;
@@ -148,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             // create request
             var request = new Amazon.Ivschat.Model.ListRoomsRequest();
             
+            if (cmdletContext.LoggingConfigurationIdentifier != null)
+            {
+                request.LoggingConfigurationIdentifier = cmdletContext.LoggingConfigurationIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -225,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String LoggingConfigurationIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String MessageReviewHandlerUri { get; set; }
             public System.String Name { get; set; }

@@ -181,6 +181,19 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.RuntimeName
+        {
+            ($_ -eq "New-ASYNFunction/Runtime_Name") -Or
+            ($_ -eq "New-ASYNResolver/Runtime_Name") -Or
+            ($_ -eq "Test-ASYNCode/Runtime_Name") -Or
+            ($_ -eq "Update-ASYNFunction/Runtime_Name") -Or
+            ($_ -eq "Update-ASYNResolver/Runtime_Name")
+        }
+        {
+            $v = "APPSYNC_JS"
+            break
+        }
+
         # Amazon.AppSync.TypeDefinitionFormat
         {
             ($_ -eq "Get-ASYNType/Format") -Or
@@ -208,6 +221,7 @@ $ASYN_map = @{
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
+    "Runtime_Name"=@("New-ASYNFunction","New-ASYNResolver","Test-ASYNCode","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictDetection"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictHandler"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
@@ -281,6 +295,7 @@ $ASYN_SelectMap = @{
                "Remove-ASYNResolver",
                "Remove-ASYNType",
                "Stop-ASYNApiAssociation",
+               "Test-ASYNCode",
                "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
                "Get-ASYNApiAssociation",

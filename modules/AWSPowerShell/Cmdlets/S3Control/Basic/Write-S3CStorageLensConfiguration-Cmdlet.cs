@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage
     /// Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working
-    /// with Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.
+    /// with Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete
+    /// list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3
+    /// Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.
     /// 
     ///  <note><para>
     /// To use this action, you must have permission to perform the <code>s3:PutStorageLensConfiguration</code>
@@ -182,22 +184,75 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled
         /// <summary>
         /// <para>
-        /// <para>A container for whether the activity metrics are enabled.</para>
+        /// <para>A container that indicates whether activity metrics are enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled { get; set; }
         #endregion
         
+        #region Parameter StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether advanced cost-optimization metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether advanced data-protection metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
+        #endregion
+        
         #region Parameter StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled
         /// <summary>
         /// <para>
-        /// <para>A container for whether the activity metrics are enabled.</para>
+        /// <para>A container that indicates whether activity metrics are enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_IsEnabled")]
         public System.Boolean? StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether advanced cost-optimization metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled")]
+        public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether advanced data-protection metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled")]
+        public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether detailed status code metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_IsEnabled")]
+        public System.Boolean? StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled { get; set; }
         #endregion
         
         #region Parameter StorageMetrics_IsEnabled
@@ -209,6 +264,16 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_IsEnabled")]
         public System.Boolean? StorageMetrics_IsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A container that indicates whether detailed status code metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled { get; set; }
         #endregion
         
         #region Parameter CloudWatchMetrics_IsEnabled
@@ -427,11 +492,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             #endif
             context.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled;
+            context.StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled;
+            context.StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled;
             context.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled;
+            context.StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled;
+            context.StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled;
+            context.StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled = this.StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled;
             context.StorageMetrics_IsEnabled = this.StorageMetrics_IsEnabled;
             context.SelectionCriteria_Delimiter = this.SelectionCriteria_Delimiter;
             context.SelectionCriteria_MaxDepth = this.SelectionCriteria_MaxDepth;
             context.SelectionCriteria_MinStorageBytesPercentage = this.SelectionCriteria_MinStorageBytesPercentage;
+            context.StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled = this.StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled;
             context.AwsOrg_Arn = this.AwsOrg_Arn;
             context.CloudWatchMetrics_IsEnabled = this.CloudWatchMetrics_IsEnabled;
             context.S3BucketDestination_AccountId = this.S3BucketDestination_AccountId;
@@ -557,171 +628,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (requestStorageLensConfiguration_storageLensConfiguration_AwsOrg != null)
             {
                 request.StorageLensConfiguration.AwsOrg = requestStorageLensConfiguration_storageLensConfiguration_AwsOrg;
-                requestStorageLensConfigurationIsNull = false;
-            }
-            Amazon.S3Control.Model.AccountLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = null;
-            
-             // populate AccountLevel
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = new Amazon.S3Control.Model.AccountLevel();
-            Amazon.S3Control.Model.ActivityMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics = null;
-            
-             // populate ActivityMetrics
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetricsIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics = new Amazon.S3Control.Model.ActivityMetrics();
-            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled = null;
-            if (cmdletContext.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled.Value;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled.Value;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetricsIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetricsIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.ActivityMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
-            }
-            Amazon.S3Control.Model.BucketLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = null;
-            
-             // populate BucketLevel
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = new Amazon.S3Control.Model.BucketLevel();
-            Amazon.S3Control.Model.ActivityMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = null;
-            
-             // populate ActivityMetrics
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetricsIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = new Amazon.S3Control.Model.ActivityMetrics();
-            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled = null;
-            if (cmdletContext.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled.Value;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled.Value;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetricsIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetricsIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.ActivityMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
-            }
-            Amazon.S3Control.Model.PrefixLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = null;
-            
-             // populate PrefixLevel
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevelIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = new Amazon.S3Control.Model.PrefixLevel();
-            Amazon.S3Control.Model.PrefixLevelStorageMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = null;
-            
-             // populate StorageMetrics
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = new Amazon.S3Control.Model.PrefixLevelStorageMetrics();
-            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled = null;
-            if (cmdletContext.StorageMetrics_IsEnabled != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled = cmdletContext.StorageMetrics_IsEnabled.Value;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled.Value;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = false;
-            }
-            Amazon.S3Control.Model.SelectionCriteria requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = null;
-            
-             // populate SelectionCriteria
-            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = true;
-            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = new Amazon.S3Control.Model.SelectionCriteria();
-            System.String requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter = null;
-            if (cmdletContext.SelectionCriteria_Delimiter != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter = cmdletContext.SelectionCriteria_Delimiter;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria.Delimiter = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = false;
-            }
-            System.Int32? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth = null;
-            if (cmdletContext.SelectionCriteria_MaxDepth != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth = cmdletContext.SelectionCriteria_MaxDepth.Value;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria.MaxDepth = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth.Value;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = false;
-            }
-            System.Double? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage = null;
-            if (cmdletContext.SelectionCriteria_MinStorageBytesPercentage != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage = cmdletContext.SelectionCriteria_MinStorageBytesPercentage.Value;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria.MinStorageBytesPercentage = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage.Value;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics.SelectionCriteria = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel.StorageMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevelIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevelIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.PrefixLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel != null)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.BucketLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel;
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
-            }
-             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel should be set to null
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull)
-            {
-                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = null;
-            }
-            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel != null)
-            {
-                request.StorageLensConfiguration.AccountLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel;
                 requestStorageLensConfigurationIsNull = false;
             }
             Amazon.S3Control.Model.StorageLensDataExport requestStorageLensConfiguration_storageLensConfiguration_DataExport = null;
@@ -949,6 +855,321 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 request.StorageLensConfiguration.Include = requestStorageLensConfiguration_storageLensConfiguration_Include;
                 requestStorageLensConfigurationIsNull = false;
             }
+            Amazon.S3Control.Model.AccountLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = null;
+            
+             // populate AccountLevel
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = new Amazon.S3Control.Model.AccountLevel();
+            Amazon.S3Control.Model.ActivityMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics = null;
+            
+             // populate ActivityMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics = new Amazon.S3Control.Model.ActivityMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics_storageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.ActivityMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_ActivityMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.AdvancedCostOptimizationMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics = null;
+            
+             // populate AdvancedCostOptimizationMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics = new Amazon.S3Control.Model.AdvancedCostOptimizationMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.AdvancedCostOptimizationMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.AdvancedDataProtectionMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics = null;
+            
+             // populate AdvancedDataProtectionMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics = new Amazon.S3Control.Model.AdvancedDataProtectionMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.AdvancedDataProtectionMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.DetailedStatusCodesMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics = null;
+            
+             // populate DetailedStatusCodesMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics = new Amazon.S3Control.Model.DetailedStatusCodesMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.DetailedStatusCodesMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.BucketLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = null;
+            
+             // populate BucketLevel
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = new Amazon.S3Control.Model.BucketLevel();
+            Amazon.S3Control.Model.ActivityMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = null;
+            
+             // populate ActivityMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = new Amazon.S3Control.Model.ActivityMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics_storageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.ActivityMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_ActivityMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.AdvancedCostOptimizationMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics = null;
+            
+             // populate AdvancedCostOptimizationMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics = new Amazon.S3Control.Model.AdvancedCostOptimizationMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics_storageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.AdvancedCostOptimizationMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedCostOptimizationMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.AdvancedDataProtectionMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics = null;
+            
+             // populate AdvancedDataProtectionMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics = new Amazon.S3Control.Model.AdvancedDataProtectionMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics_storageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.AdvancedDataProtectionMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_AdvancedDataProtectionMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.DetailedStatusCodesMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics = null;
+            
+             // populate DetailedStatusCodesMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics = new Amazon.S3Control.Model.DetailedStatusCodesMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_storageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled = null;
+            if (cmdletContext.StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_storageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled = cmdletContext.StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_storageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics_storageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.DetailedStatusCodesMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_DetailedStatusCodesMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
+            }
+            Amazon.S3Control.Model.PrefixLevel requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = null;
+            
+             // populate PrefixLevel
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevelIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = new Amazon.S3Control.Model.PrefixLevel();
+            Amazon.S3Control.Model.PrefixLevelStorageMetrics requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = null;
+            
+             // populate StorageMetrics
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = new Amazon.S3Control.Model.PrefixLevelStorageMetrics();
+            System.Boolean? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled = null;
+            if (cmdletContext.StorageMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled = cmdletContext.StorageMetrics_IsEnabled.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics.IsEnabled = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageMetrics_IsEnabled.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = false;
+            }
+            Amazon.S3Control.Model.SelectionCriteria requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = null;
+            
+             // populate SelectionCriteria
+            var requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = true;
+            requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = new Amazon.S3Control.Model.SelectionCriteria();
+            System.String requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter = null;
+            if (cmdletContext.SelectionCriteria_Delimiter != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter = cmdletContext.SelectionCriteria_Delimiter;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria.Delimiter = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_Delimiter;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = false;
+            }
+            System.Int32? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth = null;
+            if (cmdletContext.SelectionCriteria_MaxDepth != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth = cmdletContext.SelectionCriteria_MaxDepth.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria.MaxDepth = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MaxDepth.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = false;
+            }
+            System.Double? requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage = null;
+            if (cmdletContext.SelectionCriteria_MinStorageBytesPercentage != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage = cmdletContext.SelectionCriteria_MinStorageBytesPercentage.Value;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria.MinStorageBytesPercentage = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria_selectionCriteria_MinStorageBytesPercentage.Value;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteriaIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics.SelectionCriteria = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics_SelectionCriteria;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetricsIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel.StorageMetrics = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel_StorageMetrics;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevelIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevelIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel.PrefixLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel_storageLensConfiguration_AccountLevel_BucketLevel_PrefixLevel;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevelIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel != null)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel.BucketLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel_storageLensConfiguration_AccountLevel_BucketLevel;
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull = false;
+            }
+             // determine if requestStorageLensConfiguration_storageLensConfiguration_AccountLevel should be set to null
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevelIsNull)
+            {
+                requestStorageLensConfiguration_storageLensConfiguration_AccountLevel = null;
+            }
+            if (requestStorageLensConfiguration_storageLensConfiguration_AccountLevel != null)
+            {
+                request.StorageLensConfiguration.AccountLevel = requestStorageLensConfiguration_storageLensConfiguration_AccountLevel;
+                requestStorageLensConfigurationIsNull = false;
+            }
              // determine if request.StorageLensConfiguration should be set to null
             if (requestStorageLensConfigurationIsNull)
             {
@@ -1022,11 +1243,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.String AccountId { get; set; }
             public System.String ConfigId { get; set; }
             public System.Boolean? StorageLensConfiguration_AccountLevel_ActivityMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageLensConfiguration_BucketLevel_ActivityMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled { get; set; }
+            public System.Boolean? StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled { get; set; }
             public System.Boolean? StorageMetrics_IsEnabled { get; set; }
             public System.String SelectionCriteria_Delimiter { get; set; }
             public System.Int32? SelectionCriteria_MaxDepth { get; set; }
             public System.Double? SelectionCriteria_MinStorageBytesPercentage { get; set; }
+            public System.Boolean? StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled { get; set; }
             public System.String AwsOrg_Arn { get; set; }
             public System.Boolean? CloudWatchMetrics_IsEnabled { get; set; }
             public System.String S3BucketDestination_AccountId { get; set; }

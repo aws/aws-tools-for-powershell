@@ -111,6 +111,19 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.Collections.Hashtable CustomConnector_CustomProperty { get; set; }
         #endregion
         
+        #region Parameter GlueDataCatalog_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Data Catalog database that stores the metadata tables that Amazon
+        /// AppFlow creates in your Amazon Web Services account. These tables contain metadata
+        /// for the data that's transferred by the flow that you configure with this parameter.</para><note><para>When you configure a new flow with this parameter, you must specify an existing database.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataCatalogConfig_GlueDataCatalog_DatabaseName")]
+        public System.String GlueDataCatalog_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter Scheduled_DataPullMode
         /// <summary>
         /// <para>
@@ -468,6 +481,19 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String SAPOData_ObjectPath { get; set; }
         #endregion
         
+        #region Parameter GlueDataCatalog_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that grants Amazon AppFlow the permissions
+        /// it needs to create Data Catalog tables, databases, and partitions.</para><para>For an example IAM policy that has the required permissions, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_id-based-policy-examples.html">Identity-based
+        /// policy examples for Amazon AppFlow</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataCatalogConfig_GlueDataCatalog_RoleArn")]
+        public System.String GlueDataCatalog_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter S3InputFormatConfig_S3InputFileType
         /// <summary>
         /// <para>
@@ -526,6 +552,19 @@ namespace Amazon.PowerShell.Cmdlets.AF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TriggerConfig_TriggerProperties_Scheduled_ScheduleStartTime")]
         public System.DateTime? Scheduled_ScheduleStartTime { get; set; }
+        #endregion
+        
+        #region Parameter GlueDataCatalog_TablePrefix
+        /// <summary>
+        /// <para>
+        /// <para>A naming prefix for each Data Catalog table that Amazon AppFlow creates for the flow
+        /// that you configure with this setting. Amazon AppFlow adds the prefix to the beginning
+        /// of the each table name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataCatalogConfig_GlueDataCatalog_TablePrefix")]
+        public System.String GlueDataCatalog_TablePrefix { get; set; }
         #endregion
         
         #region Parameter Task
@@ -661,6 +700,9 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 WriteWarning("You are passing $null as a value for parameter FlowName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GlueDataCatalog_DatabaseName = this.GlueDataCatalog_DatabaseName;
+            context.GlueDataCatalog_RoleArn = this.GlueDataCatalog_RoleArn;
+            context.GlueDataCatalog_TablePrefix = this.GlueDataCatalog_TablePrefix;
             context.SourceFlowConfig_ApiVersion = this.SourceFlowConfig_ApiVersion;
             context.SourceFlowConfig_ConnectorProfileName = this.SourceFlowConfig_ConnectorProfileName;
             context.SourceFlowConfig_ConnectorType = this.SourceFlowConfig_ConnectorType;
@@ -756,6 +798,60 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (cmdletContext.FlowName != null)
             {
                 request.FlowName = cmdletContext.FlowName;
+            }
+            
+             // populate MetadataCatalogConfig
+            var requestMetadataCatalogConfigIsNull = true;
+            request.MetadataCatalogConfig = new Amazon.Appflow.Model.MetadataCatalogConfig();
+            Amazon.Appflow.Model.GlueDataCatalogConfig requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog = null;
+            
+             // populate GlueDataCatalog
+            var requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalogIsNull = true;
+            requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog = new Amazon.Appflow.Model.GlueDataCatalogConfig();
+            System.String requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_DatabaseName = null;
+            if (cmdletContext.GlueDataCatalog_DatabaseName != null)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_DatabaseName = cmdletContext.GlueDataCatalog_DatabaseName;
+            }
+            if (requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_DatabaseName != null)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog.DatabaseName = requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_DatabaseName;
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalogIsNull = false;
+            }
+            System.String requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_RoleArn = null;
+            if (cmdletContext.GlueDataCatalog_RoleArn != null)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_RoleArn = cmdletContext.GlueDataCatalog_RoleArn;
+            }
+            if (requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_RoleArn != null)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog.RoleArn = requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_RoleArn;
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalogIsNull = false;
+            }
+            System.String requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_TablePrefix = null;
+            if (cmdletContext.GlueDataCatalog_TablePrefix != null)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_TablePrefix = cmdletContext.GlueDataCatalog_TablePrefix;
+            }
+            if (requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_TablePrefix != null)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog.TablePrefix = requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog_glueDataCatalog_TablePrefix;
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalogIsNull = false;
+            }
+             // determine if requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog should be set to null
+            if (requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalogIsNull)
+            {
+                requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog = null;
+            }
+            if (requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog != null)
+            {
+                request.MetadataCatalogConfig.GlueDataCatalog = requestMetadataCatalogConfig_metadataCatalogConfig_GlueDataCatalog;
+                requestMetadataCatalogConfigIsNull = false;
+            }
+             // determine if request.MetadataCatalogConfig should be set to null
+            if (requestMetadataCatalogConfigIsNull)
+            {
+                request.MetadataCatalogConfig = null;
             }
             
              // populate SourceFlowConfig
@@ -1548,6 +1644,9 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String Description { get; set; }
             public List<Amazon.Appflow.Model.DestinationFlowConfig> DestinationFlowConfigList { get; set; }
             public System.String FlowName { get; set; }
+            public System.String GlueDataCatalog_DatabaseName { get; set; }
+            public System.String GlueDataCatalog_RoleArn { get; set; }
+            public System.String GlueDataCatalog_TablePrefix { get; set; }
             public System.String SourceFlowConfig_ApiVersion { get; set; }
             public System.String SourceFlowConfig_ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType SourceFlowConfig_ConnectorType { get; set; }

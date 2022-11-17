@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SCARAttributeGroup', 
         'Get-SCARAttributeGroupList', 
         'Get-SCARAttributeGroupsForApplicationList', 
+        'Get-SCARConfiguration', 
         'Get-SCARResourceTag', 
         'New-SCARApplication', 
         'New-SCARAttributeGroup', 
@@ -107,7 +108,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-SCARAttributeGroup', 
         'Unregister-SCARResource', 
         'Update-SCARApplication', 
-        'Update-SCARAttributeGroup')
+        'Update-SCARAttributeGroup', 
+        'Write-SCARConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

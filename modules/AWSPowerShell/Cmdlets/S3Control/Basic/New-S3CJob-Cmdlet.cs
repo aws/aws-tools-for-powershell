@@ -888,7 +888,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies the destination bucket ARN for the batch copy operation. For example, to
-        /// copy objects to a bucket named "destinationBucket", set the TargetResource to "arn:aws:s3:::destinationBucket".</para>
+        /// copy objects to a bucket named <code>destinationBucket</code>, set the <code>TargetResource</code>
+        /// property to <code>arn:aws:s3:::destinationBucket</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -153,16 +153,21 @@ $IVSC_SelectCompleters = {
 
 $IVSC_SelectMap = @{
     "Select"=@("New-IVSCChatToken",
+               "New-IVSCLoggingConfiguration",
                "New-IVSCRoom",
+               "Remove-IVSCLoggingConfiguration",
                "Remove-IVSCMessage",
                "Remove-IVSCRoom",
                "Disconnect-IVSCUser",
+               "Get-IVSCLoggingConfiguration",
                "Get-IVSCRoom",
+               "Get-IVSCLoggingConfigurationList",
                "Get-IVSCRoomList",
                "Get-IVSCResourceTag",
                "Send-IVSCEvent",
                "Add-IVSCResourceTag",
                "Remove-IVSCResourceTag",
+               "Update-IVSCLoggingConfiguration",
                "Update-IVSCRoom")
 }
 

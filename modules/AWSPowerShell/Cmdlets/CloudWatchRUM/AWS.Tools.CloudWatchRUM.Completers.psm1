@@ -80,6 +80,16 @@ $CWRUM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatchRUM.CustomEventsStatus
+        {
+            ($_ -eq "New-CWRUMAppMonitor/CustomEvents_Status") -Or
+            ($_ -eq "Update-CWRUMAppMonitor/CustomEvents_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CloudWatchRUM.MetricDestination
         {
             ($_ -eq "Add-CWRUMCreateRumMetricDefinition/Destination") -Or
@@ -103,6 +113,7 @@ $CWRUM_Completers = {
 }
 
 $CWRUM_map = @{
+    "CustomEvents_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
     "Destination"=@("Add-CWRUMCreateRumMetricDefinition","Get-CWRUMGetRumMetricDefinition","Remove-CWRUMDeleteRumMetricDefinition","Remove-CWRUMRumMetricsDestination","Update-CWRUMRumMetricDefinition","Write-CWRUMRumMetricsDestination")
 }
 

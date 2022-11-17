@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSSolutionVersionCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the solution version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter SolutionArn
         /// <summary>
         /// <para>
@@ -150,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.SolutionArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Name = this.Name;
             context.SolutionArn = this.SolutionArn;
             #if MODULAR
             if (this.SolutionArn == null && ParameterWasBound(nameof(this.SolutionArn)))
@@ -178,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request
             var request = new Amazon.Personalize.Model.CreateSolutionVersionRequest();
             
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
             if (cmdletContext.SolutionArn != null)
             {
                 request.SolutionArn = cmdletContext.SolutionArn;
@@ -251,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Name { get; set; }
             public System.String SolutionArn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
             public Amazon.Personalize.TrainingMode TrainingMode { get; set; }

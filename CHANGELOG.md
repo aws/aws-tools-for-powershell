@@ -1,4 +1,52 @@
-﻿### 4.1.209 (2022-11-16 21:55Z)
+﻿### 4.1.210 (2022-11-17 21:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.420.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameters GlueDataCatalog_DatabaseName, GlueDataCatalog_RoleArn and GlueDataCatalog_TablePrefix.
+    * Modified cmdlet Update-AFFlow: added parameters GlueDataCatalog_DatabaseName, GlueDataCatalog_RoleArn and GlueDataCatalog_TablePrefix.
+  * Amazon AppSync
+    * Added cmdlet Test-ASYNCode leveraging the EvaluateCode service API.
+    * Modified cmdlet New-ASYNFunction: added parameters Code, Runtime_Name and Runtime_RuntimeVersion.
+    * Modified cmdlet New-ASYNResolver: added parameters Code, Runtime_Name and Runtime_RuntimeVersion.
+    * Modified cmdlet Update-ASYNFunction: added parameters Code, Runtime_Name and Runtime_RuntimeVersion.
+    * Modified cmdlet Update-ASYNResolver: added parameters Code, Runtime_Name and Runtime_RuntimeVersion.
+  * Amazon CloudWatch RUM
+    * Modified cmdlet New-CWRUMAppMonitor: added parameter CustomEvents_Status.
+    * Modified cmdlet Update-CWRUMAppMonitor: added parameter CustomEvents_Status.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSReplicationInstance: added parameter NetworkType.
+    * Modified cmdlet New-DMSReplicationInstance: added parameter NetworkType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2NatGateway: added parameter PrivateIpAddress.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameter Architecture.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter Architecture.
+  * Amazon Interactive Video Service Chat
+    * Added cmdlet Get-IVSCLoggingConfiguration leveraging the GetLoggingConfiguration service API.
+    * Added cmdlet Get-IVSCLoggingConfigurationList leveraging the ListLoggingConfigurations service API.
+    * Added cmdlet New-IVSCLoggingConfiguration leveraging the CreateLoggingConfiguration service API.
+    * Added cmdlet Remove-IVSCLoggingConfiguration leveraging the DeleteLoggingConfiguration service API.
+    * Added cmdlet Update-IVSCLoggingConfiguration leveraging the UpdateLoggingConfiguration service API.
+    * Modified cmdlet Get-IVSCRoomList: added parameter LoggingConfigurationIdentifier.
+    * Modified cmdlet New-IVSCRoom: added parameter LoggingConfigurationIdentifier.
+    * Modified cmdlet Update-IVSCRoom: added parameter LoggingConfigurationIdentifier.
+  * Amazon Personalize
+    * Added cmdlet Get-PERSMetricAttribution leveraging the DescribeMetricAttribution service API.
+    * Added cmdlet Get-PERSMetricAttributionList leveraging the ListMetricAttributions service API.
+    * Added cmdlet Get-PERSMetricAttributionMetricList leveraging the ListMetricAttributionMetrics service API.
+    * Added cmdlet New-PERSMetricAttribution leveraging the CreateMetricAttribution service API.
+    * Added cmdlet Remove-PERSMetricAttribution leveraging the DeleteMetricAttribution service API.
+    * Added cmdlet Update-PERSMetricAttribution leveraging the UpdateMetricAttribution service API.
+    * Modified cmdlet New-PERSDatasetImportJob: added parameter PublishAttributionMetricsToS3.
+    * Modified cmdlet New-PERSSolutionVersion: added parameter Name.
+  * Amazon S3 Control
+    * Modified cmdlet Write-S3CStorageLensConfiguration: added parameters StorageLensConfiguration_AccountLevel_AdvancedCostOptimizationMetrics_IsEnabled, StorageLensConfiguration_AccountLevel_AdvancedDataProtectionMetrics_IsEnabled, StorageLensConfiguration_AccountLevel_DetailedStatusCodesMetrics_IsEnabled, StorageLensConfiguration_BucketLevel_AdvancedCostOptimizationMetrics_IsEnabled, StorageLensConfiguration_BucketLevel_AdvancedDataProtectionMetrics_IsEnabled and StorageLensConfiguration_BucketLevel_DetailedStatusCodesMetrics_IsEnabled.
+  * Amazon Service Catalog App Registry
+    * Added cmdlet Get-SCARConfiguration leveraging the GetConfiguration service API.
+    * Added cmdlet Write-SCARConfiguration leveraging the PutConfiguration service API.
+  * Amazon WorkSpaces
+    * Added cmdlet New-WKSStandbyWorkspace leveraging the CreateStandbyWorkspaces service API.
+
+### 4.1.209 (2022-11-16 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.419.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet New-ABCPricingRule: added parameter BillingEntity.

@@ -30,12 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// <summary>
     /// Modifies the health checks used when evaluating the health state of the targets in
     /// the specified target group.
-    /// 
-    ///  
-    /// <para>
-    /// If the protocol of the target group is TCP, TLS, UDP, or TCP_UDP, you can't modify
-    /// the health check protocol, interval, timeout, or success codes.
-    /// </para>
     /// </summary>
     [Cmdlet("Edit", "ELB2TargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroup")]
@@ -72,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. For TCP health checks, the supported values are 10 or 30 seconds.</para>
+        /// target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,9 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Matcher_HttpCode
         /// <summary>
         /// <para>
-        /// <para>For Application Load Balancers, you can specify values between 200 and 499, and the
-        /// default value is 200. You can specify multiple values (for example, "200,202") or
-        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</para><para>Note that when using shorthand syntax, some values such as commas need to be escaped.</para>
+        /// <para>For Application Load Balancers, you can specify values between 200 and 499, with the
+        /// default value being 200. You can specify multiple values (for example, "200,202")
+        /// or a range of values (for example, "200-299").</para><para>For Network Load Balancers, you can specify values between 200 and 599, with the default
+        /// value being 200-399. You can specify multiple values (for example, "200,202") or a
+        /// range of values (for example, "200-299").</para><para>For Gateway Load Balancers, this must be "200–399".</para><para>Note that when using shorthand syntax, some values such as commas need to be escaped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,8 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before considering the target
-        /// unhealthy. For target groups with a protocol of TCP or TLS, this value must be the
-        /// same as the healthy threshold count.</para>
+        /// unhealthy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

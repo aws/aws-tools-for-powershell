@@ -88,7 +88,7 @@ $SCAR_Completers = {
             ($_ -eq "Unregister-SCARResource/ResourceType")
         }
         {
-            $v = "CFN_STACK"
+            $v = "CFN_STACK","RESOURCE_TAG_VALUE"
             break
         }
 
@@ -165,12 +165,14 @@ $SCAR_SelectMap = @{
                "Get-SCARApplication",
                "Get-SCARAssociatedResource",
                "Get-SCARAttributeGroup",
+               "Get-SCARConfiguration",
                "Get-SCARApplicationList",
                "Get-SCARAssociatedAttributeGroupList",
                "Get-SCARAssociatedResourceList",
                "Get-SCARAttributeGroupList",
                "Get-SCARAttributeGroupsForApplicationList",
                "Get-SCARResourceTag",
+               "Write-SCARConfiguration",
                "Sync-SCARResource",
                "Add-SCARResourceTag",
                "Remove-SCARResourceTag",

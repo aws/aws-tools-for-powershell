@@ -166,9 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that
-        /// Lambda spends gathering records before invoking the function.</para><para>Default: 0</para><para>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you
-        /// must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</para>
+        /// <para>The maximum amount of time, in seconds, that Lambda spends gathering records before
+        /// invoking the function. You can configure <code>MaximumBatchingWindowInSeconds</code>
+        /// to any value from 0 seconds to 300 seconds in increments of seconds.</para><para>For streams and Amazon SQS event sources, the default batching window is 0 seconds.
+        /// For Amazon MSK, Self-managed Apache Kafka, and Amazon MQ event sources, the default
+        /// batching window is 500 ms. Note that because you can only change <code>MaximumBatchingWindowInSeconds</code>
+        /// in increments of seconds, you cannot revert back to the 500 ms default batching window
+        /// after you have changed it. To restore the default batching window, you must create
+        /// a new event source mapping.</para><para>Related setting: For streams and Amazon SQS event sources, when you set <code>BatchSize</code>
+        /// to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code>
+        /// to at least 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,14 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Lists all resources that are associated with specified application. Results are paginated.
+    /// Lists all of the resources that are associated with the specified application. Results
+    /// are paginated. 
+    /// 
+    ///  <note><para>
+    ///  If you share an application, and a consumer account associates a tag query to the
+    /// application, all of the users who can access the application can also view the tag
+    /// values in all accounts that are associated with it using this API. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SCARAssociatedResourceList")]
     [OutputType("Amazon.AppRegistry.Model.ResourceInfo")]

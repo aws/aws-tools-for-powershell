@@ -202,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>When this field is set to <code>Y</code>, DMS only accesses the archived redo logs.
-        /// If the archived redo logs are stored on Oracle ASM only, the DMS user account needs
-        /// to be granted ASM privileges.</para>
+        /// If the archived redo logs are stored on Automatic Storage Management (ASM) only, the
+        /// DMS user account needs to be granted ASM privileges.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -521,7 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_CdcMinFileSize
         /// <summary>
         /// <para>
-        /// <para>Minimum file size, defined in megabytes, to reach for a file output to Amazon S3.</para><para>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified,
+        /// <para>Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.</para><para>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified,
         /// the file write is triggered by whichever parameter condition is met first within an
         /// DMS CloudFormation template.</para><para>The default value is 32 MB.</para>
         /// </para>
@@ -1137,10 +1137,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The type of engine for the endpoint. Valid values, depending on the <code>EndpointType</code>
         /// value, include <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
         /// <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"opensearch"</code>,
-        /// <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>,
-        /// <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>, <code>"kinesis"</code>,
-        /// <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>, <code>"sqlserver"</code>,
-        /// and <code>"neptune"</code>.</para>
+        /// <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+        /// <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>, <code>"mongodb"</code>,
+        /// <code>"kinesis"</code>, <code>"kafka"</code>, <code>"elasticsearch"</code>, <code>"docdb"</code>,
+        /// <code>"sqlserver"</code>, <code>"neptune"</code>, and <code>"babelfish"</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -2620,8 +2620,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_SecretsManagerOracleAsmAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full
-        /// ARN of the IAM role that specifies DMS as the trusted entity and grants the required
+        /// <para>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The
+        /// full ARN of the IAM role that specifies DMS as the trusted entity and grants the required
         /// permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This <code>SecretsManagerOracleAsmSecret</code>
         /// has the secret value that allows access to the Oracle ASM of the endpoint.</para><note><para>You can specify one of two sets of values for these permissions. You can specify the
         /// values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can
@@ -2640,8 +2640,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_SecretsManagerOracleAsmSecretId
         /// <summary>
         /// <para>
-        /// <para>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full
-        /// ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
+        /// <para>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The
+        /// full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
         /// that contains the Oracle ASM connection details for the Oracle endpoint.</para>
         /// </para>
         /// </summary>

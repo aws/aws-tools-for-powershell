@@ -96,8 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <para>
         /// <para>Use this field only if you are sending the metric to CloudWatch.</para><para>This field is a map of field paths to dimension names. It defines the dimensions to
         /// associate with this metric in CloudWatch. Valid values for the entries in this field
-        /// are the following:</para><ul><li><para><code>"metadata.pageId": "PageId"</code></para></li><li><para><code>"metadata.browserName": "BrowserName"</code></para></li><li><para><code>"metadata.deviceType": "DeviceType"</code></para></li><li><para><code>"metadata.osName": "OSName"</code></para></li><li><para><code>"metadata.countryCode": "CountryCode"</code></para></li><li><para><code>"event_details.fileType": "FileType"</code></para></li></ul><pre><code> &lt;p&gt; All dimensions listed in this field must also be
-        /// included in &lt;code&gt;EventPattern&lt;/code&gt;.&lt;/p&gt; </code></pre>
+        /// are the following:</para><ul><li><para><code>"metadata.pageId": "PageId"</code></para></li><li><para><code>"metadata.browserName": "BrowserName"</code></para></li><li><para><code>"metadata.deviceType": "DeviceType"</code></para></li><li><para><code>"metadata.osName": "OSName"</code></para></li><li><para><code>"metadata.countryCode": "CountryCode"</code></para></li><li><para><code>"event_details.fileType": "FileType"</code></para></li></ul><para> All dimensions listed in this field must also be included in <code>EventPattern</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

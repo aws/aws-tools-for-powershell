@@ -127,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ASYNApiAssociation', 
         'Start-ASYNSchemaCreation', 
         'Stop-ASYNApiAssociation', 
+        'Test-ASYNCode', 
         'Test-ASYNMappingTemplate', 
         'Update-ASYNApiCache', 
         'Update-ASYNApiKey', 

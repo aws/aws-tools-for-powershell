@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String[] CachingConfig_CachingKey { get; set; }
         #endregion
         
+        #region Parameter Code
+        /// <summary>
+        /// <para>
+        /// <para>The <code>resolver</code> code that contains the request and response functions. When
+        /// code is used, the <code>runtime</code> is required. The <code>runtime</code> value
+        /// must be <code>APPSYNC_JS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Code { get; set; }
+        #endregion
+        
         #region Parameter SyncConfig_ConflictDetection
         /// <summary>
         /// <para>
@@ -171,6 +183,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.Int32? MaxBatchSize { get; set; }
         #endregion
         
+        #region Parameter Runtime_Name
+        /// <summary>
+        /// <para>
+        /// <para>The <code>name</code> of the runtime to use. Currently, the only allowed value is
+        /// <code>APPSYNC_JS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.RuntimeName")]
+        public Amazon.AppSync.RuntimeName Runtime_Name { get; set; }
+        #endregion
+        
         #region Parameter RequestMappingTemplate
         /// <summary>
         /// <para>
@@ -192,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ResponseMappingTemplate { get; set; }
+        #endregion
+        
+        #region Parameter Runtime_RuntimeVersion
+        /// <summary>
+        /// <para>
+        /// <para>The <code>version</code> of the runtime to use. Currently, the only allowed version
+        /// is <code>1.0.0</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Runtime_RuntimeVersion { get; set; }
         #endregion
         
         #region Parameter CachingConfig_Ttl
@@ -294,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 context.CachingConfig_CachingKey = new List<System.String>(this.CachingConfig_CachingKey);
             }
             context.CachingConfig_Ttl = this.CachingConfig_Ttl;
+            context.Code = this.Code;
             context.DataSourceName = this.DataSourceName;
             context.FieldName = this.FieldName;
             #if MODULAR
@@ -310,6 +346,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             context.RequestMappingTemplate = this.RequestMappingTemplate;
             context.ResponseMappingTemplate = this.ResponseMappingTemplate;
+            context.Runtime_Name = this.Runtime_Name;
+            context.Runtime_RuntimeVersion = this.Runtime_RuntimeVersion;
             context.SyncConfig_ConflictDetection = this.SyncConfig_ConflictDetection;
             context.SyncConfig_ConflictHandler = this.SyncConfig_ConflictHandler;
             context.LambdaConflictHandlerConfig_LambdaConflictHandlerArn = this.LambdaConflictHandlerConfig_LambdaConflictHandlerArn;
@@ -369,6 +407,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.CachingConfig = null;
             }
+            if (cmdletContext.Code != null)
+            {
+                request.Code = cmdletContext.Code;
+            }
             if (cmdletContext.DataSourceName != null)
             {
                 request.DataSourceName = cmdletContext.DataSourceName;
@@ -411,6 +453,35 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ResponseMappingTemplate != null)
             {
                 request.ResponseMappingTemplate = cmdletContext.ResponseMappingTemplate;
+            }
+            
+             // populate Runtime
+            var requestRuntimeIsNull = true;
+            request.Runtime = new Amazon.AppSync.Model.AppSyncRuntime();
+            Amazon.AppSync.RuntimeName requestRuntime_runtime_Name = null;
+            if (cmdletContext.Runtime_Name != null)
+            {
+                requestRuntime_runtime_Name = cmdletContext.Runtime_Name;
+            }
+            if (requestRuntime_runtime_Name != null)
+            {
+                request.Runtime.Name = requestRuntime_runtime_Name;
+                requestRuntimeIsNull = false;
+            }
+            System.String requestRuntime_runtime_RuntimeVersion = null;
+            if (cmdletContext.Runtime_RuntimeVersion != null)
+            {
+                requestRuntime_runtime_RuntimeVersion = cmdletContext.Runtime_RuntimeVersion;
+            }
+            if (requestRuntime_runtime_RuntimeVersion != null)
+            {
+                request.Runtime.RuntimeVersion = requestRuntime_runtime_RuntimeVersion;
+                requestRuntimeIsNull = false;
+            }
+             // determine if request.Runtime should be set to null
+            if (requestRuntimeIsNull)
+            {
+                request.Runtime = null;
             }
             
              // populate SyncConfig
@@ -534,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String ApiId { get; set; }
             public List<System.String> CachingConfig_CachingKey { get; set; }
             public System.Int64? CachingConfig_Ttl { get; set; }
+            public System.String Code { get; set; }
             public System.String DataSourceName { get; set; }
             public System.String FieldName { get; set; }
             public Amazon.AppSync.ResolverKind Kind { get; set; }
@@ -541,6 +613,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public List<System.String> PipelineConfig_Function { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }
+            public Amazon.AppSync.RuntimeName Runtime_Name { get; set; }
+            public System.String Runtime_RuntimeVersion { get; set; }
             public Amazon.AppSync.ConflictDetectionType SyncConfig_ConflictDetection { get; set; }
             public Amazon.AppSync.ConflictHandlerType SyncConfig_ConflictHandler { get; set; }
             public System.String LambdaConflictHandlerConfig_LambdaConflictHandlerArn { get; set; }

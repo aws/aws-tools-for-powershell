@@ -49,6 +49,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateStandbyWorkspaces" OutputProperty="*" Verb="New" Noun="StandbyWorkspace" ShouldProcessTarget="PrimaryRegion" PipelineParameter="PrimaryRegion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="ResourceId" NewName="WorkspaceId" />

@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Architecture
+        /// <summary>
+        /// <para>
+        /// <para>The CPU architecture of an application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EMRServerless.Architecture")]
+        public Amazon.EMRServerless.Architecture Architecture { get; set; }
+        #endregion
+        
         #region Parameter MaximumCapacity_Cpu
         /// <summary>
         /// <para>
@@ -232,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Architecture = this.Architecture;
             context.AutoStartConfiguration_Enabled = this.AutoStartConfiguration_Enabled;
             context.AutoStopConfiguration_Enabled = this.AutoStopConfiguration_Enabled;
             context.AutoStopConfiguration_IdleTimeoutMinute = this.AutoStopConfiguration_IdleTimeoutMinute;
@@ -274,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.Architecture != null)
+            {
+                request.Architecture = cmdletContext.Architecture;
             }
             
              // populate AutoStartConfiguration
@@ -461,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public Amazon.EMRServerless.Architecture Architecture { get; set; }
             public System.Boolean? AutoStartConfiguration_Enabled { get; set; }
             public System.Boolean? AutoStopConfiguration_Enabled { get; set; }
             public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }

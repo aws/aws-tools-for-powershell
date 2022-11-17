@@ -1320,6 +1320,8 @@ Set-Alias -Name ASYN-DeleteType -Value Remove-ASYNType
 Set-Alias -Name Disassociate-ASYNApi -Value Stop-ASYNApiAssociation
 Set-Alias -Name Disassociate-ASYNApiAssociation -Value Stop-ASYNApiAssociation
 Set-Alias -Name ASYN-DisassociateApi -Value Stop-ASYNApiAssociation
+Set-Alias -Name Evaluate-ASYNCode -Value Test-ASYNCode
+Set-Alias -Name ASYN-EvaluateCode -Value Test-ASYNCode
 Set-Alias -Name Evaluate-ASYNMappingTemplate -Value Test-ASYNMappingTemplate
 Set-Alias -Name ASYN-EvaluateMappingTemplate -Value Test-ASYNMappingTemplate
 Set-Alias -Name Flush-ASYNApiCache -Value Clear-ASYNApiCache
@@ -12927,14 +12929,22 @@ Set-Alias -Name IVS-UntagResource -Value Remove-IVSResourceTag
 Set-Alias -Name IVS-UpdateChannel -Value Update-IVSChannel
 Set-Alias -Name Create-IVSCChatToken -Value New-IVSCChatToken
 Set-Alias -Name IVSC-CreateChatToken -Value New-IVSCChatToken
+Set-Alias -Name Create-IVSCLoggingConfiguration -Value New-IVSCLoggingConfiguration
+Set-Alias -Name IVSC-CreateLoggingConfiguration -Value New-IVSCLoggingConfiguration
 Set-Alias -Name Create-IVSCRoom -Value New-IVSCRoom
 Set-Alias -Name IVSC-CreateRoom -Value New-IVSCRoom
+Set-Alias -Name Delete-IVSCLoggingConfiguration -Value Remove-IVSCLoggingConfiguration
+Set-Alias -Name IVSC-DeleteLoggingConfiguration -Value Remove-IVSCLoggingConfiguration
 Set-Alias -Name Delete-IVSCMessage -Value Remove-IVSCMessage
 Set-Alias -Name IVSC-DeleteMessage -Value Remove-IVSCMessage
 Set-Alias -Name Delete-IVSCRoom -Value Remove-IVSCRoom
 Set-Alias -Name IVSC-DeleteRoom -Value Remove-IVSCRoom
 Set-Alias -Name IVSC-DisconnectUser -Value Disconnect-IVSCUser
+Set-Alias -Name IVSC-GetLoggingConfiguration -Value Get-IVSCLoggingConfiguration
 Set-Alias -Name IVSC-GetRoom -Value Get-IVSCRoom
+Set-Alias -Name List-IVSCLoggingConfigurations -Value Get-IVSCLoggingConfigurationList
+Set-Alias -Name List-IVSCLoggingConfigurationList -Value Get-IVSCLoggingConfigurationList
+Set-Alias -Name IVSC-ListLoggingConfigurations -Value Get-IVSCLoggingConfigurationList
 Set-Alias -Name List-IVSCRooms -Value Get-IVSCRoomList
 Set-Alias -Name List-IVSCRoomList -Value Get-IVSCRoomList
 Set-Alias -Name IVSC-ListRooms -Value Get-IVSCRoomList
@@ -12942,6 +12952,7 @@ Set-Alias -Name IVSC-ListTagsForResource -Value Get-IVSCResourceTag
 Set-Alias -Name IVSC-SendEvent -Value Send-IVSCEvent
 Set-Alias -Name IVSC-TagResource -Value Add-IVSCResourceTag
 Set-Alias -Name IVSC-UntagResource -Value Remove-IVSCResourceTag
+Set-Alias -Name IVSC-UpdateLoggingConfiguration -Value Update-IVSCLoggingConfiguration
 Set-Alias -Name IVSC-UpdateRoom -Value Update-IVSCRoom
 Set-Alias -Name Batch-MSKAssociateScramSecret -Value Register-MSKAssociateScramSecret
 Set-Alias -Name MSK-BatchAssociateScramSecret -Value Register-MSKAssociateScramSecret
@@ -16862,6 +16873,8 @@ Set-Alias -Name Create-PERSEventTracker -Value New-PERSEventTracker
 Set-Alias -Name PERS-CreateEventTracker -Value New-PERSEventTracker
 Set-Alias -Name Create-PERSFilter -Value New-PERSFilter
 Set-Alias -Name PERS-CreateFilter -Value New-PERSFilter
+Set-Alias -Name Create-PERSMetricAttribution -Value New-PERSMetricAttribution
+Set-Alias -Name PERS-CreateMetricAttribution -Value New-PERSMetricAttribution
 Set-Alias -Name Create-PERSRecommender -Value New-PERSRecommender
 Set-Alias -Name PERS-CreateRecommender -Value New-PERSRecommender
 Set-Alias -Name Create-PERSSchema -Value New-PERSSchema
@@ -16880,6 +16893,8 @@ Set-Alias -Name Delete-PERSEventTracker -Value Remove-PERSEventTracker
 Set-Alias -Name PERS-DeleteEventTracker -Value Remove-PERSEventTracker
 Set-Alias -Name Delete-PERSFilter -Value Remove-PERSFilter
 Set-Alias -Name PERS-DeleteFilter -Value Remove-PERSFilter
+Set-Alias -Name Delete-PERSMetricAttribution -Value Remove-PERSMetricAttribution
+Set-Alias -Name PERS-DeleteMetricAttribution -Value Remove-PERSMetricAttribution
 Set-Alias -Name Delete-PERSRecommender -Value Remove-PERSRecommender
 Set-Alias -Name PERS-DeleteRecommender -Value Remove-PERSRecommender
 Set-Alias -Name Delete-PERSSchema -Value Remove-PERSSchema
@@ -16908,6 +16923,8 @@ Set-Alias -Name Describe-PERSFeatureTransformation -Value Get-PERSFeatureTransfo
 Set-Alias -Name PERS-DescribeFeatureTransformation -Value Get-PERSFeatureTransformation
 Set-Alias -Name Describe-PERSFilter -Value Get-PERSFilter
 Set-Alias -Name PERS-DescribeFilter -Value Get-PERSFilter
+Set-Alias -Name Describe-PERSMetricAttribution -Value Get-PERSMetricAttribution
+Set-Alias -Name PERS-DescribeMetricAttribution -Value Get-PERSMetricAttribution
 Set-Alias -Name Describe-PERSRecipe -Value Get-PERSRecipe
 Set-Alias -Name PERS-DescribeRecipe -Value Get-PERSRecipe
 Set-Alias -Name Describe-PERSRecommender -Value Get-PERSRecommender
@@ -16947,6 +16964,12 @@ Set-Alias -Name PERS-ListEventTrackers -Value Get-PERSEventTrackerList
 Set-Alias -Name List-PERSFilters -Value Get-PERSFilterList
 Set-Alias -Name List-PERSFilterList -Value Get-PERSFilterList
 Set-Alias -Name PERS-ListFilters -Value Get-PERSFilterList
+Set-Alias -Name List-PERSMetricAttributionMetrics -Value Get-PERSMetricAttributionMetricList
+Set-Alias -Name List-PERSMetricAttributionMetricList -Value Get-PERSMetricAttributionMetricList
+Set-Alias -Name PERS-ListMetricAttributionMetrics -Value Get-PERSMetricAttributionMetricList
+Set-Alias -Name List-PERSMetricAttributions -Value Get-PERSMetricAttributionList
+Set-Alias -Name List-PERSMetricAttributionList -Value Get-PERSMetricAttributionList
+Set-Alias -Name PERS-ListMetricAttributions -Value Get-PERSMetricAttributionList
 Set-Alias -Name List-PERSRecipes -Value Get-PERSRecipeList
 Set-Alias -Name List-PERSRecipeList -Value Get-PERSRecipeList
 Set-Alias -Name PERS-ListRecipes -Value Get-PERSRecipeList
@@ -16969,6 +16992,7 @@ Set-Alias -Name PERS-StopSolutionVersionCreation -Value Stop-PERSSolutionVersion
 Set-Alias -Name PERS-TagResource -Value Add-PERSResourceTag
 Set-Alias -Name PERS-UntagResource -Value Remove-PERSResourceTag
 Set-Alias -Name PERS-UpdateCampaign -Value Update-PERSCampaign
+Set-Alias -Name PERS-UpdateMetricAttribution -Value Update-PERSMetricAttribution
 Set-Alias -Name PERS-UpdateRecommender -Value Update-PERSRecommender
 Set-Alias -Name Put-PERSEEvents -Value Write-PERSEEvent
 Set-Alias -Name Put-PERSEEvent -Value Write-PERSEEvent
@@ -20772,6 +20796,7 @@ Set-Alias -Name SCAR-DisassociateResource -Value Unregister-SCARResource
 Set-Alias -Name SCAR-GetApplication -Value Get-SCARApplication
 Set-Alias -Name SCAR-GetAssociatedResource -Value Get-SCARAssociatedResource
 Set-Alias -Name SCAR-GetAttributeGroup -Value Get-SCARAttributeGroup
+Set-Alias -Name SCAR-GetConfiguration -Value Get-SCARConfiguration
 Set-Alias -Name List-SCARApplications -Value Get-SCARApplicationList
 Set-Alias -Name List-SCARApplicationList -Value Get-SCARApplicationList
 Set-Alias -Name SCAR-ListApplications -Value Get-SCARApplicationList
@@ -20788,6 +20813,8 @@ Set-Alias -Name List-SCARAttributeGroupsForApplication -Value Get-SCARAttributeG
 Set-Alias -Name List-SCARAttributeGroupsForApplicationList -Value Get-SCARAttributeGroupsForApplicationList
 Set-Alias -Name SCAR-ListAttributeGroupsForApplication -Value Get-SCARAttributeGroupsForApplicationList
 Set-Alias -Name SCAR-ListTagsForResource -Value Get-SCARResourceTag
+Set-Alias -Name Put-SCARConfiguration -Value Write-SCARConfiguration
+Set-Alias -Name SCAR-PutConfiguration -Value Write-SCARConfiguration
 Set-Alias -Name SCAR-SyncResource -Value Sync-SCARResource
 Set-Alias -Name SCAR-TagResource -Value Add-SCARResourceTag
 Set-Alias -Name SCAR-UntagResource -Value Remove-SCARResourceTag
@@ -23405,6 +23432,9 @@ Set-Alias -Name Create-WKSConnectionAlias -Value New-WKSConnectionAlias
 Set-Alias -Name WKS-CreateConnectionAlias -Value New-WKSConnectionAlias
 Set-Alias -Name Create-WKSIpGroup -Value New-WKSIpGroup
 Set-Alias -Name WKS-CreateIpGroup -Value New-WKSIpGroup
+Set-Alias -Name Create-WKSStandbyWorkspaces -Value New-WKSStandbyWorkspace
+Set-Alias -Name Create-WKSStandbyWorkspace -Value New-WKSStandbyWorkspace
+Set-Alias -Name WKS-CreateStandbyWorkspaces -Value New-WKSStandbyWorkspace
 Set-Alias -Name Create-WKSTags -Value New-WKSTag
 Set-Alias -Name Create-WKSTag -Value New-WKSTag
 Set-Alias -Name WKS-CreateTags -Value New-WKSTag

@@ -939,7 +939,7 @@ $AMP_Completers = {
             ($_ -eq "Update-AMPApp/Platform")
         }
         {
-            $v = "WEB","WEB_DYNAMIC"
+            $v = "WEB","WEB_COMPUTE","WEB_DYNAMIC"
             break
         }
 
@@ -3629,6 +3629,19 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.RuntimeName
+        {
+            ($_ -eq "New-ASYNFunction/Runtime_Name") -Or
+            ($_ -eq "New-ASYNResolver/Runtime_Name") -Or
+            ($_ -eq "Test-ASYNCode/Runtime_Name") -Or
+            ($_ -eq "Update-ASYNFunction/Runtime_Name") -Or
+            ($_ -eq "Update-ASYNResolver/Runtime_Name")
+        }
+        {
+            $v = "APPSYNC_JS"
+            break
+        }
+
         # Amazon.AppSync.TypeDefinitionFormat
         {
             ($_ -eq "Get-ASYNType/Format") -Or
@@ -3656,6 +3669,7 @@ $ASYN_map = @{
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
+    "Runtime_Name"=@("New-ASYNFunction","New-ASYNResolver","Test-ASYNCode","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictDetection"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictHandler"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
@@ -3729,6 +3743,7 @@ $ASYN_SelectMap = @{
                "Remove-ASYNResolver",
                "Remove-ASYNType",
                "Stop-ASYNApiAssociation",
+               "Test-ASYNCode",
                "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
                "Get-ASYNApiAssociation",
@@ -20612,6 +20627,35 @@ _awsArgumentCompleterRegistration $EMRC_SelectCompleters $EMRC_SelectMap
 # Argument completions for service EMR Serverless
 
 
+$EMRServerless_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EMRServerless.Architecture
+        {
+            ($_ -eq "New-EMRServerlessApplication/Architecture") -Or
+            ($_ -eq "Update-EMRServerlessApplication/Architecture")
+        }
+        {
+            $v = "ARM64","X86_64"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMRServerless_map = @{
+    "Architecture"=@("New-EMRServerlessApplication","Update-EMRServerlessApplication")
+}
+
+_awsArgumentCompleterRegistration $EMRServerless_Completers $EMRServerless_map
+
 $EMRServerless_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -29049,16 +29093,21 @@ $IVSC_SelectCompleters = {
 
 $IVSC_SelectMap = @{
     "Select"=@("New-IVSCChatToken",
+               "New-IVSCLoggingConfiguration",
                "New-IVSCRoom",
+               "Remove-IVSCLoggingConfiguration",
                "Remove-IVSCMessage",
                "Remove-IVSCRoom",
                "Disconnect-IVSCUser",
+               "Get-IVSCLoggingConfiguration",
                "Get-IVSCRoom",
+               "Get-IVSCLoggingConfigurationList",
                "Get-IVSCRoomList",
                "Get-IVSCResourceTag",
                "Send-IVSCEvent",
                "Add-IVSCResourceTag",
                "Remove-IVSCResourceTag",
+               "Update-IVSCLoggingConfiguration",
                "Update-IVSCRoom")
 }
 
@@ -30882,7 +30931,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
             break
         }
 
@@ -39137,6 +39186,7 @@ $PERS_SelectMap = @{
                "New-PERSDatasetImportJob",
                "New-PERSEventTracker",
                "New-PERSFilter",
+               "New-PERSMetricAttribution",
                "New-PERSRecommender",
                "New-PERSSchema",
                "New-PERSSolution",
@@ -39146,6 +39196,7 @@ $PERS_SelectMap = @{
                "Remove-PERSDatasetGroup",
                "Remove-PERSEventTracker",
                "Remove-PERSFilter",
+               "Remove-PERSMetricAttribution",
                "Remove-PERSRecommender",
                "Remove-PERSSchema",
                "Remove-PERSSolution",
@@ -39160,6 +39211,7 @@ $PERS_SelectMap = @{
                "Get-PERSEventTracker",
                "Get-PERSFeatureTransformation",
                "Get-PERSFilter",
+               "Get-PERSMetricAttribution",
                "Get-PERSRecipe",
                "Get-PERSRecommender",
                "Get-PERSSchema",
@@ -39175,6 +39227,8 @@ $PERS_SelectMap = @{
                "Get-PERSDatasetList",
                "Get-PERSEventTrackerList",
                "Get-PERSFilterList",
+               "Get-PERSMetricAttributionMetricList",
+               "Get-PERSMetricAttributionList",
                "Get-PERSRecipeList",
                "Get-PERSRecommenderList",
                "Get-PERSSchemaList",
@@ -39187,6 +39241,7 @@ $PERS_SelectMap = @{
                "Add-PERSResourceTag",
                "Remove-PERSResourceTag",
                "Update-PERSCampaign",
+               "Update-PERSMetricAttribution",
                "Update-PERSRecommender")
 }
 
@@ -40130,7 +40185,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 
@@ -40167,7 +40222,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Suvi","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Amy","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Suvi","Takumi","Tatyana","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -44205,6 +44260,16 @@ $CWRUM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudWatchRUM.CustomEventsStatus
+        {
+            ($_ -eq "New-CWRUMAppMonitor/CustomEvents_Status") -Or
+            ($_ -eq "Update-CWRUMAppMonitor/CustomEvents_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CloudWatchRUM.MetricDestination
         {
             ($_ -eq "Add-CWRUMCreateRumMetricDefinition/Destination") -Or
@@ -44228,6 +44293,7 @@ $CWRUM_Completers = {
 }
 
 $CWRUM_map = @{
+    "CustomEvents_Status"=@("New-CWRUMAppMonitor","Update-CWRUMAppMonitor")
     "Destination"=@("Add-CWRUMCreateRumMetricDefinition","Get-CWRUMGetRumMetricDefinition","Remove-CWRUMDeleteRumMetricDefinition","Remove-CWRUMRumMetricsDestination","Update-CWRUMRumMetricDefinition","Write-CWRUMRumMetricsDestination")
 }
 
@@ -48053,7 +48119,7 @@ $SCAR_Completers = {
             ($_ -eq "Unregister-SCARResource/ResourceType")
         }
         {
-            $v = "CFN_STACK"
+            $v = "CFN_STACK","RESOURCE_TAG_VALUE"
             break
         }
 
@@ -48130,12 +48196,14 @@ $SCAR_SelectMap = @{
                "Get-SCARApplication",
                "Get-SCARAssociatedResource",
                "Get-SCARAttributeGroup",
+               "Get-SCARConfiguration",
                "Get-SCARApplicationList",
                "Get-SCARAssociatedAttributeGroupList",
                "Get-SCARAssociatedResourceList",
                "Get-SCARAttributeGroupList",
                "Get-SCARAttributeGroupsForApplicationList",
                "Get-SCARResourceTag",
+               "Write-SCARConfiguration",
                "Sync-SCARResource",
                "Add-SCARResourceTag",
                "Remove-SCARResourceTag",
@@ -54228,6 +54296,7 @@ $WKS_SelectMap = @{
                "New-WKSConnectClientAddIn",
                "New-WKSConnectionAlias",
                "New-WKSIpGroup",
+               "New-WKSStandbyWorkspace",
                "New-WKSTag",
                "New-WKSUpdatedWorkspaceImage",
                "New-WKSWorkspaceBundle",

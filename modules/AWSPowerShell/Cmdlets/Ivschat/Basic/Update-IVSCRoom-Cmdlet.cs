@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter LoggingConfigurationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Array of logging-configuration identifiers attached to the room.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfigurationIdentifiers")]
+        public System.String[] LoggingConfigurationIdentifier { get; set; }
+        #endregion
+        
         #region Parameter MaximumMessageLength
         /// <summary>
         /// <para>
@@ -184,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.LoggingConfigurationIdentifier != null)
+            {
+                context.LoggingConfigurationIdentifier = new List<System.String>(this.LoggingConfigurationIdentifier);
+            }
             context.MaximumMessageLength = this.MaximumMessageLength;
             context.MaximumMessageRatePerSecond = this.MaximumMessageRatePerSecond;
             context.MessageReviewHandler_FallbackResult = this.MessageReviewHandler_FallbackResult;
@@ -208,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.LoggingConfigurationIdentifier != null)
+            {
+                request.LoggingConfigurationIdentifiers = cmdletContext.LoggingConfigurationIdentifier;
             }
             if (cmdletContext.MaximumMessageLength != null)
             {
@@ -312,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
+            public List<System.String> LoggingConfigurationIdentifier { get; set; }
             public System.Int32? MaximumMessageLength { get; set; }
             public System.Int32? MaximumMessageRatePerSecond { get; set; }
             public Amazon.Ivschat.FallbackResult MessageReviewHandler_FallbackResult { get; set; }

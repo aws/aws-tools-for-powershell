@@ -88,15 +88,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-IVSCResourceTag', 
         'Disconnect-IVSCUser', 
+        'Get-IVSCLoggingConfiguration', 
+        'Get-IVSCLoggingConfigurationList', 
         'Get-IVSCResourceTag', 
         'Get-IVSCRoom', 
         'Get-IVSCRoomList', 
         'New-IVSCChatToken', 
+        'New-IVSCLoggingConfiguration', 
         'New-IVSCRoom', 
+        'Remove-IVSCLoggingConfiguration', 
         'Remove-IVSCMessage', 
         'Remove-IVSCResourceTag', 
         'Remove-IVSCRoom', 
         'Send-IVSCEvent', 
+        'Update-IVSCLoggingConfiguration', 
         'Update-IVSCRoom')
 
     # Variables to export from this module

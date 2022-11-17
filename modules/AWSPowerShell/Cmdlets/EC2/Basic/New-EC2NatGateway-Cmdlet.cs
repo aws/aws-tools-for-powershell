@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
         #endregion
         
+        #region Parameter PrivateIpAddress
+        /// <summary>
+        /// <para>
+        /// <para>The private IPv4 address to assign to the NAT gateway. If you don't provide an address,
+        /// a private IPv4 address will be automatically assigned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PrivateIpAddress { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
@@ -184,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AllocationId = this.AllocationId;
             context.ClientToken = this.ClientToken;
             context.ConnectivityType = this.ConnectivityType;
+            context.PrivateIpAddress = this.PrivateIpAddress;
             context.SubnetId = this.SubnetId;
             #if MODULAR
             if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
@@ -222,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ConnectivityType != null)
             {
                 request.ConnectivityType = cmdletContext.ConnectivityType;
+            }
+            if (cmdletContext.PrivateIpAddress != null)
+            {
+                request.PrivateIpAddress = cmdletContext.PrivateIpAddress;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -295,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AllocationId { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
+            public System.String PrivateIpAddress { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNatGatewayResponse, NewEC2NatGatewayCmdlet, object> Select { get; set; } =

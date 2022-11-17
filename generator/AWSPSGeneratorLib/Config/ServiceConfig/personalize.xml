@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMetricAttribution" OutputProperty="MetricAttributionArn" Verb="New" Noun="MetricAttribution" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRecommender" OutputProperty="RecommenderArn" Verb="New" Noun="Recommender" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +92,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFilter" Verb="Remove" Noun="Filter" ShouldProcessTarget="FilterArn" PipelineParameter="FilterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMetricAttribution" Verb="Remove" Noun="MetricAttribution" ShouldProcessTarget="MetricAttributionArn" PipelineParameter="MetricAttributionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -144,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFilter" OutputProperty="Filter" Verb="Get" Noun="Filter" PipelineParameter="FilterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetricAttribution" OutputProperty="MetricAttribution" Verb="Get" Noun="MetricAttribution" PipelineParameter="MetricAttributionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,6 +219,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMetricAttributionMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricAttributionMetricList" PipelineParameter="MetricAttributionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetricAttributions" OutputProperty="MetricAttributions" Verb="Get" Noun="MetricAttributionList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeProvider" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -252,6 +272,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCampaign" OutputProperty="CampaignArn" Verb="Update" Noun="Campaign" ShouldProcessTarget="CampaignArn" PipelineParameter="CampaignArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMetricAttribution" OutputProperty="MetricAttributionArn" Verb="Update" Noun="MetricAttribution" ShouldProcessTarget="MetricAttributionArn" PipelineParameter="MetricAttributionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>If this app monitor is to collect data from only certain pages in your application,
-        /// this structure lists those pages. </para><pre><code> &lt;p&gt;You can't include both &lt;code&gt;ExcludedPages&lt;/code&gt;
-        /// and &lt;code&gt;IncludedPages&lt;/code&gt; in the same operation.&lt;/p&gt; </code></pre>
+        /// this structure lists those pages. </para><para>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in
+        /// the same operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -202,15 +202,26 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         public System.Double? AppMonitorConfiguration_SessionSampleRate { get; set; }
         #endregion
         
+        #region Parameter CustomEvents_Status
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this app monitor allows the web client to define and send custom
+        /// events. The default is for custom events to be <code>DISABLED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatchRUM.CustomEventsStatus")]
+        public Amazon.CloudWatchRUM.CustomEventsStatus CustomEvents_Status { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
         /// <para>Assigns one or more tags (key-value pairs) to the app monitor.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
         /// with certain tag values.</para><para>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
-        /// as strings of characters.</para><pre><code> &lt;p&gt;You can associate as many as 50 tags with an app monitor.&lt;/p&gt;
-        /// &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"&gt;Tagging
-        /// Amazon Web Services resources&lt;/a&gt;.&lt;/p&gt; </code></pre>
+        /// as strings of characters.</para><para>You can associate as many as 50 tags with an app monitor.</para><para>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             {
                 context.AppMonitorConfiguration_Telemetry = new List<System.String>(this.AppMonitorConfiguration_Telemetry);
             }
+            context.CustomEvents_Status = this.CustomEvents_Status;
             context.CwLogEnabled = this.CwLogEnabled;
             context.Domain = this.Domain;
             #if MODULAR
@@ -452,6 +464,25 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             {
                 request.AppMonitorConfiguration = null;
             }
+            
+             // populate CustomEvents
+            var requestCustomEventsIsNull = true;
+            request.CustomEvents = new Amazon.CloudWatchRUM.Model.CustomEvents();
+            Amazon.CloudWatchRUM.CustomEventsStatus requestCustomEvents_customEvents_Status = null;
+            if (cmdletContext.CustomEvents_Status != null)
+            {
+                requestCustomEvents_customEvents_Status = cmdletContext.CustomEvents_Status;
+            }
+            if (requestCustomEvents_customEvents_Status != null)
+            {
+                request.CustomEvents.Status = requestCustomEvents_customEvents_Status;
+                requestCustomEventsIsNull = false;
+            }
+             // determine if request.CustomEvents should be set to null
+            if (requestCustomEventsIsNull)
+            {
+                request.CustomEvents = null;
+            }
             if (cmdletContext.CwLogEnabled != null)
             {
                 request.CwLogEnabled = cmdletContext.CwLogEnabled.Value;
@@ -538,6 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             public List<System.String> AppMonitorConfiguration_IncludedPage { get; set; }
             public System.Double? AppMonitorConfiguration_SessionSampleRate { get; set; }
             public List<System.String> AppMonitorConfiguration_Telemetry { get; set; }
+            public Amazon.CloudWatchRUM.CustomEventsStatus CustomEvents_Status { get; set; }
             public System.Boolean? CwLogEnabled { get; set; }
             public System.String Domain { get; set; }
             public System.String Name { get; set; }

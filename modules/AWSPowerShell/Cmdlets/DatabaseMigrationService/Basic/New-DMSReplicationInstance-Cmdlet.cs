@@ -135,6 +135,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? MultiAZ { get; set; }
         #endregion
         
+        #region Parameter NetworkType
+        /// <summary>
+        /// <para>
+        /// <para>The type of IP address protocol used by a replication instance, such as IPv4 only
+        /// or Dual-stack that supports both IPv4 and IPv6 addressing. IPv6 only is not yet supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkType { get; set; }
+        #endregion
+        
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
@@ -315,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
             context.MultiAZ = this.MultiAZ;
+            context.NetworkType = this.NetworkType;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReplicationInstanceClass = this.ReplicationInstanceClass;
@@ -384,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.MultiAZ != null)
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
+            }
+            if (cmdletContext.NetworkType != null)
+            {
+                request.NetworkType = cmdletContext.NetworkType;
             }
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
@@ -485,6 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Boolean? MultiAZ { get; set; }
+            public System.String NetworkType { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String ReplicationInstanceClass { get; set; }
