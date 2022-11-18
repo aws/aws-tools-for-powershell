@@ -919,9 +919,6 @@
     <Reference Include="AWSSDK.SSMIncidents">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMIncidents.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.SsmSap">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SsmSap.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSO.dll</HintPath>
     </Reference>
@@ -1862,9 +1859,6 @@
     </Reference>
     <Reference Include="AWSSDK.SSMIncidents">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMIncidents.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.SsmSap">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SsmSap.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSO.dll</HintPath>

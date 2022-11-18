@@ -2568,14 +2568,6 @@
                 "Core" : "3.7.100.20"
             },
             "InPreview"               : false
-        },
-        "SsmSap"                              : {
-            "Version" : "3.7.100.3",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.100.20"
-            },
-            "InPreview"               : false
         }
     }
 }

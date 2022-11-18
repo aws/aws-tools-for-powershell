@@ -89,7 +89,6 @@
   * Amazon GreengrassV2
     * Modified cmdlet Get-GGV2DeploymentList: added parameter ParentTargetArn.
     * Modified cmdlet New-GGV2Deployment: added parameter ParentTargetArn.
-  * Amazon Systems Manager for SAP. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMSAP and can be listed using the command 'Get-AWSCmdletName -Service SMSAP'.
   * Amazon WorkSpaces
     * Added cmdlet Edit-WKSCertificateBasedAuthProperty leveraging the ModifyCertificateBasedAuthProperties service API.
 

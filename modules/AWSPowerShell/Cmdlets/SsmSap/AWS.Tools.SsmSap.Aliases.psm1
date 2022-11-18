@@ -1,3 +1,0 @@
-﻿# SsmSap
-
-Export-ModuleMember -Alias *
