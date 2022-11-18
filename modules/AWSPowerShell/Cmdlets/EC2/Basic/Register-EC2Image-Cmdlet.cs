@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Registers an AMI. When you're creating an AMI, this is the final step you must complete
     /// before you can launch an instance from the AMI. For more information about creating
-    /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating
-    /// your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create
+    /// your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
     ///  <note><para>
     /// For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// the matching billing product code. If you purchase a Reserved Instance without the
     /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
     /// Instance. For information about how to obtain the platform details and billing information
-    /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
-    /// AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+    /// AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

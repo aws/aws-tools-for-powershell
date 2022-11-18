@@ -123,9 +123,12 @@ $SC_Completers = {
         }
 
         # Amazon.ServiceCatalog.PrincipalType
-        "Register-SCPrincipalWithPortfolio/PrincipalType"
         {
-            $v = "IAM"
+            ($_ -eq "Register-SCPrincipalWithPortfolio/PrincipalType") -Or
+            ($_ -eq "Unregister-SCPrincipalFromPortfolio/PrincipalType")
+        }
+        {
+            $v = "IAM","IAM_PATTERN"
             break
         }
 
@@ -195,6 +198,16 @@ $SC_Completers = {
             break
         }
 
+        # Amazon.ServiceCatalog.SourceType
+        {
+            ($_ -eq "New-SCProduct/SourceConnection_Type") -Or
+            ($_ -eq "Update-SCProduct/SourceConnection_Type")
+        }
+        {
+            $v = "CODESTAR"
+            break
+        }
+
         # Amazon.ServiceCatalog.StackSetOperationType
         "Update-SCProvisionedProduct/ProvisioningPreferences_StackSetOperationType"
         {
@@ -219,13 +232,14 @@ $SC_map = @{
     "Parameters_Type"=@("New-SCProvisioningArtifact")
     "PlanType"=@("New-SCProvisionedProductPlan")
     "PortfolioShareType"=@("Deny-SCPortfolioShare","Get-SCAcceptedPortfolioShareList","Receive-SCPortfolioShare")
-    "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
+    "PrincipalType"=@("Register-SCPrincipalWithPortfolio","Unregister-SCPrincipalFromPortfolio")
     "ProductSource"=@("Find-SCProductsAsAdmin")
     "ProductType"=@("New-SCProduct")
     "ProvisioningArtifactParameters_Type"=@("New-SCProduct")
     "ProvisioningPreferences_StackSetOperationType"=@("Update-SCProvisionedProduct")
     "SortBy"=@("Find-SCProduct","Find-SCProductsAsAdmin")
     "SortOrder"=@("Find-SCProduct","Find-SCProductsAsAdmin","Find-SCProvisionedProduct")
+    "SourceConnection_Type"=@("New-SCProduct","Update-SCProduct")
     "Type"=@("Get-SCPortfolioShare")
 }
 

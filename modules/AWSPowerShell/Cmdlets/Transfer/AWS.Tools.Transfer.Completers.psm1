@@ -127,7 +127,7 @@ $TFR_Completers = {
             ($_ -eq "Update-TFRConnector/As2Config_EncryptionAlgorithm")
         }
         {
-            $v = "AES128_CBC","AES192_CBC","AES256_CBC"
+            $v = "AES128_CBC","AES192_CBC","AES256_CBC","NONE"
             break
         }
 

@@ -57,14 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>A description of the origin access control.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OriginAccessControlConfig_Description { get; set; }
         #endregion
         
@@ -212,12 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.OriginAccessControlConfig_Description = this.OriginAccessControlConfig_Description;
-            #if MODULAR
-            if (this.OriginAccessControlConfig_Description == null && ParameterWasBound(nameof(this.OriginAccessControlConfig_Description)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OriginAccessControlConfig_Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.OriginAccessControlConfig_Name = this.OriginAccessControlConfig_Name;
             #if MODULAR
             if (this.OriginAccessControlConfig_Name == null && ParameterWasBound(nameof(this.OriginAccessControlConfig_Name)))

@@ -132,7 +132,7 @@ $AUDM_Completers = {
         # Amazon.AuditManager.SettingAttribute
         "Get-AUDMSetting/Attribute"
         {
-            $v = "ALL","DEFAULT_ASSESSMENT_REPORTS_DESTINATION","DEFAULT_PROCESS_OWNERS","IS_AWS_ORG_ENABLED","SNS_TOPIC"
+            $v = "ALL","DEFAULT_ASSESSMENT_REPORTS_DESTINATION","DEFAULT_PROCESS_OWNERS","EVIDENCE_FINDER_ENABLEMENT","IS_AWS_ORG_ENABLED","SNS_TOPIC"
             break
         }
 

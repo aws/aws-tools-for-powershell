@@ -29,6 +29,28 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Associates the specified principal ARN with the specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code>
+    /// association is included in the share. 
+    /// </para><para>
+    /// The <code>PortfolioID</code>, <code>PrincipalARN</code>, and <code>PrincipalType</code>
+    /// parameters are required. 
+    /// </para><para>
+    /// You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code>
+    /// as <code>IAM_PATTERN</code></para><note><para>
+    /// When you associate a principal with portfolio, a potential privilege escalation path
+    /// may occur when that portfolio is then shared with other accounts. For a user in a
+    /// recipient account who is <i>not</i> an Service Catalog Admin, but still has the ability
+    /// to create Principals (Users/Groups/Roles), that user could create a role that matches
+    /// a principal name association for the portfolio. Although this user may not know which
+    /// principal names are associated through Service Catalog, they may be able to guess
+    /// the user. If this potential escalation path is a concern, then Service Catalog recommends
+    /// using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the
+    /// <code>PrincipalARN</code> must already exist in the recipient account before it can
+    /// be associated. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Register", "SCPrincipalWithPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -70,7 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the principal (IAM user, role, or group).</para>
+        /// <para>The ARN of the principal (IAM user, role, or group). This field allows an ARN with
+        /// no <code>accountID</code> if <code>PrincipalType</code> is <code>IAM_PATTERN</code>.
+        /// </para><para>You can associate multiple <code>IAM</code> patterns even if the account has no principal
+        /// with that name. This is useful in Principal Name Sharing if you want to share a principal
+        /// without creating it in the account that owns the portfolio. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The principal type. The supported value is <code>IAM</code>.</para>
+        /// <para>The principal type. The supported value is <code>IAM</code> if you use a fully defined
+        /// ARN, or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

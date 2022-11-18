@@ -58,6 +58,41 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter CodeStar_ArtifactPath
+        /// <summary>
+        /// <para>
+        /// <para>The absolute path wehre the artifact resides within the repo and branch, formatted
+        /// as "folder/file.json." </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConnection_ConnectionParameters_CodeStar_ArtifactPath")]
+        public System.String CodeStar_ArtifactPath { get; set; }
+        #endregion
+        
+        #region Parameter CodeStar_Branch
+        /// <summary>
+        /// <para>
+        /// <para>The specific branch where the artifact resides. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConnection_ConnectionParameters_CodeStar_Branch")]
+        public System.String CodeStar_Branch { get; set; }
+        #endregion
+        
+        #region Parameter CodeStar_ConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para>The CodeStar ARN, which is the connection between Service Catalog and the external
+        /// repository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConnection_ConnectionParameters_CodeStar_ConnectionArn")]
+        public System.String CodeStar_ConnectionArn { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -82,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_DisableTemplateValidation
         /// <summary>
         /// <para>
-        /// <para>If set to true, Amazon Web Services Service Catalog stops validating the specified
-        /// provisioning artifact even if it is invalid.</para>
+        /// <para>If set to true, Service Catalog stops validating the specified provisioning artifact
+        /// even if it is invalid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,20 +150,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>Specify the template source with one of the following options, but not both. Keys
-        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit,
-        /// or GitHub in JSON format. Specify the URL in JSON format as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
+        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. Specify
+        /// the URL in JSON format as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
         /// the template. Currently only supports CloudFormation stack arn. Specify the physical
         /// id in JSON format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Collections.Hashtable ProvisioningArtifactParameters_Info { get; set; }
         #endregion
         
@@ -174,6 +202,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.ServiceCatalog.ProductType")]
         public Amazon.ServiceCatalog.ProductType ProductType { get; set; }
+        #endregion
+        
+        #region Parameter CodeStar_Repository
+        /// <summary>
+        /// <para>
+        /// <para>The specific repository where the product’s artifact-to-be-synced resides, formatted
+        /// as "Account/Repo." </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConnection_ConnectionParameters_CodeStar_Repository")]
+        public System.String CodeStar_Repository { get; set; }
         #endregion
         
         #region Parameter SupportDescription
@@ -227,6 +267,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ServiceCatalog.ProvisioningArtifactType")]
         public Amazon.ServiceCatalog.ProvisioningArtifactType ProvisioningArtifactParameters_Type { get; set; }
+        #endregion
+        
+        #region Parameter SourceConnection_Type
+        /// <summary>
+        /// <para>
+        /// <para>The only supported <code>SourceConnection</code> type is Codestar. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.SourceType")]
+        public Amazon.ServiceCatalog.SourceType SourceConnection_Type { get; set; }
         #endregion
         
         #region Parameter Owner
@@ -322,14 +373,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
                     context.ProvisioningArtifactParameters_Info.Add((String)hashKey, (String)(this.ProvisioningArtifactParameters_Info[hashKey]));
                 }
             }
-            #if MODULAR
-            if (this.ProvisioningArtifactParameters_Info == null && ParameterWasBound(nameof(this.ProvisioningArtifactParameters_Info)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProvisioningArtifactParameters_Info which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ProvisioningArtifactParameters_Name = this.ProvisioningArtifactParameters_Name;
             context.ProvisioningArtifactParameters_Type = this.ProvisioningArtifactParameters_Type;
+            context.CodeStar_ArtifactPath = this.CodeStar_ArtifactPath;
+            context.CodeStar_Branch = this.CodeStar_Branch;
+            context.CodeStar_ConnectionArn = this.CodeStar_ConnectionArn;
+            context.CodeStar_Repository = this.CodeStar_Repository;
+            context.SourceConnection_Type = this.SourceConnection_Type;
             context.SupportDescription = this.SupportDescription;
             context.SupportEmail = this.SupportEmail;
             context.SupportUrl = this.SupportUrl;
@@ -440,6 +490,95 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.ProvisioningArtifactParameters = null;
             }
+            
+             // populate SourceConnection
+            var requestSourceConnectionIsNull = true;
+            request.SourceConnection = new Amazon.ServiceCatalog.Model.SourceConnection();
+            Amazon.ServiceCatalog.SourceType requestSourceConnection_sourceConnection_Type = null;
+            if (cmdletContext.SourceConnection_Type != null)
+            {
+                requestSourceConnection_sourceConnection_Type = cmdletContext.SourceConnection_Type;
+            }
+            if (requestSourceConnection_sourceConnection_Type != null)
+            {
+                request.SourceConnection.Type = requestSourceConnection_sourceConnection_Type;
+                requestSourceConnectionIsNull = false;
+            }
+            Amazon.ServiceCatalog.Model.SourceConnectionParameters requestSourceConnection_sourceConnection_ConnectionParameters = null;
+            
+             // populate ConnectionParameters
+            var requestSourceConnection_sourceConnection_ConnectionParametersIsNull = true;
+            requestSourceConnection_sourceConnection_ConnectionParameters = new Amazon.ServiceCatalog.Model.SourceConnectionParameters();
+            Amazon.ServiceCatalog.Model.CodeStarParameters requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar = null;
+            
+             // populate CodeStar
+            var requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStarIsNull = true;
+            requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar = new Amazon.ServiceCatalog.Model.CodeStarParameters();
+            System.String requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ArtifactPath = null;
+            if (cmdletContext.CodeStar_ArtifactPath != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ArtifactPath = cmdletContext.CodeStar_ArtifactPath;
+            }
+            if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ArtifactPath != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar.ArtifactPath = requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ArtifactPath;
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStarIsNull = false;
+            }
+            System.String requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Branch = null;
+            if (cmdletContext.CodeStar_Branch != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Branch = cmdletContext.CodeStar_Branch;
+            }
+            if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Branch != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar.Branch = requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Branch;
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStarIsNull = false;
+            }
+            System.String requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ConnectionArn = null;
+            if (cmdletContext.CodeStar_ConnectionArn != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ConnectionArn = cmdletContext.CodeStar_ConnectionArn;
+            }
+            if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ConnectionArn != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar.ConnectionArn = requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_ConnectionArn;
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStarIsNull = false;
+            }
+            System.String requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Repository = null;
+            if (cmdletContext.CodeStar_Repository != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Repository = cmdletContext.CodeStar_Repository;
+            }
+            if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Repository != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar.Repository = requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar_codeStar_Repository;
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStarIsNull = false;
+            }
+             // determine if requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar should be set to null
+            if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStarIsNull)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar = null;
+            }
+            if (requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar != null)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters.CodeStar = requestSourceConnection_sourceConnection_ConnectionParameters_sourceConnection_ConnectionParameters_CodeStar;
+                requestSourceConnection_sourceConnection_ConnectionParametersIsNull = false;
+            }
+             // determine if requestSourceConnection_sourceConnection_ConnectionParameters should be set to null
+            if (requestSourceConnection_sourceConnection_ConnectionParametersIsNull)
+            {
+                requestSourceConnection_sourceConnection_ConnectionParameters = null;
+            }
+            if (requestSourceConnection_sourceConnection_ConnectionParameters != null)
+            {
+                request.SourceConnection.ConnectionParameters = requestSourceConnection_sourceConnection_ConnectionParameters;
+                requestSourceConnectionIsNull = false;
+            }
+             // determine if request.SourceConnection should be set to null
+            if (requestSourceConnectionIsNull)
+            {
+                request.SourceConnection = null;
+            }
             if (cmdletContext.SupportDescription != null)
             {
                 request.SupportDescription = cmdletContext.SupportDescription;
@@ -529,6 +668,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public Dictionary<System.String, System.String> ProvisioningArtifactParameters_Info { get; set; }
             public System.String ProvisioningArtifactParameters_Name { get; set; }
             public Amazon.ServiceCatalog.ProvisioningArtifactType ProvisioningArtifactParameters_Type { get; set; }
+            public System.String CodeStar_ArtifactPath { get; set; }
+            public System.String CodeStar_Branch { get; set; }
+            public System.String CodeStar_ConnectionArn { get; set; }
+            public System.String CodeStar_Repository { get; set; }
+            public Amazon.ServiceCatalog.SourceType SourceConnection_Type { get; set; }
             public System.String SupportDescription { get; set; }
             public System.String SupportEmail { get; set; }
             public System.String SupportUrl { get; set; }

@@ -242,6 +242,7 @@ $AF_SelectMap = @{
                "Unregister-AFConnector",
                "Remove-AFResourceTag",
                "Update-AFConnectorProfile",
+               "Update-AFConnectorRegistration",
                "Update-AFFlow")
 }
 

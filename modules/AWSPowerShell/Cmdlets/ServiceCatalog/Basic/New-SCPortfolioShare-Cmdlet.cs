@@ -44,8 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </para><para>
     /// If the portfolio share with the specified account or organization node already exists,
     /// this action will have no effect and will not return an error. To update an existing
-    /// share, you must use the <code> UpdatePortfolioShare</code> API instead.
-    /// </para>
+    /// share, you must use the <code> UpdatePortfolioShare</code> API instead. 
+    /// </para><note><para>
+    /// When you associate a principal with portfolio, a potential privilege escalation path
+    /// may occur when that portfolio is then shared with other accounts. For a user in a
+    /// recipient account who is <i>not</i> an Service Catalog Admin, but still has the ability
+    /// to create Principals (Users/Groups/Roles), that user could create a role that matches
+    /// a principal name association for the portfolio. Although this user may not know which
+    /// principal names are associated through Service Catalog, they may be able to guess
+    /// the user. If this potential escalation path is a concern, then Service Catalog recommends
+    /// using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the
+    /// <code>PrincipalARN</code> must already exist in the recipient account before it can
+    /// be associated. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -92,6 +103,23 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PortfolioId { get; set; }
+        #endregion
+        
+        #region Parameter SharePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables <code>Principal</code> sharing when creating the portfolio share.
+        /// If this flag is not provided, principal sharing is disabled. </para><para>When you enable Principal Name Sharing for a portfolio share, the share recipient
+        /// account end users with a principal that matches any of the associated IAM patterns
+        /// can provision products from the portfolio. Once shared, the share recipient can view
+        /// associations of <code>PrincipalType</code>: <code>IAM_PATTERN</code> on their portfolio.
+        /// You can create the principals in the recipient account before or after creating the
+        /// share. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SharePrincipals")]
+        public System.Boolean? SharePrincipal { get; set; }
         #endregion
         
         #region Parameter ShareTagOption
@@ -199,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 WriteWarning("You are passing $null as a value for parameter PortfolioId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SharePrincipal = this.SharePrincipal;
             context.ShareTagOption = this.ShareTagOption;
             
             // allow further manipulation of loaded context prior to processing
@@ -256,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.PortfolioId != null)
             {
                 request.PortfolioId = cmdletContext.PortfolioId;
+            }
+            if (cmdletContext.SharePrincipal != null)
+            {
+                request.SharePrincipals = cmdletContext.SharePrincipal.Value;
             }
             if (cmdletContext.ShareTagOption != null)
             {
@@ -327,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public Amazon.ServiceCatalog.OrganizationNodeType OrganizationNode_Type { get; set; }
             public System.String OrganizationNode_Value { get; set; }
             public System.String PortfolioId { get; set; }
+            public System.Boolean? SharePrincipal { get; set; }
             public System.Boolean? ShareTagOption { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse, NewSCPortfolioShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PortfolioShareToken;

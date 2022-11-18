@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The object that you want CloudFront to request from your origin (for example, <code>index.html</code>)
-        /// when a viewer requests the root URL for your distribution (<code>http://www.example.com</code>)
-        /// instead of an object in your distribution (<code>http://www.example.com/product-description.html</code>).
+        /// when a viewer requests the root URL for your distribution (<code>https://www.example.com</code>)
+        /// instead of an object in your distribution (<code>https://www.example.com/product-description.html</code>).
         /// Specifying a default root object avoids exposing the contents of your distribution.</para><para>Specify only the object name, for example, <code>index.html</code>. Don't add a <code>/</code>
         /// before the object name.</para><para>If you don't want to specify a default root object when you create a distribution,
         /// include an empty <code>DefaultRootObject</code> element.</para><para>To delete the default root object from an existing distribution, update the distribution

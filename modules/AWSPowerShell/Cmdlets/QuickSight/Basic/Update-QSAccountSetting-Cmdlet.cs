@@ -88,6 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String NotificationEmail { get; set; }
         #endregion
         
+        #region Parameter TerminationProtectionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that determines whether or not an Amazon QuickSight account can be
+        /// deleted. A <code>True</code> value doesn't allow the account to be deleted and results
+        /// in an error message if a user tries to make a <code>DeleteAccountSubscription</code>
+        /// request. A <code>False</code> value will allow the account to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TerminationProtectionEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -164,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.NotificationEmail = this.NotificationEmail;
+            context.TerminationProtectionEnabled = this.TerminationProtectionEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.NotificationEmail != null)
             {
                 request.NotificationEmail = cmdletContext.NotificationEmail;
+            }
+            if (cmdletContext.TerminationProtectionEnabled != null)
+            {
+                request.TerminationProtectionEnabled = cmdletContext.TerminationProtectionEnabled.Value;
             }
             
             CmdletOutput output;
@@ -256,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsAccountId { get; set; }
             public System.String DefaultNamespace { get; set; }
             public System.String NotificationEmail { get; set; }
+            public System.Boolean? TerminationProtectionEnabled { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateAccountSettingsResponse, UpdateQSAccountSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -28,8 +28,9 @@ using Amazon.Appflow.Model;
 namespace Amazon.PowerShell.Cmdlets.AF
 {
     /// <summary>
-    /// Registers a new connector with your Amazon Web Services account. Before you can register
-    /// the connector, you must deploy lambda in your account.
+    /// Registers a new custom connector with your Amazon Web Services account. Before you
+    /// can register the connector, you must deploy the associated AWS lambda function in
+    /// your account.
     /// </summary>
     [Cmdlet("Register", "AFConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

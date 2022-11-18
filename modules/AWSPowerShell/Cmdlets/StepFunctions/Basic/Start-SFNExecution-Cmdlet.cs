@@ -30,11 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <summary>
     /// Starts a state machine execution.
     /// 
-    ///  <note><para><code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called
-    /// with the same name and input as a running execution, the call will succeed and return
-    /// the same response as the original request. If the execution is closed or if the input
-    /// is different, it will return a 400 <code>ExecutionAlreadyExists</code> error. Names
-    /// can be reused after 90 days. 
+    ///  <note><para><code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For
+    /// a <code>STANDARD</code> workflow, if <code>StartExecution</code> is called with the
+    /// same name and input as a running execution, the call will succeed and return the same
+    /// response as the original request. If the execution is closed or if the input is different,
+    /// it will return a <code>400 ExecutionAlreadyExists</code> error. Names can be reused
+    /// after 90 days. 
+    /// </para><para><code>StartExecution</code> is not idempotent for <code>EXPRESS</code> workflows.
+    /// 
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the execution. This name must be unique for your AWS account, region,
-        /// and state machine for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-        /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
+        /// <para>The name of the execution. This name must be unique for your Amazon Web Services account,
+        /// region, and state machine for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// Limits Related to State Machine Executions</a> in the <i>Step Functions Developer
         /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
         /// - and _.</para>
         /// </para>
@@ -92,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter TraceHeader
         /// <summary>
         /// <para>
-        /// <para>Passes the AWS X-Ray trace header. The trace header can also be passed in the request
+        /// <para>Passes the X-Ray trace header. The trace header can also be passed in the request
         /// payload.</para>
         /// </para>
         /// </summary>

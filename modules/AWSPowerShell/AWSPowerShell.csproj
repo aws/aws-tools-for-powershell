@@ -193,6 +193,9 @@
     <Reference Include="AWSSDK.ChimeSDKMessaging">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKMessaging.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ChimeSDKVoice">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKVoice.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Cloud9">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Cloud9.dll</HintPath>
     </Reference>
@@ -522,6 +525,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTRoboRunner">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTRoboRunner.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoTSecureTunneling.dll</HintPath>
@@ -919,6 +925,9 @@
     <Reference Include="AWSSDK.SSMIncidents">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSMIncidents.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SsmSap">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SsmSap.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SSO.dll</HintPath>
     </Reference>
@@ -1133,6 +1142,9 @@
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKMessaging">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKMessaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ChimeSDKVoice">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKVoice.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Cloud9">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Cloud9.dll</HintPath>
@@ -1463,6 +1475,9 @@
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.IoTRoboRunner">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTRoboRunner.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTSecureTunneling.dll</HintPath>
@@ -1859,6 +1874,9 @@
     </Reference>
     <Reference Include="AWSSDK.SSMIncidents">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSMIncidents.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SsmSap">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SsmSap.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SSO">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SSO.dll</HintPath>

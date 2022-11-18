@@ -29,6 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
     /// Uploads one or more pieces of evidence to a control in an Audit Manager assessment.
+    /// You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3)
+    /// bucket by specifying the S3 URI of the evidence. 
+    /// 
+    ///  
+    /// <para>
+    /// You must upload manual evidence to your S3 bucket before you can upload it to your
+    /// assessment. For instructions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>
+    /// and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a>
+    /// in the <i>Amazon Simple Storage Service API Reference.</i></para><para>
+    /// The following restrictions apply to this action:
+    /// </para><ul><li><para>
+    /// Maximum size of an individual evidence file: 100 MB
+    /// </para></li><li><para>
+    /// Number of daily manual evidence uploads per control: 100
+    /// </para></li><li><para>
+    /// Supported file formats: See <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files">Supported
+    /// file types for manual evidence</a> in the <i>Audit Manager User Guide</i></para></li></ul><para>
+    /// For more information about Audit Manager service restrictions, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas
+    /// and restrictions for Audit Manager</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "AUDMEvidenceToAssessmentControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.BatchImportEvidenceToAssessmentControlError")]

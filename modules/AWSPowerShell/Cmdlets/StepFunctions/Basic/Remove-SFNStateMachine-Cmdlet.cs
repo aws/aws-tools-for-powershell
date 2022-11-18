@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// status to <code>DELETING</code> and begins the deletion process. 
     /// 
     ///  <note><para>
-    /// For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually
+    /// For <code>EXPRESS</code> state machines, the deletion will happen eventually (usually
     /// less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
     /// API is called.
     /// </para></note>

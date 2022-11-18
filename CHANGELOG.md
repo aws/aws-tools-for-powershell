@@ -1,4 +1,47 @@
-﻿### 4.1.210 (2022-11-17 21:53Z)
+﻿### 4.1.211 (2022-11-18 23:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.421.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Added cmdlet Update-AFConnectorRegistration leveraging the UpdateConnectorRegistration service API.
+  * Amazon Audit Manager
+    * Modified cmdlet Edit-AUDMSetting: added parameter EvidenceFinderEnabled.
+    * Modified cmdlet New-AUDMAssessmentReport: added parameter QueryStatement.
+  * Amazon Chime SDK Voice. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CHMVO and can be listed using the command 'Get-AWSCmdletName -Service CHMVO'.
+  * Amazon CloudFront
+    * Added cmdlet Copy-CFDistribution leveraging the CopyDistribution service API.
+    * Added cmdlet Get-CFContinuousDeploymentPolicy leveraging the GetContinuousDeploymentPolicy service API.
+    * Added cmdlet Get-CFContinuousDeploymentPolicyConfig leveraging the GetContinuousDeploymentPolicyConfig service API.
+    * Added cmdlet Get-CFContinuousDeploymentPolicyList leveraging the ListContinuousDeploymentPolicies service API.
+    * Added cmdlet New-CFContinuousDeploymentPolicy leveraging the CreateContinuousDeploymentPolicy service API.
+    * Added cmdlet Remove-CFContinuousDeploymentPolicy leveraging the DeleteContinuousDeploymentPolicy service API.
+    * Added cmdlet Update-CFContinuousDeploymentPolicy leveraging the UpdateContinuousDeploymentPolicy service API.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNSecurityProfile: added parameters AllowedAccessControlTag and TagRestrictedResource.
+    * Modified cmdlet Update-CONNSecurityProfile: added parameters AllowedAccessControlTag and TagRestrictedResource.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Copy-EC2Image: added parameter CopyImageTag.
+  * Amazon IoT RoboRunner. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IOTRR and can be listed using the command 'Get-AWSCmdletName -Service IOTRR'.
+  * Amazon QuickSight
+    * Added cmdlet Remove-QSAccountSubscription leveraging the DeleteAccountSubscription service API.
+    * Added cmdlet Search-QSDataSet leveraging the SearchDataSets service API.
+    * Added cmdlet Search-QSDataSource leveraging the SearchDataSources service API.
+    * Modified cmdlet New-QSDataSource: added parameters AthenaParameters_RoleArn, DatabricksParameters_Host, DatabricksParameters_Port and DatabricksParameters_SqlEndpointPath.
+    * Modified cmdlet New-QSEmbedUrlForAnonymousUser: added parameter QSearchBar_InitialTopicId.
+    * Modified cmdlet Update-QSAccountSetting: added parameter TerminationProtectionEnabled.
+    * Modified cmdlet Update-QSDataSource: added parameters AthenaParameters_RoleArn, DatabricksParameters_Host, DatabricksParameters_Port and DatabricksParameters_SqlEndpointPath.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMTrainingJob: added parameter ProfilerConfig_DisableProfiler.
+  * Amazon Service Catalog
+    * Modified cmdlet New-SCPortfolioShare: added parameter SharePrincipal.
+    * Modified cmdlet New-SCProduct: added parameters CodeStar_ArtifactPath, CodeStar_Branch, CodeStar_ConnectionArn, CodeStar_Repository and SourceConnection_Type.
+    * Modified cmdlet Unregister-SCPrincipalFromPortfolio: added parameter PrincipalType.
+    * Modified cmdlet Update-SCPortfolioShare: added parameter SharePrincipal.
+    * Modified cmdlet Update-SCProduct: added parameters CodeStar_ArtifactPath, CodeStar_Branch, CodeStar_ConnectionArn, CodeStar_Repository and SourceConnection_Type.
+  * Amazon Systems Manager for SAP
+    * Modified cmdlet Get-SMSAPApplicationList: added parameter NoAutoIteration.
+    * Modified cmdlet Get-SMSAPComponentList: added parameter NoAutoIteration.
+    * Modified cmdlet Get-SMSAPDatabasisList: added parameter NoAutoIteration.
+
+### 4.1.210 (2022-11-17 21:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.420.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Modified cmdlet New-AFFlow: added parameters GlueDataCatalog_DatabaseName, GlueDataCatalog_RoleArn and GlueDataCatalog_TablePrefix.

@@ -84,6 +84,24 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter QueryStatement
+        /// <summary>
+        /// <para>
+        /// <para>A SQL statement that represents an evidence finder query.</para><para>Provide this parameter when you want to generate an assessment report from the results
+        /// of an evidence finder search query. When you use this parameter, Audit Manager generates
+        /// a one-time report using only the evidence from the query output. This report does
+        /// not include any assessment evidence that was manually <a href="https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence">added
+        /// to a report using the console</a>, or <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html">associated
+        /// with a report using the API</a>. </para><para>To use this parameter, the <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus">enablementStatus</a>
+        /// of evidence finder must be <code>ENABLED</code>. </para><para> For examples and help resolving <code>queryStatement</code> validation exceptions,
+        /// see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions">Troubleshooting
+        /// evidence finder issues</a> in the AWS Audit Manager User Guide. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryStatement { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AssessmentReport'.
@@ -160,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.QueryStatement = this.QueryStatement;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.QueryStatement != null)
+            {
+                request.QueryStatement = cmdletContext.QueryStatement;
             }
             
             CmdletOutput output;
@@ -252,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             public System.String AssessmentId { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public System.String QueryStatement { get; set; }
             public System.Func<Amazon.AuditManager.Model.CreateAssessmentReportResponse, NewAUDMAssessmentReportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssessmentReport;
         }

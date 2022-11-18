@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>chime-sdk-voice</C2jFilename>
+    <AssemblyName>ChimeSDKVoice</AssemblyName>
+    <ServiceNounPrefix>CHMVO</ServiceNounPrefix>
+    <ServiceName>Amazon Chime SDK Voice</ServiceName>
+    <ServiceClientInterface>IAmazonChimeSDKVoice</ServiceClientInterface>
+    <ServiceClient>AmazonChimeSDKVoiceClient</ServiceClient>
+    <ServiceModuleGuid>3b0160dc-9339-4335-b366-bb373085bd02</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociatePhoneNumbersWithVoiceConnector" OutputProperty="PhoneNumberErrors" Verb="Add" Noun="PhoneNumbersWithVoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociatePhoneNumbersWithVoiceConnectorGroup" OutputProperty="PhoneNumberErrors" Verb="Add" Noun="PhoneNumbersWithVoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeletePhoneNumber" OutputProperty="PhoneNumberErrors" Verb="Group" Noun="DeletePhoneNumber" ShouldProcessTarget="PhoneNumberIds" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdatePhoneNumber" OutputProperty="PhoneNumberErrors" Verb="Group" Noun="UpdatePhoneNumber" ShouldProcessTarget="UpdatePhoneNumberRequestItems" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePhoneNumberOrder" OutputProperty="PhoneNumberOrder" Verb="New" Noun="PhoneNumberOrder" ShouldProcessTarget="ProductType" PipelineParameter="ProductType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxySession" OutputProperty="ProxySession" Verb="New" Noun="ProxySession" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSipMediaApplication" OutputProperty="SipMediaApplication" Verb="New" Noun="SipMediaApplication" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSipMediaApplicationCall" OutputProperty="SipMediaApplicationCall" Verb="New" Noun="SipMediaApplicationCall" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSipRule" OutputProperty="SipRule" Verb="New" Noun="SipRule" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVoiceConnector" OutputProperty="VoiceConnector" Verb="New" Noun="VoiceConnector" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVoiceConnectorGroup" OutputProperty="VoiceConnectorGroup" Verb="New" Noun="VoiceConnectorGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxySession" Verb="Remove" Noun="ProxySession" ShouldProcessTarget="ProxySessionId" PipelineParameter="ProxySessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSipMediaApplication" Verb="Remove" Noun="SipMediaApplication" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSipRule" Verb="Remove" Noun="SipRule" ShouldProcessTarget="SipRuleId" PipelineParameter="SipRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnector" Verb="Remove" Noun="VoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorEmergencyCallingConfiguration" Verb="Remove" Noun="VoiceConnectorEmergencyCallingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorGroup" Verb="Remove" Noun="VoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorOrigination" Verb="Remove" Noun="VoiceConnectorOrigination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorProxy" Verb="Remove" Noun="VoiceConnectorProxy" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorStreamingConfiguration" Verb="Remove" Noun="VoiceConnectorStreamingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorTermination" Verb="Remove" Noun="VoiceConnectorTermination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorTerminationCredentials" Verb="Remove" Noun="VoiceConnectorTerminationCredential" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePhoneNumbersFromVoiceConnector" OutputProperty="PhoneNumberErrors" Verb="Remove" Noun="PhoneNumbersFromVoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePhoneNumbersFromVoiceConnectorGroup" OutputProperty="PhoneNumberErrors" Verb="Remove" Noun="PhoneNumbersFromVoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGlobalSettings" OutputProperty="VoiceConnector" Verb="Get" Noun="GlobalSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPhoneNumber" OutputProperty="PhoneNumber" Verb="Get" Noun="PhoneNumber" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPhoneNumberOrder" OutputProperty="PhoneNumberOrder" Verb="Get" Noun="PhoneNumberOrder" PipelineParameter="PhoneNumberOrderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPhoneNumberSettings" OutputProperty="*" Verb="Get" Noun="PhoneNumberSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProxySession" OutputProperty="ProxySession" Verb="Get" Noun="ProxySession" PipelineParameter="ProxySessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipMediaApplication" OutputProperty="SipMediaApplication" Verb="Get" Noun="SipMediaApplication" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipMediaApplicationAlexaSkillConfiguration" OutputProperty="SipMediaApplicationAlexaSkillConfiguration" Verb="Get" Noun="SipMediaApplicationAlexaSkillConfiguration" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipMediaApplicationLoggingConfiguration" OutputProperty="SipMediaApplicationLoggingConfiguration" Verb="Get" Noun="SipMediaApplicationLoggingConfiguration" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSipRule" OutputProperty="SipRule" Verb="Get" Noun="SipRule" PipelineParameter="SipRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnector" OutputProperty="VoiceConnector" Verb="Get" Noun="VoiceConnector" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorEmergencyCallingConfiguration" OutputProperty="EmergencyCallingConfiguration" Verb="Get" Noun="VoiceConnectorEmergencyCallingConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorGroup" OutputProperty="VoiceConnectorGroup" Verb="Get" Noun="VoiceConnectorGroup" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Get" Noun="VoiceConnectorLoggingConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorOrigination" OutputProperty="Origination" Verb="Get" Noun="VoiceConnectorOrigination" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorProxy" OutputProperty="Proxy" Verb="Get" Noun="VoiceConnectorProxy" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorStreamingConfiguration" OutputProperty="StreamingConfiguration" Verb="Get" Noun="VoiceConnectorStreamingConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorTermination" OutputProperty="Termination" Verb="Get" Noun="VoiceConnectorTermination" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorTerminationHealth" OutputProperty="TerminationHealth" Verb="Get" Noun="VoiceConnectorTerminationHealth" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableVoiceConnectorRegions" OutputProperty="VoiceConnectorRegions" Verb="Get" Noun="AvailableVoiceConnectorRegionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPhoneNumberOrders" OutputProperty="PhoneNumberOrders" Verb="Get" Noun="PhoneNumberOrderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumberList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProxySessions" OutputProperty="ProxySessions" Verb="Get" Noun="ProxySessionList" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSipMediaApplications" OutputProperty="SipMediaApplications" Verb="Get" Noun="SipMediaApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSipRules" OutputProperty="SipRules" Verb="Get" Noun="SipRuleList" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSupportedPhoneNumberCountries" OutputProperty="PhoneNumberCountries" Verb="Get" Noun="SupportedPhoneNumberCountryList" PipelineParameter="ProductType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceConnectorGroups" OutputProperty="VoiceConnectorGroups" Verb="Get" Noun="VoiceConnectorGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceConnectors" OutputProperty="VoiceConnectors" Verb="Get" Noun="VoiceConnectorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceConnectorTerminationCredentials" OutputProperty="Usernames" Verb="Get" Noun="VoiceConnectorTerminationCredentialList" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSipMediaApplicationAlexaSkillConfiguration" OutputProperty="SipMediaApplicationAlexaSkillConfiguration" Verb="Write" Noun="SipMediaApplicationAlexaSkillConfiguration" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSipMediaApplicationLoggingConfiguration" OutputProperty="SipMediaApplicationLoggingConfiguration" Verb="Write" Noun="SipMediaApplicationLoggingConfiguration" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorEmergencyCallingConfiguration" OutputProperty="EmergencyCallingConfiguration" Verb="Write" Noun="VoiceConnectorEmergencyCallingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Write" Noun="VoiceConnectorLoggingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorOrigination" OutputProperty="Origination" Verb="Write" Noun="VoiceConnectorOrigination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorProxy" OutputProperty="Proxy" Verb="Write" Noun="VoiceConnectorProxy" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorStreamingConfiguration" OutputProperty="StreamingConfiguration" Verb="Write" Noun="VoiceConnectorStreamingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorTermination" OutputProperty="Termination" Verb="Write" Noun="VoiceConnectorTermination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorTerminationCredentials" Verb="Write" Noun="VoiceConnectorTerminationCredential" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Credentials" NewName="Passwords" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestorePhoneNumber" OutputProperty="PhoneNumber" Verb="Restore" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchAvailablePhoneNumbers" OutputProperty="E164PhoneNumbers" Verb="Search" Noun="AvailablePhoneNumber" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="VoiceConnector_CdrBucket" PipelineParameter="VoiceConnector_CdrBucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePhoneNumber" OutputProperty="PhoneNumber" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePhoneNumberSettings" Verb="Update" Noun="PhoneNumberSetting" ShouldProcessTarget="CallingName" PipelineParameter="CallingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxySession" OutputProperty="ProxySession" Verb="Update" Noun="ProxySession" ShouldProcessTarget="ProxySessionId" PipelineParameter="ProxySessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSipMediaApplication" OutputProperty="SipMediaApplication" Verb="Update" Noun="SipMediaApplication" ShouldProcessTarget="SipMediaApplicationId" PipelineParameter="SipMediaApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSipMediaApplicationCall" OutputProperty="SipMediaApplicationCall" Verb="Update" Noun="SipMediaApplicationCall" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSipRule" OutputProperty="SipRule" Verb="Update" Noun="SipRule" ShouldProcessTarget="SipRuleId" PipelineParameter="SipRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVoiceConnector" OutputProperty="VoiceConnector" Verb="Update" Noun="VoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVoiceConnectorGroup" OutputProperty="VoiceConnectorGroup" Verb="Update" Noun="VoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateE911Address" OutputProperty="*" Verb="Confirm" Noun="E911Address" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

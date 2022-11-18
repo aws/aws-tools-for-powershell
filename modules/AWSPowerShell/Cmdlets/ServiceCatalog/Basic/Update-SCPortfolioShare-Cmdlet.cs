@@ -28,12 +28,12 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates the specified portfolio share. You can use this API to enable or disable TagOptions
-    /// sharing for an existing portfolio share. 
+    /// Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code>
+    /// sharing or Principal sharing for an existing portfolio share. 
     /// 
     ///  
     /// <para>
-    /// The portfolio share cannot be updated if the <code> CreatePortfolioShare</code> operation
+    /// The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation
     /// is <code>IN_PROGRESS</code>, as the share is not available to recipient entities.
     /// In this case, you must wait for the portfolio share to be COMPLETED.
     /// </para><para>
@@ -46,7 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </para><para>
     /// This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code>
     /// API for that action. 
-    /// </para>
+    /// </para><note><para>
+    /// When you associate a principal with portfolio, a potential privilege escalation path
+    /// may occur when that portfolio is then shared with other accounts. For a user in a
+    /// recipient account who is <i>not</i> an Service Catalog Admin, but still has the ability
+    /// to create Principals (Users/Groups/Roles), that user could create a role that matches
+    /// a principal name association for the portfolio. Although this user may not know which
+    /// principal names are associated through Service Catalog, they may be able to guess
+    /// the user. If this potential escalation path is a concern, then Service Catalog recommends
+    /// using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, the
+    /// <code>PrincipalARN</code> must already exist in the recipient account before it can
+    /// be associated. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse")]
@@ -95,12 +106,25 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String PortfolioId { get; set; }
         #endregion
         
+        #region Parameter SharePrincipal
+        /// <summary>
+        /// <para>
+        /// <para>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If
+        /// this field is not provided, the current state of the <code>Principals</code> sharing
+        /// on the portfolio share will not be modified. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SharePrincipals")]
+        public System.Boolean? SharePrincipal { get; set; }
+        #endregion
+        
         #region Parameter ShareTagOption
         /// <summary>
         /// <para>
-        /// <para>A flag to enable or disable TagOptions sharing for the portfolio share. If this field
-        /// is not provided, the current state of TagOptions sharing on the portfolio share will
-        /// not be modified.</para>
+        /// <para>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this
+        /// field is not provided, the current state of TagOptions sharing on the portfolio share
+        /// will not be modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 WriteWarning("You are passing $null as a value for parameter PortfolioId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SharePrincipal = this.SharePrincipal;
             context.ShareTagOption = this.ShareTagOption;
             
             // allow further manipulation of loaded context prior to processing
@@ -258,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.PortfolioId != null)
             {
                 request.PortfolioId = cmdletContext.PortfolioId;
+            }
+            if (cmdletContext.SharePrincipal != null)
+            {
+                request.SharePrincipals = cmdletContext.SharePrincipal.Value;
             }
             if (cmdletContext.ShareTagOption != null)
             {
@@ -329,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public Amazon.ServiceCatalog.OrganizationNodeType OrganizationNode_Type { get; set; }
             public System.String OrganizationNode_Value { get; set; }
             public System.String PortfolioId { get; set; }
+            public System.Boolean? SharePrincipal { get; set; }
             public System.Boolean? ShareTagOption { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.UpdatePortfolioShareResponse, UpdateSCPortfolioShareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

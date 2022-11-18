@@ -130,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.DebugRuleConfiguration[] DebugRuleConfiguration { get; set; }
         #endregion
         
+        #region Parameter ProfilerConfig_DisableProfiler
+        /// <summary>
+        /// <para>
+        /// <para>To disable system monitoring and profiling, set to <code>True</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }
+        #endregion
+        
         #region Parameter EnableInterContainerTrafficEncryption
         /// <summary>
         /// <para>
@@ -664,6 +674,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter OutputDataConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProfilerConfig_DisableProfiler = this.ProfilerConfig_DisableProfiler;
             context.ProfilerConfig_ProfilingIntervalInMillisecond = this.ProfilerConfig_ProfilingIntervalInMillisecond;
             if (this.ProfilerConfig_ProfilingParameter != null)
             {
@@ -889,6 +900,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate ProfilerConfig
             var requestProfilerConfigIsNull = true;
             request.ProfilerConfig = new Amazon.SageMaker.Model.ProfilerConfig();
+            System.Boolean? requestProfilerConfig_profilerConfig_DisableProfiler = null;
+            if (cmdletContext.ProfilerConfig_DisableProfiler != null)
+            {
+                requestProfilerConfig_profilerConfig_DisableProfiler = cmdletContext.ProfilerConfig_DisableProfiler.Value;
+            }
+            if (requestProfilerConfig_profilerConfig_DisableProfiler != null)
+            {
+                request.ProfilerConfig.DisableProfiler = requestProfilerConfig_profilerConfig_DisableProfiler.Value;
+                requestProfilerConfigIsNull = false;
+            }
             System.Int64? requestProfilerConfig_profilerConfig_ProfilingIntervalInMillisecond = null;
             if (cmdletContext.ProfilerConfig_ProfilingIntervalInMillisecond != null)
             {
@@ -1129,6 +1150,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
+            public System.Boolean? ProfilerConfig_DisableProfiler { get; set; }
             public System.Int64? ProfilerConfig_ProfilingIntervalInMillisecond { get; set; }
             public Dictionary<System.String, System.String> ProfilerConfig_ProfilingParameter { get; set; }
             public System.String ProfilerConfig_S3OutputPath { get; set; }

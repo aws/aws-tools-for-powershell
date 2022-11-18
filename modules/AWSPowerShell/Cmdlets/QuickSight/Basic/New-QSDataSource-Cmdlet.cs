@@ -325,6 +325,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AuroraPostgreSqlParameters_Host { get; set; }
         #endregion
         
+        #region Parameter DatabricksParameters_Host
+        /// <summary>
+        /// <para>
+        /// <para>The host name of the Databricks data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_DatabricksParameters_Host")]
+        public System.String DatabricksParameters_Host { get; set; }
+        #endregion
+        
         #region Parameter ExasolParameters_Host
         /// <summary>
         /// <para>
@@ -540,6 +551,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Int32? AuroraPostgreSqlParameters_Port { get; set; }
         #endregion
         
+        #region Parameter DatabricksParameters_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port for the Databricks data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_DatabricksParameters_Port")]
+        public System.Int32? DatabricksParameters_Port { get; set; }
+        #endregion
+        
         #region Parameter ExasolParameters_Port
         /// <summary>
         /// <para>
@@ -661,6 +683,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String TwitterParameters_Query { get; set; }
         #endregion
         
+        #region Parameter AthenaParameters_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>RoleArn</code> structure to override an account-wide role for a specific
+        /// Athena data source. For example, say an account administrator has turned off all Athena
+        /// access with an account-wide role. The administrator can then use <code>RoleArn</code>
+        /// to bypass the account-wide role and allow Athena access for the single Athena data
+        /// source that is specified in the structure, even if the account-wide role forbidding
+        /// Athena access is still active.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_AthenaParameters_RoleArn")]
+        public System.String AthenaParameters_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Credentials_SecretArn
         /// <summary>
         /// <para>
@@ -692,6 +730,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_ServiceNowParameters_SiteBaseUrl")]
         public System.String ServiceNowParameters_SiteBaseUrl { get; set; }
+        #endregion
+        
+        #region Parameter DatabricksParameters_SqlEndpointPath
+        /// <summary>
+        /// <para>
+        /// <para>The HTTP path of the Databricks data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_DatabricksParameters_SqlEndpointPath")]
+        public System.String DatabricksParameters_SqlEndpointPath { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -851,6 +900,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #endif
             context.AmazonElasticsearchParameters_Domain = this.AmazonElasticsearchParameters_Domain;
             context.AmazonOpenSearchParameters_Domain = this.AmazonOpenSearchParameters_Domain;
+            context.AthenaParameters_RoleArn = this.AthenaParameters_RoleArn;
             context.AthenaParameters_WorkGroup = this.AthenaParameters_WorkGroup;
             context.AuroraParameters_Database = this.AuroraParameters_Database;
             context.AuroraParameters_Host = this.AuroraParameters_Host;
@@ -859,6 +909,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.AuroraPostgreSqlParameters_Host = this.AuroraPostgreSqlParameters_Host;
             context.AuroraPostgreSqlParameters_Port = this.AuroraPostgreSqlParameters_Port;
             context.AwsIotAnalyticsParameters_DataSetName = this.AwsIotAnalyticsParameters_DataSetName;
+            context.DatabricksParameters_Host = this.DatabricksParameters_Host;
+            context.DatabricksParameters_Port = this.DatabricksParameters_Port;
+            context.DatabricksParameters_SqlEndpointPath = this.DatabricksParameters_SqlEndpointPath;
             context.ExasolParameters_Host = this.ExasolParameters_Host;
             context.ExasolParameters_Port = this.ExasolParameters_Port;
             context.JiraParameters_SiteBaseUrl = this.JiraParameters_SiteBaseUrl;
@@ -1075,31 +1128,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.AmazonOpenSearchParameters = requestDataSourceParameters_dataSourceParameters_AmazonOpenSearchParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.AthenaParameters requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
-            
-             // populate AthenaParameters
-            var requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_AthenaParameters = new Amazon.QuickSight.Model.AthenaParameters();
-            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = null;
-            if (cmdletContext.AthenaParameters_WorkGroup != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = cmdletContext.AthenaParameters_WorkGroup;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters.WorkGroup = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup;
-                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_AthenaParameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters != null)
-            {
-                request.DataSourceParameters.AthenaParameters = requestDataSourceParameters_dataSourceParameters_AthenaParameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.AwsIotAnalyticsParameters requestDataSourceParameters_dataSourceParameters_AwsIotAnalyticsParameters = null;
             
              // populate AwsIotAnalyticsParameters
@@ -1223,6 +1251,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_ServiceNowParameters != null)
             {
                 request.DataSourceParameters.ServiceNowParameters = requestDataSourceParameters_dataSourceParameters_ServiceNowParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.AthenaParameters requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
+            
+             // populate AthenaParameters
+            var requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_AthenaParameters = new Amazon.QuickSight.Model.AthenaParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn = null;
+            if (cmdletContext.AthenaParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn = cmdletContext.AthenaParameters_RoleArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters.RoleArn = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_RoleArn;
+                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = null;
+            if (cmdletContext.AthenaParameters_WorkGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup = cmdletContext.AthenaParameters_WorkGroup;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters.WorkGroup = requestDataSourceParameters_dataSourceParameters_AthenaParameters_athenaParameters_WorkGroup;
+                requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_AthenaParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_AthenaParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_AthenaParameters != null)
+            {
+                request.DataSourceParameters.AthenaParameters = requestDataSourceParameters_dataSourceParameters_AthenaParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.ExasolParameters requestDataSourceParameters_dataSourceParameters_ExasolParameters = null;
@@ -1453,6 +1516,51 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_AuroraPostgreSqlParameters != null)
             {
                 request.DataSourceParameters.AuroraPostgreSqlParameters = requestDataSourceParameters_dataSourceParameters_AuroraPostgreSqlParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.DatabricksParameters requestDataSourceParameters_dataSourceParameters_DatabricksParameters = null;
+            
+             // populate DatabricksParameters
+            var requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_DatabricksParameters = new Amazon.QuickSight.Model.DatabricksParameters();
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host = null;
+            if (cmdletContext.DatabricksParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host = cmdletContext.DatabricksParameters_Host;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.Host = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Host;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+            System.Int32? requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port = null;
+            if (cmdletContext.DatabricksParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port = cmdletContext.DatabricksParameters_Port.Value;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.Port = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_Port.Value;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath = null;
+            if (cmdletContext.DatabricksParameters_SqlEndpointPath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath = cmdletContext.DatabricksParameters_SqlEndpointPath;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters.SqlEndpointPath = requestDataSourceParameters_dataSourceParameters_DatabricksParameters_databricksParameters_SqlEndpointPath;
+                requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_DatabricksParameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_DatabricksParameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_DatabricksParameters != null)
+            {
+                request.DataSourceParameters.DatabricksParameters = requestDataSourceParameters_dataSourceParameters_DatabricksParameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.MariaDbParameters requestDataSourceParameters_dataSourceParameters_MariaDbParameters = null;
@@ -1999,6 +2107,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String DataSourceId { get; set; }
             public System.String AmazonElasticsearchParameters_Domain { get; set; }
             public System.String AmazonOpenSearchParameters_Domain { get; set; }
+            public System.String AthenaParameters_RoleArn { get; set; }
             public System.String AthenaParameters_WorkGroup { get; set; }
             public System.String AuroraParameters_Database { get; set; }
             public System.String AuroraParameters_Host { get; set; }
@@ -2007,6 +2116,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AuroraPostgreSqlParameters_Host { get; set; }
             public System.Int32? AuroraPostgreSqlParameters_Port { get; set; }
             public System.String AwsIotAnalyticsParameters_DataSetName { get; set; }
+            public System.String DatabricksParameters_Host { get; set; }
+            public System.Int32? DatabricksParameters_Port { get; set; }
+            public System.String DatabricksParameters_SqlEndpointPath { get; set; }
             public System.String ExasolParameters_Host { get; set; }
             public System.Int32? ExasolParameters_Port { get; set; }
             public System.String JiraParameters_SiteBaseUrl { get; set; }

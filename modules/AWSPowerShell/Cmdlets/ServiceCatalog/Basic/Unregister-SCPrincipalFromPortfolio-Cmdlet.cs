@@ -29,6 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Disassociates a previously associated principal ARN from a specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the <code>AssociatePrincipalWithPortfolio</code>
+    /// call request details. For example, to disassociate an association created with a <code>PrincipalARN</code>
+    /// of <code>PrincipalType</code> IAM you must use the <code>PrincipalType</code> IAM
+    /// when calling <code>DisassociatePrincipalFromPortfolio</code>. 
+    /// </para><para>
+    /// For portfolios that have been shared with principal name sharing enabled: after disassociating
+    /// a principal, share recipient accounts will no longer be able to provision products
+    /// in this portfolio using a role matching the name of the associated principal. 
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "SCPrincipalFromPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -70,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the principal (IAM user, role, or group).</para>
+        /// <para>The ARN of the principal (IAM user, role, or group). This field allows an ARN with
+        /// no <code>accountID</code> if <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PrincipalARN { get; set; }
+        #endregion
+        
+        #region Parameter PrincipalType
+        /// <summary>
+        /// <para>
+        /// <para>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
+        /// if you use no <code>accountID</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.PrincipalType")]
+        public Amazon.ServiceCatalog.PrincipalType PrincipalType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 WriteWarning("You are passing $null as a value for parameter PrincipalARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PrincipalType = this.PrincipalType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.PrincipalARN != null)
             {
                 request.PrincipalARN = cmdletContext.PrincipalARN;
+            }
+            if (cmdletContext.PrincipalType != null)
+            {
+                request.PrincipalType = cmdletContext.PrincipalType;
             }
             
             CmdletOutput output;
@@ -251,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public System.String PortfolioId { get; set; }
             public System.String PrincipalARN { get; set; }
+            public Amazon.ServiceCatalog.PrincipalType PrincipalType { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse, UnregisterSCPrincipalFromPortfolioCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

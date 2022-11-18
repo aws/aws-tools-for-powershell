@@ -29,11 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Creates an activity. An activity is a task that you write in any programming language
-    /// and host on any machine that has access to AWS Step Functions. Activities must poll
-    /// Step Functions using the <code>GetActivityTask</code> API action and respond using
-    /// <code>SendTask*</code> API actions. This function lets Step Functions know the existence
-    /// of your activity and returns an identifier for use in a state machine and when polling
-    /// from the activity.
+    /// and host on any machine that has access to Step Functions. Activities must poll Step
+    /// Functions using the <code>GetActivityTask</code> API action and respond using <code>SendTask*</code>
+    /// API actions. This function lets Step Functions know the existence of your activity
+    /// and returns an identifier for use in a state machine and when polling from the activity.
     /// 
     ///  <note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
@@ -58,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the activity to create. This name must be unique for your AWS account
-        /// and region for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-        /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
+        /// <para>The name of the activity to create. This name must be unique for your Amazon Web Services
+        /// account and region for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// Limits Related to State Machine Executions</a> in the <i>Step Functions Developer
         /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
         /// - and _.</para>
         /// </para>
@@ -80,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>The list of tags to add to a resource.</para><para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>,
-        /// and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
         /// Access Using IAM Tags</a>.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
         /// . : / = + - @</code>.</para>
         /// </para>

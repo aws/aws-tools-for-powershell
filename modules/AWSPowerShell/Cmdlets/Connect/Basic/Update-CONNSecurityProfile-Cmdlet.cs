@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class UpdateCONNSecurityProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowedAccessControlTag
+        /// <summary>
+        /// <para>
+        /// <para>The list of tags that a security profile uses to restrict access to resources in Amazon
+        /// Connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AllowedAccessControlTags")]
+        public System.Collections.Hashtable AllowedAccessControlTag { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -101,6 +113,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SecurityProfileId { get; set; }
+        #endregion
+        
+        #region Parameter TagRestrictedResource
+        /// <summary>
+        /// <para>
+        /// <para>The list of resources that a security profile applies tag restrictions to in Amazon
+        /// Connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagRestrictedResources")]
+        public System.String[] TagRestrictedResource { get; set; }
         #endregion
         
         #region Parameter Select
@@ -163,6 +187,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.SecurityProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AllowedAccessControlTag != null)
+            {
+                context.AllowedAccessControlTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AllowedAccessControlTag.Keys)
+                {
+                    context.AllowedAccessControlTag.Add((String)hashKey, (String)(this.AllowedAccessControlTag[hashKey]));
+                }
+            }
             context.Description = this.Description;
             context.InstanceId = this.InstanceId;
             #if MODULAR
@@ -182,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter SecurityProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagRestrictedResource != null)
+            {
+                context.TagRestrictedResource = new List<System.String>(this.TagRestrictedResource);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.UpdateSecurityProfileRequest();
             
+            if (cmdletContext.AllowedAccessControlTag != null)
+            {
+                request.AllowedAccessControlTags = cmdletContext.AllowedAccessControlTag;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -213,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.SecurityProfileId != null)
             {
                 request.SecurityProfileId = cmdletContext.SecurityProfileId;
+            }
+            if (cmdletContext.TagRestrictedResource != null)
+            {
+                request.TagRestrictedResources = cmdletContext.TagRestrictedResource;
             }
             
             CmdletOutput output;
@@ -275,10 +319,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> AllowedAccessControlTag { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public List<System.String> Permission { get; set; }
             public System.String SecurityProfileId { get; set; }
+            public List<System.String> TagRestrictedResource { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateSecurityProfileResponse, UpdateCONNSecurityProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// service holds on to the request before responding is 60 seconds. If no task is available
     /// within 60 seconds, the poll returns a <code>taskToken</code> with a null string.
     /// 
-    ///  <important><para>
+    ///  <note><para>
+    /// This API action isn't logged in CloudTrail.
+    /// </para></note><important><para>
     /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
     /// higher than the maximum time the service may hold the poll request).
     /// </para><para>

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The access key ID of the owner of the bucket. Before you specify a value for your
         /// access key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best
-        /// Practices for Managing Amazon Web Services Access Keys</a>.</para>
+        /// practices for managing Amazon Web Services access keys</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

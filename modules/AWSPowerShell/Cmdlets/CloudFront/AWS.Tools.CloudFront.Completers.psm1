@@ -128,6 +128,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.ContinuousDeploymentPolicyType
+        {
+            ($_ -eq "New-CFContinuousDeploymentPolicy/ContinuousDeploymentPolicyConfig_TrafficConfig_Type") -Or
+            ($_ -eq "Update-CFContinuousDeploymentPolicy/ContinuousDeploymentPolicyConfig_TrafficConfig_Type")
+        }
+        {
+            $v = "SingleHeader","SingleWeight"
+            break
+        }
+
         # Amazon.CloudFront.FrameOptionsList
         {
             ($_ -eq "New-CFResponseHeadersPolicy/ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption") -Or
@@ -343,6 +353,7 @@ $CF_map = @{
     "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
     "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
     "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
+    "ContinuousDeploymentPolicyConfig_TrafficConfig_Type"=@("New-CFContinuousDeploymentPolicy","Update-CFContinuousDeploymentPolicy")
     "DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_HttpVersion"=@("New-CFDistribution","Update-CFDistribution")
@@ -426,8 +437,10 @@ $CF_SelectCompleters = {
 
 $CF_SelectMap = @{
     "Select"=@("Move-CFAlias",
+               "Copy-CFDistribution",
                "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
+               "New-CFContinuousDeploymentPolicy",
                "New-CFDistribution",
                "New-CFDistributionWithTag",
                "New-CFFieldLevelEncryptionConfig",
@@ -445,6 +458,7 @@ $CF_SelectMap = @{
                "New-CFStreamingDistributionWithTag",
                "Remove-CFCachePolicy",
                "Remove-CFCloudFrontOriginAccessIdentity",
+               "Remove-CFContinuousDeploymentPolicy",
                "Remove-CFDistribution",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
@@ -462,6 +476,8 @@ $CF_SelectMap = @{
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
                "Get-CFCloudFrontOriginAccessIdentityConfig",
+               "Get-CFContinuousDeploymentPolicy",
+               "Get-CFContinuousDeploymentPolicyConfig",
                "Get-CFDistribution",
                "Get-CFDistributionConfig",
                "Get-CFFieldLevelEncryption",
@@ -487,6 +503,7 @@ $CF_SelectMap = @{
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFConflictingAlias",
+               "Get-CFContinuousDeploymentPolicyList",
                "Get-CFDistributionList",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByKeyGroup",
@@ -512,6 +529,7 @@ $CF_SelectMap = @{
                "Remove-CFResourceTag",
                "Update-CFCachePolicy",
                "Update-CFCloudFrontOriginAccessIdentity",
+               "Update-CFContinuousDeploymentPolicy",
                "Update-CFDistribution",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",

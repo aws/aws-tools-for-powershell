@@ -72,6 +72,23 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
         #endregion
         
+        #region Parameter EvidenceFinderEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the evidence finder feature is enabled. Change this attribute to
+        /// enable or disable evidence finder.</para><important><para>When you use this attribute to disable evidence finder, Audit Manager deletes the
+        /// event data store that’s used to query your evidence data. As a result, you can’t re-enable
+        /// evidence finder and use the feature again. Your only alternative is to <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister</a>
+        /// and then <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html">re-register</a>
+        /// Audit Manager. </para><para>Disabling evidence finder is permanent, so consider this decision carefully before
+        /// you proceed. If you’re using Audit Manager as a delegated administrator, keep in mind
+        /// that this action applies to all member accounts in your organization.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EvidenceFinderEnabled { get; set; }
+        #endregion
+        
         #region Parameter KmsKey
         /// <summary>
         /// <para>
@@ -140,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             {
                 context.DefaultProcessOwner = new List<Amazon.AuditManager.Model.Role>(this.DefaultProcessOwner);
             }
+            context.EvidenceFinderEnabled = this.EvidenceFinderEnabled;
             context.KmsKey = this.KmsKey;
             context.SnsTopic = this.SnsTopic;
             
@@ -190,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             if (cmdletContext.DefaultProcessOwner != null)
             {
                 request.DefaultProcessOwners = cmdletContext.DefaultProcessOwner;
+            }
+            if (cmdletContext.EvidenceFinderEnabled != null)
+            {
+                request.EvidenceFinderEnabled = cmdletContext.EvidenceFinderEnabled.Value;
             }
             if (cmdletContext.KmsKey != null)
             {
@@ -263,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             public System.String DefaultAssessmentReportsDestination_Destination { get; set; }
             public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
             public List<Amazon.AuditManager.Model.Role> DefaultProcessOwner { get; set; }
+            public System.Boolean? EvidenceFinderEnabled { get; set; }
             public System.String KmsKey { get; set; }
             public System.String SnsTopic { get; set; }
             public System.Func<Amazon.AuditManager.Model.UpdateSettingsResponse, EditAUDMSettingCmdlet, object> Select { get; set; } =

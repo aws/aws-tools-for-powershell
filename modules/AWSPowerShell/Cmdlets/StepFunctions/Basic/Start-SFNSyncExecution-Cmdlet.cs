@@ -28,7 +28,17 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Starts a Synchronous Express state machine execution.
+    /// Starts a Synchronous Express state machine execution. <code>StartSyncExecution</code>
+    /// is not available for <code>STANDARD</code> workflows.
+    /// 
+    ///  <note><para><code>StartSyncExecution</code> will return a <code>200 OK</code> response, even
+    /// if your execution fails, because the status code in the API response doesn't reflect
+    /// function errors. Error codes are reserved for errors that prevent your execution from
+    /// running, such as permissions errors, limit errors, or issues with your state machine
+    /// code and configuration. 
+    /// </para></note><note><para>
+    /// This API action isn't logged in CloudTrail.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "SFNSyncExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.StartSyncExecutionResponse")]
@@ -81,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter TraceHeader
         /// <summary>
         /// <para>
-        /// <para>Passes the AWS X-Ray trace header. The trace header can also be passed in the request
+        /// <para>Passes the X-Ray trace header. The trace header can also be passed in the request
         /// payload.</para>
         /// </para>
         /// </summary>

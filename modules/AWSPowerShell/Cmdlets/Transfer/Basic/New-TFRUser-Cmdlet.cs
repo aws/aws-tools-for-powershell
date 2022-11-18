@@ -174,7 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>The public portion of the Secure Shell (SSH) key used to authenticate the user to
-        /// the server.</para><para>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</para>
+        /// the server.</para><para>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,
+        /// <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with
+        /// spaces between each element.</para><para>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</para><ul><li><para>For RSA keys, the key type is <code>ssh-rsa</code>.</para></li><li><para>For ED25519 keys, the key type is <code>ssh-ed25519</code>.</para></li><li><para>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>,
+        /// or <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
     /// User Guide</i>.
     /// </para><para>
-    /// For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying
-    /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an
+    /// AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class CopyEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter CopyImageTag
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to include your user-defined AMI tags when copying the AMI.</para><para>The following tags will not be copied:</para><ul><li><para>System tags (prefixed with <code>aws:</code>)</para></li><li><para>For public and shared AMIs, user-defined tags that are attached by other Amazon Web
+        /// Services accounts</para></li></ul><para>Default: Your user-defined AMI tags are not copied.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CopyImageTags")]
+        public System.Boolean? CopyImageTag { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -81,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// this parameter when copying an AMI from an Amazon Web Services Region to an Outpost.
         /// The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from
         /// an Outpost to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-        /// Copying AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon
-        /// Elastic Compute Cloud User Guide</i>.</para>
+        /// Copy AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon Elastic
+        /// Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you
         /// specify a non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.CopyImageTag = this.CopyImageTag;
             context.Description = this.Description;
             context.DestinationOutpostArn = this.DestinationOutpostArn;
             context.Encrypted = this.Encrypted;
@@ -288,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.CopyImageTag != null)
+            {
+                request.CopyImageTags = cmdletContext.CopyImageTag.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -379,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? CopyImageTag { get; set; }
             public System.String Description { get; set; }
             public System.String DestinationOutpostArn { get; set; }
             public System.Boolean? Encrypted { get; set; }

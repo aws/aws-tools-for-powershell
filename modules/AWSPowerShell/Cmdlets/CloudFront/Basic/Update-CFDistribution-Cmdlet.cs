@@ -28,66 +28,31 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Updates the configuration for a web distribution. 
+    /// Updates the configuration for a CloudFront distribution.
     /// 
-    ///  <important><para>
-    /// When you update a distribution, there are more required fields than when you create
-    /// a distribution. When you update your distribution by using this API action, follow
-    /// the steps here to get the current configuration and then make your updates, to make
-    /// sure that you include all of the required fields. To view a summary, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
-    /// Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront
-    /// Developer Guide</i>.
-    /// </para></important><para>
+    ///  
+    /// <para>
     /// The update process includes getting the current distribution configuration, updating
-    /// the XML document that is returned to make your changes, and then submitting an <code>UpdateDistribution</code>
-    /// request to make the updates.
-    /// </para><para>
-    /// For information about updating a distribution using the CloudFront console instead,
-    /// see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html">Creating
-    /// a Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.
+    /// it to make your changes, and then submitting an <code>UpdateDistribution</code> request
+    /// to make the updates.
     /// </para><para><b>To update a web distribution using the CloudFront API</b></para><ol><li><para>
-    /// Submit a <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html">GetDistributionConfig</a>
-    /// request to get the current configuration and an <code>Etag</code> header for the distribution.
-    /// </para><note><para>
-    /// If you update the distribution again, you must get a new <code>Etag</code> header.
-    /// </para></note></li><li><para>
-    /// Update the XML document that was returned in the response to your <code>GetDistributionConfig</code>
-    /// request to include your changes. 
-    /// </para><important><para>
-    /// When you edit the XML file, be aware of the following:
+    /// Use <code>GetDistributionConfig</code> to get the current configuration, including
+    /// the version identifier (<code>ETag</code>).
+    /// </para></li><li><para>
+    /// Update the distribution configuration that was returned in the response. Note the
+    /// following important requirements and restrictions:
     /// </para><ul><li><para>
-    /// You must strip out the ETag parameter that is returned.
+    /// You must rename the <code>ETag</code> field to <code>IfMatch</code>, leaving the value
+    /// unchanged. (Set the value of <code>IfMatch</code> to the value of <code>ETag</code>,
+    /// then remove the <code>ETag</code> field.)
     /// </para></li><li><para>
-    /// Additional fields are required when you update a distribution. There may be fields
-    /// included in the XML file for features that you haven't configured for your distribution.
-    /// This is expected and required to successfully update the distribution.
-    /// </para></li><li><para>
-    /// You can't change the value of <code>CallerReference</code>. If you try to change this
-    /// value, CloudFront returns an <code>IllegalUpdate</code> error. 
-    /// </para></li><li><para>
-    /// The new configuration replaces the existing configuration; the values that you specify
-    /// in an <code>UpdateDistribution</code> request are not merged into your existing configuration.
-    /// When you add, delete, or replace values in an element that allows multiple values
-    /// (for example, <code>CNAME</code>), you must specify all of the values that you want
-    /// to appear in the updated distribution. In addition, you must update the corresponding
-    /// <code>Quantity</code> element.
-    /// </para></li></ul></important></li><li><para>
-    /// Submit an <code>UpdateDistribution</code> request to update the configuration for
-    /// your distribution:
-    /// </para><ul><li><para>
-    /// In the request body, include the XML document that you updated in Step 2. The request
-    /// body must include an XML document with a <code>DistributionConfig</code> element.
-    /// </para></li><li><para>
-    /// Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code>
-    /// header that CloudFront returned when you submitted the <code>GetDistributionConfig</code>
-    /// request in Step 1.
+    /// You can’t change the value of <code>CallerReference</code>.
     /// </para></li></ul></li><li><para>
-    /// Review the response to the <code>UpdateDistribution</code> request to confirm that
-    /// the configuration was successfully updated.
-    /// </para></li><li><para>
-    /// Optional: Submit a <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a>
-    /// request to confirm that your changes have propagated. When propagation is complete,
-    /// the value of <code>Status</code> is <code>Deployed</code>.
+    /// Submit an <code>UpdateDistribution</code> request, providing the distribution configuration.
+    /// The new configuration replaces the existing configuration. The values that you specify
+    /// in an <code>UpdateDistribution</code> request are not merged into your existing configuration.
+    /// Make sure to include all fields: the ones that you modified and also the ones that
+    /// you didn’t.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -212,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The object that you want CloudFront to request from your origin (for example, <code>index.html</code>)
-        /// when a viewer requests the root URL for your distribution (<code>http://www.example.com</code>)
-        /// instead of an object in your distribution (<code>http://www.example.com/product-description.html</code>).
+        /// when a viewer requests the root URL for your distribution (<code>https://www.example.com</code>)
+        /// instead of an object in your distribution (<code>https://www.example.com/product-description.html</code>).
         /// Specifying a default root object avoids exposing the contents of your distribution.</para><para>Specify only the object name, for example, <code>index.html</code>. Don't add a <code>/</code>
         /// before the object name.</para><para>If you don't want to specify a default root object when you create a distribution,
         /// include an empty <code>DefaultRootObject</code> element.</para><para>To delete the default root object from an existing distribution, update the distribution

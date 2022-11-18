@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameters_DisableTemplateValidation
         /// <summary>
         /// <para>
-        /// <para>If set to true, Amazon Web Services Service Catalog stops validating the specified
-        /// provisioning artifact even if it is invalid.</para>
+        /// <para>If set to true, Service Catalog stops validating the specified provisioning artifact
+        /// even if it is invalid.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,20 +95,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>Specify the template source with one of the following options, but not both. Keys
-        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit,
-        /// or GitHub in JSON format. Specify the URL in JSON format as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
+        /// accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</para><para>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. Specify
+        /// the URL in JSON format as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para><para><code>ImportFromPhysicalId</code>: The physical id of the resource that contains
         /// the template. Currently only supports CloudFormation stack arn. Specify the physical
         /// id in JSON format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code></para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Collections.Hashtable Parameters_Info { get; set; }
         #endregion
         
@@ -224,12 +217,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
                     context.Parameters_Info.Add((String)hashKey, (String)(this.Parameters_Info[hashKey]));
                 }
             }
-            #if MODULAR
-            if (this.Parameters_Info == null && ParameterWasBound(nameof(this.Parameters_Info)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Parameters_Info which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Parameters_Name = this.Parameters_Name;
             context.Parameters_Type = this.Parameters_Type;
             context.ProductId = this.ProductId;

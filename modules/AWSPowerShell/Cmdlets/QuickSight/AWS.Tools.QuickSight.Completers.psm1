@@ -133,7 +133,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
             break
         }
 
@@ -337,6 +337,7 @@ $QS_SelectMap = @{
                "New-QSTheme",
                "New-QSThemeAlias",
                "Remove-QSAccountCustomization",
+               "Remove-QSAccountSubscription",
                "Remove-QSAnalysis",
                "Remove-QSDashboard",
                "Remove-QSDataSet",
@@ -410,6 +411,8 @@ $QS_SelectMap = @{
                "Restore-QSAnalysis",
                "Search-QSAnalysis",
                "Search-QSDashboard",
+               "Search-QSDataSet",
+               "Search-QSDataSource",
                "Search-QSFolder",
                "Find-QSGroup",
                "Add-QSResourceTag",

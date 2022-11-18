@@ -28,8 +28,8 @@ using Amazon.Appflow.Model;
 namespace Amazon.PowerShell.Cmdlets.AF
 {
     /// <summary>
-    /// Unregisters the custom connector registered in your account that matches the connectorLabel
-    /// provided in the request.
+    /// Unregisters the custom connector registered in your account that matches the connector
+    /// label provided in the request.
     /// </summary>
     [Cmdlet("Unregister", "AFConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

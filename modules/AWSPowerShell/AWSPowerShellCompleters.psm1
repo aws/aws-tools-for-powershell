@@ -2390,6 +2390,7 @@ $AF_SelectMap = @{
                "Unregister-AFConnector",
                "Remove-AFResourceTag",
                "Update-AFConnectorProfile",
+               "Update-AFConnectorRegistration",
                "Update-AFFlow")
 }
 
@@ -4070,7 +4071,7 @@ $AUDM_Completers = {
         # Amazon.AuditManager.SettingAttribute
         "Get-AUDMSetting/Attribute"
         {
-            $v = "ALL","DEFAULT_ASSESSMENT_REPORTS_DESTINATION","DEFAULT_PROCESS_OWNERS","IS_AWS_ORG_ENABLED","SNS_TOPIC"
+            $v = "ALL","DEFAULT_ASSESSMENT_REPORTS_DESTINATION","DEFAULT_PROCESS_OWNERS","EVIDENCE_FINDER_ENABLEMENT","IS_AWS_ORG_ENABLED","SNS_TOPIC"
             break
         }
 
@@ -7258,6 +7259,229 @@ $CHMMG_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CHMMG_SelectCompleters $CHMMG_SelectMap
+# Argument completions for service Amazon Chime SDK Voice
+
+
+$CHMVO_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ChimeSDKVoice.AlexaSkillStatus
+        "Write-CHMVOSipMediaApplicationAlexaSkillConfiguration/SipMediaApplicationAlexaSkillConfiguration_AlexaSkillStatus"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.GeoMatchLevel
+        "New-CHMVOProxySession/GeoMatchLevel"
+        {
+            $v = "AreaCode","Country"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.NumberSelectionBehavior
+        "New-CHMVOProxySession/NumberSelectionBehavior"
+        {
+            $v = "AvoidSticky","PreferSticky"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.PhoneNumberAssociationName
+        "Get-CHMVOPhoneNumberList/FilterName"
+        {
+            $v = "SipRuleId","VoiceConnectorGroupId","VoiceConnectorId"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.PhoneNumberProductType
+        {
+            ($_ -eq "Get-CHMVOPhoneNumberList/ProductType") -Or
+            ($_ -eq "Get-CHMVOSupportedPhoneNumberCountryList/ProductType") -Or
+            ($_ -eq "New-CHMVOPhoneNumberOrder/ProductType") -Or
+            ($_ -eq "Update-CHMVOPhoneNumber/ProductType")
+        }
+        {
+            $v = "SipMediaApplicationDialIn","VoiceConnector"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.PhoneNumberType
+        "Search-CHMVOAvailablePhoneNumber/PhoneNumberType"
+        {
+            $v = "Local","TollFree"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.ProxySessionStatus
+        "Get-CHMVOProxySessionList/Status"
+        {
+            $v = "Closed","InProgress","Open"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.SipRuleTriggerType
+        "New-CHMVOSipRule/TriggerType"
+        {
+            $v = "RequestUriHostname","ToPhoneNumber"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.VoiceConnectorAwsRegion
+        "New-CHMVOVoiceConnector/AwsRegion"
+        {
+            $v = "ap-northeast-1","ap-northeast-2","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","us-east-1","us-west-2"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMVO_map = @{
+    "AwsRegion"=@("New-CHMVOVoiceConnector")
+    "FilterName"=@("Get-CHMVOPhoneNumberList")
+    "GeoMatchLevel"=@("New-CHMVOProxySession")
+    "NumberSelectionBehavior"=@("New-CHMVOProxySession")
+    "PhoneNumberType"=@("Search-CHMVOAvailablePhoneNumber")
+    "ProductType"=@("Get-CHMVOPhoneNumberList","Get-CHMVOSupportedPhoneNumberCountryList","New-CHMVOPhoneNumberOrder","Update-CHMVOPhoneNumber")
+    "SipMediaApplicationAlexaSkillConfiguration_AlexaSkillStatus"=@("Write-CHMVOSipMediaApplicationAlexaSkillConfiguration")
+    "Status"=@("Get-CHMVOProxySessionList")
+    "TriggerType"=@("New-CHMVOSipRule")
+}
+
+_awsArgumentCompleterRegistration $CHMVO_Completers $CHMVO_map
+
+$CHMVO_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CHMVO.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHMVO_SelectMap = @{
+    "Select"=@("Add-CHMVOPhoneNumbersWithVoiceConnector",
+               "Add-CHMVOPhoneNumbersWithVoiceConnectorGroup",
+               "Group-CHMVODeletePhoneNumber",
+               "Group-CHMVOUpdatePhoneNumber",
+               "New-CHMVOPhoneNumberOrder",
+               "New-CHMVOProxySession",
+               "New-CHMVOSipMediaApplication",
+               "New-CHMVOSipMediaApplicationCall",
+               "New-CHMVOSipRule",
+               "New-CHMVOVoiceConnector",
+               "New-CHMVOVoiceConnectorGroup",
+               "Remove-CHMVOPhoneNumber",
+               "Remove-CHMVOProxySession",
+               "Remove-CHMVOSipMediaApplication",
+               "Remove-CHMVOSipRule",
+               "Remove-CHMVOVoiceConnector",
+               "Remove-CHMVOVoiceConnectorEmergencyCallingConfiguration",
+               "Remove-CHMVOVoiceConnectorGroup",
+               "Remove-CHMVOVoiceConnectorOrigination",
+               "Remove-CHMVOVoiceConnectorProxy",
+               "Remove-CHMVOVoiceConnectorStreamingConfiguration",
+               "Remove-CHMVOVoiceConnectorTermination",
+               "Remove-CHMVOVoiceConnectorTerminationCredential",
+               "Remove-CHMVOPhoneNumbersFromVoiceConnector",
+               "Remove-CHMVOPhoneNumbersFromVoiceConnectorGroup",
+               "Get-CHMVOGlobalSetting",
+               "Get-CHMVOPhoneNumber",
+               "Get-CHMVOPhoneNumberOrder",
+               "Get-CHMVOPhoneNumberSetting",
+               "Get-CHMVOProxySession",
+               "Get-CHMVOSipMediaApplication",
+               "Get-CHMVOSipMediaApplicationAlexaSkillConfiguration",
+               "Get-CHMVOSipMediaApplicationLoggingConfiguration",
+               "Get-CHMVOSipRule",
+               "Get-CHMVOVoiceConnector",
+               "Get-CHMVOVoiceConnectorEmergencyCallingConfiguration",
+               "Get-CHMVOVoiceConnectorGroup",
+               "Get-CHMVOVoiceConnectorLoggingConfiguration",
+               "Get-CHMVOVoiceConnectorOrigination",
+               "Get-CHMVOVoiceConnectorProxy",
+               "Get-CHMVOVoiceConnectorStreamingConfiguration",
+               "Get-CHMVOVoiceConnectorTermination",
+               "Get-CHMVOVoiceConnectorTerminationHealth",
+               "Get-CHMVOAvailableVoiceConnectorRegionList",
+               "Get-CHMVOPhoneNumberOrderList",
+               "Get-CHMVOPhoneNumberList",
+               "Get-CHMVOProxySessionList",
+               "Get-CHMVOSipMediaApplicationList",
+               "Get-CHMVOSipRuleList",
+               "Get-CHMVOSupportedPhoneNumberCountryList",
+               "Get-CHMVOVoiceConnectorGroupList",
+               "Get-CHMVOVoiceConnectorList",
+               "Get-CHMVOVoiceConnectorTerminationCredentialList",
+               "Write-CHMVOSipMediaApplicationAlexaSkillConfiguration",
+               "Write-CHMVOSipMediaApplicationLoggingConfiguration",
+               "Write-CHMVOVoiceConnectorEmergencyCallingConfiguration",
+               "Write-CHMVOVoiceConnectorLoggingConfiguration",
+               "Write-CHMVOVoiceConnectorOrigination",
+               "Write-CHMVOVoiceConnectorProxy",
+               "Write-CHMVOVoiceConnectorStreamingConfiguration",
+               "Write-CHMVOVoiceConnectorTermination",
+               "Write-CHMVOVoiceConnectorTerminationCredential",
+               "Restore-CHMVOPhoneNumber",
+               "Search-CHMVOAvailablePhoneNumber",
+               "Update-CHMVOGlobalSetting",
+               "Update-CHMVOPhoneNumber",
+               "Update-CHMVOPhoneNumberSetting",
+               "Update-CHMVOProxySession",
+               "Update-CHMVOSipMediaApplication",
+               "Update-CHMVOSipMediaApplicationCall",
+               "Update-CHMVOSipRule",
+               "Update-CHMVOVoiceConnector",
+               "Update-CHMVOVoiceConnectorGroup",
+               "Confirm-CHMVOE911Address")
+}
+
+_awsArgumentCompleterRegistration $CHMVO_SelectCompleters $CHMVO_SelectMap
 # Argument completions for service AWS Cloud9
 
 
@@ -8014,6 +8238,16 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.ContinuousDeploymentPolicyType
+        {
+            ($_ -eq "New-CFContinuousDeploymentPolicy/ContinuousDeploymentPolicyConfig_TrafficConfig_Type") -Or
+            ($_ -eq "Update-CFContinuousDeploymentPolicy/ContinuousDeploymentPolicyConfig_TrafficConfig_Type")
+        }
+        {
+            $v = "SingleHeader","SingleWeight"
+            break
+        }
+
         # Amazon.CloudFront.FrameOptionsList
         {
             ($_ -eq "New-CFResponseHeadersPolicy/ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption") -Or
@@ -8229,6 +8463,7 @@ $CF_map = @{
     "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
     "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
     "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
+    "ContinuousDeploymentPolicyConfig_TrafficConfig_Type"=@("New-CFContinuousDeploymentPolicy","Update-CFContinuousDeploymentPolicy")
     "DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_HttpVersion"=@("New-CFDistribution","Update-CFDistribution")
@@ -8312,8 +8547,10 @@ $CF_SelectCompleters = {
 
 $CF_SelectMap = @{
     "Select"=@("Move-CFAlias",
+               "Copy-CFDistribution",
                "New-CFCachePolicy",
                "New-CFCloudFrontOriginAccessIdentity",
+               "New-CFContinuousDeploymentPolicy",
                "New-CFDistribution",
                "New-CFDistributionWithTag",
                "New-CFFieldLevelEncryptionConfig",
@@ -8331,6 +8568,7 @@ $CF_SelectMap = @{
                "New-CFStreamingDistributionWithTag",
                "Remove-CFCachePolicy",
                "Remove-CFCloudFrontOriginAccessIdentity",
+               "Remove-CFContinuousDeploymentPolicy",
                "Remove-CFDistribution",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
@@ -8348,6 +8586,8 @@ $CF_SelectMap = @{
                "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
                "Get-CFCloudFrontOriginAccessIdentityConfig",
+               "Get-CFContinuousDeploymentPolicy",
+               "Get-CFContinuousDeploymentPolicyConfig",
                "Get-CFDistribution",
                "Get-CFDistributionConfig",
                "Get-CFFieldLevelEncryption",
@@ -8373,6 +8613,7 @@ $CF_SelectMap = @{
                "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFConflictingAlias",
+               "Get-CFContinuousDeploymentPolicyList",
                "Get-CFDistributionList",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByKeyGroup",
@@ -8398,6 +8639,7 @@ $CF_SelectMap = @{
                "Remove-CFResourceTag",
                "Update-CFCachePolicy",
                "Update-CFCloudFrontOriginAccessIdentity",
+               "Update-CFContinuousDeploymentPolicy",
                "Update-CFDistribution",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",
@@ -27811,6 +28053,110 @@ $IOTJ_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IOTJ_SelectCompleters $IOTJ_SelectMap
+# Argument completions for service AWS IoT RoboRunner
+
+
+$IOTRR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IoTRoboRunner.DestinationState
+        {
+            ($_ -eq "Get-IOTRRDestinationList/State") -Or
+            ($_ -eq "New-IOTRRDestination/State") -Or
+            ($_ -eq "Update-IOTRRDestination/State")
+        }
+        {
+            $v = "DECOMMISSIONED","DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTRR_map = @{
+    "State"=@("Get-IOTRRDestinationList","New-IOTRRDestination","Update-IOTRRDestination")
+}
+
+_awsArgumentCompleterRegistration $IOTRR_Completers $IOTRR_map
+
+$IOTRR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IOTRR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTRR_SelectMap = @{
+    "Select"=@("New-IOTRRDestination",
+               "New-IOTRRSite",
+               "New-IOTRRWorker",
+               "New-IOTRRWorkerFleet",
+               "Remove-IOTRRDestination",
+               "Remove-IOTRRSite",
+               "Remove-IOTRRWorker",
+               "Remove-IOTRRWorkerFleet",
+               "Get-IOTRRDestination",
+               "Get-IOTRRSite",
+               "Get-IOTRRWorker",
+               "Get-IOTRRWorkerFleet",
+               "Get-IOTRRDestinationList",
+               "Get-IOTRRSiteList",
+               "Get-IOTRRWorkerFleetList",
+               "Get-IOTRRWorkerList",
+               "Update-IOTRRDestination",
+               "Update-IOTRRSite",
+               "Update-IOTRRWorker",
+               "Update-IOTRRWorkerFleet")
+}
+
+_awsArgumentCompleterRegistration $IOTRR_SelectCompleters $IOTRR_SelectMap
 # Argument completions for service AWS IoT Secure Tunneling
 
 
@@ -41063,7 +41409,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","DATABRICKS","EXASOL","GITHUB","JIRA","MARIADB","MYSQL","ORACLE","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
             break
         }
 
@@ -41267,6 +41613,7 @@ $QS_SelectMap = @{
                "New-QSTheme",
                "New-QSThemeAlias",
                "Remove-QSAccountCustomization",
+               "Remove-QSAccountSubscription",
                "Remove-QSAnalysis",
                "Remove-QSDashboard",
                "Remove-QSDataSet",
@@ -41340,6 +41687,8 @@ $QS_SelectMap = @{
                "Restore-QSAnalysis",
                "Search-QSAnalysis",
                "Search-QSDashboard",
+               "Search-QSDataSet",
+               "Search-QSDataSource",
                "Search-QSFolder",
                "Find-QSGroup",
                "Add-QSResourceTag",
@@ -47857,9 +48206,12 @@ $SC_Completers = {
         }
 
         # Amazon.ServiceCatalog.PrincipalType
-        "Register-SCPrincipalWithPortfolio/PrincipalType"
         {
-            $v = "IAM"
+            ($_ -eq "Register-SCPrincipalWithPortfolio/PrincipalType") -Or
+            ($_ -eq "Unregister-SCPrincipalFromPortfolio/PrincipalType")
+        }
+        {
+            $v = "IAM","IAM_PATTERN"
             break
         }
 
@@ -47929,6 +48281,16 @@ $SC_Completers = {
             break
         }
 
+        # Amazon.ServiceCatalog.SourceType
+        {
+            ($_ -eq "New-SCProduct/SourceConnection_Type") -Or
+            ($_ -eq "Update-SCProduct/SourceConnection_Type")
+        }
+        {
+            $v = "CODESTAR"
+            break
+        }
+
         # Amazon.ServiceCatalog.StackSetOperationType
         "Update-SCProvisionedProduct/ProvisioningPreferences_StackSetOperationType"
         {
@@ -47953,13 +48315,14 @@ $SC_map = @{
     "Parameters_Type"=@("New-SCProvisioningArtifact")
     "PlanType"=@("New-SCProvisionedProductPlan")
     "PortfolioShareType"=@("Deny-SCPortfolioShare","Get-SCAcceptedPortfolioShareList","Receive-SCPortfolioShare")
-    "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
+    "PrincipalType"=@("Register-SCPrincipalWithPortfolio","Unregister-SCPrincipalFromPortfolio")
     "ProductSource"=@("Find-SCProductsAsAdmin")
     "ProductType"=@("New-SCProduct")
     "ProvisioningArtifactParameters_Type"=@("New-SCProduct")
     "ProvisioningPreferences_StackSetOperationType"=@("Update-SCProvisionedProduct")
     "SortBy"=@("Find-SCProduct","Find-SCProductsAsAdmin")
     "SortOrder"=@("Find-SCProduct","Find-SCProductsAsAdmin","Find-SCProvisionedProduct")
+    "SourceConnection_Type"=@("New-SCProduct","Update-SCProduct")
     "Type"=@("Get-SCPortfolioShare")
 }
 
@@ -50269,6 +50632,114 @@ $SSMI_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SSMI_SelectCompleters $SSMI_SelectMap
+# Argument completions for service AWS Systems Manager for SAP
+
+
+$SMSAP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SsmSap.ApplicationType
+        "Register-SMSAPApplication/ApplicationType"
+        {
+            $v = "HANA"
+            break
+        }
+
+        # Amazon.SsmSap.PermissionActionType
+        {
+            ($_ -eq "Get-SMSAPResourcePermission/ActionType") -Or
+            ($_ -eq "Remove-SMSAPResourcePermission/ActionType") -Or
+            ($_ -eq "Write-SMSAPResourcePermission/ActionType")
+        }
+        {
+            $v = "RESTORE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMSAP_map = @{
+    "ActionType"=@("Get-SMSAPResourcePermission","Remove-SMSAPResourcePermission","Write-SMSAPResourcePermission")
+    "ApplicationType"=@("Register-SMSAPApplication")
+}
+
+_awsArgumentCompleterRegistration $SMSAP_Completers $SMSAP_map
+
+$SMSAP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SMSAP.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMSAP_SelectMap = @{
+    "Select"=@("Remove-SMSAPResourcePermission",
+               "Unregister-SMSAPApplication",
+               "Get-SMSAPApplication",
+               "Get-SMSAPComponent",
+               "Get-SMSAPDatabase",
+               "Get-SMSAPOperation",
+               "Get-SMSAPResourcePermission",
+               "Get-SMSAPApplicationList",
+               "Get-SMSAPComponentList",
+               "Get-SMSAPDatabasisList",
+               "Get-SMSAPResourceTag",
+               "Write-SMSAPResourcePermission",
+               "Register-SMSAPApplication",
+               "Add-SMSAPResourceTag",
+               "Remove-SMSAPResourceTag",
+               "Update-SMSAPApplicationSetting")
+}
+
+_awsArgumentCompleterRegistration $SMSAP_SelectCompleters $SMSAP_SelectMap
 # Argument completions for service AWS Single Sign-On
 
 
@@ -51932,7 +52403,7 @@ $TFR_Completers = {
             ($_ -eq "Update-TFRConnector/As2Config_EncryptionAlgorithm")
         }
         {
-            $v = "AES128_CBC","AES192_CBC","AES256_CBC"
+            $v = "AES128_CBC","AES192_CBC","AES256_CBC","NONE"
             break
         }
 

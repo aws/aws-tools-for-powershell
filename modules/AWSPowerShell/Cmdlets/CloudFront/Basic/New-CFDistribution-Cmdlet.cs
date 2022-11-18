@@ -28,20 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Creates a new web distribution. You create a CloudFront distribution to tell CloudFront
-    /// where you want content to be delivered from, and the details about how to track and
-    /// manage content delivery. Send a <code>POST</code> request to the <code>/<i>CloudFront
-    /// API version</i>/distribution</code>/<code>distribution ID</code> resource.
-    /// 
-    ///  <important><para>
-    /// When you update a distribution, there are more required fields than when you create
-    /// a distribution. When you update your distribution by using <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>,
-    /// follow the steps included in the documentation to get the current configuration and
-    /// then make your updates. This helps to make sure that you include all of the required
-    /// fields. To view a summary, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
-    /// Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront
-    /// Developer Guide</i>.
-    /// </para></important>
+    /// Creates a CloudFront distribution.
     /// </summary>
     [Cmdlet("New", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateDistributionResponse")]
@@ -164,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The object that you want CloudFront to request from your origin (for example, <code>index.html</code>)
-        /// when a viewer requests the root URL for your distribution (<code>http://www.example.com</code>)
-        /// instead of an object in your distribution (<code>http://www.example.com/product-description.html</code>).
+        /// when a viewer requests the root URL for your distribution (<code>https://www.example.com</code>)
+        /// instead of an object in your distribution (<code>https://www.example.com/product-description.html</code>).
         /// Specifying a default root object avoids exposing the contents of your distribution.</para><para>Specify only the object name, for example, <code>index.html</code>. Don't add a <code>/</code>
         /// before the object name.</para><para>If you don't want to specify a default root object when you create a distribution,
         /// include an empty <code>DefaultRootObject</code> element.</para><para>To delete the default root object from an existing distribution, update the distribution

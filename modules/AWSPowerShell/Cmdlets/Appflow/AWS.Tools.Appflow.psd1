@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-AFFlow', 
         'Unregister-AFConnector', 
         'Update-AFConnectorProfile', 
+        'Update-AFConnectorRegistration', 
         'Update-AFFlow')
 
     # Variables to export from this module

@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter TracingConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, AWS X-Ray tracing is enabled.</para>
+        /// <para>When set to <code>true</code>, X-Ray tracing is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// states), stop an execution with an error (<code>Fail</code> states), and so on. State
     /// machines are specified using a JSON-based, structured language. For more information,
     /// see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
-    /// States Language</a> in the AWS Step Functions User Guide.
+    /// States Language</a> in the Step Functions User Guide.
     /// 
     ///  <note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter TracingConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>When set to <code>true</code>, AWS X-Ray tracing is enabled.</para>
+        /// <para>When set to <code>true</code>, X-Ray tracing is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>Tags to be added when creating a state machine.</para><para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>,
-        /// and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
+        /// Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+        /// User Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
         /// Access Using IAM Tags</a>.</para><para>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_
         /// . : / = + - @</code>.</para>
         /// </para>

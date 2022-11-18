@@ -28,7 +28,8 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists all principal ARNs associated with the specified portfolio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s
+    /// associated with the specified portfolio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCPrincipalsForPortfolio")]
     [OutputType("Amazon.ServiceCatalog.Model.Principal")]

@@ -106,6 +106,10 @@
                 <Type>Amazon.Appflow.Model.ConnectorProfileConfig</Type>
             </TypesNotToFlatten>
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectorRegistration" OutputProperty="ConnectorArn" Verb="Update" Noun="ConnectorRegistration" ShouldProcessTarget="ConnectorLabel" PipelineParameter="ConnectorLabel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFlow" OutputProperty="FlowStatus" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
