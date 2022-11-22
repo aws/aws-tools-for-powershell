@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter ApplicationMode
         /// <summary>
         /// <para>
-        /// <para>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics Studio notebook.
+        /// <para>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application.
         /// To create a Kinesis Data Analytics Studio notebook, use the <code>INTERACTIVE</code>
         /// mode.</para>
         /// </para>
@@ -107,8 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter RuntimeEnvironment
         /// <summary>
         /// <para>
-        /// <para>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>,
-        /// <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</para>
+        /// <para>The runtime environment for the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
