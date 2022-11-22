@@ -1,4 +1,7 @@
-﻿### 4.1.211 (2022-11-18 23:05Z)
+﻿### 4.1.212 (2022-11-22 01:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.422.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.211 (2022-11-18 23:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.421.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Added cmdlet Update-AFConnectorRegistration leveraging the UpdateConnectorRegistration service API.

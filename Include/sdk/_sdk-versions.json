@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.421.0",
+    "ProductVersion" : "3.7.422.0",
     "CoreVersion"    : "3.7.100.21",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -298,7 +298,7 @@
             "InPreview"               : false
         },
         "Route53"              : {
-            "Version" : "3.7.102.4",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.21"
@@ -2586,7 +2586,7 @@
             "InPreview"               : false
         },
         "SsmSap"                              : {
-            "Version" : "3.7.100.0",
+            "Version" : "3.7.100.4",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.100.21"
