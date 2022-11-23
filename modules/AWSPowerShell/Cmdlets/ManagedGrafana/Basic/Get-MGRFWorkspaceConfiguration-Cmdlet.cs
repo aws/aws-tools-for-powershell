@@ -28,21 +28,22 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// Deletes a Grafana API key for the workspace.
+    /// Gets the current configuration string for the given workspace.
     /// </summary>
-    [Cmdlet("Remove", "MGRFWorkspaceApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Grafana DeleteWorkspaceApiKey API operation.", Operation = new[] {"DeleteWorkspaceApiKey"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse))]
-    [AWSCmdletOutput("Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse",
-        "This cmdlet returns an Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MGRFWorkspaceConfiguration")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Managed Grafana DescribeWorkspaceConfiguration API operation.", Operation = new[] {"DescribeWorkspaceConfiguration"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveMGRFWorkspaceApiKeyCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
+    public partial class GetMGRFWorkspaceConfigurationCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
-        #region Parameter KeyName
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The name of the API key to delete.</para>
+        /// <para>The ID of the workspace to get configuration information for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,66 +54,33 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyName { get; set; }
-        #endregion
-        
-        #region Parameter WorkspaceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the workspace to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse).
-        /// Specifying the name of a property of type Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Configuration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Configuration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkspaceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkspaceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MGRFWorkspaceApiKey (DeleteWorkspaceApiKey)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -122,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse, RemoveMGRFWorkspaceApiKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse, GetMGRFWorkspaceConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -131,16 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyName;
+                context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyName = this.KeyName;
-            #if MODULAR
-            if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
             if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
@@ -162,12 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyRequest();
+            var request = new Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationRequest();
             
-            if (cmdletContext.KeyName != null)
-            {
-                request.KeyName = cmdletContext.KeyName;
-            }
             if (cmdletContext.WorkspaceId != null)
             {
                 request.WorkspaceId = cmdletContext.WorkspaceId;
@@ -205,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse CallAWSServiceOperation(IAmazonManagedGrafana client, Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyRequest request)
+        private Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse CallAWSServiceOperation(IAmazonManagedGrafana client, Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Grafana", "DeleteWorkspaceApiKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Grafana", "DescribeWorkspaceConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DeleteWorkspaceApiKey(request);
+                return client.DescribeWorkspaceConfiguration(request);
                 #elif CORECLR
-                return client.DeleteWorkspaceApiKeyAsync(request).GetAwaiter().GetResult();
+                return client.DescribeWorkspaceConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,10 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyName { get; set; }
             public System.String WorkspaceId { get; set; }
-            public System.Func<Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse, RemoveMGRFWorkspaceApiKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.ManagedGrafana.Model.DescribeWorkspaceConfigurationResponse, GetMGRFWorkspaceConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Configuration;
         }
         
     }

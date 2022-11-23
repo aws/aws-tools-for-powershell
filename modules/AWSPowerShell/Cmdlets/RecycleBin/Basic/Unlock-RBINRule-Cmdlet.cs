@@ -22,27 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ManagedGrafana;
-using Amazon.ManagedGrafana.Model;
+using Amazon.RecycleBin;
+using Amazon.RecycleBin.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MGRF
+namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
-    /// Deletes a Grafana API key for the workspace.
+    /// Unlocks a retention rule. After a retention rule is unlocked, it can be modified or
+    /// deleted only after the unlock delay period expires.
     /// </summary>
-    [Cmdlet("Remove", "MGRFWorkspaceApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Grafana DeleteWorkspaceApiKey API operation.", Operation = new[] {"DeleteWorkspaceApiKey"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse))]
-    [AWSCmdletOutput("Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse",
-        "This cmdlet returns an Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Unlock", "RBINRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RecycleBin.Model.UnlockRuleResponse")]
+    [AWSCmdlet("Calls the Amazon Recycle Bin UnlockRule API operation.", Operation = new[] {"UnlockRule"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.UnlockRuleResponse))]
+    [AWSCmdletOutput("Amazon.RecycleBin.Model.UnlockRuleResponse",
+        "This cmdlet returns an Amazon.RecycleBin.Model.UnlockRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveMGRFWorkspaceApiKeyCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
+    public partial class UnlockRBINRuleCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {
         
-        #region Parameter KeyName
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The name of the API key to delete.</para>
+        /// <para>The unique ID of the retention rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,31 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyName { get; set; }
-        #endregion
-        
-        #region Parameter WorkspaceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the workspace to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkspaceId { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse).
-        /// Specifying the name of a property of type Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RecycleBin.Model.UnlockRuleResponse).
+        /// Specifying the name of a property of type Amazon.RecycleBin.Model.UnlockRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,10 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MGRFWorkspaceApiKey (DeleteWorkspaceApiKey)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Unlock-RBINRule (UnlockRule)"))
             {
                 return;
             }
@@ -122,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse, RemoveMGRFWorkspaceApiKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RecycleBin.Model.UnlockRuleResponse, UnlockRBINRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -131,21 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyName;
+                context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyName = this.KeyName;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.WorkspaceId = this.WorkspaceId;
-            #if MODULAR
-            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -162,15 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyRequest();
+            var request = new Amazon.RecycleBin.Model.UnlockRuleRequest();
             
-            if (cmdletContext.KeyName != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.KeyName = cmdletContext.KeyName;
-            }
-            if (cmdletContext.WorkspaceId != null)
-            {
-                request.WorkspaceId = cmdletContext.WorkspaceId;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -205,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse CallAWSServiceOperation(IAmazonManagedGrafana client, Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyRequest request)
+        private Amazon.RecycleBin.Model.UnlockRuleResponse CallAWSServiceOperation(IAmazonRecycleBin client, Amazon.RecycleBin.Model.UnlockRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Grafana", "DeleteWorkspaceApiKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Recycle Bin", "UnlockRule");
             try
             {
                 #if DESKTOP
-                return client.DeleteWorkspaceApiKey(request);
+                return client.UnlockRule(request);
                 #elif CORECLR
-                return client.DeleteWorkspaceApiKeyAsync(request).GetAwaiter().GetResult();
+                return client.UnlockRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -233,9 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyName { get; set; }
-            public System.String WorkspaceId { get; set; }
-            public System.Func<Amazon.ManagedGrafana.Model.DeleteWorkspaceApiKeyResponse, RemoveMGRFWorkspaceApiKeyCmdlet, object> Select { get; set; } =
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.RecycleBin.Model.UnlockRuleResponse, UnlockRBINRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

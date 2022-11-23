@@ -135,6 +135,30 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         public Amazon.RecycleBin.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter UnlockDelay_UnlockDelayUnit
+        /// <summary>
+        /// <para>
+        /// <para>The unit of time in which to measure the unlock delay. Currently, the unlock delay
+        /// can be measure only in days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LockConfiguration_UnlockDelay_UnlockDelayUnit")]
+        [AWSConstantClassSource("Amazon.RecycleBin.UnlockDelayUnit")]
+        public Amazon.RecycleBin.UnlockDelayUnit UnlockDelay_UnlockDelayUnit { get; set; }
+        #endregion
+        
+        #region Parameter UnlockDelay_UnlockDelayValue
+        /// <summary>
+        /// <para>
+        /// <para>The unlock delay period, measured in the unit specified for <b> UnlockDelayUnit</b>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LockConfiguration_UnlockDelay_UnlockDelayValue")]
+        public System.Int32? UnlockDelay_UnlockDelayValue { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -197,6 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.UnlockDelay_UnlockDelayUnit = this.UnlockDelay_UnlockDelayUnit;
+            context.UnlockDelay_UnlockDelayValue = this.UnlockDelay_UnlockDelayValue;
             if (this.ResourceTag != null)
             {
                 context.ResourceTag = new List<Amazon.RecycleBin.Model.ResourceTag>(this.ResourceTag);
@@ -245,6 +271,50 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate LockConfiguration
+            var requestLockConfigurationIsNull = true;
+            request.LockConfiguration = new Amazon.RecycleBin.Model.LockConfiguration();
+            Amazon.RecycleBin.Model.UnlockDelay requestLockConfiguration_lockConfiguration_UnlockDelay = null;
+            
+             // populate UnlockDelay
+            var requestLockConfiguration_lockConfiguration_UnlockDelayIsNull = true;
+            requestLockConfiguration_lockConfiguration_UnlockDelay = new Amazon.RecycleBin.Model.UnlockDelay();
+            Amazon.RecycleBin.UnlockDelayUnit requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit = null;
+            if (cmdletContext.UnlockDelay_UnlockDelayUnit != null)
+            {
+                requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit = cmdletContext.UnlockDelay_UnlockDelayUnit;
+            }
+            if (requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit != null)
+            {
+                requestLockConfiguration_lockConfiguration_UnlockDelay.UnlockDelayUnit = requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit;
+                requestLockConfiguration_lockConfiguration_UnlockDelayIsNull = false;
+            }
+            System.Int32? requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue = null;
+            if (cmdletContext.UnlockDelay_UnlockDelayValue != null)
+            {
+                requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue = cmdletContext.UnlockDelay_UnlockDelayValue.Value;
+            }
+            if (requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue != null)
+            {
+                requestLockConfiguration_lockConfiguration_UnlockDelay.UnlockDelayValue = requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue.Value;
+                requestLockConfiguration_lockConfiguration_UnlockDelayIsNull = false;
+            }
+             // determine if requestLockConfiguration_lockConfiguration_UnlockDelay should be set to null
+            if (requestLockConfiguration_lockConfiguration_UnlockDelayIsNull)
+            {
+                requestLockConfiguration_lockConfiguration_UnlockDelay = null;
+            }
+            if (requestLockConfiguration_lockConfiguration_UnlockDelay != null)
+            {
+                request.LockConfiguration.UnlockDelay = requestLockConfiguration_lockConfiguration_UnlockDelay;
+                requestLockConfigurationIsNull = false;
+            }
+             // determine if request.LockConfiguration should be set to null
+            if (requestLockConfigurationIsNull)
+            {
+                request.LockConfiguration = null;
             }
             if (cmdletContext.ResourceTag != null)
             {
@@ -349,6 +419,8 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public Amazon.RecycleBin.UnlockDelayUnit UnlockDelay_UnlockDelayUnit { get; set; }
+            public System.Int32? UnlockDelay_UnlockDelayValue { get; set; }
             public List<Amazon.RecycleBin.Model.ResourceTag> ResourceTag { get; set; }
             public Amazon.RecycleBin.ResourceType ResourceType { get; set; }
             public Amazon.RecycleBin.RetentionPeriodUnit RetentionPeriod_RetentionPeriodUnit { get; set; }

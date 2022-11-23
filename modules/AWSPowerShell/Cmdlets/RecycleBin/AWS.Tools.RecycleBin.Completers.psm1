@@ -80,6 +80,13 @@ $RBIN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RecycleBin.LockState
+        "Get-RBINRuleList/LockState"
+        {
+            $v = "locked","pending_unlock","unlocked"
+            break
+        }
+
         # Amazon.RecycleBin.ResourceType
         {
             ($_ -eq "Get-RBINRuleList/ResourceType") -Or
@@ -101,6 +108,16 @@ $RBIN_Completers = {
             break
         }
 
+        # Amazon.RecycleBin.UnlockDelayUnit
+        {
+            ($_ -eq "Lock-RBINRule/LockConfiguration_UnlockDelay_UnlockDelayUnit") -Or
+            ($_ -eq "New-RBINRule/LockConfiguration_UnlockDelay_UnlockDelayUnit")
+        }
+        {
+            $v = "DAYS"
+            break
+        }
+
 
     }
 
@@ -110,6 +127,8 @@ $RBIN_Completers = {
 }
 
 $RBIN_map = @{
+    "LockConfiguration_UnlockDelay_UnlockDelayUnit"=@("Lock-RBINRule","New-RBINRule")
+    "LockState"=@("Get-RBINRuleList")
     "ResourceType"=@("Get-RBINRuleList","New-RBINRule","Update-RBINRule")
     "RetentionPeriod_RetentionPeriodUnit"=@("New-RBINRule","Update-RBINRule")
 }
@@ -169,7 +188,9 @@ $RBIN_SelectMap = @{
                "Get-RBINRule",
                "Get-RBINRuleList",
                "Get-RBINResourceTag",
+               "Lock-RBINRule",
                "Add-RBINResourceTag",
+               "Unlock-RBINRule",
                "Remove-RBINResourceTag",
                "Update-RBINRule")
 }

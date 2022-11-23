@@ -90,9 +90,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RBINResourceTag', 
         'Get-RBINRule', 
         'Get-RBINRuleList', 
+        'Lock-RBINRule', 
         'New-RBINRule', 
         'Remove-RBINResourceTag', 
         'Remove-RBINRule', 
+        'Unlock-RBINRule', 
         'Update-RBINRule')
 
     # Variables to export from this module

@@ -10757,6 +10757,8 @@ Set-Alias -Name Describe-MGRFWorkspace -Value Get-MGRFWorkspace
 Set-Alias -Name MGRF-DescribeWorkspace -Value Get-MGRFWorkspace
 Set-Alias -Name Describe-MGRFWorkspaceAuthentication -Value Get-MGRFWorkspaceAuthentication
 Set-Alias -Name MGRF-DescribeWorkspaceAuthentication -Value Get-MGRFWorkspaceAuthentication
+Set-Alias -Name Describe-MGRFWorkspaceConfiguration -Value Get-MGRFWorkspaceConfiguration
+Set-Alias -Name MGRF-DescribeWorkspaceConfiguration -Value Get-MGRFWorkspaceConfiguration
 Set-Alias -Name Disassociate-MGRFLicense -Value Remove-MGRFLicense
 Set-Alias -Name MGRF-DisassociateLicense -Value Remove-MGRFLicense
 Set-Alias -Name List-MGRFPermissions -Value Get-MGRFPermissionList
@@ -10772,6 +10774,7 @@ Set-Alias -Name Update-MGRFPermissions -Value Update-MGRFPermission
 Set-Alias -Name MGRF-UpdatePermissions -Value Update-MGRFPermission
 Set-Alias -Name MGRF-UpdateWorkspace -Value Update-MGRFWorkspace
 Set-Alias -Name MGRF-UpdateWorkspaceAuthentication -Value Update-MGRFWorkspaceAuthentication
+Set-Alias -Name MGRF-UpdateWorkspaceConfiguration -Value Update-MGRFWorkspaceConfiguration
 Set-Alias -Name Associate-GGRoleToGroup -Value Add-GGRoleToGroup
 Set-Alias -Name GG-AssociateRoleToGroup -Value Add-GGRoleToGroup
 Set-Alias -Name Associate-GGServiceRoleToAccount -Value Add-GGServiceRoleToAccount
@@ -18190,7 +18193,9 @@ Set-Alias -Name List-RBINRules -Value Get-RBINRuleList
 Set-Alias -Name List-RBINRuleList -Value Get-RBINRuleList
 Set-Alias -Name RBIN-ListRules -Value Get-RBINRuleList
 Set-Alias -Name RBIN-ListTagsForResource -Value Get-RBINResourceTag
+Set-Alias -Name RBIN-LockRule -Value Lock-RBINRule
 Set-Alias -Name RBIN-TagResource -Value Add-RBINResourceTag
+Set-Alias -Name RBIN-UnlockRule -Value Unlock-RBINRule
 Set-Alias -Name RBIN-UntagResource -Value Remove-RBINResourceTag
 Set-Alias -Name RBIN-UpdateRule -Value Update-RBINRule
 Set-Alias -Name RDS-AddRoleToDBCluster -Value Add-RDSRoleToDBCluster

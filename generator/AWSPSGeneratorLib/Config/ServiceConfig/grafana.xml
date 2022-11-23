@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceConfiguration" OutputProperty="Configuration" Verb="Get" Noun="WorkspaceConfiguration" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateLicense" OutputProperty="Workspace" Verb="Remove" Noun="License" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkspaceAuthentication" OutputProperty="Authentication" Verb="Update" Noun="WorkspaceAuthentication" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspaceConfiguration" Verb="Update" Noun="WorkspaceConfiguration" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

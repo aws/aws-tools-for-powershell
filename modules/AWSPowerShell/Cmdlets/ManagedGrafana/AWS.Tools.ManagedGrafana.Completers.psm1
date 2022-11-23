@@ -189,6 +189,7 @@ $MGRF_SelectMap = @{
                "Remove-MGRFWorkspaceApiKey",
                "Get-MGRFWorkspace",
                "Get-MGRFWorkspaceAuthentication",
+               "Get-MGRFWorkspaceConfiguration",
                "Remove-MGRFLicense",
                "Get-MGRFPermissionList",
                "Get-MGRFResourceTag",
@@ -197,7 +198,8 @@ $MGRF_SelectMap = @{
                "Remove-MGRFResourceTag",
                "Update-MGRFPermission",
                "Update-MGRFWorkspace",
-               "Update-MGRFWorkspaceAuthentication")
+               "Update-MGRFWorkspaceAuthentication",
+               "Update-MGRFWorkspaceConfiguration")
 }
 
 _awsArgumentCompleterRegistration $MGRF_SelectCompleters $MGRF_SelectMap

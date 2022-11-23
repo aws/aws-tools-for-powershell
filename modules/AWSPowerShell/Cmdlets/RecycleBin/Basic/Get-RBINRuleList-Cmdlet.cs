@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
     public partial class GetRBINRuleListCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {
         
+        #region Parameter LockState
+        /// <summary>
+        /// <para>
+        /// <para>The lock state of the retention rules to list. Only retention rules with the specified
+        /// lock state are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RecycleBin.LockState")]
+        public Amazon.RecycleBin.LockState LockState { get; set; }
+        #endregion
+        
         #region Parameter ResourceTag
         /// <summary>
         /// <para>
@@ -139,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
                 context.Select = (response, cmdlet) => this.ResourceType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LockState = this.LockState;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.ResourceTag != null)
@@ -168,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             // create request
             var request = new Amazon.RecycleBin.Model.ListRulesRequest();
             
+            if (cmdletContext.LockState != null)
+            {
+                request.LockState = cmdletContext.LockState;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -245,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.RecycleBin.LockState LockState { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<Amazon.RecycleBin.Model.ResourceTag> ResourceTag { get; set; }

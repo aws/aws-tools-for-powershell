@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MGRFResourceTag', 
         'Get-MGRFWorkspace', 
         'Get-MGRFWorkspaceAuthentication', 
+        'Get-MGRFWorkspaceConfiguration', 
         'Get-MGRFWorkspaceList', 
         'New-MGRFWorkspace', 
         'New-MGRFWorkspaceApiKey', 
@@ -101,7 +102,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MGRFWorkspaceApiKey', 
         'Update-MGRFPermission', 
         'Update-MGRFWorkspace', 
-        'Update-MGRFWorkspaceAuthentication')
+        'Update-MGRFWorkspaceAuthentication', 
+        'Update-MGRFWorkspaceConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

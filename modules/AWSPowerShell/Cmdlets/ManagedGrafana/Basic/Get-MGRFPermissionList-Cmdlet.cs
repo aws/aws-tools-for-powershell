@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter UserType
         /// <summary>
         /// <para>
-        /// <para>(Optional) If you specify <code>SSO_USER</code>, then only the permissions of Amazon
-        /// Web Services SSO users are returned. If you specify <code>SSO_GROUP</code>, only the
-        /// permissions of Amazon Web Services SSO groups are returned.</para>
+        /// <para>(Optional) If you specify <code>SSO_USER</code>, then only the permissions of IAM
+        /// Identity Center users are returned. If you specify <code>SSO_GROUP</code>, only the
+        /// permissions of IAM Identity Center groups are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

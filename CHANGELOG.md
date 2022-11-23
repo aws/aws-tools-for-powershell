@@ -1,4 +1,17 @@
-﻿### 4.1.213 (2022-11-22 21:41Z)
+﻿### 4.1.214 (2022-11-23 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.424.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Managed Grafana
+    * Added cmdlet Get-MGRFWorkspaceConfiguration leveraging the DescribeWorkspaceConfiguration service API.
+    * Added cmdlet Update-MGRFWorkspaceConfiguration leveraging the UpdateWorkspaceConfiguration service API.
+    * Modified cmdlet New-MGRFWorkspace: added parameters Configuration, VpcConfiguration_SecurityGroupId and VpcConfiguration_SubnetId.
+    * Modified cmdlet Update-MGRFWorkspace: added parameters RemoveVpcConfiguration, VpcConfiguration_SecurityGroupId and VpcConfiguration_SubnetId.
+  * Amazon Recycle Bin
+    * Added cmdlet Lock-RBINRule leveraging the LockRule service API.
+    * Added cmdlet Unlock-RBINRule leveraging the UnlockRule service API.
+    * Modified cmdlet Get-RBINRuleList: added parameter LockState.
+    * Modified cmdlet New-RBINRule: added parameters UnlockDelay_UnlockDelayUnit and UnlockDelay_UnlockDelayValue.
+
+### 4.1.213 (2022-11-22 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.423.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.212 (2022-11-22 01:31Z)

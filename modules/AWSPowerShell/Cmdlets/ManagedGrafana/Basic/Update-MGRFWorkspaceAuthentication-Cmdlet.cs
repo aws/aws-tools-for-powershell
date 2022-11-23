@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter AuthenticationProvider
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this workspace uses SAML 2.0, Amazon Web Services Single Sign On,
-        /// or both to authenticate users for using the Grafana console within a workspace. For
-        /// more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User
+        /// <para>Specifies whether this workspace uses SAML 2.0, IAM Identity Center (successor to
+        /// Single Sign-On), or both to authenticate users for using the Grafana console within
+        /// a workspace. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User
         /// authentication in Amazon Managed Grafana</a>.</para>
         /// </para>
         /// </summary>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter IdpMetadata_Url
         /// <summary>
         /// <para>
-        /// <para>The URL of the location containing the metadata.</para>
+        /// <para>The URL of the location containing the IdP metadata.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter IdpMetadata_Xml
         /// <summary>
         /// <para>
-        /// <para>The actual full metadata file, in XML format.</para>
+        /// <para>The full IdP metadata, in XML format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

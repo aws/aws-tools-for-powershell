@@ -28,10 +28,9 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// Creates an API key for the workspace. This key can be used to authenticate requests
-    /// sent to the workspace's HTTP API. See <a href=" https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">
-    /// https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a> for
-    /// available APIs and example requests.
+    /// Creates a Grafana API key for the workspace. This key can be used to authenticate
+    /// requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
+    /// for available APIs and example requests.
     /// </summary>
     [Cmdlet("New", "MGRFWorkspaceApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse")]
@@ -45,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter KeyName
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the key to create. Key names must be unique to the workspace.</para>
+        /// <para>Specifies the name of the key. Keynames must be unique to the workspace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter KeyRole
         /// <summary>
         /// <para>
-        /// <para>Specifies the permission level of the key.</para><para>Valid Values: <code>VIEWER</code> | <code>EDITOR</code> | <code>ADMIN</code></para>
+        /// <para>Specifies the permission level of the key.</para><para> Valid values: <code>VIEWER</code>|<code>EDITOR</code>|<code>ADMIN</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace in which to create an API key.</para>
+        /// <para>The ID of the workspace to create an API key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

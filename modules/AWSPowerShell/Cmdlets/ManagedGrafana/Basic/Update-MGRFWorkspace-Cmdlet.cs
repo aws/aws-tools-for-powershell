@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     ///  
     /// <para>
     /// To modify the user authentication methods that the workspace uses, such as SAML or
-    /// Amazon Web Services SSO, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.
+    /// IAM Identity Center, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateWorkspaceAuthentication.html">UpdateWorkspaceAuthentication</a>.
     /// </para><para>
     /// To modify which users in the workspace have the <code>Admin</code> and <code>Editor</code>
     /// Grafana roles, use <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdatePermissions.html">UpdatePermissions</a>.
@@ -94,6 +94,29 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
         #endregion
         
+        #region Parameter RemoveVpcConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Whether to remove the VPC configuration from the workspace.</para><para>Setting this to <code>true</code> and providing a <code>vpcConfiguration</code> to
+        /// set will return an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveVpcConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana
+        /// workspace to connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfiguration_SecurityGroupIds")]
+        public System.String[] VpcConfiguration_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter StackSetName
         /// <summary>
         /// <para>
@@ -103,6 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StackSetName { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace
+        /// to connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfiguration_SubnetIds")]
+        public System.String[] VpcConfiguration_SubnetId { get; set; }
         #endregion
         
         #region Parameter WorkspaceDataSource
@@ -261,7 +296,16 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             context.AccountAccessType = this.AccountAccessType;
             context.OrganizationRoleName = this.OrganizationRoleName;
             context.PermissionType = this.PermissionType;
+            context.RemoveVpcConfiguration = this.RemoveVpcConfiguration;
             context.StackSetName = this.StackSetName;
+            if (this.VpcConfiguration_SecurityGroupId != null)
+            {
+                context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
+            }
+            if (this.VpcConfiguration_SubnetId != null)
+            {
+                context.VpcConfiguration_SubnetId = new List<System.String>(this.VpcConfiguration_SubnetId);
+            }
             if (this.WorkspaceDataSource != null)
             {
                 context.WorkspaceDataSource = new List<System.String>(this.WorkspaceDataSource);
@@ -312,9 +356,42 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             {
                 request.PermissionType = cmdletContext.PermissionType;
             }
+            if (cmdletContext.RemoveVpcConfiguration != null)
+            {
+                request.RemoveVpcConfiguration = cmdletContext.RemoveVpcConfiguration.Value;
+            }
             if (cmdletContext.StackSetName != null)
             {
                 request.StackSetName = cmdletContext.StackSetName;
+            }
+            
+             // populate VpcConfiguration
+            var requestVpcConfigurationIsNull = true;
+            request.VpcConfiguration = new Amazon.ManagedGrafana.Model.VpcConfiguration();
+            List<System.String> requestVpcConfiguration_vpcConfiguration_SecurityGroupId = null;
+            if (cmdletContext.VpcConfiguration_SecurityGroupId != null)
+            {
+                requestVpcConfiguration_vpcConfiguration_SecurityGroupId = cmdletContext.VpcConfiguration_SecurityGroupId;
+            }
+            if (requestVpcConfiguration_vpcConfiguration_SecurityGroupId != null)
+            {
+                request.VpcConfiguration.SecurityGroupIds = requestVpcConfiguration_vpcConfiguration_SecurityGroupId;
+                requestVpcConfigurationIsNull = false;
+            }
+            List<System.String> requestVpcConfiguration_vpcConfiguration_SubnetId = null;
+            if (cmdletContext.VpcConfiguration_SubnetId != null)
+            {
+                requestVpcConfiguration_vpcConfiguration_SubnetId = cmdletContext.VpcConfiguration_SubnetId;
+            }
+            if (requestVpcConfiguration_vpcConfiguration_SubnetId != null)
+            {
+                request.VpcConfiguration.SubnetIds = requestVpcConfiguration_vpcConfiguration_SubnetId;
+                requestVpcConfigurationIsNull = false;
+            }
+             // determine if request.VpcConfiguration should be set to null
+            if (requestVpcConfigurationIsNull)
+            {
+                request.VpcConfiguration = null;
             }
             if (cmdletContext.WorkspaceDataSource != null)
             {
@@ -408,7 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             public Amazon.ManagedGrafana.AccountAccessType AccountAccessType { get; set; }
             public System.String OrganizationRoleName { get; set; }
             public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
+            public System.Boolean? RemoveVpcConfiguration { get; set; }
             public System.String StackSetName { get; set; }
+            public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfiguration_SubnetId { get; set; }
             public List<System.String> WorkspaceDataSource { get; set; }
             public System.String WorkspaceDescription { get; set; }
             public System.String WorkspaceId { get; set; }

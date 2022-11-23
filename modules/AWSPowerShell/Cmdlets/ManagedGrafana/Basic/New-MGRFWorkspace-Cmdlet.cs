@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter AuthenticationProvider
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this workspace uses SAML 2.0, Amazon Web Services Single Sign On,
-        /// or both to authenticate users for using the Grafana console within a workspace. For
-        /// more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User
+        /// <para>Specifies whether this workspace uses SAML 2.0, IAM Identity Center (successor to
+        /// Single Sign-On), or both to authenticate users for using the Grafana console within
+        /// a workspace. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User
         /// authentication in Amazon Managed Grafana</a>.</para>
         /// </para>
         /// </summary>
@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AuthenticationProviders")]
         public System.String[] AuthenticationProvider { get; set; }
+        #endregion
+        
+        #region Parameter Configuration
+        /// <summary>
+        /// <para>
+        /// <para>The configuration string for the workspace that you create. For more information about
+        /// the format and configuration options available, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html">Working
+        /// in your Grafana workspace</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Configuration { get; set; }
         #endregion
         
         #region Parameter OrganizationRoleName
@@ -107,8 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <para>If you specify <code>SERVICE_MANAGED</code> on AWS Grafana console, Amazon Managed
         /// Grafana automatically creates the IAM roles and provisions the permissions that the
         /// workspace needs to use Amazon Web Services data sources and notification channels.
-        /// In CLI mode, the permissionType <code>SERVICE_MANAGED</code> will not create the IAM
-        /// role for you.</para><para>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and permissions
+        /// In the CLI mode, the permissionType <code>SERVICE_MANAGED</code> will not create the
+        /// IAM role for you. The ability for the Amazon Managed Grafana to create the IAM role
+        /// on behalf of the user is supported only in the Amazon Managed Grafana AWS console.
+        /// Use only the <code>CUSTOMER_MANAGED</code> permission type when creating a workspace
+        /// in the CLI. </para><para>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and permissions
         /// yourself. If you are creating this workspace in a member account of an organization
         /// that is not a delegated administrator account, and you want the workspace to access
         /// data sources in other Amazon Web Services accounts in the organization, you must choose
@@ -128,6 +143,18 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana
+        /// workspace to connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfiguration_SecurityGroupIds")]
+        public System.String[] VpcConfiguration_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter StackSetName
         /// <summary>
         /// <para>
@@ -137,6 +164,18 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StackSetName { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace
+        /// to connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfiguration_SubnetIds")]
+        public System.String[] VpcConfiguration_SubnetId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -293,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.Configuration = this.Configuration;
             context.OrganizationRoleName = this.OrganizationRoleName;
             context.PermissionType = this.PermissionType;
             #if MODULAR
@@ -309,6 +349,14 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
                 {
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
+            }
+            if (this.VpcConfiguration_SecurityGroupId != null)
+            {
+                context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
+            }
+            if (this.VpcConfiguration_SubnetId != null)
+            {
+                context.VpcConfiguration_SubnetId = new List<System.String>(this.VpcConfiguration_SubnetId);
             }
             if (this.WorkspaceDataSource != null)
             {
@@ -353,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.Configuration != null)
+            {
+                request.Configuration = cmdletContext.Configuration;
+            }
             if (cmdletContext.OrganizationRoleName != null)
             {
                 request.OrganizationRoleName = cmdletContext.OrganizationRoleName;
@@ -368,6 +420,35 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate VpcConfiguration
+            var requestVpcConfigurationIsNull = true;
+            request.VpcConfiguration = new Amazon.ManagedGrafana.Model.VpcConfiguration();
+            List<System.String> requestVpcConfiguration_vpcConfiguration_SecurityGroupId = null;
+            if (cmdletContext.VpcConfiguration_SecurityGroupId != null)
+            {
+                requestVpcConfiguration_vpcConfiguration_SecurityGroupId = cmdletContext.VpcConfiguration_SecurityGroupId;
+            }
+            if (requestVpcConfiguration_vpcConfiguration_SecurityGroupId != null)
+            {
+                request.VpcConfiguration.SecurityGroupIds = requestVpcConfiguration_vpcConfiguration_SecurityGroupId;
+                requestVpcConfigurationIsNull = false;
+            }
+            List<System.String> requestVpcConfiguration_vpcConfiguration_SubnetId = null;
+            if (cmdletContext.VpcConfiguration_SubnetId != null)
+            {
+                requestVpcConfiguration_vpcConfiguration_SubnetId = cmdletContext.VpcConfiguration_SubnetId;
+            }
+            if (requestVpcConfiguration_vpcConfiguration_SubnetId != null)
+            {
+                request.VpcConfiguration.SubnetIds = requestVpcConfiguration_vpcConfiguration_SubnetId;
+                requestVpcConfigurationIsNull = false;
+            }
+             // determine if request.VpcConfiguration should be set to null
+            if (requestVpcConfigurationIsNull)
+            {
+                request.VpcConfiguration = null;
             }
             if (cmdletContext.WorkspaceDataSource != null)
             {
@@ -457,10 +538,13 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             public Amazon.ManagedGrafana.AccountAccessType AccountAccessType { get; set; }
             public List<System.String> AuthenticationProvider { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String Configuration { get; set; }
             public System.String OrganizationRoleName { get; set; }
             public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
             public System.String StackSetName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfiguration_SubnetId { get; set; }
             public List<System.String> WorkspaceDataSource { get; set; }
             public System.String WorkspaceDescription { get; set; }
             public System.String WorkspaceName { get; set; }

@@ -38,7 +38,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="LockRule" OutputProperty="*" Verb="Lock" Noun="Rule" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnlockRule" OutputProperty="*" Verb="Unlock" Noun="Rule" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

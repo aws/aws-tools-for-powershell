@@ -28,31 +28,16 @@ using Amazon.RecycleBin.Model;
 namespace Amazon.PowerShell.Cmdlets.RBIN
 {
     /// <summary>
-    /// Updates an existing Recycle Bin retention rule. You can update a retention rule's
-    /// description, resource tags, and retention period at any time after creation. You can't
-    /// update a retention rule's resource type after creation. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
-    /// Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User
-    /// Guide</i>.
+    /// Locks a retention rule. A locked retention rule can't be modified or deleted.
     /// </summary>
-    [Cmdlet("Update", "RBINRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RecycleBin.Model.UpdateRuleResponse")]
-    [AWSCmdlet("Calls the Amazon Recycle Bin UpdateRule API operation.", Operation = new[] {"UpdateRule"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.UpdateRuleResponse))]
-    [AWSCmdletOutput("Amazon.RecycleBin.Model.UpdateRuleResponse",
-        "This cmdlet returns an Amazon.RecycleBin.Model.UpdateRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Lock", "RBINRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RecycleBin.Model.LockRuleResponse")]
+    [AWSCmdlet("Calls the Amazon Recycle Bin LockRule API operation.", Operation = new[] {"LockRule"}, SelectReturnType = typeof(Amazon.RecycleBin.Model.LockRuleResponse))]
+    [AWSCmdletOutput("Amazon.RecycleBin.Model.LockRuleResponse",
+        "This cmdlet returns an Amazon.RecycleBin.Model.LockRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateRBINRuleCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
+    public partial class LockRBINRuleCmdlet : AmazonRecycleBinClientCmdlet, IExecutor
     {
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The retention rule description.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
         
         #region Parameter Identifier
         /// <summary>
@@ -71,65 +56,47 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter ResourceTag
+        #region Parameter UnlockDelay_UnlockDelayUnit
         /// <summary>
         /// <para>
-        /// <para>Specifies the resource tags to use to identify resources that are to be retained by
-        /// a tag-level retention rule. For tag-level retention rules, only deleted resources,
-        /// of the specified resource type, that have one or more of the specified tag key and
-        /// value pairs are retained. If a resource is deleted, but it does not have any of the
-        /// specified tag key and value pairs, it is immediately deleted without being retained
-        /// by the retention rule.</para><para>You can add the same tag key and value pair to a maximum or five retention rules.</para><para>To create a Region-level retention rule, omit this parameter. A Region-level retention
-        /// rule does not have any resource tags specified. It retains all deleted resources of
-        /// the specified resource type in the Region in which the rule is created, even if the
-        /// resources are not tagged.</para>
+        /// <para>The unit of time in which to measure the unlock delay. Currently, the unlock delay
+        /// can be measure only in days.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceTags")]
-        public Amazon.RecycleBin.Model.ResourceTag[] ResourceTag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("LockConfiguration_UnlockDelay_UnlockDelayUnit")]
+        [AWSConstantClassSource("Amazon.RecycleBin.UnlockDelayUnit")]
+        public Amazon.RecycleBin.UnlockDelayUnit UnlockDelay_UnlockDelayUnit { get; set; }
         #endregion
         
-        #region Parameter ResourceType
+        #region Parameter UnlockDelay_UnlockDelayValue
         /// <summary>
         /// <para>
-        /// <note><para>This parameter is currently not supported. You can't update a retention rule's resource
-        /// type after creation.</para></note>
+        /// <para>The unlock delay period, measured in the unit specified for <b> UnlockDelayUnit</b>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.RecycleBin.ResourceType")]
-        public Amazon.RecycleBin.ResourceType ResourceType { get; set; }
-        #endregion
-        
-        #region Parameter RetentionPeriod_RetentionPeriodUnit
-        /// <summary>
-        /// <para>
-        /// <para>The unit of time in which the retention period is measured. Currently, only <code>DAYS</code>
-        /// is supported.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.RecycleBin.RetentionPeriodUnit")]
-        public Amazon.RecycleBin.RetentionPeriodUnit RetentionPeriod_RetentionPeriodUnit { get; set; }
-        #endregion
-        
-        #region Parameter RetentionPeriod_RetentionPeriodValue
-        /// <summary>
-        /// <para>
-        /// <para>The period value for which the retention rule is to retain resources. The period is
-        /// measured using the unit specified for <b>RetentionPeriodUnit</b>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? RetentionPeriod_RetentionPeriodValue { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("LockConfiguration_UnlockDelay_UnlockDelayValue")]
+        public System.Int32? UnlockDelay_UnlockDelayValue { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RecycleBin.Model.UpdateRuleResponse).
-        /// Specifying the name of a property of type Amazon.RecycleBin.Model.UpdateRuleResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RecycleBin.Model.LockRuleResponse).
+        /// Specifying the name of a property of type Amazon.RecycleBin.Model.LockRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-RBINRule (UpdateRule)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Lock-RBINRule (LockRule)"))
             {
                 return;
             }
@@ -174,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RecycleBin.Model.UpdateRuleResponse, UpdateRBINRuleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RecycleBin.Model.LockRuleResponse, LockRBINRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -186,7 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
             context.Identifier = this.Identifier;
             #if MODULAR
             if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
@@ -194,13 +160,20 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ResourceTag != null)
+            context.UnlockDelay_UnlockDelayUnit = this.UnlockDelay_UnlockDelayUnit;
+            #if MODULAR
+            if (this.UnlockDelay_UnlockDelayUnit == null && ParameterWasBound(nameof(this.UnlockDelay_UnlockDelayUnit)))
             {
-                context.ResourceTag = new List<Amazon.RecycleBin.Model.ResourceTag>(this.ResourceTag);
+                WriteWarning("You are passing $null as a value for parameter UnlockDelay_UnlockDelayUnit which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.ResourceType = this.ResourceType;
-            context.RetentionPeriod_RetentionPeriodUnit = this.RetentionPeriod_RetentionPeriodUnit;
-            context.RetentionPeriod_RetentionPeriodValue = this.RetentionPeriod_RetentionPeriodValue;
+            #endif
+            context.UnlockDelay_UnlockDelayValue = this.UnlockDelay_UnlockDelayValue;
+            #if MODULAR
+            if (this.UnlockDelay_UnlockDelayValue == null && ParameterWasBound(nameof(this.UnlockDelay_UnlockDelayValue)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UnlockDelay_UnlockDelayValue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,52 +188,55 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RecycleBin.Model.UpdateRuleRequest();
+            var request = new Amazon.RecycleBin.Model.LockRuleRequest();
             
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
             }
-            if (cmdletContext.ResourceTag != null)
-            {
-                request.ResourceTags = cmdletContext.ResourceTag;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
-            }
             
-             // populate RetentionPeriod
-            var requestRetentionPeriodIsNull = true;
-            request.RetentionPeriod = new Amazon.RecycleBin.Model.RetentionPeriod();
-            Amazon.RecycleBin.RetentionPeriodUnit requestRetentionPeriod_retentionPeriod_RetentionPeriodUnit = null;
-            if (cmdletContext.RetentionPeriod_RetentionPeriodUnit != null)
+             // populate LockConfiguration
+            var requestLockConfigurationIsNull = true;
+            request.LockConfiguration = new Amazon.RecycleBin.Model.LockConfiguration();
+            Amazon.RecycleBin.Model.UnlockDelay requestLockConfiguration_lockConfiguration_UnlockDelay = null;
+            
+             // populate UnlockDelay
+            var requestLockConfiguration_lockConfiguration_UnlockDelayIsNull = true;
+            requestLockConfiguration_lockConfiguration_UnlockDelay = new Amazon.RecycleBin.Model.UnlockDelay();
+            Amazon.RecycleBin.UnlockDelayUnit requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit = null;
+            if (cmdletContext.UnlockDelay_UnlockDelayUnit != null)
             {
-                requestRetentionPeriod_retentionPeriod_RetentionPeriodUnit = cmdletContext.RetentionPeriod_RetentionPeriodUnit;
+                requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit = cmdletContext.UnlockDelay_UnlockDelayUnit;
             }
-            if (requestRetentionPeriod_retentionPeriod_RetentionPeriodUnit != null)
+            if (requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit != null)
             {
-                request.RetentionPeriod.RetentionPeriodUnit = requestRetentionPeriod_retentionPeriod_RetentionPeriodUnit;
-                requestRetentionPeriodIsNull = false;
+                requestLockConfiguration_lockConfiguration_UnlockDelay.UnlockDelayUnit = requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayUnit;
+                requestLockConfiguration_lockConfiguration_UnlockDelayIsNull = false;
             }
-            System.Int32? requestRetentionPeriod_retentionPeriod_RetentionPeriodValue = null;
-            if (cmdletContext.RetentionPeriod_RetentionPeriodValue != null)
+            System.Int32? requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue = null;
+            if (cmdletContext.UnlockDelay_UnlockDelayValue != null)
             {
-                requestRetentionPeriod_retentionPeriod_RetentionPeriodValue = cmdletContext.RetentionPeriod_RetentionPeriodValue.Value;
+                requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue = cmdletContext.UnlockDelay_UnlockDelayValue.Value;
             }
-            if (requestRetentionPeriod_retentionPeriod_RetentionPeriodValue != null)
+            if (requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue != null)
             {
-                request.RetentionPeriod.RetentionPeriodValue = requestRetentionPeriod_retentionPeriod_RetentionPeriodValue.Value;
-                requestRetentionPeriodIsNull = false;
+                requestLockConfiguration_lockConfiguration_UnlockDelay.UnlockDelayValue = requestLockConfiguration_lockConfiguration_UnlockDelay_unlockDelay_UnlockDelayValue.Value;
+                requestLockConfiguration_lockConfiguration_UnlockDelayIsNull = false;
             }
-             // determine if request.RetentionPeriod should be set to null
-            if (requestRetentionPeriodIsNull)
+             // determine if requestLockConfiguration_lockConfiguration_UnlockDelay should be set to null
+            if (requestLockConfiguration_lockConfiguration_UnlockDelayIsNull)
             {
-                request.RetentionPeriod = null;
+                requestLockConfiguration_lockConfiguration_UnlockDelay = null;
+            }
+            if (requestLockConfiguration_lockConfiguration_UnlockDelay != null)
+            {
+                request.LockConfiguration.UnlockDelay = requestLockConfiguration_lockConfiguration_UnlockDelay;
+                requestLockConfigurationIsNull = false;
+            }
+             // determine if request.LockConfiguration should be set to null
+            if (requestLockConfigurationIsNull)
+            {
+                request.LockConfiguration = null;
             }
             
             CmdletOutput output;
@@ -295,15 +271,15 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         
         #region AWS Service Operation Call
         
-        private Amazon.RecycleBin.Model.UpdateRuleResponse CallAWSServiceOperation(IAmazonRecycleBin client, Amazon.RecycleBin.Model.UpdateRuleRequest request)
+        private Amazon.RecycleBin.Model.LockRuleResponse CallAWSServiceOperation(IAmazonRecycleBin client, Amazon.RecycleBin.Model.LockRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Recycle Bin", "UpdateRule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Recycle Bin", "LockRule");
             try
             {
                 #if DESKTOP
-                return client.UpdateRule(request);
+                return client.LockRule(request);
                 #elif CORECLR
-                return client.UpdateRuleAsync(request).GetAwaiter().GetResult();
+                return client.LockRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -323,13 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.RBIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
             public System.String Identifier { get; set; }
-            public List<Amazon.RecycleBin.Model.ResourceTag> ResourceTag { get; set; }
-            public Amazon.RecycleBin.ResourceType ResourceType { get; set; }
-            public Amazon.RecycleBin.RetentionPeriodUnit RetentionPeriod_RetentionPeriodUnit { get; set; }
-            public System.Int32? RetentionPeriod_RetentionPeriodValue { get; set; }
-            public System.Func<Amazon.RecycleBin.Model.UpdateRuleResponse, UpdateRBINRuleCmdlet, object> Select { get; set; } =
+            public Amazon.RecycleBin.UnlockDelayUnit UnlockDelay_UnlockDelayUnit { get; set; }
+            public System.Int32? UnlockDelay_UnlockDelayValue { get; set; }
+            public System.Func<Amazon.RecycleBin.Model.LockRuleResponse, LockRBINRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
