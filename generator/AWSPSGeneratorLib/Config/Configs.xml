@@ -93,5 +93,6 @@
     <Library Name="AWSSDK.PinpointSMSVoice" />
     <Library Name="AWSSDK.Signer" />
     <Library Name="AWSSDK.SimpleDB" />
+    <Library Name="AWSSDK.CodeCatalyst" />
   </IncludeLibraries>
 </ConfigModelCollection>
