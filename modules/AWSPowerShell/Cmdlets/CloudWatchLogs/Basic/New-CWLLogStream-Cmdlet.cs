@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// Log stream names can be between 1 and 512 characters long.
     /// </para></li><li><para>
-    /// The ':' (colon) and '*' (asterisk) characters are not allowed.
+    /// Don't use ':' (colon) or '*' (asterisk) characters.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "CWLLogStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -29,22 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates or updates a subscription filter and associates it with the specified log
-    /// group. Subscription filters allow you to subscribe to a real-time stream of log events
+    /// group. With subscription filters, you can subscribe to a real-time stream of log events
     /// ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
     /// and have them delivered to a specific destination. When log events are sent to the
-    /// receiving service, they are Base64 encoded and compressed with the gzip format.
+    /// receiving service, they are Base64 encoded and compressed with the GZIP format.
     /// 
     ///  
     /// <para>
     /// The following destinations are supported for subscription filters:
     /// </para><ul><li><para>
-    /// An Amazon Kinesis stream belonging to the same account as the subscription filter,
+    /// An Amazon Kinesis data stream belonging to the same account as the subscription filter,
     /// for same-account delivery.
     /// </para></li><li><para>
     /// A logical destination that belongs to a different account, for cross-account delivery.
     /// </para></li><li><para>
-    /// An Amazon Kinesis Firehose delivery stream that belongs to the same account as the
-    /// subscription filter, for same-account delivery.
+    /// An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as
+    /// the subscription filter, for same-account delivery.
     /// </para></li><li><para>
     /// An Lambda function that belongs to the same account as the subscription filter, for
     /// same-account delivery.
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The ARN of the destination to deliver matching log events to. Currently, the supported
         /// destinations are:</para><ul><li><para>An Amazon Kinesis stream belonging to the same account as the subscription filter,
         /// for same-account delivery.</para></li><li><para>A logical destination (specified using an ARN) belonging to a different account, for
-        /// cross-account delivery.</para><para>If you are setting up a cross-account subscription, the destination must have an IAM
-        /// policy associated with it that allows the sender to send logs to the destination.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a>.</para></li><li><para>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription
+        /// cross-account delivery.</para><para>If you're setting up a cross-account subscription, the destination must have an IAM
+        /// policy associated with it. The IAM policy must allow the sender to send logs to the
+        /// destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a>.</para></li><li><para>A Kinesis Data Firehose delivery stream belonging to the same account as the subscription
         /// filter, for same-account delivery.</para></li><li><para>A Lambda function belonging to the same account as the subscription filter, for same-account
         /// delivery.</para></li></ul>
         /// </para>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The method used to distribute log data to the destination. By default, log data is
         /// grouped by log stream, but the grouping can be set to random for a more even distribution.
-        /// This property is only applicable when the destination is an Amazon Kinesis stream.
+        /// This property is only applicable when the destination is an Amazon Kinesis data stream.
         /// </para>
         /// </para>
         /// </summary>

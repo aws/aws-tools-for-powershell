@@ -109,6 +109,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.ExecuteCommandLogging ExecuteCommandConfiguration_Logging { get; set; }
         #endregion
         
+        #region Parameter ServiceConnectDefaults_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's
+        /// used when you create a service and don't specify a Service Connect configuration.
+        /// Up to 1024 characters are allowed. The name is case-sensitive. The characters can't
+        /// include hyphens (-), tilde (~), greater than (&gt;), less than (&lt;), or slash (/).</para><para>If you enter an existing namespace name or ARN, then that namespace will be used.
+        /// Any namespace type is supported. The namespace must be in this account and this Amazon
+        /// Web Services Region.</para><para>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates
+        /// a Cloud Map namespace with the "API calls" method of instance discovery only. This
+        /// instance discovery method is the "HTTP" namespace type in the Command Line Interface.
+        /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the service with an empty string <code>""</code> for the namespace name,
+        /// the cluster configuration for Service Connect is removed. Note that the namespace
+        /// will remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+        /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceConnectDefaults_Namespace { get; set; }
+        #endregion
+        
         #region Parameter LogConfiguration_S3BucketName
         /// <summary>
         /// <para>
@@ -229,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.LogConfiguration_S3EncryptionEnabled = this.LogConfiguration_S3EncryptionEnabled;
             context.LogConfiguration_S3KeyPrefix = this.LogConfiguration_S3KeyPrefix;
             context.ExecuteCommandConfiguration_Logging = this.ExecuteCommandConfiguration_Logging;
+            context.ServiceConnectDefaults_Namespace = this.ServiceConnectDefaults_Namespace;
             if (this.Setting != null)
             {
                 context.Setting = new List<Amazon.ECS.Model.ClusterSetting>(this.Setting);
@@ -362,6 +384,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.Configuration = null;
             }
+            
+             // populate ServiceConnectDefaults
+            var requestServiceConnectDefaultsIsNull = true;
+            request.ServiceConnectDefaults = new Amazon.ECS.Model.ClusterServiceConnectDefaultsRequest();
+            System.String requestServiceConnectDefaults_serviceConnectDefaults_Namespace = null;
+            if (cmdletContext.ServiceConnectDefaults_Namespace != null)
+            {
+                requestServiceConnectDefaults_serviceConnectDefaults_Namespace = cmdletContext.ServiceConnectDefaults_Namespace;
+            }
+            if (requestServiceConnectDefaults_serviceConnectDefaults_Namespace != null)
+            {
+                request.ServiceConnectDefaults.Namespace = requestServiceConnectDefaults_serviceConnectDefaults_Namespace;
+                requestServiceConnectDefaultsIsNull = false;
+            }
+             // determine if request.ServiceConnectDefaults should be set to null
+            if (requestServiceConnectDefaultsIsNull)
+            {
+                request.ServiceConnectDefaults = null;
+            }
             if (cmdletContext.Setting != null)
             {
                 request.Settings = cmdletContext.Setting;
@@ -435,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Boolean? LogConfiguration_S3EncryptionEnabled { get; set; }
             public System.String LogConfiguration_S3KeyPrefix { get; set; }
             public Amazon.ECS.ExecuteCommandLogging ExecuteCommandConfiguration_Logging { get; set; }
+            public System.String ServiceConnectDefaults_Namespace { get; set; }
             public List<Amazon.ECS.Model.ClusterSetting> Setting { get; set; }
             public System.Func<Amazon.ECS.Model.UpdateClusterResponse, UpdateECSClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;

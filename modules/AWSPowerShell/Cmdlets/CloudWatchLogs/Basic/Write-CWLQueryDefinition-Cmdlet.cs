@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// To update a query definition, specify its <code>queryDefinitionId</code> in your request.
     /// The values of <code>name</code>, <code>queryString</code>, and <code>logGroupNames</code>
     /// are changed to the values that you specify in your update operation. No current values
-    /// are retained from the current query definition. For example, if you update a current
-    /// query definition that includes log groups, and you don't specify the <code>logGroupNames</code>
+    /// are retained from the current query definition. For example, imagine updating a current
+    /// query definition that includes log groups. If you don't specify the <code>logGroupNames</code>
     /// parameter in your update operation, the query definition changes to contain no log
     /// groups.
     /// </para><para>
@@ -71,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the query definition. If you are saving a lot of query definitions, we
-        /// recommend that you name them so that you can easily find the ones you want by using
-        /// the first part of the name as a filter in the <code>queryDefinitionNamePrefix</code>
-        /// parameter of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</para>
+        /// <para>A name for the query definition. If you are saving numerous query definitions, we
+        /// recommend that you name them. This way, you can find the ones you want by using the
+        /// first part of the name as a filter in the <code>queryDefinitionNamePrefix</code> parameter
+        /// of <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

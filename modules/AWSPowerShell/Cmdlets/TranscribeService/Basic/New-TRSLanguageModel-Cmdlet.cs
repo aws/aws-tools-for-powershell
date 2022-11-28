@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// When creating a new language model, you must specify:
+    /// When creating a new custom language model, you must specify:
     /// </para><ul><li><para>
     /// If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband (audio sample
     /// rates under 16,000 Hz) base model
@@ -42,10 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// The language of your model
     /// </para></li><li><para>
     /// A unique name for your model
-    /// </para></li></ul><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html">Custom
-    /// language models</a>.
-    /// </para>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "TRSLanguageModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CreateLanguageModelResponse")]
@@ -81,8 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
-        /// S3 bucket that contains your input files. If the role you specify doesn’t have the
-        /// appropriate permissions to access the specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
+        /// S3 bucket that contains your input files. If the role that you specify doesn’t have
+        /// the appropriate permissions to access the specified Amazon S3 location, your request
+        /// fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
         /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
         /// ARNs</a>.</para>
         /// </para>
@@ -101,14 +99,15 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code that represents the language of your model. Each language model
-        /// must contain terms in only one language, and the language you select for your model
-        /// must match the language of your training and tuning data.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// <para>The language code that represents the language of your model. Each custom language
+        /// model must contain terms in only one language, and the language you select for your
+        /// custom language model must match the language of your training and tuning data.</para><para>For a list of supported languages and their associated language codes, refer to the
         /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
-        /// languages</a> table. Note that U.S. English (<code>en-US</code>) is the only language
+        /// languages</a> table. Note that US English (<code>en-US</code>) is the only language
         /// supported with Amazon Transcribe Medical.</para><para>A custom language model can only be used to transcribe files in the same language
-        /// as the model. For example, if you create a language model using US English (<code>en-US</code>),
-        /// you can only apply this model to files that contain English audio.</para>
+        /// as the model. For example, if you create a custom language model using US English
+        /// (<code>en-US</code>), you can only apply this model to files that contain English
+        /// audio.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,8 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>A unique name, chosen by you, for your custom language model.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a new language model with the same name
-        /// as an existing language model, you get a <code>ConflictException</code> error.</para>
+        /// Web Services account. If you try to create a new custom language model with the same
+        /// name as an existing custom language model, you get a <code>ConflictException</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

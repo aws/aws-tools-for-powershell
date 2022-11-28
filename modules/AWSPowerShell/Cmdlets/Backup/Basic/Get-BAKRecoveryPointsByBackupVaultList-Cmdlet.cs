@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.DateTime? ByCreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ByParentRecoveryPointArn
+        /// <summary>
+        /// <para>
+        /// <para>This returns only recovery points that match the specified parent (composite) recovery
+        /// point Amazon Resource Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByParentRecoveryPointArn { get; set; }
+        #endregion
+        
         #region Parameter ByResourceArn
         /// <summary>
         /// <para>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByBackupPlanId = this.ByBackupPlanId;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByParentRecoveryPointArn = this.ByParentRecoveryPointArn;
             context.ByResourceArn = this.ByResourceArn;
             context.ByResourceType = this.ByResourceType;
             context.MaxResult = this.MaxResult;
@@ -257,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByParentRecoveryPointArn != null)
+            {
+                request.ByParentRecoveryPointArn = cmdletContext.ByParentRecoveryPointArn;
             }
             if (cmdletContext.ByResourceArn != null)
             {
@@ -340,6 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByParentRecoveryPointArn != null)
+            {
+                request.ByParentRecoveryPointArn = cmdletContext.ByParentRecoveryPointArn;
             }
             if (cmdletContext.ByResourceArn != null)
             {
@@ -472,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String ByBackupPlanId { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
+            public System.String ByParentRecoveryPointArn { get; set; }
             public System.String ByResourceArn { get; set; }
             public System.String ByResourceType { get; set; }
             public int? MaxResult { get; set; }

@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// This operation has a limit of five transactions per second, after which transactions
     /// are throttled.
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account and view data from the linked source accounts. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLLogStream")]
@@ -58,10 +63,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.Boolean? Descending { get; set; }
         #endregion
         
+        #region Parameter LogGroupIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Specify either the name or ARN of the log group to view. If the log group is in a
+        /// source account and you are using a monitoring account, you must use the log group
+        /// ARN.</para><para>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogGroupIdentifier { get; set; }
+        #endregion
+        
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The name of the log group.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// time. The default value is <code>LogStreamName</code>.</para><para>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code>
         /// parameter.</para><para><code>lastEventTimestamp</code> represents the time of the most recent log event
         /// in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds
-        /// after Jan 1, 1970 00:00:00 UTC. <code>lastEventTimestamp</code> updates on an eventual
-        /// consistency basis. It typically updates in less than an hour from ingestion, but in
-        /// rare situations might take longer.</para>
+        /// after <code>Jan 1, 1970 00:00:00 UTC</code>. <code>lastEventTimestamp</code> updates
+        /// on an eventual consistency basis. It typically updates in less than an hour from ingestion,
+        /// but in rare situations might take longer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.LogGroupIdentifier = this.LogGroupIdentifier;
             context.LogGroupName = this.LogGroupName;
             #if MODULAR
             if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
@@ -239,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifier = cmdletContext.LogGroupIdentifier;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -310,6 +334,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Descending != null)
             {
                 request.Descending = cmdletContext.Descending.Value;
+            }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifier = cmdletContext.LogGroupIdentifier;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -444,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.Boolean? Descending { get; set; }
             public int? Limit { get; set; }
+            public System.String LogGroupIdentifier { get; set; }
             public System.String LogGroupName { get; set; }
             public System.String LogStreamNamePrefix { get; set; }
             public System.String NextToken { get; set; }

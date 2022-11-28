@@ -47,16 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// operation repeatedly.
     /// </para><para>
     /// To learn more about Amazon ECS task protection, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html">Task
-    /// scale-in protection</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// scale-in protection</a> in the <i><i>Amazon Elastic Container Service Developer Guide</i></i>.
     /// </para><note><para>
     /// This operation is only supported for tasks belonging to an Amazon ECS service. Invoking
     /// this operation for a standalone task will result in an <code>TASK_NOT_VALID</code>
-    /// failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html.html">API
+    /// failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API
     /// failure reasons</a>.
     /// </para></note><important><para>
     /// If you prefer to set task protection from within the container, we recommend using
-    /// the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-endpoint.html">Amazon
-    /// ECS container agent endpoint</a>.
+    /// the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection-endpoint.html">Task
+    /// scale-in protection endpoint</a>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "ECSTaskProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

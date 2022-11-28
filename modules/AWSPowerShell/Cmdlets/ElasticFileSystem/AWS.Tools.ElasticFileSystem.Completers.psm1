@@ -107,7 +107,7 @@ $EFS_Completers = {
             ($_ -eq "Update-EFSFileSystem/ThroughputMode")
         }
         {
-            $v = "bursting","provisioned"
+            $v = "bursting","elastic","provisioned"
             break
         }
 

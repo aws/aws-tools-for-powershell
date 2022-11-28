@@ -83,14 +83,14 @@ $BAK_Completers = {
         # Amazon.Backup.BackupJobState
         "Get-BAKBackupJobList/ByState"
         {
-            $v = "ABORTED","ABORTING","COMPLETED","CREATED","EXPIRED","FAILED","PENDING","RUNNING"
+            $v = "ABORTED","ABORTING","COMPLETED","CREATED","EXPIRED","FAILED","PARTIAL","PENDING","RUNNING"
             break
         }
 
         # Amazon.Backup.CopyJobState
         "Get-BAKCopyJobList/ByState"
         {
-            $v = "COMPLETED","CREATED","FAILED","RUNNING"
+            $v = "COMPLETED","CREATED","FAILED","PARTIAL","RUNNING"
             break
         }
 
@@ -164,10 +164,12 @@ $BAK_SelectCompleters = {
 }
 
 $BAK_SelectMap = @{
-    "Select"=@("New-BAKBackupPlan",
+    "Select"=@("Stop-BAKLegalHold",
+               "New-BAKBackupPlan",
                "New-BAKBackupSelection",
                "New-BAKBackupVault",
                "New-BAKFramework",
+               "New-BAKLegalHold",
                "New-BAKReportPlan",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
@@ -190,6 +192,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportPlan",
                "Get-BAKRestoreJob",
                "Unlock-BAKRecoveryPoint",
+               "Move-BAKRecoveryPoint",
                "Export-BAKBackupPlanTemplate",
                "Get-BAKBackupPlan",
                "Get-BAKBackupPlanFromJSON",
@@ -197,6 +200,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupSelection",
                "Get-BAKBackupVaultAccessPolicy",
                "Get-BAKBackupVaultNotification",
+               "Get-BAKLegalHold",
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKSupportedResourceType",
                "Get-BAKBackupJobList",
@@ -207,8 +211,10 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultList",
                "Get-BAKCopyJobList",
                "Get-BAKFrameworkList",
+               "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
                "Get-BAKRecoveryPointsByBackupVaultList",
+               "Get-BAKRecoveryPointsByLegalHoldList",
                "Get-BAKRecoveryPointsByResourceList",
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",

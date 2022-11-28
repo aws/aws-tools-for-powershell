@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating
     /// the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
+    /// </para></note><note><para>
+    /// Agent updates with the <code>UpdateContainerAgent</code> API operation do not apply
+    /// to Windows container instances. We recommend that you launch new container instances
+    /// to update the agent version in your Windows clusters.
     /// </para></note><para>
     /// The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or
     /// Amazon Linux AMI with the <code>ecs-init</code> service installed and running. For

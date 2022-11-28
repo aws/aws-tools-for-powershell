@@ -21,6 +21,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelLegalHold" Verb="Stop" Noun="LegalHold" ShouldProcessTarget="LegalHoldId" PipelineParameter="LegalHoldId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBackupPlan" OutputProperty="*" Verb="New" Noun="BackupPlan" AnonymousShouldProcessTarget="true" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -34,6 +38,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFramework" OutputProperty="*" Verb="New" Noun="Framework" ShouldProcessTarget="FrameworkName" PipelineParameter="FrameworkName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLegalHold" OutputProperty="*" Verb="New" Noun="LegalHold" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -125,6 +133,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRecoveryPointFromParent" Verb="Move" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ExportBackupPlanTemplate" OutputProperty="BackupPlanTemplateJson" Verb="Export" Noun="BackupPlanTemplate" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -150,6 +162,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBackupVaultNotifications" OutputProperty="*" Verb="Get" Noun="BackupVaultNotification" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLegalHold" OutputProperty="*" Verb="Get" Noun="LegalHold" PipelineParameter="LegalHoldId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,11 +209,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLegalHolds" OutputProperty="LegalHolds" Verb="Get" Noun="LegalHoldList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPointsByLegalHold" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByLegalHoldList" PipelineParameter="LegalHoldId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -46,25 +46,26 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// None of the log events in the batch can be more than 2 hours in the future.
     /// </para></li><li><para>
-    /// None of the log events in the batch can be older than 14 days or older than the retention
-    /// period of the log group.
+    /// None of the log events in the batch can be more than 14 days in the past. Also, none
+    /// of the log events can be from earlier than the retention period of the log group.
     /// </para></li><li><para>
     /// The log events in the batch must be in chronological order by their timestamp. The
-    /// timestamp is the time the event occurred, expressed as the number of milliseconds
-    /// after Jan 1, 1970 00:00:00 UTC. (In Amazon Web Services Tools for PowerShell and the
-    /// Amazon Web Services SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss.
-    /// For example, 2017-09-15T13:45:30.) 
+    /// timestamp is the time that the event occurred, expressed as the number of milliseconds
+    /// after <code>Jan 1, 1970 00:00:00 UTC</code>. (In Amazon Web Services Tools for PowerShell
+    /// and the Amazon Web Services SDK for .NET, the timestamp is specified in .NET format:
+    /// <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.)
+    /// 
     /// </para></li><li><para>
     /// A batch of log events in a single request cannot span more than 24 hours. Otherwise,
     /// the operation fails.
     /// </para></li><li><para>
     /// The maximum number of log events in a batch is 10,000.
     /// </para></li><li><para>
-    /// There is a quota of 5 requests per second per log stream. Additional requests are
+    /// There is a quota of five requests per second per log stream. Additional requests are
     /// throttled. This quota can't be changed.
     /// </para></li></ul><para>
     /// If a call to <code>PutLogEvents</code> returns "UnrecognizedClientException" the most
-    /// likely cause is an invalid Amazon Web Services access key ID or secret key. 
+    /// likely cause is a non-valid Amazon Web Services access key ID or secret key. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLLogEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

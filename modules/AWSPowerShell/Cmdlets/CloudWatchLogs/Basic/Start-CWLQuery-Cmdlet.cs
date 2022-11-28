@@ -36,10 +36,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
     /// Logs Insights Query Syntax</a>.
     /// </para><para>
-    /// Queries time out after 15 minutes of execution. If your queries are timing out, reduce
+    /// Queries time out after 15 minutes of runtime. If your queries are timing out, reduce
     /// the time range being searched or partition your query into a number of queries.
     /// </para><para>
-    ///  You are limited to 20 concurrent CloudWatch Logs insights queries, including queries
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account to start a query in a linked source account. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>. For a cross-account <code>StartQuery</code> operation,
+    /// the query definition must be defined in the monitoring account.
+    /// </para><para>
+    /// You can have up to 20 concurrent CloudWatch Logs insights queries, including queries
     /// that have been added to dashboards. 
     /// </para>
     /// </summary>
@@ -57,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The end of the time range to query. The range is inclusive, so the specified end time
-        /// is included in the query. Specified as epoch time, the number of seconds since January
-        /// 1, 1970, 00:00:00 UTC.</para>
+        /// is included in the query. Specified as epoch time, the number of seconds since <code>January
+        /// 1, 1970, 00:00:00 UTC</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,11 +77,28 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.Int64? EndTime { get; set; }
         #endregion
         
+        #region Parameter LogGroupIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The list of log groups to query. You can include up to 50 log groups.</para><para>You can specify them by the log group name or ARN. If a log group that you're querying
+        /// is in a source account and you're using a monitoring account, you must specify the
+        /// ARN of the log group here. The query definition must also be defined in the monitoring
+        /// account.</para><para>If you specify an ARN, the ARN can't end with an asterisk (*).</para><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
+        /// <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LogGroupIdentifiers")]
+        public System.String[] LogGroupIdentifier { get; set; }
+        #endregion
+        
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The log group on which to perform the query.</para><para>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a
-        /// <code>logGroupName</code> parameter, but not both.</para>
+        /// <para>The log group on which to perform the query.</para><note><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
+        /// <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupNameList
         /// <summary>
         /// <para>
-        /// <para>The list of log groups to be queried. You can include up to 20 log groups.</para><para>A <code>StartQuery</code> operation must include a <code>logGroupNames</code> or a
-        /// <code>logGroupName</code> parameter, but not both.</para>
+        /// <para>The list of log groups to be queried. You can include up to 50 log groups.</para><note><para>A <code>StartQuery</code> operation must include exactly one of the following parameters:
+        /// <code>logGroupName</code>, <code>logGroupNames</code> or <code>logGroupIdentifiers</code>.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The beginning of the time range to query. The range is inclusive, so the specified
         /// start time is included in the query. Specified as epoch time, the number of seconds
-        /// since January 1, 1970, 00:00:00 UTC.</para>
+        /// since <code>January 1, 1970, 00:00:00 UTC</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -210,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             #endif
             context.Limit = this.Limit;
+            if (this.LogGroupIdentifier != null)
+            {
+                context.LogGroupIdentifier = new List<System.String>(this.LogGroupIdentifier);
+            }
             context.LogGroupName = this.LogGroupName;
             if (this.LogGroupNameList != null)
             {
@@ -252,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifiers = cmdletContext.LogGroupIdentifier;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -332,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.Int64? EndTime { get; set; }
             public System.Int32? Limit { get; set; }
+            public List<System.String> LogGroupIdentifier { get; set; }
             public System.String LogGroupName { get; set; }
             public List<System.String> LogGroupNameList { get; set; }
             public System.String QueryString { get; set; }

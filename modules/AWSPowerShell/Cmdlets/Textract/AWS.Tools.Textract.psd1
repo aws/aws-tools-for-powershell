@@ -90,12 +90,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-TXTDocumentAnalysis', 
         'Get-TXTDocumentTextDetection', 
         'Get-TXTExpenseAnalysis', 
+        'Get-TXTLendingAnalysis', 
+        'Get-TXTLendingAnalysisSummary', 
         'Invoke-TXTAnalyzeID', 
         'Invoke-TXTDocumentAnalysis', 
         'Invoke-TXTExpenseAnalysis', 
         'Start-TXTDocumentAnalysis', 
         'Start-TXTDocumentTextDetection', 
-        'Start-TXTExpenseAnalysis')
+        'Start-TXTExpenseAnalysis', 
+        'Start-TXTLendingAnalysis')
 
     # Variables to export from this module
     VariablesToExport = '*'

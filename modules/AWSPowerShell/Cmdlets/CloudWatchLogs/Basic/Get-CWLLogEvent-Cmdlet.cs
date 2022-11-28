@@ -37,6 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// of 1MB (up to 10,000 log events). You can get additional log events by specifying
     /// one of the tokens in a subsequent call. This operation can return empty results while
     /// there are more log events available through the token.
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account and view data from the linked source accounts. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvent")]
@@ -51,18 +56,33 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
-        /// 00:00:00 UTC. Events with a timestamp equal to or later than this time are not included.</para>
+        /// <para>The end of the time range, expressed as the number of milliseconds after <code>Jan
+        /// 1, 1970 00:00:00 UTC</code>. Events with a timestamp equal to or later than this time
+        /// are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? EndTime { get; set; }
         #endregion
         
+        #region Parameter LogGroupIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Specify either the name or ARN of the log group to view events from. If the log group
+        /// is in a source account and you are using a monitoring account, you must use the log
+        /// group ARN.</para><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogGroupIdentifier { get; set; }
+        #endregion
+        
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para>
+        /// <para>The name of the log group.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,20 +128,32 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time range, expressed as the number of milliseconds after Jan 1,
-        /// 1970 00:00:00 UTC. Events with a timestamp equal to this time or later than this time
-        /// are included. Events with a timestamp earlier than this time are not included.</para>
+        /// <para>The start of the time range, expressed as the number of milliseconds after <code>Jan
+        /// 1, 1970 00:00:00 UTC</code>. Events with a timestamp equal to this time or later than
+        /// this time are included. Events with a timestamp earlier than this time are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? StartTime { get; set; }
         #endregion
         
+        #region Parameter Unmask
+        /// <summary>
+        /// <para>
+        /// <para>Specify <code>true</code> to display the log event fields with all sensitive data
+        /// unmasked and visible. The default is <code>false</code>.</para><para>To use this operation with this parameter, you must be signed into an account with
+        /// the <code>logs:Unmask</code> permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Unmask { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of log events returned. If you don't specify a value, the maximum
-        /// is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.</para>
+        /// <para>The maximum number of log events returned. If you don't specify a limit, the default
+        /// is as many log events as can fit in a response size of 1 MB (up to 10,000 log events).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndTime = this.EndTime;
             context.Limit = this.Limit;
+            context.LogGroupIdentifier = this.LogGroupIdentifier;
             context.LogGroupName = this.LogGroupName;
             #if MODULAR
             if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
@@ -203,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.NextToken = this.NextToken;
             context.StartFromHead = this.StartFromHead;
             context.StartTime = this.StartTime;
+            context.Unmask = this.Unmask;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.Limit = cmdletContext.Limit.Value;
             }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifier = cmdletContext.LogGroupIdentifier;
+            }
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
@@ -246,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
+            }
+            if (cmdletContext.Unmask != null)
+            {
+                request.Unmask = cmdletContext.Unmask.Value;
             }
             
             CmdletOutput output;
@@ -310,11 +352,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.DateTime? EndTime { get; set; }
             public System.Int32? Limit { get; set; }
+            public System.String LogGroupIdentifier { get; set; }
             public System.String LogGroupName { get; set; }
             public System.String LogStreamName { get; set; }
             public System.String NextToken { get; set; }
             public System.Boolean? StartFromHead { get; set; }
             public System.DateTime? StartTime { get; set; }
+            public System.Boolean? Unmask { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.GetLogEventsResponse, GetCWLLogEventCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

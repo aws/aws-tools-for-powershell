@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// based on the result of a metric math expression. Each item in <code>MetricDataQueries</code>
         /// gets a metric or performs a math expression. One item in <code>MetricDataQueries</code>
         /// is the expression that provides the time series that the anomaly detector uses as
-        /// input. Designate the expression by setting <code>ReturnData</code> to <code>True</code>
+        /// input. Designate the expression by setting <code>ReturnData</code> to <code>true</code>
         /// for this object in the array. For all other expressions and metrics, set <code>ReturnData</code>
-        /// to <code>False</code>. The designated expression must return a single time series.</para>
+        /// to <code>false</code>. The designated expression must return a single time series.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

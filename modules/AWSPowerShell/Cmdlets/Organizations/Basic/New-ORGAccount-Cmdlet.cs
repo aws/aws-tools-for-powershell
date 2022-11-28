@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// access the account. To check the status of the request, do one of the following:
     /// 
     ///  <ul><li><para>
-    /// Use the <code>Id</code> member of the <code>CreateAccountStatus</code> response element
+    /// Use the <code>Id</code> value of the <code>CreateAccountStatus</code> response element
     /// from this operation to provide as a parameter to the <a>DescribeCreateAccountStatus</a>
     /// operation.
     /// </para></li><li><para>
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>(Optional)</para><para>The name of an IAM role that Organizations automatically preconfigures in the new
+        /// <para>The name of an IAM role that Organizations automatically preconfigures in the new
         /// member account. This role trusts the management account, allowing users in the management
         /// account to assume the role, as permitted by the management account administrator.
         /// The role has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see

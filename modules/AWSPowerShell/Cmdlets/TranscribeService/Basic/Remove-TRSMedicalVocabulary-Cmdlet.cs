@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Deletes a custom medical vocabulary. To use this operation, specify the name of the
-    /// vocabulary you want to delete using <code>VocabularyName</code>. Vocabulary names
-    /// are case sensitive.
+    /// custom vocabulary you want to delete using <code>VocabularyName</code>. Custom vocabulary
+    /// names are case sensitive.
     /// </summary>
     [Cmdlet("Remove", "TRSMedicalVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom medical vocabulary you want to delete. Vocabulary names are
-        /// case sensitive.</para>
+        /// <para>The name of the custom medical vocabulary you want to delete. Custom medical vocabulary
+        /// names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

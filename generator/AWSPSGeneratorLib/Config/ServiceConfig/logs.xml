@@ -41,6 +41,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataProtectionPolicy" Verb="Remove" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -117,6 +121,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataProtectionPolicy" OutputProperty="*" Verb="Get" Noun="DataProtectionPolicy" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents">
             <Params />
             <TypesNotToFlatten />
@@ -138,6 +146,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsLogGroup" OutputProperty="Tags" Verb="Get" Noun="LogGroupTag" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataProtectionPolicy" OutputProperty="*" Verb="Write" Noun="DataProtectionPolicy" ShouldProcessTarget="LogGroupIdentifier" PipelineParameter="LogGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

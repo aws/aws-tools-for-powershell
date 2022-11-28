@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter PostLaunchActions_CloudWatchLogGroupName
         /// <summary>
         /// <para>
-        /// <para>Server participating in Job.</para>
+        /// <para>AWS Systems Manager Command's CloudWatch log group name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,12 +84,22 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter PostLaunchActions_Deployment
         /// <summary>
         /// <para>
-        /// <para>Server participating in Job.</para>
+        /// <para>Deployment type in which AWS Systems Manager Documents will be executed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Mgn.PostLaunchActionsDeploymentType")]
         public Amazon.Mgn.PostLaunchActionsDeploymentType PostLaunchActions_Deployment { get; set; }
+        #endregion
+        
+        #region Parameter EnableMapAutoTagging
+        /// <summary>
+        /// <para>
+        /// <para>Enable map auto tagging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableMapAutoTagging { get; set; }
         #endregion
         
         #region Parameter LaunchDisposition
@@ -101,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Mgn.LaunchDisposition")]
         public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
+        #endregion
+        
+        #region Parameter MapAutoTaggingMpeID
+        /// <summary>
+        /// <para>
+        /// <para>Launch configuration map auto tagging MPE ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MapAutoTaggingMpeID { get; set; }
         #endregion
         
         #region Parameter Name
@@ -126,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter PostLaunchActions_S3LogBucket
         /// <summary>
         /// <para>
-        /// <para>Server participating in Job.</para>
+        /// <para>AWS Systems Manager Command's logs S3 log bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter PostLaunchActions_S3OutputKeyPrefix
         /// <summary>
         /// <para>
-        /// <para>Server participating in Job.</para>
+        /// <para>AWS Systems Manager Command's logs S3 output key prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter PostLaunchActions_SsmDocument
         /// <summary>
         /// <para>
-        /// <para>Server participating in Job.</para>
+        /// <para>AWS Systems Manager Documents.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,8 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             context.BootMode = this.BootMode;
             context.CopyPrivateIp = this.CopyPrivateIp;
             context.CopyTag = this.CopyTag;
+            context.EnableMapAutoTagging = this.EnableMapAutoTagging;
             context.LaunchDisposition = this.LaunchDisposition;
             context.Licensing_OsByol = this.Licensing_OsByol;
+            context.MapAutoTaggingMpeID = this.MapAutoTaggingMpeID;
             context.Name = this.Name;
             context.PostLaunchActions_CloudWatchLogGroupName = this.PostLaunchActions_CloudWatchLogGroupName;
             context.PostLaunchActions_Deployment = this.PostLaunchActions_Deployment;
@@ -293,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.CopyTags = cmdletContext.CopyTag.Value;
             }
+            if (cmdletContext.EnableMapAutoTagging != null)
+            {
+                request.EnableMapAutoTagging = cmdletContext.EnableMapAutoTagging.Value;
+            }
             if (cmdletContext.LaunchDisposition != null)
             {
                 request.LaunchDisposition = cmdletContext.LaunchDisposition;
@@ -315,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (requestLicensingIsNull)
             {
                 request.Licensing = null;
+            }
+            if (cmdletContext.MapAutoTaggingMpeID != null)
+            {
+                request.MapAutoTaggingMpeID = cmdletContext.MapAutoTaggingMpeID;
             }
             if (cmdletContext.Name != null)
             {
@@ -451,8 +481,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public Amazon.Mgn.BootMode BootMode { get; set; }
             public System.Boolean? CopyPrivateIp { get; set; }
             public System.Boolean? CopyTag { get; set; }
+            public System.Boolean? EnableMapAutoTagging { get; set; }
             public Amazon.Mgn.LaunchDisposition LaunchDisposition { get; set; }
             public System.Boolean? Licensing_OsByol { get; set; }
+            public System.String MapAutoTaggingMpeID { get; set; }
             public System.String Name { get; set; }
             public System.String PostLaunchActions_CloudWatchLogGroupName { get; set; }
             public Amazon.Mgn.PostLaunchActionsDeploymentType PostLaunchActions_Deployment { get; set; }

@@ -202,6 +202,33 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Http_ConfirmationUrl { get; set; }
         #endregion
         
+        #region Parameter Headers_ContentType
+        /// <summary>
+        /// <para>
+        /// <para>A UTF-8 encoded string that describes the content of the publishing message.</para><para>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901118">
+        /// Content Type</a> from the MQTT Version 5.0 specification.</para><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+        /// templates</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Republish_Headers_ContentType")]
+        public System.String Headers_ContentType { get; set; }
+        #endregion
+        
+        #region Parameter Headers_CorrelationData
+        /// <summary>
+        /// <para>
+        /// <para>The base64-encoded binary data used by the sender of the request message to identify
+        /// which request the response message is for when it's received.</para><para>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901115">
+        /// Correlation Data</a> from the MQTT Version 5.0 specification.</para><note><para> This binary data must be based64-encoded. </para></note><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+        /// templates</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Republish_Headers_CorrelationData")]
+        public System.String Headers_CorrelationData { get; set; }
+        #endregion
+        
         #region Parameter Timestream_DatabaseName
         /// <summary>
         /// <para>
@@ -471,6 +498,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Location_Longitude { get; set; }
         #endregion
         
+        #region Parameter Headers_MessageExpiry
+        /// <summary>
+        /// <para>
+        /// <para>A user-defined integer value that will persist a message at the message broker for
+        /// a specified amount of time to ensure that the message will expire if it's no longer
+        /// relevant to the subscriber. The value of <code>messageExpiry</code> represents the
+        /// number of seconds before it expires. For more information about the limits of <code>messageExpiry</code>,
+        /// see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/mqtt.html">Amazon
+        /// Web Services IoT Core message broker and protocol limits and quotas </a> from the
+        /// Amazon Web Services Reference Guide.</para><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+        /// templates</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Republish_Headers_MessageExpiry")]
+        public System.String Headers_MessageExpiry { get; set; }
+        #endregion
+        
         #region Parameter Sns_MessageFormat
         /// <summary>
         /// <para>
@@ -603,6 +648,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String DynamoDB_PayloadField { get; set; }
         #endregion
         
+        #region Parameter Headers_PayloadFormatIndicator
+        /// <summary>
+        /// <para>
+        /// <para>An <code>Enum</code> string value that indicates whether the payload is formatted
+        /// as UTF-8.</para><para>Valid values are <code>UNSPECIFIED_BYTES</code> and <code>UTF8_DATA</code>.</para><para>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901111">
+        /// Payload Format Indicator</a> from the MQTT Version 5.0 specification.</para><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+        /// templates</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Republish_Headers_PayloadFormatIndicator")]
+        public System.String Headers_PayloadFormatIndicator { get; set; }
+        #endregion
+        
         #region Parameter IotSiteWise_PutAssetPropertyValueEntry
         /// <summary>
         /// <para>
@@ -669,6 +728,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_DynamoDB_RangeKeyValue")]
         public System.String DynamoDB_RangeKeyValue { get; set; }
+        #endregion
+        
+        #region Parameter Headers_ResponseTopic
+        /// <summary>
+        /// <para>
+        /// <para>A UTF-8 encoded string that's used as the topic name for a response message. The response
+        /// topic is used to describe the topic which the receiver should publish to as part of
+        /// the request-response flow. The topic must not contain wildcard characters.</para><para>For more information, see <a href="https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901114">
+        /// Response Topic</a> from the MQTT Version 5.0 specification.</para><para>Supports <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html">substitution
+        /// templates</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Republish_Headers_ResponseTopic")]
+        public System.String Headers_ResponseTopic { get; set; }
         #endregion
         
         #region Parameter CloudwatchAlarm_RoleArn
@@ -1194,6 +1268,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? Sqs_UseBase64 { get; set; }
         #endregion
         
+        #region Parameter Headers_UserProperty
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs that you define in the MQTT5 header.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Republish_Headers_UserProperties")]
+        public Amazon.IoT.Model.UserProperty[] Headers_UserProperty { get; set; }
+        #endregion
+        
         #region Parameter TopicRulePayload_ErrorAction_Location_Timestamp_Value
         /// <summary>
         /// <para>
@@ -1377,6 +1462,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.OpenSearch_Index = this.OpenSearch_Index;
             context.OpenSearch_RoleArn = this.OpenSearch_RoleArn;
             context.OpenSearch_Type = this.OpenSearch_Type;
+            context.Headers_ContentType = this.Headers_ContentType;
+            context.Headers_CorrelationData = this.Headers_CorrelationData;
+            context.Headers_MessageExpiry = this.Headers_MessageExpiry;
+            context.Headers_PayloadFormatIndicator = this.Headers_PayloadFormatIndicator;
+            context.Headers_ResponseTopic = this.Headers_ResponseTopic;
+            if (this.Headers_UserProperty != null)
+            {
+                context.Headers_UserProperty = new List<Amazon.IoT.Model.UserProperty>(this.Headers_UserProperty);
+            }
             context.Republish_Qo = this.Republish_Qo;
             context.Republish_RoleArn = this.Republish_RoleArn;
             context.Republish_Topic = this.Republish_Topic;
@@ -1714,51 +1808,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kinesis != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Kinesis = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kinesis;
-                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
-            }
-            Amazon.IoT.Model.RepublishAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish = null;
-            
-             // populate Republish
-            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = true;
-            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish = new Amazon.IoT.Model.RepublishAction();
-            System.Int32? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo = null;
-            if (cmdletContext.Republish_Qo != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo = cmdletContext.Republish_Qo.Value;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.Qos = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo.Value;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn = null;
-            if (cmdletContext.Republish_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn = cmdletContext.Republish_RoleArn;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic = null;
-            if (cmdletContext.Republish_Topic != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic = cmdletContext.Republish_Topic;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.Topic = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
-            }
-             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish should be set to null
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish = null;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction.Republish = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.SnsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Sns = null;
@@ -2219,6 +2268,126 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.IotEvents = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.RepublishAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish = null;
+            
+             // populate Republish
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish = new Amazon.IoT.Model.RepublishAction();
+            System.Int32? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo = null;
+            if (cmdletContext.Republish_Qo != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo = cmdletContext.Republish_Qo.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.Qos = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Qo.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn = null;
+            if (cmdletContext.Republish_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn = cmdletContext.Republish_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic = null;
+            if (cmdletContext.Republish_Topic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic = cmdletContext.Republish_Topic;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.Topic = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_republish_Topic;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
+            }
+            Amazon.IoT.Model.MqttHeaders requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers = null;
+            
+             // populate Headers
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers = new Amazon.IoT.Model.MqttHeaders();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ContentType = null;
+            if (cmdletContext.Headers_ContentType != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ContentType = cmdletContext.Headers_ContentType;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ContentType != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers.ContentType = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ContentType;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_CorrelationData = null;
+            if (cmdletContext.Headers_CorrelationData != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_CorrelationData = cmdletContext.Headers_CorrelationData;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_CorrelationData != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers.CorrelationData = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_CorrelationData;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_MessageExpiry = null;
+            if (cmdletContext.Headers_MessageExpiry != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_MessageExpiry = cmdletContext.Headers_MessageExpiry;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_MessageExpiry != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers.MessageExpiry = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_MessageExpiry;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_PayloadFormatIndicator = null;
+            if (cmdletContext.Headers_PayloadFormatIndicator != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_PayloadFormatIndicator = cmdletContext.Headers_PayloadFormatIndicator;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_PayloadFormatIndicator != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers.PayloadFormatIndicator = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_PayloadFormatIndicator;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ResponseTopic = null;
+            if (cmdletContext.Headers_ResponseTopic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ResponseTopic = cmdletContext.Headers_ResponseTopic;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ResponseTopic != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers.ResponseTopic = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_ResponseTopic;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = false;
+            }
+            List<Amazon.IoT.Model.UserProperty> requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_UserProperty = null;
+            if (cmdletContext.Headers_UserProperty != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_UserProperty = cmdletContext.Headers_UserProperty;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_UserProperty != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers.UserProperties = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers_headers_UserProperty;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_HeadersIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish.Headers = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish_topicRulePayload_ErrorAction_Republish_Headers;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_RepublishIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.Republish = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Republish;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.S3Action requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_S3 = null;
@@ -3001,6 +3170,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String OpenSearch_Index { get; set; }
             public System.String OpenSearch_RoleArn { get; set; }
             public System.String OpenSearch_Type { get; set; }
+            public System.String Headers_ContentType { get; set; }
+            public System.String Headers_CorrelationData { get; set; }
+            public System.String Headers_MessageExpiry { get; set; }
+            public System.String Headers_PayloadFormatIndicator { get; set; }
+            public System.String Headers_ResponseTopic { get; set; }
+            public List<Amazon.IoT.Model.UserProperty> Headers_UserProperty { get; set; }
             public System.Int32? Republish_Qo { get; set; }
             public System.String Republish_RoleArn { get; set; }
             public System.String Republish_Topic { get; set; }

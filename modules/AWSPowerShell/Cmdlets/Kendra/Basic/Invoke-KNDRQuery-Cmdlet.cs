@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the index to search. The identifier is returned in the response
+        /// <para>The identifier of the index to search. The identifier is returned in the response
         /// from the <code>CreateIndex</code> API.</para>
         /// </para>
         /// </summary>
@@ -193,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter QueryText
         /// <summary>
         /// <para>
-        /// <para>The text to search for.</para>
+        /// <para>The input query text for the search. Amazon Kendra truncates queries at 30 token words,
+        /// which excludes punctuation and stop words. Truncation still applies if you use Boolean
+        /// or more advanced, complex queries. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -154,6 +154,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.LogDriver
+        {
+            ($_ -eq "New-ECSService/ServiceConnectConfiguration_LogConfiguration_LogDriver") -Or
+            ($_ -eq "Update-ECSService/ServiceConnectConfiguration_LogConfiguration_LogDriver")
+        }
+        {
+            $v = "awsfirelens","awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
+            break
+        }
+
         # Amazon.ECS.ManagedScalingStatus
         {
             ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status") -Or
@@ -300,6 +310,7 @@ $ECS_map = @{
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
+    "ServiceConnectConfiguration_LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "TargetType"=@("Get-ECSAttributeList")
@@ -381,6 +392,7 @@ $ECS_SelectMap = @{
                "Get-ECSClusterList",
                "Get-ECSContainerInstanceList",
                "Get-ECSClusterService",
+               "Get-ECSServicesByNamespace",
                "Get-ECSTagsForResource",
                "Get-ECSTaskDefinitionFamilyList",
                "Get-ECSTaskDefinitionList",

@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class GetMGNSourceServerCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        #region Parameter Filters_ApplicationIDs
+        /// <summary>
+        /// <para>
+        /// <para>Request to filter Source Servers list by application IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Filters_ApplicationIDs { get; set; }
+        #endregion
+        
         #region Parameter Filters_IsArchived
         /// <summary>
         /// <para>
@@ -128,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.Select = CreateSelectDelegate<Amazon.Mgn.Model.DescribeSourceServersResponse, GetMGNSourceServerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filters_ApplicationIDs != null)
+            {
+                context.Filters_ApplicationIDs = new List<System.String>(this.Filters_ApplicationIDs);
+            }
             context.Filters_IsArchived = this.Filters_IsArchived;
             if (this.Filters_LifeCycleState != null)
             {
@@ -163,6 +177,16 @@ namespace Amazon.PowerShell.Cmdlets.MGN
              // populate Filters
             var requestFiltersIsNull = true;
             request.Filters = new Amazon.Mgn.Model.DescribeSourceServersRequestFilters();
+            List<System.String> requestFilters_filters_ApplicationIDs = null;
+            if (cmdletContext.Filters_ApplicationIDs != null)
+            {
+                requestFilters_filters_ApplicationIDs = cmdletContext.Filters_ApplicationIDs;
+            }
+            if (requestFilters_filters_ApplicationIDs != null)
+            {
+                request.Filters.ApplicationIDs = requestFilters_filters_ApplicationIDs;
+                requestFiltersIsNull = false;
+            }
             System.Boolean? requestFilters_filters_IsArchived = null;
             if (cmdletContext.Filters_IsArchived != null)
             {
@@ -277,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filters_ApplicationIDs { get; set; }
             public System.Boolean? Filters_IsArchived { get; set; }
             public List<System.String> Filters_LifeCycleState { get; set; }
             public List<System.String> Filters_ReplicationType { get; set; }

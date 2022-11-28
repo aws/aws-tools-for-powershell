@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix to match. CloudWatch Logs uses the value you set here only if you also
-        /// include the <code>logGroupName</code> parameter in your request.</para>
+        /// <para>The prefix to match. CloudWatch Logs uses the value that you set here only if you
+        /// also include the <code>logGroupName</code> parameter in your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

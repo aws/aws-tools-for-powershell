@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// This operation can be called only by the following principals when they also have
-    /// the relevant IAM permissions:
+    /// You can only call this operation by the following principals when they also have the
+    /// relevant IAM permissions:
     /// </para><ul><li><para><b>Invitation to join</b> or <b>Approve all features request</b> handshakes: only
     /// a principal from the member account.
     /// </para><para>

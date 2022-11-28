@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// List position configurations for a given resource, such as positioning solvers.
+    /// 
+    ///  <important><para>
+    /// This action is no longer supported. Calls to retrieve position information should
+    /// use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
+    /// API operation instead.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "IOTWPositionConfigurationList")]
     [OutputType("Amazon.IoTWireless.Model.PositionConfigurationItem")]
@@ -37,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         "This cmdlet returns a collection of Amazon.IoTWireless.Model.PositionConfigurationItem objects.",
         "The service call response (type Amazon.IoTWireless.Model.ListPositionConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is no longer supported.")]
     public partial class GetIOTWPositionConfigurationListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         

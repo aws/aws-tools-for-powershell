@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// In addition to many of the standard transcription features, Call Analytics provides
-    /// you with call characteristics, call summarization, speaker sentiment, and optional
-    /// redaction of your text transcript and your audio file. You can also apply custom categories
+    /// In addition to many standard transcription features, Call Analytics provides you with
+    /// call characteristics, call summarization, speaker sentiment, and optional redaction
+    /// of your text transcript and your audio file. You can also apply custom categories
     /// to flag specified conditions. To learn more about these features and insights, refer
     /// to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing
     /// call center audio with Call Analytics</a>.
@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// If you want to apply categories to your Call Analytics job, you must create them before
     /// submitting your job request. Categories cannot be retroactively applied to a job.
     /// To create a new category, use the operation. To learn more about Call Analytics categories,
-    /// see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html">Creating
-    /// categories</a>.
+    /// see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating
+    /// categories for batch transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating
+    /// categories for streaming transcriptions</a>.
     /// </para><para>
     /// To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
     /// file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the
@@ -56,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer
     /// to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon
     /// Transcribe endpoints and quotas</a>.
-    /// </para></li><li><para><code>CallAnalyticsJobName</code>: A custom name you create for your transcription
-    /// job that is unique within your Amazon Web Services account.
+    /// </para></li><li><para><code>CallAnalyticsJobName</code>: A custom name that you create for your transcription
+    /// job that's unique within your Amazon Web Services account.
     /// </para></li><li><para><code>DataAccessRoleArn</code>: The Amazon Resource Name (ARN) of an IAM role that
     /// has permissions to access the Amazon S3 bucket that contains your input files.
     /// </para></li><li><para><code>Media</code> (<code>MediaFileUri</code> or <code>RedactedMediaFileUri</code>):
@@ -102,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ChannelDefinition
         /// <summary>
         /// <para>
-        /// <para>Allows you to specify which speaker is on which channel. For example, if your agent
-        /// is the first participant to speak, you would set <code>ChannelId</code> to <code>0</code>
+        /// <para>Makes it possible to specify which speaker is on which channel. For example, if your
+        /// agent is the first participant to speak, you would set <code>ChannelId</code> to <code>0</code>
         /// (to indicate the first channel) and <code>ParticipantRole</code> to <code>AGENT</code>
         /// (to indicate that it's the agent speaking).</para>
         /// </para>
@@ -117,8 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
-        /// S3 bucket that contains your input files. If the role you specify doesn’t have the
-        /// appropriate permissions to access the specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
+        /// S3 bucket that contains your input files. If the role that you specify doesn’t have
+        /// the appropriate permissions to access the specified Amazon S3 location, your request
+        /// fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
         /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
         /// ARNs</a>.</para>
         /// </para>
@@ -130,22 +132,24 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_LanguageIdSetting
         /// <summary>
         /// <para>
-        /// <para>If using automatic language identification (<code>IdentifyLanguage</code>) in your
-        /// request and you want to apply a custom language model, a custom vocabulary, or a custom
-        /// vocabulary filter, include <code>LanguageIdSettings</code> with the relevant sub-parameters
-        /// (<code>VocabularyName</code>, <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</para><para>You can specify two or more language codes that represent the languages you think
-        /// may be present in your media; including more than five is not recommended. Each language
+        /// <para>If using automatic language identification in your request and you want to apply a
+        /// custom language model, a custom vocabulary, or a custom vocabulary filter, include
+        /// <code>LanguageIdSettings</code> with the relevant sub-parameters (<code>VocabularyName</code>,
+        /// <code>LanguageModelName</code>, and <code>VocabularyFilterName</code>).</para><para><code>LanguageIdSettings</code> supports two to five language codes. Each language
         /// code you include can have an associated custom language model, custom vocabulary,
-        /// and custom vocabulary filter. The languages you specify must match the languages of
-        /// the specified custom language models, custom vocabularies, and custom vocabulary filters.</para><para>To include language options using <code>IdentifyLanguage</code><b>without</b> including
-        /// a custom language model, a custom vocabulary, or a custom vocabulary filter, use <code>LanguageOptions</code>
-        /// instead of <code>LanguageIdSettings</code>. Including language options can improve
-        /// the accuracy of automatic language identification.</para><para>If you want to include a custom language model with your request but <b>do not</b>
-        /// want to use automatic language identification, use instead the <code /> parameter with
-        /// the <code>LanguageModelName</code> sub-parameter.</para><para>If you want to include a custom vocabulary or a custom vocabulary filter (or both)
-        /// with your request but <b>do not</b> want to use automatic language identification,
-        /// use instead the <code /> parameter with the <code>VocabularyName</code> or <code>VocabularyFilterName</code>
-        /// (or both) sub-parameter.</para>
+        /// and custom vocabulary filter. The language codes that you specify must match the languages
+        /// of the associated custom language models, custom vocabularies, and custom vocabulary
+        /// filters.</para><para>It's recommended that you include <code>LanguageOptions</code> when using <code>LanguageIdSettings</code>
+        /// to ensure that the correct language dialect is identified. For example, if you specify
+        /// a custom vocabulary that is in <code>en-US</code> but Amazon Transcribe determines
+        /// that the language spoken in your media is <code>en-AU</code>, your custom vocabulary
+        /// <i>is not</i> applied to your transcription. If you include <code>LanguageOptions</code>
+        /// and include <code>en-US</code> as the only English language dialect, your custom vocabulary
+        /// <i>is</i> applied to your transcription.</para><para>If you want to include a custom language model, custom vocabulary, or custom vocabulary
+        /// filter with your request but <b>do not</b> want to use automatic language identification,
+        /// use instead the <code /> parameter with the <code>LanguageModelName</code>, <code>VocabularyName</code>,
+        /// or <code>VocabularyFilterName</code> sub-parameters.</para><para>For a list of languages supported with Call Analytics, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
+        /// languages and language-specific features</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the custom language model you want to use when processing your Call Analytics
-        /// job. Note that language model names are case sensitive.</para><para>The language of the specified language model must match the language code you specify
-        /// in your transcription request. If the languages don't match, the language model isn't
-        /// applied. There are no errors or warnings associated with a language mismatch.</para>
+        /// job. Note that custom language model names are case sensitive.</para><para>The language of the specified custom language model must match the language code that
+        /// you specify in your transcription request. If the languages don't match, the custom
+        /// language model isn't applied. There are no errors or warnings associated with a language
+        /// mismatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,9 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>You can specify two or more language codes that represent the languages you think
-        /// may be present in your media; including more than five is not recommended. If you're
+        /// may be present in your media. Including more than five is not recommended. If you're
         /// unsure what languages are present, do not include this parameter.</para><para>Including language options can improve the accuracy of language identification.</para><para>For a list of languages supported with Call Analytics, refer to the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
-        /// languages</a> table.</para>
+        /// languages</a> table.</para><para>To transcribe speech in Modern Standard Arabic (<code>ar-SA</code>), your media file
+        /// must be encoded at a sample rate of 16,000 Hz or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
-        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
+        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> produces a redacted audio file in addition to a
+        /// redacted transcript. It is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
         /// transcription requests.</para></important>
         /// </para>
         /// </summary>
@@ -278,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_VocabularyFilterMethod
         /// <summary>
         /// <para>
-        /// <para>Specify how you want your vocabulary filter applied to your transcript.</para><para>To replace words with <code>***</code>, choose <code>mask</code>.</para><para>To delete words, choose <code>remove</code>.</para><para>To flag words without changing them, choose <code>tag</code>.</para>
+        /// <para>Specify how you want your custom vocabulary filter applied to your transcript.</para><para>To replace words with <code>***</code>, choose <code>mask</code>.</para><para>To delete words, choose <code>remove</code>.</para><para>To flag words without changing them, choose <code>tag</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the custom vocabulary filter you want to include in your Call Analytics
-        /// transcription request. Vocabulary filter names are case sensitive.</para><para>Note that if you include <code>VocabularyFilterName</code> in your request, you must
+        /// transcription request. Custom vocabulary filter names are case sensitive.</para><para>Note that if you include <code>VocabularyFilterName</code> in your request, you must
         /// also include <code>VocabularyFilterMethod</code>.</para>
         /// </para>
         /// </summary>
@@ -302,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the custom vocabulary you want to include in your Call Analytics transcription
-        /// request. Vocabulary names are case sensitive.</para>
+        /// request. Custom vocabulary names are case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

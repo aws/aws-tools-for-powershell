@@ -104,6 +104,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="New" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCustomDBEngineVersion" OutputProperty="*" Verb="New" Noun="CustomDBEngineVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -165,6 +169,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateOptionGroup" OutputProperty="OptionGroup" Verb="New" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="EngineName;MajorEngineVersion;OptionGroupDescription" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Remove" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -237,6 +245,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountQuotas" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-RDSAccountAttributes">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBlueGreenDeployments" OutputProperty="BlueGreenDeployments" Verb="Get" Noun="BlueGreenDeployment" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -612,6 +624,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopDBInstanceAutomatedBackupsReplication" OutputProperty="DBInstanceAutomatedBackup" Verb="Stop" Noun="DBInstanceAutomatedBackupsReplication" ShouldProcessTarget="SourceDBInstanceArn" PipelineParameter="SourceDBInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SwitchoverBlueGreenDeployment" OutputProperty="BlueGreenDeployment" Verb="Switch" Noun="BlueGreenDeployment" ShouldProcessTarget="BlueGreenDeploymentIdentifier" PipelineParameter="BlueGreenDeploymentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The CPU architecture.</para><para>You can run your Linux tasks on an ARM-based platform by setting the value to <code>ARM64</code>.
-        /// This option is avaiable for tasks that run on Linux Amazon EC2 instance or Linux containers
-        /// on Fargate.</para>
+        /// This option is available for tasks that run on Linux Amazon EC2 instance or Linux
+        /// containers on Fargate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

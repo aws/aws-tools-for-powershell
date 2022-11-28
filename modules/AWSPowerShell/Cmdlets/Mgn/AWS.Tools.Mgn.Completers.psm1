@@ -81,7 +81,11 @@ $MGN_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Mgn.BootMode
-        "Update-MGNLaunchConfiguration/BootMode"
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/BootMode") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/BootMode") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/BootMode")
+        }
         {
             $v = "LEGACY_BIOS","UEFI"
             break
@@ -95,7 +99,11 @@ $MGN_Completers = {
         }
 
         # Amazon.Mgn.LaunchDisposition
-        "Update-MGNLaunchConfiguration/LaunchDisposition"
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/LaunchDisposition") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/LaunchDisposition") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/LaunchDisposition")
+        }
         {
             $v = "STARTED","STOPPED"
             break
@@ -108,7 +116,7 @@ $MGN_Completers = {
             ($_ -eq "Update-MGNLaunchConfigurationTemplate/PostLaunchActions_Deployment")
         }
         {
-            $v = "CUTOVER_ONLY","TEST_AND_CUTOVER"
+            $v = "CUTOVER_ONLY","TEST_AND_CUTOVER","TEST_ONLY"
             break
         }
 
@@ -153,9 +161,25 @@ $MGN_Completers = {
         }
 
         # Amazon.Mgn.TargetInstanceTypeRightSizingMethod
-        "Update-MGNLaunchConfiguration/TargetInstanceTypeRightSizingMethod"
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/TargetInstanceTypeRightSizingMethod") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod")
+        }
         {
             $v = "BASIC","NONE"
+            break
+        }
+
+        # Amazon.Mgn.VolumeType
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType")
+        }
+        {
+            $v = "gp2","gp3","io1","io2","sc1","st1","standard"
             break
         }
 
@@ -168,15 +192,17 @@ $MGN_Completers = {
 }
 
 $MGN_map = @{
-    "BootMode"=@("Update-MGNLaunchConfiguration")
+    "BootMode"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
-    "LaunchDisposition"=@("Update-MGNLaunchConfiguration")
+    "LargeVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "LaunchDisposition"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
     "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
-    "TargetInstanceTypeRightSizingMethod"=@("Update-MGNLaunchConfiguration")
+    "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
 }
 
 _awsArgumentCompleterRegistration $MGN_Completers $MGN_map
@@ -229,39 +255,61 @@ $MGN_SelectCompleters = {
 }
 
 $MGN_SelectMap = @{
-    "Select"=@("Set-MGNServerLifeCycleState",
+    "Select"=@("Set-MGNApplicationAsArchived",
+               "Set-MGNWaveAsArchived",
+               "Add-MGNApplicationsToWave",
+               "Add-MGNSourceServersToApplication",
+               "Set-MGNServerLifeCycleState",
+               "New-MGNApplication",
                "New-MGNLaunchConfigurationTemplate",
                "New-MGNReplicationConfigurationTemplate",
+               "New-MGNWave",
+               "Remove-MGNApplication",
                "Remove-MGNJob",
                "Remove-MGNLaunchConfigurationTemplate",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
+               "Remove-MGNWave",
                "Get-MGNJobLogItem",
                "Get-MGNJob",
                "Get-MGNLaunchConfigurationTemplate",
                "Get-MGNReplicationConfigurationTemplate",
                "Get-MGNSourceServer",
                "Get-MGNVcenterClient",
+               "Remove-MGNApplicationsFromWave",
+               "Remove-MGNSourceServersFromApplication",
                "Disconnect-MGNFromService",
                "Complete-MGNCutover",
                "Get-MGNLaunchConfiguration",
                "Get-MGNReplicationConfiguration",
                "Initialize-MGNService",
+               "Get-MGNApplicationList",
+               "Get-MGNSourceServerActionList",
                "Get-MGNResourceTag",
+               "Get-MGNTemplateActionList",
+               "Get-MGNWaveList",
                "Set-MGNAsArchived",
+               "Write-MGNSourceServerAction",
+               "Write-MGNTemplateAction",
+               "Remove-MGNSourceServerAction",
+               "Remove-MGNTemplateAction",
                "Resume-MGNDataReplication",
                "Start-MGNCutover",
                "Start-MGNReplication",
                "Start-MGNTest",
                "Add-MGNResourceTag",
                "Remove-MGNTargetInstance",
+               "Set-MGNApplicationAsUnarchived",
+               "Set-MGNWaveAsUnarchived",
                "Remove-MGNResourceTag",
+               "Update-MGNApplication",
                "Update-MGNLaunchConfiguration",
                "Update-MGNLaunchConfigurationTemplate",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
-               "Update-MGNSourceServerReplicationType")
+               "Update-MGNSourceServerReplicationType",
+               "Update-MGNWave")
 }
 
 _awsArgumentCompleterRegistration $MGN_SelectCompleters $MGN_SelectMap

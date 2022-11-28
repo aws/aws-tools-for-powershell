@@ -119,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-RDSOptionGroup', 
         'Enable-RDSDBSecurityGroupIngress', 
         'Get-RDSAccountAttribute', 
+        'Get-RDSBlueGreenDeployment', 
         'Get-RDSCertificate', 
         'Get-RDSDBCluster', 
         'Get-RDSDBClusterBacktrackList', 
@@ -158,6 +159,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RDSSourceRegion', 
         'Get-RDSTagForResource', 
         'Get-RDSValidDBInstanceModification', 
+        'New-RDSBlueGreenDeployment', 
         'New-RDSCustomDBEngineVersion', 
         'New-RDSDBCluster', 
         'New-RDSDBClusterEndpoint', 
@@ -176,6 +178,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-RDSOptionGroup', 
         'New-RDSReservedDBInstancesOfferingPurchase', 
         'Register-RDSDBProxyTarget', 
+        'Remove-RDSBlueGreenDeployment', 
         'Remove-RDSCustomDBEngineVersion', 
         'Remove-RDSDBCluster', 
         'Remove-RDSDBClusterEndpoint', 
@@ -222,6 +225,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-RDSDBInstanceAutomatedBackupsReplication', 
         'Stop-RDSExportTask', 
         'Submit-RDSPendingMaintenanceAction', 
+        'Switch-RDSBlueGreenDeployment', 
         'Unregister-RDSDBProxyTarget')
 
     # Variables to export from this module

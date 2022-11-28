@@ -228,11 +228,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPositionEstimate" OutputProperty="GeoJsonPayload" Verb="Get" Noun="PositionEstimate" PipelineParameter="Timestamp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResourceEventConfiguration" OutputProperty="*" Verb="Get" Noun="ResourceEventConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResourceLogLevel" OutputProperty="LogLevel" Verb="Get" Noun="ResourceLogLevel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePosition" OutputProperty="GeoJsonPayload" Verb="Get" Noun="ResourcePosition" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -429,6 +437,10 @@
                 <Param Name="DeviceRegistrationState_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_DeviceRegistrationState_AmazonIdEventTopic" Alias="DeviceRegistrationState_AmazonIdEventTopic" />
                 <Param Name="MessageDeliveryStatus_Sidewalk_AmazonIdEventTopic" NewName="Sidewalk_MessageDeliveryStatus_AmazonIdEventTopic" Alias="MessageDeliveryStatus_AmazonIdEventTopic" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourcePosition" Verb="Update" Noun="ResourcePosition" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWirelessDevice" Verb="Update" Noun="WirelessDevice" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

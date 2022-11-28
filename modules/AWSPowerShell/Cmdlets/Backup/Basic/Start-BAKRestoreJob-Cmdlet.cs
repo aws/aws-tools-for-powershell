@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create the target
-        /// recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
+        /// resource; for example: <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

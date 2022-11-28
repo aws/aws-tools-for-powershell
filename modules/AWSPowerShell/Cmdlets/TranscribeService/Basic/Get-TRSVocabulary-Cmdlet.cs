@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// To view the status of the specified vocabulary, check the <code>VocabularyState</code>
-    /// field. If the status is <code>READY</code>, your vocabulary is available to use. If
-    /// the status is <code>FAILED</code>, <code>FailureReason</code> provides details on
-    /// why your vocabulary failed.
+    /// To view the status of the specified custom vocabulary, check the <code>VocabularyState</code>
+    /// field. If the status is <code>READY</code>, your custom vocabulary is available to
+    /// use. If the status is <code>FAILED</code>, <code>FailureReason</code> provides details
+    /// on why your custom vocabulary failed.
     /// </para><para>
     /// To get a list of your custom vocabularies, use the operation.
     /// </para>
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom vocabulary you want information about. Vocabulary names are
-        /// case sensitive.</para>
+        /// <para>The name of the custom vocabulary you want information about. Custom vocabulary names
+        /// are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

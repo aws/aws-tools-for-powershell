@@ -32,15 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// This operation also shows if the base language model you used to create your custom
-    /// language model has been updated. If Amazon Transcribe has updated the base model,
-    /// you can create a new custom language model using the updated base model.
+    /// This operation also shows if the base language model that you used to create your
+    /// custom language model has been updated. If Amazon Transcribe has updated the base
+    /// model, you can create a new custom language model using the updated base model.
     /// </para><para>
     /// If you tried to create a new custom language model and the request wasn't successful,
     /// you can use <code>DescribeLanguageModel</code> to help identify the reason for this
     /// failure.
-    /// </para><para>
-    /// To get a list of your custom language models, use the operation.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "TRSLanguageModel")]

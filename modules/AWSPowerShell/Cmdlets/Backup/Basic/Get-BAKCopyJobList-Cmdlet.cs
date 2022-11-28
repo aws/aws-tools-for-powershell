@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.String ByDestinationVaultArn { get; set; }
         #endregion
         
+        #region Parameter ByParentJobId
+        /// <summary>
+        /// <para>
+        /// <para>This is a filter to list child (nested) jobs based on parent job ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByParentJobId { get; set; }
+        #endregion
+        
         #region Parameter ByResourceArn
         /// <summary>
         /// <para>
@@ -205,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
             context.ByDestinationVaultArn = this.ByDestinationVaultArn;
+            context.ByParentJobId = this.ByParentJobId;
             context.ByResourceArn = this.ByResourceArn;
             context.ByResourceType = this.ByResourceType;
             context.ByState = this.ByState;
@@ -251,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByDestinationVaultArn != null)
             {
                 request.ByDestinationVaultArn = cmdletContext.ByDestinationVaultArn;
+            }
+            if (cmdletContext.ByParentJobId != null)
+            {
+                request.ByParentJobId = cmdletContext.ByParentJobId;
             }
             if (cmdletContext.ByResourceArn != null)
             {
@@ -359,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
             public System.String ByDestinationVaultArn { get; set; }
+            public System.String ByParentJobId { get; set; }
             public System.String ByResourceArn { get; set; }
             public System.String ByResourceType { get; set; }
             public Amazon.Backup.CopyJobState ByState { get; set; }

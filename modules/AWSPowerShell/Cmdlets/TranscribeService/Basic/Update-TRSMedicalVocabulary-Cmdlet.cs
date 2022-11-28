@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// <summary>
     /// Updates an existing custom medical vocabulary with new values. This operation overwrites
     /// all existing information with your new values; you cannot append new terms onto an
-    /// existing vocabulary.
+    /// existing custom vocabulary.
     /// </summary>
     [Cmdlet("Update", "TRSMedicalVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.UpdateMedicalVocabularyResponse")]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom medical vocabulary you want to update. Vocabulary names are
-        /// case sensitive.</para>
+        /// <para>The name of the custom medical vocabulary you want to update. Custom medical vocabulary
+        /// names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

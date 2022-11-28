@@ -4642,14 +4642,14 @@ $BAK_Completers = {
         # Amazon.Backup.BackupJobState
         "Get-BAKBackupJobList/ByState"
         {
-            $v = "ABORTED","ABORTING","COMPLETED","CREATED","EXPIRED","FAILED","PENDING","RUNNING"
+            $v = "ABORTED","ABORTING","COMPLETED","CREATED","EXPIRED","FAILED","PARTIAL","PENDING","RUNNING"
             break
         }
 
         # Amazon.Backup.CopyJobState
         "Get-BAKCopyJobList/ByState"
         {
-            $v = "COMPLETED","CREATED","FAILED","RUNNING"
+            $v = "COMPLETED","CREATED","FAILED","PARTIAL","RUNNING"
             break
         }
 
@@ -4723,10 +4723,12 @@ $BAK_SelectCompleters = {
 }
 
 $BAK_SelectMap = @{
-    "Select"=@("New-BAKBackupPlan",
+    "Select"=@("Stop-BAKLegalHold",
+               "New-BAKBackupPlan",
                "New-BAKBackupSelection",
                "New-BAKBackupVault",
                "New-BAKFramework",
+               "New-BAKLegalHold",
                "New-BAKReportPlan",
                "Remove-BAKBackupPlan",
                "Remove-BAKBackupSelection",
@@ -4749,6 +4751,7 @@ $BAK_SelectMap = @{
                "Get-BAKReportPlan",
                "Get-BAKRestoreJob",
                "Unlock-BAKRecoveryPoint",
+               "Move-BAKRecoveryPoint",
                "Export-BAKBackupPlanTemplate",
                "Get-BAKBackupPlan",
                "Get-BAKBackupPlanFromJSON",
@@ -4756,6 +4759,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupSelection",
                "Get-BAKBackupVaultAccessPolicy",
                "Get-BAKBackupVaultNotification",
+               "Get-BAKLegalHold",
                "Get-BAKRecoveryPointRestoreMetadata",
                "Get-BAKSupportedResourceType",
                "Get-BAKBackupJobList",
@@ -4766,8 +4770,10 @@ $BAK_SelectMap = @{
                "Get-BAKBackupVaultList",
                "Get-BAKCopyJobList",
                "Get-BAKFrameworkList",
+               "Get-BAKLegalHoldList",
                "Get-BAKProtectedResourceList",
                "Get-BAKRecoveryPointsByBackupVaultList",
+               "Get-BAKRecoveryPointsByLegalHoldList",
                "Get-BAKRecoveryPointsByResourceList",
                "Get-BAKReportJobList",
                "Get-BAKReportPlanList",
@@ -16182,9 +16188,12 @@ $EDRS_SelectMap = @{
                "Get-EDRSStagingAccountList",
                "Get-EDRSResourceTag",
                "Restart-EDRSDataReplication",
+               "Start-EDRSReversedReplication",
                "Start-EDRSFailbackLaunch",
                "Start-EDRSRecovery",
+               "Start-EDRSReplication",
                "Stop-EDRSFailback",
+               "Stop-EDRSReplication",
                "Add-EDRSResourceTag",
                "Stop-EDRSRecoveryInstance",
                "Remove-EDRSResourceTag",
@@ -18984,6 +18993,16 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.LogDriver
+        {
+            ($_ -eq "New-ECSService/ServiceConnectConfiguration_LogConfiguration_LogDriver") -Or
+            ($_ -eq "Update-ECSService/ServiceConnectConfiguration_LogConfiguration_LogDriver")
+        }
+        {
+            $v = "awsfirelens","awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
+            break
+        }
+
         # Amazon.ECS.ManagedScalingStatus
         {
             ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status") -Or
@@ -19130,6 +19149,7 @@ $ECS_map = @{
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
+    "ServiceConnectConfiguration_LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "TargetType"=@("Get-ECSAttributeList")
@@ -19211,6 +19231,7 @@ $ECS_SelectMap = @{
                "Get-ECSClusterList",
                "Get-ECSContainerInstanceList",
                "Get-ECSClusterService",
+               "Get-ECSServicesByNamespace",
                "Get-ECSTagsForResource",
                "Get-ECSTaskDefinitionFamilyList",
                "Get-ECSTaskDefinitionList",
@@ -19802,7 +19823,7 @@ $EFS_Completers = {
             ($_ -eq "Update-EFSFileSystem/ThroughputMode")
         }
         {
-            $v = "bursting","provisioned"
+            $v = "bursting","elastic","provisioned"
             break
         }
 
@@ -26916,6 +26937,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.JobEndBehavior
+        "New-IOTJob/SchedulingConfig_EndBehavior"
+        {
+            $v = "CANCEL","FORCE_CANCEL","STOP_ROLLOUT"
+            break
+        }
+
         # Amazon.IoT.JobExecutionStatus
         {
             ($_ -eq "Get-IOTJobExecutionsForJobList/Status") -Or
@@ -26929,7 +26957,7 @@ $IOT_Completers = {
         # Amazon.IoT.JobStatus
         "Get-IOTJobList/Status"
         {
-            $v = "CANCELED","COMPLETED","DELETION_IN_PROGRESS","IN_PROGRESS"
+            $v = "CANCELED","COMPLETED","DELETION_IN_PROGRESS","IN_PROGRESS","SCHEDULED"
             break
         }
 
@@ -27110,6 +27138,7 @@ $IOT_map = @{
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
+    "SchedulingConfig_EndBehavior"=@("New-IOTJob")
     "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
     "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
@@ -28952,12 +28981,24 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.PositioningConfigStatus
+        {
+            ($_ -eq "New-IOTWWirelessDevice/Positioning") -Or
+            ($_ -eq "Update-IOTWWirelessDevice/Positioning")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.IoTWireless.PositionResourceType
         {
             ($_ -eq "Get-IOTWPosition/ResourceType") -Or
             ($_ -eq "Get-IOTWPositionConfiguration/ResourceType") -Or
             ($_ -eq "Get-IOTWPositionConfigurationList/ResourceType") -Or
+            ($_ -eq "Get-IOTWResourcePosition/ResourceType") -Or
             ($_ -eq "Update-IOTWPosition/ResourceType") -Or
+            ($_ -eq "Update-IOTWResourcePosition/ResourceType") -Or
             ($_ -eq "Write-IOTWPositionConfiguration/ResourceType")
         }
         {
@@ -29055,10 +29096,11 @@ $IOTW_map = @{
     "MessageDeliveryStatus_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "MessageDeliveryStatus_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
+    "Positioning"=@("New-IOTWWirelessDevice","Update-IOTWWirelessDevice")
     "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
-    "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Update-IOTWPosition","Write-IOTWPositionConfiguration")
+    "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Get-IOTWResourcePosition","Update-IOTWPosition","Update-IOTWResourcePosition","Write-IOTWPositionConfiguration")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "Solvers_SemtechGnss_Fec"=@("Write-IOTWPositionConfiguration")
     "Solvers_SemtechGnss_Status"=@("Write-IOTWPositionConfiguration")
@@ -29168,8 +29210,10 @@ $IOTW_SelectMap = @{
                "Get-IOTWPartnerAccount",
                "Get-IOTWPosition",
                "Get-IOTWPositionConfiguration",
+               "Get-IOTWPositionEstimate",
                "Get-IOTWResourceEventConfiguration",
                "Get-IOTWResourceLogLevel",
+               "Get-IOTWResourcePosition",
                "Get-IOTWServiceEndpoint",
                "Get-IOTWServiceProfile",
                "Get-IOTWWirelessDevice",
@@ -29217,6 +29261,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWPartnerAccount",
                "Update-IOTWPosition",
                "Update-IOTWResourceEventConfiguration",
+               "Update-IOTWResourcePosition",
                "Update-IOTWWirelessDevice",
                "Update-IOTWWirelessGateway")
 }
@@ -32721,6 +32766,7 @@ $CWL_SelectMap = @{
                "New-CWLExportTask",
                "New-CWLLogGroup",
                "New-CWLLogStream",
+               "Remove-CWLDataProtectionPolicy",
                "Remove-CWLDestination",
                "Remove-CWLLogGroup",
                "Remove-CWLLogStream",
@@ -32740,12 +32786,14 @@ $CWL_SelectMap = @{
                "Get-CWLSubscriptionFilter",
                "Unregister-CWLKmsKey",
                "Get-CWLFilteredLogEvent",
+               "Get-CWLDataProtectionPolicy",
                "Get-CWLLogEvent",
                "Get-CWLLogGroupField",
                "Get-CWLLogRecord",
                "Get-CWLQueryResult",
                "Get-CWLResourceTag",
                "Get-CWLLogGroupTag",
+               "Write-CWLDataProtectionPolicy",
                "Write-CWLDestination",
                "Write-CWLDestinationPolicy",
                "Write-CWLLogEvent",
@@ -35647,7 +35695,11 @@ $MGN_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Mgn.BootMode
-        "Update-MGNLaunchConfiguration/BootMode"
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/BootMode") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/BootMode") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/BootMode")
+        }
         {
             $v = "LEGACY_BIOS","UEFI"
             break
@@ -35661,7 +35713,11 @@ $MGN_Completers = {
         }
 
         # Amazon.Mgn.LaunchDisposition
-        "Update-MGNLaunchConfiguration/LaunchDisposition"
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/LaunchDisposition") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/LaunchDisposition") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/LaunchDisposition")
+        }
         {
             $v = "STARTED","STOPPED"
             break
@@ -35674,7 +35730,7 @@ $MGN_Completers = {
             ($_ -eq "Update-MGNLaunchConfigurationTemplate/PostLaunchActions_Deployment")
         }
         {
-            $v = "CUTOVER_ONLY","TEST_AND_CUTOVER"
+            $v = "CUTOVER_ONLY","TEST_AND_CUTOVER","TEST_ONLY"
             break
         }
 
@@ -35719,9 +35775,25 @@ $MGN_Completers = {
         }
 
         # Amazon.Mgn.TargetInstanceTypeRightSizingMethod
-        "Update-MGNLaunchConfiguration/TargetInstanceTypeRightSizingMethod"
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod") -Or
+            ($_ -eq "Update-MGNLaunchConfiguration/TargetInstanceTypeRightSizingMethod") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod")
+        }
         {
             $v = "BASIC","NONE"
+            break
+        }
+
+        # Amazon.Mgn.VolumeType
+        {
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/LargeVolumeConf_VolumeType") -Or
+            ($_ -eq "New-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType") -Or
+            ($_ -eq "Update-MGNLaunchConfigurationTemplate/SmallVolumeConf_VolumeType")
+        }
+        {
+            $v = "gp2","gp3","io1","io2","sc1","st1","standard"
             break
         }
 
@@ -35734,15 +35806,17 @@ $MGN_Completers = {
 }
 
 $MGN_map = @{
-    "BootMode"=@("Update-MGNLaunchConfiguration")
+    "BootMode"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
-    "LaunchDisposition"=@("Update-MGNLaunchConfiguration")
+    "LargeVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "LaunchDisposition"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "LifeCycle_State"=@("Set-MGNServerLifeCycleState")
     "PostLaunchActions_Deployment"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
     "ReplicationType"=@("Update-MGNSourceServerReplicationType")
-    "TargetInstanceTypeRightSizingMethod"=@("Update-MGNLaunchConfiguration")
+    "SmallVolumeConf_VolumeType"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfigurationTemplate")
+    "TargetInstanceTypeRightSizingMethod"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
 }
 
 _awsArgumentCompleterRegistration $MGN_Completers $MGN_map
@@ -35795,39 +35869,61 @@ $MGN_SelectCompleters = {
 }
 
 $MGN_SelectMap = @{
-    "Select"=@("Set-MGNServerLifeCycleState",
+    "Select"=@("Set-MGNApplicationAsArchived",
+               "Set-MGNWaveAsArchived",
+               "Add-MGNApplicationsToWave",
+               "Add-MGNSourceServersToApplication",
+               "Set-MGNServerLifeCycleState",
+               "New-MGNApplication",
                "New-MGNLaunchConfigurationTemplate",
                "New-MGNReplicationConfigurationTemplate",
+               "New-MGNWave",
+               "Remove-MGNApplication",
                "Remove-MGNJob",
                "Remove-MGNLaunchConfigurationTemplate",
                "Remove-MGNReplicationConfigurationTemplate",
                "Remove-MGNSourceServer",
                "Remove-MGNVcenterClient",
+               "Remove-MGNWave",
                "Get-MGNJobLogItem",
                "Get-MGNJob",
                "Get-MGNLaunchConfigurationTemplate",
                "Get-MGNReplicationConfigurationTemplate",
                "Get-MGNSourceServer",
                "Get-MGNVcenterClient",
+               "Remove-MGNApplicationsFromWave",
+               "Remove-MGNSourceServersFromApplication",
                "Disconnect-MGNFromService",
                "Complete-MGNCutover",
                "Get-MGNLaunchConfiguration",
                "Get-MGNReplicationConfiguration",
                "Initialize-MGNService",
+               "Get-MGNApplicationList",
+               "Get-MGNSourceServerActionList",
                "Get-MGNResourceTag",
+               "Get-MGNTemplateActionList",
+               "Get-MGNWaveList",
                "Set-MGNAsArchived",
+               "Write-MGNSourceServerAction",
+               "Write-MGNTemplateAction",
+               "Remove-MGNSourceServerAction",
+               "Remove-MGNTemplateAction",
                "Resume-MGNDataReplication",
                "Start-MGNCutover",
                "Start-MGNReplication",
                "Start-MGNTest",
                "Add-MGNResourceTag",
                "Remove-MGNTargetInstance",
+               "Set-MGNApplicationAsUnarchived",
+               "Set-MGNWaveAsUnarchived",
                "Remove-MGNResourceTag",
+               "Update-MGNApplication",
                "Update-MGNLaunchConfiguration",
                "Update-MGNLaunchConfigurationTemplate",
                "Update-MGNReplicationConfiguration",
                "Update-MGNReplicationConfigurationTemplate",
-               "Update-MGNSourceServerReplicationType")
+               "Update-MGNSourceServerReplicationType",
+               "Update-MGNWave")
 }
 
 _awsArgumentCompleterRegistration $MGN_SelectCompleters $MGN_SelectMap
@@ -38277,6 +38373,75 @@ $NS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $NS_SelectCompleters $NS_SelectMap
+# Argument completions for service CloudWatch Observability Access Manager
+
+
+$CWOAM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWOAM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWOAM_SelectMap = @{
+    "Select"=@("New-CWOAMLink",
+               "New-CWOAMSink",
+               "Remove-CWOAMLink",
+               "Remove-CWOAMSink",
+               "Get-CWOAMLink",
+               "Get-CWOAMSink",
+               "Get-CWOAMSinkPolicy",
+               "Get-CWOAMAttachedLinkList",
+               "Get-CWOAMLinkList",
+               "Get-CWOAMSinkList",
+               "Get-CWOAMResourceTag",
+               "Write-CWOAMSinkPolicy",
+               "Add-CWOAMResourceTag",
+               "Remove-CWOAMResourceTag",
+               "Update-CWOAMLink")
+}
+
+_awsArgumentCompleterRegistration $CWOAM_SelectCompleters $CWOAM_SelectMap
 # Argument completions for service Amazon OpenSearch Service
 
 
@@ -38937,6 +39102,7 @@ $ORG_SelectMap = @{
                "Remove-ORGOrganization",
                "Remove-ORGOrganizationalUnit",
                "Remove-ORGPolicy",
+               "Remove-ORGResourcePolicy",
                "Unregister-ORGDelegatedAdministrator",
                "Get-ORGAccount",
                "Get-ORGAccountCreationStatus",
@@ -38945,6 +39111,7 @@ $ORG_SelectMap = @{
                "Get-ORGOrganization",
                "Get-ORGOrganizationalUnit",
                "Get-ORGPolicy",
+               "Get-ORGResourcePolicy",
                "Dismount-ORGPolicy",
                "Disable-ORGAWSServiceAccess",
                "Disable-ORGPolicyType",
@@ -38970,6 +39137,7 @@ $ORG_SelectMap = @{
                "Get-ORGResourceTag",
                "Get-ORGTargetForPolicy",
                "Move-ORGAccount",
+               "Write-ORGResourcePolicy",
                "Register-ORGDelegatedAdministrator",
                "Remove-ORGAccountFromOrganization",
                "Add-ORGResourceTag",
@@ -42147,6 +42315,7 @@ $RDS_SelectMap = @{
                "Copy-RDSDBParameterGroup",
                "Copy-RDSDBSnapshot",
                "Copy-RDSOptionGroup",
+               "New-RDSBlueGreenDeployment",
                "New-RDSCustomDBEngineVersion",
                "New-RDSDBCluster",
                "New-RDSDBClusterEndpoint",
@@ -42163,6 +42332,7 @@ $RDS_SelectMap = @{
                "New-RDSEventSubscription",
                "New-RDSGlobalCluster",
                "New-RDSOptionGroup",
+               "Remove-RDSBlueGreenDeployment",
                "Remove-RDSCustomDBEngineVersion",
                "Remove-RDSDBCluster",
                "Remove-RDSDBClusterEndpoint",
@@ -42181,6 +42351,7 @@ $RDS_SelectMap = @{
                "Remove-RDSOptionGroup",
                "Unregister-RDSDBProxyTarget",
                "Get-RDSAccountAttribute",
+               "Get-RDSBlueGreenDeployment",
                "Get-RDSCertificate",
                "Get-RDSDBClusterBacktrackList",
                "Get-RDSDBClusterEndpoint",
@@ -42270,6 +42441,7 @@ $RDS_SelectMap = @{
                "Stop-RDSDBCluster",
                "Stop-RDSDBInstance",
                "Stop-RDSDBInstanceAutomatedBackupsReplication",
+               "Switch-RDSBlueGreenDeployment",
                "Convert-RDSReadReplicaToNewPrimary")
 }
 
@@ -51901,9 +52073,12 @@ $TXT_SelectMap = @{
                "Get-TXTDocumentAnalysis",
                "Get-TXTDocumentTextDetection",
                "Get-TXTExpenseAnalysis",
+               "Get-TXTLendingAnalysis",
+               "Get-TXTLendingAnalysisSummary",
                "Start-TXTDocumentAnalysis",
                "Start-TXTDocumentTextDetection",
-               "Start-TXTExpenseAnalysis")
+               "Start-TXTExpenseAnalysis",
+               "Start-TXTLendingAnalysis")
 }
 
 _awsArgumentCompleterRegistration $TXT_SelectCompleters $TXT_SelectMap
@@ -52151,6 +52326,16 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.InputType
+        {
+            ($_ -eq "New-TRSCallAnalyticsCategory/InputType") -Or
+            ($_ -eq "Update-TRSCallAnalyticsCategory/InputType")
+        }
+        {
+            $v = "POST_CALL","REAL_TIME"
+            break
+        }
+
         # Amazon.TranscribeService.LanguageCode
         {
             ($_ -eq "New-TRSMedicalVocabulary/LanguageCode") -Or
@@ -52267,6 +52452,7 @@ $TRS_map = @{
     "ContentIdentificationType"=@("Start-TRSMedicalTranscriptionJob")
     "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
+    "InputType"=@("New-TRSCallAnalyticsCategory","Update-TRSCallAnalyticsCategory")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
     "Settings_ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob")

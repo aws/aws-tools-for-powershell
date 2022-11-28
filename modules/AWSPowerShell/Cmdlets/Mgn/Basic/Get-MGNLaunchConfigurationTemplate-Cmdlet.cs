@@ -28,7 +28,8 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Creates a new ReplicationConfigurationTemplate.
+    /// Lists all Launch Configuration Templates, filtered by Launch Configuration Template
+    /// IDs
     /// </summary>
     [Cmdlet("Get", "MGNLaunchConfigurationTemplate")]
     [OutputType("Amazon.Mgn.Model.LaunchConfigurationTemplate")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter LaunchConfigurationTemplateIDs
         /// <summary>
         /// <para>
-        /// <para>Request to disconnect Source Server from service by Server ID.</para>
+        /// <para>Request to filter Launch Configuration Templates list by Launch Configuration Template
+        /// ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Request to disconnect Source Server from service by Server ID.</para>
+        /// <para>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Request to disconnect Source Server from service by Server ID.</para>
+        /// <para>Next pagination token returned from DescribeLaunchConfigurationTemplates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

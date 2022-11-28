@@ -30,16 +30,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <summary>
     /// List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
     /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>
-    /// to obtain statistical data.
+    /// to get statistical data.
     /// 
     ///  
     /// <para>
     /// Up to 500 results are returned for any one call. To retrieve additional results, use
     /// the returned token with subsequent calls.
     /// </para><para>
-    /// After you create a metric, allow up to 15 minutes before the metric appears. You can
-    /// see statistics about the metric sooner by using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// After you create a metric, allow up to 15 minutes for the metric to appear. To see
+    /// metric statistics sooner, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
     /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account and view metrics from the linked source accounts. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para><para><code>ListMetrics</code> doesn't return information about metrics if those metrics
     /// haven't reported data in the past two weeks. To retrieve those metrics, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
     /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
@@ -66,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public Amazon.CloudWatch.Model.DimensionFilter[] Dimension { get; set; }
         #endregion
         
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// <para>If you are using this operation in a monitoring account, specify <code>true</code>
+        /// to include metrics from source accounts in the returned data.</para><para>The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
+        #endregion
+        
         #region Parameter MetricName
         /// <summary>
         /// <para>
@@ -86,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter OwningAccount
+        /// <summary>
+        /// <para>
+        /// <para>When you use this operation in a monitoring account, use this field to return metrics
+        /// only from one source account. To do so, specify that source account ID in this field,
+        /// and also specify <code>true</code> for <code>IncludeLinkedAccounts</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwningAccount { get; set; }
         #endregion
         
         #region Parameter RecentlyActive
@@ -176,9 +205,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 context.Dimension = new List<Amazon.CloudWatch.Model.DimensionFilter>(this.Dimension);
             }
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.MetricName = this.MetricName;
             context.Namespace = this.Namespace;
             context.NextToken = this.NextToken;
+            context.OwningAccount = this.OwningAccount;
             context.RecentlyActive = this.RecentlyActive;
             
             // allow further manipulation of loaded context prior to processing
@@ -204,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.Dimensions = cmdletContext.Dimension;
             }
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
             if (cmdletContext.MetricName != null)
             {
                 request.MetricName = cmdletContext.MetricName;
@@ -211,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.OwningAccount != null)
+            {
+                request.OwningAccount = cmdletContext.OwningAccount;
             }
             if (cmdletContext.RecentlyActive != null)
             {
@@ -302,9 +341,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudWatch.Model.DimensionFilter> Dimension { get; set; }
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public System.String MetricName { get; set; }
             public System.String Namespace { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OwningAccount { get; set; }
             public Amazon.CloudWatch.RecentlyActive RecentlyActive { get; set; }
             public System.Func<Amazon.CloudWatch.Model.ListMetricsResponse, GetCWMetricListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Metrics;

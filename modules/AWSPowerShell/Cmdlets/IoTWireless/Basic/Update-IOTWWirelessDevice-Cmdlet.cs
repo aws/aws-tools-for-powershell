@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class UpdateIOTWWirelessDeviceCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        #region Parameter FPorts_Application
+        /// <summary>
+        /// <para>
+        /// <para>LoRaWAN application, which can be used for geolocation by activating positioning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Applications")]
+        public Amazon.IoTWireless.Model.ApplicationConfig[] FPorts_Application { get; set; }
+        #endregion
+        
         #region Parameter Positioning_ClockSync
         /// <summary>
         /// <para>
@@ -139,6 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Positioning
+        /// <summary>
+        /// <para>
+        /// <para>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTWireless.PositioningConfigStatus")]
+        public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_ServiceProfileId
         /// <summary>
         /// <para>
@@ -232,11 +254,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_AbpV1_0_x_FCntStart = this.LoRaWAN_AbpV1_0_x_FCntStart;
             context.LoRaWAN_AbpV1_1_FCntStart = this.LoRaWAN_AbpV1_1_FCntStart;
             context.LoRaWAN_DeviceProfileId = this.LoRaWAN_DeviceProfileId;
+            if (this.FPorts_Application != null)
+            {
+                context.FPorts_Application = new List<Amazon.IoTWireless.Model.ApplicationConfig>(this.FPorts_Application);
+            }
             context.Positioning_ClockSync = this.Positioning_ClockSync;
             context.Positioning_Gnss = this.Positioning_Gnss;
             context.Positioning_Stream = this.Positioning_Stream;
             context.LoRaWAN_ServiceProfileId = this.LoRaWAN_ServiceProfileId;
             context.Name = this.Name;
+            context.Positioning = this.Positioning;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -344,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
              // populate FPorts
             var requestLoRaWAN_loRaWAN_FPortsIsNull = true;
             requestLoRaWAN_loRaWAN_FPorts = new Amazon.IoTWireless.Model.UpdateFPorts();
+            List<Amazon.IoTWireless.Model.ApplicationConfig> requestLoRaWAN_loRaWAN_FPorts_fPorts_Application = null;
+            if (cmdletContext.FPorts_Application != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_Application = cmdletContext.FPorts_Application;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Application != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Applications = requestLoRaWAN_loRaWAN_FPorts_fPorts_Application;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
             Amazon.IoTWireless.Model.Positioning requestLoRaWAN_loRaWAN_FPorts_loRaWAN_FPorts_Positioning = null;
             
              // populate Positioning
@@ -407,6 +444,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Positioning != null)
+            {
+                request.Positioning = cmdletContext.Positioning;
             }
             
             CmdletOutput output;
@@ -475,11 +516,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Int32? LoRaWAN_AbpV1_0_x_FCntStart { get; set; }
             public System.Int32? LoRaWAN_AbpV1_1_FCntStart { get; set; }
             public System.String LoRaWAN_DeviceProfileId { get; set; }
+            public List<Amazon.IoTWireless.Model.ApplicationConfig> FPorts_Application { get; set; }
             public System.Int32? Positioning_ClockSync { get; set; }
             public System.Int32? Positioning_Gnss { get; set; }
             public System.Int32? Positioning_Stream { get; set; }
             public System.String LoRaWAN_ServiceProfileId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateWirelessDeviceResponse, UpdateIOTWWirelessDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

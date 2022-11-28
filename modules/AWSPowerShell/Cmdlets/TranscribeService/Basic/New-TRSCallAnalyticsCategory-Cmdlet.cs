@@ -32,24 +32,26 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// All categories are automatically applied to your Call Analytics jobs. Note that in
-    /// order to apply your categories to your jobs, you must create them before submitting
-    /// your job request, as categories cannot be applied retroactively.
+    /// All categories are automatically applied to your Call Analytics transcriptions. Note
+    /// that in order to apply categories to your transcriptions, you must create them before
+    /// submitting your transcription request, as categories cannot be applied retroactively.
+    /// </para><para>
+    /// When creating a new category, you can use the <code>InputType</code> parameter to
+    /// label the category as a batch category (<code>POST_CALL</code>) or a streaming category
+    /// (<code>REAL_TIME</code>). Batch categories can only be applied to batch transcriptions
+    /// and streaming categories can only be applied to streaming transcriptions. If you do
+    /// not include <code>InputType</code>, your category is created as a batch category by
+    /// default.
     /// </para><para>
     /// Call Analytics categories are composed of rules. For each category, you must create
     /// between 1 and 20 rules. Rules can include these parameters: , , , and .
     /// </para><para>
     /// To update an existing category, see .
     /// </para><para>
-    /// To learn more about:
-    /// </para><ul><li><para>
-    /// Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html">Creating
-    /// categories</a></para></li><li><para>
-    /// Using rules, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics-create-categories.html#call-analytics-create-categories-rules">Rule
-    /// criteria</a> and refer to the data type
-    /// </para></li><li><para>
-    /// Call Analytics, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing
-    /// call center audio with Call Analytics</a></para></li></ul>
+    /// To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating
+    /// categories for batch transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating
+    /// categories for streaming transcriptions</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "TRSCallAnalyticsCategory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CategoryProperties")]
@@ -81,14 +83,29 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String CategoryName { get; set; }
         #endregion
         
+        #region Parameter InputType
+        /// <summary>
+        /// <para>
+        /// <para>Choose whether you want to create a streaming or a batch category for your Call Analytics
+        /// transcription.</para><para>Specifying <code>POST_CALL</code> assigns your category to batch transcriptions; categories
+        /// with this input type cannot be applied to streaming (real-time) transcriptions.</para><para>Specifying <code>REAL_TIME</code> assigns your category to streaming transcriptions;
+        /// categories with this input type cannot be applied to batch (post-call) transcriptions.</para><para>If you do not include <code>InputType</code>, your category is created as a batch
+        /// category by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TranscribeService.InputType")]
+        public Amazon.TranscribeService.InputType InputType { get; set; }
+        #endregion
+        
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>Rules define a Call Analytics category. When creating a new Call Analytics category,
-        /// you must create between 1 and 20 rules for that category. For each rule, you specify
-        /// a filter you want applied to the attributes of a call. For example, you can choose
-        /// a sentiment filter that detects if a customer's sentiment was positive during the
-        /// last 30 seconds of the call.</para>
+        /// <para>Rules define a Call Analytics category. When creating a new category, you must create
+        /// between 1 and 20 rules for that category. For each rule, you specify a filter you
+        /// want applied to the attributes of a call. For example, you can choose a sentiment
+        /// filter that detects if a customer's sentiment was positive during the last 30 seconds
+        /// of the call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter CategoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InputType = this.InputType;
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.TranscribeService.Model.Rule>(this.Rule);
@@ -200,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.CategoryName != null)
             {
                 request.CategoryName = cmdletContext.CategoryName;
+            }
+            if (cmdletContext.InputType != null)
+            {
+                request.InputType = cmdletContext.InputType;
             }
             if (cmdletContext.Rule != null)
             {
@@ -267,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CategoryName { get; set; }
+            public Amazon.TranscribeService.InputType InputType { get; set; }
             public List<Amazon.TranscribeService.Model.Rule> Rule { get; set; }
             public System.Func<Amazon.TranscribeService.Model.CreateCallAnalyticsCategoryResponse, NewTRSCallAnalyticsCategoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CategoryProperties;

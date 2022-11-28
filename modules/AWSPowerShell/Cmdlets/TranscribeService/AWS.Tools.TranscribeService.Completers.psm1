@@ -101,6 +101,16 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.InputType
+        {
+            ($_ -eq "New-TRSCallAnalyticsCategory/InputType") -Or
+            ($_ -eq "Update-TRSCallAnalyticsCategory/InputType")
+        }
+        {
+            $v = "POST_CALL","REAL_TIME"
+            break
+        }
+
         # Amazon.TranscribeService.LanguageCode
         {
             ($_ -eq "New-TRSMedicalVocabulary/LanguageCode") -Or
@@ -217,6 +227,7 @@ $TRS_map = @{
     "ContentIdentificationType"=@("Start-TRSMedicalTranscriptionJob")
     "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
+    "InputType"=@("New-TRSCallAnalyticsCategory","Update-TRSCallAnalyticsCategory")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
     "Settings_ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob")

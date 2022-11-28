@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ORGPolicy', 
         'Get-ORGPolicyForTarget', 
         'Get-ORGPolicyList', 
+        'Get-ORGResourcePolicy', 
         'Get-ORGResourceTag', 
         'Get-ORGRoot', 
         'Get-ORGTargetForPolicy', 
@@ -133,11 +134,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ORGOrganizationalUnit', 
         'Remove-ORGOrganizationAssociation', 
         'Remove-ORGPolicy', 
+        'Remove-ORGResourcePolicy', 
         'Remove-ORGResourceTag', 
         'Stop-ORGHandshake', 
         'Unregister-ORGDelegatedAdministrator', 
         'Update-ORGOrganizationalUnit', 
-        'Update-ORGPolicy')
+        'Update-ORGPolicy', 
+        'Write-ORGResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

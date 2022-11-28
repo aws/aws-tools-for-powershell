@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// <summary>
     /// Updates an existing custom vocabulary with new values. This operation overwrites all
     /// existing information with your new values; you cannot append new terms onto an existing
-    /// vocabulary.
+    /// custom vocabulary.
     /// </summary>
     [Cmdlet("Update", "TRSVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.UpdateVocabularyResponse")]
@@ -45,9 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code that represents the language of the entries in the custom vocabulary
-        /// you want to update. Each vocabulary must contain terms in only one language.</para><para>A custom vocabulary can only be used to transcribe files in the same language as the
-        /// vocabulary. For example, if you create a vocabulary using US English (<code>en-US</code>),
-        /// you can only apply this vocabulary to files that contain English audio.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// you want to update. Each custom vocabulary must contain terms in only one language.</para><para>A custom vocabulary can only be used to transcribe files in the same language as the
+        /// custom vocabulary. For example, if you create a custom vocabulary using US English
+        /// (<code>en-US</code>), you can only apply this custom vocabulary to files that contain
+        /// English audio.</para><para>For a list of supported languages and their associated language codes, refer to the
         /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
         /// languages</a> table.</para>
         /// </para>
@@ -66,14 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Phrase
         /// <summary>
         /// <para>
-        /// <para>Use this parameter if you want to update your vocabulary by including all desired
+        /// <para>Use this parameter if you want to update your custom vocabulary by including all desired
         /// terms, as comma-separated values, within your request. The other option for updating
-        /// your vocabulary is to save your entries in a text file and upload them to an Amazon
-        /// S3 bucket, then specify the location of your file using the <code>VocabularyFileUri</code>
+        /// your custom vocabulary is to save your entries in a text file and upload them to an
+        /// Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFileUri</code>
         /// parameter.</para><para>Note that if you include <code>Phrases</code> in your request, you cannot use <code>VocabularyFileUri</code>;
         /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
-        /// language. If you use unsupported characters, your vocabulary filter request fails.
-        /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+        /// language. If you use unsupported characters, your custom vocabulary filter request
+        /// fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
         /// Sets for Custom Vocabularies</a> to get the character set for your language.</para>
         /// </para>
         /// </summary>
@@ -98,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom vocabulary you want to update. Vocabulary names are case sensitive.</para>
+        /// <para>The name of the custom vocabulary you want to update. Custom vocabulary names are
+        /// case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

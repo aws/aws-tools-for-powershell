@@ -228,6 +228,7 @@ $RDS_SelectMap = @{
                "Copy-RDSDBParameterGroup",
                "Copy-RDSDBSnapshot",
                "Copy-RDSOptionGroup",
+               "New-RDSBlueGreenDeployment",
                "New-RDSCustomDBEngineVersion",
                "New-RDSDBCluster",
                "New-RDSDBClusterEndpoint",
@@ -244,6 +245,7 @@ $RDS_SelectMap = @{
                "New-RDSEventSubscription",
                "New-RDSGlobalCluster",
                "New-RDSOptionGroup",
+               "Remove-RDSBlueGreenDeployment",
                "Remove-RDSCustomDBEngineVersion",
                "Remove-RDSDBCluster",
                "Remove-RDSDBClusterEndpoint",
@@ -262,6 +264,7 @@ $RDS_SelectMap = @{
                "Remove-RDSOptionGroup",
                "Unregister-RDSDBProxyTarget",
                "Get-RDSAccountAttribute",
+               "Get-RDSBlueGreenDeployment",
                "Get-RDSCertificate",
                "Get-RDSDBClusterBacktrackList",
                "Get-RDSDBClusterEndpoint",
@@ -351,6 +354,7 @@ $RDS_SelectMap = @{
                "Stop-RDSDBCluster",
                "Stop-RDSDBInstance",
                "Stop-RDSDBInstanceAutomatedBackupsReplication",
+               "Switch-RDSBlueGreenDeployment",
                "Convert-RDSReadReplicaToNewPrimary")
 }
 

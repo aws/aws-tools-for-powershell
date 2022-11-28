@@ -210,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
         #endregion
         
+        #region Parameter ServiceConnectConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use Service Connect with this service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ServiceConnectConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter EnableECSManagedTag
         /// <summary>
         /// <para>
@@ -295,6 +305,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.LoadBalancer[] LoadBalancer { get; set; }
         #endregion
         
+        #region Parameter LogConfiguration_LogDriver
+        /// <summary>
+        /// <para>
+        /// <para>The log driver to use for the container.</para><para>For tasks on Fargate, the supported log drivers are <code>awslogs</code>, <code>splunk</code>,
+        /// and <code>awsfirelens</code>.</para><para>For tasks hosted on Amazon EC2 instances, the supported log drivers are <code>awslogs</code>,
+        /// <code>fluentd</code>, <code>gelf</code>, <code>json-file</code>, <code>journald</code>,
+        /// <code>logentries</code>,<code>syslog</code>, <code>splunk</code>, and <code>awsfirelens</code>.</para><para>For more information about using the <code>awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
+        /// the awslogs log driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>For more information about using the <code>awsfirelens</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+        /// log routing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>If you have a custom driver that isn't listed, you can fork the Amazon ECS container
+        /// agent project that's <a href="https://github.com/aws/amazon-ecs-agent">available on
+        /// GitHub</a> and customize it to work with that driver. We encourage you to submit pull
+        /// requests for changes that you would like to have included. However, we don't currently
+        /// provide support for running modified copies of this software.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_LogConfiguration_LogDriver")]
+        [AWSConstantClassSource("Amazon.ECS.LogDriver")]
+        public Amazon.ECS.LogDriver LogConfiguration_LogDriver { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfiguration_MaximumPercent
         /// <summary>
         /// <para>
@@ -355,6 +386,34 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
+        #endregion
+        
+        #region Parameter ServiceConnectConfiguration_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for
+        /// use with Service Connect. The namespace must be in the same Amazon Web Services Region
+        /// as the Amazon ECS service and cluster. The type of namespace doesn't affect Service
+        /// Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+        /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServiceConnectConfiguration_Namespace { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_Option
+        /// <summary>
+        /// <para>
+        /// <para>The configuration options to send to the log driver. This parameter requires version
+        /// 1.19 of the Docker Remote API or greater on your container instance. To check the
+        /// Docker Remote API version on your container instance, log in to your container instance
+        /// and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_LogConfiguration_Options")]
+        public System.Collections.Hashtable LogConfiguration_Option { get; set; }
         #endregion
         
         #region Parameter PlacementConstraint
@@ -428,6 +487,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
         #endregion
         
+        #region Parameter LogConfiguration_SecretOption
+        /// <summary>
+        /// <para>
+        /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
+        /// sensitive data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_LogConfiguration_SecretOptions")]
+        public Amazon.ECS.Model.Secret[] LogConfiguration_SecretOption { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_SecurityGroup
         /// <summary>
         /// <para>
@@ -471,6 +542,24 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ServiceRegistries")]
         public Amazon.ECS.Model.ServiceRegistry[] ServiceRegistry { get; set; }
+        #endregion
+        
+        #region Parameter ServiceConnectConfiguration_Service
+        /// <summary>
+        /// <para>
+        /// <para>The list of Service Connect service objects. These are names and aliases (also known
+        /// as endpoints) that are used by other Amazon ECS services to connect to this service.
+        /// You can specify up to X (30?) objects per Amazon ECS service.</para><para>This field is not required for a "client" Amazon ECS service that's a member of a
+        /// namespace only to connect to other services within the namespace. An example of this
+        /// would be a frontend application that accepts incoming requests from either a load
+        /// balancer that's attached to the service or by other means.</para><para>An object selects a port from the task definition, assigns a name for the Cloud Map
+        /// service, and a list of aliases (endpoints) and ports for client applications to refer
+        /// to this service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceConnectConfiguration_Services")]
+        public Amazon.ECS.Model.ServiceConnectService[] ServiceConnectConfiguration_Service { get; set; }
         #endregion
         
         #region Parameter AwsvpcConfiguration_Subnet
@@ -605,6 +694,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Service which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ServiceConnectConfiguration_Enabled = this.ServiceConnectConfiguration_Enabled;
+            context.LogConfiguration_LogDriver = this.LogConfiguration_LogDriver;
+            if (this.LogConfiguration_Option != null)
+            {
+                context.LogConfiguration_Option = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.LogConfiguration_Option.Keys)
+                {
+                    context.LogConfiguration_Option.Add((String)hashKey, (String)(this.LogConfiguration_Option[hashKey]));
+                }
+            }
+            if (this.LogConfiguration_SecretOption != null)
+            {
+                context.LogConfiguration_SecretOption = new List<Amazon.ECS.Model.Secret>(this.LogConfiguration_SecretOption);
+            }
+            context.ServiceConnectConfiguration_Namespace = this.ServiceConnectConfiguration_Namespace;
+            if (this.ServiceConnectConfiguration_Service != null)
+            {
+                context.ServiceConnectConfiguration_Service = new List<Amazon.ECS.Model.ServiceConnectService>(this.ServiceConnectConfiguration_Service);
+            }
             if (this.ServiceRegistry != null)
             {
                 context.ServiceRegistry = new List<Amazon.ECS.Model.ServiceRegistry>(this.ServiceRegistry);
@@ -796,6 +904,90 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.Service = cmdletContext.Service;
             }
+            
+             // populate ServiceConnectConfiguration
+            var requestServiceConnectConfigurationIsNull = true;
+            request.ServiceConnectConfiguration = new Amazon.ECS.Model.ServiceConnectConfiguration();
+            System.Boolean? requestServiceConnectConfiguration_serviceConnectConfiguration_Enabled = null;
+            if (cmdletContext.ServiceConnectConfiguration_Enabled != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_Enabled = cmdletContext.ServiceConnectConfiguration_Enabled.Value;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_Enabled != null)
+            {
+                request.ServiceConnectConfiguration.Enabled = requestServiceConnectConfiguration_serviceConnectConfiguration_Enabled.Value;
+                requestServiceConnectConfigurationIsNull = false;
+            }
+            System.String requestServiceConnectConfiguration_serviceConnectConfiguration_Namespace = null;
+            if (cmdletContext.ServiceConnectConfiguration_Namespace != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_Namespace = cmdletContext.ServiceConnectConfiguration_Namespace;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_Namespace != null)
+            {
+                request.ServiceConnectConfiguration.Namespace = requestServiceConnectConfiguration_serviceConnectConfiguration_Namespace;
+                requestServiceConnectConfigurationIsNull = false;
+            }
+            List<Amazon.ECS.Model.ServiceConnectService> requestServiceConnectConfiguration_serviceConnectConfiguration_Service = null;
+            if (cmdletContext.ServiceConnectConfiguration_Service != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_Service = cmdletContext.ServiceConnectConfiguration_Service;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_Service != null)
+            {
+                request.ServiceConnectConfiguration.Services = requestServiceConnectConfiguration_serviceConnectConfiguration_Service;
+                requestServiceConnectConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.LogConfiguration requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration = null;
+            
+             // populate LogConfiguration
+            var requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfigurationIsNull = true;
+            requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration = new Amazon.ECS.Model.LogConfiguration();
+            Amazon.ECS.LogDriver requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_LogDriver = null;
+            if (cmdletContext.LogConfiguration_LogDriver != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_LogDriver = cmdletContext.LogConfiguration_LogDriver;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_LogDriver != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration.LogDriver = requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_LogDriver;
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_Option = null;
+            if (cmdletContext.LogConfiguration_Option != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_Option = cmdletContext.LogConfiguration_Option;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_Option != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration.Options = requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_Option;
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfigurationIsNull = false;
+            }
+            List<Amazon.ECS.Model.Secret> requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_SecretOption = null;
+            if (cmdletContext.LogConfiguration_SecretOption != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_SecretOption = cmdletContext.LogConfiguration_SecretOption;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_SecretOption != null)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration.SecretOptions = requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration_logConfiguration_SecretOption;
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfigurationIsNull = false;
+            }
+             // determine if requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration should be set to null
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfigurationIsNull)
+            {
+                requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration = null;
+            }
+            if (requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration != null)
+            {
+                request.ServiceConnectConfiguration.LogConfiguration = requestServiceConnectConfiguration_serviceConnectConfiguration_LogConfiguration;
+                requestServiceConnectConfigurationIsNull = false;
+            }
+             // determine if request.ServiceConnectConfiguration should be set to null
+            if (requestServiceConnectConfigurationIsNull)
+            {
+                request.ServiceConnectConfiguration = null;
+            }
             if (cmdletContext.ServiceRegistry != null)
             {
                 request.ServiceRegistries = cmdletContext.ServiceRegistry;
@@ -885,6 +1077,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String PlatformVersion { get; set; }
             public Amazon.ECS.PropagateTags PropagateTag { get; set; }
             public System.String Service { get; set; }
+            public System.Boolean? ServiceConnectConfiguration_Enabled { get; set; }
+            public Amazon.ECS.LogDriver LogConfiguration_LogDriver { get; set; }
+            public Dictionary<System.String, System.String> LogConfiguration_Option { get; set; }
+            public List<Amazon.ECS.Model.Secret> LogConfiguration_SecretOption { get; set; }
+            public System.String ServiceConnectConfiguration_Namespace { get; set; }
+            public List<Amazon.ECS.Model.ServiceConnectService> ServiceConnectConfiguration_Service { get; set; }
             public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistry { get; set; }
             public System.String TaskDefinition { get; set; }
             public System.Func<Amazon.ECS.Model.UpdateServiceResponse, UpdateECSServiceCmdlet, object> Select { get; set; } =

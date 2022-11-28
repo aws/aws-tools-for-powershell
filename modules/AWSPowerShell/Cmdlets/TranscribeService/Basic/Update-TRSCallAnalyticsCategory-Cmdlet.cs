@@ -65,6 +65,20 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String CategoryName { get; set; }
         #endregion
         
+        #region Parameter InputType
+        /// <summary>
+        /// <para>
+        /// <para>Choose whether you want to update a streaming or a batch Call Analytics category.
+        /// The input type you specify must match the input type specified when the category was
+        /// created. For example, if you created a category with the <code>POST_CALL</code> input
+        /// type, you must use <code>POST_CALL</code> as the input type when updating this category.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TranscribeService.InputType")]
+        public Amazon.TranscribeService.InputType InputType { get; set; }
+        #endregion
+        
         #region Parameter Rule
         /// <summary>
         /// <para>
@@ -152,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 WriteWarning("You are passing $null as a value for parameter CategoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InputType = this.InputType;
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.TranscribeService.Model.Rule>(this.Rule);
@@ -181,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.CategoryName != null)
             {
                 request.CategoryName = cmdletContext.CategoryName;
+            }
+            if (cmdletContext.InputType != null)
+            {
+                request.InputType = cmdletContext.InputType;
             }
             if (cmdletContext.Rule != null)
             {
@@ -248,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CategoryName { get; set; }
+            public Amazon.TranscribeService.InputType InputType { get; set; }
             public List<Amazon.TranscribeService.Model.Rule> Rule { get; set; }
             public System.Func<Amazon.TranscribeService.Model.UpdateCallAnalyticsCategoryResponse, UpdateTRSCallAnalyticsCategoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CategoryProperties;

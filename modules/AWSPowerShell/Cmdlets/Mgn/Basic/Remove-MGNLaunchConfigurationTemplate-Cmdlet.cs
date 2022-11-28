@@ -28,7 +28,7 @@ using Amazon.Mgn.Model;
 namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Creates a new ReplicationConfigurationTemplate.
+    /// Deletes a single Launch Configuration Template by ID.
     /// </summary>
     [Cmdlet("Remove", "MGNLaunchConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

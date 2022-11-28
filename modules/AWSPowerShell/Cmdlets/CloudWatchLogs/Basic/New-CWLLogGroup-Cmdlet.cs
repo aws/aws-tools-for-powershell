@@ -35,28 +35,28 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// You must use the following guidelines when naming a log group:
     /// </para><ul><li><para>
-    /// Log group names must be unique within a region for an Amazon Web Services account.
+    /// Log group names must be unique within a Region for an Amazon Web Services account.
     /// </para></li><li><para>
     /// Log group names can be between 1 and 512 characters long.
     /// </para></li><li><para>
     /// Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore),
     /// '-' (hyphen), '/' (forward slash), '.' (period), and '#' (number sign)
     /// </para></li></ul><para>
-    /// When you create a log group, by default the log events in the log group never expire.
+    /// When you create a log group, by default the log events in the log group do not expire.
     /// To set a retention policy so that events expire and are deleted after a specified
     /// time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.
     /// </para><para>
-    /// If you associate a Key Management Service customer master key (CMK) with the log group,
-    /// ingested data is encrypted using the CMK. This association is stored as long as the
-    /// data encrypted with the CMK is still within CloudWatch Logs. This enables CloudWatch
-    /// Logs to decrypt this data whenever it is requested.
+    /// If you associate an KMS key with the log group, ingested data is encrypted using the
+    /// KMS key. This association is stored as long as the data encrypted with the KMS key
+    /// is still within CloudWatch Logs. This enables CloudWatch Logs to decrypt this data
+    /// whenever it is requested.
     /// </para><para>
-    /// If you attempt to associate a CMK with the log group but the CMK does not exist or
-    /// the CMK is disabled, you receive an <code>InvalidParameterException</code> error.
-    /// 
+    /// If you attempt to associate a KMS key with the log group but the KMS keydoes not exist
+    /// or the KMS key is disabled, you receive an <code>InvalidParameterException</code>
+    /// error. 
     /// </para><important><para>
-    /// CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with
-    /// your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+    /// CloudWatch Logs supports only symmetric KMS keys. Do not associate an asymmetric KMS
+    /// key with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
     /// Symmetric and Asymmetric Keys</a>.
     /// </para></important>
     /// </summary>
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more
-        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon
-        /// Resource Names - Key Management Service</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data. For
+        /// more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon
+        /// Resource Names</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

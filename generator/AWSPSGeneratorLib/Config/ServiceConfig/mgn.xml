@@ -19,7 +19,27 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ArchiveApplication" OutputProperty="*" Verb="Set" Noun="ApplicationAsArchived" ShouldProcessTarget="ApplicationID" PipelineParameter="ApplicationID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ArchiveWave" OutputProperty="*" Verb="Set" Noun="WaveAsArchived" ShouldProcessTarget="WaveID" PipelineParameter="WaveID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateApplications" Verb="Add" Noun="ApplicationsToWave" ShouldProcessTarget="WaveID" PipelineParameter="WaveID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSourceServers" Verb="Add" Noun="SourceServersToApplication" ShouldProcessTarget="ApplicationID" PipelineParameter="ApplicationID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ChangeServerLifeCycleState" OutputProperty="*" Verb="Set" Noun="ServerLifeCycleState" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -28,6 +48,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWave" OutputProperty="*" Verb="New" Noun="Wave" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationID" PipelineParameter="ApplicationID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVcenterClient" Verb="Remove" Noun="VcenterClient" ShouldProcessTarget="VcenterClientID" PipelineParameter="VcenterClientID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWave" Verb="Remove" Noun="Wave" ShouldProcessTarget="WaveID" PipelineParameter="WaveID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +107,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateApplications" Verb="Remove" Noun="ApplicationsFromWave" ShouldProcessTarget="WaveID" PipelineParameter="WaveID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSourceServers" Verb="Remove" Noun="SourceServersFromApplication" ShouldProcessTarget="ApplicationID" PipelineParameter="ApplicationID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisconnectFromService" OutputProperty="*" Verb="Disconnect" Noun="FromService" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -95,11 +135,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Items" Verb="Get" Noun="ApplicationList" PipelineParameter="Filters_IsArchived" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceServerActions" OutputProperty="Items" Verb="Get" Noun="SourceServerActionList" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateActions" OutputProperty="Items" Verb="Get" Noun="TemplateActionList" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWaves" OutputProperty="Items" Verb="Get" Noun="WaveList" PipelineParameter="Filters_IsArchived" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="MarkAsArchived" OutputProperty="*" Verb="Set" Noun="AsArchived" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSourceServerAction" OutputProperty="*" Verb="Write" Noun="SourceServerAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTemplateAction" OutputProperty="*" Verb="Write" Noun="TemplateAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveSourceServerAction" Verb="Remove" Noun="SourceServerAction" ShouldProcessTarget="ActionID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTemplateAction" Verb="Remove" Noun="TemplateAction" ShouldProcessTarget="ActionID" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,7 +199,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UnarchiveApplication" OutputProperty="*" Verb="Set" Noun="ApplicationAsUnarchived" ShouldProcessTarget="ApplicationID" PipelineParameter="ApplicationID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnarchiveWave" OutputProperty="*" Verb="Set" Noun="WaveAsUnarchived" ShouldProcessTarget="WaveID" PipelineParameter="WaveID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="ApplicationID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -148,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSourceServerReplicationType" OutputProperty="*" Verb="Update" Noun="SourceServerReplicationType" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWave" OutputProperty="*" Verb="Update" Noun="Wave" ShouldProcessTarget="Name" PipelineParameter="WaveID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// In addition to many of the standard transcription features, Amazon Transcribe Medical
-    /// provides you with a robust medical vocabulary and, optionally, content identification,
-    /// which adds flags to personal health information (PHI). To learn more about these features,
+    /// In addition to many standard transcription features, Amazon Transcribe Medical provides
+    /// you with a robust medical vocabulary and, optionally, content identification, which
+    /// adds flags to personal health information (PHI). To learn more about these features,
     /// refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works-med.html">How
     /// Amazon Transcribe Medical works</a>.
     /// </para><para>
@@ -151,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_MaxSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>Specify the maximum number of speakers you want to identify in your media.</para><para>Note that if your media contains more speakers than the specified number, multiple
-        /// speakers will be identified as a single speaker.</para><para>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
+        /// <para>Specify the maximum number of speakers you want to partition in your media.</para><para>Note that if your media contains more speakers than the specified number, multiple
+        /// speakers are treated as a single speaker.</para><para>If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
         /// field to true.</para>
         /// </para>
         /// </summary>
@@ -186,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MediaSampleRateHertz
         /// <summary>
         /// <para>
-        /// <para>The sample rate, in Hertz, of the audio track in your input media file.</para><para>If you don't specify the media sample rate, Amazon Transcribe Medical determines it
+        /// <para>The sample rate, in hertz, of the audio track in your input media file.</para><para>If you don't specify the media sample rate, Amazon Transcribe Medical determines it
         /// for you. If you specify the sample rate, it must match the rate detected by Amazon
-        /// Transcribe Medical; if there's a mismatch between the value you specify and the value
-        /// detected, your job fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code>
+        /// Transcribe Medical; if there's a mismatch between the value that you specify and the
+        /// value detected, your job fails. Therefore, in most cases, it's advised to omit <code>MediaSampleRateHertz</code>
         /// and let Amazon Transcribe Medical determine the sample rate.</para>
         /// </para>
         /// </summary>
@@ -200,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MedicalTranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>A unique name, chosen by you, for your medical transcription job. The name you specify
-        /// is also used as the default name of your transcription output file. If you want to
-        /// specify a different name for your transcription output, use the <code>OutputKey</code>
+        /// <para>A unique name, chosen by you, for your medical transcription job. The name that you
+        /// specify is also used as the default name of your transcription output file. If you
+        /// want to specify a different name for your transcription output, use the <code>OutputKey</code>
         /// parameter.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
         /// Web Services account. If you try to create a new job with the same name as an existing
         /// job, you get a <code>ConflictException</code> error.</para>
@@ -232,8 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// to <code>test-files/</code>.</para><para>Note that Amazon Transcribe must have permission to use the specified location. You
         /// can change Amazon S3 permissions using the <a href="https://console.aws.amazon.com/s3">Amazon
         /// Web Services Management Console</a>. See also <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>If you don't specify <code>OutputBucketName</code>, your transcript is placed in a
-        /// service-managed Amazon S3 bucket and you are provided with a URI to access your transcript.</para>
+        /// Required for IAM User Roles</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -286,7 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 location of the media file you want to redact. For example:</para><ul><li><para><code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code></para></li><li><para><code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code></para></li></ul><para>Note that the Amazon S3 bucket that contains your input media must be located in the
-        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
+        /// same Amazon Web Services Region where you're making your transcription request.</para><important><para><code>RedactedMediaFileUri</code> produces a redacted audio file in addition to a
+        /// redacted transcript. It is only supported for Call Analytics (<code>StartCallAnalyticsJob</code>)
         /// transcription requests.</para></important>
         /// </para>
         /// </summary>
@@ -312,10 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Settings_ShowSpeakerLabel
         /// <summary>
         /// <para>
-        /// <para>Enables speaker identification (diarization) in your transcription output. Speaker
-        /// identification labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
-        /// <code>MaxSpeakerLabels</code>.</para><para>You can't include both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
-        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Identifying
+        /// <para>Enables speaker partitioning (diarization) in your transcription output. Speaker partitioning
+        /// labels the speech from individual speakers in your media file.</para><para>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include
+        /// <code>MaxSpeakerLabels</code>.</para><para>You can't include <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>
+        /// in the same request. Including both parameters returns a <code>BadRequestException</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html">Partitioning
         /// speakers (diarization)</a>.</para>
         /// </para>
         /// </summary>
@@ -380,10 +380,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the custom vocabulary you want to use when processing your medical transcription
-        /// job. Vocabulary names are case sensitive.</para><para>The language of the specified vocabulary must match the language code you specify
-        /// in your transcription request. If the languages don't match, the vocabulary isn't
-        /// applied. There are no errors or warnings associated with a language mismatch. US English
-        /// (<code>en-US</code>) is the only valid language for Amazon Transcribe Medical.</para>
+        /// job. Custom vocabulary names are case sensitive.</para><para>The language of the specified custom vocabulary must match the language code that
+        /// you specify in your transcription request. If the languages don't match, the custom
+        /// vocabulary isn't applied. There are no errors or warnings associated with a language
+        /// mismatch. US English (<code>en-US</code>) is the only valid language for Amazon Transcribe
+        /// Medical.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

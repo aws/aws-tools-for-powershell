@@ -28,7 +28,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Sets the retention of the specified log group. A retention policy allows you to configure
+    /// Sets the retention of the specified log group. With a retention policy, you can configure
     /// the number of days for which to retain log events in the specified log group.
     /// 
     ///  <note><para>
@@ -36,12 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// setting. It typically takes up to 72 hours after that before log events are deleted,
     /// but in rare situations might take longer.
     /// </para><para>
-    /// This means that if you change a log group to have a longer retention setting when
-    /// it contains log events that are past the expiration date, but haven’t been actually
-    /// deleted, those log events will take up to 72 hours to be deleted after the new retention
-    /// date is reached. To make sure that log data is deleted permanently, keep a log group
-    /// at its lower retention setting until 72 hours has passed after the end of the previous
-    /// retention period, or you have confirmed that the older log events are deleted. 
+    /// To illustrate, imagine that you change a log group to have a longer retention setting
+    /// when it contains log events that are past the expiration date, but haven’t been deleted.
+    /// Those log events will take up to 72 hours to be deleted after the new retention date
+    /// is reached. To make sure that log data is deleted permanently, keep a log group at
+    /// its lower retention setting until 72 hours after the previous retention period ends.
+    /// Alternatively, wait to change the retention setting until you confirm that the earlier
+    /// log events are deleted. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CWLRetentionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

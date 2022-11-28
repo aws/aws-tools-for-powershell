@@ -129,7 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>startedBy</code> value to filter the task results with. Specifying a <code>startedBy</code>
-        /// value limits the results to tasks that were started with that value.</para>
+        /// value limits the results to tasks that were started with that value.</para><para>When you specify <code>startedBy</code> as the filter, it must be the only filter
+        /// that you use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

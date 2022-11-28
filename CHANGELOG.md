@@ -1,4 +1,96 @@
-﻿### 4.1.214 (2022-11-23 21:38Z)
+﻿### 4.1.215 (2022-11-28 05:44Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.425.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Application Migration Service
+    * Added cmdlet Add-MGNApplicationsToWave leveraging the AssociateApplications service API.
+    * Added cmdlet Add-MGNSourceServersToApplication leveraging the AssociateSourceServers service API.
+    * Added cmdlet Get-MGNApplicationList leveraging the ListApplications service API.
+    * Added cmdlet Get-MGNSourceServerActionList leveraging the ListSourceServerActions service API.
+    * Added cmdlet Get-MGNTemplateActionList leveraging the ListTemplateActions service API.
+    * Added cmdlet Get-MGNWaveList leveraging the ListWaves service API.
+    * Added cmdlet New-MGNApplication leveraging the CreateApplication service API.
+    * Added cmdlet New-MGNWave leveraging the CreateWave service API.
+    * Added cmdlet Remove-MGNApplication leveraging the DeleteApplication service API.
+    * Added cmdlet Remove-MGNApplicationsFromWave leveraging the DisassociateApplications service API.
+    * Added cmdlet Remove-MGNSourceServerAction leveraging the RemoveSourceServerAction service API.
+    * Added cmdlet Remove-MGNSourceServersFromApplication leveraging the DisassociateSourceServers service API.
+    * Added cmdlet Remove-MGNTemplateAction leveraging the RemoveTemplateAction service API.
+    * Added cmdlet Remove-MGNWave leveraging the DeleteWave service API.
+    * Added cmdlet Set-MGNApplicationAsArchived leveraging the ArchiveApplication service API.
+    * Added cmdlet Set-MGNApplicationAsUnarchived leveraging the UnarchiveApplication service API.
+    * Added cmdlet Set-MGNWaveAsArchived leveraging the ArchiveWave service API.
+    * Added cmdlet Set-MGNWaveAsUnarchived leveraging the UnarchiveWave service API.
+    * Added cmdlet Update-MGNApplication leveraging the UpdateApplication service API.
+    * Added cmdlet Update-MGNWave leveraging the UpdateWave service API.
+    * Added cmdlet Write-MGNSourceServerAction leveraging the PutSourceServerAction service API.
+    * Added cmdlet Write-MGNTemplateAction leveraging the PutTemplateAction service API.
+    * Modified cmdlet Get-MGNSourceServer: added parameter Filters_ApplicationIDs.
+    * Modified cmdlet New-MGNLaunchConfigurationTemplate: added parameters AssociatePublicIpAddress, BootMode, CopyPrivateIp, CopyTag, EnableMapAutoTagging, LargeVolumeConf_Iops, LargeVolumeConf_Throughput, LargeVolumeConf_VolumeType, LaunchDisposition, Licensing_OsByol, MapAutoTaggingMpeID, SmallVolumeConf_Iops, SmallVolumeConf_Throughput, SmallVolumeConf_VolumeType, SmallVolumeMaxSize and TargetInstanceTypeRightSizingMethod.
+    * Modified cmdlet Update-MGNLaunchConfiguration: added parameters EnableMapAutoTagging and MapAutoTaggingMpeID.
+    * Modified cmdlet Update-MGNLaunchConfigurationTemplate: added parameters AssociatePublicIpAddress, BootMode, CopyPrivateIp, CopyTag, EnableMapAutoTagging, LargeVolumeConf_Iops, LargeVolumeConf_Throughput, LargeVolumeConf_VolumeType, LaunchDisposition, Licensing_OsByol, MapAutoTaggingMpeID, SmallVolumeConf_Iops, SmallVolumeConf_Throughput, SmallVolumeConf_VolumeType, SmallVolumeMaxSize and TargetInstanceTypeRightSizingMethod.
+  * Amazon Backup
+    * Added cmdlet Get-BAKLegalHold leveraging the GetLegalHold service API.
+    * Added cmdlet Get-BAKLegalHoldList leveraging the ListLegalHolds service API.
+    * Added cmdlet Get-BAKRecoveryPointsByLegalHoldList leveraging the ListRecoveryPointsByLegalHold service API.
+    * Added cmdlet Move-BAKRecoveryPoint leveraging the DisassociateRecoveryPointFromParent service API.
+    * Added cmdlet New-BAKLegalHold leveraging the CreateLegalHold service API.
+    * Added cmdlet Stop-BAKLegalHold leveraging the CancelLegalHold service API.
+    * Modified cmdlet Get-BAKBackupJobList: added parameter ByParentJobId.
+    * Modified cmdlet Get-BAKCopyJobList: added parameter ByParentJobId.
+    * Modified cmdlet Get-BAKRecoveryPointsByBackupVaultList: added parameter ByParentRecoveryPointArn.
+    * Modified cmdlet New-BAKReportPlan: added parameters ReportSetting_Account, ReportSetting_OrganizationUnit and ReportSetting_Region.
+    * Modified cmdlet Update-BAKReportPlan: added parameters ReportSetting_Account, ReportSetting_OrganizationUnit and ReportSetting_Region.
+  * Amazon CloudWatch
+    * Modified cmdlet Get-CWMetricList: added parameters IncludeLinkedAccount and OwningAccount.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Get-CWLDataProtectionPolicy leveraging the GetDataProtectionPolicy service API.
+    * Added cmdlet Remove-CWLDataProtectionPolicy leveraging the DeleteDataProtectionPolicy service API.
+    * Added cmdlet Write-CWLDataProtectionPolicy leveraging the PutDataProtectionPolicy service API.
+    * Modified cmdlet Get-CWLFilteredLogEvent: added parameters LogGroupIdentifier and Unmask.
+    * Modified cmdlet Get-CWLLogEvent: added parameters LogGroupIdentifier and Unmask.
+    * Modified cmdlet Get-CWLLogGroup: added parameters AccountIdentifier, IncludeLinkedAccount and LogGroupNamePattern.
+    * Modified cmdlet Get-CWLLogGroupField: added parameter LogGroupIdentifier.
+    * Modified cmdlet Get-CWLLogRecord: added parameter Unmask.
+    * Modified cmdlet Get-CWLLogStream: added parameter LogGroupIdentifier.
+    * Modified cmdlet Start-CWLQuery: added parameter LogGroupIdentifier.
+  * Amazon CloudWatch Observability Access Manager. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWOAM and can be listed using the command 'Get-AWSCmdletName -Service CWOAM'.
+  * Amazon EC2 Container Service
+    * Added cmdlet Get-ECSServicesByNamespace leveraging the ListServicesByNamespace service API.
+    * Modified cmdlet New-ECSCluster: added parameter ServiceConnectDefaults_Namespace.
+    * Modified cmdlet New-ECSService: added parameters LogConfiguration_LogDriver, LogConfiguration_Option, LogConfiguration_SecretOption, ServiceConnectConfiguration_Enabled, ServiceConnectConfiguration_Namespace and ServiceConnectConfiguration_Service.
+    * Modified cmdlet Update-ECSCluster: added parameter ServiceConnectDefaults_Namespace.
+    * Modified cmdlet Update-ECSService: added parameters LogConfiguration_LogDriver, LogConfiguration_Option, LogConfiguration_SecretOption, ServiceConnectConfiguration_Enabled, ServiceConnectConfiguration_Namespace and ServiceConnectConfiguration_Service.
+  * Amazon Elastic Disaster Recovery Service
+    * Added cmdlet Start-EDRSReplication leveraging the StartReplication service API.
+    * Added cmdlet Start-EDRSReversedReplication leveraging the ReverseReplication service API.
+    * Added cmdlet Stop-EDRSReplication leveraging the StopReplication service API.
+  * Amazon IoT
+    * Modified cmdlet New-IOTJob: added parameters SchedulingConfig_EndBehavior, SchedulingConfig_EndTime and SchedulingConfig_StartTime.
+    * Modified cmdlet New-IOTTopicRule: added parameters Headers_ContentType, Headers_CorrelationData, Headers_MessageExpiry, Headers_PayloadFormatIndicator, Headers_ResponseTopic and Headers_UserProperty.
+    * Modified cmdlet Set-IOTTopicRule: added parameters Headers_ContentType, Headers_CorrelationData, Headers_MessageExpiry, Headers_PayloadFormatIndicator, Headers_ResponseTopic and Headers_UserProperty.
+  * Amazon IoT Wireless
+    * Added cmdlet Get-IOTWPositionEstimate leveraging the GetPositionEstimate service API.
+    * Added cmdlet Get-IOTWResourcePosition leveraging the GetResourcePosition service API.
+    * Added cmdlet Update-IOTWResourcePosition leveraging the UpdateResourcePosition service API.
+    * Modified cmdlet New-IOTWWirelessDevice: added parameters FPorts_Application and Positioning.
+    * Modified cmdlet Update-IOTWWirelessDevice: added parameters FPorts_Application and Positioning.
+  * Amazon Organizations
+    * Added cmdlet Get-ORGResourcePolicy leveraging the DescribeResourcePolicy service API.
+    * Added cmdlet Remove-ORGResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-ORGResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon Relational Database Service
+    * Added cmdlet Get-RDSBlueGreenDeployment leveraging the DescribeBlueGreenDeployments service API.
+    * Added cmdlet New-RDSBlueGreenDeployment leveraging the CreateBlueGreenDeployment service API.
+    * Added cmdlet Remove-RDSBlueGreenDeployment leveraging the DeleteBlueGreenDeployment service API.
+    * Added cmdlet Switch-RDSBlueGreenDeployment leveraging the SwitchoverBlueGreenDeployment service API.
+  * Amazon Textract
+    * Added cmdlet Get-TXTLendingAnalysis leveraging the GetLendingAnalysis service API.
+    * Added cmdlet Get-TXTLendingAnalysisSummary leveraging the GetLendingAnalysisSummary service API.
+    * Added cmdlet Start-TXTLendingAnalysis leveraging the StartLendingAnalysis service API.
+  * Amazon Transcribe Service
+    * Modified cmdlet New-TRSCallAnalyticsCategory: added parameter InputType.
+    * Modified cmdlet Update-TRSCallAnalyticsCategory: added parameter InputType.
+
+### 4.1.214 (2022-11-23 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.424.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Managed Grafana
     * Added cmdlet Get-MGRFWorkspaceConfiguration leveraging the DescribeWorkspaceConfiguration service API.

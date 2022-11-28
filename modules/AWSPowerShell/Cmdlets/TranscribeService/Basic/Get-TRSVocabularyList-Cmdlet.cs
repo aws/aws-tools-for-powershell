@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The maximum number of custom vocabularies to return in each page of results. If there
-        /// are fewer results than the value you specify, only the actual results are returned.
+        /// are fewer results than the value that you specify, only the actual results are returned.
         /// If you don't specify a value, a default of 5 is used.</para>
         /// </para>
         /// <para>

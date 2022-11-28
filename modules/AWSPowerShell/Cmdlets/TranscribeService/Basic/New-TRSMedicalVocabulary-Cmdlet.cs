@@ -32,19 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// Prior to creating a new medical vocabulary, you must first upload a text file that
-    /// contains your new entries, phrases, and terms into an Amazon S3 bucket. Note that
-    /// this differs from , where you can include a list of terms within your request using
-    /// the <code>Phrases</code> flag; <code>CreateMedicalVocabulary</code> does not support
-    /// the <code>Phrases</code> flag.
+    /// Before creating a new custom medical vocabulary, you must first upload a text file
+    /// that contains your new entries, phrases, and terms into an Amazon S3 bucket. Note
+    /// that this differs from , where you can include a list of terms within your request
+    /// using the <code>Phrases</code> flag; <code>CreateMedicalVocabulary</code> does not
+    /// support the <code>Phrases</code> flag.
     /// </para><para>
     /// Each language has a character set that contains all allowed characters for that specific
-    /// language. If you use unsupported characters, your vocabulary request fails. Refer
-    /// to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+    /// language. If you use unsupported characters, your custom vocabulary request fails.
+    /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
     /// Sets for Custom Vocabularies</a> to get the character set for your language.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary-create.html">Creating
-    /// a custom vocabulary</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
+    /// vocabularies</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "TRSMedicalVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new medical
-        /// vocabulary at the time you create this new vocabulary.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
+        /// medical vocabulary at the time you create this new custom vocabulary.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
         /// resources</a>.</para>
         /// </para>
         /// </summary>
@@ -110,8 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>A unique name, chosen by you, for your new custom medical vocabulary.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a new medical vocabulary with the same
-        /// name as an existing medical vocabulary, you get a <code>ConflictException</code> error.</para>
+        /// Web Services account. If you try to create a new custom medical vocabulary with the
+        /// same name as an existing custom medical vocabulary, you get a <code>ConflictException</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

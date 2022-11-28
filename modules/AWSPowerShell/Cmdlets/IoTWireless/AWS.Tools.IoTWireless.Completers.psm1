@@ -201,12 +201,24 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.PositioningConfigStatus
+        {
+            ($_ -eq "New-IOTWWirelessDevice/Positioning") -Or
+            ($_ -eq "Update-IOTWWirelessDevice/Positioning")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.IoTWireless.PositionResourceType
         {
             ($_ -eq "Get-IOTWPosition/ResourceType") -Or
             ($_ -eq "Get-IOTWPositionConfiguration/ResourceType") -Or
             ($_ -eq "Get-IOTWPositionConfigurationList/ResourceType") -Or
+            ($_ -eq "Get-IOTWResourcePosition/ResourceType") -Or
             ($_ -eq "Update-IOTWPosition/ResourceType") -Or
+            ($_ -eq "Update-IOTWResourcePosition/ResourceType") -Or
             ($_ -eq "Write-IOTWPositionConfiguration/ResourceType")
         }
         {
@@ -304,10 +316,11 @@ $IOTW_map = @{
     "MessageDeliveryStatus_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "MessageDeliveryStatus_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
+    "Positioning"=@("New-IOTWWirelessDevice","Update-IOTWWirelessDevice")
     "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
-    "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Update-IOTWPosition","Write-IOTWPositionConfiguration")
+    "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Get-IOTWResourcePosition","Update-IOTWPosition","Update-IOTWResourcePosition","Write-IOTWPositionConfiguration")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "Solvers_SemtechGnss_Fec"=@("Write-IOTWPositionConfiguration")
     "Solvers_SemtechGnss_Status"=@("Write-IOTWPositionConfiguration")
@@ -417,8 +430,10 @@ $IOTW_SelectMap = @{
                "Get-IOTWPartnerAccount",
                "Get-IOTWPosition",
                "Get-IOTWPositionConfiguration",
+               "Get-IOTWPositionEstimate",
                "Get-IOTWResourceEventConfiguration",
                "Get-IOTWResourceLogLevel",
+               "Get-IOTWResourcePosition",
                "Get-IOTWServiceEndpoint",
                "Get-IOTWServiceProfile",
                "Get-IOTWWirelessDevice",
@@ -466,6 +481,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWPartnerAccount",
                "Update-IOTWPosition",
                "Update-IOTWResourceEventConfiguration",
+               "Update-IOTWResourcePosition",
                "Update-IOTWWirelessDevice",
                "Update-IOTWWirelessGateway")
 }

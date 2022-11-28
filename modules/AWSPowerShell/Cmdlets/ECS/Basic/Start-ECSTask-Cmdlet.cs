@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_Cpu
         /// <summary>
         /// <para>
-        /// <para>The cpu override for the task.</para>
+        /// <para>The CPU override for the task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

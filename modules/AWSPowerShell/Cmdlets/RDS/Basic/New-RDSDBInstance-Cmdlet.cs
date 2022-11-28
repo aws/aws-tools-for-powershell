@@ -389,8 +389,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// minor versions that are available with Amazon RDS. Not every database engine is available
         /// for every Amazon Web Services Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
         /// is managed by the DB cluster.</para><para><b>Amazon RDS Custom for Oracle</b></para><para>A custom engine version (CEV) that you have previously created. This setting is required
-        /// for RDS Custom for Oracle. The CEV name has the following format: <code>19.<i>customized_string</i></code>. An example identifier is <code>19.my_cev1</code>. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
+        /// for RDS Custom for Oracle. The CEV name has the following format: 19.<i>customized_string</i>.
+        /// A valid CEV name is <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
         /// Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>Amazon RDS Custom for SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html">RDS
         /// Custom for SQL Server general requirements</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>MariaDB</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB
         /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>Microsoft SQL Server</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft

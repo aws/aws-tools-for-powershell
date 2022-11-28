@@ -106,6 +106,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ReverseReplication" OutputProperty="ReversedDirectionSourceServerArn" Verb="Start" Noun="ReversedReplication" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartFailbackLaunch" OutputProperty="Job" Verb="Start" Noun="FailbackLaunch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -114,7 +118,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartReplication" OutputProperty="SourceServer" Verb="Start" Noun="Replication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopFailback" Verb="Stop" Noun="Failback" ShouldProcessTarget="RecoveryInstanceID" PipelineParameter="RecoveryInstanceID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopReplication" OutputProperty="SourceServer" Verb="Stop" Noun="Replication" ShouldProcessTarget="SourceServerID" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -32,11 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// To view the status of the specified vocabulary filter, check the <code>VocabularyState</code>
-    /// field. If the status is <code>READY</code>, your vocabulary is available to use. If
-    /// the status is <code>FAILED</code>, <code>FailureReason</code> provides details on
-    /// why your vocabulary filter failed.
-    /// </para><para>
     /// To get a list of your custom vocabulary filters, use the operation.
     /// </para>
     /// </summary>
@@ -52,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyFilterName
         /// <summary>
         /// <para>
-        /// <para>The name of the custom vocabulary filter you want information about. Vocabulary filter
-        /// names are case sensitive.</para>
+        /// <para>The name of the custom vocabulary filter you want information about. Custom vocabulary
+        /// filter names are case sensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

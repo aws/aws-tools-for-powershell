@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time.
         /// The scale in process is not affected by this parameter. If this parameter is omitted,
-        /// the default value of <code>10000</code> is used.</para>
+        /// the default value of <code>1</code> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

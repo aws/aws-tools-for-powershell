@@ -1,0 +1,300 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.RDS;
+using Amazon.RDS.Model;
+
+namespace Amazon.PowerShell.Cmdlets.RDS
+{
+    /// <summary>
+    /// Returns information about blue/green deployments.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using
+    /// Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon RDS User
+    /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+    /// Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon
+    /// Aurora User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </summary>
+    [Cmdlet("Get", "RDSBlueGreenDeployment")]
+    [OutputType("Amazon.RDS.Model.BlueGreenDeployment")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeBlueGreenDeployments API operation.", Operation = new[] {"DescribeBlueGreenDeployments"}, SelectReturnType = typeof(Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse))]
+    [AWSCmdletOutput("Amazon.RDS.Model.BlueGreenDeployment or Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse",
+        "This cmdlet returns a collection of Amazon.RDS.Model.BlueGreenDeployment objects.",
+        "The service call response (type Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class GetRDSBlueGreenDeploymentCmdlet : AmazonRDSClientCmdlet, IExecutor
+    {
+        
+        #region Parameter BlueGreenDeploymentIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The blue/green deployment identifier. If this parameter is specified, information
+        /// from only the specific blue/green deployment is returned. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>If supplied, must match an existing blue/green deployment identifier.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String BlueGreenDeploymentIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>A filter that specifies one or more blue/green deployments to describe.</para><para>Supported filters:</para><ul><li><para><code>blue-green-deployment-identifier</code> - Accepts system-generated identifiers
+        /// for blue/green deployments. The results list only includes information about the blue/green
+        /// deployments with the specified identifiers.</para></li><li><para><code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green
+        /// deployments. The results list only includes information about the blue/green deployments
+        /// with the specified names.</para></li><li><para><code>source</code> - Accepts source databases for a blue/green deployment. The results
+        /// list only includes information about the blue/green deployments with the specified
+        /// source databases.</para></li><li><para><code>target</code> - Accepts target databases for a blue/green deployment. The results
+        /// list only includes information about the blue/green deployments with the specified
+        /// target databases.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.RDS.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter Marker
+        /// <summary>
+        /// <para>
+        /// <para>An optional pagination token provided by a previous <code>DescribeBlueGreenDeployments</code>
+        /// request. If this parameter is specified, the response includes only records beyond
+        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-Marker $null' for the first call and '-Marker $AWSHistory.LastServiceResponse.Marker' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NextToken")]
+        public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter MaxRecord
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of records to include in the response. If more records exist than
+        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
+        /// included in the response so you can retrieve the remaining results.</para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxRecords")]
+        public System.Int32? MaxRecord { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BlueGreenDeployments'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse).
+        /// Specifying the name of a property of type Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "BlueGreenDeployments";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the BlueGreenDeploymentIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BlueGreenDeploymentIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BlueGreenDeploymentIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of Marker
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse, GetRDSBlueGreenDeploymentCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.BlueGreenDeploymentIdentifier;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BlueGreenDeploymentIdentifier = this.BlueGreenDeploymentIdentifier;
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.RDS.Model.Filter>(this.Filter);
+            }
+            context.Marker = this.Marker;
+            context.MaxRecord = this.MaxRecord;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
+            var request = new Amazon.RDS.Model.DescribeBlueGreenDeploymentsRequest();
+            
+            if (cmdletContext.BlueGreenDeploymentIdentifier != null)
+            {
+                request.BlueGreenDeploymentIdentifier = cmdletContext.BlueGreenDeploymentIdentifier;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.MaxRecord != null)
+            {
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
+            }
+            
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.Marker;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.Marker));
+            
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            do
+            {
+                request.Marker = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
+                {
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.Marker;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
+            {
+                WriteObject(cmdletContext.Select(null, this));
+            }
+            
+            
+            return null;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DescribeBlueGreenDeploymentsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DescribeBlueGreenDeployments");
+            try
+            {
+                #if DESKTOP
+                return client.DescribeBlueGreenDeployments(request);
+                #elif CORECLR
+                return client.DescribeBlueGreenDeploymentsAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String BlueGreenDeploymentIdentifier { get; set; }
+            public List<Amazon.RDS.Model.Filter> Filter { get; set; }
+            public System.String Marker { get; set; }
+            public System.Int32? MaxRecord { get; set; }
+            public System.Func<Amazon.RDS.Model.DescribeBlueGreenDeploymentsResponse, GetRDSBlueGreenDeploymentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BlueGreenDeployments;
+        }
+        
+    }
+}

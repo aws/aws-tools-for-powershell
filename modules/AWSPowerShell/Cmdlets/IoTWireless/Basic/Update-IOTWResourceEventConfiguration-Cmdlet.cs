@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter MessageDeliveryStatus_WirelessDeviceIdEventTopic
         /// <summary>
         /// <para>
-        /// <para>Denotes whether the wireless device ID device registration state event topic is enabled
+        /// <para>Denotes whether the wireless device ID message delivery status event topic is enabled
         /// or disabled.</para>
         /// </para>
         /// </summary>

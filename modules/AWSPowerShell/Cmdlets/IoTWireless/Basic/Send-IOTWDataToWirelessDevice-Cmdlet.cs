@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter Sidewalk_AckModeRetryDurationSec
         /// <summary>
         /// <para>
-        /// <para>The duration of time in seconds for which you want to retry sending the ACK.</para>
+        /// <para>The duration of time in seconds to retry sending the ACK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

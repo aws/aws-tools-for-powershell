@@ -38,6 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// CloudWatch Logs actions do support the use of the <code>aws:ResourceTag/<i>key-name</i></code> condition key to control access. For more information about using tags to
     /// control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling
     /// access to Amazon Web Services resources using tags</a>.
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account and view data from the linked source accounts. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLLogGroup")]
@@ -50,10 +55,56 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     public partial class GetCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>When <code>includeLinkedAccounts</code> is set to <code>True</code>, use this parameter
+        /// to specify the list of accounts to search. You can specify as many as 20 account IDs
+        /// in the array. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccountIdentifiers")]
+        public System.String[] AccountIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// <para>If you are using a monitoring account, set this to <code>True</code> to have the operation
+        /// return log groups in the accounts listed in <code>accountIdentifiers</code>.</para><para>If this parameter is set to <code>true</code> and <code>accountIdentifiers</code>
+        /// contains a null value, the operation returns all log groups in the monitoring account
+        /// and all log groups in all source accounts that are linked to the monitoring account.
+        /// </para><note><para> If you specify <code>includeLinkedAccounts</code> in your request, then <code>metricFilterCount</code>,
+        /// <code>retentionInDays</code>, and <code>storedBytes</code> are not included in the
+        /// response. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
+        #endregion
+        
+        #region Parameter LogGroupNamePattern
+        /// <summary>
+        /// <para>
+        /// <para>If you specify a string for this parameter, the operation returns only log groups
+        /// that have names that match the string based on a case-sensitive substring search.
+        /// For example, if you specify <code>Foo</code>, log groups named <code>FooBar</code>,
+        /// <code>aws/Foo</code>, and <code>GroupFoo</code> would match, but <code>foo</code>,
+        /// <code>F/o/o</code> and <code>Froo</code> would not match.</para><note><para><code>logGroupNamePattern</code> and <code>logGroupNamePrefix</code> are mutually
+        /// exclusive. Only one of these parameters can be passed. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogGroupNamePattern { get; set; }
+        #endregion
+        
         #region Parameter LogGroupNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix to match.</para>
+        /// <para>The prefix to match.</para><note><para><code>logGroupNamePrefix</code> and <code>logGroupNamePattern</code> are mutually
+        /// exclusive. Only one of these parameters can be passed. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -147,6 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = (response, cmdlet) => this.LogGroupNamePrefix;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AccountIdentifier != null)
+            {
+                context.AccountIdentifier = new List<System.String>(this.AccountIdentifier);
+            }
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.Limit = this.Limit;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.Limit)) && this.Limit.HasValue)
@@ -157,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            context.LogGroupNamePattern = this.LogGroupNamePattern;
             context.LogGroupNamePrefix = this.LogGroupNamePrefix;
             context.NextToken = this.NextToken;
             
@@ -180,9 +237,21 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request and set iteration invariants
             var request = new Amazon.CloudWatchLogs.Model.DescribeLogGroupsRequest();
             
+            if (cmdletContext.AccountIdentifier != null)
+            {
+                request.AccountIdentifiers = cmdletContext.AccountIdentifier;
+            }
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+            }
+            if (cmdletContext.LogGroupNamePattern != null)
+            {
+                request.LogGroupNamePattern = cmdletContext.LogGroupNamePattern;
             }
             if (cmdletContext.LogGroupNamePrefix != null)
             {
@@ -243,6 +312,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             
             // create request and set iteration invariants
             var request = new Amazon.CloudWatchLogs.Model.DescribeLogGroupsRequest();
+            if (cmdletContext.AccountIdentifier != null)
+            {
+                request.AccountIdentifiers = cmdletContext.AccountIdentifier;
+            }
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
+            if (cmdletContext.LogGroupNamePattern != null)
+            {
+                request.LogGroupNamePattern = cmdletContext.LogGroupNamePattern;
+            }
             if (cmdletContext.LogGroupNamePrefix != null)
             {
                 request.LogGroupNamePrefix = cmdletContext.LogGroupNamePrefix;
@@ -366,7 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AccountIdentifier { get; set; }
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public int? Limit { get; set; }
+            public System.String LogGroupNamePattern { get; set; }
             public System.String LogGroupNamePrefix { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse, GetCWLLogGroupCmdlet, object> Select { get; set; } =

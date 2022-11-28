@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter TaskId
         /// <summary>
         /// <para>
-        /// <para>The ID of the export task. Specifying a task ID filters the results to zero or one
+        /// <para>The ID of the export task. Specifying a task ID filters the results to one or zero
         /// export tasks.</para>
         /// </para>
         /// </summary>

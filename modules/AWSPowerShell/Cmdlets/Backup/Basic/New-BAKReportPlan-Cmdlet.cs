@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class NewBAKReportPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        #region Parameter ReportSetting_Account
+        /// <summary>
+        /// <para>
+        /// <para>These are the accounts to be included in the report.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportSetting_Accounts")]
+        public System.String[] ReportSetting_Account { get; set; }
+        #endregion
+        
         #region Parameter ReportDeliveryChannel_Format
         /// <summary>
         /// <para>
@@ -90,6 +101,28 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ReportSetting_NumberOfFrameworks")]
         public System.Int32? ReportSetting_NumberOfFramework { get; set; }
+        #endregion
+        
+        #region Parameter ReportSetting_OrganizationUnit
+        /// <summary>
+        /// <para>
+        /// <para>These are the Organizational Units to be included in the report.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportSetting_OrganizationUnits")]
+        public System.String[] ReportSetting_OrganizationUnit { get; set; }
+        #endregion
+        
+        #region Parameter ReportSetting_Region
+        /// <summary>
+        /// <para>
+        /// <para>These are the Regions to be included in the report.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReportSetting_Regions")]
+        public System.String[] ReportSetting_Region { get; set; }
         #endregion
         
         #region Parameter ReportPlanDescription
@@ -271,11 +304,23 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                     context.ReportPlanTag.Add((String)hashKey, (String)(this.ReportPlanTag[hashKey]));
                 }
             }
+            if (this.ReportSetting_Account != null)
+            {
+                context.ReportSetting_Account = new List<System.String>(this.ReportSetting_Account);
+            }
             if (this.ReportSetting_FrameworkArn != null)
             {
                 context.ReportSetting_FrameworkArn = new List<System.String>(this.ReportSetting_FrameworkArn);
             }
             context.ReportSetting_NumberOfFramework = this.ReportSetting_NumberOfFramework;
+            if (this.ReportSetting_OrganizationUnit != null)
+            {
+                context.ReportSetting_OrganizationUnit = new List<System.String>(this.ReportSetting_OrganizationUnit);
+            }
+            if (this.ReportSetting_Region != null)
+            {
+                context.ReportSetting_Region = new List<System.String>(this.ReportSetting_Region);
+            }
             context.ReportSetting_ReportTemplate = this.ReportSetting_ReportTemplate;
             #if MODULAR
             if (this.ReportSetting_ReportTemplate == null && ParameterWasBound(nameof(this.ReportSetting_ReportTemplate)))
@@ -358,6 +403,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
              // populate ReportSetting
             var requestReportSettingIsNull = true;
             request.ReportSetting = new Amazon.Backup.Model.ReportSetting();
+            List<System.String> requestReportSetting_reportSetting_Account = null;
+            if (cmdletContext.ReportSetting_Account != null)
+            {
+                requestReportSetting_reportSetting_Account = cmdletContext.ReportSetting_Account;
+            }
+            if (requestReportSetting_reportSetting_Account != null)
+            {
+                request.ReportSetting.Accounts = requestReportSetting_reportSetting_Account;
+                requestReportSettingIsNull = false;
+            }
             List<System.String> requestReportSetting_reportSetting_FrameworkArn = null;
             if (cmdletContext.ReportSetting_FrameworkArn != null)
             {
@@ -376,6 +431,26 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (requestReportSetting_reportSetting_NumberOfFramework != null)
             {
                 request.ReportSetting.NumberOfFrameworks = requestReportSetting_reportSetting_NumberOfFramework.Value;
+                requestReportSettingIsNull = false;
+            }
+            List<System.String> requestReportSetting_reportSetting_OrganizationUnit = null;
+            if (cmdletContext.ReportSetting_OrganizationUnit != null)
+            {
+                requestReportSetting_reportSetting_OrganizationUnit = cmdletContext.ReportSetting_OrganizationUnit;
+            }
+            if (requestReportSetting_reportSetting_OrganizationUnit != null)
+            {
+                request.ReportSetting.OrganizationUnits = requestReportSetting_reportSetting_OrganizationUnit;
+                requestReportSettingIsNull = false;
+            }
+            List<System.String> requestReportSetting_reportSetting_Region = null;
+            if (cmdletContext.ReportSetting_Region != null)
+            {
+                requestReportSetting_reportSetting_Region = cmdletContext.ReportSetting_Region;
+            }
+            if (requestReportSetting_reportSetting_Region != null)
+            {
+                request.ReportSetting.Regions = requestReportSetting_reportSetting_Region;
                 requestReportSettingIsNull = false;
             }
             System.String requestReportSetting_reportSetting_ReportTemplate = null;
@@ -461,8 +536,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.String ReportPlanDescription { get; set; }
             public System.String ReportPlanName { get; set; }
             public Dictionary<System.String, System.String> ReportPlanTag { get; set; }
+            public List<System.String> ReportSetting_Account { get; set; }
             public List<System.String> ReportSetting_FrameworkArn { get; set; }
             public System.Int32? ReportSetting_NumberOfFramework { get; set; }
+            public List<System.String> ReportSetting_OrganizationUnit { get; set; }
+            public List<System.String> ReportSetting_Region { get; set; }
             public System.String ReportSetting_ReportTemplate { get; set; }
             public System.Func<Amazon.Backup.Model.CreateReportPlanResponse, NewBAKReportPlanCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

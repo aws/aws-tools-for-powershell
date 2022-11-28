@@ -278,6 +278,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.JobEndBehavior
+        "New-IOTJob/SchedulingConfig_EndBehavior"
+        {
+            $v = "CANCEL","FORCE_CANCEL","STOP_ROLLOUT"
+            break
+        }
+
         # Amazon.IoT.JobExecutionStatus
         {
             ($_ -eq "Get-IOTJobExecutionsForJobList/Status") -Or
@@ -291,7 +298,7 @@ $IOT_Completers = {
         # Amazon.IoT.JobStatus
         "Get-IOTJobList/Status"
         {
-            $v = "CANCELED","COMPLETED","DELETION_IN_PROGRESS","IN_PROGRESS"
+            $v = "CANCELED","COMPLETED","DELETION_IN_PROGRESS","IN_PROGRESS","SCHEDULED"
             break
         }
 
@@ -472,6 +479,7 @@ $IOT_map = @{
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
+    "SchedulingConfig_EndBehavior"=@("New-IOTJob")
     "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
     "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")

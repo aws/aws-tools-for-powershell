@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// Update the position information of a resource.
+    /// 
+    ///  <important><para>
+    /// This action is no longer supported. Calls to update the position information should
+    /// use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a>
+    /// API operation instead.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Update", "IOTWPosition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -37,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.IoTWireless.Model.UpdatePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is no longer supported.")]
     public partial class UpdateIOTWPositionCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         

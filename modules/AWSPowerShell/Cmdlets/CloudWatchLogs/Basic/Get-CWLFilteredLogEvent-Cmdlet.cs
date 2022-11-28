@@ -36,13 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// You must have the <code>logs;FilterLogEvents</code> permission to perform this operation.
     /// </para><para>
     /// By default, this operation returns as many log events as can fit in 1 MB (up to 10,000
-    /// log events) or all the events found within the time range that you specify. If the
-    /// results include a token, then there are more log events available, and you can get
-    /// additional results by specifying the token in a subsequent call. This operation can
-    /// return empty results while there are more log events available through the token.
+    /// log events) or all the events found within the specified time range. If the results
+    /// include a token, that means there are more log events available. You can get additional
+    /// results by specifying the token in a subsequent call. This operation can return empty
+    /// results while there are more log events available through the token.
     /// </para><para>
     /// The returned log events are sorted by event timestamp, the timestamp when the event
     /// was ingested by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account and view data from the linked source accounts. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para><br/><br/>In the AWS.Tools.CloudWatchLogs module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLFilteredLogEvent")]
@@ -57,8 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
-        /// 00:00:00 UTC. Events with a timestamp later than this time are not returned.</para>
+        /// <para>The end of the time range, expressed as the number of milliseconds after <code>Jan
+        /// 1, 1970 00:00:00 UTC</code>. Events with a timestamp later than this time are not
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,10 +82,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String FilterPattern { get; set; }
         #endregion
         
+        #region Parameter LogGroupIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Specify either the name or ARN of the log group to view log events from. If the log
+        /// group is in a source account and you are using a monitoring account, you must use
+        /// the log group ARN.</para><para>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogGroupIdentifier { get; set; }
+        #endregion
+        
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group to search.</para>
+        /// <para>The name of the log group to search.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,23 +142,35 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time range, expressed as the number of milliseconds after Jan 1,
-        /// 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</para>
+        /// <para>The start of the time range, expressed as the number of milliseconds after <code>Jan
+        /// 1, 1970 00:00:00 UTC</code>. Events with a timestamp before this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? StartTime { get; set; }
         #endregion
         
+        #region Parameter Unmask
+        /// <summary>
+        /// <para>
+        /// <para>Specify <code>true</code> to display the log event fields with all sensitive data
+        /// unmasked and visible. The default is <code>false</code>.</para><para>To use this operation with this parameter, you must be signed into an account with
+        /// the <code>logs:Unmask</code> permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Unmask { get; set; }
+        #endregion
+        
         #region Parameter Interleaved
         /// <summary>
         /// <para>
-        /// <para>If the value is true, the operation makes a best effort to provide responses that
-        /// contain events from multiple log streams within the log group, interleaved in a single
-        /// response. If the value is false, all the matched log events in the first log stream
-        /// are searched first, then those in the next log stream, and so on. The default is false.</para><para><b>Important:</b> Starting on June 17, 2019, this parameter is ignored and the value
-        /// is assumed to be true. The response from this operation always interleaves events
-        /// from multiple log streams within a log group.</para>
+        /// <para>If the value is true, the operation attempts to provide responses that contain events
+        /// from multiple log streams within the log group, interleaved in a single response.
+        /// If the value is false, all the matched log events in the first log stream are searched
+        /// first, then those in the next log stream, and so on.</para><para><b>Important</b> As of June 17, 2019, this parameter is ignored and the value is
+        /// assumed to be true. The response from this operation always interleaves events from
+        /// multiple log streams within a log group.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -235,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.Interleaved = this.Interleaved;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Limit = this.Limit;
+            context.LogGroupIdentifier = this.LogGroupIdentifier;
             context.LogGroupName = this.LogGroupName;
             #if MODULAR
             if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
@@ -249,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             context.NextToken = this.NextToken;
             context.StartTime = this.StartTime;
+            context.Unmask = this.Unmask;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -288,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.Limit = cmdletContext.Limit.Value;
             }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifier = cmdletContext.LogGroupIdentifier;
+            }
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
@@ -303,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
+            }
+            if (cmdletContext.Unmask != null)
+            {
+                request.Unmask = cmdletContext.Unmask.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -376,6 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.Limit = cmdletContext.Limit.Value;
             }
+            if (cmdletContext.LogGroupIdentifier != null)
+            {
+                request.LogGroupIdentifier = cmdletContext.LogGroupIdentifier;
+            }
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
@@ -395,6 +441,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.StartTime != null)
             {
                 request.StartTime = cmdletContext.StartTime.Value;
+            }
+            if (cmdletContext.Unmask != null)
+            {
+                request.Unmask = cmdletContext.Unmask.Value;
             }
             
             CmdletOutput output;
@@ -463,11 +513,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             [System.ObsoleteAttribute]
             public System.Boolean? Interleaved { get; set; }
             public System.Int32? Limit { get; set; }
+            public System.String LogGroupIdentifier { get; set; }
             public System.String LogGroupName { get; set; }
             public System.String LogStreamNamePrefix { get; set; }
             public List<System.String> LogStreamName { get; set; }
             public System.String NextToken { get; set; }
             public System.Int64? StartTime { get; set; }
+            public System.Boolean? Unmask { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.FilterLogEventsResponse, GetCWLFilteredLogEventCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

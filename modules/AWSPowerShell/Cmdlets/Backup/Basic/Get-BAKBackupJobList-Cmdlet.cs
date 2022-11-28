@@ -109,6 +109,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         public System.DateTime? ByCreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ByParentJobId
+        /// <summary>
+        /// <para>
+        /// <para>This is a filter to list child (nested) jobs based on parent job ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByParentJobId { get; set; }
+        #endregion
+        
         #region Parameter ByResourceArn
         /// <summary>
         /// <para>
@@ -214,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             context.ByCompleteBefore = this.ByCompleteBefore;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByParentJobId = this.ByParentJobId;
             context.ByResourceArn = this.ByResourceArn;
             context.ByResourceType = this.ByResourceType;
             context.ByState = this.ByState;
@@ -270,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByParentJobId != null)
+            {
+                request.ByParentJobId = cmdletContext.ByParentJobId;
             }
             if (cmdletContext.ByResourceArn != null)
             {
@@ -365,6 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             if (cmdletContext.ByCreatedBefore != null)
             {
                 request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByParentJobId != null)
+            {
+                request.ByParentJobId = cmdletContext.ByParentJobId;
             }
             if (cmdletContext.ByResourceArn != null)
             {
@@ -503,6 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             public System.DateTime? ByCompleteBefore { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }
+            public System.String ByParentJobId { get; set; }
             public System.String ByResourceArn { get; set; }
             public System.String ByResourceType { get; set; }
             public Amazon.Backup.BackupJobState ByState { get; set; }

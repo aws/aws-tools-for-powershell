@@ -36,13 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// field, which is the identifier for the log record. You can use the value of <code>@ptr</code>
     /// in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a>
     /// operation to get the full log record.
-    /// </para><para><code>GetQueryResults</code> does not start a query execution. To run a query, use
+    /// </para><para><code>GetQueryResults</code> does not start running a query. To run a query, use
     /// <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.
     /// </para><para>
     /// If the value of the <code>Status</code> field in the output is <code>Running</code>,
     /// this operation returns only partial results. If you see a value of <code>Scheduled</code>
     /// or <code>Running</code> for the status, you can retry the operation later to see the
     /// final results. 
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability, you can use this operation
+    /// in a monitoring account to start queries in linked source accounts. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLQueryResult")]

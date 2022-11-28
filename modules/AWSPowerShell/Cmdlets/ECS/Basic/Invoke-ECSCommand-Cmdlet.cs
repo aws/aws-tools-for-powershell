@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para>
     /// If you use a condition key in your IAM policy to refine the conditions for the policy
-    /// statement, for example limit the actions to a specific cluster, you recevie an <code>AccessDeniedException</code>
+    /// statement, for example limit the actions to a specific cluster, you receive an <code>AccessDeniedException</code>
     /// when there is a mismatch between the condition key value and the corresponding parameter
     /// value.
     /// </para>

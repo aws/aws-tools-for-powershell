@@ -32,16 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// 
     ///  
     /// <para>
-    /// You can use vocabulary filters to mask, delete, or flag specific words from your transcript.
-    /// Vocabulary filters are commonly used to mask profanity in transcripts.
+    /// You can use custom vocabulary filters to mask, delete, or flag specific words from
+    /// your transcript. Custom vocabulary filters are commonly used to mask profanity in
+    /// transcripts.
     /// </para><para>
     /// Each language has a character set that contains all allowed characters for that specific
-    /// language. If you use unsupported characters, your vocabulary filter request fails.
-    /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+    /// language. If you use unsupported characters, your custom vocabulary filter request
+    /// fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
     /// Sets for Custom Vocabularies</a> to get the character set for your language.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Using
-    /// vocabulary filtering with unwanted words</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Vocabulary
+    /// filtering</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "TRSVocabularyFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The language code that represents the language of the entries in your vocabulary filter.
-        /// Each vocabulary filter must contain terms in only one language.</para><para>A vocabulary filter can only be used to transcribe files in the same language as the
-        /// filter. For example, if you create a vocabulary filter using US English (<code>en-US</code>),
-        /// you can only apply this filter to files that contain English audio.</para><para>For a list of supported languages and their associated language codes, refer to the
+        /// Each custom vocabulary filter must contain terms in only one language.</para><para>A custom vocabulary filter can only be used to transcribe files in the same language
+        /// as the filter. For example, if you create a custom vocabulary filter using US English
+        /// (<code>en-US</code>), you can only apply this filter to files that contain English
+        /// audio.</para><para>For a list of supported languages and their associated language codes, refer to the
         /// <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
         /// languages</a> table.</para>
         /// </para>
@@ -79,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Adds one or more custom tags, each in the form of a key:value pair, to a new custom
-        /// vocabulary filter at the time you create this new filter.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+        /// vocabulary filter at the time you create this new vocabulary filter.</para><para>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
         /// resources</a>.</para>
         /// </para>
         /// </summary>
@@ -105,8 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>A unique name, chosen by you, for your new custom vocabulary filter.</para><para>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon
-        /// Web Services account. If you try to create a new vocabulary filter with the same name
-        /// as an existing vocabulary filter, you get a <code>ConflictException</code> error.</para>
+        /// Web Services account. If you try to create a new custom vocabulary filter with the
+        /// same name as an existing custom vocabulary filter, you get a <code>ConflictException</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,14 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Word
         /// <summary>
         /// <para>
-        /// <para>Use this parameter if you want to create your vocabulary filter by including all desired
-        /// terms, as comma-separated values, within your request. The other option for creating
-        /// your vocabulary filter is to save your entries in a text file and upload them to an
-        /// Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFilterFileUri</code>
+        /// <para>Use this parameter if you want to create your custom vocabulary filter by including
+        /// all desired terms, as comma-separated values, within your request. The other option
+        /// for creating your vocabulary filter is to save your entries in a text file and upload
+        /// them to an Amazon S3 bucket, then specify the location of your file using the <code>VocabularyFilterFileUri</code>
         /// parameter.</para><para>Note that if you include <code>Words</code> in your request, you cannot use <code>VocabularyFilterFileUri</code>;
         /// you must choose one or the other.</para><para>Each language has a character set that contains all allowed characters for that specific
-        /// language. If you use unsupported characters, your vocabulary filter request fails.
-        /// Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
+        /// language. If you use unsupported characters, your custom vocabulary filter request
+        /// fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character
         /// Sets for Custom Vocabularies</a> to get the character set for your language.</para>
         /// </para>
         /// </summary>

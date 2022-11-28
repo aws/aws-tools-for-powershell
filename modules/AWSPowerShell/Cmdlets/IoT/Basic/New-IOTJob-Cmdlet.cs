@@ -112,6 +112,34 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String DocumentSource { get; set; }
         #endregion
         
+        #region Parameter SchedulingConfig_EndBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the end behavior for all job executions after a job reaches the selected
+        /// <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
+        /// then <code>endBehavior</code> does not apply.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.JobEndBehavior")]
+        public Amazon.IoT.JobEndBehavior SchedulingConfig_EndBehavior { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfig_EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The time a job will stop rollout of the job document to all devices in the target
+        /// group for a job. The <code>endTime</code> must take place no later than two years
+        /// from the current time and be scheduled a minimum of thirty minutes from the current
+        /// time. The minimum duration between <code>startTime</code> and <code>endTime</code>
+        /// is thirty minutes. The maximum duration between <code>startTime</code> and <code>endTime</code>
+        /// is two years. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SchedulingConfig_EndTime { get; set; }
+        #endregion
+        
         #region Parameter PresignedUrlConfig_ExpiresInSec
         /// <summary>
         /// <para>
@@ -212,6 +240,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PresignedUrlConfig_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter SchedulingConfig_StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The time a job will begin rollout of the job document to all devices in the target
+        /// group for a job. The <code>startTime</code> can be scheduled up to a year in advance
+        /// and must be scheduled a minimum of thirty minutes from the current time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SchedulingConfig_StartTime { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -353,6 +393,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.NamespaceId = this.NamespaceId;
             context.PresignedUrlConfig_ExpiresInSec = this.PresignedUrlConfig_ExpiresInSec;
             context.PresignedUrlConfig_RoleArn = this.PresignedUrlConfig_RoleArn;
+            context.SchedulingConfig_EndBehavior = this.SchedulingConfig_EndBehavior;
+            context.SchedulingConfig_EndTime = this.SchedulingConfig_EndTime;
+            context.SchedulingConfig_StartTime = this.SchedulingConfig_StartTime;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
@@ -509,6 +552,45 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.PresignedUrlConfig = null;
             }
+            
+             // populate SchedulingConfig
+            var requestSchedulingConfigIsNull = true;
+            request.SchedulingConfig = new Amazon.IoT.Model.SchedulingConfig();
+            Amazon.IoT.JobEndBehavior requestSchedulingConfig_schedulingConfig_EndBehavior = null;
+            if (cmdletContext.SchedulingConfig_EndBehavior != null)
+            {
+                requestSchedulingConfig_schedulingConfig_EndBehavior = cmdletContext.SchedulingConfig_EndBehavior;
+            }
+            if (requestSchedulingConfig_schedulingConfig_EndBehavior != null)
+            {
+                request.SchedulingConfig.EndBehavior = requestSchedulingConfig_schedulingConfig_EndBehavior;
+                requestSchedulingConfigIsNull = false;
+            }
+            System.String requestSchedulingConfig_schedulingConfig_EndTime = null;
+            if (cmdletContext.SchedulingConfig_EndTime != null)
+            {
+                requestSchedulingConfig_schedulingConfig_EndTime = cmdletContext.SchedulingConfig_EndTime;
+            }
+            if (requestSchedulingConfig_schedulingConfig_EndTime != null)
+            {
+                request.SchedulingConfig.EndTime = requestSchedulingConfig_schedulingConfig_EndTime;
+                requestSchedulingConfigIsNull = false;
+            }
+            System.String requestSchedulingConfig_schedulingConfig_StartTime = null;
+            if (cmdletContext.SchedulingConfig_StartTime != null)
+            {
+                requestSchedulingConfig_schedulingConfig_StartTime = cmdletContext.SchedulingConfig_StartTime;
+            }
+            if (requestSchedulingConfig_schedulingConfig_StartTime != null)
+            {
+                request.SchedulingConfig.StartTime = requestSchedulingConfig_schedulingConfig_StartTime;
+                requestSchedulingConfigIsNull = false;
+            }
+             // determine if request.SchedulingConfig should be set to null
+            if (requestSchedulingConfigIsNull)
+            {
+                request.SchedulingConfig = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -614,6 +696,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String NamespaceId { get; set; }
             public System.Int64? PresignedUrlConfig_ExpiresInSec { get; set; }
             public System.String PresignedUrlConfig_RoleArn { get; set; }
+            public Amazon.IoT.JobEndBehavior SchedulingConfig_EndBehavior { get; set; }
+            public System.String SchedulingConfig_EndTime { get; set; }
+            public System.String SchedulingConfig_StartTime { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public List<System.String> Target { get; set; }
             public Amazon.IoT.TargetSelection TargetSelection { get; set; }

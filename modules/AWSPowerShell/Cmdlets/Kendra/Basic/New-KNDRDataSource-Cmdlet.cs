@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue
         /// <summary>
         /// <para>
-        /// <para>A list of strings. </para>
+        /// <para>A list of strings. The default maximum length or number of strings is 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_ConditionOnValue_StringListValue
         /// <summary>
         /// <para>
-        /// <para>A list of strings. </para>
+        /// <para>A list of strings. The default maximum length or number of strings is 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

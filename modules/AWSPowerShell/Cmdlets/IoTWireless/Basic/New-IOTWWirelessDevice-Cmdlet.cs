@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_OtaaV1_1_AppKey { get; set; }
         #endregion
         
+        #region Parameter FPorts_Application
+        /// <summary>
+        /// <para>
+        /// <para>Optional LoRaWAN application information, which can be used for geolocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoRaWAN_FPorts_Applications")]
+        public Amazon.IoTWireless.Model.ApplicationConfig[] FPorts_Application { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_AbpV1_0_x_SessionKeys_AppSKey
         /// <summary>
         /// <para>
@@ -315,6 +326,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_AbpV1_0_x_SessionKeys_NwkSKey { get; set; }
         #endregion
         
+        #region Parameter Positioning
+        /// <summary>
+        /// <para>
+        /// <para>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTWireless.PositioningConfigStatus")]
+        public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_ServiceProfileId
         /// <summary>
         /// <para>
@@ -457,6 +479,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey = this.LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey;
             context.LoRaWAN_DevEui = this.LoRaWAN_DevEui;
             context.LoRaWAN_DeviceProfileId = this.LoRaWAN_DeviceProfileId;
+            if (this.FPorts_Application != null)
+            {
+                context.FPorts_Application = new List<Amazon.IoTWireless.Model.ApplicationConfig>(this.FPorts_Application);
+            }
             context.FPorts_ClockSync = this.FPorts_ClockSync;
             context.FPorts_Fuota = this.FPorts_Fuota;
             context.FPorts_Multicast = this.FPorts_Multicast;
@@ -471,6 +497,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_OtaaV1_1_NwkKey = this.LoRaWAN_OtaaV1_1_NwkKey;
             context.LoRaWAN_ServiceProfileId = this.LoRaWAN_ServiceProfileId;
             context.Name = this.Name;
+            context.Positioning = this.Positioning;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
@@ -799,6 +826,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
              // populate FPorts
             var requestLoRaWAN_loRaWAN_FPortsIsNull = true;
             requestLoRaWAN_loRaWAN_FPorts = new Amazon.IoTWireless.Model.FPorts();
+            List<Amazon.IoTWireless.Model.ApplicationConfig> requestLoRaWAN_loRaWAN_FPorts_fPorts_Application = null;
+            if (cmdletContext.FPorts_Application != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts_fPorts_Application = cmdletContext.FPorts_Application;
+            }
+            if (requestLoRaWAN_loRaWAN_FPorts_fPorts_Application != null)
+            {
+                requestLoRaWAN_loRaWAN_FPorts.Applications = requestLoRaWAN_loRaWAN_FPorts_fPorts_Application;
+                requestLoRaWAN_loRaWAN_FPortsIsNull = false;
+            }
             System.Int32? requestLoRaWAN_loRaWAN_FPorts_fPorts_ClockSync = null;
             if (cmdletContext.FPorts_ClockSync != null)
             {
@@ -893,6 +930,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Positioning != null)
+            {
+                request.Positioning = cmdletContext.Positioning;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -977,6 +1018,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_AbpV1_1_SessionKeys_SNwkSIntKey { get; set; }
             public System.String LoRaWAN_DevEui { get; set; }
             public System.String LoRaWAN_DeviceProfileId { get; set; }
+            public List<Amazon.IoTWireless.Model.ApplicationConfig> FPorts_Application { get; set; }
             public System.Int32? FPorts_ClockSync { get; set; }
             public System.Int32? FPorts_Fuota { get; set; }
             public System.Int32? FPorts_Multicast { get; set; }
@@ -991,6 +1033,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_OtaaV1_1_NwkKey { get; set; }
             public System.String LoRaWAN_ServiceProfileId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public Amazon.IoTWireless.WirelessDeviceType Type { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateWirelessDeviceResponse, NewIOTWWirelessDeviceCmdlet, object> Select { get; set; } =
