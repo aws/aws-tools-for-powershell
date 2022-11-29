@@ -94,6 +94,13 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.CustomKeyStoreType
+        "New-KMSCustomKeyStore/CustomKeyStoreType"
+        {
+            $v = "AWS_CLOUDHSM","EXTERNAL_KEY_STORE"
+            break
+        }
+
         # Amazon.KeyManagementService.DataKeyPairSpec
         {
             ($_ -eq "New-KMSDataKeyPair/KeyPairSpec") -Or
@@ -170,7 +177,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.OriginType
         "New-KMSKey/Origin"
         {
-            $v = "AWS_CLOUDHSM","AWS_KMS","EXTERNAL"
+            $v = "AWS_CLOUDHSM","AWS_KMS","EXTERNAL","EXTERNAL_KEY_STORE"
             break
         }
 
@@ -191,6 +198,16 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.XksProxyConnectivityType
+        {
+            ($_ -eq "New-KMSCustomKeyStore/XksProxyConnectivity") -Or
+            ($_ -eq "Update-KMSCustomKeyStore/XksProxyConnectivity")
+        }
+        {
+            $v = "PUBLIC_ENDPOINT","VPC_ENDPOINT_SERVICE"
+            break
+        }
+
 
     }
 
@@ -201,6 +218,7 @@ $KMS_Completers = {
 
 $KMS_map = @{
     "CustomerMasterKeySpec"=@("New-KMSKey")
+    "CustomKeyStoreType"=@("New-KMSCustomKeyStore")
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
@@ -214,6 +232,7 @@ $KMS_map = @{
     "SourceEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "WrappingAlgorithm"=@("Get-KMSParametersForImport")
     "WrappingKeySpec"=@("Get-KMSParametersForImport")
+    "XksProxyConnectivity"=@("New-KMSCustomKeyStore","Update-KMSCustomKeyStore")
 }
 
 _awsArgumentCompleterRegistration $KMS_Completers $KMS_map

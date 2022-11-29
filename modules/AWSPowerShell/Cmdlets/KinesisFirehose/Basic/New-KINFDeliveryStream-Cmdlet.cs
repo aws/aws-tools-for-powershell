@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 
     ///  
     /// <para>
-    /// By default, you can create up to 50 delivery streams per AWS Region.
+    /// By default, you can create up to 50 delivery streams per Amazon Web Services Region.
     /// </para><para>
     /// This is an asynchronous operation that immediately returns. The initial status of
     /// the delivery stream is <code>CREATING</code>. After the delivery stream is created,
@@ -120,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_ClusterEndpoint
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint
+        /// or the DomainARN field. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,6 +137,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ElasticsearchDestinationConfiguration_ClusterEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint to use when communicating with the collection in the Serverless offering
+        /// for Amazon OpenSearch Service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint { get; set; }
         #endregion
         
         #region Parameter HttpEndpointDestinationConfiguration_RequestConfiguration_CommonAttributes
@@ -164,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream. This name must be unique per AWS account in the same
-        /// AWS Region. If the delivery streams are in different accounts or different Regions,
-        /// you can have multiple delivery streams with the same name.</para>
+        /// <para>The name of the delivery stream. This name must be unique per Amazon Web Services
+        /// account in the same Amazon Web Services Region. If the delivery streams are in different
+        /// accounts or different Regions, you can have multiple delivery streams with the same
+        /// name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -195,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_DomainARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions
+        /// for DescribeElasticsearchDomain, DescribeElasticsearchDomains, and DescribeElasticsearchDomainConfig
+        /// after assuming the role specified in RoleARN. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,20 +220,37 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_DomainARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>,
-        /// <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after
-        /// assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para><para>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</para>
+        /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeDomain</code>,
+        /// <code>DescribeDomains</code>, and <code>DescribeDomainConfig</code> after assuming
+        /// the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para><para>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ElasticsearchDestinationConfiguration_DomainARN { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds
+        /// <summary>
+        /// <para>
+        /// <para>After an initial failure to deliver to the Serverless offering for Amazon OpenSearch
+        /// Service, the total amount of time during which Kinesis Data Firehose retries delivery
+        /// (including the first attempt). After this time has elapsed, the failed documents are
+        /// written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero)
+        /// results in no retries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_RetryOptions_DurationInSeconds
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>After an initial failure to deliver to Amazon OpenSearch Service, the total amount
+        /// of time during which Kinesis Data Firehose retries delivery (including the first attempt).
+        /// After this time has elapsed, the failed documents are written to Amazon S3. Default
+        /// value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,6 +282,26 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? HttpEndpointDestinationConfiguration_RetryOptions_DurationInSeconds { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables CloudWatch logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables data processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_Enabled
@@ -324,10 +376,20 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration ExtendedS3DestinationConfiguration { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_IndexName
+        /// <summary>
+        /// <para>
+        /// <para>The Serverless offering for Amazon OpenSearch Service index name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonOpenSearchServerlessDestinationConfiguration_IndexName { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_IndexName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ElasticsearAmazon OpenSearch Service index name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +409,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
+        /// to the IndexName to facilitate the expiration of old data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,10 +432,22 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod ElasticsearchDestinationConfiguration_IndexRotationPeriod { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds
+        /// <summary>
+        /// <para>
+        /// <para>Buffer incoming data for the specified period of time, in seconds, before delivering
+        /// it to the destination. The default value is 300 (5 minutes).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Buffer incoming data for the specified period of time, in seconds, before delivering
+        /// it to the destination. The default value is 300 (5 minutes). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,8 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify
-        /// the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>AWS_OWNED_CMK</code>,
-        /// Kinesis Data Firehose uses a service-account CMK.</para>
+        /// the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>Amazon
+        /// Web Services_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +493,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Indicates the type of customer master key (CMK) to use for encryption. The default
-        /// setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
+        /// setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about
+        /// CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
         /// Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a>
         /// with <code>KeyType</code> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes
         /// the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>
@@ -432,7 +508,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
         /// support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
-        /// Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer guide.</para></important>
+        /// Symmetric and Asymmetric CMKs</a> in the Amazon Web Services Key Management Service
+        /// developer guide.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,6 +526,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KinesisStreamSourceConfiguration_KinesisStreamARN { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch group name for logging. This value is required if CloudWatch logging
+        /// is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName
@@ -483,6 +571,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch log stream name for logging. This value is required if CloudWatch logging
+        /// is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName
@@ -530,6 +629,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String EndpointConfiguration_Name { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors
+        /// <summary>
+        /// <para>
+        /// <para>The data processors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.KinesisFirehose.Model.Processor[] AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_ProcessingConfiguration_Processors
         /// <summary>
         /// <para>
@@ -571,10 +680,38 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
+        /// for calling the Serverless offering for Amazon OpenSearch Service Configuration API
+        /// and for indexing documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonOpenSearchServerlessDestinationConfiguration_RoleARN { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
+        /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
+        /// or you can specify a new role. In either case, make sure that the role trusts the
+        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><code>ec2:DescribeVpcs</code></para></li><li><para><code>ec2:DescribeVpcAttribute</code></para></li><li><para><code>ec2:DescribeSubnets</code></para></li><li><para><code>ec2:DescribeSecurityGroups</code></para></li><li><para><code>ec2:DescribeNetworkInterfaces</code></para></li><li><para><code>ec2:CreateNetworkInterface</code></para></li><li><para><code>ec2:CreateNetworkInterfacePermission</code></para></li><li><para><code>ec2:DeleteNetworkInterface</code></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
+        /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
+        /// see a degradation in performance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_RoleARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
+        /// for calling the Amazon OpenSearch Service Configuration API and for indexing documents.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -603,7 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// for calling the Amazon ES Configuration API and for indexing documents. For more information,
         /// see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
         /// Kinesis Data Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -641,18 +778,39 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ARN of the role that provides access to the source Kinesis data stream. For more
-        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS
-        /// Identity and Access Management (IAM) ARN Format</a>.</para>
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon
+        /// Web Services Identity and Access Management (IAM) ARN Format</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode
+        /// <summary>
+        /// <para>
+        /// <para>Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly,
+        /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
+        /// Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix.
+        /// When set to AllDocuments, Kinesis Data Firehose delivers all incoming records to Amazon
+        /// S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended
+        /// to the prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.AmazonOpenSearchServerlessS3BackupMode")]
+        public Amazon.KinesisFirehose.AmazonOpenSearchServerlessS3BackupMode AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_S3BackupMode
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly,
+        /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
+        /// Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix.
+        /// When set to AllDocuments, Kinesis Data Firehose delivers all incoming records to Amazon
+        /// S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended
+        /// to the prefix. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -665,9 +823,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>Defines how documents should be delivered to Amazon S3. When it is set to <code>FailedDocumentsOnly</code>,
         /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
-        /// Amazon S3 destination, with <code>elasticsearch-failed/</code> appended to the key
-        /// prefix. When set to <code>AllDocuments</code>, Kinesis Data Firehose delivers all
-        /// incoming records to Amazon S3, and also writes failed documents with <code>elasticsearch-failed/</code>
+        /// Amazon S3 destination, with <code>AmazonOpenSearchService-failed/</code> appended
+        /// to the key prefix. When set to <code>AllDocuments</code>, Kinesis Data Firehose delivers
+        /// all incoming records to Amazon S3, and also writes failed documents with <code>AmazonOpenSearchService-failed/</code>
         /// appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
         /// S3 Backup for the Amazon ES Destination</a>. Default value is <code>FailedDocumentsOnly</code>.</para><para>You can't change this backup mode after you create the delivery stream. </para>
         /// </para>
@@ -689,6 +847,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.KinesisFirehose.HttpEndpointS3BackupMode")]
         public Amazon.KinesisFirehose.HttpEndpointS3BackupMode HttpEndpointDestinationConfiguration_S3BackupMode { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.KinesisFirehose.Model.S3DestinationConfiguration AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationConfiguration_S3Configuration
@@ -719,6 +887,25 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.S3DestinationConfiguration HttpEndpointDestinationConfiguration_S3Configuration { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the security groups that you want Kinesis Data Firehose to use when it
+        /// creates ENIs in the VPC of the Amazon ES destination. You can use the same security
+        /// group that the Amazon ES domain uses or different ones. If you specify different security
+        /// groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's
+        /// security group. Also ensure that the Amazon ES domain's security group allows HTTPS
+        /// traffic from the security groups specified here. If you use the same security group
+        /// for both your delivery stream and the Amazon ES domain, make sure the security group
+        /// inbound rule allows HTTPS traffic. For more information about security group rules,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// group rules</a> in the Amazon VPC documentation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SecurityGroupIds
@@ -760,10 +947,26 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String[] VpcConfiguration_SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs
+        /// <summary>
+        /// <para>
+        /// <para>Buffer incoming data to the specified size, in MBs, before delivering it to the destination.
+        /// The default value is 5. </para><para>We recommend setting this parameter to a value greater than the amount of data you
+        /// typically ingest into the delivery stream in 10 seconds. For example, if you typically
+        /// ingest data at 1 MB/sec, the value should be 10 MB or higher.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs { get; set; }
+        #endregion
+        
         #region Parameter AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Buffer incoming data to the specified size, in MBs, before delivering it to the destination.
+        /// The default value is 5.</para><para>We recommend setting this parameter to a value greater than the amount of data you
+        /// typically ingest into the delivery stream in 10 seconds. For example, if you typically
+        /// ingest data at 1 MB/sec, the value should be 10 MB or higher. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -805,6 +1008,27 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets that you want Kinesis Data Firehose to use to create ENIs in
+        /// the VPC of the Amazon ES destination. Make sure that the routing tables and inbound
+        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
+        /// here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose
+        /// creates at least one ENI in each of the subnets that are specified here. Do not delete
+        /// or modify these ENIs.</para><para>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
+        /// scales up and down automatically based on throughput. To enable Kinesis Data Firehose
+        /// to scale up the number of ENIs to match throughput, ensure that you have sufficient
+        /// quota. To help you calculate the quota you need, assume that Kinesis Data Firehose
+        /// can create up to three ENIs for this delivery stream for each of the subnets specified
+        /// here. For more information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
+        /// Interfaces </a> in the Amazon VPC Quotas topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds { get; set; }
         #endregion
         
         #region Parameter AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SubnetIds
@@ -854,10 +1078,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>A set of tags to assign to the delivery stream. A tag is a key-value pair that you
-        /// can define and assign to AWS resources. Tags are metadata. For example, you can add
-        /// friendly names and descriptions or other types of information that can help you distinguish
-        /// the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-        /// Cost Allocation Tags</a> in the AWS Billing and Cost Management User Guide.</para><para>You can specify up to 50 tags when creating a delivery stream.</para>
+        /// can define and assign to Amazon Web Services resources. Tags are metadata. For example,
+        /// you can add friendly names and descriptions or other types of information that can
+        /// help you distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
+        /// Cost Allocation Tags</a> in the Amazon Web Services Billing and Cost Management User
+        /// Guide.</para><para>You can specify up to 50 tags when creating a delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -868,7 +1093,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_TypeName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon OpenSearch Service type name. For Elasticsearch 6.x, there can be only
+        /// one type per index. If you try to specify a new type for an existing index that already
+        /// has another type, Kinesis Data Firehose returns an error during run time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -951,6 +1178,31 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 context.Select = CreateSelectDelegate<Amazon.KinesisFirehose.Model.CreateDeliveryStreamResponse, NewKINFDeliveryStreamCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            context.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds = this.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs = this.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled = this.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = this.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = this.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint = this.AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_IndexName = this.AmazonOpenSearchServerlessDestinationConfiguration_IndexName;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled = this.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled;
+            if (this.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors != null)
+            {
+                context.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors = new List<Amazon.KinesisFirehose.Model.Processor>(this.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors);
+            }
+            context.AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds = this.AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_RoleARN = this.AmazonOpenSearchServerlessDestinationConfiguration_RoleARN;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode = this.AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration = this.AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration;
+            context.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN = this.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN;
+            if (this.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds != null)
+            {
+                context.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds = new List<System.String>(this.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds);
+            }
+            if (this.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds != null)
+            {
+                context.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds = new List<System.String>(this.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds);
             }
             context.AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds = this.AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds;
             context.AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs = this.AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs;
@@ -1068,6 +1320,250 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // create request
             var request = new Amazon.KinesisFirehose.Model.CreateDeliveryStreamRequest();
             
+            
+             // populate AmazonOpenSearchServerlessDestinationConfiguration
+            var requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = true;
+            request.AmazonOpenSearchServerlessDestinationConfiguration = new Amazon.KinesisFirehose.Model.AmazonOpenSearchServerlessDestinationConfiguration();
+            System.String requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.CollectionEndpoint = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            System.String requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_IndexName = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_IndexName != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_IndexName = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_IndexName;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_IndexName != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.IndexName = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_IndexName;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            System.String requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RoleARN = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_RoleARN != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RoleARN = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_RoleARN;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RoleARN != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.RoleARN = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RoleARN;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.AmazonOpenSearchServerlessS3BackupMode requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3BackupMode = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3BackupMode = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3BackupMode != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.S3BackupMode = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3BackupMode;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.S3DestinationConfiguration requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3Configuration = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3Configuration = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3Configuration != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.S3Configuration = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_S3Configuration;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.AmazonOpenSearchServerlessRetryOptions requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions = null;
+            
+             // populate RetryOptions
+            var requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptionsIsNull = true;
+            requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions = new Amazon.KinesisFirehose.Model.AmazonOpenSearchServerlessRetryOptions();
+            System.Int32? requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds.Value;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions.DurationInSeconds = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds.Value;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptionsIsNull = false;
+            }
+             // determine if requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions should be set to null
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptionsIsNull)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions = null;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.RetryOptions = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_RetryOptions;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.AmazonOpenSearchServerlessBufferingHints requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints = null;
+            
+             // populate BufferingHints
+            var requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHintsIsNull = true;
+            requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints = new Amazon.KinesisFirehose.Model.AmazonOpenSearchServerlessBufferingHints();
+            System.Int32? requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds.Value;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints.IntervalInSeconds = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds.Value;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHintsIsNull = false;
+            }
+            System.Int32? requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs.Value;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints.SizeInMBs = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs.Value;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHintsIsNull = false;
+            }
+             // determine if requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints should be set to null
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHintsIsNull)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints = null;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.BufferingHints = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_BufferingHints;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.ProcessingConfiguration requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration = null;
+            
+             // populate ProcessingConfiguration
+            var requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfigurationIsNull = true;
+            requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration = new Amazon.KinesisFirehose.Model.ProcessingConfiguration();
+            System.Boolean? requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled.Value;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration.Enabled = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled.Value;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfigurationIsNull = false;
+            }
+            List<Amazon.KinesisFirehose.Model.Processor> requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration.Processors = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfigurationIsNull = false;
+            }
+             // determine if requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration should be set to null
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfigurationIsNull)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration = null;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.ProcessingConfiguration = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions = null;
+            
+             // populate CloudWatchLoggingOptions
+            var requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptionsIsNull = true;
+            requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions = new Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions();
+            System.Boolean? requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled.Value;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions.Enabled = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled.Value;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions.LogGroupName = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions.LogStreamName = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptionsIsNull = false;
+            }
+             // determine if requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions should be set to null
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptionsIsNull)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions = null;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.CloudWatchLoggingOptions = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.VpcConfiguration requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfigurationIsNull = true;
+            requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration = new Amazon.KinesisFirehose.Model.VpcConfiguration();
+            System.String requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration.RoleARN = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration.SecurityGroupIds = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds = null;
+            if (cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds = cmdletContext.AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds != null)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration.SubnetIds = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds;
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfigurationIsNull = false;
+            }
+             // determine if requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration should be set to null
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfigurationIsNull)
+            {
+                requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration = null;
+            }
+            if (requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration != null)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration.VpcConfiguration = requestAmazonOpenSearchServerlessDestinationConfiguration_amazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration;
+                requestAmazonOpenSearchServerlessDestinationConfigurationIsNull = false;
+            }
+             // determine if request.AmazonOpenSearchServerlessDestinationConfiguration should be set to null
+            if (requestAmazonOpenSearchServerlessDestinationConfigurationIsNull)
+            {
+                request.AmazonOpenSearchServerlessDestinationConfiguration = null;
+            }
             
              // populate AmazonopensearchserviceDestinationConfiguration
             var requestAmazonopensearchserviceDestinationConfigurationIsNull = true;
@@ -2024,6 +2520,22 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }
+            public System.Int32? AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs { get; set; }
+            public System.Boolean? AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled { get; set; }
+            public System.String AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName { get; set; }
+            public System.String AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName { get; set; }
+            public System.String AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint { get; set; }
+            public System.String AmazonOpenSearchServerlessDestinationConfiguration_IndexName { get; set; }
+            public System.Boolean? AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled { get; set; }
+            public List<Amazon.KinesisFirehose.Model.Processor> AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors { get; set; }
+            public System.Int32? AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds { get; set; }
+            public System.String AmazonOpenSearchServerlessDestinationConfiguration_RoleARN { get; set; }
+            public Amazon.KinesisFirehose.AmazonOpenSearchServerlessS3BackupMode AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode { get; set; }
+            public Amazon.KinesisFirehose.Model.S3DestinationConfiguration AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration { get; set; }
+            public System.String AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN { get; set; }
+            public List<System.String> AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds { get; set; }
+            public List<System.String> AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds { get; set; }
             public System.Int32? AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }
             public System.Int32? AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs { get; set; }
             public System.Boolean? AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_Enabled { get; set; }

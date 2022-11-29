@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>securitylake</C2jFilename>
+    <AssemblyName>SecurityLake</AssemblyName>
+    <ServiceNounPrefix>SLK</ServiceNounPrefix>
+    <ServiceName>Amazon Security Lake</ServiceName>
+    <ServiceClientInterface>IAmazonSecurityLake</ServiceClientInterface>
+    <ServiceClient>AmazonSecurityLakeClient</ServiceClient>
+    <ServiceModuleGuid>4b173dff-7542-48e7-8c25-55e8080af6fa</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAwsLogSource" OutputProperty="*" Verb="New" Noun="AwsLogSource" ShouldProcessTarget="InputOrder" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomLogSource" OutputProperty="*" Verb="New" Noun="CustomLogSource" ShouldProcessTarget="CustomSourceName" PipelineParameter="EventClass" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatalake" Verb="New" Noun="Datalake" ShouldProcessTarget="EnableAll" PipelineParameter="EnableAll" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Regions" NewName="InputRegion" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatalakeAutoEnable" Verb="New" Noun="DatalakeAutoEnable" ShouldProcessTarget="ConfigurationForNewAccounts" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatalakeDelegatedAdmin" Verb="New" Noun="DatalakeDelegatedAdmin" ShouldProcessTarget="Account" PipelineParameter="Account" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatalakeExceptionsSubscription" Verb="New" Noun="DatalakeExceptionsSubscription" ShouldProcessTarget="NotificationEndpoint" PipelineParameter="SubscriptionProtocol" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriber" OutputProperty="*" Verb="New" Noun="Subscriber" ShouldProcessTarget="AccountId" PipelineParameter="SubscriberName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriptionNotificationConfiguration" OutputProperty="QueueArn" Verb="New" Noun="SubscriptionNotificationConfiguration" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAwsLogSource" OutputProperty="*" Verb="Remove" Noun="AwsLogSource" ShouldProcessTarget="InputOrder" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomLogSource" OutputProperty="CustomDataLocation" Verb="Remove" Noun="CustomLogSource" ShouldProcessTarget="CustomSourceName" PipelineParameter="CustomSourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatalake" Verb="Remove" Noun="Datalake" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatalakeAutoEnable" Verb="Remove" Noun="DatalakeAutoEnable" ShouldProcessTarget="RemoveFromConfigurationForNewAccounts" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatalakeDelegatedAdmin" Verb="Remove" Noun="DatalakeDelegatedAdmin" ShouldProcessTarget="Account" PipelineParameter="Account" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatalakeExceptionsSubscription" OutputProperty="Status" Verb="Remove" Noun="DatalakeExceptionsSubscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriptionNotificationConfiguration" Verb="Remove" Noun="SubscriptionNotificationConfiguration" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatalake" OutputProperty="Configurations" Verb="Get" Noun="Datalake" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatalakeAutoEnable" OutputProperty="AutoEnableNewAccounts" Verb="Get" Noun="DatalakeAutoEnable" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatalakeExceptionsExpiry" OutputProperty="ExceptionMessageExpiry" Verb="Get" Noun="DatalakeExceptionsExpiry" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatalakeExceptionsSubscription" OutputProperty="ProtocolAndNotificationEndpoint" Verb="Get" Noun="DatalakeExceptionsSubscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatalakeStatus" OutputProperty="AccountSourcesList" Verb="Get" Noun="DatalakeStatus" PipelineParameter="MaxAccountResults" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriber" OutputProperty="Subscriber" Verb="Get" Noun="Subscriber" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatalakeExceptions" OutputProperty="NonRetryableFailures" Verb="Get" Noun="DatalakeExceptionList" PipelineParameter="MaxFailures" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLogSources" OutputProperty="RegionSourceTypesAccountsList" Verb="Get" Noun="LogSourceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscribers" OutputProperty="Subscribers" Verb="Get" Noun="SubscriberList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatalake" Verb="Update" Noun="Datalake" ShouldProcessTarget="Configurations" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatalakeExceptionsExpiry" Verb="Update" Noun="DatalakeExceptionsExpiry" ShouldProcessTarget="ExceptionMessageExpiry" PipelineParameter="ExceptionMessageExpiry" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatalakeExceptionsSubscription" Verb="Update" Noun="DatalakeExceptionsSubscription" ShouldProcessTarget="NotificationEndpoint" PipelineParameter="SubscriptionProtocol" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriber" OutputProperty="Subscriber" Verb="Update" Noun="Subscriber" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriptionNotificationConfiguration" OutputProperty="QueueArn" Verb="Update" Noun="SubscriptionNotificationConfiguration" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

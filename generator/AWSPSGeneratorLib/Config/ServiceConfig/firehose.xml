@@ -47,6 +47,17 @@
                 <Param Name="AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_RoleARN" NewName="AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_RoleARN" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SecurityGroupIds" NewName="AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SecurityGroupIds" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SubnetIds" NewName="AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SubnetIds" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs" NewName="AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" NewName="AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" NewName="AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled" NewName="AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors" NewName="AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds" NewName="AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN" NewName="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds" NewName="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds" NewName="AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,6 +130,14 @@
                 <Param Name="AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Enabled" NewName="AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Processors" NewName="AmazonopensearchserviceDestinationUpdate_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationUpdate_RetryOptions_DurationInSeconds" NewName="AmazonopensearchserviceDestinationUpdate_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_SizeInMBs" NewName="AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" NewName="AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" NewName="AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Enabled" NewName="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors" NewName="AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
+                <Param Name="AmazonOpenSearchServerlessDestinationUpdate_RetryOptions_DurationInSeconds" NewName="AmazonOpenSearchServerlessDestinationUpdate_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

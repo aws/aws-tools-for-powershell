@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>opensearchserverless</C2jFilename>
+    <AssemblyName>OpenSearchServerless</AssemblyName>
+    <ServiceNounPrefix>OSS</ServiceNounPrefix>
+    <ServiceName>OpenSearch Serverless</ServiceName>
+    <ServiceClientInterface>IAmazonOpenSearchServerless</ServiceClientInterface>
+    <ServiceClient>AmazonOpenSearchServerlessClient</ServiceClient>
+    <ServiceModuleGuid>6c5ea2b3-a50d-44bf-b948-cbfc102bceee</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetCollection" OutputProperty="*" Verb="Get" Noun="GetCollection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetVpcEndpoint" OutputProperty="*" Verb="Get" Noun="GetVpcEndpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="AccessPolicyDetail" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCollection" OutputProperty="CreateCollectionDetail" Verb="New" Noun="Collection" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityConfig" OutputProperty="SecurityConfigDetail" Verb="New" Noun="SecurityConfig" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityPolicy" OutputProperty="SecurityPolicyDetail" Verb="New" Noun="SecurityPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="CreateVpcEndpointDetail" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessPolicy" Verb="Remove" Noun="AccessPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCollection" OutputProperty="DeleteCollectionDetail" Verb="Remove" Noun="Collection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityConfig" Verb="Remove" Noun="SecurityConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityPolicy" Verb="Remove" Noun="SecurityPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpoint" OutputProperty="DeleteVpcEndpointDetail" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessPolicy" OutputProperty="AccessPolicyDetail" Verb="Get" Noun="AccessPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettingsDetail" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPoliciesStats" OutputProperty="*" Verb="Get" Noun="PoliciesStat" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityConfig" OutputProperty="SecurityConfigDetail" Verb="Get" Noun="SecurityConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityPolicy" OutputProperty="SecurityPolicyDetail" Verb="Get" Noun="SecurityPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPolicies" OutputProperty="AccessPolicySummaries" Verb="Get" Noun="AccessPolicyList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollections" OutputProperty="CollectionSummaries" Verb="Get" Noun="CollectionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityConfigs" OutputProperty="SecurityConfigSummaries" Verb="Get" Noun="SecurityConfigList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityPolicies" OutputProperty="SecurityPolicySummaries" Verb="Get" Noun="SecurityPolicyList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVpcEndpoints" OutputProperty="VpcEndpointSummaries" Verb="Get" Noun="VpcEndpointList" PipelineParameter="VpcEndpointFilters_Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessPolicy" OutputProperty="AccessPolicyDetail" Verb="Update" Noun="AccessPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="AccountSettingsDetail" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCollection" OutputProperty="UpdateCollectionDetail" Verb="Update" Noun="Collection" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityConfig" OutputProperty="SecurityConfigDetail" Verb="Update" Noun="SecurityConfig" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityPolicy" OutputProperty="SecurityPolicyDetail" Verb="Update" Noun="SecurityPolicy" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVpcEndpoint" OutputProperty="UpdateVpcEndpointDetail" Verb="Update" Noun="VpcEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key
         /// when it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</para><note><para>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
         /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
-        /// in KMS</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
+        /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
         /// permission in an IAM policy.</para><para>Tags are not a shared property of multi-Region keys. You can specify the same tags
         /// or different tags for each key in a set of related multi-Region keys. KMS does not
         /// synchronize this property.</para><para>Each tag consists of a tag key and a tag value. Both the tag key and the tag value

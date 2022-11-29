@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// the end of the ASCII character range.</para></li><li><para>Printable characters in the Basic Latin and Latin-1 Supplement character set (through
         /// <code>\u00FF</code>).</para></li><li><para>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return
         /// (<code>\u000D</code>) special characters</para></li></ul><para>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key
-        /// policies in KMS</a> in the <i>Key Management Service Developer Guide</i>. For help
+        /// policies in KMS</a> in the <i>Key Management Service Developer Guide</i>.For help
         /// writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
         /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
         /// </para>

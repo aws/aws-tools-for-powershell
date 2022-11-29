@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  <note><para>
     /// Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
-    /// in KMS</a> in the <i>Key Management Service Developer Guide</i>.
+    /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
     /// When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
     /// Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception

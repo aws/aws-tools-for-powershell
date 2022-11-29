@@ -17282,6 +17282,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.DeviceTrustProviderType
+        "New-EC2VerifiedAccessTrustProvider/DeviceTrustProviderType"
+        {
+            $v = "crowdstrike","jamf"
+            break
+        }
+
         # Amazon.EC2.DiskImageFormat
         {
             ($_ -eq "Export-EC2Image/DiskImageFormat") -Or
@@ -17585,7 +17592,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.metal","c5n.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.32xlarge","c6a.48xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.metal","c6a.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.metal","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.metal","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.32xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.metal","c6i.xlarge","c6id.12xlarge","c6id.16xlarge","c6id.24xlarge","c6id.2xlarge","c6id.32xlarge","c6id.4xlarge","c6id.8xlarge","c6id.large","c6id.metal","c6id.xlarge","c7g.12xlarge","c7g.16xlarge","c7g.2xlarge","c7g.4xlarge","c7g.8xlarge","c7g.large","c7g.medium","c7g.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","d3.2xlarge","d3.4xlarge","d3.8xlarge","d3.xlarge","d3en.12xlarge","d3en.2xlarge","d3en.4xlarge","d3en.6xlarge","d3en.8xlarge","d3en.xlarge","dl1.24xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4ad.16xlarge","g4ad.2xlarge","g4ad.4xlarge","g4ad.8xlarge","g4ad.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.metal","g4dn.xlarge","g5.12xlarge","g5.16xlarge","g5.24xlarge","g5.2xlarge","g5.48xlarge","g5.4xlarge","g5.8xlarge","g5.xlarge","g5g.16xlarge","g5g.2xlarge","g5g.4xlarge","g5g.8xlarge","g5g.metal","g5g.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hpc6a.48xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","i4i.16xlarge","i4i.2xlarge","i4i.32xlarge","i4i.4xlarge","i4i.8xlarge","i4i.large","i4i.metal","i4i.xlarge","im4gn.16xlarge","im4gn.2xlarge","im4gn.4xlarge","im4gn.8xlarge","im4gn.large","im4gn.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","is4gen.2xlarge","is4gen.4xlarge","is4gen.8xlarge","is4gen.large","is4gen.medium","is4gen.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.metal","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.metal","m5n.xlarge","m5zn.12xlarge","m5zn.2xlarge","m5zn.3xlarge","m5zn.6xlarge","m5zn.large","m5zn.metal","m5zn.xlarge","m6a.12xlarge","m6a.16xlarge","m6a.24xlarge","m6a.2xlarge","m6a.32xlarge","m6a.48xlarge","m6a.4xlarge","m6a.8xlarge","m6a.large","m6a.metal","m6a.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.metal","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.metal","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.metal","m6i.xlarge","m6id.12xlarge","m6id.16xlarge","m6id.24xlarge","m6id.2xlarge","m6id.32xlarge","m6id.4xlarge","m6id.8xlarge","m6id.large","m6id.metal","m6id.xlarge","mac1.metal","mac2.metal","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","p4d.24xlarge","p4de.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5b.12xlarge","r5b.16xlarge","r5b.24xlarge","r5b.2xlarge","r5b.4xlarge","r5b.8xlarge","r5b.large","r5b.metal","r5b.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.metal","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.metal","r5n.xlarge","r6a.12xlarge","r6a.16xlarge","r6a.24xlarge","r6a.2xlarge","r6a.32xlarge","r6a.48xlarge","r6a.4xlarge","r6a.8xlarge","r6a.large","r6a.metal","r6a.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.metal","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.metal","r6gd.xlarge","r6i.12xlarge","r6i.16xlarge","r6i.24xlarge","r6i.2xlarge","r6i.32xlarge","r6i.4xlarge","r6i.8xlarge","r6i.large","r6i.metal","r6i.xlarge","r6id.12xlarge","r6id.16xlarge","r6id.24xlarge","r6id.2xlarge","r6id.32xlarge","r6id.4xlarge","r6id.8xlarge","r6id.large","r6id.metal","r6id.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","t4g.2xlarge","t4g.large","t4g.medium","t4g.micro","t4g.nano","t4g.small","t4g.xlarge","trn1.2xlarge","trn1.32xlarge","u-12tb1.112xlarge","u-12tb1.metal","u-18tb1.112xlarge","u-18tb1.metal","u-24tb1.112xlarge","u-24tb1.metal","u-3tb1.56xlarge","u-6tb1.112xlarge","u-6tb1.56xlarge","u-6tb1.metal","u-9tb1.112xlarge","u-9tb1.metal","vt1.24xlarge","vt1.3xlarge","vt1.6xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","x2gd.12xlarge","x2gd.16xlarge","x2gd.2xlarge","x2gd.4xlarge","x2gd.8xlarge","x2gd.large","x2gd.medium","x2gd.metal","x2gd.xlarge","x2idn.16xlarge","x2idn.24xlarge","x2idn.32xlarge","x2idn.metal","x2iedn.16xlarge","x2iedn.24xlarge","x2iedn.2xlarge","x2iedn.32xlarge","x2iedn.4xlarge","x2iedn.8xlarge","x2iedn.metal","x2iedn.xlarge","x2iezn.12xlarge","x2iezn.2xlarge","x2iezn.4xlarge","x2iezn.6xlarge","x2iezn.8xlarge","x2iezn.metal","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5a.12xlarge","c5a.16xlarge","c5a.24xlarge","c5a.2xlarge","c5a.4xlarge","c5a.8xlarge","c5a.large","c5a.xlarge","c5ad.12xlarge","c5ad.16xlarge","c5ad.24xlarge","c5ad.2xlarge","c5ad.4xlarge","c5ad.8xlarge","c5ad.large","c5ad.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.metal","c5n.xlarge","c6a.12xlarge","c6a.16xlarge","c6a.24xlarge","c6a.2xlarge","c6a.32xlarge","c6a.48xlarge","c6a.4xlarge","c6a.8xlarge","c6a.large","c6a.metal","c6a.xlarge","c6g.12xlarge","c6g.16xlarge","c6g.2xlarge","c6g.4xlarge","c6g.8xlarge","c6g.large","c6g.medium","c6g.metal","c6g.xlarge","c6gd.12xlarge","c6gd.16xlarge","c6gd.2xlarge","c6gd.4xlarge","c6gd.8xlarge","c6gd.large","c6gd.medium","c6gd.metal","c6gd.xlarge","c6gn.12xlarge","c6gn.16xlarge","c6gn.2xlarge","c6gn.4xlarge","c6gn.8xlarge","c6gn.large","c6gn.medium","c6gn.xlarge","c6i.12xlarge","c6i.16xlarge","c6i.24xlarge","c6i.2xlarge","c6i.32xlarge","c6i.4xlarge","c6i.8xlarge","c6i.large","c6i.metal","c6i.xlarge","c6id.12xlarge","c6id.16xlarge","c6id.24xlarge","c6id.2xlarge","c6id.32xlarge","c6id.4xlarge","c6id.8xlarge","c6id.large","c6id.metal","c6id.xlarge","c7g.12xlarge","c7g.16xlarge","c7g.2xlarge","c7g.4xlarge","c7g.8xlarge","c7g.large","c7g.medium","c7g.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","d3.2xlarge","d3.4xlarge","d3.8xlarge","d3.xlarge","d3en.12xlarge","d3en.2xlarge","d3en.4xlarge","d3en.6xlarge","d3en.8xlarge","d3en.xlarge","dl1.24xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4ad.16xlarge","g4ad.2xlarge","g4ad.4xlarge","g4ad.8xlarge","g4ad.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.metal","g4dn.xlarge","g5.12xlarge","g5.16xlarge","g5.24xlarge","g5.2xlarge","g5.48xlarge","g5.4xlarge","g5.8xlarge","g5.xlarge","g5g.16xlarge","g5g.2xlarge","g5g.4xlarge","g5g.8xlarge","g5g.metal","g5g.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hpc6a.48xlarge","hpc6id.32xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","i4i.16xlarge","i4i.2xlarge","i4i.32xlarge","i4i.4xlarge","i4i.8xlarge","i4i.large","i4i.metal","i4i.xlarge","im4gn.16xlarge","im4gn.2xlarge","im4gn.4xlarge","im4gn.8xlarge","im4gn.large","im4gn.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","is4gen.2xlarge","is4gen.4xlarge","is4gen.8xlarge","is4gen.large","is4gen.medium","is4gen.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.metal","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.metal","m5n.xlarge","m5zn.12xlarge","m5zn.2xlarge","m5zn.3xlarge","m5zn.6xlarge","m5zn.large","m5zn.metal","m5zn.xlarge","m6a.12xlarge","m6a.16xlarge","m6a.24xlarge","m6a.2xlarge","m6a.32xlarge","m6a.48xlarge","m6a.4xlarge","m6a.8xlarge","m6a.large","m6a.metal","m6a.xlarge","m6g.12xlarge","m6g.16xlarge","m6g.2xlarge","m6g.4xlarge","m6g.8xlarge","m6g.large","m6g.medium","m6g.metal","m6g.xlarge","m6gd.12xlarge","m6gd.16xlarge","m6gd.2xlarge","m6gd.4xlarge","m6gd.8xlarge","m6gd.large","m6gd.medium","m6gd.metal","m6gd.xlarge","m6i.12xlarge","m6i.16xlarge","m6i.24xlarge","m6i.2xlarge","m6i.32xlarge","m6i.4xlarge","m6i.8xlarge","m6i.large","m6i.metal","m6i.xlarge","m6id.12xlarge","m6id.16xlarge","m6id.24xlarge","m6id.2xlarge","m6id.32xlarge","m6id.4xlarge","m6id.8xlarge","m6id.large","m6id.metal","m6id.xlarge","mac1.metal","mac2.metal","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","p4d.24xlarge","p4de.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5b.12xlarge","r5b.16xlarge","r5b.24xlarge","r5b.2xlarge","r5b.4xlarge","r5b.8xlarge","r5b.large","r5b.metal","r5b.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.metal","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.metal","r5n.xlarge","r6a.12xlarge","r6a.16xlarge","r6a.24xlarge","r6a.2xlarge","r6a.32xlarge","r6a.48xlarge","r6a.4xlarge","r6a.8xlarge","r6a.large","r6a.metal","r6a.xlarge","r6g.12xlarge","r6g.16xlarge","r6g.2xlarge","r6g.4xlarge","r6g.8xlarge","r6g.large","r6g.medium","r6g.metal","r6g.xlarge","r6gd.12xlarge","r6gd.16xlarge","r6gd.2xlarge","r6gd.4xlarge","r6gd.8xlarge","r6gd.large","r6gd.medium","r6gd.metal","r6gd.xlarge","r6i.12xlarge","r6i.16xlarge","r6i.24xlarge","r6i.2xlarge","r6i.32xlarge","r6i.4xlarge","r6i.8xlarge","r6i.large","r6i.metal","r6i.xlarge","r6id.12xlarge","r6id.16xlarge","r6id.24xlarge","r6id.2xlarge","r6id.32xlarge","r6id.4xlarge","r6id.8xlarge","r6id.large","r6id.metal","r6id.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","t4g.2xlarge","t4g.large","t4g.medium","t4g.micro","t4g.nano","t4g.small","t4g.xlarge","trn1.2xlarge","trn1.32xlarge","u-12tb1.112xlarge","u-12tb1.metal","u-18tb1.112xlarge","u-18tb1.metal","u-24tb1.112xlarge","u-24tb1.metal","u-3tb1.56xlarge","u-6tb1.112xlarge","u-6tb1.56xlarge","u-6tb1.metal","u-9tb1.112xlarge","u-9tb1.metal","vt1.24xlarge","vt1.3xlarge","vt1.6xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","x2gd.12xlarge","x2gd.16xlarge","x2gd.2xlarge","x2gd.4xlarge","x2gd.8xlarge","x2gd.large","x2gd.medium","x2gd.metal","x2gd.xlarge","x2idn.16xlarge","x2idn.24xlarge","x2idn.32xlarge","x2idn.metal","x2iedn.16xlarge","x2iedn.24xlarge","x2iedn.2xlarge","x2iedn.32xlarge","x2iedn.4xlarge","x2iedn.8xlarge","x2iedn.metal","x2iedn.xlarge","x2iezn.12xlarge","x2iezn.2xlarge","x2iezn.4xlarge","x2iezn.6xlarge","x2iezn.8xlarge","x2iezn.metal","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
             break
         }
 
@@ -17976,6 +17983,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.TrustProviderType
+        "New-EC2VerifiedAccessTrustProvider/TrustProviderType"
+        {
+            $v = "device","user"
+            break
+        }
+
         # Amazon.EC2.TunnelInsideIpVersion
         "New-EC2VpnConnection/Options_TunnelInsideIpVersion"
         {
@@ -17990,6 +18004,39 @@ $EC2_Completers = {
         }
         {
             $v = "t2","t3","t3a","t4g"
+            break
+        }
+
+        # Amazon.EC2.UserTrustProviderType
+        "New-EC2VerifiedAccessTrustProvider/UserTrustProviderType"
+        {
+            $v = "iam-identity-center","oidc"
+            break
+        }
+
+        # Amazon.EC2.VerifiedAccessEndpointAttachmentType
+        "New-EC2VerifiedAccessEndpoint/AttachmentType"
+        {
+            $v = "vpc"
+            break
+        }
+
+        # Amazon.EC2.VerifiedAccessEndpointProtocol
+        {
+            ($_ -eq "Edit-EC2VerifiedAccessEndpoint/LoadBalancerOptions_Protocol") -Or
+            ($_ -eq "New-EC2VerifiedAccessEndpoint/LoadBalancerOptions_Protocol") -Or
+            ($_ -eq "Edit-EC2VerifiedAccessEndpoint/NetworkInterfaceOptions_Protocol") -Or
+            ($_ -eq "New-EC2VerifiedAccessEndpoint/NetworkInterfaceOptions_Protocol")
+        }
+        {
+            $v = "http","https"
+            break
+        }
+
+        # Amazon.EC2.VerifiedAccessEndpointType
+        "New-EC2VerifiedAccessEndpoint/EndpointType"
+        {
+            $v = "load-balancer","network-interface"
             break
         }
 
@@ -18053,6 +18100,7 @@ $EC2_map = @{
     "AddressFamily"=@("New-EC2IpamPool")
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Architecture"=@("Register-EC2Image")
+    "AttachmentType"=@("New-EC2VerifiedAccessEndpoint")
     "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2AddressesAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2AddressAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
     "AutoRecovery"=@("Edit-EC2InstanceMaintenanceOption")
@@ -18063,10 +18111,12 @@ $EC2_map = @{
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
     "CurrencyCode"=@("New-EC2HostReservation")
     "DestinationOptions_FileFormat"=@("New-EC2FlowLog")
+    "DeviceTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "DiskImageFormat"=@("Export-EC2Image")
     "DnsOptions_DnsRecordIpType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
     "Domain"=@("New-EC2Address")
     "EndDateType"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation")
+    "EndpointType"=@("New-EC2VerifiedAccessEndpoint")
     "EventType"=@("Get-EC2FleetHistory","Get-EC2SpotFleetRequestHistory")
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
@@ -18097,6 +18147,7 @@ $EC2_map = @{
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
+    "LoadBalancerOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "LocationType"=@("Get-EC2InstanceTypeOffering")
     "LogDestinationType"=@("New-EC2FlowLog")
     "MaintenanceOptions_AutoRecovery"=@("New-EC2Instance")
@@ -18106,6 +18157,7 @@ $EC2_map = @{
     "MetadataOptions_InstanceMetadataTags"=@("New-EC2Instance")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
+    "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
@@ -18162,7 +18214,9 @@ $EC2_map = @{
     "TrafficDirection"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2TrafficMirrorFilterRule")
     "TrafficType"=@("New-EC2FlowLog")
     "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
+    "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
+    "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
 }
@@ -18247,6 +18301,7 @@ $EC2_SelectMap = @{
                "Add-EC2ClassicLinkVpc",
                "Add-EC2InternetGateway",
                "Add-EC2NetworkInterface",
+               "Mount-EC2VerifiedAccessTrustProvider",
                "Add-EC2Volume",
                "Add-EC2VpnGateway",
                "Grant-EC2ClientVpnIngress",
@@ -18333,6 +18388,10 @@ $EC2_SelectMap = @{
                "New-EC2TransitGatewayRouteTable",
                "New-EC2TransitGatewayRouteTableAnnouncement",
                "New-EC2TransitGatewayVpcAttachment",
+               "New-EC2VerifiedAccessEndpoint",
+               "New-EC2VerifiedAccessGroup",
+               "New-EC2VerifiedAccessInstance",
+               "New-EC2VerifiedAccessTrustProvider",
                "New-EC2Volume",
                "New-EC2Vpc",
                "New-EC2VpcEndpoint",
@@ -18401,6 +18460,10 @@ $EC2_SelectMap = @{
                "Remove-EC2TransitGatewayRouteTable",
                "Remove-EC2TransitGatewayRouteTableAnnouncement",
                "Remove-EC2TransitGatewayVpcAttachment",
+               "Remove-EC2VerifiedAccessEndpoint",
+               "Remove-EC2VerifiedAccessGroup",
+               "Remove-EC2VerifiedAccessInstance",
+               "Remove-EC2VerifiedAccessTrustProvider",
                "Remove-EC2Volume",
                "Remove-EC2Vpc",
                "Remove-EC2EndpointConnectionNotification",
@@ -18536,6 +18599,11 @@ $EC2_SelectMap = @{
                "Get-EC2TransitGateway",
                "Get-EC2TransitGatewayVpcAttachment",
                "Get-EC2TrunkInterfaceAssociation",
+               "Get-EC2VerifiedAccessEndpoint",
+               "Get-EC2VerifiedAccessGroup",
+               "Get-EC2VerifiedAccessInstanceLoggingConfiguration",
+               "Get-EC2VerifiedAccessInstance",
+               "Get-EC2VerifiedAccessTrustProvider",
                "Get-EC2VolumeAttribute",
                "Get-EC2Volume",
                "Get-EC2VolumeModification",
@@ -18556,6 +18624,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2ClassicLinkVpc",
                "Dismount-EC2InternetGateway",
                "Dismount-EC2NetworkInterface",
+               "Dismount-EC2VerifiedAccessTrustProvider",
                "Dismount-EC2Volume",
                "Dismount-EC2VpnGateway",
                "Disable-EC2AddressTransfer",
@@ -18635,6 +18704,8 @@ $EC2_SelectMap = @{
                "Get-EC2TransitGatewayPrefixListReference",
                "Get-EC2TransitGatewayRouteTableAssociation",
                "Get-EC2TransitGatewayRouteTablePropagation",
+               "Get-EC2VerifiedAccessEndpointPolicy",
+               "Get-EC2VerifiedAccessGroupPolicy",
                "Get-EC2VpnConnectionDeviceSampleConfiguration",
                "Get-EC2VpnConnectionDeviceType",
                "Import-EC2ClientVpnClientCertificateRevocationList",
@@ -18685,6 +18756,13 @@ $EC2_SelectMap = @{
                "Edit-EC2TransitGateway",
                "Edit-EC2TransitGatewayPrefixListReference",
                "Edit-EC2TransitGatewayVpcAttachment",
+               "Edit-EC2VerifiedAccessEndpoint",
+               "Edit-EC2VerifiedAccessEndpointPolicy",
+               "Edit-EC2VerifiedAccessGroup",
+               "Edit-EC2VerifiedAccessGroupPolicy",
+               "Edit-EC2VerifiedAccessInstance",
+               "Edit-EC2VerifiedAccessInstanceLoggingConfiguration",
+               "Edit-EC2VerifiedAccessTrustProvider",
                "Edit-EC2Volume",
                "Edit-EC2VolumeAttribute",
                "Edit-EC2VpcAttribute",
@@ -22205,6 +22283,13 @@ $KINF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.KinesisFirehose.AmazonOpenSearchServerlessS3BackupMode
+        "New-KINFDeliveryStream/AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode"
+        {
+            $v = "AllDocuments","FailedDocumentsOnly"
+            break
+        }
+
         # Amazon.KinesisFirehose.AmazonopensearchserviceIndexRotationPeriod
         {
             ($_ -eq "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod") -Or
@@ -22288,6 +22373,7 @@ $KINF_Completers = {
 }
 
 $KINF_map = @{
+    "AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
@@ -31022,6 +31108,13 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.CustomKeyStoreType
+        "New-KMSCustomKeyStore/CustomKeyStoreType"
+        {
+            $v = "AWS_CLOUDHSM","EXTERNAL_KEY_STORE"
+            break
+        }
+
         # Amazon.KeyManagementService.DataKeyPairSpec
         {
             ($_ -eq "New-KMSDataKeyPair/KeyPairSpec") -Or
@@ -31098,7 +31191,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.OriginType
         "New-KMSKey/Origin"
         {
-            $v = "AWS_CLOUDHSM","AWS_KMS","EXTERNAL"
+            $v = "AWS_CLOUDHSM","AWS_KMS","EXTERNAL","EXTERNAL_KEY_STORE"
             break
         }
 
@@ -31119,6 +31212,16 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.XksProxyConnectivityType
+        {
+            ($_ -eq "New-KMSCustomKeyStore/XksProxyConnectivity") -Or
+            ($_ -eq "Update-KMSCustomKeyStore/XksProxyConnectivity")
+        }
+        {
+            $v = "PUBLIC_ENDPOINT","VPC_ENDPOINT_SERVICE"
+            break
+        }
+
 
     }
 
@@ -31129,6 +31232,7 @@ $KMS_Completers = {
 
 $KMS_map = @{
     "CustomerMasterKeySpec"=@("New-KMSKey")
+    "CustomKeyStoreType"=@("New-KMSCustomKeyStore")
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
@@ -31142,6 +31246,7 @@ $KMS_map = @{
     "SourceEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "WrappingAlgorithm"=@("Get-KMSParametersForImport")
     "WrappingKeySpec"=@("Get-KMSParametersForImport")
+    "XksProxyConnectivity"=@("New-KMSCustomKeyStore","Update-KMSCustomKeyStore")
 }
 
 _awsArgumentCompleterRegistration $KMS_Completers $KMS_map
@@ -38658,6 +38763,281 @@ $CWOAM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CWOAM_SelectCompleters $CWOAM_SelectMap
+# Argument completions for service Amazon Omics
+
+
+$OMICS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Omics.AnnotationType
+        "New-OMICSAnnotationStore/StoreOptions_TsvStoreOptions_AnnotationType"
+        {
+            $v = "CHR_POS","CHR_POS_REF_ALT","CHR_START_END_ONE_BASE","CHR_START_END_REF_ALT_ONE_BASE","CHR_START_END_REF_ALT_ZERO_BASE","CHR_START_END_ZERO_BASE","GENERIC"
+            break
+        }
+
+        # Amazon.Omics.EncryptionType
+        {
+            ($_ -eq "New-OMICSAnnotationStore/SseConfig_Type") -Or
+            ($_ -eq "New-OMICSReferenceStore/SseConfig_Type") -Or
+            ($_ -eq "New-OMICSSequenceStore/SseConfig_Type") -Or
+            ($_ -eq "New-OMICSVariantStore/SseConfig_Type")
+        }
+        {
+            $v = "KMS"
+            break
+        }
+
+        # Amazon.Omics.JobStatus
+        {
+            ($_ -eq "Get-OMICSAnnotationImportJobList/Filter_Status") -Or
+            ($_ -eq "Get-OMICSVariantImportJobList/Filter_Status")
+        }
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.Omics.ReadSetActivationJobStatus
+        "Get-OMICSReadSetActivationJobList/Filter_Status"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","COMPLETED_WITH_FAILURES","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.Omics.ReadSetExportJobStatus
+        "Get-OMICSReadSetExportJobList/Filter_Status"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","COMPLETED_WITH_FAILURES","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.Omics.ReadSetFile
+        "Get-OMICSReadSet/File"
+        {
+            $v = "INDEX","SOURCE1","SOURCE2"
+            break
+        }
+
+        # Amazon.Omics.ReadSetImportJobStatus
+        "Get-OMICSReadSetImportJobList/Filter_Status"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","COMPLETED_WITH_FAILURES","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.Omics.ReadSetStatus
+        "Get-OMICSReadSetList/Filter_Status"
+        {
+            $v = "ACTIVATING","ACTIVE","ARCHIVED","DELETED","DELETING"
+            break
+        }
+
+        # Amazon.Omics.ReferenceFile
+        "Get-OMICSReference/File"
+        {
+            $v = "INDEX","SOURCE"
+            break
+        }
+
+        # Amazon.Omics.ReferenceImportJobStatus
+        "Get-OMICSReferenceImportJobList/Filter_Status"
+        {
+            $v = "CANCELLED","CANCELLING","COMPLETED","COMPLETED_WITH_FAILURES","FAILED","IN_PROGRESS","SUBMITTED"
+            break
+        }
+
+        # Amazon.Omics.RunLogLevel
+        "Start-OMICSRun/LogLevel"
+        {
+            $v = "ALL","ERROR","FATAL","OFF"
+            break
+        }
+
+        # Amazon.Omics.StoreFormat
+        "New-OMICSAnnotationStore/StoreFormat"
+        {
+            $v = "GFF","TSV","VCF"
+            break
+        }
+
+        # Amazon.Omics.StoreStatus
+        {
+            ($_ -eq "Get-OMICSAnnotationStoreList/Filter_Status") -Or
+            ($_ -eq "Get-OMICSVariantStoreList/Filter_Status")
+        }
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.Omics.TaskStatus
+        "Get-OMICSRunTaskList/Status"
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","PENDING","RUNNING","STARTING","STOPPING"
+            break
+        }
+
+        # Amazon.Omics.WorkflowEngine
+        "New-OMICSWorkflow/Engine"
+        {
+            $v = "NEXTFLOW","WDL"
+            break
+        }
+
+        # Amazon.Omics.WorkflowType
+        {
+            ($_ -eq "Get-OMICSWorkflow/Type") -Or
+            ($_ -eq "Get-OMICSWorkflowList/Type") -Or
+            ($_ -eq "Start-OMICSRun/WorkflowType")
+        }
+        {
+            $v = "PRIVATE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OMICS_map = @{
+    "Engine"=@("New-OMICSWorkflow")
+    "File"=@("Get-OMICSReadSet","Get-OMICSReference")
+    "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")
+    "LogLevel"=@("Start-OMICSRun")
+    "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
+    "Status"=@("Get-OMICSRunTaskList")
+    "StoreFormat"=@("New-OMICSAnnotationStore")
+    "StoreOptions_TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
+    "Type"=@("Get-OMICSWorkflow","Get-OMICSWorkflowList")
+    "WorkflowType"=@("Start-OMICSRun")
+}
+
+_awsArgumentCompleterRegistration $OMICS_Completers $OMICS_map
+
+$OMICS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.OMICS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OMICS_SelectMap = @{
+    "Select"=@("Remove-OMICSReadSet",
+               "Stop-OMICSAnnotationImportJob",
+               "Stop-OMICSRun",
+               "Stop-OMICSVariantImportJob",
+               "New-OMICSAnnotationStore",
+               "New-OMICSReferenceStore",
+               "New-OMICSRunGroup",
+               "New-OMICSSequenceStore",
+               "New-OMICSVariantStore",
+               "New-OMICSWorkflow",
+               "Remove-OMICSAnnotationStore",
+               "Remove-OMICSReference",
+               "Remove-OMICSReferenceStore",
+               "Remove-OMICSRun",
+               "Remove-OMICSRunGroup",
+               "Remove-OMICSSequenceStore",
+               "Remove-OMICSVariantStore",
+               "Remove-OMICSWorkflow",
+               "Get-OMICSAnnotationImportJob",
+               "Get-OMICSAnnotationStore",
+               "Get-OMICSReadSet",
+               "Get-OMICSReadSetActivationJob",
+               "Get-OMICSReadSetExportJob",
+               "Get-OMICSReadSetImportJob",
+               "Get-OMICSReadSetMetadata",
+               "Get-OMICSReference",
+               "Get-OMICSReferenceImportJob",
+               "Get-OMICSReferenceMetadata",
+               "Get-OMICSReferenceStore",
+               "Get-OMICSRun",
+               "Get-OMICSRunGroup",
+               "Get-OMICSRunTask",
+               "Get-OMICSSequenceStore",
+               "Get-OMICSVariantImportJob",
+               "Get-OMICSVariantStore",
+               "Get-OMICSWorkflow",
+               "Get-OMICSAnnotationImportJobList",
+               "Get-OMICSAnnotationStoreList",
+               "Get-OMICSReadSetActivationJobList",
+               "Get-OMICSReadSetExportJobList",
+               "Get-OMICSReadSetImportJobList",
+               "Get-OMICSReadSetList",
+               "Get-OMICSReferenceImportJobList",
+               "Get-OMICSReferenceList",
+               "Get-OMICSReferenceStoreList",
+               "Get-OMICSRunGroupList",
+               "Get-OMICSRunList",
+               "Get-OMICSRunTaskList",
+               "Get-OMICSSequenceStoreList",
+               "Get-OMICSResourceTag",
+               "Get-OMICSVariantImportJobList",
+               "Get-OMICSVariantStoreList",
+               "Get-OMICSWorkflowList",
+               "Start-OMICSAnnotationImportJob",
+               "Start-OMICSReadSetActivationJob",
+               "Start-OMICSReadSetExportJob",
+               "Start-OMICSReadSetImportJob",
+               "Start-OMICSReferenceImportJob",
+               "Start-OMICSRun",
+               "Start-OMICSVariantImportJob",
+               "Add-OMICSResourceTag",
+               "Remove-OMICSResourceTag",
+               "Update-OMICSAnnotationStore",
+               "Update-OMICSRunGroup",
+               "Update-OMICSVariantStore",
+               "Update-OMICSWorkflow")
+}
+
+_awsArgumentCompleterRegistration $OMICS_SelectCompleters $OMICS_SelectMap
 # Argument completions for service Amazon OpenSearch Service
 
 
@@ -38863,6 +39243,169 @@ $OS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $OS_SelectCompleters $OS_SelectMap
+# Argument completions for service OpenSearch Serverless
+
+
+$OSS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.OpenSearchServerless.AccessPolicyType
+        {
+            ($_ -eq "Get-OSSAccessPolicy/Type") -Or
+            ($_ -eq "Get-OSSAccessPolicyList/Type") -Or
+            ($_ -eq "New-OSSAccessPolicy/Type") -Or
+            ($_ -eq "Remove-OSSAccessPolicy/Type") -Or
+            ($_ -eq "Update-OSSAccessPolicy/Type")
+        }
+        {
+            $v = "data"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.CollectionStatus
+        "Get-OSSCollectionList/CollectionFilters_Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.CollectionType
+        "New-OSSCollection/Type"
+        {
+            $v = "SEARCH","TIMESERIES"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.SecurityConfigType
+        {
+            ($_ -eq "Get-OSSSecurityConfigList/Type") -Or
+            ($_ -eq "New-OSSSecurityConfig/Type")
+        }
+        {
+            $v = "saml"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.SecurityPolicyType
+        {
+            ($_ -eq "Get-OSSSecurityPolicy/Type") -Or
+            ($_ -eq "Get-OSSSecurityPolicyList/Type") -Or
+            ($_ -eq "New-OSSSecurityPolicy/Type") -Or
+            ($_ -eq "Remove-OSSSecurityPolicy/Type") -Or
+            ($_ -eq "Update-OSSSecurityPolicy/Type")
+        }
+        {
+            $v = "encryption","network"
+            break
+        }
+
+        # Amazon.OpenSearchServerless.VpcEndpointStatus
+        "Get-OSSVpcEndpointList/VpcEndpointFilters_Status"
+        {
+            $v = "ACTIVE","DELETING","FAILED","PENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OSS_map = @{
+    "CollectionFilters_Status"=@("Get-OSSCollectionList")
+    "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSSecurityPolicy")
+    "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
+}
+
+_awsArgumentCompleterRegistration $OSS_Completers $OSS_map
+
+$OSS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.OSS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OSS_SelectMap = @{
+    "Select"=@("Get-OSSGetCollection",
+               "Get-OSSGetVpcEndpoint",
+               "New-OSSAccessPolicy",
+               "New-OSSCollection",
+               "New-OSSSecurityConfig",
+               "New-OSSSecurityPolicy",
+               "New-OSSVpcEndpoint",
+               "Remove-OSSAccessPolicy",
+               "Remove-OSSCollection",
+               "Remove-OSSSecurityConfig",
+               "Remove-OSSSecurityPolicy",
+               "Remove-OSSVpcEndpoint",
+               "Get-OSSAccessPolicy",
+               "Get-OSSAccountSetting",
+               "Get-OSSPoliciesStat",
+               "Get-OSSSecurityConfig",
+               "Get-OSSSecurityPolicy",
+               "Get-OSSAccessPolicyList",
+               "Get-OSSCollectionList",
+               "Get-OSSSecurityConfigList",
+               "Get-OSSSecurityPolicyList",
+               "Get-OSSResourceTag",
+               "Get-OSSVpcEndpointList",
+               "Add-OSSResourceTag",
+               "Remove-OSSResourceTag",
+               "Update-OSSAccessPolicy",
+               "Update-OSSAccountSetting",
+               "Update-OSSCollection",
+               "Update-OSSSecurityConfig",
+               "Update-OSSSecurityPolicy",
+               "Update-OSSVpcEndpoint")
+}
+
+_awsArgumentCompleterRegistration $OSS_SelectCompleters $OSS_SelectMap
 # Argument completions for service AWS OpsWorks
 
 
@@ -48566,6 +49109,138 @@ $SHUB_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SHUB_SelectCompleters $SHUB_SelectMap
+# Argument completions for service Amazon Security Lake
+
+
+$SLK_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SecurityLake.HttpsMethod
+        {
+            ($_ -eq "New-SLKSubscriptionNotificationConfiguration/HttpsMethod") -Or
+            ($_ -eq "Update-SLKSubscriptionNotificationConfiguration/HttpsMethod")
+        }
+        {
+            $v = "POST","PUT"
+            break
+        }
+
+        # Amazon.SecurityLake.OcsfEventClass
+        "New-SLKCustomLogSource/EventClass"
+        {
+            $v = "ACCESS_ACTIVITY","ACCOUNT_CHANGE","AUTHENTICATION","AUTHORIZATION","CLOUD_API","CLOUD_STORAGE","CONFIG_STATE","CONTAINER_LIFECYCLE","DATABASE_LIFECYCLE","DHCP_ACTIVITY","DNS_ACTIVITY","ENTITY_MANAGEMENT_AUDIT","FILE_ACTIVITY","FTP_ACTIVITY","HTTP_ACTIVITY","INVENTORY_INFO","KERNEL_ACTIVITY","KERNEL_EXTENSION","MEMORY_ACTIVITY","MODULE_ACTIVITY","NETWORK_ACTIVITY","PROCESS_ACTIVITY","RDP_ACTIVITY","REGISTRY_KEY_ACTIVITY","REGISTRY_VALUE_ACTIVITY","RESOURCE_ACTIVITY","RFB_ACTIVITY","SCHEDULED_JOB_ACTIVITY","SECURITY_FINDING","SMB_ACTIVITY","SMTP_ACTIVITY","SSH_ACTIVITY","VIRTUAL_MACHINE_ACTIVITY"
+            break
+        }
+
+        # Amazon.SecurityLake.SubscriptionProtocolType
+        {
+            ($_ -eq "New-SLKDatalakeExceptionsSubscription/SubscriptionProtocol") -Or
+            ($_ -eq "Update-SLKDatalakeExceptionsSubscription/SubscriptionProtocol")
+        }
+        {
+            $v = "APP","EMAIL","EMAIL_JSON","FIREHOSE","HTTP","HTTPS","LAMBDA","SMS","SQS"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SLK_map = @{
+    "EventClass"=@("New-SLKCustomLogSource")
+    "HttpsMethod"=@("New-SLKSubscriptionNotificationConfiguration","Update-SLKSubscriptionNotificationConfiguration")
+    "SubscriptionProtocol"=@("New-SLKDatalakeExceptionsSubscription","Update-SLKDatalakeExceptionsSubscription")
+}
+
+_awsArgumentCompleterRegistration $SLK_Completers $SLK_map
+
+$SLK_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SLK.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SLK_SelectMap = @{
+    "Select"=@("New-SLKAwsLogSource",
+               "New-SLKCustomLogSource",
+               "New-SLKDatalake",
+               "New-SLKDatalakeAutoEnable",
+               "New-SLKDatalakeDelegatedAdmin",
+               "New-SLKDatalakeExceptionsSubscription",
+               "New-SLKSubscriber",
+               "New-SLKSubscriptionNotificationConfiguration",
+               "Remove-SLKAwsLogSource",
+               "Remove-SLKCustomLogSource",
+               "Remove-SLKDatalake",
+               "Remove-SLKDatalakeAutoEnable",
+               "Remove-SLKDatalakeDelegatedAdmin",
+               "Remove-SLKDatalakeExceptionsSubscription",
+               "Remove-SLKSubscriber",
+               "Remove-SLKSubscriptionNotificationConfiguration",
+               "Get-SLKDatalake",
+               "Get-SLKDatalakeAutoEnable",
+               "Get-SLKDatalakeExceptionsExpiry",
+               "Get-SLKDatalakeExceptionsSubscription",
+               "Get-SLKDatalakeStatus",
+               "Get-SLKSubscriber",
+               "Get-SLKDatalakeExceptionList",
+               "Get-SLKLogSourceList",
+               "Get-SLKSubscriberList",
+               "Update-SLKDatalake",
+               "Update-SLKDatalakeExceptionsExpiry",
+               "Update-SLKDatalakeExceptionsSubscription",
+               "Update-SLKSubscriber",
+               "Update-SLKSubscriptionNotificationConfiguration")
+}
+
+_awsArgumentCompleterRegistration $SLK_SelectCompleters $SLK_SelectMap
 # Argument completions for service AWS Serverless Application Repository
 
 
@@ -49725,6 +50400,75 @@ $SHLD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SHLD_SelectCompleters $SHLD_SelectMap
+# Argument completions for service AWS SimSpace Weaver
+
+
+$SSW_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SSW.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SSW_SelectMap = @{
+    "Select"=@("Remove-SSWApp",
+               "Remove-SSWSimulation",
+               "Get-SSWApp",
+               "Get-SSWSimulation",
+               "Get-SSWAppList",
+               "Get-SSWSimulationList",
+               "Get-SSWResourceTag",
+               "Start-SSWApp",
+               "Start-SSWClock",
+               "Start-SSWSimulation",
+               "Stop-SSWApp",
+               "Stop-SSWClock",
+               "Stop-SSWSimulation",
+               "Add-SSWResourceTag",
+               "Remove-SSWResourceTag")
+}
+
+_awsArgumentCompleterRegistration $SSW_SelectCompleters $SSW_SelectMap
 # Argument completions for service AWS Server Migration Service
 
 

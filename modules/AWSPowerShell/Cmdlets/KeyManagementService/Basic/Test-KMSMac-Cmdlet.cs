@@ -32,12 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// HMAC KMS key, and MAC algorithm. To verify the HMAC, <code>VerifyMac</code> computes
     /// an HMAC using the message, HMAC KMS key, and MAC algorithm that you specify, and compares
     /// the computed HMAC to the HMAC that you specify. If the HMACs are identical, the verification
-    /// succeeds; otherwise, it fails.
+    /// succeeds; otherwise, it fails. Verification indicates that the message hasn't changed
+    /// since the HMAC was calculated, and the specified key was used to generate and verify
+    /// the HMAC.
     /// 
     ///  
     /// <para>
-    /// Verification indicates that the message hasn't changed since the HMAC was calculated,
-    /// and the specified key was used to generate and verify the HMAC.
+    /// HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry standards
+    /// defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.
     /// </para><para>
     /// This operation is part of KMS support for HMAC KMS keys. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
     /// keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.

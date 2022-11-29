@@ -1,0 +1,3 @@
+﻿# OpenSearchServerless
+
+Export-ModuleMember -Alias *

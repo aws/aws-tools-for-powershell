@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  <note><para>
     /// Adding, deleting, or updating an alias can allow or deny permission to the KMS key.
     /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
-    /// in KMS</a> in the <i>Key Management Service Developer Guide</i>.
+    /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
     /// You can use an alias to identify a KMS key in the KMS console, in the <a>DescribeKey</a>
     /// operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic

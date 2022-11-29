@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>simspaceweaver</C2jFilename>
+    <AssemblyName>SimSpaceWeaver</AssemblyName>
+    <ServiceNounPrefix>SSW</ServiceNounPrefix>
+    <ServiceName>AWS SimSpace Weaver</ServiceName>
+    <ServiceClientInterface>IAmazonSimSpaceWeaver</ServiceClientInterface>
+    <ServiceClient>AmazonSimSpaceWeaverClient</ServiceClient>
+    <ServiceModuleGuid>f7332abf-b0fd-45a4-ae7f-861b4ef5ae35</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteApp" Verb="Remove" Noun="App" AnonymousShouldProcessTarget="true" PipelineParameter="App" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSimulation" Verb="Remove" Noun="Simulation" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApp" OutputProperty="*" Verb="Get" Noun="App" PipelineParameter="App" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSimulation" OutputProperty="*" Verb="Get" Noun="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="Simulation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSimulations" OutputProperty="Simulations" Verb="Get" Noun="SimulationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartApp" OutputProperty="*" Verb="Start" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartClock" Verb="Start" Noun="Clock" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSimulation" OutputProperty="*" Verb="Start" Noun="Simulation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopApp" Verb="Stop" Noun="App" ShouldProcessTarget="App" PipelineParameter="App" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopClock" Verb="Stop" Noun="Clock" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopSimulation" Verb="Stop" Noun="Simulation" ShouldProcessTarget="Simulation" PipelineParameter="Simulation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

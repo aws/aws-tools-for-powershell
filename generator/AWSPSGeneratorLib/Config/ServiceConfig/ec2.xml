@@ -189,6 +189,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachVerifiedAccessTrustProvider" OutputProperty="*" Verb="Mount" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessTrustProviderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AttachVolume" OutputProperty="Attachment" Verb="Add" Noun="Volume" ShouldProcessTarget="InstanceId" PositionalParameters="VolumeId;Device" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -555,6 +559,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVerifiedAccessEndpoint" OutputProperty="VerifiedAccessEndpoint" Verb="New" Noun="VerifiedAccessEndpoint" ShouldProcessTarget="DomainCertificateArn" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVerifiedAccessGroup" OutputProperty="VerifiedAccessGroup" Verb="New" Noun="VerifiedAccessGroup" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVerifiedAccessInstance" OutputProperty="VerifiedAccessInstance" Verb="New" Noun="VerifiedAccessInstance" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVerifiedAccessTrustProvider" OutputProperty="VerifiedAccessTrustProvider" Verb="New" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="PolicyReferenceName" PipelineParameter="TrustProviderType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVolume" OutputProperty="Volume" Verb="New" Noun="Volume" ShouldProcessTarget="SnapshotId" PositionalParameters="Size;AvailabilityZone;VolumeType;Encrypted" PipelineParameter="SnapshotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -834,6 +854,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Remove" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVerifiedAccessEndpoint" OutputProperty="VerifiedAccessEndpoint" Verb="Remove" Noun="VerifiedAccessEndpoint" ShouldProcessTarget="VerifiedAccessEndpointId" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVerifiedAccessGroup" OutputProperty="VerifiedAccessGroup" Verb="Remove" Noun="VerifiedAccessGroup" ShouldProcessTarget="VerifiedAccessGroupId" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVerifiedAccessInstance" OutputProperty="VerifiedAccessInstance" Verb="Remove" Noun="VerifiedAccessInstance" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVerifiedAccessTrustProvider" OutputProperty="VerifiedAccessTrustProvider" Verb="Remove" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="VerifiedAccessTrustProviderId" PipelineParameter="VerifiedAccessTrustProviderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1416,6 +1452,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVerifiedAccessEndpoints" OutputProperty="VerifiedAccessEndpoints" Verb="Get" Noun="VerifiedAccessEndpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVerifiedAccessGroups" OutputProperty="VerifiedAccessGroups" Verb="Get" Noun="VerifiedAccessGroup" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVerifiedAccessInstanceLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="VerifiedAccessInstanceLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVerifiedAccessInstances" OutputProperty="VerifiedAccessInstances" Verb="Get" Noun="VerifiedAccessInstance" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVerifiedAccessTrustProviders" OutputProperty="VerifiedAccessTrustProviders" Verb="Get" Noun="VerifiedAccessTrustProvider" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeVolumeAttribute" OutputProperty="*" Verb="Get" Noun="VolumeAttribute" PositionalParameters="Attribute" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1502,6 +1558,10 @@
             <Params>
                 <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachVerifiedAccessTrustProvider" OutputProperty="*" Verb="Dismount" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="VerifiedAccessTrustProviderId" PipelineParameter="VerifiedAccessTrustProviderId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetachVolume" OutputProperty="Attachment" Verb="Dismount" Noun="Volume" ShouldProcessTarget="InstanceId" PositionalParameters="VolumeId;Device" PipelineParameter="InstanceId" NoPipelineParameter="false">
@@ -1828,6 +1888,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVerifiedAccessEndpointPolicy" OutputProperty="*" Verb="Get" Noun="VerifiedAccessEndpointPolicy" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVerifiedAccessGroupPolicy" OutputProperty="*" Verb="Get" Noun="VerifiedAccessGroupPolicy" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVpnConnectionDeviceSampleConfiguration" OutputProperty="VpnConnectionDeviceSampleConfiguration" Verb="Get" Noun="VpnConnectionDeviceSampleConfiguration" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2053,6 +2121,34 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Edit" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessEndpoint" OutputProperty="VerifiedAccessEndpoint" Verb="Edit" Noun="VerifiedAccessEndpoint" ShouldProcessTarget="VerifiedAccessEndpointId" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessEndpointPolicy" OutputProperty="*" Verb="Edit" Noun="VerifiedAccessEndpointPolicy" ShouldProcessTarget="VerifiedAccessEndpointId" PipelineParameter="VerifiedAccessEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessGroup" OutputProperty="VerifiedAccessGroup" Verb="Edit" Noun="VerifiedAccessGroup" ShouldProcessTarget="VerifiedAccessGroupId" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessGroupPolicy" OutputProperty="*" Verb="Edit" Noun="VerifiedAccessGroupPolicy" ShouldProcessTarget="VerifiedAccessGroupId" PipelineParameter="VerifiedAccessGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessInstance" OutputProperty="VerifiedAccessInstance" Verb="Edit" Noun="VerifiedAccessInstance" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessInstanceLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Edit" Noun="VerifiedAccessInstanceLoggingConfiguration" ShouldProcessTarget="VerifiedAccessInstanceId" PipelineParameter="VerifiedAccessInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVerifiedAccessTrustProvider" OutputProperty="VerifiedAccessTrustProvider" Verb="Edit" Noun="VerifiedAccessTrustProvider" ShouldProcessTarget="VerifiedAccessTrustProviderId" PipelineParameter="VerifiedAccessTrustProviderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

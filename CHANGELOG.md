@@ -1,4 +1,43 @@
-﻿### 4.1.216 (2022-11-29 11:53Z)
+﻿### 4.1.217 (2022-11-29 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.427.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Dismount-EC2VerifiedAccessTrustProvider leveraging the DetachVerifiedAccessTrustProvider service API.
+    * Added cmdlet Edit-EC2VerifiedAccessEndpoint leveraging the ModifyVerifiedAccessEndpoint service API.
+    * Added cmdlet Edit-EC2VerifiedAccessEndpointPolicy leveraging the ModifyVerifiedAccessEndpointPolicy service API.
+    * Added cmdlet Edit-EC2VerifiedAccessGroup leveraging the ModifyVerifiedAccessGroup service API.
+    * Added cmdlet Edit-EC2VerifiedAccessGroupPolicy leveraging the ModifyVerifiedAccessGroupPolicy service API.
+    * Added cmdlet Edit-EC2VerifiedAccessInstance leveraging the ModifyVerifiedAccessInstance service API.
+    * Added cmdlet Edit-EC2VerifiedAccessInstanceLoggingConfiguration leveraging the ModifyVerifiedAccessInstanceLoggingConfiguration service API.
+    * Added cmdlet Edit-EC2VerifiedAccessTrustProvider leveraging the ModifyVerifiedAccessTrustProvider service API.
+    * Added cmdlet Get-EC2VerifiedAccessEndpoint leveraging the DescribeVerifiedAccessEndpoints service API.
+    * Added cmdlet Get-EC2VerifiedAccessEndpointPolicy leveraging the GetVerifiedAccessEndpointPolicy service API.
+    * Added cmdlet Get-EC2VerifiedAccessGroup leveraging the DescribeVerifiedAccessGroups service API.
+    * Added cmdlet Get-EC2VerifiedAccessGroupPolicy leveraging the GetVerifiedAccessGroupPolicy service API.
+    * Added cmdlet Get-EC2VerifiedAccessInstance leveraging the DescribeVerifiedAccessInstances service API.
+    * Added cmdlet Get-EC2VerifiedAccessInstanceLoggingConfiguration leveraging the DescribeVerifiedAccessInstanceLoggingConfigurations service API.
+    * Added cmdlet Get-EC2VerifiedAccessTrustProvider leveraging the DescribeVerifiedAccessTrustProviders service API.
+    * Added cmdlet Mount-EC2VerifiedAccessTrustProvider leveraging the AttachVerifiedAccessTrustProvider service API.
+    * Added cmdlet New-EC2VerifiedAccessEndpoint leveraging the CreateVerifiedAccessEndpoint service API.
+    * Added cmdlet New-EC2VerifiedAccessGroup leveraging the CreateVerifiedAccessGroup service API.
+    * Added cmdlet New-EC2VerifiedAccessInstance leveraging the CreateVerifiedAccessInstance service API.
+    * Added cmdlet New-EC2VerifiedAccessTrustProvider leveraging the CreateVerifiedAccessTrustProvider service API.
+    * Added cmdlet Remove-EC2VerifiedAccessEndpoint leveraging the DeleteVerifiedAccessEndpoint service API.
+    * Added cmdlet Remove-EC2VerifiedAccessGroup leveraging the DeleteVerifiedAccessGroup service API.
+    * Added cmdlet Remove-EC2VerifiedAccessInstance leveraging the DeleteVerifiedAccessInstance service API.
+    * Added cmdlet Remove-EC2VerifiedAccessTrustProvider leveraging the DeleteVerifiedAccessTrustProvider service API.
+  * Amazon Key Management Service
+    * Modified cmdlet New-KMSCustomKeyStore: added parameters CustomKeyStoreType, XksProxyAuthenticationCredential_AccessKeyId, XksProxyAuthenticationCredential_RawSecretAccessKey, XksProxyConnectivity, XksProxyUriEndpoint, XksProxyUriPath and XksProxyVpcEndpointServiceName.
+    * Modified cmdlet New-KMSKey: added parameter XksKeyId.
+    * Modified cmdlet Update-KMSCustomKeyStore: added parameters XksProxyAuthenticationCredential_AccessKeyId, XksProxyAuthenticationCredential_RawSecretAccessKey, XksProxyConnectivity, XksProxyUriEndpoint, XksProxyUriPath and XksProxyVpcEndpointServiceName.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_IntervalInSeconds, AmazonOpenSearchServerlessDestinationConfiguration_BufferingHints_SizeInMBs, AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_Enabled, AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName, AmazonOpenSearchServerlessDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName, AmazonOpenSearchServerlessDestinationConfiguration_CollectionEndpoint, AmazonOpenSearchServerlessDestinationConfiguration_IndexName, AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Enabled, AmazonOpenSearchServerlessDestinationConfiguration_ProcessingConfiguration_Processors, AmazonOpenSearchServerlessDestinationConfiguration_RetryOptions_DurationInSeconds, AmazonOpenSearchServerlessDestinationConfiguration_RoleARN, AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode, AmazonOpenSearchServerlessDestinationConfiguration_S3Configuration, AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_RoleARN, AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds and AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds.
+    * Modified cmdlet Update-KINFDestination: added parameters AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_IntervalInSeconds, AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_SizeInMBs, AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_Enabled, AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogGroupName, AmazonOpenSearchServerlessDestinationUpdate_CloudWatchLoggingOptions_LogStreamName, AmazonOpenSearchServerlessDestinationUpdate_CollectionEndpoint, AmazonOpenSearchServerlessDestinationUpdate_IndexName, AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Enabled, AmazonOpenSearchServerlessDestinationUpdate_ProcessingConfiguration_Processors, AmazonOpenSearchServerlessDestinationUpdate_RetryOptions_DurationInSeconds, AmazonOpenSearchServerlessDestinationUpdate_RoleARN and AmazonOpenSearchServerlessDestinationUpdate_S3Update.
+  * Amazon Omics. Added cmdlets to support the service. Cmdlets for the service have the noun prefix OMICS and can be listed using the command 'Get-AWSCmdletName -Service OMICS'.
+  * Amazon OpenSearch Serverless. Added cmdlets to support the service. Cmdlets for the service have the noun prefix OSS and can be listed using the command 'Get-AWSCmdletName -Service OSS'.
+  * Amazon Security Lake. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SLK and can be listed using the command 'Get-AWSCmdletName -Service SLK'.
+  * Amazon SimSpace Weaver. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SSW and can be listed using the command 'Get-AWSCmdletName -Service SSW'.
+
+### 4.1.216 (2022-11-29 11:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.426.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.215 (2022-11-28 05:44Z)

@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// random byte string. There is no default value for string length.
     /// </para><para>
     /// By default, the random byte string is generated in KMS. To generate the byte string
-    /// in the CloudHSM cluster that is associated with a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a>, specify the custom key store ID.
+    /// in the CloudHSM cluster associated with an CloudHSM key store, use the <code>CustomKeyStoreId</code>
+    /// parameter.
     /// </para><para>
     /// Applications in Amazon Web Services Nitro Enclaves can call this operation by using
     /// the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services
@@ -68,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Generates the random byte string in the CloudHSM cluster that is associated with the
-        /// specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-        /// key store</a>. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a>
-        /// operation.</para>
+        /// specified CloudHSM key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a>
+        /// operation.</para><para>External key store IDs are not valid for this parameter. If you specify the ID of
+        /// an external key store, <code>GenerateRandom</code> throws an <code>UnsupportedOperationException</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,24 +29,31 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a> from its associated CloudHSM cluster. While a custom key store is disconnected,
-    /// you can manage the custom key store and its KMS keys, but you cannot create or use
-    /// KMS keys in the custom key store. You can reconnect the custom key store at any time.
+    /// key store</a> from its backing key store. This operation disconnects an CloudHSM key
+    /// store from its associated CloudHSM cluster or disconnects an external key store from
+    /// the external key store proxy that communicates with your external key manager.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    ///  This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// key stores</a> feature in KMS, which combines the convenience and extensive integration
+    /// of KMS with the isolation and control of a key store that you own and manage.
+    /// </para><para>
+    /// While a custom key store is disconnected, you can manage the custom key store and
+    /// its KMS keys, but you cannot create or use its KMS keys. You can reconnect the custom
+    /// key store at any time.
+    /// </para><note><para>
     /// While a custom key store is disconnected, all attempts to create KMS keys in the custom
     /// key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
     /// operations</a> will fail. This action can prevent users from storing and accessing
     /// sensitive data.
     /// </para></note><para>
-    /// To find the connection state of a custom key store, use the <a>DescribeCustomKeyStores</a>
-    /// operation. To reconnect a custom key store, use the <a>ConnectCustomKeyStore</a> operation.
+    /// When you disconnect a custom key store, its <code>ConnectionState</code> changes to
+    /// <code>Disconnected</code>. To find the connection state of a custom key store, use
+    /// the <a>DescribeCustomKeyStores</a> operation. To reconnect a custom key store, use
+    /// the <a>ConnectCustomKeyStore</a> operation.
     /// </para><para>
     /// If the operation succeeds, it returns a JSON object with no properties.
-    /// </para><para>
-    /// This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store feature</a> feature in KMS, which combines the convenience and extensive
-    /// integration of KMS with the isolation and control of a single-tenant key store.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a custom key store
     /// in a different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a>

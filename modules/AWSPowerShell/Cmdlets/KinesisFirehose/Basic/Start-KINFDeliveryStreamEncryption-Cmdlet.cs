@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify
-        /// the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>AWS_OWNED_CMK</code>,
-        /// Kinesis Data Firehose uses a service-account CMK.</para>
+        /// the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>Amazon
+        /// Web Services_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Indicates the type of customer master key (CMK) to use for encryption. The default
-        /// setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
+        /// setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about
+        /// CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
         /// Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a>
         /// with <code>KeyType</code> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes
         /// the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>
@@ -132,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
         /// support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
-        /// Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer guide.</para></important>
+        /// Symmetric and Asymmetric CMKs</a> in the Amazon Web Services Key Management Service
+        /// developer guide.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

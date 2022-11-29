@@ -44,11 +44,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// KMS operation. You also reduce of risk of encrypting data that cannot be decrypted.
     /// These features are not effective outside of KMS.
     /// </para><para>
-    /// To verify a signature outside of KMS with an SM2 public key (China Regions only),
-    /// you must specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code>
-    /// as the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
-    /// verification with SM2 key pairs</a>.
-    /// </para><para>
     /// To help you use the public key safely outside of KMS, <code>GetPublicKey</code> returns
     /// important information about the public key in the response, including:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeySpec">KeySpec</a>:
@@ -65,6 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// prevent a public key from being used with an encryption algorithm that is not supported
     /// by KMS. You can also avoid errors, such as using the wrong signing algorithm in a
     /// verification operation.
+    /// </para><para>
+    /// To verify a signature outside of KMS with an SM2 public key (China Regions only),
+    /// you must specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code>
+    /// as the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+    /// verification with SM2 key pairs</a>.
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key

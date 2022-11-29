@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// retire the grant due to a customer error, such as when the CMK or the grant are in
         /// an invalid state. If you force deletion, you can then use the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a>
         /// operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire
-        /// the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the
-        /// delete operation.</para><para>The default value is false.</para>
+        /// the grant happens due to an Amazon Web Services KMS issue, Kinesis Data Firehose keeps
+        /// retrying the delete operation.</para><para>The default value is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

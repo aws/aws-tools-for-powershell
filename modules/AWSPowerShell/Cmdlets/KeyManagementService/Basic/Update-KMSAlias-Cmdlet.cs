@@ -35,13 +35,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     ///  <note><para>
     /// Adding, deleting, or updating an alias can allow or deny permission to the KMS key.
     /// For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
-    /// in KMS</a> in the <i>Key Management Service Developer Guide</i>.
+    /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para></note><para>
-    /// The current and new KMS key must be the same type (both symmetric or both asymmetric),
-    /// and they must have the same key usage (<code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>).
-    /// This restriction prevents errors in code that uses aliases. If you must assign an
-    /// alias to a different type of KMS key, use <a>DeleteAlias</a> to delete the old alias
-    /// and <a>CreateAlias</a> to create a new alias.
+    /// The current and new KMS key must be the same type (both symmetric or both asymmetric
+    /// or both HMAC), and they must have the same key usage. This restriction prevents errors
+    /// in code that uses aliases. If you must assign an alias to a different type of KMS
+    /// key, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create
+    /// a new alias.
     /// </para><para>
     /// You cannot use <code>UpdateAlias</code> to change an alias name. To change an alias
     /// name, use <a>DeleteAlias</a> to delete the old alias and <a>CreateAlias</a> to create
@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
         /// Web Services managed key</a>.</para><para>The KMS key must be in the same Amazon Web Services account and Region as the alias.
         /// Also, the new target KMS key must be the same type as the current target KMS key (both
-        /// symmetric or both asymmetric) and they must have the same key usage. </para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</para>
+        /// symmetric or both asymmetric or both HMAC) and they must have the same key usage.
+        /// </para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

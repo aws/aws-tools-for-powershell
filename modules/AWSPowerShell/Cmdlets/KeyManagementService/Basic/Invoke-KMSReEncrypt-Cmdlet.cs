@@ -63,10 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// encrypted under a different KMS key, the <code>ReEncrypt</code> operation fails. This
     /// practice ensures that you use the KMS key that you intend.
     /// </para></li><li><para>
-    /// To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter specify
-    /// the KMS key that re-encrypts the data after it is decrypted. If the destination KMS
-    /// key is an asymmetric KMS key, you must also provide the encryption algorithm. The
-    /// algorithm that you choose must be compatible with the KMS key.
+    /// To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter to
+    /// specify the KMS key that re-encrypts the data after it is decrypted. If the destination
+    /// KMS key is an asymmetric KMS key, you must also provide the encryption algorithm.
+    /// The algorithm that you choose must be compatible with the KMS key.
     /// </para><important><para>
     /// When you use an asymmetric KMS key to encrypt or reencrypt data, be sure to record
     /// the KMS key and encryption algorithm that you choose. You will be required to provide

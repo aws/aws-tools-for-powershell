@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message.
         /// The algorithm must be compatible with the KMS key that you specify.</para><para>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>,
         /// is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric
-        /// KMS key, we recommend RSAES_OAEP_SHA_256.</para>
+        /// KMS key, we recommend RSAES_OAEP_SHA_256.</para><para>The SM2PKE algorithm is only available in China Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

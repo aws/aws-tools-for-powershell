@@ -80,6 +80,13 @@ $KINF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.KinesisFirehose.AmazonOpenSearchServerlessS3BackupMode
+        "New-KINFDeliveryStream/AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode"
+        {
+            $v = "AllDocuments","FailedDocumentsOnly"
+            break
+        }
+
         # Amazon.KinesisFirehose.AmazonopensearchserviceIndexRotationPeriod
         {
             ($_ -eq "New-KINFDeliveryStream/AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod") -Or
@@ -163,6 +170,7 @@ $KINF_Completers = {
 }
 
 $KINF_map = @{
+    "AmazonOpenSearchServerlessDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "AmazonopensearchserviceDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")

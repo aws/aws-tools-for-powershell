@@ -724,6 +724,12 @@
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OAM.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Omics">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Omics.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.OpenSearchServerless">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpenSearchServerless.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpenSearchService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OpenSearchService.dll</HintPath>
     </Reference>
@@ -880,6 +886,9 @@
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityHub.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SecurityLake">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityLake.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
@@ -915,6 +924,9 @@
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimpleWorkflow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimSpaceWeaver">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SimSpaceWeaver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Snowball.dll</HintPath>
@@ -1680,6 +1692,12 @@
     <Reference Include="AWSSDK.OAM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OAM.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Omics">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Omics.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.OpenSearchServerless">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpenSearchServerless.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpenSearchService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OpenSearchService.dll</HintPath>
     </Reference>
@@ -1836,6 +1854,9 @@
     <Reference Include="AWSSDK.SecurityHub">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityHub.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SecurityLake">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityLake.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
@@ -1871,6 +1892,9 @@
     </Reference>
     <Reference Include="AWSSDK.SimpleWorkflow">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimpleWorkflow.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimSpaceWeaver">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SimSpaceWeaver.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Snowball.dll</HintPath>
