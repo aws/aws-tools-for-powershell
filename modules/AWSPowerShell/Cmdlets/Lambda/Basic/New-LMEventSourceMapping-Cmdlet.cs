@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> - The ARN of the queue.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> - The ARN of the queue.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</para></li><li><para><b>Amazon MQ</b> - The ARN of the broker.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

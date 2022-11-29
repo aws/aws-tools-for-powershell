@@ -124,6 +124,39 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.AggregationFindingType FindingTypeAggregation_FindingType { get; set; }
         #endregion
         
+        #region Parameter LambdaFunctionAggregation_FunctionName
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Lambda function names to include in the aggregation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaFunctionAggregation_FunctionNames")]
+        public Amazon.Inspector2.Model.StringFilter[] LambdaFunctionAggregation_FunctionName { get; set; }
+        #endregion
+        
+        #region Parameter LambdaLayerAggregation_FunctionName
+        /// <summary>
+        /// <para>
+        /// <para>The names of the AWS Lambda functions associated with the layers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaLayerAggregation_FunctionNames")]
+        public Amazon.Inspector2.Model.StringFilter[] LambdaLayerAggregation_FunctionName { get; set; }
+        #endregion
+        
+        #region Parameter LambdaFunctionAggregation_FunctionTag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to include in the aggregation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaFunctionAggregation_FunctionTags")]
+        public Amazon.Inspector2.Model.MapFilter[] LambdaFunctionAggregation_FunctionTag { get; set; }
+        #endregion
+        
         #region Parameter AwsEcrContainerAggregation_ImageSha
         /// <summary>
         /// <para>
@@ -166,6 +199,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AggregationRequest_Ec2InstanceAggregation_InstanceTags")]
         public Amazon.Inspector2.Model.MapFilter[] Ec2InstanceAggregation_InstanceTag { get; set; }
+        #endregion
+        
+        #region Parameter LambdaLayerAggregation_LayerArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Lambda function layer. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaLayerAggregation_LayerArns")]
+        public Amazon.Inspector2.Model.StringFilter[] LambdaLayerAggregation_LayerArn { get; set; }
         #endregion
         
         #region Parameter ImageLayerAggregation_LayerHash
@@ -257,6 +301,28 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] ImageLayerAggregation_ResourceId { get; set; }
         #endregion
         
+        #region Parameter LambdaFunctionAggregation_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource IDs to include in the aggregation results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaFunctionAggregation_ResourceIds")]
+        public Amazon.Inspector2.Model.StringFilter[] LambdaFunctionAggregation_ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter LambdaLayerAggregation_ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource IDs for the AWS Lambda function layers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaLayerAggregation_ResourceIds")]
+        public Amazon.Inspector2.Model.StringFilter[] LambdaLayerAggregation_ResourceId { get; set; }
+        #endregion
+        
         #region Parameter AccountAggregation_ResourceType
         /// <summary>
         /// <para>
@@ -291,6 +357,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_TitleAggregation_ResourceType")]
         [AWSConstantClassSource("Amazon.Inspector2.AggregationResourceType")]
         public Amazon.Inspector2.AggregationResourceType TitleAggregation_ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter LambdaFunctionAggregation_Runtime
+        /// <summary>
+        /// <para>
+        /// <para>Returns findings aggregated by AWS Lambda function runtime environments.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaFunctionAggregation_Runtimes")]
+        public Amazon.Inspector2.Model.StringFilter[] LambdaFunctionAggregation_Runtime { get; set; }
         #endregion
         
         #region Parameter AccountAggregation_SortBy
@@ -363,6 +440,30 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_ImageLayerAggregation_SortBy")]
         [AWSConstantClassSource("Amazon.Inspector2.ImageLayerSortBy")]
         public Amazon.Inspector2.ImageLayerSortBy ImageLayerAggregation_SortBy { get; set; }
+        #endregion
+        
+        #region Parameter LambdaFunctionAggregation_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The finding severity to use for sorting the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaFunctionAggregation_SortBy")]
+        [AWSConstantClassSource("Amazon.Inspector2.LambdaFunctionSortBy")]
+        public Amazon.Inspector2.LambdaFunctionSortBy LambdaFunctionAggregation_SortBy { get; set; }
+        #endregion
+        
+        #region Parameter LambdaLayerAggregation_SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The finding severity to use for sorting the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaLayerAggregation_SortBy")]
+        [AWSConstantClassSource("Amazon.Inspector2.LambdaLayerSortBy")]
+        public Amazon.Inspector2.LambdaLayerSortBy LambdaLayerAggregation_SortBy { get; set; }
         #endregion
         
         #region Parameter PackageAggregation_SortBy
@@ -471,6 +572,30 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         [Alias("AggregationRequest_ImageLayerAggregation_SortOrder")]
         [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
         public Amazon.Inspector2.SortOrder ImageLayerAggregation_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter LambdaFunctionAggregation_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order to use for sorting the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaFunctionAggregation_SortOrder")]
+        [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
+        public Amazon.Inspector2.SortOrder LambdaFunctionAggregation_SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter LambdaLayerAggregation_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order to use for sorting the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AggregationRequest_LambdaLayerAggregation_SortOrder")]
+        [AWSConstantClassSource("Amazon.Inspector2.SortOrder")]
+        public Amazon.Inspector2.SortOrder LambdaLayerAggregation_SortOrder { get; set; }
         #endregion
         
         #region Parameter PackageAggregation_SortOrder
@@ -672,6 +797,38 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             }
             context.ImageLayerAggregation_SortBy = this.ImageLayerAggregation_SortBy;
             context.ImageLayerAggregation_SortOrder = this.ImageLayerAggregation_SortOrder;
+            if (this.LambdaFunctionAggregation_FunctionName != null)
+            {
+                context.LambdaFunctionAggregation_FunctionName = new List<Amazon.Inspector2.Model.StringFilter>(this.LambdaFunctionAggregation_FunctionName);
+            }
+            if (this.LambdaFunctionAggregation_FunctionTag != null)
+            {
+                context.LambdaFunctionAggregation_FunctionTag = new List<Amazon.Inspector2.Model.MapFilter>(this.LambdaFunctionAggregation_FunctionTag);
+            }
+            if (this.LambdaFunctionAggregation_ResourceId != null)
+            {
+                context.LambdaFunctionAggregation_ResourceId = new List<Amazon.Inspector2.Model.StringFilter>(this.LambdaFunctionAggregation_ResourceId);
+            }
+            if (this.LambdaFunctionAggregation_Runtime != null)
+            {
+                context.LambdaFunctionAggregation_Runtime = new List<Amazon.Inspector2.Model.StringFilter>(this.LambdaFunctionAggregation_Runtime);
+            }
+            context.LambdaFunctionAggregation_SortBy = this.LambdaFunctionAggregation_SortBy;
+            context.LambdaFunctionAggregation_SortOrder = this.LambdaFunctionAggregation_SortOrder;
+            if (this.LambdaLayerAggregation_FunctionName != null)
+            {
+                context.LambdaLayerAggregation_FunctionName = new List<Amazon.Inspector2.Model.StringFilter>(this.LambdaLayerAggregation_FunctionName);
+            }
+            if (this.LambdaLayerAggregation_LayerArn != null)
+            {
+                context.LambdaLayerAggregation_LayerArn = new List<Amazon.Inspector2.Model.StringFilter>(this.LambdaLayerAggregation_LayerArn);
+            }
+            if (this.LambdaLayerAggregation_ResourceId != null)
+            {
+                context.LambdaLayerAggregation_ResourceId = new List<Amazon.Inspector2.Model.StringFilter>(this.LambdaLayerAggregation_ResourceId);
+            }
+            context.LambdaLayerAggregation_SortBy = this.LambdaLayerAggregation_SortBy;
+            context.LambdaLayerAggregation_SortOrder = this.LambdaLayerAggregation_SortOrder;
             if (this.PackageAggregation_PackageName != null)
             {
                 context.PackageAggregation_PackageName = new List<Amazon.Inspector2.Model.StringFilter>(this.PackageAggregation_PackageName);
@@ -1038,6 +1195,71 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.AggregationRequest.ImageLayerAggregation = requestAggregationRequest_aggregationRequest_ImageLayerAggregation;
                 requestAggregationRequestIsNull = false;
             }
+            Amazon.Inspector2.Model.LambdaLayerAggregation requestAggregationRequest_aggregationRequest_LambdaLayerAggregation = null;
+            
+             // populate LambdaLayerAggregation
+            var requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_LambdaLayerAggregation = new Amazon.Inspector2.Model.LambdaLayerAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_FunctionName = null;
+            if (cmdletContext.LambdaLayerAggregation_FunctionName != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_FunctionName = cmdletContext.LambdaLayerAggregation_FunctionName;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_FunctionName != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation.FunctionNames = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_FunctionName;
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_LayerArn = null;
+            if (cmdletContext.LambdaLayerAggregation_LayerArn != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_LayerArn = cmdletContext.LambdaLayerAggregation_LayerArn;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_LayerArn != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation.LayerArns = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_LayerArn;
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_ResourceId = null;
+            if (cmdletContext.LambdaLayerAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_ResourceId = cmdletContext.LambdaLayerAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull = false;
+            }
+            Amazon.Inspector2.LambdaLayerSortBy requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortBy = null;
+            if (cmdletContext.LambdaLayerAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortBy = cmdletContext.LambdaLayerAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation.SortBy = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortOrder = null;
+            if (cmdletContext.LambdaLayerAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortOrder = cmdletContext.LambdaLayerAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation.SortOrder = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation_lambdaLayerAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_LambdaLayerAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaLayerAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaLayerAggregation != null)
+            {
+                request.AggregationRequest.LambdaLayerAggregation = requestAggregationRequest_aggregationRequest_LambdaLayerAggregation;
+                requestAggregationRequestIsNull = false;
+            }
             Amazon.Inspector2.Model.TitleAggregation requestAggregationRequest_aggregationRequest_TitleAggregation = null;
             
              // populate TitleAggregation
@@ -1176,6 +1398,81 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAggregationRequest_aggregationRequest_Ec2InstanceAggregation != null)
             {
                 request.AggregationRequest.Ec2InstanceAggregation = requestAggregationRequest_aggregationRequest_Ec2InstanceAggregation;
+                requestAggregationRequestIsNull = false;
+            }
+            Amazon.Inspector2.Model.LambdaFunctionAggregation requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation = null;
+            
+             // populate LambdaFunctionAggregation
+            var requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = true;
+            requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation = new Amazon.Inspector2.Model.LambdaFunctionAggregation();
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionName = null;
+            if (cmdletContext.LambdaFunctionAggregation_FunctionName != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionName = cmdletContext.LambdaFunctionAggregation_FunctionName;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionName != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation.FunctionNames = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionName;
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.MapFilter> requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionTag = null;
+            if (cmdletContext.LambdaFunctionAggregation_FunctionTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionTag = cmdletContext.LambdaFunctionAggregation_FunctionTag;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionTag != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation.FunctionTags = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_FunctionTag;
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_ResourceId = null;
+            if (cmdletContext.LambdaFunctionAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_ResourceId = cmdletContext.LambdaFunctionAggregation_ResourceId;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_ResourceId != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation.ResourceIds = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_ResourceId;
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_Runtime = null;
+            if (cmdletContext.LambdaFunctionAggregation_Runtime != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_Runtime = cmdletContext.LambdaFunctionAggregation_Runtime;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_Runtime != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation.Runtimes = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_Runtime;
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = false;
+            }
+            Amazon.Inspector2.LambdaFunctionSortBy requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortBy = null;
+            if (cmdletContext.LambdaFunctionAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortBy = cmdletContext.LambdaFunctionAggregation_SortBy;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortBy != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation.SortBy = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortBy;
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = false;
+            }
+            Amazon.Inspector2.SortOrder requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortOrder = null;
+            if (cmdletContext.LambdaFunctionAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortOrder = cmdletContext.LambdaFunctionAggregation_SortOrder;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortOrder != null)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation.SortOrder = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation_lambdaFunctionAggregation_SortOrder;
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull = false;
+            }
+             // determine if requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation should be set to null
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregationIsNull)
+            {
+                requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation = null;
+            }
+            if (requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation != null)
+            {
+                request.AggregationRequest.LambdaFunctionAggregation = requestAggregationRequest_aggregationRequest_LambdaFunctionAggregation;
                 requestAggregationRequestIsNull = false;
             }
             Amazon.Inspector2.Model.AwsEcrContainerAggregation requestAggregationRequest_aggregationRequest_AwsEcrContainerAggregation = null;
@@ -1371,6 +1668,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> ImageLayerAggregation_ResourceId { get; set; }
             public Amazon.Inspector2.ImageLayerSortBy ImageLayerAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder ImageLayerAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> LambdaFunctionAggregation_FunctionName { get; set; }
+            public List<Amazon.Inspector2.Model.MapFilter> LambdaFunctionAggregation_FunctionTag { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> LambdaFunctionAggregation_ResourceId { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> LambdaFunctionAggregation_Runtime { get; set; }
+            public Amazon.Inspector2.LambdaFunctionSortBy LambdaFunctionAggregation_SortBy { get; set; }
+            public Amazon.Inspector2.SortOrder LambdaFunctionAggregation_SortOrder { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> LambdaLayerAggregation_FunctionName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> LambdaLayerAggregation_LayerArn { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> LambdaLayerAggregation_ResourceId { get; set; }
+            public Amazon.Inspector2.LambdaLayerSortBy LambdaLayerAggregation_SortBy { get; set; }
+            public Amazon.Inspector2.SortOrder LambdaLayerAggregation_SortOrder { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> PackageAggregation_PackageName { get; set; }
             public Amazon.Inspector2.PackageSortBy PackageAggregation_SortBy { get; set; }
             public Amazon.Inspector2.SortOrder PackageAggregation_SortOrder { get; set; }

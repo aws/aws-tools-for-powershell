@@ -3855,6 +3855,92 @@ $PROM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PROM_SelectCompleters $PROM_SelectMap
+# Argument completions for service AWS ARC - Zonal Shift
+
+
+$AZS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ARCZonalShift.ZonalShiftStatus
+        "Get-AZSZonalShiftList/Status"
+        {
+            $v = "ACTIVE","CANCELED","EXPIRED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AZS_map = @{
+    "Status"=@("Get-AZSZonalShiftList")
+}
+
+_awsArgumentCompleterRegistration $AZS_Completers $AZS_map
+
+$AZS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AZS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AZS_SelectMap = @{
+    "Select"=@("Stop-AZSZonalShift",
+               "Get-AZSManagedResource",
+               "Get-AZSManagedResourceList",
+               "Get-AZSZonalShiftList",
+               "Start-AZSZonalShift",
+               "Update-AZSZonalShift")
+}
+
+_awsArgumentCompleterRegistration $AZS_SelectCompleters $AZS_SelectMap
 # Argument completions for service Amazon Athena
 
 
@@ -12098,6 +12184,13 @@ $CO_Completers = {
             break
         }
 
+        # Amazon.ComputeOptimizer.ExternalMetricsSource
+        "Write-CORecommendationPreference/ExternalMetricsPreference_Source"
+        {
+            $v = "Datadog","Dynatrace","Instana","NewRelic"
+            break
+        }
+
         # Amazon.ComputeOptimizer.FileFormat
         {
             ($_ -eq "Export-COAutoScalingGroupRecommendation/FileFormat") -Or
@@ -12163,6 +12256,7 @@ $CO_Completers = {
 
 $CO_map = @{
     "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
+    "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
     "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COLambdaFunctionRecommendation")
     "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
@@ -12300,6 +12394,17 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.EvaluationMode
+        {
+            ($_ -eq "Start-CFGResourceEvaluation/EvaluationMode") -Or
+            ($_ -eq "Get-CFGConfigRule/Filters_EvaluationMode") -Or
+            ($_ -eq "Get-CFGResourceEvaluationList/Filters_EvaluationMode")
+        }
+        {
+            $v = "DETECTIVE","PROACTIVE"
+            break
+        }
+
         # Amazon.ConfigService.MaximumExecutionFrequency
         {
             ($_ -eq "Write-CFGConfigRule/ConfigRule_MaximumExecutionFrequency") -Or
@@ -12331,6 +12436,13 @@ $CFG_Completers = {
         "Write-CFGConfigRule/ConfigRule_Source_Owner"
         {
             $v = "AWS","CUSTOM_LAMBDA","CUSTOM_POLICY"
+            break
+        }
+
+        # Amazon.ConfigService.ResourceConfigurationSchemaType
+        "Start-CFGResourceEvaluation/ResourceDetails_ResourceConfigurationSchemaType"
+        {
+            $v = "CFN_RESOURCE_SCHEMA"
             break
         }
 
@@ -12383,8 +12495,10 @@ $CFG_map = @{
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
+    "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")
     "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList","Get-CFGAggregateComplianceByConformancePack","Get-CFGConformancePackCompliance","Get-CFGConformancePackComplianceDetail")
+    "Filters_EvaluationMode"=@("Get-CFGConfigRule","Get-CFGResourceEvaluationList")
     "Filters_MemberAccountRuleStatus"=@("Get-CFGOrganizationConfigRuleDetailedStatus")
     "Filters_ResourceType"=@("Get-CFGAggregateDiscoveredResourceCount")
     "Filters_Status"=@("Get-CFGOrganizationConformancePackDetailedStatus")
@@ -12392,6 +12506,7 @@ $CFG_map = @{
     "OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationCustomRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationManagedRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
+    "ResourceDetails_ResourceConfigurationSchemaType"=@("Start-CFGResourceEvaluation")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
     "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
@@ -12508,10 +12623,12 @@ $CFG_SelectMap = @{
                "Get-CFGOrganizationConformancePackDetailedStatus",
                "Get-CFGOrganizationCustomRulePolicy",
                "Get-CFGResourceConfigHistory",
+               "Get-CFGResourceEvaluationSummary",
                "Get-CFGStoredQuery",
                "Get-CFGAggregateDiscoveredResourceList",
                "Get-CFGConformancePackComplianceScoreList",
                "Get-CFGDiscoveredResource",
+               "Get-CFGResourceEvaluationList",
                "Get-CFGStoredQueryList",
                "Get-CFGResourceTag",
                "Write-CFGAggregationAuthorization",
@@ -12534,6 +12651,7 @@ $CFG_SelectMap = @{
                "Start-CFGConfigRulesEvaluation",
                "Start-CFGConfigurationRecorder",
                "Start-CFGRemediationExecution",
+               "Start-CFGResourceEvaluation",
                "Stop-CFGConfigurationRecorder",
                "Add-CFGResourceTag",
                "Remove-CFGResourceTag")
@@ -17557,6 +17675,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.MetricType
+        {
+            ($_ -eq "Disable-EC2AwsNetworkPerformanceMetricSubscription/Metric") -Or
+            ($_ -eq "Enable-EC2AwsNetworkPerformanceMetricSubscription/Metric")
+        }
+        {
+            $v = "aggregate-latency"
+            break
+        }
+
         # Amazon.EC2.ModifyAvailabilityZoneOptInStatus
         "Edit-EC2AvailabilityZoneGroup/OptInStatus"
         {
@@ -17756,6 +17884,16 @@ $EC2_Completers = {
         "New-EC2TransitGatewayMulticastDomain/Options_StaticSourcesSupport"
         {
             $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.StatisticType
+        {
+            ($_ -eq "Disable-EC2AwsNetworkPerformanceMetricSubscription/Statistic") -Or
+            ($_ -eq "Enable-EC2AwsNetworkPerformanceMetricSubscription/Statistic")
+        }
+        {
+            $v = "p50"
             break
         }
 
@@ -17966,6 +18104,7 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpTokens"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTags"=@("New-EC2Instance")
+    "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -18010,6 +18149,7 @@ $EC2_map = @{
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
     "SpreadLevel"=@("New-EC2PlacementGroup")
+    "Statistic"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Status"=@("Send-EC2InstanceStatus")
     "StorageTier"=@("Edit-EC2SnapshotTier")
     "Strategy"=@("New-EC2PlacementGroup")
@@ -18283,6 +18423,7 @@ $EC2_SelectMap = @{
                "Get-EC2AddressTransfer",
                "Get-EC2AggregateIdFormat",
                "Get-EC2AvailabilityZone",
+               "Get-EC2AwsNetworkPerformanceMetricSubscription",
                "Get-EC2BundleTask",
                "Get-EC2ByoipCidr",
                "Get-EC2CapacityReservationFleet",
@@ -18418,6 +18559,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2Volume",
                "Dismount-EC2VpnGateway",
                "Disable-EC2AddressTransfer",
+               "Disable-EC2AwsNetworkPerformanceMetricSubscription",
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
@@ -18441,11 +18583,13 @@ $EC2_SelectMap = @{
                "Unregister-EC2TrunkInterface",
                "Unregister-EC2VpcCidrBlock",
                "Enable-EC2AddressTransfer",
+               "Enable-EC2AwsNetworkPerformanceMetricSubscription",
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
                "Enable-EC2ImageDeprecation",
                "Enable-EC2IpamOrganizationAdminAccount",
+               "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2SerialConsoleAccess",
                "Enable-EC2TransitGatewayRouteTablePropagation",
                "Enable-EC2VgwRoutePropagation",
@@ -18458,6 +18602,7 @@ $EC2_SelectMap = @{
                "Export-EC2TransitGatewayRoute",
                "Get-EC2AssociatedEnclaveCertificateIamRole",
                "Get-EC2AssociatedIpv6PoolCidr",
+               "Get-EC2AwsNetworkPerformanceData",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",
@@ -22993,6 +23138,16 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.InputOntapVolumeType
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_OntapVolumeType") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_OntapVolumeType")
+        }
+        {
+            $v = "DP","RW"
+            break
+        }
+
         # Amazon.FSx.OntapDeploymentType
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
@@ -23025,7 +23180,7 @@ $FSX_Completers = {
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DeploymentType")
         }
         {
-            $v = "SINGLE_AZ_1"
+            $v = "SINGLE_AZ_1","SINGLE_AZ_2"
             break
         }
 
@@ -23103,6 +23258,7 @@ $FSX_map = @{
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OntapConfiguration_OntapVolumeType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")
@@ -26473,14 +26629,14 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION"
             break
         }
 
         # Amazon.Inspector2.AggregationType
         "Get-INS2FindingAggregationList/AggregationType"
         {
-            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","FINDING_TYPE","IMAGE_LAYER","PACKAGE","REPOSITORY","TITLE"
+            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
             break
         }
 
@@ -26544,6 +26700,20 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.LambdaFunctionSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_LambdaFunctionAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
+        # Amazon.Inspector2.LambdaLayerSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
         # Amazon.Inspector2.PackageSortBy
         "Get-INS2FindingAggregationList/AggregationRequest_PackageAggregation_SortBy"
         {
@@ -26568,7 +26738,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.Service
         "Get-INS2AccountPermissionList/Service"
         {
-            $v = "EC2","ECR"
+            $v = "EC2","ECR","LAMBDA"
             break
         }
 
@@ -26587,6 +26757,8 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_Ec2InstanceAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_ImageLayerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_LambdaFunctionAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_PackageAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_RepositoryAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_SortOrder") -Or
@@ -26630,6 +26802,10 @@ $INS2_map = @{
     "AggregationRequest_FindingTypeAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_ImageLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_ImageLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaFunctionAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
@@ -31328,6 +31504,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.SnapStartApplyOn
+        {
+            ($_ -eq "Publish-LMFunction/SnapStart_ApplyOn") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/SnapStart_ApplyOn")
+        }
+        {
+            $v = "None","PublishedVersions"
+            break
+        }
+
         # Amazon.Lambda.TracingMode
         {
             ($_ -eq "Publish-LMFunction/TracingConfig_Mode") -Or
@@ -31357,6 +31543,7 @@ $LM_map = @{
     "LogType"=@("Invoke-LMFunction")
     "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
 }
@@ -31945,7 +32132,8 @@ $LMUS_SelectMap = @{
                "Get-LMUSUserAssociationList",
                "Register-LMUSIdentityProvider",
                "Start-LMUSProductSubscription",
-               "Stop-LMUSProductSubscription")
+               "Stop-LMUSProductSubscription",
+               "Update-LMUSIdentityProviderSetting")
 }
 
 _awsArgumentCompleterRegistration $LMUS_SelectCompleters $LMUS_SelectMap
@@ -33609,6 +33797,20 @@ $MAC2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Macie2.AutomatedDiscoveryStatus
+        "Update-MAC2AutomatedDiscoveryConfiguration/Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Macie2.ClassificationScopeUpdateOperation
+        "Update-MAC2ClassificationScope/S3_Excludes_Operation"
+        {
+            $v = "ADD","REMOVE","REPLACE"
+            break
+        }
+
         # Amazon.Macie2.DayOfWeek
         "New-MAC2ClassificationJob/ScheduleFrequency_WeeklySchedule_DayOfWeek"
         {
@@ -33748,12 +33950,13 @@ $MAC2_map = @{
     "JobStatus"=@("Update-MAC2ClassificationJob")
     "JobType"=@("New-MAC2ClassificationJob")
     "ManagedDataIdentifierSelector"=@("New-MAC2ClassificationJob")
+    "S3_Excludes_Operation"=@("Update-MAC2ClassificationScope")
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")
     "SortBy_OrderBy"=@("Get-MAC2UsageStatistic")
     "SortCriteria_AttributeName"=@("Get-MAC2ClassificationJobList","Get-MAC2FindingStatistic","Search-MAC2Resource")
     "SortCriteria_OrderBy"=@("Get-MAC2Bucket","Get-MAC2ClassificationJobList","Get-MAC2Finding","Get-MAC2FindingList","Get-MAC2FindingStatistic","Search-MAC2Resource")
-    "Status"=@("Enable-MAC2Macie","Update-MAC2MacieSession","Update-MAC2MemberSession")
+    "Status"=@("Enable-MAC2Macie","Update-MAC2AutomatedDiscoveryConfiguration","Update-MAC2MacieSession","Update-MAC2MemberSession")
     "TimeRange"=@("Get-MAC2UsageStatistic")
 }
 
@@ -33834,8 +34037,10 @@ $MAC2_SelectMap = @{
                "Enable-MAC2OrganizationAdminAccount",
                "Get-MAC2AdministratorAccount",
                "Get-MAC2AllowList",
+               "Get-MAC2AutomatedDiscoveryConfiguration",
                "Get-MAC2BucketStatistic",
                "Get-MAC2ClassificationExportConfiguration",
+               "Get-MAC2ClassificationScope",
                "Get-MAC2CustomDataIdentifier",
                "Get-MAC2Finding",
                "Get-MAC2FindingsFilter",
@@ -33845,13 +34050,16 @@ $MAC2_SelectMap = @{
                "Get-MAC2MacieSession",
                "Get-MAC2MasterAccount",
                "Get-MAC2Member",
+               "Get-MAC2ResourceProfile",
                "Get-MAC2RevealConfiguration",
                "Get-MAC2SensitiveDataOccurrence",
                "Get-MAC2SensitiveDataOccurrencesAvailability",
+               "Get-MAC2SensitivityInspectionTemplate",
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
                "Get-MAC2AllowListList",
                "Get-MAC2ClassificationJobList",
+               "Get-MAC2ClassificationScopeList",
                "Get-MAC2CustomDataIdentifierList",
                "Get-MAC2FindingList",
                "Get-MAC2FindingsFilterList",
@@ -33859,6 +34067,9 @@ $MAC2_SelectMap = @{
                "Get-MAC2ManagedDataIdentifierList",
                "Get-MAC2MemberList",
                "Get-MAC2OrganizationAdminAccountList",
+               "Get-MAC2ResourceProfileArtifactList",
+               "Get-MAC2ResourceProfileDetectionList",
+               "Get-MAC2SensitivityInspectionTemplateList",
                "Get-MAC2ResourceTag",
                "Write-MAC2ClassificationExportConfiguration",
                "Write-MAC2FindingsPublicationConfiguration",
@@ -33867,12 +34078,17 @@ $MAC2_SelectMap = @{
                "Test-MAC2CustomDataIdentifier",
                "Remove-MAC2ResourceTag",
                "Update-MAC2AllowList",
+               "Update-MAC2AutomatedDiscoveryConfiguration",
                "Update-MAC2ClassificationJob",
+               "Update-MAC2ClassificationScope",
                "Update-MAC2FindingsFilter",
                "Update-MAC2MacieSession",
                "Update-MAC2MemberSession",
                "Update-MAC2OrganizationConfiguration",
-               "Update-MAC2RevealConfiguration")
+               "Update-MAC2ResourceProfile",
+               "Update-MAC2ResourceProfileDetection",
+               "Update-MAC2RevealConfiguration",
+               "Update-MAC2SensitivityInspectionTemplate")
 }
 
 _awsArgumentCompleterRegistration $MAC2_SelectCompleters $MAC2_SelectMap
@@ -41549,7 +41765,9 @@ $QS_Completers = {
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus")
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -41635,6 +41853,48 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.PaperOrientation
+        {
+            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation")
+        }
+        {
+            $v = "LANDSCAPE","PORTRAIT"
+            break
+        }
+
+        # Amazon.QuickSight.PaperSize
+        {
+            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize")
+        }
+        {
+            $v = "A0","A1","A2","A3","A4","A5","JIS_B4","JIS_B5","US_LEGAL","US_LETTER","US_TABLOID_LEDGER"
+            break
+        }
+
+        # Amazon.QuickSight.ResizeOption
+        {
+            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption")
+        }
+        {
+            $v = "FIXED","RESPONSIVE"
+            break
+        }
+
         # Amazon.QuickSight.RowLevelPermissionFormatVersion
         {
             ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_FormatVersion") -Or
@@ -41652,6 +41912,20 @@ $QS_Completers = {
         }
         {
             $v = "DENY_ACCESS","GRANT_ACCESS"
+            break
+        }
+
+        # Amazon.QuickSight.SheetContentType
+        {
+            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType")
+        }
+        {
+            $v = "INTERACTIVE","PAGINATED"
             break
         }
 
@@ -41698,6 +41972,11 @@ $QS_map = @{
     "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
     "FolderType"=@("New-QSFolder")
     "IdentityStore"=@("New-QSNamespace")
@@ -41804,8 +42083,10 @@ $QS_SelectMap = @{
                "Get-QSAccountSetting",
                "Get-QSAccountSubscription",
                "Get-QSAnalysis",
+               "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
                "Get-QSDashboard",
+               "Get-QSDashboardDefinition",
                "Get-QSDashboardPermission",
                "Get-QSDataSet",
                "Get-QSDataSetPermission",
@@ -41822,6 +42103,7 @@ $QS_SelectMap = @{
                "Get-QSNamespace",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
+               "Get-QSTemplateDefinition",
                "Get-QSTemplatePermission",
                "Get-QSTheme",
                "Get-QSThemeAlias",
@@ -45900,6 +46182,7 @@ $S3C_SelectMap = @{
                "Get-S3CMultiRegionAccessPoint",
                "Get-S3CMultiRegionAccessPointPolicy",
                "Get-S3CMultiRegionAccessPointPolicyStatus",
+               "Get-S3CMultiRegionAccessPointRoute",
                "Get-S3CPublicAccessBlock",
                "Get-S3CStorageLensConfiguration",
                "Get-S3CStorageLensConfigurationTagging",
@@ -45921,6 +46204,7 @@ $S3C_SelectMap = @{
                "Add-S3CPublicAccessBlock",
                "Write-S3CStorageLensConfiguration",
                "Write-S3CStorageLensConfigurationTagging",
+               "Submit-S3CMultiRegionAccessPointRoute",
                "Update-S3CJobPriority",
                "Update-S3CJobStatus")
 }

@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class StartEC2NetworkInsightsAnalysisCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalAccount
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalAccounts")]
+        public System.String[] AdditionalAccount { get; set; }
+        #endregion
+        
         #region Parameter FilterInArn
         /// <summary>
         /// <para>
@@ -153,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.NetworkInsightsPathId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalAccount != null)
+            {
+                context.AdditionalAccount = new List<System.String>(this.AdditionalAccount);
+            }
             context.ClientToken = this.ClientToken;
             if (this.FilterInArn != null)
             {
@@ -185,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.StartNetworkInsightsAnalysisRequest();
             
+            if (cmdletContext.AdditionalAccount != null)
+            {
+                request.AdditionalAccounts = cmdletContext.AdditionalAccount;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -262,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalAccount { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> FilterInArn { get; set; }
             public System.String NetworkInsightsPathId { get; set; }

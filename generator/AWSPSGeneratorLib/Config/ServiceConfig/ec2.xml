@@ -927,6 +927,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAwsNetworkPerformanceMetricSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="AwsNetworkPerformanceMetricSubscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBundleTasks" OutputProperty="BundleTasks" Verb="Get" Noun="BundleTask" PositionalParameters="Filters" PipelineParameter="BundleIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1514,6 +1518,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableAwsNetworkPerformanceMetricSubscription" OutputProperty="Output" Verb="Disable" Noun="AwsNetworkPerformanceMetricSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1608,6 +1616,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableAwsNetworkPerformanceMetricSubscription" OutputProperty="Output" Verb="Enable" Noun="AwsNetworkPerformanceMetricSubscription" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1625,6 +1637,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableIpamOrganizationAdminAccount" OutputProperty="Success" Verb="Enable" Noun="IpamOrganizationAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableReachabilityAnalyzerOrganizationSharing" OutputProperty="ReturnValue" Verb="Enable" Noun="ReachabilityAnalyzerOrganizationSharing" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1673,6 +1689,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAssociatedIpv6PoolCidrs" OutputProperty="Ipv6CidrAssociations" Verb="Get" Noun="AssociatedIpv6PoolCidr" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAwsNetworkPerformanceData" OutputProperty="DataResponses" Verb="Get" Noun="AwsNetworkPerformanceData" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

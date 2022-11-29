@@ -158,6 +158,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.SnapStartApplyOn
+        {
+            ($_ -eq "Publish-LMFunction/SnapStart_ApplyOn") -Or
+            ($_ -eq "Update-LMFunctionConfiguration/SnapStart_ApplyOn")
+        }
+        {
+            $v = "None","PublishedVersions"
+            break
+        }
+
         # Amazon.Lambda.TracingMode
         {
             ($_ -eq "Publish-LMFunction/TracingConfig_Mode") -Or
@@ -187,6 +197,7 @@ $LM_map = @{
     "LogType"=@("Invoke-LMFunction")
     "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
 }

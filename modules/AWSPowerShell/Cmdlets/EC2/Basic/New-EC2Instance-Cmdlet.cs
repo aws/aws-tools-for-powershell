@@ -111,9 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_Affinity
         /// <summary>
         /// <para>
-        /// <para>The affinity setting for the instance on the Dedicated Host. This parameter is not
-        /// supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The affinity setting for the instance on the Dedicated Host.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>
+        /// or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Availability Zone of the instance.</para><para>If not specified, an Availability Zone will be automatically chosen for you based
-        /// on the load balancing criteria for the Region.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// on the load balancing criteria for the Region.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,7 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupId
         /// <summary>
         /// <para>
-        /// <para>The Group Id of the placement group.</para>
+        /// <para>The ID of the placement group that the instance is in. If you specify <code>GroupId</code>,
+        /// you can't specify <code>GroupName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,7 +347,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group the instance is in.</para>
+        /// <para>The name of the placement group that the instance is in. If you specify <code>GroupName</code>,
+        /// you can't specify <code>GroupId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,9 +359,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_HostId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Dedicated Host on which the instance resides. This parameter is not
-        /// supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The ID of the Dedicated Host on which the instance resides.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>
+        /// or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,8 +385,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_HostResourceGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the host resource group in which to launch the instances. If you specify
-        /// a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>The ARN of the host resource group in which to launch the instances.</para><para>If you specify this parameter, either omit the <b>Tenancy</b> parameter or set it
+        /// to <code>host</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -650,7 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of the partition that the instance is in. Valid only if the placement group
-        /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -714,7 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_SpreadDomain
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -747,10 +747,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
-        /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-        /// tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para><para>T3 instances that use the <code>unlimited</code> CPU credit option do not support
-        /// <code>host</code> tenancy.</para>
+        /// a tenancy of <code>dedicated</code> runs on single-tenant hardware.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.
+        /// The <code>host</code> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+        /// or for T3 instances that are configured for the <code>unlimited</code> CPU credit
+        /// option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

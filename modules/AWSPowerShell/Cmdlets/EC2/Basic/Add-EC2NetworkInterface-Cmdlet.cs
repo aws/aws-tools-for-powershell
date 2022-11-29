@@ -56,6 +56,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? DeviceIndex { get; set; }
         #endregion
         
+        #region Parameter EnaSrdSpecification_EnaSrdEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether ENA Express is enabled for the network interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnaSrdSpecification_EnaSrdEnabled { get; set; }
+        #endregion
+        
+        #region Parameter EnaSrdUdpSpecification_EnaSrdUdpEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must
+        /// first enable ENA Express.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnaSrdSpecification_EnaSrdUdpSpecification_EnaSrdUdpEnabled")]
+        public System.Boolean? EnaSrdUdpSpecification_EnaSrdUdpEnabled { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -170,6 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter DeviceIndex which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnaSrdSpecification_EnaSrdEnabled = this.EnaSrdSpecification_EnaSrdEnabled;
+            context.EnaSrdUdpSpecification_EnaSrdUdpEnabled = this.EnaSrdUdpSpecification_EnaSrdUdpEnabled;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -204,6 +228,50 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DeviceIndex != null)
             {
                 request.DeviceIndex = cmdletContext.DeviceIndex.Value;
+            }
+            
+             // populate EnaSrdSpecification
+            var requestEnaSrdSpecificationIsNull = true;
+            request.EnaSrdSpecification = new Amazon.EC2.Model.EnaSrdSpecification();
+            System.Boolean? requestEnaSrdSpecification_enaSrdSpecification_EnaSrdEnabled = null;
+            if (cmdletContext.EnaSrdSpecification_EnaSrdEnabled != null)
+            {
+                requestEnaSrdSpecification_enaSrdSpecification_EnaSrdEnabled = cmdletContext.EnaSrdSpecification_EnaSrdEnabled.Value;
+            }
+            if (requestEnaSrdSpecification_enaSrdSpecification_EnaSrdEnabled != null)
+            {
+                request.EnaSrdSpecification.EnaSrdEnabled = requestEnaSrdSpecification_enaSrdSpecification_EnaSrdEnabled.Value;
+                requestEnaSrdSpecificationIsNull = false;
+            }
+            Amazon.EC2.Model.EnaSrdUdpSpecification requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification = null;
+            
+             // populate EnaSrdUdpSpecification
+            var requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecificationIsNull = true;
+            requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification = new Amazon.EC2.Model.EnaSrdUdpSpecification();
+            System.Boolean? requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification_enaSrdUdpSpecification_EnaSrdUdpEnabled = null;
+            if (cmdletContext.EnaSrdUdpSpecification_EnaSrdUdpEnabled != null)
+            {
+                requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification_enaSrdUdpSpecification_EnaSrdUdpEnabled = cmdletContext.EnaSrdUdpSpecification_EnaSrdUdpEnabled.Value;
+            }
+            if (requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification_enaSrdUdpSpecification_EnaSrdUdpEnabled != null)
+            {
+                requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification.EnaSrdUdpEnabled = requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification_enaSrdUdpSpecification_EnaSrdUdpEnabled.Value;
+                requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecificationIsNull = false;
+            }
+             // determine if requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification should be set to null
+            if (requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecificationIsNull)
+            {
+                requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification = null;
+            }
+            if (requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification != null)
+            {
+                request.EnaSrdSpecification.EnaSrdUdpSpecification = requestEnaSrdSpecification_enaSrdSpecification_EnaSrdUdpSpecification;
+                requestEnaSrdSpecificationIsNull = false;
+            }
+             // determine if request.EnaSrdSpecification should be set to null
+            if (requestEnaSrdSpecificationIsNull)
+            {
+                request.EnaSrdSpecification = null;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -279,6 +347,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DeviceIndex { get; set; }
+            public System.Boolean? EnaSrdSpecification_EnaSrdEnabled { get; set; }
+            public System.Boolean? EnaSrdUdpSpecification_EnaSrdUdpEnabled { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? NetworkCardIndex { get; set; }
             public System.String NetworkInterfaceId { get; set; }

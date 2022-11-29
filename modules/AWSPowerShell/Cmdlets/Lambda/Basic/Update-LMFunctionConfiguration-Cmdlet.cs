@@ -38,15 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code>
     /// fields in the response from <a>GetFunctionConfiguration</a> indicate when the update
     /// is complete and the function is processing events with the new configuration. For
-    /// more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
-    /// States</a>.
+    /// more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda
+    /// function states</a>.
     /// </para><para>
     /// These settings can vary between versions of a function and are locked when you publish
     /// a version. You can't modify the configuration of a published version, only the unpublished
     /// version.
     /// </para><para>
     /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
-    /// permissions to an account or Amazon Web Services service, use <a>AddPermission</a>.
+    /// permissions to an Amazon Web Services account or Amazon Web Service, use <a>AddPermission</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMFunctionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,10 +58,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class UpdateLMFunctionConfigurationCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        #region Parameter SnapStart_ApplyOn
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution
+        /// environment when you publish a function version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.SnapStartApplyOn")]
+        public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }
+        #endregion
+        
         #region Parameter ImageConfig_Command
         /// <summary>
         /// <para>
-        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT. </para>
+        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,11 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Handler
         /// <summary>
         /// <para>
-        /// <para>The name of the method within your code that Lambda calls to execute your function.
-        /// Handler is required if the deployment package is a .zip file archive. The format includes
+        /// <para>The name of the method within your code that Lambda calls to run your function. Handler
+        /// is required if the deployment package is a .zip file archive. The format includes
         /// the file name. It can also include namespaces and other qualifiers, depending on the
-        /// runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
-        /// Model</a>.</para>
+        /// runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda
+        /// programming model</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,9 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to
-        /// encrypt your function's environment variables. If it's not provided, Lambda uses a
-        /// default service key.</para>
+        /// <para>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's
+        /// environment variables. If it's not provided, Lambda uses a default service key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MemorySize
         /// <summary>
         /// <para>
-        /// <para>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory
+        /// <para>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory
         /// available to the function</a> at runtime. Increasing the function memory also increases
         /// its CPU allocation. The default value is 128 MB. The value can be any multiple of
         /// 1 MB.</para>
@@ -281,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>Only update the function if the revision ID matches the ID that's specified. Use this
+        /// <para>Update the function only if the revision ID matches the ID that's specified. Use this
         /// option to avoid modifying a function that has changed since you last read it.</para>
         /// </para>
         /// </summary>
@@ -314,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups IDs.</para>
+        /// <para>A list of VPC security group IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EphemeralStorage_Size
         /// <summary>
         /// <para>
-        /// <para>The size of the function’s /tmp directory.</para>
+        /// <para>The size of the function's <code>/tmp</code> directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,8 +368,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The amount of time (in seconds) that Lambda allows a function to run before stopping
-        /// it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional
-        /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
+        /// it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information,
+        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
         /// execution environment</a>.</para>
         /// </para>
         /// </summary>
@@ -515,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.RevisionId = this.RevisionId;
             context.Role = this.Role;
             context.Runtime = this.Runtime;
+            context.SnapStart_ApplyOn = this.SnapStart_ApplyOn;
             context.Timeout = this.Timeout;
             context.TracingConfig_Mode = this.TracingConfig_Mode;
             if (this.VpcConfig_SecurityGroupId != null)
@@ -725,6 +737,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.Runtime = cmdletContext.Runtime;
             }
+            
+             // populate SnapStart
+            var requestSnapStartIsNull = true;
+            request.SnapStart = new Amazon.Lambda.Model.SnapStart();
+            Amazon.Lambda.SnapStartApplyOn requestSnapStart_snapStart_ApplyOn = null;
+            if (cmdletContext.SnapStart_ApplyOn != null)
+            {
+                requestSnapStart_snapStart_ApplyOn = cmdletContext.SnapStart_ApplyOn;
+            }
+            if (requestSnapStart_snapStart_ApplyOn != null)
+            {
+                request.SnapStart.ApplyOn = requestSnapStart_snapStart_ApplyOn;
+                requestSnapStartIsNull = false;
+            }
+             // determine if request.SnapStart should be set to null
+            if (requestSnapStartIsNull)
+            {
+                request.SnapStart = null;
+            }
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout.Value;
@@ -879,6 +910,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String RevisionId { get; set; }
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
+            public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }

@@ -28,7 +28,7 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Describe Amazon Inspector configuration settings for an Amazon Web Services organization
+    /// Describe Amazon Inspector configuration settings for an Amazon Web Services organization.
     /// </summary>
     [Cmdlet("Get", "INS2OrganizationConfiguration")]
     [OutputType("Amazon.Inspector2.Model.DescribeOrganizationConfigurationResponse")]

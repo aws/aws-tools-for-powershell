@@ -82,6 +82,37 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_EcrRepositoryName { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_LambdaFunctionName
+        /// <summary>
+        /// <para>
+        /// <para>Returns coverage statistics for AWS Lambda functions filtered by function names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_LambdaFunctionName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionRuntime
+        /// <summary>
+        /// <para>
+        /// <para>Returns coverage statistics for AWS Lambda functions filtered by runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_LambdaFunctionRuntime { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionTag
+        /// <summary>
+        /// <para>
+        /// <para>Returns coverage statistics for AWS Lambda functions filtered by tag.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_LambdaFunctionTags")]
+        public Amazon.Inspector2.Model.CoverageMapFilter[] FilterCriteria_LambdaFunctionTag { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_ResourceId
         /// <summary>
         /// <para>
@@ -198,6 +229,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_EcrRepositoryName = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_EcrRepositoryName);
             }
+            if (this.FilterCriteria_LambdaFunctionName != null)
+            {
+                context.FilterCriteria_LambdaFunctionName = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_LambdaFunctionName);
+            }
+            if (this.FilterCriteria_LambdaFunctionRuntime != null)
+            {
+                context.FilterCriteria_LambdaFunctionRuntime = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_LambdaFunctionRuntime);
+            }
+            if (this.FilterCriteria_LambdaFunctionTag != null)
+            {
+                context.FilterCriteria_LambdaFunctionTag = new List<Amazon.Inspector2.Model.CoverageMapFilter>(this.FilterCriteria_LambdaFunctionTag);
+            }
             if (this.FilterCriteria_ResourceId != null)
             {
                 context.FilterCriteria_ResourceId = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_ResourceId);
@@ -278,6 +321,36 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_EcrRepositoryName != null)
             {
                 request.FilterCriteria.EcrRepositoryName = requestFilterCriteria_filterCriteria_EcrRepositoryName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionName = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionName != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionName = cmdletContext.FilterCriteria_LambdaFunctionName;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionName != null)
+            {
+                request.FilterCriteria.LambdaFunctionName = requestFilterCriteria_filterCriteria_LambdaFunctionName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionRuntime = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionRuntime != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionRuntime = cmdletContext.FilterCriteria_LambdaFunctionRuntime;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionRuntime != null)
+            {
+                request.FilterCriteria.LambdaFunctionRuntime = requestFilterCriteria_filterCriteria_LambdaFunctionRuntime;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.CoverageMapFilter> requestFilterCriteria_filterCriteria_LambdaFunctionTag = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionTag != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionTag = cmdletContext.FilterCriteria_LambdaFunctionTag;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionTag != null)
+            {
+                request.FilterCriteria.LambdaFunctionTags = requestFilterCriteria_filterCriteria_LambdaFunctionTag;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_ResourceId = null;
@@ -408,6 +481,9 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_Ec2InstanceTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_EcrImageTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_EcrRepositoryName { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionName { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_LambdaFunctionRuntime { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageMapFilter> FilterCriteria_LambdaFunctionTag { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceType { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanStatusCode { get; set; }

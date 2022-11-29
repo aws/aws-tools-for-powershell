@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Returns the evaluation results for the specified Amazon Web Services resource. The
     /// results indicate which Config rules were used to evaluate the resource, when each
-    /// rule was last used, and whether the resource complies with each rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// rule was last invoked, and whether the resource complies with each rule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGComplianceDetailsByResource")]
     [OutputType("Amazon.ConfigService.Model.EvaluationResult")]
@@ -53,20 +53,25 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String[] ComplianceType { get; set; }
         #endregion
         
+        #region Parameter ResourceEvaluationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique ID of Amazon Web Services resource execution for which you want to retrieve
+        /// evaluation results. </para><note><para>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID
+        /// </code>and <code>ResourceType</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceEvaluationId { get; set; }
+        #endregion
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Web Services resource for which you want compliance information.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceId { get; set; }
         #endregion
         
@@ -76,14 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The type of the Amazon Web Services resource for which you want compliance information.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceType { get; set; }
         #endregion
         
@@ -142,20 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 context.ComplianceType = new List<System.String>(this.ComplianceType);
             }
             context.NextToken = this.NextToken;
+            context.ResourceEvaluationId = this.ResourceEvaluationId;
             context.ResourceId = this.ResourceId;
-            #if MODULAR
-            if (this.ResourceId == null && ParameterWasBound(nameof(this.ResourceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResourceType = this.ResourceType;
-            #if MODULAR
-            if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.ComplianceType != null)
             {
                 request.ComplianceTypes = cmdletContext.ComplianceType;
+            }
+            if (cmdletContext.ResourceEvaluationId != null)
+            {
+                request.ResourceEvaluationId = cmdletContext.ResourceEvaluationId;
             }
             if (cmdletContext.ResourceId != null)
             {
@@ -273,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         {
             public List<System.String> ComplianceType { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ResourceEvaluationId { get; set; }
             public System.String ResourceId { get; set; }
             public System.String ResourceType { get; set; }
             public System.Func<Amazon.ConfigService.Model.GetComplianceDetailsByResourceResponse, GetCFGComplianceDetailsByResourceCmdlet, object> Select { get; set; } =

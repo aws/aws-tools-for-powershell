@@ -28,7 +28,9 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Describes the Kubernetes versions that the add-on can be used with.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the versions for an add-on. Information such as the Kubernetes versions
+    /// that you can use the add-on with, the <code>owner</code>, <code>publisher</code>,
+    /// and the <code>type</code> of the add-on are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSAddonVersion")]
     [OutputType("Amazon.EKS.Model.AddonInfo")]
@@ -53,11 +55,47 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter KubernetesVersion
         /// <summary>
         /// <para>
-        /// <para>The Kubernetes versions that the add-on can be used with.</para>
+        /// <para>The Kubernetes versions that you can use the add-on with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KubernetesVersion { get; set; }
+        #endregion
+        
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the add-on. For valid <code>owners</code>, don't specify a value for
+        /// this property.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Owners")]
+        public System.String[] Owner { get; set; }
+        #endregion
+        
+        #region Parameter Publisher
+        /// <summary>
+        /// <para>
+        /// <para>The publisher of the add-on. For valid <code>publishers</code>, don't specify a value
+        /// for this property.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Publishers")]
+        public System.String[] Publisher { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of the add-on. For valid <code>types</code>, don't specify a value for this
+        /// property.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Types")]
+        public System.String[] Type { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -128,6 +166,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             context.KubernetesVersion = this.KubernetesVersion;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.Owner != null)
+            {
+                context.Owner = new List<System.String>(this.Owner);
+            }
+            if (this.Publisher != null)
+            {
+                context.Publisher = new List<System.String>(this.Publisher);
+            }
+            if (this.Type != null)
+            {
+                context.Type = new List<System.String>(this.Type);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,6 +207,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owners = cmdletContext.Owner;
+            }
+            if (cmdletContext.Publisher != null)
+            {
+                request.Publishers = cmdletContext.Publisher;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Types = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -247,6 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String KubernetesVersion { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> Owner { get; set; }
+            public List<System.String> Publisher { get; set; }
+            public List<System.String> Type { get; set; }
             public System.Func<Amazon.EKS.Model.DescribeAddonVersionsResponse, GetEKSAddonVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Addons;
         }

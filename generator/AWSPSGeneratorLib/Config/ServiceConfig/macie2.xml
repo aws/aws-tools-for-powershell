@@ -129,11 +129,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomatedDiscoveryConfiguration" OutputProperty="*" Verb="Get" Noun="AutomatedDiscoveryConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBucketStatistics" OutputProperty="*" Verb="Get" Noun="BucketStatistic" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetClassificationExportConfiguration" OutputProperty="Configuration" Verb="Get" Noun="ClassificationExportConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClassificationScope" OutputProperty="*" Verb="Get" Noun="ClassificationScope" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,6 +181,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceProfile" OutputProperty="*" Verb="Get" Noun="ResourceProfile" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRevealConfiguration" OutputProperty="Configuration" Verb="Get" Noun="RevealConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -182,6 +194,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSensitiveDataOccurrencesAvailability" OutputProperty="*" Verb="Get" Noun="SensitiveDataOccurrencesAvailability" PipelineParameter="FindingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSensitivityInspectionTemplate" OutputProperty="*" Verb="Get" Noun="SensitivityInspectionTemplate" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -198,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClassificationJobs" OutputProperty="Items" Verb="Get" Noun="ClassificationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClassificationScopes" OutputProperty="ClassificationScopes" Verb="Get" Noun="ClassificationScopeList" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -226,6 +246,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOrganizationAdminAccounts" OutputProperty="AdminAccounts" Verb="Get" Noun="OrganizationAdminAccountList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceProfileArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ResourceProfileArtifactList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceProfileDetections" OutputProperty="Detections" Verb="Get" Noun="ResourceProfileDetectionList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSensitivityInspectionTemplates" OutputProperty="SensitivityInspectionTemplates" Verb="Get" Noun="SensitivityInspectionTemplateList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -261,7 +293,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutomatedDiscoveryConfiguration" Verb="Update" Noun="AutomatedDiscoveryConfiguration" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateClassificationJob" Verb="Update" Noun="ClassificationJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClassificationScope" Verb="Update" Noun="ClassificationScope" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -281,7 +321,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceProfile" Verb="Update" Noun="ResourceProfile" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceProfileDetections" Verb="Update" Noun="ResourceProfileDetection" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateRevealConfiguration" OutputProperty="Configuration" Verb="Update" Noun="RevealConfiguration" ShouldProcessTarget="Configuration_KmsKeyId" PipelineParameter="Configuration_Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSensitivityInspectionTemplate" Verb="Update" Noun="SensitivityInspectionTemplate" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

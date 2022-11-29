@@ -217,9 +217,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_DeploymentType
         /// <summary>
         /// <para>
-        /// <para>Specifies the file system deployment type. Amazon FSx for OpenZFS supports <code>SINGLE_AZ_1</code>.
-        /// <code>SINGLE_AZ_1</code> deployment type is configured for redundancy within a single
-        /// Availability Zone.</para>
+        /// <para>Specifies the file system deployment type. Single AZ deployment types are configured
+        /// for redundancy within a single Availability Zone in an Amazon Web Services Region
+        /// . Valid values are the following:</para><ul><li><para><code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities
+        /// of 64 - 4,096 MB/s. <code>Single_AZ_1</code> is available in all Amazon Web Services
+        /// Regions where Amazon FSx for OpenZFS is available, except US West (Oregon).</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
+        /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
+        /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)
+        /// Amazon Web Services Regions.</para></li></ul><para>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html">Deployment
+        /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html">
+        /// File system performance</a>in the<i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -231,9 +238,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-        /// file system will be created. By default, Amazon FSx selects an unused IP address range
-        /// for you from the 198.19.* range.</para><important><para>The Endpoint IP address range you select for your file system must exist outside the
-        /// VPC's CIDR range and must be at least /30 or larger.</para></important>
+        /// file system will be created. By default in the Amazon FSx API, Amazon FSx selects
+        /// an unused IP address range for you from the 198.19.* range. By default in the Amazon
+        /// FSx console, Amazon FSx chooses the last 64 IP addresses from the VPC’s primary CIDR
+        /// range to use as the endpoint IP address range for the file system. You can have overlapping
+        /// endpoint IP addresses for file systems deployed in the same VPC/route tables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -513,7 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Sets the throughput capacity for the file system that you're creating. Valid values
-        /// are 128, 256, 512, 1024, and 2048 MBps.</para>
+        /// are 128, 256, 512, 1024, 2048, and 4096 MBps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -524,8 +533,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes
-        /// per second (MB/s). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.
-        /// You pay for additional throughput capacity that you provision.</para>
+        /// per second (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
+        /// or 4096 MB/s.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
+        /// 7680, or 10240 MB/s.</para></li></ul><para>You pay for additional throughput capacity that you provision.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

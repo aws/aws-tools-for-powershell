@@ -65,6 +65,22 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Int32? TieringPolicy_CoolingPeriod { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_CopyTagsToBackup
+        /// <summary>
+        /// <para>
+        /// <para>A boolean flag indicating whether tags for the volume should be copied to backups.
+        /// This value defaults to false. If it's set to true, all tags for the volume are copied
+        /// to all automatic and user-initiated backups where the user doesn't specify tags. If
+        /// this value is true, and you specify one or more tags, only the specified tags are
+        /// copied to backups. If you specify one or more tags when creating a user-initiated
+        /// backup, no tags are copied from the volume, regardless of this value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_CopyTagsToBackups")]
+        public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_DataCompressionType
         /// <summary>
         /// <para>
@@ -177,6 +193,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OntapConfiguration_SizeInMegabytes")]
         public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_SnapshotPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</para><ul><li><para><code>default</code>: This is the default policy. A maximum of six hourly snapshots
+        /// taken five minutes past the hour. A maximum of two daily snapshots taken Monday through
+        /// Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every
+        /// Sunday at 15 minutes after midnight.</para></li><li><para><code>default-1weekly</code>: This policy is the same as the <code>default</code>
+        /// policy except that it only retains one snapshot from the weekly schedule.</para></li><li><para><code>none</code>: This policy does not take any snapshots. This policy can be assigned
+        /// to volumes to prevent automatic snapshots from being taken.</para></li></ul><para>You can also provide the name of a custom policy that you created with the ONTAP CLI
+        /// or REST API.</para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot
+        /// policies</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_SnapshotPolicy { get; set; }
         #endregion
         
         #region Parameter OpenZFSConfiguration_StorageCapacityQuotaGiB
@@ -305,9 +338,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.Name = this.Name;
+            context.OntapConfiguration_CopyTagsToBackup = this.OntapConfiguration_CopyTagsToBackup;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
+            context.OntapConfiguration_SnapshotPolicy = this.OntapConfiguration_SnapshotPolicy;
             context.OntapConfiguration_StorageEfficiencyEnabled = this.OntapConfiguration_StorageEfficiencyEnabled;
             context.TieringPolicy_CoolingPeriod = this.TieringPolicy_CoolingPeriod;
             context.TieringPolicy_Name = this.TieringPolicy_Name;
@@ -359,6 +394,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate OntapConfiguration
             var requestOntapConfigurationIsNull = true;
             request.OntapConfiguration = new Amazon.FSx.Model.UpdateOntapVolumeConfiguration();
+            System.Boolean? requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup = null;
+            if (cmdletContext.OntapConfiguration_CopyTagsToBackup != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup = cmdletContext.OntapConfiguration_CopyTagsToBackup.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup != null)
+            {
+                request.OntapConfiguration.CopyTagsToBackups = requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup.Value;
+                requestOntapConfigurationIsNull = false;
+            }
             System.String requestOntapConfiguration_ontapConfiguration_JunctionPath = null;
             if (cmdletContext.OntapConfiguration_JunctionPath != null)
             {
@@ -387,6 +432,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_SizeInMegabyte != null)
             {
                 request.OntapConfiguration.SizeInMegabytes = requestOntapConfiguration_ontapConfiguration_SizeInMegabyte.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_SnapshotPolicy = null;
+            if (cmdletContext.OntapConfiguration_SnapshotPolicy != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnapshotPolicy = cmdletContext.OntapConfiguration_SnapshotPolicy;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnapshotPolicy != null)
+            {
+                request.OntapConfiguration.SnapshotPolicy = requestOntapConfiguration_ontapConfiguration_SnapshotPolicy;
                 requestOntapConfigurationIsNull = false;
             }
             System.Boolean? requestOntapConfiguration_ontapConfiguration_StorageEfficiencyEnabled = null;
@@ -585,9 +640,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
             public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+            public System.String OntapConfiguration_SnapshotPolicy { get; set; }
             public System.Boolean? OntapConfiguration_StorageEfficiencyEnabled { get; set; }
             public System.Int32? TieringPolicy_CoolingPeriod { get; set; }
             public Amazon.FSx.TieringPolicyName TieringPolicy_Name { get; set; }

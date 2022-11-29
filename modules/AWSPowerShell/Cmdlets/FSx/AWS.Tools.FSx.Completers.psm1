@@ -121,6 +121,16 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.InputOntapVolumeType
+        {
+            ($_ -eq "New-FSXVolume/OntapConfiguration_OntapVolumeType") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_OntapVolumeType")
+        }
+        {
+            $v = "DP","RW"
+            break
+        }
+
         # Amazon.FSx.OntapDeploymentType
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
@@ -153,7 +163,7 @@ $FSX_Completers = {
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DeploymentType")
         }
         {
-            $v = "SINGLE_AZ_1"
+            $v = "SINGLE_AZ_1","SINGLE_AZ_2"
             break
         }
 
@@ -231,6 +241,7 @@ $FSX_map = @{
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OntapConfiguration_OntapVolumeType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")

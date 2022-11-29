@@ -130,15 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// If you don't specify a value, <code>ipv4</code> is used by default. You can only specify
         /// an IP family when you create a cluster and can't change this value once the cluster
         /// is created. If you specify <code>ipv6</code>, the VPC and subnets that you specify
-        /// for cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them. You
-        /// can't specify <code>ipv6</code> for clusters in China Regions.</para><para>You can only specify <code>ipv6</code> for 1.21 and later clusters that use version
-        /// 1.10.1 or later of the Amazon VPC CNI add-on. If you specify <code>ipv6</code>, then
-        /// ensure that your VPC meets the requirements listed in the considerations listed in
-        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
+        /// for cluster creation must have both <code>IPv4</code> and <code>IPv6</code> CIDR blocks
+        /// assigned to them. You can't specify <code>ipv6</code> for clusters in China Regions.</para><para>You can only specify <code>ipv6</code> for <code>1.21</code> and later clusters that
+        /// use version <code>1.10.1</code> or later of the Amazon VPC CNI add-on. If you specify
+        /// <code>ipv6</code>, then ensure that your VPC meets the requirements listed in the
+        /// considerations listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning
         /// IPv6 addresses to pods and services</a> in the Amazon EKS User Guide. Kubernetes assigns
-        /// services IPv6 addresses from the unique local address range (fc00::/7). You can't
-        /// specify a custom IPv6 CIDR block. Pod addresses are assigned from the subnet's IPv6
-        /// CIDR.</para>
+        /// services <code>IPv6</code> addresses from the unique local address range <code>(fc00::/7)</code>.
+        /// You can't specify a custom <code>IPv6</code> CIDR block. Pod addresses are assigned
+        /// from the subnet's <code>IPv6</code> CIDR.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,11 +222,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>Don't specify a value if you select <code>ipv6</code> for <b>ipFamily</b>. The CIDR
         /// block to assign Kubernetes service IP addresses from. If you don't specify a block,
-        /// Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks.
-        /// We recommend that you specify a block that does not overlap with resources in other
-        /// networks that are peered or connected to your VPC. The block must meet the following
-        /// requirements:</para><ul><li><para>Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12,
-        /// or 192.168.0.0/16.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between /24 and /12.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster and can't change
+        /// Kubernetes assigns addresses from either the <code>10.100.0.0/16</code> or <code>172.20.0.0/16</code>
+        /// CIDR blocks. We recommend that you specify a block that does not overlap with resources
+        /// in other networks that are peered or connected to your VPC. The block must meet the
+        /// following requirements:</para><ul><li><para>Within one of the following private IP address blocks: <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>,
+        /// or <code>192.168.0.0/16</code>.</para></li><li><para>Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.</para></li><li><para>Between /24 and /12.</para></li></ul><important><para>You can only specify a custom CIDR block when you create a cluster and can't change
         /// this value once the cluster is created.</para></important>
         /// </para>
         /// </summary>

@@ -79,6 +79,22 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.OpenZFSCopyStrategy OriginSnapshot_CopyStrategy { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_CopyTagsToBackup
+        /// <summary>
+        /// <para>
+        /// <para>A boolean flag indicating whether tags for the volume should be copied to backups.
+        /// This value defaults to false. If it's set to true, all tags for the volume are copied
+        /// to all automatic and user-initiated backups where the user doesn't specify tags. If
+        /// this value is true, and you specify one or more tags, only the specified tags are
+        /// copied to backups. If you specify one or more tags when creating a user-initiated
+        /// backup, no tags are copied from the volume, regardless of this value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_CopyTagsToBackups")]
+        public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -169,6 +185,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.Model.OpenZFSNfsExport[] OpenZFSConfiguration_NfsExport { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_OntapVolumeType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of volume you are creating. Valid values are the following:</para><ul><li><para><code>RW</code> specifies a read/write volume. <code>RW</code> is the default.</para></li><li><para><code>DP</code> specifies a data-protection volume. A <code>DP</code> volume is read-only
+        /// and can be used as the destination of a NetApp SnapMirror relationship.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume
+        /// types</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.InputOntapVolumeType")]
+        public Amazon.FSx.InputOntapVolumeType OntapConfiguration_OntapVolumeType { get; set; }
+        #endregion
+        
         #region Parameter OpenZFSConfiguration_ParentVolumeId
         /// <summary>
         /// <para>
@@ -247,6 +276,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OpenZFSConfiguration_OriginSnapshot_SnapshotARN")]
         public System.String OriginSnapshot_SnapshotARN { get; set; }
+        #endregion
+        
+        #region Parameter OntapConfiguration_SnapshotPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</para><ul><li><para><code>default</code>: This is the default policy. A maximum of six hourly snapshots
+        /// taken five minutes past the hour. A maximum of two daily snapshots taken Monday through
+        /// Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every
+        /// Sunday at 15 minutes after midnight.</para></li><li><para><code>default-1weekly</code>: This policy is the same as the <code>default</code>
+        /// policy except that it only retains one snapshot from the weekly schedule.</para></li><li><para><code>none</code>: This policy does not take any snapshots. This policy can be assigned
+        /// to volumes to prevent automatic snapshots from being taken.</para></li></ul><para>You can also provide the name of a custom policy that you created with the ONTAP CLI
+        /// or REST API.</para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot
+        /// policies</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OntapConfiguration_SnapshotPolicy { get; set; }
         #endregion
         
         #region Parameter OpenZFSConfiguration_StorageCapacityQuotaGiB
@@ -411,9 +457,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OntapConfiguration_CopyTagsToBackup = this.OntapConfiguration_CopyTagsToBackup;
             context.OntapConfiguration_JunctionPath = this.OntapConfiguration_JunctionPath;
+            context.OntapConfiguration_OntapVolumeType = this.OntapConfiguration_OntapVolumeType;
             context.OntapConfiguration_SecurityStyle = this.OntapConfiguration_SecurityStyle;
             context.OntapConfiguration_SizeInMegabyte = this.OntapConfiguration_SizeInMegabyte;
+            context.OntapConfiguration_SnapshotPolicy = this.OntapConfiguration_SnapshotPolicy;
             context.OntapConfiguration_StorageEfficiencyEnabled = this.OntapConfiguration_StorageEfficiencyEnabled;
             context.OntapConfiguration_StorageVirtualMachineId = this.OntapConfiguration_StorageVirtualMachineId;
             context.TieringPolicy_CoolingPeriod = this.TieringPolicy_CoolingPeriod;
@@ -474,6 +523,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate OntapConfiguration
             var requestOntapConfigurationIsNull = true;
             request.OntapConfiguration = new Amazon.FSx.Model.CreateOntapVolumeConfiguration();
+            System.Boolean? requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup = null;
+            if (cmdletContext.OntapConfiguration_CopyTagsToBackup != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup = cmdletContext.OntapConfiguration_CopyTagsToBackup.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup != null)
+            {
+                request.OntapConfiguration.CopyTagsToBackups = requestOntapConfiguration_ontapConfiguration_CopyTagsToBackup.Value;
+                requestOntapConfigurationIsNull = false;
+            }
             System.String requestOntapConfiguration_ontapConfiguration_JunctionPath = null;
             if (cmdletContext.OntapConfiguration_JunctionPath != null)
             {
@@ -482,6 +541,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_JunctionPath != null)
             {
                 request.OntapConfiguration.JunctionPath = requestOntapConfiguration_ontapConfiguration_JunctionPath;
+                requestOntapConfigurationIsNull = false;
+            }
+            Amazon.FSx.InputOntapVolumeType requestOntapConfiguration_ontapConfiguration_OntapVolumeType = null;
+            if (cmdletContext.OntapConfiguration_OntapVolumeType != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_OntapVolumeType = cmdletContext.OntapConfiguration_OntapVolumeType;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_OntapVolumeType != null)
+            {
+                request.OntapConfiguration.OntapVolumeType = requestOntapConfiguration_ontapConfiguration_OntapVolumeType;
                 requestOntapConfigurationIsNull = false;
             }
             Amazon.FSx.SecurityStyle requestOntapConfiguration_ontapConfiguration_SecurityStyle = null;
@@ -502,6 +571,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_SizeInMegabyte != null)
             {
                 request.OntapConfiguration.SizeInMegabytes = requestOntapConfiguration_ontapConfiguration_SizeInMegabyte.Value;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.String requestOntapConfiguration_ontapConfiguration_SnapshotPolicy = null;
+            if (cmdletContext.OntapConfiguration_SnapshotPolicy != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_SnapshotPolicy = cmdletContext.OntapConfiguration_SnapshotPolicy;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_SnapshotPolicy != null)
+            {
+                request.OntapConfiguration.SnapshotPolicy = requestOntapConfiguration_ontapConfiguration_SnapshotPolicy;
                 requestOntapConfigurationIsNull = false;
             }
             System.Boolean? requestOntapConfiguration_ontapConfiguration_StorageEfficiencyEnabled = null;
@@ -769,9 +848,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? OntapConfiguration_CopyTagsToBackup { get; set; }
             public System.String OntapConfiguration_JunctionPath { get; set; }
+            public Amazon.FSx.InputOntapVolumeType OntapConfiguration_OntapVolumeType { get; set; }
             public Amazon.FSx.SecurityStyle OntapConfiguration_SecurityStyle { get; set; }
             public System.Int32? OntapConfiguration_SizeInMegabyte { get; set; }
+            public System.String OntapConfiguration_SnapshotPolicy { get; set; }
             public System.Boolean? OntapConfiguration_StorageEfficiencyEnabled { get; set; }
             public System.String OntapConfiguration_StorageVirtualMachineId { get; set; }
             public System.Int32? TieringPolicy_CoolingPeriod { get; set; }

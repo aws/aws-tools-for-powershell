@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdentityProviderSettings" OutputProperty="*" Verb="Update" Noun="IdentityProviderSetting" ShouldProcessTarget="IdentityProvider_ActiveDirectoryIdentityProvider_DirectoryId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

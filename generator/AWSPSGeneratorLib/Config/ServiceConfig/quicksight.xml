@@ -35,11 +35,17 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalysis" OutputProperty="*" Verb="New" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSet" OutputProperty="*" Verb="New" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
@@ -79,7 +85,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplateAlias" OutputProperty="TemplateAlias" Verb="New" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
@@ -182,11 +191,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAnalysisDefinition" OutputProperty="*" Verb="Get" Noun="AnalysisDefinition" PipelineParameter="AnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAnalysisPermissions" OutputProperty="*" Verb="Get" Noun="AnalysisPermission" PipelineParameter="AnalysisId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDashboard" OutputProperty="Dashboard" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboardDefinition" OutputProperty="*" Verb="Get" Noun="DashboardDefinition" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -251,6 +268,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTemplateAlias" OutputProperty="TemplateAlias" Verb="Get" Noun="TemplateAlias" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTemplateDefinition" OutputProperty="*" Verb="Get" Noun="TemplateDefinition" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -427,7 +448,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnalysis" OutputProperty="*" Verb="Update" Noun="Analysis" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnalysisPermissions" OutputProperty="*" Verb="Update" Noun="AnalysisPermission" ShouldProcessTarget="AnalysisId" PipelineParameter="AnalysisId" NoPipelineParameter="false">
@@ -435,7 +459,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDashboardPermissions" OutputProperty="*" Verb="Update" Noun="DashboardPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
@@ -490,7 +517,10 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+                <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTemplateAlias" OutputProperty="TemplateAlias" Verb="Update" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">

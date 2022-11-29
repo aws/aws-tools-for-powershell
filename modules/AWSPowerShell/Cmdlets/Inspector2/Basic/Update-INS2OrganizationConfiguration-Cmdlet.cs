@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public System.Boolean? AutoEnable_Ecr { get; set; }
         #endregion
         
+        #region Parameter AutoEnable_Lambda
+        /// <summary>
+        /// <para>
+        /// <para>Represents whether AWS Lambda scans are automatically enabled for new members of your
+        /// Amazon Inspector organization. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoEnable_Lambda { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'AutoEnable'.
@@ -129,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 WriteWarning("You are passing $null as a value for parameter AutoEnable_Ecr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoEnable_Lambda = this.AutoEnable_Lambda;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,6 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestAutoEnable_autoEnable_Ecr != null)
             {
                 request.AutoEnable.Ecr = requestAutoEnable_autoEnable_Ecr.Value;
+                requestAutoEnableIsNull = false;
+            }
+            System.Boolean? requestAutoEnable_autoEnable_Lambda = null;
+            if (cmdletContext.AutoEnable_Lambda != null)
+            {
+                requestAutoEnable_autoEnable_Lambda = cmdletContext.AutoEnable_Lambda.Value;
+            }
+            if (requestAutoEnable_autoEnable_Lambda != null)
+            {
+                request.AutoEnable.Lambda = requestAutoEnable_autoEnable_Lambda.Value;
                 requestAutoEnableIsNull = false;
             }
              // determine if request.AutoEnable should be set to null
@@ -237,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         {
             public System.Boolean? AutoEnable_Ec2 { get; set; }
             public System.Boolean? AutoEnable_Ecr { get; set; }
+            public System.Boolean? AutoEnable_Lambda { get; set; }
             public System.Func<Amazon.Inspector2.Model.UpdateOrganizationConfigurationResponse, UpdateINS2OrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AutoEnable;
         }

@@ -132,7 +132,8 @@ $LMUS_SelectMap = @{
                "Get-LMUSUserAssociationList",
                "Register-LMUSIdentityProvider",
                "Start-LMUSProductSubscription",
-               "Stop-LMUSProductSubscription")
+               "Stop-LMUSProductSubscription",
+               "Update-LMUSIdentityProviderSetting")
 }
 
 _awsArgumentCompleterRegistration $LMUS_SelectCompleters $LMUS_SelectMap

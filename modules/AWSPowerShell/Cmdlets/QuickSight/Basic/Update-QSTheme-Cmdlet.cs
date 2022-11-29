@@ -165,6 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DataColorPalette_EmptyFillColor { get; set; }
         #endregion
         
+        #region Parameter Typography_FontFamily
+        /// <summary>
+        /// <para>
+        /// <para>Determines the list of font families.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Typography_FontFamilies")]
+        public Amazon.QuickSight.Model.Font[] Typography_FontFamily { get; set; }
+        #endregion
+        
         #region Parameter UIColorPalette_Measure
         /// <summary>
         /// <para>
@@ -452,6 +463,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.Border_Show = this.Border_Show;
             context.Gutter_Show = this.Gutter_Show;
             context.Margin_Show = this.Margin_Show;
+            if (this.Typography_FontFamily != null)
+            {
+                context.Typography_FontFamily = new List<Amazon.QuickSight.Model.Font>(this.Typography_FontFamily);
+            }
             context.UIColorPalette_Accent = this.UIColorPalette_Accent;
             context.UIColorPalette_AccentForeground = this.UIColorPalette_AccentForeground;
             context.UIColorPalette_Danger = this.UIColorPalette_Danger;
@@ -505,6 +520,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.QuickSight.Model.ThemeConfiguration();
+            Amazon.QuickSight.Model.Typography requestConfiguration_configuration_Typography = null;
+            
+             // populate Typography
+            var requestConfiguration_configuration_TypographyIsNull = true;
+            requestConfiguration_configuration_Typography = new Amazon.QuickSight.Model.Typography();
+            List<Amazon.QuickSight.Model.Font> requestConfiguration_configuration_Typography_typography_FontFamily = null;
+            if (cmdletContext.Typography_FontFamily != null)
+            {
+                requestConfiguration_configuration_Typography_typography_FontFamily = cmdletContext.Typography_FontFamily;
+            }
+            if (requestConfiguration_configuration_Typography_typography_FontFamily != null)
+            {
+                requestConfiguration_configuration_Typography.FontFamilies = requestConfiguration_configuration_Typography_typography_FontFamily;
+                requestConfiguration_configuration_TypographyIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_Typography should be set to null
+            if (requestConfiguration_configuration_TypographyIsNull)
+            {
+                requestConfiguration_configuration_Typography = null;
+            }
+            if (requestConfiguration_configuration_Typography != null)
+            {
+                request.Configuration.Typography = requestConfiguration_configuration_Typography;
+                requestConfigurationIsNull = false;
+            }
             Amazon.QuickSight.Model.SheetStyle requestConfiguration_configuration_Sheet = null;
             
              // populate Sheet
@@ -931,6 +971,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.Boolean? Border_Show { get; set; }
             public System.Boolean? Gutter_Show { get; set; }
             public System.Boolean? Margin_Show { get; set; }
+            public List<Amazon.QuickSight.Model.Font> Typography_FontFamily { get; set; }
             public System.String UIColorPalette_Accent { get; set; }
             public System.String UIColorPalette_AccentForeground { get; set; }
             public System.String UIColorPalette_Danger { get; set; }

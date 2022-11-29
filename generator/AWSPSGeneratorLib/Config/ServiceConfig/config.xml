@@ -262,6 +262,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceEvaluationSummary" OutputProperty="*" Verb="Get" Noun="ResourceEvaluationSummary" PipelineParameter="ResourceEvaluationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStoredQuery" OutputProperty="StoredQuery" Verb="Get" Noun="StoredQuery" PipelineParameter="QueryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -275,6 +279,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceEvaluations" OutputProperty="ResourceEvaluations" Verb="Get" Noun="ResourceEvaluationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -367,6 +375,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartRemediationExecution" OutputProperty="*" Verb="Start" Noun="RemediationExecution" ShouldProcessTarget="ResourceKeys" PipelineParameter="ResourceKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartResourceEvaluation" OutputProperty="ResourceEvaluationId" Verb="Start" Noun="ResourceEvaluation" ShouldProcessTarget="ResourceDetails_ResourceId" PipelineParameter="EvaluationMode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

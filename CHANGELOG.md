@@ -1,4 +1,7 @@
-﻿### 4.1.215 (2022-11-28 05:44Z)
+﻿### 4.1.216 (2022-11-29 11:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.426.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.215 (2022-11-28 05:44Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.425.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Application Migration Service
     * Added cmdlet Add-MGNApplicationsToWave leveraging the AssociateApplications service API.

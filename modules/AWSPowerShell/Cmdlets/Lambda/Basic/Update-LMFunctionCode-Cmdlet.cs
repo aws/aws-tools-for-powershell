@@ -29,23 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Updates a Lambda function's code. If code signing is enabled for the function, the
-    /// code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring
-    /// code signing</a>.
+    /// code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Configuring
+    /// code signing for Lambda</a>.
     /// 
     ///  
     /// <para>
-    /// If the function's package type is <code>Image</code>, you must specify the code package
-    /// in <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
-    /// image</a> in the Amazon ECR registry. 
+    /// If the function's package type is <code>Image</code>, then you must specify the code
+    /// package in <code>ImageUri</code> as the URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+    /// image</a> in the Amazon ECR registry.
     /// </para><para>
-    /// If the function's package type is <code>Zip</code>, you must specify the deployment
+    /// If the function's package type is <code>Zip</code>, then you must specify the deployment
     /// package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
     /// file archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location.
     /// You can also provide the function code inline using the <code>ZipFile</code> field.
-    /// 
     /// </para><para>
     /// The code in the deployment package must be compatible with the target instruction
-    /// set architecture of the function (<code>x86-64</code> or <code>arm64</code>). 
+    /// set architecture of the function (<code>x86-64</code> or <code>arm64</code>).
     /// </para><para>
     /// The function's code is locked when you publish a version. You can't modify the code
     /// of a published version, only the unpublished version.
@@ -122,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>Only update the function if the revision ID matches the ID that's specified. Use this
+        /// <para>Update the function only if the revision ID matches the ID that's specified. Use this
         /// option to avoid modifying a function that has changed since you last read it.</para>
         /// </para>
         /// </summary>
@@ -170,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The base64-encoded contents of the deployment package. Amazon Web Services SDK and
-        /// Amazon Web Services CLI clients handle the encoding for you. Use only with a function
-        /// defined with a .zip file archive deployment package.</para>
+        /// CLI clients handle the encoding for you. Use only with a function defined with a .zip
+        /// file archive deployment package.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

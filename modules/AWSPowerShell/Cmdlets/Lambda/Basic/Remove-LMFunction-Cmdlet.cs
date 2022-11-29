@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-    /// For Amazon Web Services services and resources that invoke your function directly,
-    /// delete the trigger in the service where you originally configured it.
+    /// For Amazon Web Services and resources that invoke your function directly, delete the
+    /// trigger in the service where you originally configured it.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Specify a version to delete. You can't delete a version that's referenced by an alias.</para>
+        /// <para>Specify a version to delete. You can't delete a version that an alias references.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

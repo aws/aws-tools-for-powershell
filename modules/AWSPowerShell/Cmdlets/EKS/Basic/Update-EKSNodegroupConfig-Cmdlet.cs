@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Taints_RemoveTaint
         /// <summary>
         /// <para>
-        /// <para>Kubernetes taints to be removed.</para>
+        /// <para>Kubernetes taints to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

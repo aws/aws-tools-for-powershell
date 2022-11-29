@@ -670,6 +670,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.MetricType
+        {
+            ($_ -eq "Disable-EC2AwsNetworkPerformanceMetricSubscription/Metric") -Or
+            ($_ -eq "Enable-EC2AwsNetworkPerformanceMetricSubscription/Metric")
+        }
+        {
+            $v = "aggregate-latency"
+            break
+        }
+
         # Amazon.EC2.ModifyAvailabilityZoneOptInStatus
         "Edit-EC2AvailabilityZoneGroup/OptInStatus"
         {
@@ -869,6 +879,16 @@ $EC2_Completers = {
         "New-EC2TransitGatewayMulticastDomain/Options_StaticSourcesSupport"
         {
             $v = "disable","enable"
+            break
+        }
+
+        # Amazon.EC2.StatisticType
+        {
+            ($_ -eq "Disable-EC2AwsNetworkPerformanceMetricSubscription/Statistic") -Or
+            ($_ -eq "Enable-EC2AwsNetworkPerformanceMetricSubscription/Statistic")
+        }
+        {
+            $v = "p50"
             break
         }
 
@@ -1079,6 +1099,7 @@ $EC2_map = @{
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
     "MetadataOptions_HttpTokens"=@("New-EC2Instance")
     "MetadataOptions_InstanceMetadataTags"=@("New-EC2Instance")
+    "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
@@ -1123,6 +1144,7 @@ $EC2_map = @{
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
     "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
     "SpreadLevel"=@("New-EC2PlacementGroup")
+    "Statistic"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Status"=@("Send-EC2InstanceStatus")
     "StorageTier"=@("Edit-EC2SnapshotTier")
     "Strategy"=@("New-EC2PlacementGroup")
@@ -1396,6 +1418,7 @@ $EC2_SelectMap = @{
                "Get-EC2AddressTransfer",
                "Get-EC2AggregateIdFormat",
                "Get-EC2AvailabilityZone",
+               "Get-EC2AwsNetworkPerformanceMetricSubscription",
                "Get-EC2BundleTask",
                "Get-EC2ByoipCidr",
                "Get-EC2CapacityReservationFleet",
@@ -1531,6 +1554,7 @@ $EC2_SelectMap = @{
                "Dismount-EC2Volume",
                "Dismount-EC2VpnGateway",
                "Disable-EC2AddressTransfer",
+               "Disable-EC2AwsNetworkPerformanceMetricSubscription",
                "Disable-EC2EbsEncryptionByDefault",
                "Disable-EC2FastLaunch",
                "Disable-EC2FastSnapshotRestore",
@@ -1554,11 +1578,13 @@ $EC2_SelectMap = @{
                "Unregister-EC2TrunkInterface",
                "Unregister-EC2VpcCidrBlock",
                "Enable-EC2AddressTransfer",
+               "Enable-EC2AwsNetworkPerformanceMetricSubscription",
                "Enable-EC2EbsEncryptionByDefault",
                "Enable-EC2FastLaunch",
                "Enable-EC2FastSnapshotRestore",
                "Enable-EC2ImageDeprecation",
                "Enable-EC2IpamOrganizationAdminAccount",
+               "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2SerialConsoleAccess",
                "Enable-EC2TransitGatewayRouteTablePropagation",
                "Enable-EC2VgwRoutePropagation",
@@ -1571,6 +1597,7 @@ $EC2_SelectMap = @{
                "Export-EC2TransitGatewayRoute",
                "Get-EC2AssociatedEnclaveCertificateIamRole",
                "Get-EC2AssociatedIpv6PoolCidr",
+               "Get-EC2AwsNetworkPerformanceData",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",

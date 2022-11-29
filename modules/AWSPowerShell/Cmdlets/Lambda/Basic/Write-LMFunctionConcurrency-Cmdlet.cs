@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Use <a>GetAccountSettings</a> to see your Regional concurrency limit. You can reserve
     /// concurrency for as many functions as you like, as long as you leave at least 100 simultaneous
     /// executions unreserved for functions that aren't configured with a per-function limit.
-    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
-    /// Concurrency</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html">Lambda
+    /// function scaling</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "LMFunctionConcurrency", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

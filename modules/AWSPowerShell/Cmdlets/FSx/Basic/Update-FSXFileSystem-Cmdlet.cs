@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class UpdateFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        #region Parameter OntapConfiguration_AddRouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route tables to associate
+        /// (add) with your Amazon FSx for NetApp ONTAP file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_AddRouteTableIds")]
+        public System.String[] OntapConfiguration_AddRouteTableId { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_AutomaticBackupRetentionDay
         /// <summary>
         /// <para>
@@ -221,6 +233,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public Amazon.FSx.DiskIopsConfigurationMode OpenZFSConfiguration_DiskIopsConfiguration_Mode { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_RemoveRouteTableId
+        /// <summary>
+        /// <para>
+        /// <para>(Multi-AZ only) A list of IDs of existing virtual private cloud (VPC) route tables
+        /// to disassociate (remove) from your Amazon FSx for NetApp ONTAP file system. You can
+        /// use the API operation to retrieve the list of VPC route table IDs for a file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_RemoveRouteTableIds")]
+        public System.String[] OntapConfiguration_RemoveRouteTableId { get; set; }
+        #endregion
+        
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
@@ -252,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes
-        /// per second (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.</para>
+        /// per second (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,8 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_ThroughputCapacity
         /// <summary>
         /// <para>
-        /// <para>The throughput of an Amazon FSx file system, measured in megabytes per second (MBps).
-        /// Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</para>
+        /// <para>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per
+        /// second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</para><ul><li><para>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072,
+        /// or 4096 MB/s.</para></li><li><para>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
+        /// 7680, or 10240 MB/s.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,11 +397,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #endif
             context.LustreConfiguration = this.LustreConfiguration;
+            if (this.OntapConfiguration_AddRouteTableId != null)
+            {
+                context.OntapConfiguration_AddRouteTableId = new List<System.String>(this.OntapConfiguration_AddRouteTableId);
+            }
             context.OntapConfiguration_AutomaticBackupRetentionDay = this.OntapConfiguration_AutomaticBackupRetentionDay;
             context.OntapConfiguration_DailyAutomaticBackupStartTime = this.OntapConfiguration_DailyAutomaticBackupStartTime;
             context.OntapConfiguration_DiskIopsConfiguration_Iops = this.OntapConfiguration_DiskIopsConfiguration_Iops;
             context.OntapConfiguration_DiskIopsConfiguration_Mode = this.OntapConfiguration_DiskIopsConfiguration_Mode;
             context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
+            if (this.OntapConfiguration_RemoveRouteTableId != null)
+            {
+                context.OntapConfiguration_RemoveRouteTableId = new List<System.String>(this.OntapConfiguration_RemoveRouteTableId);
+            }
             context.OntapConfiguration_ThroughputCapacity = this.OntapConfiguration_ThroughputCapacity;
             context.OntapConfiguration_WeeklyMaintenanceStartTime = this.OntapConfiguration_WeeklyMaintenanceStartTime;
             context.OpenZFSConfiguration_AutomaticBackupRetentionDay = this.OpenZFSConfiguration_AutomaticBackupRetentionDay;
@@ -419,6 +454,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
              // populate OntapConfiguration
             var requestOntapConfigurationIsNull = true;
             request.OntapConfiguration = new Amazon.FSx.Model.UpdateFileSystemOntapConfiguration();
+            List<System.String> requestOntapConfiguration_ontapConfiguration_AddRouteTableId = null;
+            if (cmdletContext.OntapConfiguration_AddRouteTableId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_AddRouteTableId = cmdletContext.OntapConfiguration_AddRouteTableId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_AddRouteTableId != null)
+            {
+                request.OntapConfiguration.AddRouteTableIds = requestOntapConfiguration_ontapConfiguration_AddRouteTableId;
+                requestOntapConfigurationIsNull = false;
+            }
             System.Int32? requestOntapConfiguration_ontapConfiguration_AutomaticBackupRetentionDay = null;
             if (cmdletContext.OntapConfiguration_AutomaticBackupRetentionDay != null)
             {
@@ -447,6 +492,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_FsxAdminPassword != null)
             {
                 request.OntapConfiguration.FsxAdminPassword = requestOntapConfiguration_ontapConfiguration_FsxAdminPassword;
+                requestOntapConfigurationIsNull = false;
+            }
+            List<System.String> requestOntapConfiguration_ontapConfiguration_RemoveRouteTableId = null;
+            if (cmdletContext.OntapConfiguration_RemoveRouteTableId != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_RemoveRouteTableId = cmdletContext.OntapConfiguration_RemoveRouteTableId;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_RemoveRouteTableId != null)
+            {
+                request.OntapConfiguration.RemoveRouteTableIds = requestOntapConfiguration_ontapConfiguration_RemoveRouteTableId;
                 requestOntapConfigurationIsNull = false;
             }
             System.Int32? requestOntapConfiguration_ontapConfiguration_ThroughputCapacity = null;
@@ -685,11 +740,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
             public Amazon.FSx.Model.UpdateFileSystemLustreConfiguration LustreConfiguration { get; set; }
+            public List<System.String> OntapConfiguration_AddRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_AutomaticBackupRetentionDay { get; set; }
             public System.String OntapConfiguration_DailyAutomaticBackupStartTime { get; set; }
             public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+            public List<System.String> OntapConfiguration_RemoveRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
             public System.String OntapConfiguration_WeeklyMaintenanceStartTime { get; set; }
             public System.Int32? OpenZFSConfiguration_AutomaticBackupRetentionDay { get; set; }

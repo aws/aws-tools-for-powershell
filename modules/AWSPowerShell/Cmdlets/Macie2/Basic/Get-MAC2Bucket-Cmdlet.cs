@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// Retrieves (queries) statistical data and other information about one or more S3 buckets
-    /// that Amazon Macie monitors and analyzes.
+    /// that Amazon Macie monitors and analyzes for an account.
     /// </summary>
     [Cmdlet("Get", "MAC2Bucket")]
     [OutputType("Amazon.Macie2.Model.BucketMetadata")]
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>The name of the bucket property to sort the results by. This value can be one of the
         /// following properties that Amazon Macie defines as bucket metadata: accountId, bucketName,
-        /// classifiableObjectCount, classifiableSizeInBytes, objectCount, or sizeInBytes.</para>
+        /// classifiableObjectCount, classifiableSizeInBytes, objectCount, sensitivityScore, or
+        /// sizeInBytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

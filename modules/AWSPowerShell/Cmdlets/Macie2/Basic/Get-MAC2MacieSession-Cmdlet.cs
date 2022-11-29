@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves the current status and configuration settings for an Amazon Macie account.
+    /// Retrieves the status and configuration settings for an Amazon Macie account.
     /// </summary>
     [Cmdlet("Get", "MAC2MacieSession")]
     [OutputType("Amazon.Macie2.Model.GetMacieSessionResponse")]

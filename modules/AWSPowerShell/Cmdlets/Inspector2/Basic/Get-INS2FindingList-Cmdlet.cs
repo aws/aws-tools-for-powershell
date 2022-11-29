@@ -161,6 +161,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_EcrImageTag { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_ExploitAvailable
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of AWS Lambda findings by the availability of exploits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_ExploitAvailable { get; set; }
+        #endregion
+        
         #region Parameter SortCriteria_Field
         /// <summary>
         /// <para>
@@ -233,6 +243,61 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Inspector2.Model.NumberFilter[] FilterCriteria_InspectorScore { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of AWS Lambda functions by execution role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_LambdaFunctionExecutionRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionLastModifiedAt
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of AWS Lambda functions by the date and time that a user last updated
+        /// the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+        /// 8601 format</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.DateFilter[] FilterCriteria_LambdaFunctionLastModifiedAt { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionLayer
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of AWS Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+        /// layers</a>. A Lambda function can have up to five layers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterCriteria_LambdaFunctionLayers")]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_LambdaFunctionLayer { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionName
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of AWS Lambda functions by the name of the function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_LambdaFunctionName { get; set; }
+        #endregion
+        
+        #region Parameter FilterCriteria_LambdaFunctionRuntime
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of AWS Lambda functions by the runtime environment for the Lambda
+        /// function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.StringFilter[] FilterCriteria_LambdaFunctionRuntime { get; set; }
         #endregion
         
         #region Parameter FilterCriteria_LastObservedAt
@@ -486,6 +551,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             {
                 context.FilterCriteria_EcrImageTag = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_EcrImageTag);
             }
+            if (this.FilterCriteria_ExploitAvailable != null)
+            {
+                context.FilterCriteria_ExploitAvailable = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_ExploitAvailable);
+            }
             if (this.FilterCriteria_FindingArn != null)
             {
                 context.FilterCriteria_FindingArn = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_FindingArn);
@@ -509,6 +578,26 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.FilterCriteria_InspectorScore != null)
             {
                 context.FilterCriteria_InspectorScore = new List<Amazon.Inspector2.Model.NumberFilter>(this.FilterCriteria_InspectorScore);
+            }
+            if (this.FilterCriteria_LambdaFunctionExecutionRoleArn != null)
+            {
+                context.FilterCriteria_LambdaFunctionExecutionRoleArn = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_LambdaFunctionExecutionRoleArn);
+            }
+            if (this.FilterCriteria_LambdaFunctionLastModifiedAt != null)
+            {
+                context.FilterCriteria_LambdaFunctionLastModifiedAt = new List<Amazon.Inspector2.Model.DateFilter>(this.FilterCriteria_LambdaFunctionLastModifiedAt);
+            }
+            if (this.FilterCriteria_LambdaFunctionLayer != null)
+            {
+                context.FilterCriteria_LambdaFunctionLayer = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_LambdaFunctionLayer);
+            }
+            if (this.FilterCriteria_LambdaFunctionName != null)
+            {
+                context.FilterCriteria_LambdaFunctionName = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_LambdaFunctionName);
+            }
+            if (this.FilterCriteria_LambdaFunctionRuntime != null)
+            {
+                context.FilterCriteria_LambdaFunctionRuntime = new List<Amazon.Inspector2.Model.StringFilter>(this.FilterCriteria_LambdaFunctionRuntime);
             }
             if (this.FilterCriteria_LastObservedAt != null)
             {
@@ -710,6 +799,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.FilterCriteria.EcrImageTags = requestFilterCriteria_filterCriteria_EcrImageTag;
                 requestFilterCriteriaIsNull = false;
             }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_ExploitAvailable = null;
+            if (cmdletContext.FilterCriteria_ExploitAvailable != null)
+            {
+                requestFilterCriteria_filterCriteria_ExploitAvailable = cmdletContext.FilterCriteria_ExploitAvailable;
+            }
+            if (requestFilterCriteria_filterCriteria_ExploitAvailable != null)
+            {
+                request.FilterCriteria.ExploitAvailable = requestFilterCriteria_filterCriteria_ExploitAvailable;
+                requestFilterCriteriaIsNull = false;
+            }
             List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_FindingArn = null;
             if (cmdletContext.FilterCriteria_FindingArn != null)
             {
@@ -768,6 +867,56 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (requestFilterCriteria_filterCriteria_InspectorScore != null)
             {
                 request.FilterCriteria.InspectorScore = requestFilterCriteria_filterCriteria_InspectorScore;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionExecutionRoleArn != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn = cmdletContext.FilterCriteria_LambdaFunctionExecutionRoleArn;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn != null)
+            {
+                request.FilterCriteria.LambdaFunctionExecutionRoleArn = requestFilterCriteria_filterCriteria_LambdaFunctionExecutionRoleArn;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionLastModifiedAt != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt = cmdletContext.FilterCriteria_LambdaFunctionLastModifiedAt;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt != null)
+            {
+                request.FilterCriteria.LambdaFunctionLastModifiedAt = requestFilterCriteria_filterCriteria_LambdaFunctionLastModifiedAt;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionLayer = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionLayer != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionLayer = cmdletContext.FilterCriteria_LambdaFunctionLayer;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionLayer != null)
+            {
+                request.FilterCriteria.LambdaFunctionLayers = requestFilterCriteria_filterCriteria_LambdaFunctionLayer;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionName = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionName != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionName = cmdletContext.FilterCriteria_LambdaFunctionName;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionName != null)
+            {
+                request.FilterCriteria.LambdaFunctionName = requestFilterCriteria_filterCriteria_LambdaFunctionName;
+                requestFilterCriteriaIsNull = false;
+            }
+            List<Amazon.Inspector2.Model.StringFilter> requestFilterCriteria_filterCriteria_LambdaFunctionRuntime = null;
+            if (cmdletContext.FilterCriteria_LambdaFunctionRuntime != null)
+            {
+                requestFilterCriteria_filterCriteria_LambdaFunctionRuntime = cmdletContext.FilterCriteria_LambdaFunctionRuntime;
+            }
+            if (requestFilterCriteria_filterCriteria_LambdaFunctionRuntime != null)
+            {
+                request.FilterCriteria.LambdaFunctionRuntime = requestFilterCriteria_filterCriteria_LambdaFunctionRuntime;
                 requestFilterCriteriaIsNull = false;
             }
             List<Amazon.Inspector2.Model.DateFilter> requestFilterCriteria_filterCriteria_LastObservedAt = null;
@@ -1025,12 +1174,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageRegistry { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageRepositoryName { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_EcrImageTag { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_ExploitAvailable { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingArn { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingStatus { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FindingType { get; set; }
             public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_FirstObservedAt { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_FixAvailable { get; set; }
             public List<Amazon.Inspector2.Model.NumberFilter> FilterCriteria_InspectorScore { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_LambdaFunctionExecutionRoleArn { get; set; }
+            public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_LambdaFunctionLastModifiedAt { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_LambdaFunctionLayer { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_LambdaFunctionName { get; set; }
+            public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_LambdaFunctionRuntime { get; set; }
             public List<Amazon.Inspector2.Model.DateFilter> FilterCriteria_LastObservedAt { get; set; }
             public List<Amazon.Inspector2.Model.StringFilter> FilterCriteria_NetworkProtocol { get; set; }
             public List<Amazon.Inspector2.Model.PortRangeFilter> FilterCriteria_PortRange { get; set; }

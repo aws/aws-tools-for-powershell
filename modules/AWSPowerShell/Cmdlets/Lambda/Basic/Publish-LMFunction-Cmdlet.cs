@@ -32,30 +32,31 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution
     /// role</a>. The deployment package is a .zip file archive or container image that contains
     /// your function code. The execution role grants the function permission to use Amazon
-    /// Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray
-    /// for request tracing.
+    /// Web Services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request
+    /// tracing.
     /// 
     ///  
     /// <para>
-    /// You set the package type to <code>Image</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
-    /// image</a>. For a container image, the code property must include the URI of a container
-    /// image in the Amazon ECR registry. You do not need to specify the handler and runtime
-    /// properties. 
+    /// If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+    /// image</a>, then you set the package type to <code>Image</code>. For a container image,
+    /// the code property must include the URI of a container image in the Amazon ECR registry.
+    /// You do not need to specify the handler and runtime properties.
     /// </para><para>
-    /// You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
-    /// file archive</a>. For a .zip file archive, the code property specifies the location
-    /// of the .zip file. You must also specify the handler and runtime properties. The code
-    /// in the deployment package must be compatible with the target instruction set architecture
-    /// of the function (<code>x86-64</code> or <code>arm64</code>). If you do not specify
-    /// the architecture, the default value is <code>x86-64</code>.
+    /// If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip
+    /// file archive</a>, then you set the package type to <code>Zip</code>. For a .zip file
+    /// archive, the code property specifies the location of the .zip file. You must also
+    /// specify the handler and runtime properties. The code in the deployment package must
+    /// be compatible with the target instruction set architecture of the function (<code>x86-64</code>
+    /// or <code>arm64</code>). If you do not specify the architecture, then the default value
+    /// is <code>x86-64</code>.
     /// </para><para>
     /// When you create a function, Lambda provisions an instance of the function and its
     /// supporting resources. If your function connects to a VPC, this process can take a
     /// minute or so. During this time, you can't invoke or modify the function. The <code>State</code>,
     /// <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response
     /// from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke.
-    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
-    /// States</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda
+    /// function states</a>.
     /// </para><para>
     /// A function has an unpublished version, and can have published versions and aliases.
     /// The unpublished version changes when you update your function's code and configuration.
@@ -74,17 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// code signing for this function, specify the ARN of a code-signing configuration. When
     /// a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks
     /// that the code package has a valid signature from a trusted publisher. The code-signing
-    /// configuration includes set set of signing profiles, which define the trusted publishers
+    /// configuration includes set of signing profiles, which define the trusted publishers
     /// for this function.
     /// </para><para>
-    /// If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a>
-    /// to grant permission by creating a resource-based IAM policy. You can grant permissions
-    /// at the function level, on a version, or on an alias.
+    /// If another Amazon Web Services account or an Amazon Web Service invokes your function,
+    /// use <a>AddPermission</a> to grant permission by creating a resource-based Identity
+    /// and Access Management (IAM) policy. You can grant permissions at the function level,
+    /// on a version, or on an alias.
     /// </para><para>
     /// To invoke your function directly, use <a>Invoke</a>. To invoke your function in response
-    /// to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+    /// to events in other Amazon Web Services, create an event source mapping (<a>CreateEventSourceMapping</a>),
     /// or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking
-    /// Functions</a>.
+    /// Lambda functions</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Publish", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="FromMemoryStream")]
@@ -95,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter SnapStart_ApplyOn
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution
+        /// environment when you publish a function version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.SnapStartApplyOn")]
+        public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }
+        #endregion
         
         #region Parameter Architecture
         /// <summary>
@@ -123,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ImageConfig_Command
         /// <summary>
         /// <para>
-        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT. </para>
+        /// <para>Specifies parameters that you want to pass in with ENTRYPOINT.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,11 +189,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Handler
         /// <summary>
         /// <para>
-        /// <para>The name of the method within your code that Lambda calls to execute your function.
-        /// Handler is required if the deployment package is a .zip file archive. The format includes
+        /// <para>The name of the method within your code that Lambda calls to run your function. Handler
+        /// is required if the deployment package is a .zip file archive. The format includes
         /// the file name. It can also include namespaces and other qualifiers, depending on the
-        /// runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
-        /// Model</a>.</para>
+        /// runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html">Lambda
+        /// programming model</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = "FromS3Object")]
@@ -272,9 +286,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to
-        /// encrypt your function's environment variables. If it's not provided, Lambda uses a
-        /// default service key.</para>
+        /// <para>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's
+        /// environment variables. If it's not provided, Lambda uses a default service key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MemorySize
         /// <summary>
         /// <para>
-        /// <para>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory
+        /// <para>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console">memory
         /// available to the function</a> at runtime. Increasing the function memory also increases
         /// its CPU allocation. The default value is 128 MB. The value can be any multiple of
         /// 1 MB.</para>
@@ -322,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The type of deployment package. Set to <code>Image</code> for container image and
-        /// set <code>Zip</code> for ZIP archive.</para>
+        /// set to <code>Zip</code> for .zip file archive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -399,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups IDs.</para>
+        /// <para>A list of VPC security group IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -410,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EphemeralStorage_Size
         /// <summary>
         /// <para>
-        /// <para>The size of the function’s /tmp directory.</para>
+        /// <para>The size of the function's <code>/tmp</code> directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -454,8 +467,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The amount of time (in seconds) that Lambda allows a function to run before stopping
-        /// it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional
-        /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
+        /// it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information,
+        /// see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda
         /// execution environment</a>.</para>
         /// </para>
         /// </summary>
@@ -489,7 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The base64-encoded contents of the deployment package. Amazon Web Services SDK and
-        /// Amazon Web Services CLI clients handle the encoding for you.</para>
+        /// CLI clients handle the encoding for you.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -633,6 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             #endif
             context.Runtime = this.Runtime;
+            context.SnapStart_ApplyOn = this.SnapStart_ApplyOn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -919,6 +933,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 {
                     request.Runtime = cmdletContext.Runtime;
                 }
+                
+                 // populate SnapStart
+                var requestSnapStartIsNull = true;
+                request.SnapStart = new Amazon.Lambda.Model.SnapStart();
+                Amazon.Lambda.SnapStartApplyOn requestSnapStart_snapStart_ApplyOn = null;
+                if (cmdletContext.SnapStart_ApplyOn != null)
+                {
+                    requestSnapStart_snapStart_ApplyOn = cmdletContext.SnapStart_ApplyOn;
+                }
+                if (requestSnapStart_snapStart_ApplyOn != null)
+                {
+                    request.SnapStart.ApplyOn = requestSnapStart_snapStart_ApplyOn;
+                    requestSnapStartIsNull = false;
+                }
+                 // determine if request.SnapStart should be set to null
+                if (requestSnapStartIsNull)
+                {
+                    request.SnapStart = null;
+                }
                 if (cmdletContext.Tag != null)
                 {
                     request.Tags = cmdletContext.Tag;
@@ -1091,6 +1124,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Boolean? PublishVersion { get; set; }
             public System.String Role { get; set; }
             public Amazon.Lambda.Runtime Runtime { get; set; }
+            public Amazon.Lambda.SnapStartApplyOn SnapStart_ApplyOn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Lambda.TracingMode TracingConfig_Mode { get; set; }

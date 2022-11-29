@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions
-    /// of each function in addition to the unpublished version. 
+    /// of each function in addition to the unpublished version.
     /// </para><note><para>
-    /// The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a>
+    /// The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a>
     /// fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus,
     /// LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use
     /// <a>GetFunction</a>.
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>For Lambda@Edge functions, the Amazon Web Services Region of the master function.
-        /// For example, <code>us-east-1</code> filters the list of functions to only include
+        /// For example, <code>us-east-1</code> filters the list of functions to include only
         /// Lambda@Edge functions replicated from a master function in US East (N. Virginia).
         /// If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</para>
         /// </para>

@@ -185,6 +185,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.Boolean? CustomPolicyDetails_EnableDebugLogDelivery { get; set; }
         #endregion
         
+        #region Parameter ConfigRule_EvaluationMode
+        /// <summary>
+        /// <para>
+        /// <para>The modes the Config rule can be evaluated in. The valid values are distinct objects.
+        /// By default, the value is Detective evaluation mode only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigRule_EvaluationModes")]
+        public Amazon.ConfigService.Model.EvaluationModeConfiguration[] ConfigRule_EvaluationMode { get; set; }
+        #endregion
+        
         #region Parameter ConfigRule_InputParameter
         /// <summary>
         /// <para>
@@ -390,6 +402,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             context.ConfigRule_ConfigRuleState = this.ConfigRule_ConfigRuleState;
             context.ConfigRule_CreatedBy = this.ConfigRule_CreatedBy;
             context.ConfigRule_Description = this.ConfigRule_Description;
+            if (this.ConfigRule_EvaluationMode != null)
+            {
+                context.ConfigRule_EvaluationMode = new List<Amazon.ConfigService.Model.EvaluationModeConfiguration>(this.ConfigRule_EvaluationMode);
+            }
             context.ConfigRule_InputParameter = this.ConfigRule_InputParameter;
             context.ConfigRule_MaximumExecutionFrequency = this.ConfigRule_MaximumExecutionFrequency;
             context.Scope_ComplianceResourceId = this.Scope_ComplianceResourceId;
@@ -496,6 +512,16 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (requestConfigRule_configRule_Description != null)
             {
                 request.ConfigRule.Description = requestConfigRule_configRule_Description;
+                requestConfigRuleIsNull = false;
+            }
+            List<Amazon.ConfigService.Model.EvaluationModeConfiguration> requestConfigRule_configRule_EvaluationMode = null;
+            if (cmdletContext.ConfigRule_EvaluationMode != null)
+            {
+                requestConfigRule_configRule_EvaluationMode = cmdletContext.ConfigRule_EvaluationMode;
+            }
+            if (requestConfigRule_configRule_EvaluationMode != null)
+            {
+                request.ConfigRule.EvaluationModes = requestConfigRule_configRule_EvaluationMode;
                 requestConfigRuleIsNull = false;
             }
             System.String requestConfigRule_configRule_InputParameter = null;
@@ -739,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public Amazon.ConfigService.ConfigRuleState ConfigRule_ConfigRuleState { get; set; }
             public System.String ConfigRule_CreatedBy { get; set; }
             public System.String ConfigRule_Description { get; set; }
+            public List<Amazon.ConfigService.Model.EvaluationModeConfiguration> ConfigRule_EvaluationMode { get; set; }
             public System.String ConfigRule_InputParameter { get; set; }
             public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
             public System.String Scope_ComplianceResourceId { get; set; }

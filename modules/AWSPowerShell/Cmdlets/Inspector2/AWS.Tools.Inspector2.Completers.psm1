@@ -104,14 +104,14 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_ResourceType")
         }
         {
-            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE"
+            $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION"
             break
         }
 
         # Amazon.Inspector2.AggregationType
         "Get-INS2FindingAggregationList/AggregationType"
         {
-            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","FINDING_TYPE","IMAGE_LAYER","PACKAGE","REPOSITORY","TITLE"
+            $v = "ACCOUNT","AMI","AWS_EC2_INSTANCE","AWS_ECR_CONTAINER","AWS_LAMBDA_FUNCTION","FINDING_TYPE","IMAGE_LAYER","LAMBDA_LAYER","PACKAGE","REPOSITORY","TITLE"
             break
         }
 
@@ -175,6 +175,20 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.LambdaFunctionSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_LambdaFunctionAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
+        # Amazon.Inspector2.LambdaLayerSortBy
+        "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortBy"
+        {
+            $v = "ALL","CRITICAL","HIGH"
+            break
+        }
+
         # Amazon.Inspector2.PackageSortBy
         "Get-INS2FindingAggregationList/AggregationRequest_PackageAggregation_SortBy"
         {
@@ -199,7 +213,7 @@ $INS2_Completers = {
         # Amazon.Inspector2.Service
         "Get-INS2AccountPermissionList/Service"
         {
-            $v = "EC2","ECR"
+            $v = "EC2","ECR","LAMBDA"
             break
         }
 
@@ -218,6 +232,8 @@ $INS2_Completers = {
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_Ec2InstanceAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_ImageLayerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_LambdaFunctionAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_PackageAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_RepositoryAggregation_SortOrder") -Or
             ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_SortOrder") -Or
@@ -261,6 +277,10 @@ $INS2_map = @{
     "AggregationRequest_FindingTypeAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_ImageLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_ImageLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaFunctionAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AggregationRequest_LambdaLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationRequest_RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")

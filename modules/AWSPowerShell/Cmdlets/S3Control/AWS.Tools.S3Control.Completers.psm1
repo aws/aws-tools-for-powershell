@@ -345,6 +345,7 @@ $S3C_SelectMap = @{
                "Get-S3CMultiRegionAccessPoint",
                "Get-S3CMultiRegionAccessPointPolicy",
                "Get-S3CMultiRegionAccessPointPolicyStatus",
+               "Get-S3CMultiRegionAccessPointRoute",
                "Get-S3CPublicAccessBlock",
                "Get-S3CStorageLensConfiguration",
                "Get-S3CStorageLensConfigurationTagging",
@@ -366,6 +367,7 @@ $S3C_SelectMap = @{
                "Add-S3CPublicAccessBlock",
                "Write-S3CStorageLensConfiguration",
                "Write-S3CStorageLensConfigurationTagging",
+               "Submit-S3CMultiRegionAccessPointRoute",
                "Update-S3CJobPriority",
                "Update-S3CJobStatus")
 }

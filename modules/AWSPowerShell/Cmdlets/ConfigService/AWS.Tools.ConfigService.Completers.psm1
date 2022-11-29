@@ -130,6 +130,17 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.EvaluationMode
+        {
+            ($_ -eq "Start-CFGResourceEvaluation/EvaluationMode") -Or
+            ($_ -eq "Get-CFGConfigRule/Filters_EvaluationMode") -Or
+            ($_ -eq "Get-CFGResourceEvaluationList/Filters_EvaluationMode")
+        }
+        {
+            $v = "DETECTIVE","PROACTIVE"
+            break
+        }
+
         # Amazon.ConfigService.MaximumExecutionFrequency
         {
             ($_ -eq "Write-CFGConfigRule/ConfigRule_MaximumExecutionFrequency") -Or
@@ -161,6 +172,13 @@ $CFG_Completers = {
         "Write-CFGConfigRule/ConfigRule_Source_Owner"
         {
             $v = "AWS","CUSTOM_LAMBDA","CUSTOM_POLICY"
+            break
+        }
+
+        # Amazon.ConfigService.ResourceConfigurationSchemaType
+        "Start-CFGResourceEvaluation/ResourceDetails_ResourceConfigurationSchemaType"
+        {
+            $v = "CFN_RESOURCE_SCHEMA"
             break
         }
 
@@ -213,8 +231,10 @@ $CFG_map = @{
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
+    "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")
     "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList","Get-CFGAggregateComplianceByConformancePack","Get-CFGConformancePackCompliance","Get-CFGConformancePackComplianceDetail")
+    "Filters_EvaluationMode"=@("Get-CFGConfigRule","Get-CFGResourceEvaluationList")
     "Filters_MemberAccountRuleStatus"=@("Get-CFGOrganizationConfigRuleDetailedStatus")
     "Filters_ResourceType"=@("Get-CFGAggregateDiscoveredResourceCount")
     "Filters_Status"=@("Get-CFGOrganizationConformancePackDetailedStatus")
@@ -222,6 +242,7 @@ $CFG_map = @{
     "OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationCustomRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationManagedRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
+    "ResourceDetails_ResourceConfigurationSchemaType"=@("Start-CFGResourceEvaluation")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
     "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
@@ -338,10 +359,12 @@ $CFG_SelectMap = @{
                "Get-CFGOrganizationConformancePackDetailedStatus",
                "Get-CFGOrganizationCustomRulePolicy",
                "Get-CFGResourceConfigHistory",
+               "Get-CFGResourceEvaluationSummary",
                "Get-CFGStoredQuery",
                "Get-CFGAggregateDiscoveredResourceList",
                "Get-CFGConformancePackComplianceScoreList",
                "Get-CFGDiscoveredResource",
+               "Get-CFGResourceEvaluationList",
                "Get-CFGStoredQueryList",
                "Get-CFGResourceTag",
                "Write-CFGAggregationAuthorization",
@@ -364,6 +387,7 @@ $CFG_SelectMap = @{
                "Start-CFGConfigRulesEvaluation",
                "Start-CFGConfigurationRecorder",
                "Start-CFGRemediationExecution",
+               "Start-CFGResourceEvaluation",
                "Stop-CFGConfigurationRecorder",
                "Add-CFGResourceTag",
                "Remove-CFGResourceTag")

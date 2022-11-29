@@ -87,6 +87,13 @@ $CO_Completers = {
             break
         }
 
+        # Amazon.ComputeOptimizer.ExternalMetricsSource
+        "Write-CORecommendationPreference/ExternalMetricsPreference_Source"
+        {
+            $v = "Datadog","Dynatrace","Instana","NewRelic"
+            break
+        }
+
         # Amazon.ComputeOptimizer.FileFormat
         {
             ($_ -eq "Export-COAutoScalingGroupRecommendation/FileFormat") -Or
@@ -152,6 +159,7 @@ $CO_Completers = {
 
 $CO_map = @{
     "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
+    "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
     "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COLambdaFunctionRecommendation")
     "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")

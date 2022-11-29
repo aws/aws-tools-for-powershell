@@ -83,6 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
         #endregion
         
+        #region Parameter ExportHiddenFieldsOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior ExportHiddenFieldsOption_AvailabilityStatus { get; set; }
+        #endregion
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
@@ -100,6 +112,40 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter PaperMargin_Bottom
+        /// <summary>
+        /// <para>
+        /// <para>Define the bottom spacing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Bottom")]
+        public System.String PaperMargin_Bottom { get; set; }
+        #endregion
+        
+        #region Parameter Definition_CalculatedField
+        /// <summary>
+        /// <para>
+        /// <para>An array of calculated field definitions for the dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_CalculatedFields")]
+        public Amazon.QuickSight.Model.CalculatedField[] Definition_CalculatedField { get; set; }
+        #endregion
+        
+        #region Parameter Definition_ColumnConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>An array of dashboard-level column configurations. Column configurations are used
+        /// to set the default formatting for a column that is used throughout a dashboard. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_ColumnConfigurations")]
+        public Amazon.QuickSight.Model.ColumnConfiguration[] Definition_ColumnConfiguration { get; set; }
+        #endregion
+        
         #region Parameter DashboardId
         /// <summary>
         /// <para>
@@ -115,6 +161,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DashboardId { get; set; }
+        #endregion
+        
+        #region Parameter Definition_DataSetIdentifierDeclaration
+        /// <summary>
+        /// <para>
+        /// <para>An array of dataset identifier declarations. With this mapping,you can use dataset
+        /// identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's
+        /// sub-structures.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_DataSetIdentifierDeclarations")]
+        public Amazon.QuickSight.Model.DataSetIdentifierDeclaration[] Definition_DataSetIdentifierDeclaration { get; set; }
         #endregion
         
         #region Parameter SourceTemplate_DataSetReference
@@ -150,6 +209,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.DecimalParameter[] Parameters_DecimalParameter { get; set; }
         #endregion
         
+        #region Parameter Definition_FilterGroup
+        /// <summary>
+        /// <para>
+        /// <para>The filter definitions for a dashboard.</para><para>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/adding-a-filter.html">Filtering
+        /// Data in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_FilterGroups")]
+        public Amazon.QuickSight.Model.FilterGroup[] Definition_FilterGroup { get; set; }
+        #endregion
+        
         #region Parameter Parameters_IntegerParameter
         /// <summary>
         /// <para>
@@ -159,6 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters_IntegerParameters")]
         public Amazon.QuickSight.Model.IntegerParameter[] Parameters_IntegerParameter { get; set; }
+        #endregion
+        
+        #region Parameter PaperMargin_Left
+        /// <summary>
+        /// <para>
+        /// <para>Define the left spacing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Left")]
+        public System.String PaperMargin_Left { get; set; }
         #endregion
         
         #region Parameter Name
@@ -178,6 +260,65 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth
+        /// <summary>
+        /// <para>
+        /// <para>The width that the view port will be optimized for when the layout renders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ScreenCanvasSizeOptions_OptimizedViewPortWidth")]
+        public System.String Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth { get; set; }
+        #endregion
+        
+        #region Parameter Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth
+        /// <summary>
+        /// <para>
+        /// <para>The width that the view port will be optimized for when the layout renders.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth { get; set; }
+        #endregion
+        
+        #region Parameter PaperCanvasSizeOptions_PaperOrientation
+        /// <summary>
+        /// <para>
+        /// <para>The paper orientation that is used to define canvas dimensions. Choose one of the
+        /// following options:</para><ul><li><para>PORTRAIT</para></li><li><para>LANDSCAPE</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation")]
+        [AWSConstantClassSource("Amazon.QuickSight.PaperOrientation")]
+        public Amazon.QuickSight.PaperOrientation PaperCanvasSizeOptions_PaperOrientation { get; set; }
+        #endregion
+        
+        #region Parameter PaperCanvasSizeOptions_PaperSize
+        /// <summary>
+        /// <para>
+        /// <para>The paper size that is used to define canvas dimensions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize")]
+        [AWSConstantClassSource("Amazon.QuickSight.PaperSize")]
+        public Amazon.QuickSight.PaperSize PaperCanvasSizeOptions_PaperSize { get; set; }
+        #endregion
+        
+        #region Parameter Definition_ParameterDeclaration
+        /// <summary>
+        /// <para>
+        /// <para>The parameter declarations for a dashboard. Parameters are named variables that can
+        /// transfer a value for use by an action or an object.</para><para>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html">Parameters
+        /// in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_ParameterDeclarations")]
+        public Amazon.QuickSight.Model.ParameterDeclaration[] Definition_ParameterDeclaration { get; set; }
+        #endregion
+        
         #region Parameter Permission
         /// <summary>
         /// <para>
@@ -189,6 +330,54 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Permissions")]
         public Amazon.QuickSight.Model.ResourcePermission[] Permission { get; set; }
+        #endregion
+        
+        #region Parameter ScreenCanvasSizeOptions_ResizeOption
+        /// <summary>
+        /// <para>
+        /// <para>This value determines the layout behavior when the viewport is resized.</para><ul><li><para><code>FIXED</code>: A fixed width will be used when optimizing the layout. In the
+        /// Amazon QuickSight console, this option is called <code>Classic</code>.</para></li><li><para><code>RESPONSIVE</code>: The width of the canvas will be responsive and optimized
+        /// to the view port. In the Amazon QuickSight console, this option is called <code>Tiled</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption")]
+        [AWSConstantClassSource("Amazon.QuickSight.ResizeOption")]
+        public Amazon.QuickSight.ResizeOption ScreenCanvasSizeOptions_ResizeOption { get; set; }
+        #endregion
+        
+        #region Parameter PaperMargin_Right
+        /// <summary>
+        /// <para>
+        /// <para>Define the right spacing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Right")]
+        public System.String PaperMargin_Right { get; set; }
+        #endregion
+        
+        #region Parameter DefaultNewSheetConfiguration_SheetContentType
+        /// <summary>
+        /// <para>
+        /// <para>The option that determines the sheet content type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType")]
+        [AWSConstantClassSource("Amazon.QuickSight.SheetContentType")]
+        public Amazon.QuickSight.SheetContentType DefaultNewSheetConfiguration_SheetContentType { get; set; }
+        #endregion
+        
+        #region Parameter Definition_Sheet
+        /// <summary>
+        /// <para>
+        /// <para>An array of sheet definitions for a dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_Sheets")]
+        public Amazon.QuickSight.Model.SheetDefinition[] Definition_Sheet { get; set; }
         #endregion
         
         #region Parameter Parameters_StringParameter
@@ -225,6 +414,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ThemeArn { get; set; }
+        #endregion
+        
+        #region Parameter PaperMargin_Top
+        /// <summary>
+        /// <para>
+        /// <para>Define the top spacing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_Top")]
+        public System.String PaperMargin_Top { get; set; }
         #endregion
         
         #region Parameter VersionDescription
@@ -327,6 +527,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.AdHocFilteringOption_AvailabilityStatus = this.AdHocFilteringOption_AvailabilityStatus;
             context.ExportToCSVOption_AvailabilityStatus = this.ExportToCSVOption_AvailabilityStatus;
             context.SheetControlsOption_VisibilityState = this.SheetControlsOption_VisibilityState;
+            context.ExportHiddenFieldsOption_AvailabilityStatus = this.ExportHiddenFieldsOption_AvailabilityStatus;
+            context.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = this.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
+            context.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = this.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
+            context.ScreenCanvasSizeOptions_ResizeOption = this.ScreenCanvasSizeOptions_ResizeOption;
+            context.PaperMargin_Bottom = this.PaperMargin_Bottom;
+            context.PaperMargin_Left = this.PaperMargin_Left;
+            context.PaperMargin_Right = this.PaperMargin_Right;
+            context.PaperMargin_Top = this.PaperMargin_Top;
+            context.PaperCanvasSizeOptions_PaperOrientation = this.PaperCanvasSizeOptions_PaperOrientation;
+            context.PaperCanvasSizeOptions_PaperSize = this.PaperCanvasSizeOptions_PaperSize;
+            context.DefaultNewSheetConfiguration_SheetContentType = this.DefaultNewSheetConfiguration_SheetContentType;
+            if (this.Definition_CalculatedField != null)
+            {
+                context.Definition_CalculatedField = new List<Amazon.QuickSight.Model.CalculatedField>(this.Definition_CalculatedField);
+            }
+            if (this.Definition_ColumnConfiguration != null)
+            {
+                context.Definition_ColumnConfiguration = new List<Amazon.QuickSight.Model.ColumnConfiguration>(this.Definition_ColumnConfiguration);
+            }
+            if (this.Definition_DataSetIdentifierDeclaration != null)
+            {
+                context.Definition_DataSetIdentifierDeclaration = new List<Amazon.QuickSight.Model.DataSetIdentifierDeclaration>(this.Definition_DataSetIdentifierDeclaration);
+            }
+            if (this.Definition_FilterGroup != null)
+            {
+                context.Definition_FilterGroup = new List<Amazon.QuickSight.Model.FilterGroup>(this.Definition_FilterGroup);
+            }
+            if (this.Definition_ParameterDeclaration != null)
+            {
+                context.Definition_ParameterDeclaration = new List<Amazon.QuickSight.Model.ParameterDeclaration>(this.Definition_ParameterDeclaration);
+            }
+            if (this.Definition_Sheet != null)
+            {
+                context.Definition_Sheet = new List<Amazon.QuickSight.Model.SheetDefinition>(this.Definition_Sheet);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -468,10 +703,429 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DashboardPublishOptions.SheetControlsOption = requestDashboardPublishOptions_dashboardPublishOptions_SheetControlsOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
+            Amazon.QuickSight.Model.DashboardVisualPublishOptions requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions = null;
+            
+             // populate VisualPublishOptions
+            var requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptionsIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions = new Amazon.QuickSight.Model.DashboardVisualPublishOptions();
+            Amazon.QuickSight.Model.ExportHiddenFieldsOption requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption = null;
+            
+             // populate ExportHiddenFieldsOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption = new Amazon.QuickSight.Model.ExportHiddenFieldsOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_exportHiddenFieldsOption_AvailabilityStatus = null;
+            if (cmdletContext.ExportHiddenFieldsOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_exportHiddenFieldsOption_AvailabilityStatus = cmdletContext.ExportHiddenFieldsOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_exportHiddenFieldsOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_exportHiddenFieldsOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions.ExportHiddenFieldsOption = requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions_dashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption;
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptionsIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptionsIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions != null)
+            {
+                request.DashboardPublishOptions.VisualPublishOptions = requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions;
+                requestDashboardPublishOptionsIsNull = false;
+            }
              // determine if request.DashboardPublishOptions should be set to null
             if (requestDashboardPublishOptionsIsNull)
             {
                 request.DashboardPublishOptions = null;
+            }
+            
+             // populate Definition
+            var requestDefinitionIsNull = true;
+            request.Definition = new Amazon.QuickSight.Model.DashboardVersionDefinition();
+            List<Amazon.QuickSight.Model.CalculatedField> requestDefinition_definition_CalculatedField = null;
+            if (cmdletContext.Definition_CalculatedField != null)
+            {
+                requestDefinition_definition_CalculatedField = cmdletContext.Definition_CalculatedField;
+            }
+            if (requestDefinition_definition_CalculatedField != null)
+            {
+                request.Definition.CalculatedFields = requestDefinition_definition_CalculatedField;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.ColumnConfiguration> requestDefinition_definition_ColumnConfiguration = null;
+            if (cmdletContext.Definition_ColumnConfiguration != null)
+            {
+                requestDefinition_definition_ColumnConfiguration = cmdletContext.Definition_ColumnConfiguration;
+            }
+            if (requestDefinition_definition_ColumnConfiguration != null)
+            {
+                request.Definition.ColumnConfigurations = requestDefinition_definition_ColumnConfiguration;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.DataSetIdentifierDeclaration> requestDefinition_definition_DataSetIdentifierDeclaration = null;
+            if (cmdletContext.Definition_DataSetIdentifierDeclaration != null)
+            {
+                requestDefinition_definition_DataSetIdentifierDeclaration = cmdletContext.Definition_DataSetIdentifierDeclaration;
+            }
+            if (requestDefinition_definition_DataSetIdentifierDeclaration != null)
+            {
+                request.Definition.DataSetIdentifierDeclarations = requestDefinition_definition_DataSetIdentifierDeclaration;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.FilterGroup> requestDefinition_definition_FilterGroup = null;
+            if (cmdletContext.Definition_FilterGroup != null)
+            {
+                requestDefinition_definition_FilterGroup = cmdletContext.Definition_FilterGroup;
+            }
+            if (requestDefinition_definition_FilterGroup != null)
+            {
+                request.Definition.FilterGroups = requestDefinition_definition_FilterGroup;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.ParameterDeclaration> requestDefinition_definition_ParameterDeclaration = null;
+            if (cmdletContext.Definition_ParameterDeclaration != null)
+            {
+                requestDefinition_definition_ParameterDeclaration = cmdletContext.Definition_ParameterDeclaration;
+            }
+            if (requestDefinition_definition_ParameterDeclaration != null)
+            {
+                request.Definition.ParameterDeclarations = requestDefinition_definition_ParameterDeclaration;
+                requestDefinitionIsNull = false;
+            }
+            List<Amazon.QuickSight.Model.SheetDefinition> requestDefinition_definition_Sheet = null;
+            if (cmdletContext.Definition_Sheet != null)
+            {
+                requestDefinition_definition_Sheet = cmdletContext.Definition_Sheet;
+            }
+            if (requestDefinition_definition_Sheet != null)
+            {
+                request.Definition.Sheets = requestDefinition_definition_Sheet;
+                requestDefinitionIsNull = false;
+            }
+            Amazon.QuickSight.Model.AnalysisDefaults requestDefinition_definition_AnalysisDefaults = null;
+            
+             // populate AnalysisDefaults
+            var requestDefinition_definition_AnalysisDefaultsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults = new Amazon.QuickSight.Model.AnalysisDefaults();
+            Amazon.QuickSight.Model.DefaultNewSheetConfiguration requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration = null;
+            
+             // populate DefaultNewSheetConfiguration
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfigurationIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration = new Amazon.QuickSight.Model.DefaultNewSheetConfiguration();
+            Amazon.QuickSight.SheetContentType requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_defaultNewSheetConfiguration_SheetContentType = null;
+            if (cmdletContext.DefaultNewSheetConfiguration_SheetContentType != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_defaultNewSheetConfiguration_SheetContentType = cmdletContext.DefaultNewSheetConfiguration_SheetContentType;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_defaultNewSheetConfiguration_SheetContentType != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration.SheetContentType = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_defaultNewSheetConfiguration_SheetContentType;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.DefaultPaginatedLayoutConfiguration requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration = null;
+            
+             // populate PaginatedLayoutConfiguration
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfigurationIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration = new Amazon.QuickSight.Model.DefaultPaginatedLayoutConfiguration();
+            Amazon.QuickSight.Model.DefaultSectionBasedLayoutConfiguration requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased = null;
+            
+             // populate SectionBased
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBasedIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased = new Amazon.QuickSight.Model.DefaultSectionBasedLayoutConfiguration();
+            Amazon.QuickSight.Model.SectionBasedLayoutCanvasSizeOptions requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions = null;
+            
+             // populate CanvasSizeOptions
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptionsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions = new Amazon.QuickSight.Model.SectionBasedLayoutCanvasSizeOptions();
+            Amazon.QuickSight.Model.SectionBasedLayoutPaperCanvasSizeOptions requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions = null;
+            
+             // populate PaperCanvasSizeOptions
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptionsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions = new Amazon.QuickSight.Model.SectionBasedLayoutPaperCanvasSizeOptions();
+            Amazon.QuickSight.PaperOrientation requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperOrientation = null;
+            if (cmdletContext.PaperCanvasSizeOptions_PaperOrientation != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperOrientation = cmdletContext.PaperCanvasSizeOptions_PaperOrientation;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperOrientation != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions.PaperOrientation = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperOrientation;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptionsIsNull = false;
+            }
+            Amazon.QuickSight.PaperSize requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperSize = null;
+            if (cmdletContext.PaperCanvasSizeOptions_PaperSize != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperSize = cmdletContext.PaperCanvasSizeOptions_PaperSize;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperSize != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions.PaperSize = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_paperCanvasSizeOptions_PaperSize;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.Spacing requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin = null;
+            
+             // populate PaperMargin
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMarginIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin = new Amazon.QuickSight.Model.Spacing();
+            System.String requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Bottom = null;
+            if (cmdletContext.PaperMargin_Bottom != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Bottom = cmdletContext.PaperMargin_Bottom;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Bottom != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin.Bottom = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Bottom;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMarginIsNull = false;
+            }
+            System.String requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Left = null;
+            if (cmdletContext.PaperMargin_Left != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Left = cmdletContext.PaperMargin_Left;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Left != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin.Left = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Left;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMarginIsNull = false;
+            }
+            System.String requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Right = null;
+            if (cmdletContext.PaperMargin_Right != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Right = cmdletContext.PaperMargin_Right;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Right != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin.Right = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Right;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMarginIsNull = false;
+            }
+            System.String requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Top = null;
+            if (cmdletContext.PaperMargin_Top != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Top = cmdletContext.PaperMargin_Top;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Top != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin.Top = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin_paperMargin_Top;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMarginIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMarginIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions.PaperMargin = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperMargin;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptionsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions.PaperCanvasSizeOptions = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptionsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased.CanvasSizeOptions = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBasedIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBasedIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration.SectionBased = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfigurationIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfigurationIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration.PaginatedLayoutConfiguration = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.DefaultInteractiveLayoutConfiguration requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration = null;
+            
+             // populate InteractiveLayoutConfiguration
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfigurationIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration = new Amazon.QuickSight.Model.DefaultInteractiveLayoutConfiguration();
+            Amazon.QuickSight.Model.DefaultFreeFormLayoutConfiguration requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm = null;
+            
+             // populate FreeForm
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeFormIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm = new Amazon.QuickSight.Model.DefaultFreeFormLayoutConfiguration();
+            Amazon.QuickSight.Model.FreeFormLayoutCanvasSizeOptions requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions = null;
+            
+             // populate CanvasSizeOptions
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptionsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions = new Amazon.QuickSight.Model.FreeFormLayoutCanvasSizeOptions();
+            Amazon.QuickSight.Model.FreeFormLayoutScreenCanvasSizeOptions requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions = null;
+            
+             // populate ScreenCanvasSizeOptions
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions = new Amazon.QuickSight.Model.FreeFormLayoutScreenCanvasSizeOptions();
+            System.String requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = null;
+            if (cmdletContext.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = cmdletContext.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions.OptimizedViewPortWidth = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions.ScreenCanvasSizeOptions = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptionsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm.CanvasSizeOptions = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeFormIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeFormIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration.FreeForm = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.DefaultGridLayoutConfiguration requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid = null;
+            
+             // populate Grid
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_GridIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid = new Amazon.QuickSight.Model.DefaultGridLayoutConfiguration();
+            Amazon.QuickSight.Model.GridLayoutCanvasSizeOptions requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions = null;
+            
+             // populate CanvasSizeOptions
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptionsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions = new Amazon.QuickSight.Model.GridLayoutCanvasSizeOptions();
+            Amazon.QuickSight.Model.GridLayoutScreenCanvasSizeOptions requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions = null;
+            
+             // populate ScreenCanvasSizeOptions
+            var requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull = true;
+            requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions = new Amazon.QuickSight.Model.GridLayoutScreenCanvasSizeOptions();
+            System.String requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = null;
+            if (cmdletContext.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = cmdletContext.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions.OptimizedViewPortWidth = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull = false;
+            }
+            Amazon.QuickSight.ResizeOption requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_screenCanvasSizeOptions_ResizeOption = null;
+            if (cmdletContext.ScreenCanvasSizeOptions_ResizeOption != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_screenCanvasSizeOptions_ResizeOption = cmdletContext.ScreenCanvasSizeOptions_ResizeOption;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_screenCanvasSizeOptions_ResizeOption != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions.ResizeOption = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_screenCanvasSizeOptions_ResizeOption;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptionsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions.ScreenCanvasSizeOptions = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptionsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid.CanvasSizeOptions = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_GridIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_GridIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration.Grid = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfigurationIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfigurationIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration != null)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration.InteractiveLayoutConfiguration = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration_definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration;
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfigurationIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration should be set to null
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfigurationIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration != null)
+            {
+                requestDefinition_definition_AnalysisDefaults.DefaultNewSheetConfiguration = requestDefinition_definition_AnalysisDefaults_definition_AnalysisDefaults_DefaultNewSheetConfiguration;
+                requestDefinition_definition_AnalysisDefaultsIsNull = false;
+            }
+             // determine if requestDefinition_definition_AnalysisDefaults should be set to null
+            if (requestDefinition_definition_AnalysisDefaultsIsNull)
+            {
+                requestDefinition_definition_AnalysisDefaults = null;
+            }
+            if (requestDefinition_definition_AnalysisDefaults != null)
+            {
+                request.Definition.AnalysisDefaults = requestDefinition_definition_AnalysisDefaults;
+                requestDefinitionIsNull = false;
+            }
+             // determine if request.Definition should be set to null
+            if (requestDefinitionIsNull)
+            {
+                request.Definition = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -652,6 +1306,23 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.DashboardBehavior AdHocFilteringOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardUIState SheetControlsOption_VisibilityState { get; set; }
+            public Amazon.QuickSight.DashboardBehavior ExportHiddenFieldsOption_AvailabilityStatus { get; set; }
+            public System.String Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth { get; set; }
+            public System.String Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth { get; set; }
+            public Amazon.QuickSight.ResizeOption ScreenCanvasSizeOptions_ResizeOption { get; set; }
+            public System.String PaperMargin_Bottom { get; set; }
+            public System.String PaperMargin_Left { get; set; }
+            public System.String PaperMargin_Right { get; set; }
+            public System.String PaperMargin_Top { get; set; }
+            public Amazon.QuickSight.PaperOrientation PaperCanvasSizeOptions_PaperOrientation { get; set; }
+            public Amazon.QuickSight.PaperSize PaperCanvasSizeOptions_PaperSize { get; set; }
+            public Amazon.QuickSight.SheetContentType DefaultNewSheetConfiguration_SheetContentType { get; set; }
+            public List<Amazon.QuickSight.Model.CalculatedField> Definition_CalculatedField { get; set; }
+            public List<Amazon.QuickSight.Model.ColumnConfiguration> Definition_ColumnConfiguration { get; set; }
+            public List<Amazon.QuickSight.Model.DataSetIdentifierDeclaration> Definition_DataSetIdentifierDeclaration { get; set; }
+            public List<Amazon.QuickSight.Model.FilterGroup> Definition_FilterGroup { get; set; }
+            public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
+            public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.DateTimeParameter> Parameters_DateTimeParameter { get; set; }
             public List<Amazon.QuickSight.Model.DecimalParameter> Parameters_DecimalParameter { get; set; }

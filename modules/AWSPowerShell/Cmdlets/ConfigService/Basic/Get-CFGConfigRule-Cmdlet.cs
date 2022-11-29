@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public System.String[] ConfigRuleName { get; set; }
         #endregion
         
+        #region Parameter Filters_EvaluationMode
+        /// <summary>
+        /// <para>
+        /// <para>The mode of an evaluation. The valid values are Detective or Proactive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConfigService.EvaluationMode")]
+        public Amazon.ConfigService.EvaluationMode Filters_EvaluationMode { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
@@ -106,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 context.ConfigRuleName = new List<System.String>(this.ConfigRuleName);
             }
+            context.Filters_EvaluationMode = this.Filters_EvaluationMode;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -128,6 +140,25 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             if (cmdletContext.ConfigRuleName != null)
             {
                 request.ConfigRuleNames = cmdletContext.ConfigRuleName;
+            }
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.ConfigService.Model.DescribeConfigRulesFilters();
+            Amazon.ConfigService.EvaluationMode requestFilters_filters_EvaluationMode = null;
+            if (cmdletContext.Filters_EvaluationMode != null)
+            {
+                requestFilters_filters_EvaluationMode = cmdletContext.Filters_EvaluationMode;
+            }
+            if (requestFilters_filters_EvaluationMode != null)
+            {
+                request.Filters.EvaluationMode = requestFilters_filters_EvaluationMode;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             
             // Initialize loop variant and commence piping
@@ -215,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConfigRuleName { get; set; }
+            public Amazon.ConfigService.EvaluationMode Filters_EvaluationMode { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ConfigService.Model.DescribeConfigRulesResponse, GetCFGConfigRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfigRules;

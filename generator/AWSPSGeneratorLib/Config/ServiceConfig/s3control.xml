@@ -163,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMultiRegionAccessPointRoutes" OutputProperty="*" Verb="Get" Noun="MultiRegionAccessPointRoute" PipelineParameter="Mrap" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPublicAccessBlock" OutputProperty="PublicAccessBlockConfiguration" Verb="Get" Noun="PublicAccessBlock" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -253,6 +257,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutStorageLensConfigurationTagging" Verb="Write" Noun="StorageLensConfigurationTagging" ShouldProcessTarget="ConfigId" PipelineParameter="ConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitMultiRegionAccessPointRoutes" Verb="Submit" Noun="MultiRegionAccessPointRoute" ShouldProcessTarget="AccountId" PipelineParameter="Mrap" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

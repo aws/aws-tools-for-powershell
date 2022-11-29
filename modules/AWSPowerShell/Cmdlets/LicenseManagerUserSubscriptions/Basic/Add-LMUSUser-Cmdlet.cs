@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
 {
     /// <summary>
     /// Associates the user to an EC2 instance to utilize user-based subscriptions.
+    /// 
+    ///  <note><para>
+    /// Your estimated bill for charges on the number of users and related costs will take
+    /// 48 hours to appear for billing periods that haven't closed (marked as <b>Pending</b>
+    /// billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing
+    /// your monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "LMUSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LicenseManagerUserSubscriptions.Model.InstanceUserSummary")]

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Option
         /// <summary>
         /// <para>
-        /// <para>The settings used when restoring the specified volume from snapshot. </para><ul><li><para><code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots between the current
+        /// <para>The settings used when restoring the specified volume from snapshot.</para><ul><li><para><code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots between the current
         /// state and the specified snapshot. If there are intermediate snapshots and this option
         /// isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</para></li><li><para><code>DELETE_CLONED_VOLUMES</code> - Deletes any dependent clone volumes created
         /// from intermediate snapshots. If there are any dependent clone volumes and this option

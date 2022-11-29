@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.CO
         public Amazon.ComputeOptimizer.ResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter ExternalMetricsPreference_Source
+        /// <summary>
+        /// <para>
+        /// <para> Contains the source options for external metrics preferences. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ComputeOptimizer.ExternalMetricsSource")]
+        public Amazon.ComputeOptimizer.ExternalMetricsSource ExternalMetricsPreference_Source { get; set; }
+        #endregion
+        
         #region Parameter Scope_Value
         /// <summary>
         /// <para>
@@ -183,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EnhancedInfrastructureMetric = this.EnhancedInfrastructureMetric;
+            context.ExternalMetricsPreference_Source = this.ExternalMetricsPreference_Source;
             context.InferredWorkloadType = this.InferredWorkloadType;
             context.ResourceType = this.ResourceType;
             #if MODULAR
@@ -212,6 +224,25 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (cmdletContext.EnhancedInfrastructureMetric != null)
             {
                 request.EnhancedInfrastructureMetrics = cmdletContext.EnhancedInfrastructureMetric;
+            }
+            
+             // populate ExternalMetricsPreference
+            var requestExternalMetricsPreferenceIsNull = true;
+            request.ExternalMetricsPreference = new Amazon.ComputeOptimizer.Model.ExternalMetricsPreference();
+            Amazon.ComputeOptimizer.ExternalMetricsSource requestExternalMetricsPreference_externalMetricsPreference_Source = null;
+            if (cmdletContext.ExternalMetricsPreference_Source != null)
+            {
+                requestExternalMetricsPreference_externalMetricsPreference_Source = cmdletContext.ExternalMetricsPreference_Source;
+            }
+            if (requestExternalMetricsPreference_externalMetricsPreference_Source != null)
+            {
+                request.ExternalMetricsPreference.Source = requestExternalMetricsPreference_externalMetricsPreference_Source;
+                requestExternalMetricsPreferenceIsNull = false;
+            }
+             // determine if request.ExternalMetricsPreference should be set to null
+            if (requestExternalMetricsPreferenceIsNull)
+            {
+                request.ExternalMetricsPreference = null;
             }
             if (cmdletContext.InferredWorkloadType != null)
             {
@@ -312,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics EnhancedInfrastructureMetric { get; set; }
+            public Amazon.ComputeOptimizer.ExternalMetricsSource ExternalMetricsPreference_Source { get; set; }
             public Amazon.ComputeOptimizer.InferredWorkloadTypesPreference InferredWorkloadType { get; set; }
             public Amazon.ComputeOptimizer.ResourceType ResourceType { get; set; }
             public Amazon.ComputeOptimizer.ScopeName Scope_Name { get; set; }

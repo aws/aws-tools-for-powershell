@@ -68,6 +68,28 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         public System.String Product { get; set; }
         #endregion
         
+        #region Parameter Settings_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A security group ID that allows inbound TCP port 1688 communication between resources
+        /// in your VPC and the VPC endpoint for activation servers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Settings_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter Settings_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The subnets defined for the registered identity provider.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_Subnets")]
+        public System.String[] Settings_Subnet { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'IdentityProviderSummary'.
@@ -137,6 +159,11 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
                 WriteWarning("You are passing $null as a value for parameter Product which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Settings_SecurityGroupId = this.Settings_SecurityGroupId;
+            if (this.Settings_Subnet != null)
+            {
+                context.Settings_Subnet = new List<System.String>(this.Settings_Subnet);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +217,35 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
             if (cmdletContext.Product != null)
             {
                 request.Product = cmdletContext.Product;
+            }
+            
+             // populate Settings
+            var requestSettingsIsNull = true;
+            request.Settings = new Amazon.LicenseManagerUserSubscriptions.Model.Settings();
+            System.String requestSettings_settings_SecurityGroupId = null;
+            if (cmdletContext.Settings_SecurityGroupId != null)
+            {
+                requestSettings_settings_SecurityGroupId = cmdletContext.Settings_SecurityGroupId;
+            }
+            if (requestSettings_settings_SecurityGroupId != null)
+            {
+                request.Settings.SecurityGroupId = requestSettings_settings_SecurityGroupId;
+                requestSettingsIsNull = false;
+            }
+            List<System.String> requestSettings_settings_Subnet = null;
+            if (cmdletContext.Settings_Subnet != null)
+            {
+                requestSettings_settings_Subnet = cmdletContext.Settings_Subnet;
+            }
+            if (requestSettings_settings_Subnet != null)
+            {
+                request.Settings.Subnets = requestSettings_settings_Subnet;
+                requestSettingsIsNull = false;
+            }
+             // determine if request.Settings should be set to null
+            if (requestSettingsIsNull)
+            {
+                request.Settings = null;
             }
             
             CmdletOutput output;
@@ -254,6 +310,8 @@ namespace Amazon.PowerShell.Cmdlets.LMUS
         {
             public System.String ActiveDirectoryIdentityProvider_DirectoryId { get; set; }
             public System.String Product { get; set; }
+            public System.String Settings_SecurityGroupId { get; set; }
+            public List<System.String> Settings_Subnet { get; set; }
             public System.Func<Amazon.LicenseManagerUserSubscriptions.Model.RegisterIdentityProviderResponse, RegisterLMUSIdentityProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IdentityProviderSummary;
         }

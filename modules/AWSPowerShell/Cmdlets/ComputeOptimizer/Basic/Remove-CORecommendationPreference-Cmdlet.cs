@@ -63,9 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter RecommendationPreferenceName
         /// <summary>
         /// <para>
-        /// <para>The name of the recommendation preference to delete.</para><para>Enhanced infrastructure metrics (<code>EnhancedInfrastructureMetrics</code>) is the
-        /// only feature that can be activated through preferences. Therefore, it is also the
-        /// only recommendation preference that can be deleted.</para>
+        /// <para>The name of the recommendation preference to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

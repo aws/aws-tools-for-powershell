@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>arczonalshift</C2jFilename>
+    <AssemblyName>ARCZonalShift</AssemblyName>
+    <ServiceNounPrefix>AZS</ServiceNounPrefix>
+    <ServiceName>AWS ARC - Zonal Shift</ServiceName>
+    <ServiceClientInterface>IAmazonARCZonalShift</ServiceClientInterface>
+    <ServiceClient>AmazonARCZonalShiftClient</ServiceClient>
+    <ServiceModuleGuid>66CADA54-FB7D-46FD-B3DF-7F8E7E6576D2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelZonalShift" OutputProperty="*" Verb="Stop" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedResource" OutputProperty="*" Verb="Get" Noun="ManagedResource" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedResources" OutputProperty="Items" Verb="Get" Noun="ManagedResourceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListZonalShifts" OutputProperty="Items" Verb="Get" Noun="ZonalShiftList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartZonalShift" OutputProperty="*" Verb="Start" Noun="ZonalShift" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateZonalShift" OutputProperty="*" Verb="Update" Noun="ZonalShift" ShouldProcessTarget="ZonalShiftId" PipelineParameter="ZonalShiftId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

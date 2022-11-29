@@ -80,6 +80,20 @@ $MAC2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Macie2.AutomatedDiscoveryStatus
+        "Update-MAC2AutomatedDiscoveryConfiguration/Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Macie2.ClassificationScopeUpdateOperation
+        "Update-MAC2ClassificationScope/S3_Excludes_Operation"
+        {
+            $v = "ADD","REMOVE","REPLACE"
+            break
+        }
+
         # Amazon.Macie2.DayOfWeek
         "New-MAC2ClassificationJob/ScheduleFrequency_WeeklySchedule_DayOfWeek"
         {
@@ -219,12 +233,13 @@ $MAC2_map = @{
     "JobStatus"=@("Update-MAC2ClassificationJob")
     "JobType"=@("New-MAC2ClassificationJob")
     "ManagedDataIdentifierSelector"=@("New-MAC2ClassificationJob")
+    "S3_Excludes_Operation"=@("Update-MAC2ClassificationScope")
     "ScheduleFrequency_WeeklySchedule_DayOfWeek"=@("New-MAC2ClassificationJob")
     "SortBy_Key"=@("Get-MAC2UsageStatistic")
     "SortBy_OrderBy"=@("Get-MAC2UsageStatistic")
     "SortCriteria_AttributeName"=@("Get-MAC2ClassificationJobList","Get-MAC2FindingStatistic","Search-MAC2Resource")
     "SortCriteria_OrderBy"=@("Get-MAC2Bucket","Get-MAC2ClassificationJobList","Get-MAC2Finding","Get-MAC2FindingList","Get-MAC2FindingStatistic","Search-MAC2Resource")
-    "Status"=@("Enable-MAC2Macie","Update-MAC2MacieSession","Update-MAC2MemberSession")
+    "Status"=@("Enable-MAC2Macie","Update-MAC2AutomatedDiscoveryConfiguration","Update-MAC2MacieSession","Update-MAC2MemberSession")
     "TimeRange"=@("Get-MAC2UsageStatistic")
 }
 
@@ -305,8 +320,10 @@ $MAC2_SelectMap = @{
                "Enable-MAC2OrganizationAdminAccount",
                "Get-MAC2AdministratorAccount",
                "Get-MAC2AllowList",
+               "Get-MAC2AutomatedDiscoveryConfiguration",
                "Get-MAC2BucketStatistic",
                "Get-MAC2ClassificationExportConfiguration",
+               "Get-MAC2ClassificationScope",
                "Get-MAC2CustomDataIdentifier",
                "Get-MAC2Finding",
                "Get-MAC2FindingsFilter",
@@ -316,13 +333,16 @@ $MAC2_SelectMap = @{
                "Get-MAC2MacieSession",
                "Get-MAC2MasterAccount",
                "Get-MAC2Member",
+               "Get-MAC2ResourceProfile",
                "Get-MAC2RevealConfiguration",
                "Get-MAC2SensitiveDataOccurrence",
                "Get-MAC2SensitiveDataOccurrencesAvailability",
+               "Get-MAC2SensitivityInspectionTemplate",
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
                "Get-MAC2AllowListList",
                "Get-MAC2ClassificationJobList",
+               "Get-MAC2ClassificationScopeList",
                "Get-MAC2CustomDataIdentifierList",
                "Get-MAC2FindingList",
                "Get-MAC2FindingsFilterList",
@@ -330,6 +350,9 @@ $MAC2_SelectMap = @{
                "Get-MAC2ManagedDataIdentifierList",
                "Get-MAC2MemberList",
                "Get-MAC2OrganizationAdminAccountList",
+               "Get-MAC2ResourceProfileArtifactList",
+               "Get-MAC2ResourceProfileDetectionList",
+               "Get-MAC2SensitivityInspectionTemplateList",
                "Get-MAC2ResourceTag",
                "Write-MAC2ClassificationExportConfiguration",
                "Write-MAC2FindingsPublicationConfiguration",
@@ -338,12 +361,17 @@ $MAC2_SelectMap = @{
                "Test-MAC2CustomDataIdentifier",
                "Remove-MAC2ResourceTag",
                "Update-MAC2AllowList",
+               "Update-MAC2AutomatedDiscoveryConfiguration",
                "Update-MAC2ClassificationJob",
+               "Update-MAC2ClassificationScope",
                "Update-MAC2FindingsFilter",
                "Update-MAC2MacieSession",
                "Update-MAC2MemberSession",
                "Update-MAC2OrganizationConfiguration",
-               "Update-MAC2RevealConfiguration")
+               "Update-MAC2ResourceProfile",
+               "Update-MAC2ResourceProfileDetection",
+               "Update-MAC2RevealConfiguration",
+               "Update-MAC2SensitivityInspectionTemplate")
 }
 
 _awsArgumentCompleterRegistration $MAC2_SelectCompleters $MAC2_SelectMap

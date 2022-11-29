@@ -95,7 +95,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMUSUser', 
         'Start-LMUSProductSubscription', 
         'Stop-LMUSProductSubscription', 
-        'Unregister-LMUSIdentityProvider')
+        'Unregister-LMUSIdentityProvider', 
+        'Update-LMUSIdentityProviderSetting')
 
     # Variables to export from this module
     VariablesToExport = '*'
