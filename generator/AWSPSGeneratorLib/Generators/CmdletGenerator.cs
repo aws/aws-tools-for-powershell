@@ -73,6 +73,8 @@ namespace AWSPowerShellGenerator.Generators
 
         public Type SdkBaseRequestType { get; set; }
 
+        public Type AWSSignerTypeAttributeType { get; set; }
+
         public string CmdletsCsprojFragment
         {
             get
@@ -427,6 +429,16 @@ namespace AWSPowerShellGenerator.Generators
                 return;
             }
 
+            string awsSignerAttributeTypeValue = null;
+            
+            if(AWSSignerTypeAttributeType != null)
+            {
+                var clientConfigTypeName = string.Format("{0}.{1}", CurrentModel.ServiceNamespace, CurrentModel.ServiceClientConfig);
+                dynamic awsSignerTypeAttribute = CurrentServiceAssembly.GetType(clientConfigTypeName)
+                    .GetCustomAttributes(AWSSignerTypeAttributeType, false).FirstOrDefault();
+                awsSignerAttributeTypeValue = awsSignerTypeAttribute?.SignerType;
+            }
+
             var outputRoot = Path.Combine(CmdletsOutputPath, CurrentModel.AssemblyName);
 
             try
@@ -440,7 +452,8 @@ namespace AWSPowerShellGenerator.Generators
                         CmdletServiceClientWriter.Write(writer,
                                                         CurrentModel,
                                                         CurrentModel.ServiceName,
-                                                        GetServiceVersion(CurrentModel.ServiceNamespace, CurrentModel.ServiceClient));
+                                                        GetServiceVersion(CurrentModel.ServiceNamespace, CurrentModel.ServiceClient),
+                                                        awsSignerAttributeTypeValue);
                     }
 
                     var fileContents = sw.ToString();
@@ -459,7 +472,7 @@ namespace AWSPowerShellGenerator.Generators
             {
                 if (ShouldEmitMethod(method))
                 {
-                    CreateCmdlet(method, CurrentModel);
+                    CreateCmdlet(method, CurrentModel, awsSignerAttributeTypeValue);
                     CurrentOperation.Processed = true;
                 }
                 else
@@ -594,7 +607,7 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         /// <param name="method"></param>
         /// <param name="configModel"></param>
-        private void CreateCmdlet(MethodInfo method, ConfigModel configModel)
+        private void CreateCmdlet(MethodInfo method, ConfigModel configModel, string awsSignerAttributeTypeValue)
         {
             Logger.Log();
             Logger.Log("Analyzing method [{0}.{1}]", method.DeclaringType.FullName, method.Name);
@@ -625,7 +638,7 @@ namespace AWSPowerShellGenerator.Generators
                     {
                         using (var writer = new IndentedTextWriter(sw))
                         {
-                            new CmdletSourceWriter(serviceOperation.Analyzer, Options).Write(writer);
+                            new CmdletSourceWriter(serviceOperation.Analyzer, Options).Write(writer, awsSignerAttributeTypeValue);
                         }
 
                         var fileContents = sw.ToString();
@@ -743,6 +756,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             (CoreRuntimeAssembly, _, _) = SourceArtifacts.Load(CoreSDKRuntimeAssemblyName);
             SdkBaseRequestType = CoreRuntimeAssembly.GetType("Amazon.Runtime.AmazonWebServiceRequest");
+            AWSSignerTypeAttributeType = CoreRuntimeAssembly.GetType("Amazon.Runtime.Internal.AWSSignerTypeAttribute");
         }
 
         /// <summary>

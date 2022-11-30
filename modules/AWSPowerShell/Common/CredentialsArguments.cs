@@ -475,8 +475,8 @@ namespace Amazon.PowerShell.Common
             // region set in profile store (including legacy key name)?
             if (region == null)
             {
-                if (!TryLoad(SettingsStore.PSDefaultSettingName, self.ProfileLocation, ref region, ref source))
-                    TryLoad(SettingsStore.PSLegacyDefaultSettingName, self.ProfileLocation, ref region, ref source);
+                if (!TryLoadProfile(self, SettingsStore.PSDefaultSettingName, self.ProfileLocation, ref region, ref source))
+                    TryLoadProfile(self, SettingsStore.PSLegacyDefaultSettingName, self.ProfileLocation, ref region, ref source);
             }
 
             // region set in environment variables?
@@ -506,7 +506,7 @@ namespace Amazon.PowerShell.Common
             return (region != null && source != RegionSource.Unknown);
         }
 
-        private static bool TryLoad(string name, string profileLocation, ref RegionEndpoint region, ref RegionSource source)
+        public static bool TryLoadProfile(this IAWSRegionArguments self, string name, string profileLocation, ref RegionEndpoint region, ref RegionSource source)
         {
             CredentialProfile profile;
             if (SettingsStore.TryGetProfile(name, profileLocation, out profile) && profile.Region != null)

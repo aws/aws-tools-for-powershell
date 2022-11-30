@@ -53,7 +53,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// Writes the source code file for the cmdlet implementing a service operation.
         /// </summary>
         /// <param name="writer"></param>
-        public void Write(IndentedTextWriter writer)
+        public void Write(IndentedTextWriter writer, string awsSignerAttributeTypeValue)
         {
             var analyzedResult = MethodAnalysis.AnalyzedResult;
             var autoIteration = MethodAnalysis.AutoIterateSettings;
@@ -153,6 +153,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     {
                         if (Operation.AnonymousAuthentication == ServiceOperation.AnonymousAuthenticationMode.Optional)
                             writer.WriteLine("this._ExecuteWithAnonymousCredentials = this.UseAnonymousCredentials;");
+                        if (awsSignerAttributeTypeValue == "bearer")
+                            writer.WriteLine("this._ExecuteWithAnonymousCredentials = true;");
 
                         writer.WriteLine("base.ProcessRecord();");
                         writer.WriteLine();
