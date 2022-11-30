@@ -262,6 +262,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String S3StorageConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter OfflineStoreConfig_TableFormat
+        /// <summary>
+        /// <para>
+        /// <para>Format for the offline store feature group. <code>Iceberg</code> is the optimal format
+        /// for feature groups shared between offline and online stores.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.TableFormat")]
+        public Amazon.SageMaker.TableFormat OfflineStoreConfig_TableFormat { get; set; }
+        #endregion
+        
         #region Parameter DataCatalogConfig_TableName
         /// <summary>
         /// <para>
@@ -377,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.S3StorageConfig_KmsKeyId = this.S3StorageConfig_KmsKeyId;
             context.S3StorageConfig_ResolvedOutputS3Uri = this.S3StorageConfig_ResolvedOutputS3Uri;
             context.S3StorageConfig_S3Uri = this.S3StorageConfig_S3Uri;
+            context.OfflineStoreConfig_TableFormat = this.OfflineStoreConfig_TableFormat;
             context.OnlineStoreConfig_EnableOnlineStore = this.OnlineStoreConfig_EnableOnlineStore;
             context.SecurityConfig_KmsKeyId = this.SecurityConfig_KmsKeyId;
             context.RecordIdentifierFeatureName = this.RecordIdentifierFeatureName;
@@ -435,6 +448,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOfflineStoreConfig_offlineStoreConfig_DisableGlueTableCreation != null)
             {
                 request.OfflineStoreConfig.DisableGlueTableCreation = requestOfflineStoreConfig_offlineStoreConfig_DisableGlueTableCreation.Value;
+                requestOfflineStoreConfigIsNull = false;
+            }
+            Amazon.SageMaker.TableFormat requestOfflineStoreConfig_offlineStoreConfig_TableFormat = null;
+            if (cmdletContext.OfflineStoreConfig_TableFormat != null)
+            {
+                requestOfflineStoreConfig_offlineStoreConfig_TableFormat = cmdletContext.OfflineStoreConfig_TableFormat;
+            }
+            if (requestOfflineStoreConfig_offlineStoreConfig_TableFormat != null)
+            {
+                request.OfflineStoreConfig.TableFormat = requestOfflineStoreConfig_offlineStoreConfig_TableFormat;
                 requestOfflineStoreConfigIsNull = false;
             }
             Amazon.SageMaker.Model.DataCatalogConfig requestOfflineStoreConfig_offlineStoreConfig_DataCatalogConfig = null;
@@ -660,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String S3StorageConfig_KmsKeyId { get; set; }
             public System.String S3StorageConfig_ResolvedOutputS3Uri { get; set; }
             public System.String S3StorageConfig_S3Uri { get; set; }
+            public Amazon.SageMaker.TableFormat OfflineStoreConfig_TableFormat { get; set; }
             public System.Boolean? OnlineStoreConfig_EnableOnlineStore { get; set; }
             public System.String SecurityConfig_KmsKeyId { get; set; }
             public System.String RecordIdentifierFeatureName { get; set; }

@@ -53,6 +53,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDataQualityResult" OutputProperty="*" Verb="Get" Noun="DataQualityResultBatch" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDevEndpoints" OutputProperty="*" Verb="Get" Noun="DevEndpointBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -78,6 +82,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdatePartition" OutputProperty="Errors" Verb="Update" Noun="PartitionBatch" ShouldProcessTarget="TableName" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelDataQualityRuleRecommendationRun" Verb="Stop" Noun="DataQualityRuleRecommendationRun" ShouldProcessTarget="RunId" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelDataQualityRulesetEvaluationRun" Verb="Stop" Noun="DataQualityRulesetEvaluationRun" ShouldProcessTarget="RunId" PipelineParameter="RunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,6 +126,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatabase" Verb="New" Noun="Database" AnonymousShouldProcessTarget="true" PipelineParameter="DatabaseInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataQualityRuleset" OutputProperty="Name" Verb="New" Noun="DataQualityRuleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +220,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataQualityRuleset" Verb="Remove" Noun="DataQualityRuleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -340,6 +360,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDataflowGraph" OutputProperty="*" Verb="Get" Noun="DataflowGraph" PipelineParameter="PythonScript" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityResult" OutputProperty="*" Verb="Get" Noun="DataQualityResult" PipelineParameter="ResultId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityRuleRecommendationRun" OutputProperty="*" Verb="Get" Noun="DataQualityRuleRecommendationRun" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityRuleset" OutputProperty="*" Verb="Get" Noun="DataQualityRuleset" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityRulesetEvaluationRun" OutputProperty="*" Verb="Get" Noun="DataQualityRulesetEvaluationRun" PipelineParameter="RunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -535,6 +571,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityResults" OutputProperty="Results" Verb="Get" Noun="DataQualityResultList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityRuleRecommendationRuns" OutputProperty="Runs" Verb="Get" Noun="DataQualityRuleRecommendationRunList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityRulesetEvaluationRuns" OutputProperty="Runs" Verb="Get" Noun="DataQualityRulesetEvaluationRunList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityRulesets" OutputProperty="Rulesets" Verb="Get" Noun="DataQualityRulesetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -631,6 +683,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDataQualityRuleRecommendationRun" OutputProperty="RunId" Verb="Start" Noun="DataQualityRuleRecommendationRun" ShouldProcessTarget="" PipelineParameter="Role" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataQualityRulesetEvaluationRun" OutputProperty="RunId" Verb="Start" Noun="DataQualityRulesetEvaluationRun" ShouldProcessTarget="" PipelineParameter="Role" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartExportLabelsTaskRun" OutputProperty="TaskRunId" Verb="Start" Noun="ExportLabelsTaskRun" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -716,6 +776,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDatabase" Verb="Update" Noun="Database" ShouldProcessTarget="Name" PipelineParameter="DatabaseInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataQualityRuleset" OutputProperty="*" Verb="Update" Noun="DataQualityRuleset" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

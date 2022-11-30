@@ -371,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DataProcessing_OutputFilter { get; set; }
         #endregion
         
+        #region Parameter ExperimentConfig_RunName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the experiment run to associate the trial component with.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_RunName { get; set; }
+        #endregion
+        
         #region Parameter S3DataSource_S3DataType
         /// <summary>
         /// <para>
@@ -618,6 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 }
             }
             context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
+            context.ExperimentConfig_RunName = this.ExperimentConfig_RunName;
             context.ExperimentConfig_TrialComponentDisplayName = this.ExperimentConfig_TrialComponentDisplayName;
             context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
             context.MaxConcurrentTransform = this.MaxConcurrentTransform;
@@ -798,6 +809,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestExperimentConfig_experimentConfig_ExperimentName != null)
             {
                 request.ExperimentConfig.ExperimentName = requestExperimentConfig_experimentConfig_ExperimentName;
+                requestExperimentConfigIsNull = false;
+            }
+            System.String requestExperimentConfig_experimentConfig_RunName = null;
+            if (cmdletContext.ExperimentConfig_RunName != null)
+            {
+                requestExperimentConfig_experimentConfig_RunName = cmdletContext.ExperimentConfig_RunName;
+            }
+            if (requestExperimentConfig_experimentConfig_RunName != null)
+            {
+                request.ExperimentConfig.RunName = requestExperimentConfig_experimentConfig_RunName;
                 requestExperimentConfigIsNull = false;
             }
             System.String requestExperimentConfig_experimentConfig_TrialComponentDisplayName = null;
@@ -1121,6 +1142,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DataProcessing_OutputFilter { get; set; }
             public Dictionary<System.String, System.String> Environment { get; set; }
             public System.String ExperimentConfig_ExperimentName { get; set; }
+            public System.String ExperimentConfig_RunName { get; set; }
             public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
             public System.String ExperimentConfig_TrialName { get; set; }
             public System.Int32? MaxConcurrentTransform { get; set; }

@@ -80,7 +80,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEdgeDeploymentPlan" OutputProperty="EdgeDeploymentPlanArn" Verb="New" Noun="EdgeDeploymentPlan" ShouldProcessTarget="EdgeDeploymentPlanName" PipelineParameter="" NoPipelineParameter="true">
@@ -115,6 +124,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHub" OutputProperty="HubArn" Verb="New" Noun="Hub" ShouldProcessTarget="HubName" PipelineParameter="HubName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateHumanTaskUi" OutputProperty="HumanTaskUiArn" Verb="New" Noun="HumanTaskUi" ShouldProcessTarget="HumanTaskUiName" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +144,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="New" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInferenceRecommendationsJob" OutputProperty="JobArn" Verb="New" Noun="InferenceRecommendationsJob" AnonymousShouldProcessTarget="true" PipelineParameter="JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -144,6 +161,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModelBiasJobDefinition" OutputProperty="JobDefinitionArn" Verb="New" Noun="ModelBiasJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelCard" OutputProperty="ModelCardArn" Verb="New" Noun="ModelCard" ShouldProcessTarget="ModelCardName" PipelineParameter="ModelCardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelCardExportJob" OutputProperty="ModelCardExportJobArn" Verb="New" Noun="ModelCardExportJob" ShouldProcessTarget="ModelCardName" PipelineParameter="ModelCardName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,6 +258,19 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSpace" OutputProperty="SpaceArn" Verb="New" Noun="Space" ShouldProcessTarget="SpaceName" PipelineParameter="SpaceName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" Alias="JupyterServerAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" Alias="KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStudioLifecycleConfig" OutputProperty="StudioLifecycleConfigArn" Verb="New" Noun="StudioLifecycleConfig" ShouldProcessTarget="StudioLifecycleConfigName" PipelineParameter="StudioLifecycleConfigName" NoPipelineParameter="false">
@@ -339,6 +377,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHub" Verb="Remove" Noun="Hub" ShouldProcessTarget="HubName" PipelineParameter="HubName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHubContent" Verb="Remove" Noun="HubContent" ShouldProcessTarget="HubName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteHumanTaskUi" Verb="Remove" Noun="HumanTaskUi" ShouldProcessTarget="HumanTaskUiName" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -351,11 +397,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Remove" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteModelBiasJobDefinition" Verb="Remove" Noun="ModelBiasJobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelCard" Verb="Remove" Noun="ModelCard" ShouldProcessTarget="ModelCardName" PipelineParameter="ModelCardName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -396,6 +450,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSpace" Verb="Remove" Noun="Space" ShouldProcessTarget="SpaceName" PipelineParameter="SpaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -515,6 +573,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHub" OutputProperty="*" Verb="Get" Noun="Hub" PipelineParameter="HubName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHubContent" OutputProperty="*" Verb="Get" Noun="HubContent" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeHumanTaskUi" OutputProperty="*" Verb="Get" Noun="HumanTaskUi" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -528,6 +594,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageVersion" OutputProperty="*" Verb="Get" Noun="ImageVersion" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInferenceExperiment" OutputProperty="*" Verb="Get" Noun="InferenceExperiment" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -548,6 +618,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeModelBiasJobDefinition" OutputProperty="*" Verb="Get" Noun="ModelBiasJobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelCard" OutputProperty="*" Verb="Get" Noun="ModelCard" PipelineParameter="ModelCardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelCardExportJob" OutputProperty="*" Verb="Get" Noun="ModelCardExportJob" PipelineParameter="ModelCardExportJobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -596,6 +674,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="SpaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -664,6 +746,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSearchSuggestions" OutputProperty="PropertyNameSuggestions" Verb="Get" Noun="SearchSuggestion" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportHubContent" OutputProperty="*" Verb="Import" Noun="HubContent" ShouldProcessTarget="HubName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -755,6 +841,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListHubContents" OutputProperty="HubContentSummaries" Verb="Get" Noun="HubContentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHubContentVersions" OutputProperty="HubContentSummaries" Verb="Get" Noun="HubContentVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHubs" OutputProperty="HubSummaries" Verb="Get" Noun="HubList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListHumanTaskUis" OutputProperty="HumanTaskUiSummaries" Verb="Get" Noun="HumanTaskUiList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -768,6 +866,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListImageVersions" OutputProperty="ImageVersions" Verb="Get" Noun="ImageVersionList" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInferenceExperiments" OutputProperty="InferenceExperiments" Verb="Get" Noun="InferenceExperimentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -795,6 +897,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListModelCardExportJobs" OutputProperty="ModelCardExportJobSummaries" Verb="Get" Noun="ModelCardExportJobList" PipelineParameter="ModelCardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelCards" OutputProperty="ModelCardSummaries" Verb="Get" Noun="ModelCardList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelCardVersions" OutputProperty="ModelCardVersionSummaryList" Verb="Get" Noun="ModelCardVersionList" PipelineParameter="ModelCardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListModelExplainabilityJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelExplainabilityJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -816,6 +930,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMonitoringAlertHistory" OutputProperty="MonitoringAlertHistory" Verb="Get" Noun="MonitoringAlertHistoryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMonitoringAlerts" OutputProperty="MonitoringAlertSummaries" Verb="Get" Noun="MonitoringAlertList" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -856,6 +978,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListProjects" OutputProperty="ProjectSummaryList" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpaces" OutputProperty="Spaces" Verb="Get" Noun="SpaceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -943,6 +1069,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Start" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringSchedule" Verb="Start" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -972,6 +1102,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopHyperParameterTuningJob" Verb="Stop" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Stop" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1036,7 +1170,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomain" OutputProperty="DomainArn" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="EndpointArn" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
@@ -1059,11 +1202,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateHub" OutputProperty="HubArn" Verb="Update" Noun="Hub" ShouldProcessTarget="HubName" PipelineParameter="HubName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateImage" OutputProperty="ImageArn" Verb="Update" Noun="Image" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Update" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateModelCard" OutputProperty="ModelCardArn" Verb="Update" Noun="ModelCard" ShouldProcessTarget="ModelCardName" PipelineParameter="ModelCardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateModelPackage" OutputProperty="ModelPackageArn" Verb="Update" Noun="ModelPackage" ShouldProcessTarget="ModelPackageArn" PipelineParameter="ModelPackageArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMonitoringAlert" OutputProperty="*" Verb="Update" Noun="MonitoringAlert" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1089,6 +1248,19 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" OutputProperty="ProjectArn" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSpace" OutputProperty="SpaceArn" Verb="Update" Noun="Space" ShouldProcessTarget="SpaceName" PipelineParameter="SpaceName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType" Alias="JupyterServerAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" Alias="KernelGatewayAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrainingJob" OutputProperty="TrainingJobArn" Verb="Update" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">

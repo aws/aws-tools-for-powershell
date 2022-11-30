@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter RevisionDestination_Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket that is the destination for the event action.</para>
+        /// <para>The Amazon S3 bucket that is the destination for the event action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

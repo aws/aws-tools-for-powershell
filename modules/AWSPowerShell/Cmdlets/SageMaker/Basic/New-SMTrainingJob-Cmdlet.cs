@@ -108,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_CollectionConfiguration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for Debugger tensor collections. To learn more about how
-        /// to configure the <code>CollectionConfiguration</code> parameter, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
+        /// <para>Configuration information for Amazon SageMaker Debugger tensor collections. To learn
+        /// more about how to configure the <code>CollectionConfiguration</code> parameter, see
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use
         /// the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug
         /// Your Training Job</a>. </para>
         /// </para>
@@ -122,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugRuleConfiguration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for Debugger rules for debugging output tensors.</para>
+        /// <para>Configuration information for Amazon SageMaker Debugger rules for debugging output
+        /// tensors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProfilerConfig_DisableProfiler
         /// <summary>
         /// <para>
-        /// <para>To disable system monitoring and profiling, set to <code>True</code>.</para>
+        /// <para>Configuration to turn off Amazon SageMaker Debugger's system monitoring and profiling
+        /// functionality. To turn it off, set to <code>True</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DebugHookConfig_HookParameter
         /// <summary>
         /// <para>
-        /// <para>Configuration information for the Debugger hook parameters.</para>
+        /// <para>Configuration information for the Amazon SageMaker Debugger hook parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +353,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProfilerRuleConfiguration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for Debugger rules for profiling system and framework metrics.</para>
+        /// <para>Configuration information for Amazon SageMaker Debugger rules for profiling system
+        /// and framework metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,6 +435,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ExperimentConfig_RunName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the experiment run to associate the trial component with.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_RunName { get; set; }
         #endregion
         
         #region Parameter DebugHookConfig_S3OutputPath
@@ -653,6 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 }
             }
             context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
+            context.ExperimentConfig_RunName = this.ExperimentConfig_RunName;
             context.ExperimentConfig_TrialComponentDisplayName = this.ExperimentConfig_TrialComponentDisplayName;
             context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
             if (this.HyperParameter != null)
@@ -857,6 +872,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestExperimentConfig_experimentConfig_ExperimentName != null)
             {
                 request.ExperimentConfig.ExperimentName = requestExperimentConfig_experimentConfig_ExperimentName;
+                requestExperimentConfigIsNull = false;
+            }
+            System.String requestExperimentConfig_experimentConfig_RunName = null;
+            if (cmdletContext.ExperimentConfig_RunName != null)
+            {
+                requestExperimentConfig_experimentConfig_RunName = cmdletContext.ExperimentConfig_RunName;
+            }
+            if (requestExperimentConfig_experimentConfig_RunName != null)
+            {
+                request.ExperimentConfig.RunName = requestExperimentConfig_experimentConfig_RunName;
                 requestExperimentConfigIsNull = false;
             }
             System.String requestExperimentConfig_experimentConfig_TrialComponentDisplayName = null;
@@ -1145,6 +1170,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? EnableNetworkIsolation { get; set; }
             public Dictionary<System.String, System.String> Environment { get; set; }
             public System.String ExperimentConfig_ExperimentName { get; set; }
+            public System.String ExperimentConfig_RunName { get; set; }
             public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
             public System.String ExperimentConfig_TrialName { get; set; }
             public Dictionary<System.String, System.String> HyperParameter { get; set; }

@@ -497,6 +497,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ShapConfig_Seed { get; set; }
         #endregion
         
+        #region Parameter ShadowProductionVariant
+        /// <summary>
+        /// <para>
+        /// <para> Array of <code>ProductionVariant</code> objects. There is one for each model that
+        /// you want to host at this endpoint in shadow mode with production traffic replicated
+        /// from the model specified on <code>ProductionVariants</code>.If you use this field,
+        /// you can only specify one variant for <code>ProductionVariants</code> and one variant
+        /// for <code>ShadowProductionVariants</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ShadowProductionVariants")]
+        public Amazon.SageMaker.Model.ProductionVariant[] ShadowProductionVariant { get; set; }
+        #endregion
+        
         #region Parameter ShapBaselineConfig_ShapBaseline
         /// <summary>
         /// <para>
@@ -703,6 +718,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ProductionVariant which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ShadowProductionVariant != null)
+            {
+                context.ShadowProductionVariant = new List<Amazon.SageMaker.Model.ProductionVariant>(this.ShadowProductionVariant);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -1217,6 +1236,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ProductionVariants = cmdletContext.ProductionVariant;
             }
+            if (cmdletContext.ShadowProductionVariant != null)
+            {
+                request.ShadowProductionVariants = cmdletContext.ShadowProductionVariant;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1317,6 +1340,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? ShapConfig_UseLogit { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariant { get; set; }
+            public List<Amazon.SageMaker.Model.ProductionVariant> ShadowProductionVariant { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateEndpointConfigResponse, NewSMEndpointConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EndpointConfigArn;

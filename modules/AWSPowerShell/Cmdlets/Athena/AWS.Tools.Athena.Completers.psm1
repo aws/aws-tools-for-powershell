@@ -80,6 +80,13 @@ $ATH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Athena.CalculationExecutionState
+        "Get-ATHCalculationExecutionList/StateFilter"
+        {
+            $v = "CANCELED","CANCELING","COMPLETED","CREATED","CREATING","FAILED","QUEUED","RUNNING"
+            break
+        }
+
         # Amazon.Athena.DataCatalogType
         {
             ($_ -eq "New-ATHDataCatalog/Type") -Or
@@ -101,6 +108,23 @@ $ATH_Completers = {
             break
         }
 
+        # Amazon.Athena.ExecutorState
+        "Get-ATHExecutorList/ExecutorStateFilter"
+        {
+            $v = "CREATED","CREATING","FAILED","REGISTERED","TERMINATED","TERMINATING"
+            break
+        }
+
+        # Amazon.Athena.NotebookType
+        {
+            ($_ -eq "Import-ATHNotebook/Type") -Or
+            ($_ -eq "Update-ATHNotebook/Type")
+        }
+        {
+            $v = "IPYNB"
+            break
+        }
+
         # Amazon.Athena.S3AclOption
         {
             ($_ -eq "New-ATHWorkGroup/Configuration_ResultConfiguration_AclConfiguration_S3AclOption") -Or
@@ -109,6 +133,13 @@ $ATH_Completers = {
         }
         {
             $v = "BUCKET_OWNER_FULL_CONTROL"
+            break
+        }
+
+        # Amazon.Athena.SessionState
+        "Get-ATHSessionList/StateFilter"
+        {
+            $v = "BUSY","CREATED","CREATING","DEGRADED","FAILED","IDLE","TERMINATED","TERMINATING"
             break
         }
 
@@ -132,10 +163,12 @@ $ATH_map = @{
     "Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup")
     "ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption"=@("Update-ATHWorkGroup")
     "ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption"=@("Update-ATHWorkGroup")
+    "ExecutorStateFilter"=@("Get-ATHExecutorList")
     "ResultConfiguration_AclConfiguration_S3AclOption"=@("Start-ATHQueryExecution")
     "ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("Start-ATHQueryExecution")
     "State"=@("Update-ATHWorkGroup")
-    "Type"=@("New-ATHDataCatalog","Update-ATHDataCatalog")
+    "StateFilter"=@("Get-ATHCalculationExecutionList","Get-ATHSessionList")
+    "Type"=@("Import-ATHNotebook","New-ATHDataCatalog","Update-ATHDataCatalog","Update-ATHNotebook")
 }
 
 _awsArgumentCompleterRegistration $ATH_Completers $ATH_map
@@ -193,36 +226,59 @@ $ATH_SelectMap = @{
                "Get-ATHQueryExecutionBatch",
                "New-ATHDataCatalog",
                "New-ATHNamedQuery",
+               "New-ATHNotebook",
                "New-ATHPreparedStatement",
+               "New-ATHPresignedNotebookUrl",
                "New-ATHWorkGroup",
                "Remove-ATHDataCatalog",
                "Remove-ATHNamedQuery",
+               "Remove-ATHNotebook",
                "Remove-ATHPreparedStatement",
                "Remove-ATHWorkGroup",
+               "Export-ATHNotebook",
+               "Get-ATHCalculationExecution",
+               "Get-ATHCalculationExecutionCode",
+               "Get-ATHCalculationExecutionStatus",
                "Get-ATHDatabase",
                "Get-ATHDataCatalog",
                "Get-ATHNamedQuery",
+               "Get-ATHNotebookMetadata",
                "Get-ATHPreparedStatement",
                "Get-ATHQueryExecution",
                "Get-ATHQueryResult",
                "Get-ATHQueryRuntimeStatistic",
+               "Get-ATHSession",
+               "Get-ATHSessionStatus",
                "Get-ATHTableMetadata",
                "Get-ATHWorkGroup",
+               "Import-ATHNotebook",
+               "Get-ATHApplicationDPUSizeList",
+               "Get-ATHCalculationExecutionList",
                "Get-ATHDatabasisList",
                "Get-ATHDataCatalogList",
                "Get-ATHEngineVersionList",
+               "Get-ATHExecutorList",
                "Get-ATHNamedQueryList",
+               "Get-ATHNotebookMetadataList",
+               "Get-ATHNotebookSessionList",
                "Get-ATHPreparedStatementList",
                "Get-ATHQueryExecutionList",
+               "Get-ATHSessionList",
                "Get-ATHTableMetadataList",
                "Get-ATHResourceTag",
                "Get-ATHWorkGroupList",
+               "Start-ATHCalculationExecution",
                "Start-ATHQueryExecution",
+               "Start-ATHSession",
+               "Stop-ATHCalculationExecution",
                "Stop-ATHQueryExecution",
                "Add-ATHResourceTag",
+               "Remove-ATHSession",
                "Remove-ATHResourceTag",
                "Update-ATHDataCatalog",
                "Update-ATHNamedQuery",
+               "Update-ATHNotebook",
+               "Update-ATHNotebookMetadata",
                "Update-ATHPreparedStatement",
                "Update-ATHWorkGroup")
 }

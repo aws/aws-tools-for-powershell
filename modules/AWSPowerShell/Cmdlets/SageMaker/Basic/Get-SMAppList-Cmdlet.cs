@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.SortOrder SortOrder { get; set; }
         #endregion
         
+        #region Parameter SpaceNameEqual
+        /// <summary>
+        /// <para>
+        /// <para>A parameter to search by space name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpaceNameEquals")]
+        public System.String SpaceNameEqual { get; set; }
+        #endregion
+        
         #region Parameter UserProfileNameEqual
         /// <summary>
         /// <para>
@@ -172,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
+            context.SpaceNameEqual = this.SpaceNameEqual;
             context.UserProfileNameEqual = this.UserProfileNameEqual;
             
             // allow further manipulation of loaded context prior to processing
@@ -207,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.SpaceNameEqual != null)
+            {
+                request.SpaceNameEquals = cmdletContext.SpaceNameEqual;
             }
             if (cmdletContext.UserProfileNameEqual != null)
             {
@@ -278,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.SpaceNameEqual != null)
+            {
+                request.SpaceNameEquals = cmdletContext.SpaceNameEqual;
             }
             if (cmdletContext.UserProfileNameEqual != null)
             {
@@ -411,6 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.AppSortKey SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
+            public System.String SpaceNameEqual { get; set; }
             public System.String UserProfileNameEqual { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListAppsResponse, GetSMAppListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Apps;

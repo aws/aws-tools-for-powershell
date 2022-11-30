@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID for the account that owns the specified access point.</para>
+        /// <para>The Amazon Web Services account ID for the account that owns the specified access
+        /// point.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

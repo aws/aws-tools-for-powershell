@@ -136,6 +136,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ResourceSpec_SageMakerImageVersionArn { get; set; }
         #endregion
         
+        #region Parameter SpaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the space.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SpaceName { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -153,14 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The user profile name.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserProfileName { get; set; }
         #endregion
         
@@ -250,17 +253,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ResourceSpec_LifecycleConfigArn = this.ResourceSpec_LifecycleConfigArn;
             context.ResourceSpec_SageMakerImageArn = this.ResourceSpec_SageMakerImageArn;
             context.ResourceSpec_SageMakerImageVersionArn = this.ResourceSpec_SageMakerImageVersionArn;
+            context.SpaceName = this.SpaceName;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
             context.UserProfileName = this.UserProfileName;
-            #if MODULAR
-            if (this.UserProfileName == null && ParameterWasBound(nameof(this.UserProfileName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserProfileName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -338,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ResourceSpec = null;
             }
+            if (cmdletContext.SpaceName != null)
+            {
+                request.SpaceName = cmdletContext.SpaceName;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -414,6 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ResourceSpec_LifecycleConfigArn { get; set; }
             public System.String ResourceSpec_SageMakerImageArn { get; set; }
             public System.String ResourceSpec_SageMakerImageVersionArn { get; set; }
+            public System.String SpaceName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String UserProfileName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateAppResponse, NewSMAppCmdlet, object> Select { get; set; } =

@@ -120,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetFromSignedUrl_AssetName
         /// <summary>
         /// <para>
-        /// <para>The name of the asset. When importing from Amazon S3, the S3 object key is used as
-        /// the asset name.</para>
+        /// <para>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is
+        /// used as the asset name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,12 +143,46 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         #region Parameter ImportAssetsFromS3_AssetSource
         /// <summary>
         /// <para>
-        /// <para>Is a list of S3 bucket and object key pairs.</para>
+        /// <para>Is a list of Amazon S3 bucket and object key pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetsFromS3_AssetSources")]
         public Amazon.DataExchange.Model.AssetSourceEntry[] ImportAssetsFromS3_AssetSource { get; set; }
+        #endregion
+        
+        #region Parameter AssetSource_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_CreateS3DataAccessFromS3Bucket_AssetSource_Bucket")]
+        public System.String AssetSource_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetsFromLakeFormationTagPolicy_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the AWS Glue Data Catalog.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_CatalogId")]
+        public System.String ImportAssetsFromLakeFormationTagPolicy_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter CreateS3DataAccessFromS3Bucket_DataSetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the data set associated with the creation of this Amazon
+        /// S3 data access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_CreateS3DataAccessFromS3Bucket_DataSetId")]
+        public System.String CreateS3DataAccessFromS3Bucket_DataSetId { get; set; }
         #endregion
         
         #region Parameter ExportAssetsToS3_DataSetId
@@ -206,6 +240,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetFromSignedUrl_DataSetId { get; set; }
         #endregion
         
+        #region Parameter ImportAssetsFromLakeFormationTagPolicy_DataSetId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the data set associated with this import job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_DataSetId")]
+        public System.String ImportAssetsFromLakeFormationTagPolicy_DataSetId { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetsFromRedshiftDataShares_DataSetId
         /// <summary>
         /// <para>
@@ -226,6 +271,50 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetsFromS3_DataSetId")]
         public System.String ImportAssetsFromS3_DataSetId { get; set; }
+        #endregion
+        
+        #region Parameter Database_Expression
+        /// <summary>
+        /// <para>
+        /// <para>A list of LF-tag conditions that apply to database resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_Database_Expression")]
+        public Amazon.DataExchange.Model.LFTag[] Database_Expression { get; set; }
+        #endregion
+        
+        #region Parameter Table_Expression
+        /// <summary>
+        /// <para>
+        /// <para>A list of LF-tag conditions that apply to table resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_Table_Expression")]
+        public Amazon.DataExchange.Model.LFTag[] Table_Expression { get; set; }
+        #endregion
+        
+        #region Parameter AssetSource_KeyPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_CreateS3DataAccessFromS3Bucket_AssetSource_KeyPrefixes")]
+        public System.String[] AssetSource_KeyPrefix { get; set; }
+        #endregion
+        
+        #region Parameter AssetSource_Key
+        /// <summary>
+        /// <para>
+        /// <para>The keys used to create the Amazon S3 data access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_CreateS3DataAccessFromS3Bucket_AssetSource_Keys")]
+        public System.String[] AssetSource_Key { get; set; }
         #endregion
         
         #region Parameter Encryption_KmsKeyArn
@@ -263,6 +352,28 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetFromSignedUrl_Md5Hash { get; set; }
         #endregion
         
+        #region Parameter Database_Permission
+        /// <summary>
+        /// <para>
+        /// <para>The permissions granted to subscribers on database resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_Database_Permissions")]
+        public System.String[] Database_Permission { get; set; }
+        #endregion
+        
+        #region Parameter Table_Permission
+        /// <summary>
+        /// <para>
+        /// <para>The permissions granted to subscribers on table resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_Table_Permissions")]
+        public System.String[] Table_Permission { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetFromApiGatewayApi_ProtocolType
         /// <summary>
         /// <para>
@@ -284,6 +395,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ExportRevisionsToS3_RevisionDestinations")]
         public Amazon.DataExchange.Model.RevisionDestinationEntry[] ExportRevisionsToS3_RevisionDestination { get; set; }
+        #endregion
+        
+        #region Parameter CreateS3DataAccessFromS3Bucket_RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for a revision.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_CreateS3DataAccessFromS3Bucket_RevisionId")]
+        public System.String CreateS3DataAccessFromS3Bucket_RevisionId { get; set; }
         #endregion
         
         #region Parameter ExportAssetsToS3_RevisionId
@@ -330,6 +452,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetFromSignedUrl_RevisionId { get; set; }
         #endregion
         
+        #region Parameter ImportAssetsFromLakeFormationTagPolicy_RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the revision associated with this import job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_RevisionId")]
+        public System.String ImportAssetsFromLakeFormationTagPolicy_RevisionId { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetsFromRedshiftDataShares_RevisionId
         /// <summary>
         /// <para>
@@ -350,6 +483,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetsFromS3_RevisionId")]
         public System.String ImportAssetsFromS3_RevisionId { get; set; }
+        #endregion
+        
+        #region Parameter ImportAssetsFromLakeFormationTagPolicy_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and
+        /// revoke permissions of subscribers to AWS Lake Formation data permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ImportAssetsFromLakeFormationTagPolicy_RoleArn")]
+        public System.String ImportAssetsFromLakeFormationTagPolicy_RoleArn { get; set; }
         #endregion
         
         #region Parameter ImportAssetFromApiGatewayApi_Stage
@@ -464,6 +609,17 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 context.Select = (response, cmdlet) => this.Type;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssetSource_Bucket = this.AssetSource_Bucket;
+            if (this.AssetSource_KeyPrefix != null)
+            {
+                context.AssetSource_KeyPrefix = new List<System.String>(this.AssetSource_KeyPrefix);
+            }
+            if (this.AssetSource_Key != null)
+            {
+                context.AssetSource_Key = new List<System.String>(this.AssetSource_Key);
+            }
+            context.CreateS3DataAccessFromS3Bucket_DataSetId = this.CreateS3DataAccessFromS3Bucket_DataSetId;
+            context.CreateS3DataAccessFromS3Bucket_RevisionId = this.CreateS3DataAccessFromS3Bucket_RevisionId;
             if (this.ExportAssetsToS3_AssetDestination != null)
             {
                 context.ExportAssetsToS3_AssetDestination = new List<Amazon.DataExchange.Model.AssetDestinationEntry>(this.ExportAssetsToS3_AssetDestination);
@@ -495,6 +651,26 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             context.ImportAssetFromSignedUrl_DataSetId = this.ImportAssetFromSignedUrl_DataSetId;
             context.ImportAssetFromSignedUrl_Md5Hash = this.ImportAssetFromSignedUrl_Md5Hash;
             context.ImportAssetFromSignedUrl_RevisionId = this.ImportAssetFromSignedUrl_RevisionId;
+            context.ImportAssetsFromLakeFormationTagPolicy_CatalogId = this.ImportAssetsFromLakeFormationTagPolicy_CatalogId;
+            if (this.Database_Expression != null)
+            {
+                context.Database_Expression = new List<Amazon.DataExchange.Model.LFTag>(this.Database_Expression);
+            }
+            if (this.Database_Permission != null)
+            {
+                context.Database_Permission = new List<System.String>(this.Database_Permission);
+            }
+            context.ImportAssetsFromLakeFormationTagPolicy_DataSetId = this.ImportAssetsFromLakeFormationTagPolicy_DataSetId;
+            context.ImportAssetsFromLakeFormationTagPolicy_RevisionId = this.ImportAssetsFromLakeFormationTagPolicy_RevisionId;
+            context.ImportAssetsFromLakeFormationTagPolicy_RoleArn = this.ImportAssetsFromLakeFormationTagPolicy_RoleArn;
+            if (this.Table_Expression != null)
+            {
+                context.Table_Expression = new List<Amazon.DataExchange.Model.LFTag>(this.Table_Expression);
+            }
+            if (this.Table_Permission != null)
+            {
+                context.Table_Permission = new List<System.String>(this.Table_Permission);
+            }
             if (this.ImportAssetsFromRedshiftDataShares_AssetSource != null)
             {
                 context.ImportAssetsFromRedshiftDataShares_AssetSource = new List<Amazon.DataExchange.Model.RedshiftDataShareAssetSourceEntry>(this.ImportAssetsFromRedshiftDataShares_AssetSource);
@@ -534,6 +710,86 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
              // populate Details
             var requestDetailsIsNull = true;
             request.Details = new Amazon.DataExchange.Model.RequestDetails();
+            Amazon.DataExchange.Model.CreateS3DataAccessFromS3BucketRequestDetails requestDetails_details_CreateS3DataAccessFromS3Bucket = null;
+            
+             // populate CreateS3DataAccessFromS3Bucket
+            var requestDetails_details_CreateS3DataAccessFromS3BucketIsNull = true;
+            requestDetails_details_CreateS3DataAccessFromS3Bucket = new Amazon.DataExchange.Model.CreateS3DataAccessFromS3BucketRequestDetails();
+            System.String requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_DataSetId = null;
+            if (cmdletContext.CreateS3DataAccessFromS3Bucket_DataSetId != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_DataSetId = cmdletContext.CreateS3DataAccessFromS3Bucket_DataSetId;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_DataSetId != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket.DataSetId = requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_DataSetId;
+                requestDetails_details_CreateS3DataAccessFromS3BucketIsNull = false;
+            }
+            System.String requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_RevisionId = null;
+            if (cmdletContext.CreateS3DataAccessFromS3Bucket_RevisionId != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_RevisionId = cmdletContext.CreateS3DataAccessFromS3Bucket_RevisionId;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_RevisionId != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket.RevisionId = requestDetails_details_CreateS3DataAccessFromS3Bucket_createS3DataAccessFromS3Bucket_RevisionId;
+                requestDetails_details_CreateS3DataAccessFromS3BucketIsNull = false;
+            }
+            Amazon.DataExchange.Model.S3DataAccessAssetSourceEntry requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource = null;
+            
+             // populate AssetSource
+            var requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull = true;
+            requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource = new Amazon.DataExchange.Model.S3DataAccessAssetSourceEntry();
+            System.String requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Bucket = null;
+            if (cmdletContext.AssetSource_Bucket != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Bucket = cmdletContext.AssetSource_Bucket;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Bucket != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource.Bucket = requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Bucket;
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull = false;
+            }
+            List<System.String> requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KeyPrefix = null;
+            if (cmdletContext.AssetSource_KeyPrefix != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KeyPrefix = cmdletContext.AssetSource_KeyPrefix;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KeyPrefix != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource.KeyPrefixes = requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KeyPrefix;
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull = false;
+            }
+            List<System.String> requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Key = null;
+            if (cmdletContext.AssetSource_Key != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Key = cmdletContext.AssetSource_Key;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Key != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource.Keys = requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Key;
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull = false;
+            }
+             // determine if requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource should be set to null
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource = null;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket.AssetSource = requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource;
+                requestDetails_details_CreateS3DataAccessFromS3BucketIsNull = false;
+            }
+             // determine if requestDetails_details_CreateS3DataAccessFromS3Bucket should be set to null
+            if (requestDetails_details_CreateS3DataAccessFromS3BucketIsNull)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket = null;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket != null)
+            {
+                request.Details.CreateS3DataAccessFromS3Bucket = requestDetails_details_CreateS3DataAccessFromS3Bucket;
+                requestDetailsIsNull = false;
+            }
             Amazon.DataExchange.Model.ExportAssetToSignedUrlRequestDetails requestDetails_details_ExportAssetToSignedUrl = null;
             
              // populate ExportAssetToSignedUrl
@@ -874,6 +1130,131 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 request.Details.ImportAssetFromSignedUrl = requestDetails_details_ImportAssetFromSignedUrl;
                 requestDetailsIsNull = false;
             }
+            Amazon.DataExchange.Model.ImportAssetsFromLakeFormationTagPolicyRequestDetails requestDetails_details_ImportAssetsFromLakeFormationTagPolicy = null;
+            
+             // populate ImportAssetsFromLakeFormationTagPolicy
+            var requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = true;
+            requestDetails_details_ImportAssetsFromLakeFormationTagPolicy = new Amazon.DataExchange.Model.ImportAssetsFromLakeFormationTagPolicyRequestDetails();
+            System.String requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_CatalogId = null;
+            if (cmdletContext.ImportAssetsFromLakeFormationTagPolicy_CatalogId != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_CatalogId = cmdletContext.ImportAssetsFromLakeFormationTagPolicy_CatalogId;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_CatalogId != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy.CatalogId = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_CatalogId;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_DataSetId = null;
+            if (cmdletContext.ImportAssetsFromLakeFormationTagPolicy_DataSetId != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_DataSetId = cmdletContext.ImportAssetsFromLakeFormationTagPolicy_DataSetId;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_DataSetId != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy.DataSetId = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_DataSetId;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RevisionId = null;
+            if (cmdletContext.ImportAssetsFromLakeFormationTagPolicy_RevisionId != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RevisionId = cmdletContext.ImportAssetsFromLakeFormationTagPolicy_RevisionId;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RevisionId != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy.RevisionId = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RevisionId;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = false;
+            }
+            System.String requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RoleArn = null;
+            if (cmdletContext.ImportAssetsFromLakeFormationTagPolicy_RoleArn != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RoleArn = cmdletContext.ImportAssetsFromLakeFormationTagPolicy_RoleArn;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RoleArn != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy.RoleArn = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_importAssetsFromLakeFormationTagPolicy_RoleArn;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = false;
+            }
+            Amazon.DataExchange.Model.DatabaseLFTagPolicyAndPermissions requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database = null;
+            
+             // populate Database
+            var requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_DatabaseIsNull = true;
+            requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database = new Amazon.DataExchange.Model.DatabaseLFTagPolicyAndPermissions();
+            List<Amazon.DataExchange.Model.LFTag> requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Expression = null;
+            if (cmdletContext.Database_Expression != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Expression = cmdletContext.Database_Expression;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Expression != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database.Expression = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Expression;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_DatabaseIsNull = false;
+            }
+            List<System.String> requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Permission = null;
+            if (cmdletContext.Database_Permission != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Permission = cmdletContext.Database_Permission;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Permission != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database.Permissions = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database_database_Permission;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_DatabaseIsNull = false;
+            }
+             // determine if requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database should be set to null
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_DatabaseIsNull)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database = null;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy.Database = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Database;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = false;
+            }
+            Amazon.DataExchange.Model.TableLFTagPolicyAndPermissions requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table = null;
+            
+             // populate Table
+            var requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_TableIsNull = true;
+            requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table = new Amazon.DataExchange.Model.TableLFTagPolicyAndPermissions();
+            List<Amazon.DataExchange.Model.LFTag> requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Expression = null;
+            if (cmdletContext.Table_Expression != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Expression = cmdletContext.Table_Expression;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Expression != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table.Expression = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Expression;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_TableIsNull = false;
+            }
+            List<System.String> requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Permission = null;
+            if (cmdletContext.Table_Permission != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Permission = cmdletContext.Table_Permission;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Permission != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table.Permissions = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table_table_Permission;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_TableIsNull = false;
+            }
+             // determine if requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table should be set to null
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_TableIsNull)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table = null;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table != null)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy.Table = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy_details_ImportAssetsFromLakeFormationTagPolicy_Table;
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull = false;
+            }
+             // determine if requestDetails_details_ImportAssetsFromLakeFormationTagPolicy should be set to null
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicyIsNull)
+            {
+                requestDetails_details_ImportAssetsFromLakeFormationTagPolicy = null;
+            }
+            if (requestDetails_details_ImportAssetsFromLakeFormationTagPolicy != null)
+            {
+                request.Details.ImportAssetsFromLakeFormationTagPolicy = requestDetails_details_ImportAssetsFromLakeFormationTagPolicy;
+                requestDetailsIsNull = false;
+            }
             Amazon.DataExchange.Model.ImportAssetFromApiGatewayApiRequestDetails requestDetails_details_ImportAssetFromApiGatewayApi = null;
             
              // populate ImportAssetFromApiGatewayApi
@@ -1049,6 +1430,11 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssetSource_Bucket { get; set; }
+            public List<System.String> AssetSource_KeyPrefix { get; set; }
+            public List<System.String> AssetSource_Key { get; set; }
+            public System.String CreateS3DataAccessFromS3Bucket_DataSetId { get; set; }
+            public System.String CreateS3DataAccessFromS3Bucket_RevisionId { get; set; }
             public List<Amazon.DataExchange.Model.AssetDestinationEntry> ExportAssetsToS3_AssetDestination { get; set; }
             public System.String ExportAssetsToS3_DataSetId { get; set; }
             public System.String Encryption_KmsKeyArn { get; set; }
@@ -1074,6 +1460,14 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             public System.String ImportAssetFromSignedUrl_DataSetId { get; set; }
             public System.String ImportAssetFromSignedUrl_Md5Hash { get; set; }
             public System.String ImportAssetFromSignedUrl_RevisionId { get; set; }
+            public System.String ImportAssetsFromLakeFormationTagPolicy_CatalogId { get; set; }
+            public List<Amazon.DataExchange.Model.LFTag> Database_Expression { get; set; }
+            public List<System.String> Database_Permission { get; set; }
+            public System.String ImportAssetsFromLakeFormationTagPolicy_DataSetId { get; set; }
+            public System.String ImportAssetsFromLakeFormationTagPolicy_RevisionId { get; set; }
+            public System.String ImportAssetsFromLakeFormationTagPolicy_RoleArn { get; set; }
+            public List<Amazon.DataExchange.Model.LFTag> Table_Expression { get; set; }
+            public List<System.String> Table_Permission { get; set; }
             public List<Amazon.DataExchange.Model.RedshiftDataShareAssetSourceEntry> ImportAssetsFromRedshiftDataShares_AssetSource { get; set; }
             public System.String ImportAssetsFromRedshiftDataShares_DataSetId { get; set; }
             public System.String ImportAssetsFromRedshiftDataShares_RevisionId { get; set; }

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>docdb-elastic</C2jFilename>
+    <AssemblyName>DocDBElastic</AssemblyName>
+    <ServiceNounPrefix>DOCE</ServiceNounPrefix>
+    <ServiceName>Amazon DocumentDB Elastic Clusters</ServiceName>
+    <ServiceClientInterface>IAmazonDocDBElastic</ServiceClientInterface>
+    <ServiceClient>AmazonDocDBElasticClient</ServiceClient>
+    <ServiceModuleGuid>FE175E42-FD5C-4EDD-9380-E1EE8417093E</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="nextToken" Next="nextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterSnapshot" OutputProperty="Snapshot" Verb="New" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotArn" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClusterSnapshot" OutputProperty="Snapshot" Verb="Get" Noun="ClusterSnapshot" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshotList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreClusterFromSnapshot" OutputProperty="Cluster" Verb="Restore" Noun="ClusterFromSnapshot" ShouldProcessTarget="ClusterName" PipelineParameter="SnapshotArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="Cluster" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

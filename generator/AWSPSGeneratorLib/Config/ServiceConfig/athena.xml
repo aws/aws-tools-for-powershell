@@ -39,7 +39,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotebook" OutputProperty="NotebookId" Verb="New" Noun="Notebook" ShouldProcessTarget="Name" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePreparedStatement" Verb="New" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="QueryStatement" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedNotebookUrl" OutputProperty="*" Verb="New" Noun="PresignedNotebookUrl" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,11 +63,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotebook" Verb="Remove" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePreparedStatement" Verb="Remove" Noun="PreparedStatement" ShouldProcessTarget="StatementName" PipelineParameter="StatementName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkGroup" Verb="Remove" Noun="WorkGroup" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportNotebook" OutputProperty="*" Verb="Export" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCalculationExecution" OutputProperty="*" Verb="Get" Noun="CalculationExecution" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCalculationExecutionCode" OutputProperty="CodeBlock" Verb="Get" Noun="CalculationExecutionCode" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCalculationExecutionStatus" OutputProperty="*" Verb="Get" Noun="CalculationExecutionStatus" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetNamedQuery" OutputProperty="NamedQuery" Verb="Get" Noun="NamedQuery" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNotebookMetadata" OutputProperty="NotebookMetadata" Verb="Get" Noun="NotebookMetadata" PipelineParameter="NotebookId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,11 +123,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionStatus" OutputProperty="*" Verb="Get" Noun="SessionStatus" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTableMetadata" OutputProperty="TableMetadata" Verb="Get" Noun="TableMetadata" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetWorkGroup" OutputProperty="WorkGroup" Verb="Get" Noun="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportNotebook" OutputProperty="NotebookId" Verb="Import" Noun="Notebook" ShouldProcessTarget="Name" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationDPUSizes" OutputProperty="ApplicationDPUSizes" Verb="Get" Noun="ApplicationDPUSizeList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCalculationExecutions" OutputProperty="Calculations" Verb="Get" Noun="CalculationExecutionList" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,7 +163,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListExecutors" OutputProperty="*" Verb="Get" Noun="ExecutorList" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookMetadata" OutputProperty="NotebookMetadataList" Verb="Get" Noun="NotebookMetadataList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookSessions" OutputProperty="NotebookSessionsList" Verb="Get" Noun="NotebookSessionList" PipelineParameter="NotebookId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -120,6 +184,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,7 +203,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartCalculationExecution" OutputProperty="*" Verb="Start" Noun="CalculationExecution" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartQueryExecution" OutputProperty="QueryExecutionId" Verb="Start" Noun="QueryExecution" ShouldProcessTarget="QueryString" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSession" OutputProperty="*" Verb="Start" Noun="Session" ShouldProcessTarget="WorkGroup" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCalculationExecution" OutputProperty="State" Verb="Stop" Noun="CalculationExecution" ShouldProcessTarget="CalculationExecutionId" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -144,6 +224,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateSession" OutputProperty="State" Verb="Remove" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +240,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNamedQuery" Verb="Update" Noun="NamedQuery" ShouldProcessTarget="NamedQueryId" PipelineParameter="NamedQueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotebook" Verb="Update" Noun="Notebook" ShouldProcessTarget="NotebookId" PipelineParameter="NotebookId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotebookMetadata" Verb="Update" Noun="NotebookMetadata" ShouldProcessTarget="Name" PipelineParameter="NotebookId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

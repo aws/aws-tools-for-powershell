@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services KMS encryption key ID.</para>
+        /// <para>The Key Management Service (KMS) encryption key ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

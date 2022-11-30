@@ -1,0 +1,3 @@
+﻿# DocDBElastic
+
+Export-ModuleMember -Alias *

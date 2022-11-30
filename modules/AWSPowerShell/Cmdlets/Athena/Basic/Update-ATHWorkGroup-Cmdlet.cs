@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Updates the workgroup with the specified name. The workgroup's name cannot be changed.
+    /// Only one of <code>ConfigurationsUpdates</code> or <code>ConfigurationUpdates</code>
+    /// can be specified; <code>ConfigurationsUpdates</code> for a workgroup with multi engine
+    /// support (for example, an Apache Spark enabled workgroup) or <code>ConfigurationUpdates</code>
+    /// for an Athena SQL workgroup.
     /// </summary>
     [Cmdlet("Update", "ATHWorkGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -39,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     )]
     public partial class UpdateATHWorkGroupCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConfigurationUpdates_AdditionalConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Contains a user defined string in JSON format for a Spark-enabled workgroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationUpdates_AdditionalConfiguration { get; set; }
+        #endregion
         
         #region Parameter ConfigurationUpdates_BytesScannedCutoffPerQuery
         /// <summary>
@@ -105,6 +119,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Boolean? ConfigurationUpdates_EnforceWorkGroupConfiguration { get; set; }
         #endregion
         
+        #region Parameter ConfigurationUpdates_ExecutionRole
+        /// <summary>
+        /// <para>
+        /// <para>Contains the ARN of the execution role for the workgroup</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationUpdates_ExecutionRole { get; set; }
+        #endregion
+        
         #region Parameter ResultConfigurationUpdates_ExpectedBucketOwner
         /// <summary>
         /// <para>
@@ -123,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ConfigurationUpdates_ResultConfigurationUpdates_ExpectedBucketOwner")]
         public System.String ResultConfigurationUpdates_ExpectedBucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter CustomerContentEncryptionConfiguration_KmsKey
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key that is used to encrypt the user's data stores in Athena.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationUpdates_CustomerContentEncryptionConfiguration_KmsKey")]
+        public System.String CustomerContentEncryptionConfiguration_KmsKey { get; set; }
         #endregion
         
         #region Parameter EncryptionConfiguration_KmsKey
@@ -186,6 +221,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Removes content encryption configuration for a workgroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration { get; set; }
         #endregion
         
         #region Parameter ResultConfigurationUpdates_RemoveEncryptionConfiguration
@@ -371,12 +416,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.Select = (response, cmdlet) => this.WorkGroup;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ConfigurationUpdates_AdditionalConfiguration = this.ConfigurationUpdates_AdditionalConfiguration;
             context.ConfigurationUpdates_BytesScannedCutoffPerQuery = this.ConfigurationUpdates_BytesScannedCutoffPerQuery;
+            context.CustomerContentEncryptionConfiguration_KmsKey = this.CustomerContentEncryptionConfiguration_KmsKey;
             context.ConfigurationUpdates_EnforceWorkGroupConfiguration = this.ConfigurationUpdates_EnforceWorkGroupConfiguration;
             context.EngineVersion_EffectiveEngineVersion = this.EngineVersion_EffectiveEngineVersion;
             context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
+            context.ConfigurationUpdates_ExecutionRole = this.ConfigurationUpdates_ExecutionRole;
             context.ConfigurationUpdates_PublishCloudWatchMetricsEnabled = this.ConfigurationUpdates_PublishCloudWatchMetricsEnabled;
             context.ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery = this.ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery;
+            context.ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration = this.ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration;
             context.ConfigurationUpdates_RequesterPaysEnabled = this.ConfigurationUpdates_RequesterPaysEnabled;
             context.AclConfiguration_S3AclOption = this.AclConfiguration_S3AclOption;
             context.EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
@@ -416,6 +465,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
              // populate ConfigurationUpdates
             var requestConfigurationUpdatesIsNull = true;
             request.ConfigurationUpdates = new Amazon.Athena.Model.WorkGroupConfigurationUpdates();
+            System.String requestConfigurationUpdates_configurationUpdates_AdditionalConfiguration = null;
+            if (cmdletContext.ConfigurationUpdates_AdditionalConfiguration != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_AdditionalConfiguration = cmdletContext.ConfigurationUpdates_AdditionalConfiguration;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_AdditionalConfiguration != null)
+            {
+                request.ConfigurationUpdates.AdditionalConfiguration = requestConfigurationUpdates_configurationUpdates_AdditionalConfiguration;
+                requestConfigurationUpdatesIsNull = false;
+            }
             System.Int64? requestConfigurationUpdates_configurationUpdates_BytesScannedCutoffPerQuery = null;
             if (cmdletContext.ConfigurationUpdates_BytesScannedCutoffPerQuery != null)
             {
@@ -434,6 +493,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfigurationUpdates_configurationUpdates_EnforceWorkGroupConfiguration != null)
             {
                 request.ConfigurationUpdates.EnforceWorkGroupConfiguration = requestConfigurationUpdates_configurationUpdates_EnforceWorkGroupConfiguration.Value;
+                requestConfigurationUpdatesIsNull = false;
+            }
+            System.String requestConfigurationUpdates_configurationUpdates_ExecutionRole = null;
+            if (cmdletContext.ConfigurationUpdates_ExecutionRole != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_ExecutionRole = cmdletContext.ConfigurationUpdates_ExecutionRole;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_ExecutionRole != null)
+            {
+                request.ConfigurationUpdates.ExecutionRole = requestConfigurationUpdates_configurationUpdates_ExecutionRole;
                 requestConfigurationUpdatesIsNull = false;
             }
             System.Boolean? requestConfigurationUpdates_configurationUpdates_PublishCloudWatchMetricsEnabled = null;
@@ -456,6 +525,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 request.ConfigurationUpdates.RemoveBytesScannedCutoffPerQuery = requestConfigurationUpdates_configurationUpdates_RemoveBytesScannedCutoffPerQuery.Value;
                 requestConfigurationUpdatesIsNull = false;
             }
+            System.Boolean? requestConfigurationUpdates_configurationUpdates_RemoveCustomerContentEncryptionConfiguration = null;
+            if (cmdletContext.ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_RemoveCustomerContentEncryptionConfiguration = cmdletContext.ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration.Value;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_RemoveCustomerContentEncryptionConfiguration != null)
+            {
+                request.ConfigurationUpdates.RemoveCustomerContentEncryptionConfiguration = requestConfigurationUpdates_configurationUpdates_RemoveCustomerContentEncryptionConfiguration.Value;
+                requestConfigurationUpdatesIsNull = false;
+            }
             System.Boolean? requestConfigurationUpdates_configurationUpdates_RequesterPaysEnabled = null;
             if (cmdletContext.ConfigurationUpdates_RequesterPaysEnabled != null)
             {
@@ -464,6 +543,31 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfigurationUpdates_configurationUpdates_RequesterPaysEnabled != null)
             {
                 request.ConfigurationUpdates.RequesterPaysEnabled = requestConfigurationUpdates_configurationUpdates_RequesterPaysEnabled.Value;
+                requestConfigurationUpdatesIsNull = false;
+            }
+            Amazon.Athena.Model.CustomerContentEncryptionConfiguration requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration = null;
+            
+             // populate CustomerContentEncryptionConfiguration
+            var requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfigurationIsNull = true;
+            requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration = new Amazon.Athena.Model.CustomerContentEncryptionConfiguration();
+            System.String requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration_customerContentEncryptionConfiguration_KmsKey = null;
+            if (cmdletContext.CustomerContentEncryptionConfiguration_KmsKey != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration_customerContentEncryptionConfiguration_KmsKey = cmdletContext.CustomerContentEncryptionConfiguration_KmsKey;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration_customerContentEncryptionConfiguration_KmsKey != null)
+            {
+                requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration.KmsKey = requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration_customerContentEncryptionConfiguration_KmsKey;
+                requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfigurationIsNull = false;
+            }
+             // determine if requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration should be set to null
+            if (requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfigurationIsNull)
+            {
+                requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration = null;
+            }
+            if (requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration != null)
+            {
+                request.ConfigurationUpdates.CustomerContentEncryptionConfiguration = requestConfigurationUpdates_configurationUpdates_CustomerContentEncryptionConfiguration;
                 requestConfigurationUpdatesIsNull = false;
             }
             Amazon.Athena.Model.EngineVersion requestConfigurationUpdates_configurationUpdates_EngineVersion = null;
@@ -714,12 +818,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ConfigurationUpdates_AdditionalConfiguration { get; set; }
             public System.Int64? ConfigurationUpdates_BytesScannedCutoffPerQuery { get; set; }
+            public System.String CustomerContentEncryptionConfiguration_KmsKey { get; set; }
             public System.Boolean? ConfigurationUpdates_EnforceWorkGroupConfiguration { get; set; }
             public System.String EngineVersion_EffectiveEngineVersion { get; set; }
             public System.String EngineVersion_SelectedEngineVersion { get; set; }
+            public System.String ConfigurationUpdates_ExecutionRole { get; set; }
             public System.Boolean? ConfigurationUpdates_PublishCloudWatchMetricsEnabled { get; set; }
             public System.Boolean? ConfigurationUpdates_RemoveBytesScannedCutoffPerQuery { get; set; }
+            public System.Boolean? ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration { get; set; }
             public System.Boolean? ConfigurationUpdates_RequesterPaysEnabled { get; set; }
             public Amazon.Athena.S3AclOption AclConfiguration_S3AclOption { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }

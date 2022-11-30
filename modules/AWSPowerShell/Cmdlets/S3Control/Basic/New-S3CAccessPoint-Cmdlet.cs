@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID for the owner of the bucket for which you want
-        /// to create an access point.</para>
+        /// <para>The Amazon Web Services account ID for the account that owns the specified access
+        /// point.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Bucket { get; set; }
+        #endregion
+        
+        #region Parameter BucketAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services account ID associated with the S3 bucket associated with this
+        /// access point.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BucketAccountId { get; set; }
         #endregion
         
         #region Parameter PublicAccessBlockConfiguration_IgnorePublicAcl
@@ -259,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 WriteWarning("You are passing $null as a value for parameter Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BucketAccountId = this.BucketAccountId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -294,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.Bucket != null)
             {
                 request.Bucket = cmdletContext.Bucket;
+            }
+            if (cmdletContext.BucketAccountId != null)
+            {
+                request.BucketAccountId = cmdletContext.BucketAccountId;
             }
             if (cmdletContext.Name != null)
             {
@@ -430,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             public System.String AccountId { get; set; }
             public System.String Bucket { get; set; }
+            public System.String BucketAccountId { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_BlockPublicAcl { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_BlockPublicPolicy { get; set; }

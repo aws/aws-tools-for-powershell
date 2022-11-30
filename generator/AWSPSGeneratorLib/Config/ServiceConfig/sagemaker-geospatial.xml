@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-geospatial</C2jFilename>
+    <AssemblyName>SageMakerGeospatial</AssemblyName>
+    <ServiceNounPrefix>SMGS</ServiceNounPrefix>
+    <ServiceName>SageMaker Geospatial</ServiceName>
+    <ServiceClientInterface>IAmazonSageMakerGeospatial</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerGeospatialClient</ServiceClient>
+    <ServiceModuleGuid>f3459916-ba46-4771-bb2d-747fd6168121</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteEarthObservationJob" Verb="Remove" Noun="EarthObservationJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVectorEnrichmentJob" Verb="Remove" Noun="VectorEnrichmentJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportEarthObservationJob" OutputProperty="*" Verb="Export" Noun="EarthObservationJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportVectorEnrichmentJob" OutputProperty="*" Verb="Export" Noun="VectorEnrichmentJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEarthObservationJob" OutputProperty="*" Verb="Get" Noun="EarthObservationJob" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRasterDataCollection" OutputProperty="*" Verb="Get" Noun="RasterDataCollection" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTile" OutputProperty="BinaryFile" Verb="Get" Noun="Tile" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVectorEnrichmentJob" OutputProperty="*" Verb="Get" Noun="VectorEnrichmentJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEarthObservationJobs" OutputProperty="EarthObservationJobSummaries" Verb="Get" Noun="EarthObservationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRasterDataCollections" OutputProperty="RasterDataCollectionSummaries" Verb="Get" Noun="RasterDataCollectionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVectorEnrichmentJobs" OutputProperty="VectorEnrichmentJobSummaries" Verb="Get" Noun="VectorEnrichmentJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchRasterDataCollection" OutputProperty="*" Verb="Search" Noun="RasterDataCollection" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartEarthObservationJob" OutputProperty="*" Verb="Start" Noun="EarthObservationJob" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="JobConfig_ResamplingConfig_OutputResolution_UserDefined_Unit" NewName="JobConfig_ResamplingConfig_OutputResolution_UserDefined_Unit" />
+                <Param Name="JobConfig_ResamplingConfig_OutputResolution_UserDefined_Value" NewName="JobConfig_ResamplingConfig_OutputResolution_UserDefined_Value" />
+                <Param Name="JobConfig_StackConfig_OutputResolution_UserDefined_Unit" NewName="JobConfig_StackConfig_OutputResolution_UserDefined_Unit" />
+                <Param Name="JobConfig_StackConfig_OutputResolution_UserDefined_Value" NewName="JobConfig_StackConfig_OutputResolution_UserDefined_Value" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartVectorEnrichmentJob" OutputProperty="*" Verb="Start" Noun="VectorEnrichmentJob" AnonymousShouldProcessTarget="true" PipelineParameter="ExecutionRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEarthObservationJob" Verb="Stop" Noun="EarthObservationJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopVectorEnrichmentJob" Verb="Stop" Noun="VectorEnrichmentJob" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

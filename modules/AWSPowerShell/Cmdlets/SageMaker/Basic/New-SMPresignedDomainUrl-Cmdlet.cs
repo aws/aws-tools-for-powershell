@@ -101,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? SessionExpirationDurationInSecond { get; set; }
         #endregion
         
+        #region Parameter SpaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the space.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SpaceName { get; set; }
+        #endregion
+        
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
@@ -188,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.ExpiresInSecond = this.ExpiresInSecond;
             context.SessionExpirationDurationInSecond = this.SessionExpirationDurationInSecond;
+            context.SpaceName = this.SpaceName;
             context.UserProfileName = this.UserProfileName;
             #if MODULAR
             if (this.UserProfileName == null && ParameterWasBound(nameof(this.UserProfileName)))
@@ -222,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SessionExpirationDurationInSecond != null)
             {
                 request.SessionExpirationDurationInSeconds = cmdletContext.SessionExpirationDurationInSecond.Value;
+            }
+            if (cmdletContext.SpaceName != null)
+            {
+                request.SpaceName = cmdletContext.SpaceName;
             }
             if (cmdletContext.UserProfileName != null)
             {
@@ -291,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DomainId { get; set; }
             public System.Int32? ExpiresInSecond { get; set; }
             public System.Int32? SessionExpirationDurationInSecond { get; set; }
+            public System.String SpaceName { get; set; }
             public System.String UserProfileName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreatePresignedDomainUrlResponse, NewSMPresignedDomainUrlCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AuthorizedUrl;

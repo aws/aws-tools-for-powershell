@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProfilerConfig_DisableProfiler
         /// <summary>
         /// <para>
-        /// <para>To disable Debugger monitoring and profiling, set to <code>True</code>.</para>
+        /// <para>To turn off Amazon SageMaker Debugger monitoring and profiling while a training job
+        /// is in progress, set to <code>True</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProfilerRuleConfiguration
         /// <summary>
         /// <para>
-        /// <para>Configuration information for Debugger rules for profiling system and framework metrics.</para>
+        /// <para>Configuration information for Amazon SageMaker Debugger rules for profiling system
+        /// and framework metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

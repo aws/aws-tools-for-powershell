@@ -1,4 +1,103 @@
-﻿### 4.1.217 (2022-11-29 21:56Z)
+﻿### 4.1.218 (2022-11-30 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.428.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Added cmdlet Export-ATHNotebook leveraging the ExportNotebook service API.
+    * Added cmdlet Get-ATHApplicationDPUSizeList leveraging the ListApplicationDPUSizes service API.
+    * Added cmdlet Get-ATHCalculationExecution leveraging the GetCalculationExecution service API.
+    * Added cmdlet Get-ATHCalculationExecutionCode leveraging the GetCalculationExecutionCode service API.
+    * Added cmdlet Get-ATHCalculationExecutionList leveraging the ListCalculationExecutions service API.
+    * Added cmdlet Get-ATHCalculationExecutionStatus leveraging the GetCalculationExecutionStatus service API.
+    * Added cmdlet Get-ATHExecutorList leveraging the ListExecutors service API.
+    * Added cmdlet Get-ATHNotebookMetadata leveraging the GetNotebookMetadata service API.
+    * Added cmdlet Get-ATHNotebookMetadataList leveraging the ListNotebookMetadata service API.
+    * Added cmdlet Get-ATHNotebookSessionList leveraging the ListNotebookSessions service API.
+    * Added cmdlet Get-ATHSession leveraging the GetSession service API.
+    * Added cmdlet Get-ATHSessionList leveraging the ListSessions service API.
+    * Added cmdlet Get-ATHSessionStatus leveraging the GetSessionStatus service API.
+    * Added cmdlet Import-ATHNotebook leveraging the ImportNotebook service API.
+    * Added cmdlet New-ATHNotebook leveraging the CreateNotebook service API.
+    * Added cmdlet New-ATHPresignedNotebookUrl leveraging the CreatePresignedNotebookUrl service API.
+    * Added cmdlet Remove-ATHNotebook leveraging the DeleteNotebook service API.
+    * Added cmdlet Remove-ATHSession leveraging the TerminateSession service API.
+    * Added cmdlet Start-ATHCalculationExecution leveraging the StartCalculationExecution service API.
+    * Added cmdlet Start-ATHSession leveraging the StartSession service API.
+    * Added cmdlet Stop-ATHCalculationExecution leveraging the StopCalculationExecution service API.
+    * Added cmdlet Update-ATHNotebook leveraging the UpdateNotebook service API.
+    * Added cmdlet Update-ATHNotebookMetadata leveraging the UpdateNotebookMetadata service API.
+    * Modified cmdlet New-ATHWorkGroup: added parameters Configuration_AdditionalConfiguration, Configuration_ExecutionRole and CustomerContentEncryptionConfiguration_KmsKey.
+    * Modified cmdlet Update-ATHWorkGroup: added parameters ConfigurationUpdates_AdditionalConfiguration, ConfigurationUpdates_ExecutionRole, ConfigurationUpdates_RemoveCustomerContentEncryptionConfiguration and CustomerContentEncryptionConfiguration_KmsKey.
+  * Amazon Data Exchange
+    * Modified cmdlet New-DTEXJob: added parameters AssetSource_Bucket, AssetSource_Key, AssetSource_KeyPrefix, CreateS3DataAccessFromS3Bucket_DataSetId, CreateS3DataAccessFromS3Bucket_RevisionId, Database_Expression, Database_Permission, ImportAssetsFromLakeFormationTagPolicy_CatalogId, ImportAssetsFromLakeFormationTagPolicy_DataSetId, ImportAssetsFromLakeFormationTagPolicy_RevisionId, ImportAssetsFromLakeFormationTagPolicy_RoleArn, Table_Expression and Table_Permission.
+  * Amazon DocumentDB Elastic Clusters. Added cmdlets to support the service. Cmdlets for the service have the noun prefix DOCE and can be listed using the command 'Get-AWSCmdletName -Service DOCE'.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDataQualityResult leveraging the GetDataQualityResult service API.
+    * Added cmdlet Get-GLUEDataQualityResultBatch leveraging the BatchGetDataQualityResult service API.
+    * Added cmdlet Get-GLUEDataQualityResultList leveraging the ListDataQualityResults service API.
+    * Added cmdlet Get-GLUEDataQualityRuleRecommendationRun leveraging the GetDataQualityRuleRecommendationRun service API.
+    * Added cmdlet Get-GLUEDataQualityRuleRecommendationRunList leveraging the ListDataQualityRuleRecommendationRuns service API.
+    * Added cmdlet Get-GLUEDataQualityRuleset leveraging the GetDataQualityRuleset service API.
+    * Added cmdlet Get-GLUEDataQualityRulesetEvaluationRun leveraging the GetDataQualityRulesetEvaluationRun service API.
+    * Added cmdlet Get-GLUEDataQualityRulesetEvaluationRunList leveraging the ListDataQualityRulesetEvaluationRuns service API.
+    * Added cmdlet Get-GLUEDataQualityRulesetList leveraging the ListDataQualityRulesets service API.
+    * Added cmdlet New-GLUEDataQualityRuleset leveraging the CreateDataQualityRuleset service API.
+    * Added cmdlet Remove-GLUEDataQualityRuleset leveraging the DeleteDataQualityRuleset service API.
+    * Added cmdlet Start-GLUEDataQualityRuleRecommendationRun leveraging the StartDataQualityRuleRecommendationRun service API.
+    * Added cmdlet Start-GLUEDataQualityRulesetEvaluationRun leveraging the StartDataQualityRulesetEvaluationRun service API.
+    * Added cmdlet Stop-GLUEDataQualityRuleRecommendationRun leveraging the CancelDataQualityRuleRecommendationRun service API.
+    * Added cmdlet Stop-GLUEDataQualityRulesetEvaluationRun leveraging the CancelDataQualityRulesetEvaluationRun service API.
+    * Added cmdlet Update-GLUEDataQualityRuleset leveraging the UpdateDataQualityRuleset service API.
+  * Amazon S3 Control
+    * Modified cmdlet New-S3CAccessPoint: added parameter BucketAccountId.
+  * Amazon SageMaker Geospatial. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMGS and can be listed using the command 'Get-AWSCmdletName -Service SMGS'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMHub leveraging the DescribeHub service API.
+    * Added cmdlet Get-SMHubContent leveraging the DescribeHubContent service API.
+    * Added cmdlet Get-SMHubContentList leveraging the ListHubContents service API.
+    * Added cmdlet Get-SMHubContentVersionList leveraging the ListHubContentVersions service API.
+    * Added cmdlet Get-SMHubList leveraging the ListHubs service API.
+    * Added cmdlet Get-SMInferenceExperiment leveraging the DescribeInferenceExperiment service API.
+    * Added cmdlet Get-SMInferenceExperimentList leveraging the ListInferenceExperiments service API.
+    * Added cmdlet Get-SMModelCard leveraging the DescribeModelCard service API.
+    * Added cmdlet Get-SMModelCardExportJob leveraging the DescribeModelCardExportJob service API.
+    * Added cmdlet Get-SMModelCardExportJobList leveraging the ListModelCardExportJobs service API.
+    * Added cmdlet Get-SMModelCardList leveraging the ListModelCards service API.
+    * Added cmdlet Get-SMModelCardVersionList leveraging the ListModelCardVersions service API.
+    * Added cmdlet Get-SMMonitoringAlertHistoryList leveraging the ListMonitoringAlertHistory service API.
+    * Added cmdlet Get-SMMonitoringAlertList leveraging the ListMonitoringAlerts service API.
+    * Added cmdlet Get-SMSpace leveraging the DescribeSpace service API.
+    * Added cmdlet Get-SMSpaceList leveraging the ListSpaces service API.
+    * Added cmdlet Import-SMHubContent leveraging the ImportHubContent service API.
+    * Added cmdlet New-SMHub leveraging the CreateHub service API.
+    * Added cmdlet New-SMInferenceExperiment leveraging the CreateInferenceExperiment service API.
+    * Added cmdlet New-SMModelCard leveraging the CreateModelCard service API.
+    * Added cmdlet New-SMModelCardExportJob leveraging the CreateModelCardExportJob service API.
+    * Added cmdlet New-SMSpace leveraging the CreateSpace service API.
+    * Added cmdlet Remove-SMHub leveraging the DeleteHub service API.
+    * Added cmdlet Remove-SMHubContent leveraging the DeleteHubContent service API.
+    * Added cmdlet Remove-SMInferenceExperiment leveraging the DeleteInferenceExperiment service API.
+    * Added cmdlet Remove-SMModelCard leveraging the DeleteModelCard service API.
+    * Added cmdlet Remove-SMSpace leveraging the DeleteSpace service API.
+    * Added cmdlet Start-SMInferenceExperiment leveraging the StartInferenceExperiment service API.
+    * Added cmdlet Stop-SMInferenceExperiment leveraging the StopInferenceExperiment service API.
+    * Added cmdlet Update-SMHub leveraging the UpdateHub service API.
+    * Added cmdlet Update-SMInferenceExperiment leveraging the UpdateInferenceExperiment service API.
+    * Added cmdlet Update-SMModelCard leveraging the UpdateModelCard service API.
+    * Added cmdlet Update-SMMonitoringAlert leveraging the UpdateMonitoringAlert service API.
+    * Added cmdlet Update-SMSpace leveraging the UpdateSpace service API.
+    * Modified cmdlet Get-SMApp: added parameter SpaceName.
+    * Modified cmdlet Get-SMAppList: added parameter SpaceNameEqual.
+    * Modified cmdlet New-SMApp: added parameter SpaceName.
+    * Modified cmdlet New-SMDomain: added parameters DefaultSpaceSettings_ExecutionRole, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, DefaultSpaceSettings_SecurityGroup, JupyterServerAppSettings_CodeRepository, JupyterServerAppSettings_LifecycleConfigArn, KernelGatewayAppSettings_CustomImage and KernelGatewayAppSettings_LifecycleConfigArn.
+    * Modified cmdlet New-SMEndpointConfig: added parameter ShadowProductionVariant.
+    * Modified cmdlet New-SMFeatureGroup: added parameter OfflineStoreConfig_TableFormat.
+    * Modified cmdlet New-SMPresignedDomainUrl: added parameter SpaceName.
+    * Modified cmdlet New-SMProcessingJob: added parameter ExperimentConfig_RunName.
+    * Modified cmdlet New-SMTrainingJob: added parameter ExperimentConfig_RunName.
+    * Modified cmdlet New-SMTransformJob: added parameter ExperimentConfig_RunName.
+    * Modified cmdlet Remove-SMApp: added parameter SpaceName.
+    * Modified cmdlet Update-SMDomain: added parameters DefaultSpaceSettings_ExecutionRole, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_LifecycleConfigArn, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn, DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_LifecycleConfigArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageArn, DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, DefaultSpaceSettings_SecurityGroup, JupyterServerAppSettings_CodeRepository, JupyterServerAppSettings_LifecycleConfigArn, KernelGatewayAppSettings_CustomImage and KernelGatewayAppSettings_LifecycleConfigArn.
+
+### 4.1.217 (2022-11-29 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.427.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Dismount-EC2VerifiedAccessTrustProvider leveraging the DetachVerifiedAccessTrustProvider service API.

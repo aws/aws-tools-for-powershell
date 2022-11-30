@@ -90,20 +90,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter SpaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the space.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SpaceName { get; set; }
+        #endregion
+        
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
         /// <para>The user profile name.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserProfileName { get; set; }
         #endregion
         
@@ -173,13 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SpaceName = this.SpaceName;
             context.UserProfileName = this.UserProfileName;
-            #if MODULAR
-            if (this.UserProfileName == null && ParameterWasBound(nameof(this.UserProfileName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserProfileName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
+            }
+            if (cmdletContext.SpaceName != null)
+            {
+                request.SpaceName = cmdletContext.SpaceName;
             }
             if (cmdletContext.UserProfileName != null)
             {
@@ -276,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String AppName { get; set; }
             public Amazon.SageMaker.AppType AppType { get; set; }
             public System.String DomainId { get; set; }
+            public System.String SpaceName { get; set; }
             public System.String UserProfileName { get; set; }
             public System.Func<Amazon.SageMaker.Model.DescribeAppResponse, GetSMAppCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

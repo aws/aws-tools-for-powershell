@@ -1,0 +1,3 @@
+﻿# SageMakerGeospatial
+
+Export-ModuleMember -Alias *
