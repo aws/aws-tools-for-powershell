@@ -41,11 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to shut down existing server processes and terminate instances in each location being
     /// deleted. When completed, the location status changes to <code>TERMINATED</code>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>DescribeFleetLocationAttributes</a> | <a>DescribeFleetLocationCapacity</a>
-    /// | <a>DescribeFleetLocationUtilization</a> | <a>DescribeFleetAttributes</a> | <a>DescribeFleetCapacity</a>
-    /// | <a>DescribeFleetUtilization</a> | <a>UpdateFleetCapacity</a> | <a>StopFleetActions</a>
-    /// | <a>DeleteFleetLocations</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// up GameLift fleets</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLFleetLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.GameLift.Model.DeleteFleetLocationsResponse")]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves a fresh set of credentials for use when uploading a new set of game build
     /// files to Amazon GameLift's Amazon S3. This is done as part of the build creation process;
-    /// see <a>CreateBuild</a>.
+    /// see <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateBuild.html">GameSession</a>.
     /// 
     ///  
     /// <para>
@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// request. If successful, a new set of credentials are returned, along with the S3 storage
     /// location associated with the build ID.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
-    /// Create a Build with Files in S3</a></para><para><b>Related actions</b></para><para><a>CreateBuild</a> | <a>ListBuilds</a> | <a>DescribeBuild</a> | <a>UpdateBuild</a>
-    /// | <a>DeleteBuild</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Create a Build with Files in S3</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Request", "GMLUploadCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

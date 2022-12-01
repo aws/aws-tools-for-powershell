@@ -94,6 +94,26 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.DocumentReadAction
+        {
+            ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadAction") -Or
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction")
+        }
+        {
+            $v = "TEXTRACT_ANALYZE_DOCUMENT","TEXTRACT_DETECT_DOCUMENT_TEXT"
+            break
+        }
+
+        # Amazon.Comprehend.DocumentReadMode
+        {
+            ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadMode") -Or
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode")
+        }
+        {
+            $v = "FORCE_DOCUMENT_READ_ACTION","SERVICE_DEFAULT"
+            break
+        }
+
         # Amazon.Comprehend.EndpointStatus
         "Get-COMPEndpointList/Filter_Status"
         {
@@ -195,6 +215,8 @@ $COMP_Completers = {
 }
 
 $COMP_map = @{
+    "DocumentReaderConfig_DocumentReadAction"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
+    "DocumentReaderConfig_DocumentReadMode"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")

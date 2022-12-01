@@ -93,6 +93,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SFNExecution', 
         'Get-SFNExecutionHistory', 
         'Get-SFNExecutionList', 
+        'Get-SFNMapRun', 
+        'Get-SFNMapRunList', 
         'Get-SFNResourceTag', 
         'Get-SFNStateMachine', 
         'Get-SFNStateMachineForExecution', 
@@ -108,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-SFNExecution', 
         'Start-SFNSyncExecution', 
         'Stop-SFNExecution', 
+        'Update-SFNMapRun', 
         'Update-SFNStateMachine')
 
     # Variables to export from this module

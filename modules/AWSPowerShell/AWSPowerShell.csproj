@@ -772,6 +772,9 @@
     <Reference Include="AWSSDK.PinpointSMSVoiceV2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.PinpointSMSVoiceV2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Pipes">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Pipes.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Polly">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Polly.dll</HintPath>
     </Reference>
@@ -1745,6 +1748,9 @@
     </Reference>
     <Reference Include="AWSSDK.PinpointSMSVoiceV2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.PinpointSMSVoiceV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Pipes">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Pipes.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Polly">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Polly.dll</HintPath>

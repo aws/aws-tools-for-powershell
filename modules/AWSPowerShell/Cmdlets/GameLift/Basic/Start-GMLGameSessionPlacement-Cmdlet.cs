@@ -28,10 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>).
-    /// When processing a placement request, Amazon GameLift searches for available resources
-    /// on the queue's destinations, scanning each until it finds resources or the placement
-    /// request times out.
+    /// Places a request for a new game session in a queue. When processing a placement request,
+    /// Amazon GameLift searches for available resources on the queue's destinations, scanning
+    /// each until it finds resources or the placement request times out.
     /// 
     ///  
     /// <para>
@@ -66,16 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// If successful, a new game session placement is created.
     /// </para><para>
-    /// To track the status of a placement request, call <a>DescribeGameSessionPlacement</a>
+    /// To track the status of a placement request, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionPlacement.html">DescribeGameSessionPlacement</a>
     /// and check the request's status. If the status is <code>FULFILLED</code>, a new game
     /// session has been created and a game session ARN and Region are referenced. If the
     /// placement request times out, you can resubmit the request or retry it with a different
     /// queue. 
-    /// </para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
-    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
-    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]
@@ -102,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom properties for a game session, formatted as key:value pairs. These
-        /// properties are passed to a game server process in the <a>GameSession</a> object with
-        /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// properties are passed to a game server process with a request to start a new game
+        /// session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
@@ -116,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game session properties, formatted as a single string value. This
-        /// data is passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// data is passed to a game server process in the <code>GameSession</code> object with
+        /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
@@ -174,8 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier to assign to the new game session placement. This value is developer-defined.
-        /// The value must be unique across all Regions and cannot be reused unless you are resubmitting
-        /// a canceled or timed-out placement request.</para>
+        /// The value must be unique across all Regions and cannot be reused.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of values, expressed in milliseconds, that indicates the amount of latency that
-        /// a player experiences when connected to @aws; Regions. This information is used to
-        /// try to place the new game session where it can offer the best possible gameplay experience
-        /// for the players. </para>
+        /// a player experiences when connected to Amazon Web Services Regions. This information
+        /// is used to try to place the new game session where it can offer the best possible
+        /// gameplay experience for the players. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

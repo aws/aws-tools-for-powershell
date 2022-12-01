@@ -35,12 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
-    /// Using Multi-Region Queues</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Using Multi-Region Queues</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionQueue")]
@@ -67,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CustomEventData
         /// <summary>
         /// <para>
-        /// <para> Information to be added to all events that are related to this game session queue.
-        /// </para>
+        /// <para>Information to be added to all events that are related to this game session queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

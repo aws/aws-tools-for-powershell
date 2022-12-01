@@ -1,0 +1,3 @@
+﻿# Pipes
+
+Export-ModuleMember -Alias *

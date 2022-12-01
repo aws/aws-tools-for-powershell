@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMapRun" OutputProperty="*" Verb="Get" Noun="MapRun" PipelineParameter="MapRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeStateMachine" OutputProperty="*" Verb="Get" Noun="StateMachine" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMapRuns" OutputProperty="MapRuns" Verb="Get" Noun="MapRunList" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -104,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMapRun" Verb="Update" Noun="MapRun" ShouldProcessTarget="MapRunArn" PipelineParameter="MapRunArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

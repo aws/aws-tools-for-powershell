@@ -128,6 +128,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.ComputeType
+        "New-GMLFleet/ComputeType"
+        {
+            $v = "ANYWHERE","EC2"
+            break
+        }
+
         # Amazon.GameLift.EC2InstanceType
         {
             ($_ -eq "Get-GMLEC2InstanceLimit/EC2InstanceType") -Or
@@ -189,7 +196,7 @@ $GML_Completers = {
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
-            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailableGameSessions","AvailablePlayerSessions","CurrentPlayerSessions","IdleInstances","PercentAvailableGameSessions","PercentIdleInstances","QueueDepth","WaitTime"
+            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailableGameSessions","AvailablePlayerSessions","ConcurrentActivatableGameSessions","CurrentPlayerSessions","IdleInstances","PercentAvailableGameSessions","PercentIdleInstances","QueueDepth","WaitTime"
             break
         }
 
@@ -271,6 +278,7 @@ $GML_map = @{
     "BalancingStrategy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
     "CertificateConfiguration_CertificateType"=@("New-GMLFleet")
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
+    "ComputeType"=@("New-GMLFleet")
     "DeleteOption"=@("Remove-GMLGameServerGroup")
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "FleetType"=@("New-GMLFleet")
@@ -351,6 +359,7 @@ $GML_SelectMap = @{
                "New-GMLGameServerGroup",
                "New-GMLGameSession",
                "New-GMLGameSessionQueue",
+               "New-GMLLocation",
                "New-GMLMatchmakingConfiguration",
                "New-GMLMatchmakingRuleSet",
                "New-GMLPlayerSession",
@@ -363,15 +372,18 @@ $GML_SelectMap = @{
                "Remove-GMLFleetLocation",
                "Remove-GMLGameServerGroup",
                "Remove-GMLGameSessionQueue",
+               "Remove-GMLLocation",
                "Remove-GMLMatchmakingConfiguration",
                "Remove-GMLMatchmakingRuleSet",
                "Remove-GMLScalingPolicy",
                "Remove-GMLScript",
                "Remove-GMLVpcPeeringAuthorization",
                "Remove-GMLVpcPeeringConnection",
+               "Unregister-GMLCompute",
                "Unregister-GMLGameServer",
                "Get-GMLAliasDetail",
                "Get-GMLBuildDetail",
+               "Get-GMLCompute",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",
@@ -398,16 +410,21 @@ $GML_SelectMap = @{
                "Get-GMLScript",
                "Get-GMLVpcPeeringAuthorization",
                "Get-GMLVpcPeeringConnection",
+               "Get-GMLComputeAccess",
+               "Get-GMLComputeAuthToken",
                "Get-GMLGameSessionLogUrl",
                "Get-GMLInstanceAccess",
                "Get-GMLAlias",
                "Get-GMLBuild",
+               "Get-GMLComputeList",
                "Get-GMLFleet",
                "Get-GMLGameServerGroupList",
                "Get-GMLGameServerList",
+               "Get-GMLLocationList",
                "Get-GMLScriptList",
                "Get-GMLResourceTag",
                "Write-GMLScalingPolicy",
+               "Register-GMLCompute",
                "Register-GMLGameServer",
                "Request-GMLUploadCredential",
                "Resolve-GMLAlias",

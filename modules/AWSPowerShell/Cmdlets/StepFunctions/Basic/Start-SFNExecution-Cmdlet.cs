@@ -28,9 +28,16 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Starts a state machine execution.
+    /// Starts a state machine execution. If the given state machine Amazon Resource Name
+    /// (ARN) is a qualified state machine ARN, it will fail with ValidationException.
     /// 
-    ///  <note><para><code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For
+    ///  
+    /// <para>
+    /// A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within
+    /// a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code>
+    /// refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in
+    /// the state machine named <code>stateMachineName</code>.
+    /// </para><note><para><code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For
     /// a <code>STANDARD</code> workflow, if <code>StartExecution</code> is called with the
     /// same name and input as a running execution, the call will succeed and return the same
     /// response as the original request. If the execution is closed or if the input is different,

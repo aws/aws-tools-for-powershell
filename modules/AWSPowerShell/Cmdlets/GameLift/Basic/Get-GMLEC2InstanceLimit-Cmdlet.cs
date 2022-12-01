@@ -72,10 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, an <code>EC2InstanceLimits</code> object is returned with limits and
     /// usage data for each requested instance type.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleet</a> | <a>UpdateFleetCapacity</a> | <a>PutScalingPolicy</a> | <a>DescribeEC2InstanceLimits</a>
-    /// | <a>DescribeFleetAttributes</a> | <a>DescribeFleetLocationAttributes</a> | <a>UpdateFleetAttributes</a>
-    /// | <a>StopFleetActions</a> | <a>DeleteFleet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// up GameLift fleets</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLEC2InstanceLimit")]
     [OutputType("Amazon.GameLift.Model.EC2InstanceLimit")]

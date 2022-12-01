@@ -28,11 +28,14 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Lists the executions of a state machine that meet the filtering criteria. Results
-    /// are sorted by time, with the most recent execution first.
+    /// Lists all executions of a state machine or a Map Run. You can list all executions
+    /// related to a state machine by specifying a state machine Amazon Resource Name (ARN),
+    /// or those related to a Map Run by specifying a Map Run ARN.
     /// 
     ///  
     /// <para>
+    /// Results are sorted by time, with the most recent execution first.
+    /// </para><para>
     /// If <code>nextToken</code> is returned, there are more results available. The value
     /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
     /// again using the returned token to retrieve the next page. Keep all other arguments
@@ -55,20 +58,28 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class GetSFNExecutionListCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        #region Parameter MapRunArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions.
+        /// If the <code>mapRunArn</code> field is specified, a list of all of the child workflow
+        /// executions started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining
+        /// Map Run</a> in the <i>Step Functions Developer Guide</i>.</para><para>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MapRunArn { get; set; }
+        #endregion
+        
         #region Parameter StateMachineArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</para>
+        /// <para>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</para><para>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StateMachineArn { get; set; }
         #endregion
         
@@ -176,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 context.Select = (response, cmdlet) => this.StateMachineArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MapRunArn = this.MapRunArn;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -188,12 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             #endif
             context.NextToken = this.NextToken;
             context.StateMachineArn = this.StateMachineArn;
-            #if MODULAR
-            if (this.StateMachineArn == null && ParameterWasBound(nameof(this.StateMachineArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StateMachineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StatusFilter = this.StatusFilter;
             
             // allow further manipulation of loaded context prior to processing
@@ -216,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             // create request and set iteration invariants
             var request = new Amazon.StepFunctions.Model.ListExecutionsRequest();
             
+            if (cmdletContext.MapRunArn != null)
+            {
+                request.MapRunArn = cmdletContext.MapRunArn;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -283,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             
             // create request and set iteration invariants
             var request = new Amazon.StepFunctions.Model.ListExecutionsRequest();
+            if (cmdletContext.MapRunArn != null)
+            {
+                request.MapRunArn = cmdletContext.MapRunArn;
+            }
             if (cmdletContext.StateMachineArn != null)
             {
                 request.StateMachineArn = cmdletContext.StateMachineArn;
@@ -410,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String MapRunArn { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String StateMachineArn { get; set; }

@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  <note><para>
     /// This operation cannot be used with fleets that don't support remote locations. Fleets
     /// can have multiple locations only if they reside in Amazon Web Services Regions that
-    /// support this feature (see <a>CreateFleet</a> for the complete list) and were created
-    /// after the feature was released in March 2021.
+    /// support this feature and were created after the feature was released in March 2021.
     /// </para></note><para>
     /// To add fleet locations, specify the fleet to be updated and provide a list of one
     /// or more locations. 
@@ -44,17 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, this operation returns the list of added locations with their status
     /// set to <code>NEW</code>. GameLift initiates the process of starting an instance in
     /// each added location. You can track the status of each new location by monitoring location
-    /// creation events using <a>DescribeFleetEvents</a>. Alternatively, you can poll location
-    /// status by calling <a>DescribeFleetLocationAttributes</a>. After a location status
-    /// becomes <code>ACTIVE</code>, you can adjust the location's capacity as needed with
-    /// <a>UpdateFleetCapacity</a>.
+    /// creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location
-    /// fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>DescribeFleetLocationAttributes</a> | <a>DescribeFleetLocationCapacity</a>
-    /// | <a>DescribeFleetLocationUtilization</a> | <a>DescribeFleetAttributes</a> | <a>DescribeFleetCapacity</a>
-    /// | <a>DescribeFleetUtilization</a> | <a>UpdateFleetCapacity</a> | <a>StopFleetActions</a>
-    /// | <a>DeleteFleetLocations</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// fleets</a></para>
     /// </summary>
     [Cmdlet("New", "GMLFleetLocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.CreateFleetLocationsResponse")]

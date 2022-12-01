@@ -33,9 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// configuration sets out rules for matching players and forming teams. If you're also
     /// using GameLift hosting, it defines how to start game sessions for each match. Your
     /// matchmaking system can use multiple configurations to handle different game scenarios.
-    /// All matchmaking requests (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>) identify
-    /// the matchmaking configuration to use and provide player attributes consistent with
-    /// that configuration. 
+    /// All matchmaking requests identify the matchmaking configuration to use and provide
+    /// player attributes consistent with that configuration. 
     /// 
     ///  
     /// <para>
@@ -48,15 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// In addition, you must set up an Amazon Simple Notification Service topic to receive
     /// matchmaking notifications. Provide the topic ARN in the matchmaking configuration.
-    /// An alternative method, continuously polling ticket status with <a>DescribeMatchmaking</a>,
-    /// is only suitable for games in development with low matchmaking usage.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
     /// Design a FlexMatch matchmaker</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
-    /// Set up FlexMatch event notification</a></para><para><b>Related actions</b></para><para><a>CreateMatchmakingConfiguration</a> | <a>DescribeMatchmakingConfigurations</a>
-    /// | <a>UpdateMatchmakingConfiguration</a> | <a>DeleteMatchmakingConfiguration</a> |
-    /// <a>CreateMatchmakingRuleSet</a> | <a>DescribeMatchmakingRuleSets</a> | <a>ValidateMatchmakingRuleSet</a>
-    /// | <a>DeleteMatchmakingRuleSet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Set up FlexMatch event notification</a></para>
     /// </summary>
     [Cmdlet("New", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]
@@ -118,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The method used to backfill game sessions that are created with this matchmaking configuration.
         /// Specify <code>MANUAL</code> when your game manages backfill requests manually or does
         /// not use the match backfill feature. Specify <code>AUTOMATIC</code> to have GameLift
-        /// create a <a>StartMatchBackfill</a> request whenever a game session has one or more
-        /// open slots. Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
+        /// create a backfill request whenever a game session has one or more open slots. Learn
+        /// more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
         /// Backfill Existing Games with FlexMatch</a>. Automatic backfill is not available when
         /// <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</para>
         /// </para>
@@ -168,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom properties for a game session, formatted as key:value pairs. These
-        /// properties are passed to a game server process in the <a>GameSession</a> object with
-        /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-        /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
-        /// that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
+        /// properties are passed to a game server process with a request to start a new game
+        /// session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>). This information is added to the new <code>GameSession</code>
+        /// object that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
         /// is set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
@@ -184,10 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game session properties, formatted as a single string value. This
-        /// data is passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-        /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
-        /// that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
+        /// data is passed to a game server process with a request to start a new game session
+        /// (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>). This information is added to the new <code>GameSession</code>
+        /// object that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
         /// is set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
@@ -285,11 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// developer-defined key-value pairs. Tagging Amazon Web Services resources are useful
         /// for resource management, access management and cost allocation. For more information,
         /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging
-        /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
-        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
-        /// may be lower than stated. See the Amazon Web Services General Reference for actual
-        /// tagging limits.</para>
+        /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

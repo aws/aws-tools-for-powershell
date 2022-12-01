@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// at this storage location as needed for deployment.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon
     /// GameLift Realtime Servers</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html">Set
-    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a>CreateScript</a> | <a>ListScripts</a> | <a>DescribeScript</a> | <a>UpdateScript</a>
-    /// | <a>DeleteScript</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Up a Role for Amazon GameLift Access</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLScript", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from Amazon S3 buckets with names that
-        /// contain a dot (.).</para></note>
+        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>GameLift doesn't support uploading from Amazon S3 buckets with names that contain
+        /// a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A descriptive label that is associated with a script. Script names do not need to
-        /// be unique. You can use <a>UpdateScript</a> to change this value later. </para>
+        /// be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a>
+        /// to change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -130,10 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
         /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
-        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
-        /// may be lower than stated. See the Amazon Web Services General Reference for actual
-        /// tagging limits.</para>
+        /// Once the resource is created, you can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">TagResource</a>,
+        /// <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">UntagResource</a>,
+        /// and <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a>
+        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
+        /// the Amazon Web Services General Reference for actual tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,9 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information that is associated with a build or script. Version strings do
-        /// not need to be unique. You can use <a>UpdateScript</a> to change this value later.
-        /// </para>
+        /// <para>Version information associated with a build or script. Version strings do not need
+        /// to be unique. You can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateScript.html">UpdateScript</a>
+        /// to change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

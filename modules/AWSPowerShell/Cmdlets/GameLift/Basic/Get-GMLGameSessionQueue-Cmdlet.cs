@@ -30,18 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Retrieves the properties for one or more game session queues. When requesting multiple
     /// queues, use the pagination parameters to retrieve results as a set of sequential pages.
-    /// If successful, a <a>GameSessionQueue</a> object is returned for each requested queue.
     /// When specifying a list of queues, objects are returned only for queues that currently
     /// exist in the Region.
     /// 
     ///  
     /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html">
-    /// View Your Queues</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// View Your Queues</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameSessionQueue")]
     [OutputType("Amazon.GameLift.Model.GameSessionQueue")]

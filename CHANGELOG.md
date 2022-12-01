@@ -1,4 +1,29 @@
-﻿### 4.1.218 (2022-11-30 22:01Z)
+﻿### 4.1.219 (2022-12-01 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.429.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Comprehend
+    * Modified cmdlet Find-COMPEntity: added parameters Byte, DocumentReaderConfig_DocumentReadAction, DocumentReaderConfig_DocumentReadMode and DocumentReaderConfig_FeatureType.
+    * Modified cmdlet Invoke-COMPDocumentClassification: added parameters Byte, DocumentReaderConfig_DocumentReadAction, DocumentReaderConfig_DocumentReadMode and DocumentReaderConfig_FeatureType.
+  * Amazon EventBridge Pipes. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PIPES and can be listed using the command 'Get-AWSCmdletName -Service PIPES'.
+  * Amazon GameLift Service
+    * Added cmdlet Get-GMLCompute leveraging the DescribeCompute service API.
+    * Added cmdlet Get-GMLComputeAccess leveraging the GetComputeAccess service API.
+    * Added cmdlet Get-GMLComputeAuthToken leveraging the GetComputeAuthToken service API.
+    * Added cmdlet Get-GMLComputeList leveraging the ListCompute service API.
+    * Added cmdlet Get-GMLLocationList leveraging the ListLocations service API.
+    * Added cmdlet New-GMLLocation leveraging the CreateLocation service API.
+    * Added cmdlet Register-GMLCompute leveraging the RegisterCompute service API.
+    * Added cmdlet Remove-GMLLocation leveraging the DeleteLocation service API.
+    * Added cmdlet Unregister-GMLCompute leveraging the DeregisterCompute service API.
+    * Modified cmdlet New-GMLBuild: added parameter ServerSdkVersion.
+    * Modified cmdlet New-GMLFleet: added parameters AnywhereConfiguration_Cost and ComputeType.
+    * Modified cmdlet Update-GMLFleetAttribute: added parameter AnywhereConfiguration_Cost.
+  * Amazon Step Functions
+    * Added cmdlet Get-SFNMapRun leveraging the DescribeMapRun service API.
+    * Added cmdlet Get-SFNMapRunList leveraging the ListMapRuns service API.
+    * Added cmdlet Update-SFNMapRun leveraging the UpdateMapRun service API.
+    * Modified cmdlet Get-SFNExecutionList: added parameter MapRunArn.
+
+### 4.1.218 (2022-11-30 22:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.428.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Athena
     * Added cmdlet Export-ATHNotebook leveraging the ExportNotebook service API.

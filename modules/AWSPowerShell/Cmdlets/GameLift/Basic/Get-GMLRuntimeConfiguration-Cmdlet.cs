@@ -36,15 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To get the runtime configuration that is currently in forces for a fleet, provide
     /// the fleet ID. 
     /// </para><para>
-    /// If successful, a <a>RuntimeConfiguration</a> object is returned for the requested
+    /// If successful, a <code>RuntimeConfiguration</code> object is returned for the requested
     /// fleet. If the requested fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running
-    /// multiple processes on a fleet</a></para><para><b>Related actions</b></para><para><a>ListFleets</a> | <a>DescribeEC2InstanceLimits</a> | <a>DescribeFleetAttributes</a>
-    /// | <a>DescribeFleetCapacity</a> | <a>DescribeFleetEvents</a> | <a>DescribeFleetLocationAttributes</a>
-    /// | <a>DescribeFleetPortSettings</a> | <a>DescribeFleetUtilization</a> | <a>DescribeRuntimeConfiguration</a>
-    /// | <a>DescribeScalingPolicies</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// multiple processes on a fleet</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLRuntimeConfiguration")]
     [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]

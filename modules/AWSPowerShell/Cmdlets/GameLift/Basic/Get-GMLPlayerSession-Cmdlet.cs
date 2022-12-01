@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If successful, a <code>PlayerSession</code> object is returned for each session that
     /// matches the request.
-    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para><b>Related actions</b></para><para><a>CreatePlayerSession</a> | <a>CreatePlayerSessions</a> | <a>DescribePlayerSessions</a>
-    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLPlayerSession")]
@@ -93,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerSessionStatusFilter
         /// <summary>
         /// <para>
-        /// <para>Player session status to filter results on.</para><para>Possible player session statuses include the following:</para><ul><li><para><b>RESERVED</b> -- The player session request has been received, but the player has
+        /// <para>Player session status to filter results on. Note that when a PlayerSessionId or PlayerId
+        /// is provided in a DescribePlayerSessions request, then the PlayerSessionStatusFilter
+        /// has no effect on the response.</para><para>Possible player session statuses include the following:</para><ul><li><para><b>RESERVED</b> -- The player session request has been received, but the player has
         /// not yet connected to the server process and/or been validated. </para></li><li><para><b>ACTIVE</b> -- The player has been validated by the server process and is currently
         /// connected.</para></li><li><para><b>COMPLETED</b> -- The player connection has been dropped.</para></li><li><para><b>TIMEDOUT</b> -- A player session request was received, but the player did not
         /// connect and/or was not validated within the timeout limit (60 seconds).</para></li></ul>

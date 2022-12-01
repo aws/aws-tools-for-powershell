@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
     /// Temporarily stops activity on a game server group without terminating instances or
-    /// the game server group. You can restart activity by calling <a>ResumeGameServerGroup</a>.
+    /// the game server group. You can restart activity by calling <a href="gamelift/latest/apireference/API_ResumeGameServerGroup.html">ResumeGameServerGroup</a>.
     /// You can suspend the following activity:
     /// </para><ul><li><para><b>Instance type replacement</b> - This activity evaluates the current game hosting
     /// viability of all Spot instance types that are defined for the game server group. It
@@ -41,13 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// utilization metrics, and capacity scaling activities continue to be active. 
     /// </para></li></ul><para>
     /// To suspend activity, specify a game server group ARN and the type of activity to be
-    /// suspended. If successful, a <a>GameServerGroup</a> object is returned showing that
-    /// the activity is listed in <code>SuspendedActions</code>.
+    /// suspended. If successful, a <code>GameServerGroup</code> object is returned showing
+    /// that the activity is listed in <code>SuspendedActions</code>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
-    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
-    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Suspend", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -62,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the game server group. Use either the <a>GameServerGroup</a>
-        /// name or ARN value.</para>
+        /// <para>A unique identifier for the game server group. Use either the name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

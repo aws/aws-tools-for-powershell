@@ -38,11 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If successful, an updated <code>FleetAttributes</code> object is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleetLocations</a> | <a>UpdateFleetAttributes</a> | <a>UpdateFleetCapacity</a>
-    /// | <a>UpdateFleetPortSettings</a> | <a>UpdateRuntimeConfiguration</a> | <a>StopFleetActions</a>
-    /// | <a>StartFleetActions</a> | <a>PutScalingPolicy</a> | <a>DeleteFleet</a> | <a>DeleteFleetLocations</a>
-    /// | <a>DeleteScalingPolicy</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// up GameLift fleets</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLFleetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -53,6 +49,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
     )]
     public partial class UpdateGMLFleetAttributeCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
+        
+        #region Parameter AnywhereConfiguration_Cost
+        /// <summary>
+        /// <para>
+        /// <para>The cost to run your fleet per hour. GameLift uses the provided cost of your fleet
+        /// to balance usage in queues. For more information about queues, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">Setting
+        /// up queues</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnywhereConfiguration_Cost { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -112,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The game session protection policy to apply to all new instances created in this fleet.
         /// Instances that already exist are not affected. You can set protection for individual
-        /// instances using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
+        /// instances using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>
+        /// .</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
         /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
@@ -124,8 +133,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
         /// <summary>
         /// <para>
-        /// <para>The maximum number of game sessions that an individual can create during the policy
-        /// period. </para>
+        /// <para>A policy that puts limits on the number of game sessions that a player can create
+        /// within a specified span of time. With this policy, you can control players' ability
+        /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
+        /// a <code>CreateGameSession</code> request, GameLift checks that the player (identified
+        /// by <code>CreatorId</code>) has created fewer than game session limit in the specified
+        /// time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.FleetId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnywhereConfiguration_Cost = this.AnywhereConfiguration_Cost;
             context.Description = this.Description;
             context.FleetId = this.FleetId;
             #if MODULAR
@@ -236,6 +250,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.UpdateFleetAttributesRequest();
             
+            
+             // populate AnywhereConfiguration
+            var requestAnywhereConfigurationIsNull = true;
+            request.AnywhereConfiguration = new Amazon.GameLift.Model.AnywhereConfiguration();
+            System.String requestAnywhereConfiguration_anywhereConfiguration_Cost = null;
+            if (cmdletContext.AnywhereConfiguration_Cost != null)
+            {
+                requestAnywhereConfiguration_anywhereConfiguration_Cost = cmdletContext.AnywhereConfiguration_Cost;
+            }
+            if (requestAnywhereConfiguration_anywhereConfiguration_Cost != null)
+            {
+                request.AnywhereConfiguration.Cost = requestAnywhereConfiguration_anywhereConfiguration_Cost;
+                requestAnywhereConfigurationIsNull = false;
+            }
+             // determine if request.AnywhereConfiguration should be set to null
+            if (requestAnywhereConfigurationIsNull)
+            {
+                request.AnywhereConfiguration = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -346,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnywhereConfiguration_Cost { get; set; }
             public System.String Description { get; set; }
             public System.String FleetId { get; set; }
             public List<System.String> MetricGroup { get; set; }

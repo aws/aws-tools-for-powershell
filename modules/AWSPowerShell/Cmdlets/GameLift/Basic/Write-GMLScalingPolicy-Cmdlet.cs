@@ -43,11 +43,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// or both. We recommend caution, however, because multiple auto-scaling policies can
     /// have unintended consequences.
     /// </para><para>
-    /// You can temporarily suspend all scaling policies for a fleet by calling <a>StopFleetActions</a>
-    /// with the fleet action AUTO_SCALING. To resume scaling policies, call <a>StartFleetActions</a>
-    /// with the same fleet action. To stop just one scaling policy--or to permanently remove
-    /// it, you must delete the policy with <a>DeleteScalingPolicy</a>.
-    /// </para><para>
     /// Learn more about how to work with auto-scaling in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html">Set
     /// Up Fleet Automatic Scaling</a>.
     /// </para><para><b>Target-based policy</b></para><para>
@@ -66,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// To create or update a target-based policy, specify a fleet ID and name, and set the
     /// policy type to "TargetBased". Specify the metric to track (PercentAvailableGameSessions)
-    /// and reference a <a>TargetConfiguration</a> object with your desired buffer value.
+    /// and reference a <code>TargetConfiguration</code> object with your desired buffer value.
     /// Exclude all other parameters. On a successful request, the policy name is returned.
     /// The scaling policy is automatically in force as soon as it's successfully created.
     /// If the fleet's auto-scaling actions are temporarily suspended, the new policy will
@@ -98,10 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// are automatically in force as soon as they're successfully created. If the fleet's
     /// auto-scaling actions are temporarily suspended, the new policy will be in force once
     /// the fleet actions are restarted.
-    /// </para><para><b>Related actions</b></para><para><a>DescribeFleetCapacity</a> | <a>UpdateFleetCapacity</a> | <a>DescribeEC2InstanceLimits</a>
-    /// | <a>PutScalingPolicy</a> | <a>DescribeScalingPolicies</a> | <a>DeleteScalingPolicy</a>
-    /// | <a>StopFleetActions</a> | <a>StartFleetActions</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -230,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScalingAdjustmentType
         /// <summary>
         /// <para>
-        /// <para>The type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</para><ul><li><para><b>ChangeInCapacity</b> -- add (or subtract) the scaling adjustment value from the
+        /// <para>The type of adjustment to make to a fleet's instance count:</para><ul><li><para><b>ChangeInCapacity</b> -- add (or subtract) the scaling adjustment value from the
         /// current instance count. Positive values scale up while negative values scale down.</para></li><li><para><b>ExactCapacity</b> -- set the instance count to the scaling adjustment value.</para></li><li><para><b>PercentChangeInCapacity</b> -- increase or reduce the current instance count by
         /// the scaling adjustment, read as a percentage. Positive values scale up while negative
         /// values scale down; for example, a value of "-10" scales the fleet down by 10%.</para></li></ul>

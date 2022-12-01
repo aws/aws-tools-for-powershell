@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// is returned.
     /// 
     ///  
-    /// <para><b>Related actions</b></para><para><a>CreateAlias</a> | <a>ListAliases</a> | <a>DescribeAlias</a> | <a>UpdateAlias</a>
-    /// | <a>DeleteAlias</a> | <a>ResolveAlias</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// <para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -114,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The type of routing strategy for the alias.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> - The alias resolves to one specific fleet. Use this type when routing
         /// to active fleets.</para></li><li><para><b>TERMINAL</b> - The alias does not resolve to a fleet but instead can be used to
         /// display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
-        /// with the <a>RoutingStrategy</a> message embedded.</para></li></ul>
+        /// with the message embedded.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

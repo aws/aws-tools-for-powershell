@@ -11863,6 +11863,26 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.DocumentReadAction
+        {
+            ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadAction") -Or
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction")
+        }
+        {
+            $v = "TEXTRACT_ANALYZE_DOCUMENT","TEXTRACT_DETECT_DOCUMENT_TEXT"
+            break
+        }
+
+        # Amazon.Comprehend.DocumentReadMode
+        {
+            ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadMode") -Or
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode")
+        }
+        {
+            $v = "FORCE_DOCUMENT_READ_ACTION","SERVICE_DEFAULT"
+            break
+        }
+
         # Amazon.Comprehend.EndpointStatus
         "Get-COMPEndpointList/Filter_Status"
         {
@@ -11964,6 +11984,8 @@ $COMP_Completers = {
 }
 
 $COMP_map = @{
+    "DocumentReaderConfig_DocumentReadAction"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
+    "DocumentReaderConfig_DocumentReadMode"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
@@ -23662,6 +23684,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.ComputeType
+        "New-GMLFleet/ComputeType"
+        {
+            $v = "ANYWHERE","EC2"
+            break
+        }
+
         # Amazon.GameLift.EC2InstanceType
         {
             ($_ -eq "Get-GMLEC2InstanceLimit/EC2InstanceType") -Or
@@ -23723,7 +23752,7 @@ $GML_Completers = {
         # Amazon.GameLift.MetricName
         "Write-GMLScalingPolicy/MetricName"
         {
-            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailableGameSessions","AvailablePlayerSessions","CurrentPlayerSessions","IdleInstances","PercentAvailableGameSessions","PercentIdleInstances","QueueDepth","WaitTime"
+            $v = "ActivatingGameSessions","ActiveGameSessions","ActiveInstances","AvailableGameSessions","AvailablePlayerSessions","ConcurrentActivatableGameSessions","CurrentPlayerSessions","IdleInstances","PercentAvailableGameSessions","PercentIdleInstances","QueueDepth","WaitTime"
             break
         }
 
@@ -23805,6 +23834,7 @@ $GML_map = @{
     "BalancingStrategy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
     "CertificateConfiguration_CertificateType"=@("New-GMLFleet")
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
+    "ComputeType"=@("New-GMLFleet")
     "DeleteOption"=@("Remove-GMLGameServerGroup")
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "FleetType"=@("New-GMLFleet")
@@ -23885,6 +23915,7 @@ $GML_SelectMap = @{
                "New-GMLGameServerGroup",
                "New-GMLGameSession",
                "New-GMLGameSessionQueue",
+               "New-GMLLocation",
                "New-GMLMatchmakingConfiguration",
                "New-GMLMatchmakingRuleSet",
                "New-GMLPlayerSession",
@@ -23897,15 +23928,18 @@ $GML_SelectMap = @{
                "Remove-GMLFleetLocation",
                "Remove-GMLGameServerGroup",
                "Remove-GMLGameSessionQueue",
+               "Remove-GMLLocation",
                "Remove-GMLMatchmakingConfiguration",
                "Remove-GMLMatchmakingRuleSet",
                "Remove-GMLScalingPolicy",
                "Remove-GMLScript",
                "Remove-GMLVpcPeeringAuthorization",
                "Remove-GMLVpcPeeringConnection",
+               "Unregister-GMLCompute",
                "Unregister-GMLGameServer",
                "Get-GMLAliasDetail",
                "Get-GMLBuildDetail",
+               "Get-GMLCompute",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",
@@ -23932,16 +23966,21 @@ $GML_SelectMap = @{
                "Get-GMLScript",
                "Get-GMLVpcPeeringAuthorization",
                "Get-GMLVpcPeeringConnection",
+               "Get-GMLComputeAccess",
+               "Get-GMLComputeAuthToken",
                "Get-GMLGameSessionLogUrl",
                "Get-GMLInstanceAccess",
                "Get-GMLAlias",
                "Get-GMLBuild",
+               "Get-GMLComputeList",
                "Get-GMLFleet",
                "Get-GMLGameServerGroupList",
                "Get-GMLGameServerList",
+               "Get-GMLLocationList",
                "Get-GMLScriptList",
                "Get-GMLResourceTag",
                "Write-GMLScalingPolicy",
+               "Register-GMLCompute",
                "Register-GMLGameServer",
                "Request-GMLUploadCredential",
                "Resolve-GMLAlias",
@@ -41602,6 +41641,201 @@ $SMSV_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SMSV_SelectCompleters $SMSV_SelectMap
+# Argument completions for service Amazon EventBridge Pipes
+
+
+$PIPES_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Pipes.AssignPublicIp
+        {
+            ($_ -eq "New-PIPESPipe/TargetParameters_EcsTaskParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Update-PIPESPipe/TargetParameters_EcsTaskParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Pipes.DynamoDBStreamStartPosition
+        "New-PIPESPipe/SourceParameters_DynamoDBStreamParameters_StartingPosition"
+        {
+            $v = "LATEST","TRIM_HORIZON"
+            break
+        }
+
+        # Amazon.Pipes.KinesisStreamStartPosition
+        "New-PIPESPipe/SourceParameters_KinesisStreamParameters_StartingPosition"
+        {
+            $v = "AT_TIMESTAMP","LATEST","TRIM_HORIZON"
+            break
+        }
+
+        # Amazon.Pipes.LaunchType
+        {
+            ($_ -eq "New-PIPESPipe/TargetParameters_EcsTaskParameters_LaunchType") -Or
+            ($_ -eq "Update-PIPESPipe/TargetParameters_EcsTaskParameters_LaunchType")
+        }
+        {
+            $v = "EC2","EXTERNAL","FARGATE"
+            break
+        }
+
+        # Amazon.Pipes.MSKStartPosition
+        "New-PIPESPipe/SourceParameters_ManagedStreamingKafkaParameters_StartingPosition"
+        {
+            $v = "LATEST","TRIM_HORIZON"
+            break
+        }
+
+        # Amazon.Pipes.OnPartialBatchItemFailureStreams
+        {
+            ($_ -eq "New-PIPESPipe/SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure") -Or
+            ($_ -eq "Update-PIPESPipe/SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure") -Or
+            ($_ -eq "New-PIPESPipe/SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure") -Or
+            ($_ -eq "Update-PIPESPipe/SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure")
+        }
+        {
+            $v = "AUTOMATIC_BISECT"
+            break
+        }
+
+        # Amazon.Pipes.PipeState
+        "Get-PIPESPipeList/CurrentState"
+        {
+            $v = "CREATE_FAILED","CREATING","DELETING","RUNNING","STARTING","START_FAILED","STOPPED","STOPPING","STOP_FAILED","UPDATE_FAILED","UPDATING"
+            break
+        }
+
+        # Amazon.Pipes.PipeTargetInvocationType
+        {
+            ($_ -eq "New-PIPESPipe/TargetParameters_LambdaFunctionParameters_InvocationType") -Or
+            ($_ -eq "Update-PIPESPipe/TargetParameters_LambdaFunctionParameters_InvocationType") -Or
+            ($_ -eq "New-PIPESPipe/TargetParameters_StepFunctionStateMachineParameters_InvocationType") -Or
+            ($_ -eq "Update-PIPESPipe/TargetParameters_StepFunctionStateMachineParameters_InvocationType")
+        }
+        {
+            $v = "FIRE_AND_FORGET","REQUEST_RESPONSE"
+            break
+        }
+
+        # Amazon.Pipes.PropagateTags
+        {
+            ($_ -eq "New-PIPESPipe/TargetParameters_EcsTaskParameters_PropagateTags") -Or
+            ($_ -eq "Update-PIPESPipe/TargetParameters_EcsTaskParameters_PropagateTags")
+        }
+        {
+            $v = "TASK_DEFINITION"
+            break
+        }
+
+        # Amazon.Pipes.RequestedPipeState
+        {
+            ($_ -eq "Get-PIPESPipeList/DesiredState") -Or
+            ($_ -eq "New-PIPESPipe/DesiredState") -Or
+            ($_ -eq "Update-PIPESPipe/DesiredState")
+        }
+        {
+            $v = "RUNNING","STOPPED"
+            break
+        }
+
+        # Amazon.Pipes.SelfManagedKafkaStartPosition
+        "New-PIPESPipe/SourceParameters_SelfManagedKafkaParameters_StartingPosition"
+        {
+            $v = "LATEST","TRIM_HORIZON"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PIPES_map = @{
+    "CurrentState"=@("Get-PIPESPipeList")
+    "DesiredState"=@("Get-PIPESPipeList","New-PIPESPipe","Update-PIPESPipe")
+    "SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
+    "SourceParameters_DynamoDBStreamParameters_StartingPosition"=@("New-PIPESPipe")
+    "SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
+    "SourceParameters_KinesisStreamParameters_StartingPosition"=@("New-PIPESPipe")
+    "SourceParameters_ManagedStreamingKafkaParameters_StartingPosition"=@("New-PIPESPipe")
+    "SourceParameters_SelfManagedKafkaParameters_StartingPosition"=@("New-PIPESPipe")
+    "TargetParameters_EcsTaskParameters_LaunchType"=@("New-PIPESPipe","Update-PIPESPipe")
+    "TargetParameters_EcsTaskParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-PIPESPipe","Update-PIPESPipe")
+    "TargetParameters_EcsTaskParameters_PropagateTags"=@("New-PIPESPipe","Update-PIPESPipe")
+    "TargetParameters_LambdaFunctionParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
+    "TargetParameters_StepFunctionStateMachineParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
+}
+
+_awsArgumentCompleterRegistration $PIPES_Completers $PIPES_map
+
+$PIPES_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PIPES.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PIPES_SelectMap = @{
+    "Select"=@("New-PIPESPipe",
+               "Remove-PIPESPipe",
+               "Get-PIPESPipe",
+               "Get-PIPESPipeList",
+               "Get-PIPESResourceTag",
+               "Start-PIPESPipe",
+               "Stop-PIPESPipe",
+               "Add-PIPESResourceTag",
+               "Remove-PIPESResourceTag",
+               "Update-PIPESPipe")
+}
+
+_awsArgumentCompleterRegistration $PIPES_SelectCompleters $PIPES_SelectMap
 # Argument completions for service Amazon Polly
 
 
@@ -52918,12 +53152,14 @@ $SFN_SelectMap = @{
                "Remove-SFNStateMachine",
                "Get-SFNActivity",
                "Get-SFNExecution",
+               "Get-SFNMapRun",
                "Get-SFNStateMachine",
                "Get-SFNStateMachineForExecution",
                "Get-SFNActivityTask",
                "Get-SFNExecutionHistory",
                "Get-SFNActivityList",
                "Get-SFNExecutionList",
+               "Get-SFNMapRunList",
                "Get-SFNStateMachineList",
                "Get-SFNResourceTag",
                "Send-SFNTaskFailure",
@@ -52934,6 +53170,7 @@ $SFN_SelectMap = @{
                "Stop-SFNExecution",
                "Add-SFNResourceTag",
                "Remove-SFNResourceTag",
+               "Update-SFNMapRun",
                "Update-SFNStateMachine")
 }
 

@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// When a game server is successfully claimed, connection information is returned. A
     /// claimed game server's utilization status remains <code>AVAILABLE</code> while the
     /// claim status is set to <code>CLAIMED</code> for up to 60 seconds. This time period
-    /// gives the game server time to update its status to <code>UTILIZED</code> (using <a>UpdateGameServer</a>)
-    /// once players join. If the game server's status is not updated within 60 seconds, the
-    /// game server reverts to unclaimed status and is available to be claimed by another
-    /// request. The claim time period is a fixed value and is not configurable.
+    /// gives the game server time to update its status to <code>UTILIZED</code> after players
+    /// join. If the game server's status is not updated within 60 seconds, the game server
+    /// reverts to unclaimed status and is available to be claimed by another request. The
+    /// claim time period is a fixed value and is not configurable.
     /// </para><para>
     /// If you try to claim a specific game server, this request will fail in the following
     /// cases:
@@ -58,11 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><note><para>
     /// When claiming a specific game server, this request will succeed even if the game server
     /// is running on an instance in <code>DRAINING</code> status. To avoid this, first check
-    /// the instance status by calling <a>DescribeGameServerInstances</a>.
+    /// the instance status by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html">DescribeGameServerInstances</a>
+    /// .
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>RegisterGameServer</a> | <a>ListGameServers</a> | <a>ClaimGameServer</a> | <a>DescribeGameServer</a>
-    /// | <a>UpdateGameServer</a> | <a>DeregisterGameServer</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Request", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]
@@ -78,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game server properties, formatted as a single string value. This data
-        /// is passed to a game client or service when it requests information on game servers
-        /// using <a>ListGameServers</a> or <a>ClaimGameServer</a>. </para>
+        /// is passed to a game client or service when it requests information on game servers.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the game server group where the game server is running. Use
-        /// either the <a>GameServerGroup</a> name or ARN value. If you are not specifying a game
-        /// server to claim, this value identifies where you want GameLift FleetIQ to look for
-        /// an available game server to claim. </para>
+        /// <para>A unique identifier for the game server group where the game server is running. If
+        /// you are not specifying a game server to claim, this value identifies where you want
+        /// GameLift FleetIQ to look for an available game server to claim. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

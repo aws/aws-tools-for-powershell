@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// alias, specify the alias ID to be deleted.
     /// 
     ///  
-    /// <para><b>Related actions</b></para><para><a>CreateAlias</a> | <a>ListAliases</a> | <a>DescribeAlias</a> | <a>UpdateAlias</a>
-    /// | <a>DeleteAlias</a> | <a>ResolveAlias</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// <para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

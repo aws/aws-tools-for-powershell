@@ -51,9 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Once a game server is successfully updated, the relevant statuses and timestamps are
     /// updated.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>RegisterGameServer</a> | <a>ListGameServers</a> | <a>ClaimGameServer</a> | <a>DescribeGameServer</a>
-    /// | <a>UpdateGameServer</a> | <a>DeregisterGameServer</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]
@@ -69,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game server properties, formatted as a single string value. This data
-        /// is passed to a game client or service when it requests information on game servers
-        /// using <a>ListGameServers</a> or <a>ClaimGameServer</a>. </para>
+        /// is passed to a game client or service when it requests information on game servers.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the game server group where the game server is running. Use
-        /// either the <a>GameServerGroup</a> name or ARN value.</para>
+        /// <para>A unique identifier for the game server group where the game server is running.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

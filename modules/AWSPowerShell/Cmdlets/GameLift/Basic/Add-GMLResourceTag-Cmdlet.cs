@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// tags that are already assigned to the specified resource. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
-    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Add", "GMLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// that is assigned to and uniquely identifies the GameLift resource that you want to
         /// assign tags to. GameLift resource ARNs are included in the data object for the resource,
         /// which can be retrieved by calling a List or Describe operation for the resource type.

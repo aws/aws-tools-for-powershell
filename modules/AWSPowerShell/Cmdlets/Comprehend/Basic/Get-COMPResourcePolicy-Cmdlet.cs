@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the policy to describe.</para>
+        /// <para>The Amazon Resource Name (ARN) of the custom model version that has the resource policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Requests authorization to create or delete a peer connection between the VPC for your
     /// Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services
     /// account. VPC peering enables the game servers on your fleet to communicate directly
-    /// with other Amazon Web Services resources. Once you've received authorization, call
-    /// <a>CreateVpcPeeringConnection</a> to establish the peering connection. For more information,
-    /// see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+    /// with other Amazon Web Services resources. After you've received authorization, use
+    /// <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html">CreateVpcPeeringConnection</a>
+    /// to establish the peering connection. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
     /// Peering with Amazon GameLift Fleets</a>.
     /// 
     ///  
@@ -56,12 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// for, and (2) ID of the Amazon Web Services account that you use to manage Amazon GameLift.
     /// 
     /// </para><para>
-    /// The authorization remains valid for 24 hours unless it is canceled by a call to <a>DeleteVpcPeeringAuthorization</a>.
-    /// You must create or delete the peering connection while the authorization is valid.
-    /// 
-    /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
-    /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
-    /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// The authorization remains valid for 24 hours unless it is canceled. You must create
+    /// or delete the peering connection while the authorization is valid. 
+    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLVpcPeeringAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -53,10 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// GameLift FleetIQ emits delete events to Amazon CloudWatch.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
-    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
-    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -87,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the game server group. Use either the <a>GameServerGroup</a>
-        /// name or ARN value.</para>
+        /// <para>A unique identifier for the game server group. Use either the name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

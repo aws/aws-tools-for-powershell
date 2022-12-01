@@ -62,10 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Keep in mind that some Auto Scaling group properties are periodically updated by GameLift
     /// FleetIQ as part of its balancing activities to optimize for availability and cost.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
-    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
-    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("New", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -258,11 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of labels to assign to the new game server group resource. Tags are developer-defined
         /// key-value pairs. Tagging Amazon Web Services resources is useful for resource management,
         /// access management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
-        /// and <a>ListTagsForResource</a> to add, remove, and view tags, respectively. The maximum
-        /// tag limit may be lower than stated. See the Amazon Web Services General Reference
-        /// for actual tagging limits.</para>
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

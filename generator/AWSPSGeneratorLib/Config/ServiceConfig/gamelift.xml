@@ -55,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocation" OutputProperty="Location" Verb="New" Noun="Location" ShouldProcessTarget="LocationName" PipelineParameter="LocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMatchmakingConfiguration" OutputProperty="Configuration" Verb="New" Noun="MatchmakingConfiguration" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -107,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocation" Verb="Remove" Noun="Location" ShouldProcessTarget="LocationName" PipelineParameter="LocationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMatchmakingConfiguration" Verb="Remove" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +139,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterCompute" Verb="Unregister" Noun="Compute" ShouldProcessTarget="ComputeName" PipelineParameter="ComputeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterGameServer" Verb="Unregister" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -140,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeBuild" OutputProperty="Build" Verb="Get" Noun="BuildDetail" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCompute" OutputProperty="Compute" Verb="Get" Noun="Compute" PipelineParameter="ComputeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -247,6 +263,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetComputeAccess" OutputProperty="*" Verb="Get" Noun="ComputeAccess" PipelineParameter="ComputeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComputeAuthToken" OutputProperty="*" Verb="Get" Noun="ComputeAuthToken" PipelineParameter="ComputeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGameSessionLogUrl" OutputProperty="PreSignedUrl" Verb="Get" Noun="GameSessionLogUrl" PipelineParameter="GameSessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -263,6 +287,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCompute" OutputProperty="ComputeList" Verb="Get" Noun="ComputeList" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFleets" OutputProperty="FleetIds" Verb="Get" Noun="Fleet" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -275,6 +303,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -284,6 +316,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="Name" Verb="Write" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterCompute" OutputProperty="Compute" Verb="Register" Noun="Compute" ShouldProcessTarget="ComputeName" PipelineParameter="ComputeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

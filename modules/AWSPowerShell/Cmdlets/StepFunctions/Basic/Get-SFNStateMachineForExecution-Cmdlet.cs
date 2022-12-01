@@ -28,7 +28,10 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Describes the state machine associated with a specific execution.
+    /// Provides information about a state machine's definition, its execution role ARN, and
+    /// configuration. If an execution was dispatched by a Map Run, the Map Run is returned
+    /// in the response. Additionally, the state machine returned will be the state machine
+    /// associated with the Map Run.
     /// 
     ///  <note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect

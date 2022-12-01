@@ -34,11 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
-    /// Design a FlexMatch matchmaker</a></para><para><b>Related actions</b></para><para><a>CreateMatchmakingConfiguration</a> | <a>DescribeMatchmakingConfigurations</a>
-    /// | <a>UpdateMatchmakingConfiguration</a> | <a>DeleteMatchmakingConfiguration</a> |
-    /// <a>CreateMatchmakingRuleSet</a> | <a>DescribeMatchmakingRuleSets</a> | <a>ValidateMatchmakingRuleSet</a>
-    /// | <a>DeleteMatchmakingRuleSet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Design a FlexMatch matchmaker</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]
@@ -93,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The method that is used to backfill game sessions created with this matchmaking configuration.
         /// Specify MANUAL when your game manages backfill requests manually or does not use the
-        /// match backfill feature. Specify AUTOMATIC to have GameLift create a <a>StartMatchBackfill</a>
+        /// match backfill feature. Specify AUTOMATIC to have GameLift create a match backfill
         /// request whenever a game session has one or more open slots. Learn more about manual
         /// and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill
         /// Existing Games with FlexMatch</a>. Automatic backfill is not available when <code>FlexMatchMode</code>
@@ -118,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with matchmaking configuration.</para>
+        /// <para>A description for the matchmaking configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,10 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom properties for a game session, formatted as key:value pairs. These
-        /// properties are passed to a game server process in the <a>GameSession</a> object with
-        /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-        /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
-        /// that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
+        /// properties are passed to a game server process with a request to start a new game
+        /// session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>). This information is added to the new <code>GameSession</code>
+        /// object that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
         /// is set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
@@ -160,11 +156,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game session properties, formatted as a single string value. This
-        /// data is passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-        /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
-        /// that is created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
-        /// is set to <code>STANDALONE</code>.</para>
+        /// data is passed to a game server process with a request to start a new game session
+        /// (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>). This information is added to the game session that is created
+        /// for a successful match. This parameter is not used if <code>FlexMatchMode</code> is
+        /// set to <code>STANDALONE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Each simple alias can point to only one fleet, but a fleet can have multiple aliases.
     /// If successful, a new alias record is returned, including an alias ID and an ARN. You
     /// can reassign an alias to another fleet by calling <code>UpdateAlias</code>.
-    /// </para><para><b>Related actions</b></para><para><a>CreateAlias</a> | <a>ListAliases</a> | <a>DescribeAlias</a> | <a>UpdateAlias</a>
-    /// | <a>DeleteAlias</a> | <a>ResolveAlias</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -114,11 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of labels to assign to the new alias resource. Tags are developer-defined key-value
         /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
-        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
-        /// may be lower than stated. See the Amazon Web Services General Reference for actual
-        /// tagging limits.</para>
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The type of routing strategy for the alias.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> - The alias resolves to one specific fleet. Use this type when routing
         /// to active fleets.</para></li><li><para><b>TERMINAL</b> - The alias does not resolve to a fleet but instead can be used to
         /// display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
-        /// with the <a>RoutingStrategy</a> message embedded.</para></li></ul>
+        /// with the message embedded.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

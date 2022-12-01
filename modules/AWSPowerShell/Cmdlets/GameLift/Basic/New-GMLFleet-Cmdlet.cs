@@ -57,20 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If successful, this operation creates a new Fleet resource and places it in <code>NEW</code>
     /// status, which prompts GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creation-workflow.html">fleet
-    /// creation workflow</a>. You can track fleet creation by checking fleet status using
-    /// <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by
-    /// monitoring fleet creation events using <a>DescribeFleetEvents</a>. As soon as the
-    /// fleet status changes to <code>ACTIVE</code>, you can enable automatic scaling for
-    /// the fleet with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>.
-    /// When the status of each remote location reaches <code>ACTIVE</code>, you can set capacity
-    /// by location using <a>UpdateFleetCapacity</a>.
+    /// creation workflow</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug
     /// fleet creation issues</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location
-    /// fleets</a></para><para><b>Related actions</b></para><para><a>CreateFleet</a> | <a>UpdateFleetCapacity</a> | <a>PutScalingPolicy</a> | <a>DescribeEC2InstanceLimits</a>
-    /// | <a>DescribeFleetAttributes</a> | <a>DescribeFleetLocationAttributes</a> | <a>UpdateFleetAttributes</a>
-    /// | <a>StopFleetActions</a> | <a>DeleteFleet</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// fleets</a></para>
     /// </summary>
     [Cmdlet("New", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]
@@ -106,10 +97,35 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.CertificateType CertificateConfiguration_CertificateType { get; set; }
         #endregion
         
+        #region Parameter ComputeType
+        /// <summary>
+        /// <para>
+        /// <para>The type of compute resource used to host your game servers. You can use your own
+        /// compute resources with GameLift Anywhere or use Amazon EC2 instances with managed
+        /// GameLift.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.ComputeType")]
+        public Amazon.GameLift.ComputeType ComputeType { get; set; }
+        #endregion
+        
+        #region Parameter AnywhereConfiguration_Cost
+        /// <summary>
+        /// <para>
+        /// <para>The cost to run your fleet per hour. GameLift uses the provided cost of your fleet
+        /// to balance usage in queues. For more information about queues, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">Setting
+        /// up queues</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnywhereConfiguration_Cost { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A human-readable description of the fleet.</para>
+        /// <para>A description for the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,13 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// types.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.GameLift.EC2InstanceType")]
         public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
         #endregion
@@ -218,9 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para><b>This parameter is no longer used.</b> To specify where GameLift should store log
         /// files once a server process shuts down, use the GameLift server API <code>ProcessReady()</code>
-        /// and specify one or more directory paths in <code>logParameters</code>. See more information
-        /// in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process">Server
-        /// API Reference</a>. </para>
+        /// and specify one or more directory paths in <code>logParameters</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-initialize">Initialize
+        /// the server process</a> in the <i>GameLift Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The status of termination protection for active game sessions on the fleet. By default,
         /// this property is set to <code>NoProtection</code>. You can also set game session protection
-        /// for an individual game session by calling <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> - Game sessions can be terminated during active gameplay as a
+        /// for an individual game session by calling <a href="gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> - Game sessions can be terminated during active gameplay as a
         /// result of a scale-down event. </para></li><li><para><b>FullProtection</b> - Game sessions in <code>ACTIVE</code> status cannot be terminated
         /// during a scale-down event.</para></li></ul>
         /// </para>
@@ -291,8 +301,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
         /// <summary>
         /// <para>
-        /// <para>The maximum number of game sessions that an individual can create during the policy
-        /// period. </para>
+        /// <para>A policy that puts limits on the number of game sessions that a player can create
+        /// within a specified span of time. With this policy, you can control players' ability
+        /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
+        /// a <code>CreateGameSession</code> request, GameLift checks that the player (identified
+        /// by <code>CreatorId</code>) has created fewer than game session limit in the specified
+        /// time period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A unique identifier for a VPC with resources to be accessed by your GameLift fleet.
         /// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the Amazon Web Services
         /// Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
-        /// Peering with GameLift Fleets</a>. </para>
+        /// Peering with GameLift Fleets</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -389,11 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of labels to assign to the new fleet resource. Tags are developer-defined key-value
         /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the fleet is created, you can use <a>TagResource</a>, <a>UntagResource</a>, and
-        /// <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit may
-        /// be lower than stated. See the <i>Amazon Web Services General Reference</i> for actual
-        /// tagging limits.</para>
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -462,20 +472,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.BuildId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnywhereConfiguration_Cost = this.AnywhereConfiguration_Cost;
             context.BuildId = this.BuildId;
             context.CertificateConfiguration_CertificateType = this.CertificateConfiguration_CertificateType;
+            context.ComputeType = this.ComputeType;
             context.Description = this.Description;
             if (this.EC2InboundPermission != null)
             {
                 context.EC2InboundPermission = new List<Amazon.GameLift.Model.IpPermission>(this.EC2InboundPermission);
             }
             context.EC2InstanceType = this.EC2InstanceType;
-            #if MODULAR
-            if (this.EC2InstanceType == null && ParameterWasBound(nameof(this.EC2InstanceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EC2InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.FleetType = this.FleetType;
             context.InstanceRoleArn = this.InstanceRoleArn;
             if (this.Location != null)
@@ -531,6 +537,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.CreateFleetRequest();
             
+            
+             // populate AnywhereConfiguration
+            var requestAnywhereConfigurationIsNull = true;
+            request.AnywhereConfiguration = new Amazon.GameLift.Model.AnywhereConfiguration();
+            System.String requestAnywhereConfiguration_anywhereConfiguration_Cost = null;
+            if (cmdletContext.AnywhereConfiguration_Cost != null)
+            {
+                requestAnywhereConfiguration_anywhereConfiguration_Cost = cmdletContext.AnywhereConfiguration_Cost;
+            }
+            if (requestAnywhereConfiguration_anywhereConfiguration_Cost != null)
+            {
+                request.AnywhereConfiguration.Cost = requestAnywhereConfiguration_anywhereConfiguration_Cost;
+                requestAnywhereConfigurationIsNull = false;
+            }
+             // determine if request.AnywhereConfiguration should be set to null
+            if (requestAnywhereConfigurationIsNull)
+            {
+                request.AnywhereConfiguration = null;
+            }
             if (cmdletContext.BuildId != null)
             {
                 request.BuildId = cmdletContext.BuildId;
@@ -553,6 +578,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (requestCertificateConfigurationIsNull)
             {
                 request.CertificateConfiguration = null;
+            }
+            if (cmdletContext.ComputeType != null)
+            {
+                request.ComputeType = cmdletContext.ComputeType;
             }
             if (cmdletContext.Description != null)
             {
@@ -747,8 +776,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnywhereConfiguration_Cost { get; set; }
             public System.String BuildId { get; set; }
             public Amazon.GameLift.CertificateType CertificateConfiguration_CertificateType { get; set; }
+            public Amazon.GameLift.ComputeType ComputeType { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.GameLift.Model.IpPermission> EC2InboundPermission { get; set; }
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }

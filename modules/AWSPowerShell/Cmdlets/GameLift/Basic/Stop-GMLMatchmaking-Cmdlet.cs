@@ -42,9 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If the operation is successful, the service sends back an empty JSON struct with the
     /// HTTP 200 response (not an empty HTTP body).
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
-    /// Add FlexMatch to a game client</a></para><para><b>Related actions</b></para><para><a>StartMatchmaking</a> | <a>DescribeMatchmaking</a> | <a>StopMatchmaking</a> | <a>AcceptMatch</a>
-    /// | <a>StartMatchBackfill</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// Add FlexMatch to a game client</a></para>
     /// </summary>
     [Cmdlet("Stop", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

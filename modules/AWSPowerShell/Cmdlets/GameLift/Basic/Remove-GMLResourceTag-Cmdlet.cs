@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// even if the list includes tags that are not currently assigned to the specified resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
-    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a>TagResource</a> | <a>UntagResource</a> | <a>ListTagsForResource</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Amazon Web Services Tagging Strategies</a></para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,38 +28,36 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a new Amazon GameLift build resource for your game server binary files. Game
-    /// server binaries must be combined into a zip file for use with Amazon GameLift. 
+    /// Creates a new Amazon GameLift build resource for your game server binary files. Combine
+    /// game server binaries into a zip file for use with Amazon GameLift. 
     /// 
     ///  <important><para>
-    /// When setting up a new game build for GameLift, we recommend using the Amazon Web Services
-    /// CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
+    /// When setting up a new game build for GameLift, we recommend using the CLI command
+    /// <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
     /// a file directory to a GameLift Amazon S3 location, and (2) it creates a new build
-    /// resource. 
+    /// resource.
     /// </para></important><para>
-    /// The <code>CreateBuild</code> operation can used in the following scenarios:
+    /// You can use the operation in the following scenarios:
     /// </para><ul><li><para>
     /// To create a new game build with build files that are in an Amazon S3 location under
-    /// an Amazon Web Services account that you control. To use this option, you must first
-    /// give Amazon GameLift access to the Amazon S3 bucket. With permissions in place, call
-    /// <code>CreateBuild</code> and specify a build name, operating system, and the Amazon
-    /// S3 storage location of your game build.
+    /// an Amazon Web Services account that you control. To use this option, you give Amazon
+    /// GameLift access to the Amazon S3 bucket. With permissions in place, specify a build
+    /// name, operating system, and the Amazon S3 storage location of your game build.
     /// </para></li><li><para>
     /// To directly upload your build files to a GameLift Amazon S3 location. To use this
-    /// option, first call <code>CreateBuild</code> and specify a build name and operating
-    /// system. This operation creates a new build resource and also returns an Amazon S3
-    /// location with temporary access credentials. Use the credentials to manually upload
-    /// your build files to the specified Amazon S3 location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
-    /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. Build files can be uploaded to
-    /// the GameLift Amazon S3 location once only; that can't be updated. 
+    /// option, specify a build name and operating system. This operation creates a new build
+    /// resource and also returns an Amazon S3 location with temporary access credentials.
+    /// Use the credentials to manually upload your build files to the specified Amazon S3
+    /// location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
+    /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. After you upload build files
+    /// to the GameLift Amazon S3 location, you can't update them. 
     /// </para></li></ul><para>
     /// If successful, this operation creates a new build resource with a unique build ID
     /// and places it in <code>INITIALIZED</code> status. A build must be in <code>READY</code>
     /// status before you can create fleets with it.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
     /// Your Game</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
-    /// Create a Build with Files in Amazon S3</a></para><para><b>Related actions</b></para><para><a>CreateBuild</a> | <a>ListBuilds</a> | <a>DescribeBuild</a> | <a>UpdateBuild</a>
-    /// | <a>DeleteBuild</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// Create a Build with Files in Amazon S3</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from Amazon S3 buckets with names that
-        /// contain a dot (.).</para></note>
+        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>GameLift doesn't support uploading from Amazon S3 buckets with names that contain
+        /// a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with a build. Build names do not need to be
-        /// unique. You can use <a>UpdateBuild</a> to change this value later. </para>
+        /// <para>A descriptive label associated with a build. Build names do not need to be unique.
+        /// You can change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -119,11 +117,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter OperatingSystem
         /// <summary>
         /// <para>
-        /// <para>The operating system that the game server binaries are built to run on. This value
+        /// <para>The operating system that you built the game server binaries to run on. This value
         /// determines the type of fleet resources that you can use for this build. If your game
         /// build contains multiple executables, they all must run on the same operating system.
-        /// If an operating system is not specified when creating a build, Amazon GameLift uses
-        /// the default value (WINDOWS_2012). This value cannot be changed later.</para>
+        /// If an operating system is not specified when creating a build, GameLift uses the default
+        /// value (WINDOWS_2012). This value cannot be changed later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,17 +140,30 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String StorageLocation_RoleArn { get; set; }
         #endregion
         
+        #region Parameter ServerSdkVersion
+        /// <summary>
+        /// <para>
+        /// <para>A server SDK version you used when integrating your game server build with GameLift.
+        /// For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html">Integrate
+        /// games with custom game servers</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ServerSdkVersion { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of labels to assign to the new build resource. Tags are developer-defined key-value
+        /// <para>A list of labels to assign to the new build resource. Tags are developer defined key-value
         /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
         /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
         /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
-        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
-        /// may be lower than stated. See the Amazon Web Services General Reference for actual
-        /// tagging limits.</para>
+        /// Once the resource is created, you can use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_TagResource.html">TagResource</a>,
+        /// <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UntagResource.html">UntagResource</a>,
+        /// and <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListTagsForResource.html">ListTagsForResource</a>
+        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
+        /// the Amazon Web Services General Reference for actual tagging limits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,9 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information that is associated with a build or script. Version strings do
-        /// not need to be unique. You can use <a>UpdateBuild</a> to change this value later.
-        /// </para>
+        /// <para>Version information associated with a build or script. Version strings do not need
+        /// to be unique. You can change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Name = this.Name;
             context.OperatingSystem = this.OperatingSystem;
+            context.ServerSdkVersion = this.ServerSdkVersion;
             context.StorageLocation_Bucket = this.StorageLocation_Bucket;
             context.StorageLocation_Key = this.StorageLocation_Key;
             context.StorageLocation_ObjectVersion = this.StorageLocation_ObjectVersion;
@@ -267,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.OperatingSystem != null)
             {
                 request.OperatingSystem = cmdletContext.OperatingSystem;
+            }
+            if (cmdletContext.ServerSdkVersion != null)
+            {
+                request.ServerSdkVersion = cmdletContext.ServerSdkVersion;
             }
             
              // populate StorageLocation
@@ -388,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public System.String Name { get; set; }
             public Amazon.GameLift.OperatingSystem OperatingSystem { get; set; }
+            public System.String ServerSdkVersion { get; set; }
             public System.String StorageLocation_Bucket { get; set; }
             public System.String StorageLocation_Key { get; set; }
             public System.String StorageLocation_ObjectVersion { get; set; }

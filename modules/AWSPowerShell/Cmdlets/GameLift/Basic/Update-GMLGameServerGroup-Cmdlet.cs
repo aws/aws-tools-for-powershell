@@ -36,12 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To update the game server group, specify the game server group ID and provide the
     /// updated values. Before applying the updates, the new values are validated to ensure
     /// that GameLift FleetIQ can continue to perform instance balancing activity. If successful,
-    /// a <a>GameServerGroup</a> object is returned.
+    /// a <code>GameServerGroup</code> object is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>CreateGameServerGroup</a> | <a>ListGameServerGroups</a> | <a>DescribeGameServerGroup</a>
-    /// | <a>UpdateGameServerGroup</a> | <a>DeleteGameServerGroup</a> | <a>ResumeGameServerGroup</a>
-    /// | <a>SuspendGameServerGroup</a> | <a>DescribeGameServerInstances</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -78,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the game server group. Use either the <a>GameServerGroup</a>
-        /// name or ARN value.</para>
+        /// <para>A unique identifier for the game server group. Use either the name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

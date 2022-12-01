@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CustomEventData
         /// <summary>
         /// <para>
-        /// <para> Information to be added to all events that are related to this game session queue.
-        /// </para>
+        /// <para>Information to be added to all events that are related to this game session queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,11 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A list of labels to assign to the new game session queue resource. Tags are developer-defined
         /// key-value pairs. Tagging Amazon Web Services resources are useful for resource management,
         /// access management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.
-        /// Once the resource is created, you can use <a>TagResource</a>, <a>UntagResource</a>,
-        /// and <a>ListTagsForResource</a> to add, remove, and view tags. The maximum tag limit
-        /// may be lower than stated. See the Amazon Web Services General Reference for actual
-        /// tagging limits.</para>
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

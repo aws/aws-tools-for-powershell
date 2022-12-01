@@ -31,13 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Creates a multiplayer game session for players in a specific fleet location. This
     /// operation prompts an available server process to start a game session and retrieves
     /// connection information for the new game session. As an alternative, consider using
-    /// the GameLift game session placement feature with 
+    /// the GameLift game session placement feature with <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>
+    /// , which uses FleetIQ algorithms and queues to optimize the placement process.
     /// 
     ///  
     /// <para>
-    /// with <a>StartGameSessionPlacement</a>, which uses FleetIQ algorithms and queues to
-    /// optimize the placement process.
-    /// </para><para>
     /// When creating a game session, you specify exactly where you want to place it and provide
     /// a set of game session configuration settings. The fleet must be in <code>ACTIVE</code>
     /// status before a game session can be created in it. 
@@ -54,16 +52,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// object is returned containing the game session configuration and status. When the
     /// status is <code>ACTIVE</code>, game session connection information is provided and
     /// player sessions can be created for the game session. By default, newly created game
-    /// sessions are open to new players. You can restrict new player access by using <a>UpdateGameSession</a>
+    /// sessions are open to new players. You can restrict new player access by using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>
     /// to change the game session's player session creation policy.
     /// </para><para>
     /// Game session logs are retained for all active game sessions for 14 days. To access
-    /// the logs, call <a>GetGameSessionLogUrl</a> to download the log files.
+    /// the logs, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html">GetGameSessionLogUrl</a>
+    /// to download the log files.
     /// </para><para><i>Available in Amazon GameLift Local.</i></para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
-    /// a game session</a></para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
-    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
-    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// a game session</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLGameSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -118,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom properties for a game session, formatted as key:value pairs. These
-        /// properties are passed to a game server process in the <a>GameSession</a> object with
-        /// a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// properties are passed to a game server process with a request to start a new game
+        /// session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
@@ -132,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game session properties, formatted as a single string value. This
-        /// data is passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// data is passed to a game server process with a request to start a new game session
+        /// (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
@@ -144,10 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para><i>This parameter is no longer preferred. Please use <code>IdempotencyToken</code>
-        /// instead.</i> Custom string that uniquely identifies a request for a new game session.
-        /// Maximum token length is 48 characters. If provided, this string is included in the
-        /// new game session's ID.</para>
+        /// <para><i>This parameter is deprecated. Use <code>IdempotencyToken</code> instead.</i></para><para>Custom string that uniquely identifies a request for a new game session. Maximum token
+        /// length is 48 characters. If provided, this string is included in the new game session's
+        /// ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

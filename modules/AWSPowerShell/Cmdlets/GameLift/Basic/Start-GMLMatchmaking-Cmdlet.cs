@@ -50,9 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
     /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
     /// Set Up FlexMatch event notification</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
-    /// How GameLift FlexMatch works</a></para><para><b>Related actions</b></para><para><a>StartMatchmaking</a> | <a>DescribeMatchmaking</a> | <a>StopMatchmaking</a> | <a>AcceptMatch</a>
-    /// | <a>StartMatchBackfill</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// How GameLift FlexMatch works</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]
@@ -89,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Information on each player to be matched. This information must include a player ID,
         /// and may contain player attributes and latency data to be used in the matchmaking process.
         /// After a successful match, <code>Player</code> objects contain the name of the team
-        /// the player is assigned to.</para>
+        /// the player is assigned to.</para><para>You can include up to 10 <code>Players</code> in a <code>StartMatchmaking</code> request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

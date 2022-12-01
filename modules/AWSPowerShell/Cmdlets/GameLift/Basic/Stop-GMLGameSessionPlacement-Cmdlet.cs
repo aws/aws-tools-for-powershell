@@ -31,13 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Cancels a game session placement that is in <code>PENDING</code> status. To stop a
     /// placement, provide the placement ID values. If successful, the placement is moved
     /// to <code>CANCELLED</code> status.
-    /// 
-    ///  
-    /// <para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
-    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
-    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Stop", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]
@@ -52,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlacementId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a game session placement to cancel.</para>
+        /// <para>A unique identifier for a game session placement to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

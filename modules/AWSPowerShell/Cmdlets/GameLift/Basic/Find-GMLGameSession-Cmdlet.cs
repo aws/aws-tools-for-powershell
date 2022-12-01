@@ -58,14 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If successful, a <code>GameSession</code> object is returned for each game session
     /// that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
-    /// status only. To retrieve information on game sessions in other statuses, use <a>DescribeGameSessions</a>.
+    /// status only. To retrieve information on game sessions in other statuses, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html">DescribeGameSessions</a>
+    /// .
     /// </para><para>
     /// You can search or sort by the following game session attributes:
     /// </para><ul><li><para><b>gameSessionId</b> -- A unique identifier for the game session. You can use either
     /// a <code>GameSessionId</code> or <code>GameSessionArn</code> value. 
-    /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. This value is set when
-    /// requesting a new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>.
-    /// Game session names do not need to be unique to a game session.
+    /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. Game session names do
+    /// not need to be unique to a game session.
     /// </para></li><li><para><b>gameSessionProperties</b> -- Custom data defined in a game session's <code>GameProperty</code>
     /// parameter. <code>GameProperty</code> values are stored as key:value pairs; the filter
     /// expression must indicate the key and a string to search the data values for. For example,
@@ -73,8 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// specify the following: <code>gameSessionProperties.gameMode = "brawl"</code>. All
     /// custom data values are searched as strings.
     /// </para></li><li><para><b>maximumSessions</b> -- Maximum number of player sessions allowed for a game session.
-    /// This value is set when requesting a new game session with <a>CreateGameSession</a>
-    /// or updating with <a>UpdateGameSession</a>.
     /// </para></li><li><para><b>creationTimeMillis</b> -- Value indicating when a game session was created. It
     /// is expressed in Unix time as milliseconds.
     /// </para></li><li><para><b>playerSessionCount</b> -- Number of players currently connected to a game session.
@@ -88,10 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// change quickly as players join sessions and others drop out. Results should be considered
     /// a snapshot in time. Be sure to refresh search results often, and handle sessions that
     /// fill up before a player can join. 
-    /// </para></note><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
-    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
-    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// </para></note><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "GMLGameSession")]

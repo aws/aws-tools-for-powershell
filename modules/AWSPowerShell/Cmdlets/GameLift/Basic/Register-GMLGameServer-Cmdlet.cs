@@ -37,18 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// To register a game server, identify the game server group and instance where the game
     /// server is running, and provide a unique identifier for the game server. You can also
-    /// include connection and game server data. When a game client or service requests a
-    /// game server by calling <a>ClaimGameServer</a>, this information is returned in the
-    /// response.
+    /// include connection and game server data.
     /// </para><para>
     /// Once a game server is successfully registered, it is put in status <code>AVAILABLE</code>.
     /// A request to register a game server may fail if the instance it is running on is in
     /// the process of shutting down as part of instance balancing or scale-down activity.
     /// 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related actions</b></para><para><a>RegisterGameServer</a> | <a>ListGameServers</a> | <a>ClaimGameServer</a> | <a>DescribeGameServer</a>
-    /// | <a>UpdateGameServer</a> | <a>DeregisterGameServer</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All
-    /// APIs by task</a></para>
+    /// FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Register", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]
@@ -75,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A set of custom game server properties, formatted as a single string value. This data
-        /// is passed to a game client or service when it requests information on game servers
-        /// using <a>ListGameServers</a> or <a>ClaimGameServer</a>. </para>
+        /// is passed to a game client or service when it requests information on game servers.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,8 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the game server group where the game server is running. Use
-        /// either the <a>GameServerGroup</a> name or ARN value.</para>
+        /// <para>A unique identifier for the game server group where the game server is running.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

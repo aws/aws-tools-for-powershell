@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves the resource capacity settings for one or more fleets. The data returned
     /// includes the current fleet capacity (number of EC2 instances), and settings that can
     /// control how capacity scaling. For fleets with remote locations, this operation retrieves
-    /// data for the fleet's home Region only. See <a>DescribeFleetLocationCapacity</a> to
-    /// get capacity settings for a fleet's remote locations.
+    /// data for the fleet's home Region only.
     /// 
     ///  
     /// <para>
@@ -46,21 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// When requesting multiple fleets, use the pagination parameters to retrieve results
     /// as a set of sequential pages. 
     /// </para><para>
-    /// If successful, a <a>FleetCapacity</a> object is returned for each requested fleet
-    /// ID. Each FleetCapacity object includes a <code>Location</code> property, which is
-    /// set to the fleet's home Region. When a list of fleet IDs is provided, attribute objects
-    /// are returned only for fleets that currently exist.
+    /// If successful, a <code>FleetCapacity</code> object is returned for each requested
+    /// fleet ID. Each FleetCapacity object includes a <code>Location</code> property, which
+    /// is set to the fleet's home Region. When a list of fleet IDs is provided, attribute
+    /// objects are returned only for fleets that currently exist.
     /// </para><note><para>
     /// Some API operations may limit the number of fleet IDs that are allowed in one request.
     /// If a request exceeds this limit, the request fails and the error message includes
     /// the maximum allowed.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
-    /// metrics for fleets</a></para><para><b>Related actions</b></para><para><a>ListFleets</a> | <a>DescribeEC2InstanceLimits</a> | <a>DescribeFleetAttributes</a>
-    /// | <a>DescribeFleetCapacity</a> | <a>DescribeFleetEvents</a> | <a>DescribeFleetLocationAttributes</a>
-    /// | <a>DescribeFleetPortSettings</a> | <a>DescribeFleetUtilization</a> | <a>DescribeRuntimeConfiguration</a>
-    /// | <a>DescribeScalingPolicies</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// metrics for fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetCapacity")]
     [OutputType("Amazon.GameLift.Model.FleetCapacity")]
@@ -75,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet(s) to retrieve capacity information for. You can
-        /// use either the fleet ID or ARN value. Leave this parameter empty to retrieve capacity
+        /// <para>A unique identifier for the fleet to retrieve capacity information for. You can use
+        /// either the fleet ID or ARN value. Leave this parameter empty to retrieve capacity
         /// information for all fleets.</para>
         /// </para>
         /// </summary>

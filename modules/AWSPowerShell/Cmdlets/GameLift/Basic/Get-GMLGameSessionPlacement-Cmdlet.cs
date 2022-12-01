@@ -40,13 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// you must configure configure an Amazon Simple Notification Service (SNS) topic to
     /// receive notifications from FlexMatch or queues. Continuously polling with <code>DescribeGameSessionPlacement</code>
     /// should only be used for games in development with low game session usage. 
-    /// </para><para>
-    /// If successful, a <a>GameSessionPlacement</a> object is returned.
-    /// </para><para><b>Related actions</b></para><para><a>CreateGameSession</a> | <a>DescribeGameSessions</a> | <a>DescribeGameSessionDetails</a>
-    /// | <a>SearchGameSessions</a> | <a>UpdateGameSession</a> | <a>GetGameSessionLogUrl</a>
-    /// | <a>StartGameSessionPlacement</a> | <a>DescribeGameSessionPlacement</a> | <a>StopGameSessionPlacement</a>
-    /// | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GMLGameSessionPlacement")]
     [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]

@@ -292,6 +292,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Pinpoint.dll',
         'AWSSDK.PinpointEmail.dll',
         'AWSSDK.PinpointSMSVoiceV2.dll',
+        'AWSSDK.Pipes.dll',
         'AWSSDK.Polly.dll',
         'AWSSDK.Pricing.dll',
         'AWSSDK.Private5G.dll',

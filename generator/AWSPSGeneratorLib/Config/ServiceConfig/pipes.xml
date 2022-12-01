@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pipes</C2jFilename>
+    <AssemblyName>Pipes</AssemblyName>
+    <ServiceNounPrefix>PIPES</ServiceNounPrefix>
+    <ServiceName>Amazon EventBridge Pipes</ServiceName>
+    <ServiceClientInterface>IAmazonPipes</ServiceClientInterface>
+    <ServiceClient>AmazonPipesClient</ServiceClient>
+    <ServiceModuleGuid>01c99d3c-cf0d-4a79-a41f-1b9c83b146c6</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreatePipe" OutputProperty="*" Verb="New" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EnrichmentParameters_HttpParameters_HeaderParameters" NewName="EnrichmentParameters_HttpParameters_HeaderParameters" Alias="Enrichment_HttpParameters_HeaderParameters" />
+                <Param Name="TargetParameters_HttpParameters_HeaderParameters" NewName="TargetParameters_HttpParameters_HeaderParameters" Alias="Target_HttpParameters_HeaderParameters" />
+                <Param Name="EnrichmentParameters_HttpParameters_PathParameterValues" NewName="EnrichmentParameters_HttpParameters_PathParameterValues" Alias="Enrichment_HttpParameters_PathParameterValues" />
+                <Param Name="TargetParameters_HttpParameters_PathParameterValues" NewName="TargetParameters_HttpParameters_PathParameterValues" Alias="Target_HttpParameters_PathParameterValues" />
+                <Param Name="EnrichmentParameters_HttpParameters_QueryStringParameters" NewName="EnrichmentParameters_HttpParameters_QueryStringParameters" Alias="Enrichment_HttpParameters_QueryStringParameters" />
+                <Param Name="TargetParameters_HttpParameters_QueryStringParameters" NewName="TargetParameters_HttpParameters_QueryStringParameters" Alias="Target_HttpParameters_QueryStringParameters" />
+                <Param Name="SourceParameters_DynamoDBStreamParameters_DeadLetterConfig_Arn" NewName="SourceParameters_DynamoDBStreamParameters_DeadLetterConfig_Arn" Alias="Source_DynamoDBStream_DeadLetterConfig_Arn" />
+                <Param Name="SourceParameters_KinesisStreamParameters_DeadLetterConfig_Arn" NewName="SourceParameters_KinesisStreamParameters_DeadLetterConfig_Arn" Alias="Source_KinesisStream_DeadLetterConfig_Arn" />
+                <Param Name="SourceParameters_ManagedStreamingKafkaParameters_Credentials_ClientCertificateTlsAuth" NewName="SourceParameters_ManagedStreamingKafkaParameters_Credentials_ClientCertificateTlsAuth" Alias="Source_ManagedStreamingKafka_Credentials_ClientCertificateTlsAuth" />
+                <Param Name="SourceParameters_SelfManagedKafkaParameters_Credentials_ClientCertificateTlsAuth" NewName="SourceParameters_SelfManagedKafkaParameters_Credentials_ClientCertificateTlsAuth" Alias="Source_SelfStreamingKafka_Credentials_ClientCertificateTlsAuth" />
+                <Param Name="SourceParameters_ManagedStreamingKafkaParameters_Credentials_SaslScram512Auth" NewName="SourceParameters_ManagedStreamingKafkaParameters_Credentials_SaslScram512Auth" Alias="Source_ManagedStreamingKafkaParameters_Credentials_SaslScram512Auth" />
+                <Param Name="SourceParameters_SelfStreamingKafkaParameters_Credentials_SaslScram512Auth" NewName="SourceParameters_SelfStreamingKafkaParameters_Credentials_SaslScram512Auth" Alias="Source_SelfStreamingKafkaParameters_Credentials_SaslScram512Auth" />
+                <Param Name="SourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth" NewName="SourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth" Alias="Source_ActiveMQBrokerParameters_Credentials_BasicAuth" />
+                <Param Name="SourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth" NewName="SourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth" Alias="Source_RabbitMQBrokerParameters_Credentials_BasicAuth" />
+                <Param Name="SourceParameters_SelfManagedKafkaParameters_Credentials_BasicAuth" NewName="SourceParameters_SelfManagedKafkaParameters_Credentials_BasicAuth" Alias="Source_SelfManagedKafkaParameters_Credentials_BasicAuth" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePipe" OutputProperty="*" Verb="Remove" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePipe" OutputProperty="*" Verb="Get" Noun="Pipe" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipes" OutputProperty="Pipes" Verb="Get" Noun="PipeList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPipe" OutputProperty="*" Verb="Start" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopPipe" OutputProperty="*" Verb="Stop" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipe" OutputProperty="*" Verb="Update" Noun="Pipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EnrichmentParameters_HttpParameters_HeaderParameters" NewName="EnrichmentParameters_HttpParameters_HeaderParameters" Alias="Enrichment_HttpParameters_HeaderParameters" />
+                <Param Name="TargetParameters_HttpParameters_HeaderParameters" NewName="TargetParameters_HttpParameters_HeaderParameters" Alias="Target_HttpParameters_HeaderParameters" />
+                <Param Name="EnrichmentParameters_HttpParameters_PathParameterValues" NewName="EnrichmentParameters_HttpParameters_PathParameterValues" Alias="Enrichment_HttpParameters_PathParameterValues" />
+                <Param Name="TargetParameters_HttpParameters_PathParameterValues" NewName="TargetParameters_HttpParameters_PathParameterValues" Alias="Target_HttpParameters_PathParameterValues" />
+                <Param Name="EnrichmentParameters_HttpParameters_QueryStringParameters" NewName="EnrichmentParameters_HttpParameters_QueryStringParameters" Alias="Enrichment_HttpParameters_QueryStringParameters" />
+                <Param Name="TargetParameters_HttpParameters_QueryStringParameters" NewName="TargetParameters_HttpParameters_QueryStringParameters" Alias="Target_HttpParameters_QueryStringParameters" />
+                <Param Name="SourceParameters_DynamoDBStreamParameters_DeadLetterConfig_Arn" NewName="SourceParameters_DynamoDBStreamParameters_DeadLetterConfig_Arn" Alias="Source_DynamoDBStream_DeadLetterConfig_Arn" />
+                <Param Name="SourceParameters_KinesisStreamParameters_DeadLetterConfig_Arn" NewName="SourceParameters_KinesisStreamParameters_DeadLetterConfig_Arn" Alias="Source_KinesisStream_DeadLetterConfig_Arn" />
+                <Param Name="SourceParameters_ManagedStreamingKafkaParameters_Credentials_ClientCertificateTlsAuth" NewName="SourceParameters_ManagedStreamingKafkaParameters_Credentials_ClientCertificateTlsAuth" Alias="Source_ManagedStreamingKafka_Credentials_ClientCertificateTlsAuth" />
+                <Param Name="SourceParameters_SelfManagedKafkaParameters_Credentials_ClientCertificateTlsAuth" NewName="SourceParameters_SelfManagedKafkaParameters_Credentials_ClientCertificateTlsAuth" Alias="Source_SelfStreamingKafka_Credentials_ClientCertificateTlsAuth" />
+                <Param Name="SourceParameters_ManagedStreamingKafkaParameters_Credentials_SaslScram512Auth" NewName="SourceParameters_ManagedStreamingKafkaParameters_Credentials_SaslScram512Auth" Alias="Source_ManagedStreamingKafkaParameters_Credentials_SaslScram512Auth" />
+                <Param Name="SourceParameters_SelfStreamingKafkaParameters_Credentials_SaslScram512Auth" NewName="SourceParameters_SelfStreamingKafkaParameters_Credentials_SaslScram512Auth" Alias="Source_SelfStreamingKafkaParameters_Credentials_SaslScram512Auth" />
+                <Param Name="SourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth" NewName="SourceParameters_ActiveMQBrokerParameters_Credentials_BasicAuth" Alias="Source_ActiveMQBrokerParameters_Credentials_BasicAuth" />
+                <Param Name="SourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth" NewName="SourceParameters_RabbitMQBrokerParameters_Credentials_BasicAuth" Alias="Source_RabbitMQBrokerParameters_Credentials_BasicAuth" />
+                <Param Name="SourceParameters_SelfManagedKafkaParameters_Credentials_BasicAuth" NewName="SourceParameters_SelfManagedKafkaParameters_Credentials_BasicAuth" Alias="Source_SelfManagedKafkaParameters_Credentials_BasicAuth" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

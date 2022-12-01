@@ -174,12 +174,14 @@ $SFN_SelectMap = @{
                "Remove-SFNStateMachine",
                "Get-SFNActivity",
                "Get-SFNExecution",
+               "Get-SFNMapRun",
                "Get-SFNStateMachine",
                "Get-SFNStateMachineForExecution",
                "Get-SFNActivityTask",
                "Get-SFNExecutionHistory",
                "Get-SFNActivityList",
                "Get-SFNExecutionList",
+               "Get-SFNMapRunList",
                "Get-SFNStateMachineList",
                "Get-SFNResourceTag",
                "Send-SFNTaskFailure",
@@ -190,6 +192,7 @@ $SFN_SelectMap = @{
                "Stop-SFNExecution",
                "Add-SFNResourceTag",
                "Remove-SFNResourceTag",
+               "Update-SFNMapRun",
                "Update-SFNStateMachine")
 }
 

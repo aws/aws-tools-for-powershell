@@ -40,22 +40,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Before calling this operation to establish the peering connection, you first need
-    /// to call <a>CreateVpcPeeringAuthorization</a> and identify the VPC you want to peer
-    /// with. Once the authorization for the specified VPC is issued, you have 24 hours to
-    /// establish the connection. These two operations handle all tasks necessary to peer
-    /// the two VPCs, including acceptance, updating routing tables, etc. 
+    /// to use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>
+    /// and identify the VPC you want to peer with. Once the authorization for the specified
+    /// VPC is issued, you have 24 hours to establish the connection. These two operations
+    /// handle all tasks necessary to peer the two VPCs, including acceptance, updating routing
+    /// tables, etc. 
     /// </para><para>
     /// To establish the connection, call this operation from the Amazon Web Services account
     /// that is used to manage the Amazon GameLift fleets. Identify the following values:
     /// (1) The ID of the fleet you want to be enable a VPC peering connection for; (2) The
     /// Amazon Web Services account with the VPC that you want to peer with; and (3) The ID
     /// of the VPC you want to peer with. This operation is asynchronous. If successful, a
-    /// <a>VpcPeeringConnection</a> request is created. You can use continuous polling to
-    /// track the request's status using <a>DescribeVpcPeeringConnections</a>, or by monitoring
-    /// fleet events for success or failure using <a>DescribeFleetEvents</a>. 
-    /// </para><para><b>Related actions</b></para><para><a>CreateVpcPeeringAuthorization</a> | <a>DescribeVpcPeeringAuthorizations</a> |
-    /// <a>DeleteVpcPeeringAuthorization</a> | <a>CreateVpcPeeringConnection</a> | <a>DescribeVpcPeeringConnections</a>
-    /// | <a>DeleteVpcPeeringConnection</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// connection request is created. You can use continuous polling to track the request's
+    /// status using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeVpcPeeringConnections.html">DescribeVpcPeeringConnections</a>
+    /// , or by monitoring fleet events for success or failure using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>
+    /// . 
+    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("New", "GMLVpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

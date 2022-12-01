@@ -44,15 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// ID and a location. Port setting updates can take time to propagate across all locations.
     /// 
     /// </para></li></ul><para>
-    /// If successful, a set of <a>IpPermission</a> objects is returned for the requested
+    /// If successful, a set of <code>IpPermission</code> objects is returned for the requested
     /// fleet ID. When a location is specified, a pending status is included. If the requested
     /// fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><b>Related actions</b></para><para><a>ListFleets</a> | <a>DescribeEC2InstanceLimits</a> | <a>DescribeFleetAttributes</a>
-    /// | <a>DescribeFleetCapacity</a> | <a>DescribeFleetEvents</a> | <a>DescribeFleetLocationAttributes</a>
-    /// | <a>DescribeFleetPortSettings</a> | <a>DescribeFleetUtilization</a> | <a>DescribeRuntimeConfiguration</a>
-    /// | <a>DescribeScalingPolicies</a> | <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
-    /// APIs by task</a></para>
+    /// up GameLift fleets</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLFleetPortSetting")]
     [OutputType("Amazon.GameLift.Model.IpPermission")]

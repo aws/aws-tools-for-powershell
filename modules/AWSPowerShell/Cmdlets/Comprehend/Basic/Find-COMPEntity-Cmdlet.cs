@@ -28,9 +28,26 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Inspects text for named entities, and returns information about them. For more information,
-    /// about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a>
+    /// Detects named entities in input text when you use the pre-trained model. Detects custom
+    /// entities if you have a custom entity recognition model. 
+    /// 
+    ///  
+    /// <para>
+    ///  When detecting named entities using the pre-trained model, use plain text as the
+    /// input. For more information about named entities, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html">Entities</a>
     /// in the Comprehend Developer Guide.
+    /// </para><para>
+    /// When you use a custom entity recognition model, you can input plain text or you can
+    /// upload a single-page input document (text, PDF, Word, or image). 
+    /// </para><para>
+    /// If the system detects errors while processing a page in the input document, the API
+    /// response includes an entry in <code>Errors</code> for each error. 
+    /// </para><para>
+    /// If the system detects a document-level error in your input document, the API returns
+    /// an <code>InvalidRequestException</code> error response. For details about this exception,
+    /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync-err.html">
+    /// Errors in semi-structured documents</a> in the Comprehend Developer Guide. 
+    /// </para>
     /// </summary>
     [Cmdlet("Find", "COMPEntity")]
     [OutputType("Amazon.Comprehend.Model.Entity")]
@@ -41,6 +58,55 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     )]
     public partial class FindCOMPEntityCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
+        
+        #region Parameter Byte
+        /// <summary>
+        /// <para>
+        /// <para>This field applies only when you use a custom entity recognition model that was trained
+        /// with PDF annotations. For other cases, enter your text input in the <code>Text</code>
+        /// field.</para><para> Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file. Using
+        /// a plain-text file in the <code>Bytes</code> parameter is equivelent to using the <code>Text</code>
+        /// parameter (the <code>Entities</code> field in the response is identical).</para><para>You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
+        /// or <code>AnalyzeDocument</code> output file.</para><para>Provide the input document as a sequence of base64-encoded bytes. If your code uses
+        /// an Amazon Web Services SDK to detect entities, the SDK may encode the document file
+        /// bytes for you. </para><para>The maximum length of this field depends on the input document type. For details,
+        /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/idp-inputs-sync.html">
+        /// Inputs for real-time custom analysis</a> in the Comprehend Developer Guide. </para><para>If you use the <code>Bytes</code> parameter, do not use the <code>Text</code> parameter.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Bytes")]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] Byte { get; set; }
+        #endregion
+        
+        #region Parameter DocumentReaderConfig_DocumentReadAction
+        /// <summary>
+        /// <para>
+        /// <para>This field defines the Amazon Textract API operation that Amazon Comprehend uses to
+        /// extract text from PDF files and image files. Enter one of the following values:</para><ul><li><para><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the
+        /// <code>DetectDocumentText</code> API operation. </para></li><li><para><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code>
+        /// API operation. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentReadAction")]
+        public Amazon.Comprehend.DocumentReadAction DocumentReaderConfig_DocumentReadAction { get; set; }
+        #endregion
+        
+        #region Parameter DocumentReaderConfig_DocumentReadMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines the text extraction actions for PDF files. Enter one of the following values:</para><ul><li><para><code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF
+        /// files.</para></li><li><para><code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API
+        /// specified by DocumentReadAction for all PDF files, including digital PDF files. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentReadMode")]
+        public Amazon.Comprehend.DocumentReadMode DocumentReaderConfig_DocumentReadMode { get; set; }
+        #endregion
         
         #region Parameter EndpointArn
         /// <summary>
@@ -56,13 +122,27 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String EndpointArn { get; set; }
         #endregion
         
+        #region Parameter DocumentReaderConfig_FeatureType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
+        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><code>TABLES</code> - Returns information about any tables that are detected in the
+        /// input document. </para></li><li><para><code>FORMS</code> - Returns information and the data from any forms that are detected
+        /// in the input document. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DocumentReaderConfig_FeatureTypes")]
+        public System.String[] DocumentReaderConfig_FeatureType { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
         /// <para>The language of the input documents. You can specify any of the primary languages
-        /// supported by Amazon Comprehend. All documents must be in the same language.</para><para>If your request includes the endpoint for a custom entity recognition model, Amazon
-        /// Comprehend uses the language of your custom model, and it ignores any language code
-        /// that you specify here.</para>
+        /// supported by Amazon Comprehend. If your request includes the endpoint for a custom
+        /// entity recognition model, Amazon Comprehend uses the language of your custom model,
+        /// and it ignores any language code that you specify here.</para><para>All input documents must be in the same language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,17 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>A UTF-8 text string. The maximum string size is 100 KB.</para>
+        /// <para>A UTF-8 text string. The maximum string size is 100 KB. If you enter text using this
+        /// parameter, do not use the <code>Bytes</code> parameter.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Text { get; set; }
         #endregion
         
@@ -132,15 +206,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 context.Select = (response, cmdlet) => this.Text;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Byte = this.Byte;
+            context.DocumentReaderConfig_DocumentReadAction = this.DocumentReaderConfig_DocumentReadAction;
+            context.DocumentReaderConfig_DocumentReadMode = this.DocumentReaderConfig_DocumentReadMode;
+            if (this.DocumentReaderConfig_FeatureType != null)
+            {
+                context.DocumentReaderConfig_FeatureType = new List<System.String>(this.DocumentReaderConfig_FeatureType);
+            }
             context.EndpointArn = this.EndpointArn;
             context.LanguageCode = this.LanguageCode;
             context.Text = this.Text;
-            #if MODULAR
-            if (this.Text == null && ParameterWasBound(nameof(this.Text)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Text which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,44 +228,100 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.Comprehend.Model.DetectEntitiesRequest();
+            System.IO.MemoryStream _ByteStream = null;
             
-            if (cmdletContext.EndpointArn != null)
-            {
-                request.EndpointArn = cmdletContext.EndpointArn;
-            }
-            if (cmdletContext.LanguageCode != null)
-            {
-                request.LanguageCode = cmdletContext.LanguageCode;
-            }
-            if (cmdletContext.Text != null)
-            {
-                request.Text = cmdletContext.Text;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.Comprehend.Model.DetectEntitiesRequest();
+                
+                if (cmdletContext.Byte != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    _ByteStream = new System.IO.MemoryStream(cmdletContext.Byte);
+                    request.Bytes = _ByteStream;
+                }
+                
+                 // populate DocumentReaderConfig
+                var requestDocumentReaderConfigIsNull = true;
+                request.DocumentReaderConfig = new Amazon.Comprehend.Model.DocumentReaderConfig();
+                Amazon.Comprehend.DocumentReadAction requestDocumentReaderConfig_documentReaderConfig_DocumentReadAction = null;
+                if (cmdletContext.DocumentReaderConfig_DocumentReadAction != null)
+                {
+                    requestDocumentReaderConfig_documentReaderConfig_DocumentReadAction = cmdletContext.DocumentReaderConfig_DocumentReadAction;
+                }
+                if (requestDocumentReaderConfig_documentReaderConfig_DocumentReadAction != null)
+                {
+                    request.DocumentReaderConfig.DocumentReadAction = requestDocumentReaderConfig_documentReaderConfig_DocumentReadAction;
+                    requestDocumentReaderConfigIsNull = false;
+                }
+                Amazon.Comprehend.DocumentReadMode requestDocumentReaderConfig_documentReaderConfig_DocumentReadMode = null;
+                if (cmdletContext.DocumentReaderConfig_DocumentReadMode != null)
+                {
+                    requestDocumentReaderConfig_documentReaderConfig_DocumentReadMode = cmdletContext.DocumentReaderConfig_DocumentReadMode;
+                }
+                if (requestDocumentReaderConfig_documentReaderConfig_DocumentReadMode != null)
+                {
+                    request.DocumentReaderConfig.DocumentReadMode = requestDocumentReaderConfig_documentReaderConfig_DocumentReadMode;
+                    requestDocumentReaderConfigIsNull = false;
+                }
+                List<System.String> requestDocumentReaderConfig_documentReaderConfig_FeatureType = null;
+                if (cmdletContext.DocumentReaderConfig_FeatureType != null)
+                {
+                    requestDocumentReaderConfig_documentReaderConfig_FeatureType = cmdletContext.DocumentReaderConfig_FeatureType;
+                }
+                if (requestDocumentReaderConfig_documentReaderConfig_FeatureType != null)
+                {
+                    request.DocumentReaderConfig.FeatureTypes = requestDocumentReaderConfig_documentReaderConfig_FeatureType;
+                    requestDocumentReaderConfigIsNull = false;
+                }
+                 // determine if request.DocumentReaderConfig should be set to null
+                if (requestDocumentReaderConfigIsNull)
+                {
+                    request.DocumentReaderConfig = null;
+                }
+                if (cmdletContext.EndpointArn != null)
+                {
+                    request.EndpointArn = cmdletContext.EndpointArn;
+                }
+                if (cmdletContext.LanguageCode != null)
+                {
+                    request.LanguageCode = cmdletContext.LanguageCode;
+                }
+                if (cmdletContext.Text != null)
+                {
+                    request.Text = cmdletContext.Text;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _ByteStream != null)
+                {
+                    _ByteStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -230,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public byte[] Byte { get; set; }
+            public Amazon.Comprehend.DocumentReadAction DocumentReaderConfig_DocumentReadAction { get; set; }
+            public Amazon.Comprehend.DocumentReadMode DocumentReaderConfig_DocumentReadMode { get; set; }
+            public List<System.String> DocumentReaderConfig_FeatureType { get; set; }
             public System.String EndpointArn { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public System.String Text { get; set; }
