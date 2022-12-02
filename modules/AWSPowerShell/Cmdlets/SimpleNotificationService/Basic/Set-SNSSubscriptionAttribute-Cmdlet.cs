@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
         /// that this action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
         /// deliveries to HTTP/S endpoints.</para></li><li><para><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive
-        /// only a subset of messages, rather than receiving every message published to the topic.</para></li><li><para><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message
+        /// only a subset of messages, rather than receiving every message published to the topic.</para></li><li><para><code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope
+        /// by using one of the following string value types:</para><ul><li><para><code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</para></li><li><para><code>MessageBody</code> – The filter is applied on the message body.</para></li></ul></li><li><para><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message
         /// delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints
         /// to process JSON formatting, which is otherwise created for Amazon SNS metadata.</para></li><li><para><code>RedrivePolicy</code> – When specified, sends undeliverable messages to the
         /// specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client

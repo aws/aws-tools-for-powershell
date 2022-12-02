@@ -22713,7 +22713,7 @@ $FMS_Completers = {
             ($_ -eq "Unregister-FMSThirdPartyFirewall/ThirdPartyFirewall")
         }
         {
-            $v = "PALO_ALTO_NETWORKS_CLOUD_NGFW"
+            $v = "FORTIGATE_CLOUD_NATIVE_FIREWALL","PALO_ALTO_NETWORKS_CLOUD_NGFW"
             break
         }
 
@@ -41862,7 +41862,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 
@@ -44284,18 +44284,21 @@ $RSS_SelectMap = @{
                "Get-RSSRecoveryPoint",
                "Get-RSSResourcePolicy",
                "Get-RSSSnapshot",
+               "Get-RSSTableRestoreStatus",
                "Get-RSSUsageLimit",
                "Get-RSSWorkgroup",
                "Get-RSSEndpointAccessList",
                "Get-RSSNamespaceList",
                "Get-RSSRecoveryPointList",
                "Get-RSSSnapshotList",
+               "Get-RSSTableRestoreStatusList",
                "Get-RSSResourceTag",
                "Get-RSSUsageLimitList",
                "Get-RSSWorkgroupList",
                "Write-RSSResourcePolicy",
                "Restore-RSSFromRecoveryPoint",
                "Restore-RSSFromSnapshot",
+               "Restore-RSSTableFromSnapshot",
                "Add-RSSResourceTag",
                "Remove-RSSResourceTag",
                "Update-RSSEndpointAccess",

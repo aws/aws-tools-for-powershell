@@ -90,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTableRestoreStatus" OutputProperty="TableRestoreStatus" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="TableRestoreRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUsageLimit" OutputProperty="UsageLimit" Verb="Get" Noun="UsageLimit" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -114,6 +118,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTableRestoreStatus" OutputProperty="TableRestoreStatuses" Verb="Get" Noun="TableRestoreStatusList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +143,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreFromSnapshot" OutputProperty="*" Verb="Restore" Noun="FromSnapshot" ShouldProcessTarget="NamespaceName" PipelineParameter="NamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreTableFromSnapshot" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

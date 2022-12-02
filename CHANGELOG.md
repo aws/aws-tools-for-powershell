@@ -1,4 +1,18 @@
-﻿### 4.1.219 (2022-12-01 21:58Z)
+﻿### 4.1.220 (2022-12-02 21:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.431.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CodeDeploy
+    * Modified cmdlet Update-CDDeploymentGroup: added parameter IsAutoScalingGroupsSet.
+  * Amazon Redshift Serverless
+    * Added cmdlet Get-RSSTableRestoreStatus leveraging the GetTableRestoreStatus service API.
+    * Added cmdlet Get-RSSTableRestoreStatusList leveraging the ListTableRestoreStatus service API.
+    * Added cmdlet Restore-RSSTableFromSnapshot leveraging the RestoreTableFromSnapshot service API.
+    * Modified cmdlet Convert-RSSRecoveryPointToSnapshot: added parameter Tag.
+    * Modified cmdlet Get-RSSRecoveryPointList: added parameter NamespaceArn.
+    * Modified cmdlet New-RSSSnapshot: added parameter Tag.
+    * Modified cmdlet New-RSSWorkgroup: added parameter Port.
+    * Modified cmdlet Update-RSSWorkgroup: added parameter Port.
+
+### 4.1.219 (2022-12-01 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.429.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Comprehend
     * Modified cmdlet Find-COMPEntity: added parameters Byte, DocumentReaderConfig_DocumentReadAction, DocumentReaderConfig_DocumentReadMode and DocumentReaderConfig_FeatureType.

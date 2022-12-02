@@ -69,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter SnapshotArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the snapshot to restore from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring
+        /// from Amazon Redshift Serverless to a provisioned cluster. Must not be specified at
+        /// the same time as <code>snapshotName</code>.</para><para>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter SnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the snapshot to restore from.</para>
+        /// <para>The name of the snapshot to restore from. Must not be specified at the same time as
+        /// <code>snapshotArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.DateTime? EndTime { get; set; }
         #endregion
         
+        #region Parameter NamespaceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the namespace from which to list recovery points.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NamespaceArn { get; set; }
+        #endregion
+        
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
@@ -74,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to get the next page of results.</para>
+        /// can use <code>nextToken</code> to display the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in subsequent <code>ListRecoveryPoints</code>
+        /// you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code>
         /// operations, which returns results in the next page.</para>
         /// </para>
         /// </summary>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndTime = this.EndTime;
             context.MaxResult = this.MaxResult;
+            context.NamespaceArn = this.NamespaceArn;
             context.NamespaceName = this.NamespaceName;
             context.NextToken = this.NextToken;
             context.StartTime = this.StartTime;
@@ -167,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NamespaceArn != null)
+            {
+                request.NamespaceArn = cmdletContext.NamespaceArn;
             }
             if (cmdletContext.NamespaceName != null)
             {
@@ -243,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         {
             public System.DateTime? EndTime { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String NamespaceArn { get; set; }
             public System.String NamespaceName { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartTime { get; set; }

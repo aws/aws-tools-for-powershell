@@ -28,36 +28,37 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Returns an array of <code>EndpointAccess</code> objects and relevant information.
+    /// Returns information about an array of <code>TableRestoreStatus</code> objects.
     /// </summary>
-    [Cmdlet("Get", "RSSEndpointAccessList")]
-    [OutputType("Amazon.RedshiftServerless.Model.EndpointAccess")]
-    [AWSCmdlet("Calls the Redshift Serverless ListEndpointAccess API operation.", Operation = new[] {"ListEndpointAccess"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListEndpointAccessResponse))]
-    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.EndpointAccess or Amazon.RedshiftServerless.Model.ListEndpointAccessResponse",
-        "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.EndpointAccess objects.",
-        "The service call response (type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RSSTableRestoreStatusList")]
+    [OutputType("Amazon.RedshiftServerless.Model.TableRestoreStatus")]
+    [AWSCmdlet("Calls the Redshift Serverless ListTableRestoreStatus API operation.", Operation = new[] {"ListTableRestoreStatus"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse))]
+    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.TableRestoreStatus or Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse",
+        "This cmdlet returns a collection of Amazon.RedshiftServerless.Model.TableRestoreStatus objects.",
+        "The service call response (type Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRSSEndpointAccessListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
+    public partial class GetRSSTableRestoreStatusListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
-        #region Parameter VpcId
+        #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the virtual private cloud with access to Amazon Redshift
-        /// Serverless.</para>
+        /// <para>The namespace from which to list all of the statuses of <code>RestoreTableFromSnapshot</code>
+        /// operations .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String VpcId { get; set; }
+        public System.String NamespaceName { get; set; }
         #endregion
         
         #region Parameter WorkgroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the workgroup associated with the VPC endpoint to return.</para>
+        /// <para>The workgroup from which to list all of the statuses of <code>RestoreTableFromSnapshot</code>
+        /// operations.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String WorkgroupName { get; set; }
         #endregion
         
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to display the next page of results.</para>
+        /// can use nextToken to display the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,
-        /// you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code>
-        /// operations, which returns results in the next page.</para>
+        /// <para>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken,
+        /// you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>
+        /// operations. This will return results on the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,23 +88,13 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Endpoints'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.ListEndpointAccessResponse).
-        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.ListEndpointAccessResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TableRestoreStatuses'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse).
+        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Endpoints";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkgroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkgroupName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkgroupName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "TableRestoreStatuses";
         #endregion
         
         protected override void ProcessRecord()
@@ -115,24 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.ListEndpointAccessResponse, GetRSSEndpointAccessListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse, GetRSSTableRestoreStatusListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.WorkgroupName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
+            context.NamespaceName = this.NamespaceName;
             context.NextToken = this.NextToken;
-            context.VpcId = this.VpcId;
             context.WorkgroupName = this.WorkgroupName;
             
             // allow further manipulation of loaded context prior to processing
@@ -148,19 +129,19 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RedshiftServerless.Model.ListEndpointAccessRequest();
+            var request = new Amazon.RedshiftServerless.Model.ListTableRestoreStatusRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            if (cmdletContext.NamespaceName != null)
+            {
+                request.NamespaceName = cmdletContext.NamespaceName;
+            }
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.VpcId != null)
-            {
-                request.VpcId = cmdletContext.VpcId;
             }
             if (cmdletContext.WorkgroupName != null)
             {
@@ -199,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         
         #region AWS Service Operation Call
         
-        private Amazon.RedshiftServerless.Model.ListEndpointAccessResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.ListEndpointAccessRequest request)
+        private Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.ListTableRestoreStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "ListEndpointAccess");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "ListTableRestoreStatus");
             try
             {
                 #if DESKTOP
-                return client.ListEndpointAccess(request);
+                return client.ListTableRestoreStatus(request);
                 #elif CORECLR
-                return client.ListEndpointAccessAsync(request).GetAwaiter().GetResult();
+                return client.ListTableRestoreStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -228,11 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResult { get; set; }
+            public System.String NamespaceName { get; set; }
             public System.String NextToken { get; set; }
-            public System.String VpcId { get; set; }
             public System.String WorkgroupName { get; set; }
-            public System.Func<Amazon.RedshiftServerless.Model.ListEndpointAccessResponse, GetRSSEndpointAccessListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Endpoints;
+            public System.Func<Amazon.RedshiftServerless.Model.ListTableRestoreStatusResponse, GetRSSTableRestoreStatusListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TableRestoreStatuses;
         }
         
     }

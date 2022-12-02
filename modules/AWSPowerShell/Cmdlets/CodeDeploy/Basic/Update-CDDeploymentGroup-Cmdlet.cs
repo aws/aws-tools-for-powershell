@@ -278,6 +278,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.Boolean? AlarmConfiguration_IgnorePollAlarmFailure { get; set; }
         #endregion
         
+        #region Parameter IsAutoScalingGroupsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.CodeDeploy.Model.UpdateDeploymentGroupRequest.AutoScalingGroups" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsAutoScalingGroupsSet { get; set; }
+        #endregion
+        
         #region Parameter NewDeploymentGroupName
         /// <summary>
         /// <para>
@@ -485,6 +499,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 context.AutoScalingGroup = new List<System.String>(this.AutoScalingGroup);
             }
+            context.IsAutoScalingGroupsSet = this.IsAutoScalingGroupsSet;
+            if (!ParameterWasBound(nameof(this.IsAutoScalingGroupsSet)) && this.AutoScalingGroup != null)
+            {
+                context.IsAutoScalingGroupsSet = true;
+            }
             context.DeploymentReadyOptionTimeoutAction = this.DeploymentReadyOptionTimeoutAction;
             context.DeploymentReadyOptionWaitTime = this.DeploymentReadyOptionWaitTime;
             context.GreenFleetProvisioningOptionAction = this.GreenFleetProvisioningOptionAction;
@@ -638,6 +657,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.AutoScalingGroup != null)
             {
                 request.AutoScalingGroups = cmdletContext.AutoScalingGroup;
+            }
+            if (cmdletContext.IsAutoScalingGroupsSet != null)
+            {
+                request.IsAutoScalingGroupsSet = cmdletContext.IsAutoScalingGroupsSet.Value;
             }
             
              // populate BlueGreenDeploymentConfiguration
@@ -953,6 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.Boolean? AutoRollbackConfiguration_Enabled { get; set; }
             public List<System.String> AutoRollbackConfiguration_Event { get; set; }
             public List<System.String> AutoScalingGroup { get; set; }
+            public System.Boolean? IsAutoScalingGroupsSet { get; set; }
             public Amazon.CodeDeploy.DeploymentReadyAction DeploymentReadyOptionTimeoutAction { get; set; }
             public System.Int32? DeploymentReadyOptionWaitTime { get; set; }
             public Amazon.CodeDeploy.GreenFleetProvisioningAction GreenFleetProvisioningOptionAction { get; set; }

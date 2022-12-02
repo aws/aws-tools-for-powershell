@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     /// <para>
     /// By default, the temporary credentials expire in 900 seconds. You can optionally specify
     /// a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).
-    /// </para><pre><code> &lt;p&gt; The Identity and Access Management (IAM) user or role that
-    /// runs GetCredentials must have an IAM policy attached that allows access to all necessary
-    /// actions and resources. &lt;/p&gt; &lt;p&gt; If the &lt;code&gt;DbName&lt;/code&gt;
-    /// parameter is specified, the IAM policy must allow access to the resource dbname for
-    /// the specified database name.&lt;/p&gt; </code></pre>
+    /// </para><pre><code> &lt;p&gt;The Identity and Access Management (IAM) user or role that runs
+    /// GetCredentials must have an IAM policy attached that allows access to all necessary
+    /// actions and resources.&lt;/p&gt; &lt;p&gt;If the &lt;code&gt;DbName&lt;/code&gt; parameter
+    /// is specified, the IAM policy must allow access to the resource dbname for the specified
+    /// database name.&lt;/p&gt; </code></pre>
     /// </summary>
     [Cmdlet("Get", "RSSCredential")]
     [OutputType("Amazon.RedshiftServerless.Model.GetCredentialsResponse")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter DbName
         /// <summary>
         /// <para>
-        /// <para>The name of the database to get temporary authorization to log on to.</para><para>Constraints:</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens.</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
-        /// at symbol (@), or hyphen.</para></li><li><para>The first character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ).</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// <para>The name of the database to get temporary authorization to log on to.</para><para>Constraints:</para><ul><li><para>Must be 1 to 64 alphanumeric characters or hyphens.</para></li><li><para>Must contain only uppercase or lowercase letters, numbers, underscore, plus sign,
+        /// period (dot), at symbol (@), or hyphen.</para></li><li><para>The first character must be a letter.</para></li><li><para>Must not contain a colon ( : ) or slash ( / ).</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words </a> in the Amazon Redshift Database Developer Guide</para></li></ul>
         /// </para>
         /// </summary>

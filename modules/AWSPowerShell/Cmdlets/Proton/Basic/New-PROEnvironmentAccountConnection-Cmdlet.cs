@@ -121,14 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         /// environment account.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
         #endregion
         
@@ -215,12 +208,6 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             #endif
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Proton.Model.Tag>(this.Tag);

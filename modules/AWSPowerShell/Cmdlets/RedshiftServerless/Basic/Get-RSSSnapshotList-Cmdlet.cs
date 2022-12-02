@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the maximum number of results to return. You
-        /// can use <code>nextToken</code> to get the next page of results.</para>
+        /// can use <code>nextToken</code> to display the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

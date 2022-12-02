@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Removes a statement from a topic's access control policy.
+    /// 
+    ///  <note><para>
+    /// To remove the ability to change topic permissions, you must deny permissions to the
+    /// <code>AddPermission</code>, <code>RemovePermission</code>, and <code>SetTopicAttributes</code>
+    /// actions in your IAM policy.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SNSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

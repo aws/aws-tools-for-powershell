@@ -88,7 +88,7 @@ $FMS_Completers = {
             ($_ -eq "Unregister-FMSThirdPartyFirewall/ThirdPartyFirewall")
         }
         {
-            $v = "PALO_ALTO_NETWORKS_CLOUD_NGFW"
+            $v = "FORTIGATE_CLOUD_NATIVE_FIREWALL","PALO_ALTO_NETWORKS_CLOUD_NGFW"
             break
         }
 

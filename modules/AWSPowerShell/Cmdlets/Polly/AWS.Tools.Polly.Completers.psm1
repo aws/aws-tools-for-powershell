@@ -98,7 +98,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 

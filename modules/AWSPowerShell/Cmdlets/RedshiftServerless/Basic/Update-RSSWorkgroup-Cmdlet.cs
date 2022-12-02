@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.Boolean? EnhancedVpcRouting { get; set; }
         #endregion
         
+        #region Parameter Port
+        /// <summary>
+        /// <para>
+        /// <para>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455
+        /// and 8191-8215. The default is 5439.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Port { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
@@ -190,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.ConfigParameter = new List<Amazon.RedshiftServerless.Model.ConfigParameter>(this.ConfigParameter);
             }
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
+            context.Port = this.Port;
             context.PubliclyAccessible = this.PubliclyAccessible;
             if (this.SecurityGroupId != null)
             {
@@ -233,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.EnhancedVpcRouting != null)
             {
                 request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
+            }
+            if (cmdletContext.Port != null)
+            {
+                request.Port = cmdletContext.Port.Value;
             }
             if (cmdletContext.PubliclyAccessible != null)
             {
@@ -314,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.Int32? BaseCapacity { get; set; }
             public List<Amazon.RedshiftServerless.Model.ConfigParameter> ConfigParameter { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
+            public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<System.String> SubnetId { get; set; }

@@ -19335,6 +19335,7 @@ Set-Alias -Name RSS-GetNamespace -Value Get-RSSNamespace
 Set-Alias -Name RSS-GetRecoveryPoint -Value Get-RSSRecoveryPoint
 Set-Alias -Name RSS-GetResourcePolicy -Value Get-RSSResourcePolicy
 Set-Alias -Name RSS-GetSnapshot -Value Get-RSSSnapshot
+Set-Alias -Name RSS-GetTableRestoreStatus -Value Get-RSSTableRestoreStatus
 Set-Alias -Name RSS-GetUsageLimit -Value Get-RSSUsageLimit
 Set-Alias -Name RSS-GetWorkgroup -Value Get-RSSWorkgroup
 Set-Alias -Name List-RSSEndpointAccess -Value Get-RSSEndpointAccessList
@@ -19349,6 +19350,9 @@ Set-Alias -Name RSS-ListRecoveryPoints -Value Get-RSSRecoveryPointList
 Set-Alias -Name List-RSSSnapshots -Value Get-RSSSnapshotList
 Set-Alias -Name List-RSSSnapshotList -Value Get-RSSSnapshotList
 Set-Alias -Name RSS-ListSnapshots -Value Get-RSSSnapshotList
+Set-Alias -Name List-RSSTableRestoreStatus -Value Get-RSSTableRestoreStatusList
+Set-Alias -Name List-RSSTableRestoreStatusList -Value Get-RSSTableRestoreStatusList
+Set-Alias -Name RSS-ListTableRestoreStatus -Value Get-RSSTableRestoreStatusList
 Set-Alias -Name RSS-ListTagsForResource -Value Get-RSSResourceTag
 Set-Alias -Name List-RSSUsageLimits -Value Get-RSSUsageLimitList
 Set-Alias -Name List-RSSUsageLimitList -Value Get-RSSUsageLimitList
@@ -19360,6 +19364,7 @@ Set-Alias -Name Put-RSSResourcePolicy -Value Write-RSSResourcePolicy
 Set-Alias -Name RSS-PutResourcePolicy -Value Write-RSSResourcePolicy
 Set-Alias -Name RSS-RestoreFromRecoveryPoint -Value Restore-RSSFromRecoveryPoint
 Set-Alias -Name RSS-RestoreFromSnapshot -Value Restore-RSSFromSnapshot
+Set-Alias -Name RSS-RestoreTableFromSnapshot -Value Restore-RSSTableFromSnapshot
 Set-Alias -Name RSS-TagResource -Value Add-RSSResourceTag
 Set-Alias -Name RSS-UntagResource -Value Remove-RSSResourceTag
 Set-Alias -Name RSS-UpdateEndpointAccess -Value Update-RSSEndpointAccess

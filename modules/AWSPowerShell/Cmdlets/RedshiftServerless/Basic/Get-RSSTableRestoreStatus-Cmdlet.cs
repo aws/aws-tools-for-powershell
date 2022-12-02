@@ -22,41 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleNotificationService;
-using Amazon.SimpleNotificationService.Model;
+using Amazon.RedshiftServerless;
+using Amazon.RedshiftServerless.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SNS
+namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Deletes a subscription. If the subscription requires authentication for deletion,
-    /// only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon
-    /// Web Services signature is required. If the <code>Unsubscribe</code> call does not
-    /// require authentication and the requester is not the subscription owner, a final cancellation
-    /// message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
-    /// to the topic if the <code>Unsubscribe</code> request was unintended.
-    /// 
-    ///  <note><para>
-    /// Amazon SQS queue subscriptions require authentication for deletion. Only the owner
-    /// of the subscription, or the owner of the topic can unsubscribe using the required
-    /// Amazon Web Services signature.
-    /// </para></note><para>
-    /// This action is throttled at 100 transactions per second (TPS).
-    /// </para>
+    /// Returns information about a <code>TableRestoreStatus</code> object.
     /// </summary>
-    [Cmdlet("Disconnect", "SNSNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) Unsubscribe API operation.", Operation = new[] {"Unsubscribe"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.UnsubscribeResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.UnsubscribeResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.UnsubscribeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RSSTableRestoreStatus")]
+    [OutputType("Amazon.RedshiftServerless.Model.TableRestoreStatus")]
+    [AWSCmdlet("Calls the Redshift Serverless GetTableRestoreStatus API operation.", Operation = new[] {"GetTableRestoreStatus"}, SelectReturnType = typeof(Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse))]
+    [AWSCmdletOutput("Amazon.RedshiftServerless.Model.TableRestoreStatus or Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse",
+        "This cmdlet returns an Amazon.RedshiftServerless.Model.TableRestoreStatus object.",
+        "The service call response (type Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisconnectSNSNotificationCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class GetRSSTableRestoreStatusCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
-        #region Parameter SubscriptionArn
+        #region Parameter TableRestoreRequestId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the subscription to be deleted.</para>
+        /// <para>The ID of the <code>RestoreTableFromSnapshot</code> request to return status for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,48 +54,33 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SubscriptionArn { get; set; }
+        public System.String TableRestoreRequestId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleNotificationService.Model.UnsubscribeResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TableRestoreStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse).
+        /// Specifying the name of a property of type Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "TableRestoreStatus";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SubscriptionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SubscriptionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TableRestoreRequestId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TableRestoreRequestId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SubscriptionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableRestoreRequestId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubscriptionArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-SNSNotification (Unsubscribe)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -118,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleNotificationService.Model.UnsubscribeResponse, DisconnectSNSNotificationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse, GetRSSTableRestoreStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,14 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SubscriptionArn;
+                context.Select = (response, cmdlet) => this.TableRestoreRequestId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.SubscriptionArn = this.SubscriptionArn;
+            context.TableRestoreRequestId = this.TableRestoreRequestId;
             #if MODULAR
-            if (this.SubscriptionArn == null && ParameterWasBound(nameof(this.SubscriptionArn)))
+            if (this.TableRestoreRequestId == null && ParameterWasBound(nameof(this.TableRestoreRequestId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SubscriptionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TableRestoreRequestId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -151,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.UnsubscribeRequest();
+            var request = new Amazon.RedshiftServerless.Model.GetTableRestoreStatusRequest();
             
-            if (cmdletContext.SubscriptionArn != null)
+            if (cmdletContext.TableRestoreRequestId != null)
             {
-                request.SubscriptionArn = cmdletContext.SubscriptionArn;
+                request.TableRestoreRequestId = cmdletContext.TableRestoreRequestId;
             }
             
             CmdletOutput output;
@@ -190,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleNotificationService.Model.UnsubscribeResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.UnsubscribeRequest request)
+        private Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse CallAWSServiceOperation(IAmazonRedshiftServerless client, Amazon.RedshiftServerless.Model.GetTableRestoreStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service (SNS)", "Unsubscribe");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Redshift Serverless", "GetTableRestoreStatus");
             try
             {
                 #if DESKTOP
-                return client.Unsubscribe(request);
+                return client.GetTableRestoreStatus(request);
                 #elif CORECLR
-                return client.UnsubscribeAsync(request).GetAwaiter().GetResult();
+                return client.GetTableRestoreStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String SubscriptionArn { get; set; }
-            public System.Func<Amazon.SimpleNotificationService.Model.UnsubscribeResponse, DisconnectSNSNotificationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String TableRestoreRequestId { get; set; }
+            public System.Func<Amazon.RedshiftServerless.Model.GetTableRestoreStatusResponse, GetRSSTableRestoreStatusCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TableRestoreStatus;
         }
         
     }
