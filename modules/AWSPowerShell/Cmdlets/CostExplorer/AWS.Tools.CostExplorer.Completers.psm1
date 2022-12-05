@@ -148,6 +148,13 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.GenerationStatus
+        "Get-CESavingsPlansPurchaseRecommendationGenerationList/GenerationStatus"
+        {
+            $v = "FAILED","PROCESSING","SUCCEEDED"
+            break
+        }
+
         # Amazon.CostExplorer.Granularity
         {
             ($_ -eq "Get-CECostAndUsage/Granularity") -Or
@@ -277,6 +284,7 @@ $CE_map = @{
     "Dimension"=@("Get-CEDimensionValue")
     "Feedback"=@("Get-CEAnomaly","Set-CEAnomalyFeedback")
     "Frequency"=@("Update-CEAnomalySubscription")
+    "GenerationStatus"=@("Get-CESavingsPlansPurchaseRecommendationGenerationList")
     "Granularity"=@("Get-CECostAndUsage","Get-CECostAndUsageWithResource","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CEUsageForecast")
     "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "Metric"=@("Get-CECostForecast","Get-CEUsageForecast")
@@ -368,8 +376,10 @@ $CE_SelectMap = @{
                "Get-CEUsageForecast",
                "Get-CECostAllocationTagList",
                "Get-CECostCategoryDefinitionList",
+               "Get-CESavingsPlansPurchaseRecommendationGenerationList",
                "Get-CEResourceTag",
                "Set-CEAnomalyFeedback",
+               "Start-CESavingsPlansPurchaseRecommendationGeneration",
                "Add-CEResourceTag",
                "Remove-CEResourceTag",
                "Update-CEAnomalyMonitor",

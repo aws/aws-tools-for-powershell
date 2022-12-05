@@ -97,7 +97,7 @@ $TRS_Completers = {
         # Amazon.TranscribeService.CLMLanguageCode
         "New-TRSLanguageModel/LanguageCode"
         {
-            $v = "en-AU","en-GB","en-US","es-US","hi-IN"
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","hi-IN","ja-JP"
             break
         }
 

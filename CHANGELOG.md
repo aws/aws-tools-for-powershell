@@ -1,4 +1,10 @@
-﻿### 4.1.220 (2022-12-02 21:49Z)
+﻿### 4.1.221 (2022-12-05 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.432.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CESavingsPlansPurchaseRecommendationGenerationList leveraging the ListSavingsPlansPurchaseRecommendationGeneration service API.
+    * Added cmdlet Start-CESavingsPlansPurchaseRecommendationGeneration leveraging the StartSavingsPlansPurchaseRecommendationGeneration service API.
+
+### 4.1.220 (2022-12-02 21:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.431.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CodeDeploy
     * Modified cmdlet Update-CDDeploymentGroup: added parameter IsAutoScalingGroupsSet.

@@ -22,41 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CostExplorer;
+using Amazon.CostExplorer.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Establishes a trust relationship between Reachability Analyzer and Organizations.
-    /// This operation must be performed by the management account for the organization.
+    /// Requests a Savings Plans recommendation generation. This enables you to calculate
+    /// a fresh set of Savings Plans recommendations that takes your latest usage data and
+    /// current Savings Plans inventory into account. You can refresh Savings Plans recommendations
+    /// up to three times daily for a consolidated billing family.
     /// 
-    ///  
-    /// <para>
-    /// After you establish a trust relationship, a user in the management account or a delegated
-    /// administrator account can run a cross-account analysis using resources from the member
-    /// accounts.
-    /// </para>
+    ///  <note><para><code>StartSavingsPlansPurchaseRecommendationGeneration</code> has no request syntax
+    /// because no input parameters are needed to support this operation.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Enable", "EC2ReachabilityAnalyzerOrganizationSharing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) EnableReachabilityAnalyzerOrganizationSharing API operation.", Operation = new[] {"EnableReachabilityAnalyzerOrganizationSharing"}, SelectReturnType = typeof(Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "CESavingsPlansPurchaseRecommendationGeneration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse")]
+    [AWSCmdlet("Calls the AWS Cost Explorer StartSavingsPlansPurchaseRecommendationGeneration API operation.", Operation = new[] {"StartSavingsPlansPurchaseRecommendationGeneration"}, SelectReturnType = typeof(Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse))]
+    [AWSCmdletOutput("Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse",
+        "This cmdlet returns an Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableEC2ReachabilityAnalyzerOrganizationSharingCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class StartCESavingsPlansPurchaseRecommendationGenerationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReturnValue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse).
+        /// Specifying the name of a property of type Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReturnValue";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -74,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-EC2ReachabilityAnalyzerOrganizationSharing (EnableReachabilityAnalyzerOrganizationSharing)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CESavingsPlansPurchaseRecommendationGeneration (StartSavingsPlansPurchaseRecommendationGeneration)"))
             {
                 return;
             }
@@ -86,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse, EnableEC2ReachabilityAnalyzerOrganizationSharingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse, StartCESavingsPlansPurchaseRecommendationGenerationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -103,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingRequest();
+            var request = new Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationRequest();
             
             
             CmdletOutput output;
@@ -138,15 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingRequest request)
+        private Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse CallAWSServiceOperation(IAmazonCostExplorer client, Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "EnableReachabilityAnalyzerOrganizationSharing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost Explorer", "StartSavingsPlansPurchaseRecommendationGeneration");
             try
             {
                 #if DESKTOP
-                return client.EnableReachabilityAnalyzerOrganizationSharing(request);
+                return client.StartSavingsPlansPurchaseRecommendationGeneration(request);
                 #elif CORECLR
-                return client.EnableReachabilityAnalyzerOrganizationSharingAsync(request).GetAwaiter().GetResult();
+                return client.StartSavingsPlansPurchaseRecommendationGenerationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -166,8 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.EC2.Model.EnableReachabilityAnalyzerOrganizationSharingResponse, EnableEC2ReachabilityAnalyzerOrganizationSharingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReturnValue;
+            public System.Func<Amazon.CostExplorer.Model.StartSavingsPlansPurchaseRecommendationGenerationResponse, StartCESavingsPlansPurchaseRecommendationGenerationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

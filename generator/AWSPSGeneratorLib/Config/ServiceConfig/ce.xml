@@ -130,11 +130,19 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSavingsPlansPurchaseRecommendationGeneration" OutputProperty="GenerationSummaryList" Verb="Get" Noun="SavingsPlansPurchaseRecommendationGenerationList" PipelineParameter="GenerationStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="ResourceTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvideAnomalyFeedback" OutputProperty="AnomalyId" Verb="Set" Noun="AnomalyFeedback" ShouldProcessTarget="AnomalyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSavingsPlansPurchaseRecommendationGeneration" OutputProperty="*" Verb="Start" Noun="SavingsPlansPurchaseRecommendationGeneration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

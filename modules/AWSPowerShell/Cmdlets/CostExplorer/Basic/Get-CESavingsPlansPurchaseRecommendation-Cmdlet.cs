@@ -28,7 +28,9 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Retrieves your request parameters, Savings Plan Recommendations Summary and Details.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the Savings Plans recommendations for your account. First use <code>StartSavingsPlansPurchaseRecommendationGeneration</code>
+    /// to generate a new set of recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code>
+    /// to retrieve them.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CESavingsPlansPurchaseRecommendation")]
     [OutputType("Amazon.CostExplorer.Model.GetSavingsPlansPurchaseRecommendationResponse")]
