@@ -92,7 +92,6 @@
     <Library Name="AWSSDK.MobileAnalytics" />
     <Library Name="AWSSDK.PinpointSMSVoice" />
     <Library Name="AWSSDK.Signer" />
-    <Library Name="AWSSDK.SimpleDB" />
-    <Library Name="AWSSDK.CodeCatalyst" />
+    <Library Name="AWSSDK.SimpleDB" />    
   </IncludeLibraries>
 </ConfigModelCollection>

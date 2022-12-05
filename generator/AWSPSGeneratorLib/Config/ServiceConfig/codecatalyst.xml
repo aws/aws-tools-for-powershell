@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codecatalyst</C2jFilename>
+    <AssemblyName>CodeCatalyst</AssemblyName>
+    <ServiceNounPrefix>CCAT</ServiceNounPrefix>
+    <ServiceName>AWS CodeCatalyst</ServiceName>
+    <ServiceClientInterface>IAmazonCodeCatalyst</ServiceClientInterface>
+    <ServiceClient>AmazonCodeCatalystClient</ServiceClient>
+    <ServiceModuleGuid>A47DF91E-99E3-4160-BD51-09BD2F91CA35</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccessToken" OutputProperty="*" Verb="New" Noun="AccessToken" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDevEnvironment" OutputProperty="*" Verb="New" Noun="DevEnvironment" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSourceRepositoryBranch" OutputProperty="*" Verb="New" Noun="SourceRepositoryBranch" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessToken" Verb="Remove" Noun="AccessToken" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDevEnvironment" OutputProperty="*" Verb="Remove" Noun="DevEnvironment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevEnvironment" OutputProperty="*" Verb="Get" Noun="DevEnvironment" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSourceRepositoryCloneUrls" OutputProperty="Https" Verb="Get" Noun="SourceRepositoryCloneUrl" PipelineParameter="SourceRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpace" OutputProperty="*" Verb="Get" Noun="Space" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscription" OutputProperty="*" Verb="Get" Noun="Subscription" PipelineParameter="SpaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserDetails" OutputProperty="*" Verb="Get" Noun="UserDetail" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessTokens" OutputProperty="Items" Verb="Get" Noun="AccessTokenList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevEnvironments" OutputProperty="Items" Verb="Get" Noun="DevEnvironmentList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventLogs" OutputProperty="Items" Verb="Get" Noun="EventLogList" PipelineParameter="SpaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="*" Verb="Get" Noun="ProjectList" PipelineParameter="SpaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceRepositories" OutputProperty="Items" Verb="Get" Noun="SourceRepositoryList" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceRepositoryBranches" OutputProperty="Items" Verb="Get" Noun="SourceRepositoryBranchList" PipelineParameter="SourceRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpaces" OutputProperty="Items" Verb="Get" Noun="SpaceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDevEnvironment" OutputProperty="*" Verb="Start" Noun="DevEnvironment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDevEnvironmentSession" OutputProperty="*" Verb="Start" Noun="DevEnvironmentSession" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDevEnvironment" OutputProperty="*" Verb="Stop" Noun="DevEnvironment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDevEnvironment" OutputProperty="*" Verb="Update" Noun="DevEnvironment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifySession" OutputProperty="Identity" Verb="Confirm" Noun="Session" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>
