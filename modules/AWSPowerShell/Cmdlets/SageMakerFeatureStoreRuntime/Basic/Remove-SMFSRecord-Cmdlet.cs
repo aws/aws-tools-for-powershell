@@ -28,10 +28,10 @@ using Amazon.SageMakerFeatureStoreRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.SMFS
 {
     /// <summary>
-    /// Deletes a <code>Record</code> from a <code>FeatureGroup</code>. A new record will
-    /// show up in the <code>OfflineStore</code> when the <code>DeleteRecord</code> API is
-    /// called. This record will have a value of <code>True</code> in the <code>is_deleted</code>
-    /// column.
+    /// Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code>
+    /// API is called a new record will be added to the <code>OfflineStore</code> and the
+    /// <code>Record</code> will be removed from the <code>OnlineStore</code>. This record
+    /// will have a value of <code>True</code> in the <code>is_deleted</code> column.
     /// </summary>
     [Cmdlet("Remove", "SMFSRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         public System.String RecordIdentifierValueAsString { get; set; }
         #endregion
         
+        #region Parameter TargetStore
+        /// <summary>
+        /// <para>
+        /// <para>A list of stores from which you're deleting the record. By default, Feature Store
+        /// deletes the record from all of the stores that you're using for the <code>FeatureGroup</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetStores")]
+        public System.String[] TargetStore { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -157,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
                 WriteWarning("You are passing $null as a value for parameter RecordIdentifierValueAsString which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TargetStore != null)
+            {
+                context.TargetStore = new List<System.String>(this.TargetStore);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             if (cmdletContext.RecordIdentifierValueAsString != null)
             {
                 request.RecordIdentifierValueAsString = cmdletContext.RecordIdentifierValueAsString;
+            }
+            if (cmdletContext.TargetStore != null)
+            {
+                request.TargetStores = cmdletContext.TargetStore;
             }
             
             CmdletOutput output;
@@ -249,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             public System.String EventTime { get; set; }
             public System.String FeatureGroupName { get; set; }
             public System.String RecordIdentifierValueAsString { get; set; }
+            public List<System.String> TargetStore { get; set; }
             public System.Func<Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordResponse, RemoveSMFSRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

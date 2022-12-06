@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         #region Parameter FeatureGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the feature group in which you want to put the records.</para>
+        /// <para>The name of the feature group from which you want to retrieve a record.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

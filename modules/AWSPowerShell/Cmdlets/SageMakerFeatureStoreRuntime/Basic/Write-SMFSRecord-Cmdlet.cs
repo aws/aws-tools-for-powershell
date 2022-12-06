@@ -79,6 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         public Amazon.SageMakerFeatureStoreRuntime.Model.FeatureValue[] Record { get; set; }
         #endregion
         
+        #region Parameter TargetStore
+        /// <summary>
+        /// <para>
+        /// <para>A list of stores to which you're adding the record. By default, Feature Store adds
+        /// the record to all of the stores that you're using for the <code>FeatureGroup</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetStores")]
+        public System.String[] TargetStore { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -136,6 +148,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
                 WriteWarning("You are passing $null as a value for parameter Record which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TargetStore != null)
+            {
+                context.TargetStore = new List<System.String>(this.TargetStore);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             if (cmdletContext.Record != null)
             {
                 request.Record = cmdletContext.Record;
+            }
+            if (cmdletContext.TargetStore != null)
+            {
+                request.TargetStores = cmdletContext.TargetStore;
             }
             
             CmdletOutput output;
@@ -223,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         {
             public System.String FeatureGroupName { get; set; }
             public List<Amazon.SageMakerFeatureStoreRuntime.Model.FeatureValue> Record { get; set; }
+            public List<System.String> TargetStore { get; set; }
             public System.Func<Amazon.SageMakerFeatureStoreRuntime.Model.PutRecordResponse, WriteSMFSRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -1,4 +1,19 @@
-﻿### 4.1.221 (2022-12-05 21:56Z)
+﻿### 4.1.222 (2022-12-06 23:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.433.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AWSBillingConductor
+    * Modified cmdlet New-ABCPricingRule: added parameter FreeTier_Activated.
+    * Modified cmdlet Update-ABCPricingRule: added parameter FreeTier_Activated.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNRule leveraging the DescribeRule service API.
+    * Added cmdlet Get-CONNRuleList leveraging the ListRules service API.
+    * Added cmdlet New-CONNRule leveraging the CreateRule service API.
+    * Added cmdlet Remove-CONNRule leveraging the DeleteRule service API.
+    * Added cmdlet Update-CONNRule leveraging the UpdateRule service API.
+  * Amazon SageMaker Feature Store Runtime
+    * Modified cmdlet Remove-SMFSRecord: added parameter TargetStore.
+    * Modified cmdlet Write-SMFSRecord: added parameter TargetStore.
+
+### 4.1.221 (2022-12-05 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.432.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cost Explorer
     * Added cmdlet Get-CESavingsPlansPurchaseRecommendationGenerationList leveraging the ListSavingsPlansPurchaseRecommendationGeneration service API.

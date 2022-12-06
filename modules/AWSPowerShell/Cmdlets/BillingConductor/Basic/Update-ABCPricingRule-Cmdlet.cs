@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class UpdateABCPricingRuleCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        #region Parameter FreeTier_Activated
+        /// <summary>
+        /// <para>
+        /// <para> Activate or deactivate application of Amazon Web Services Free Tier. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tiering_FreeTier_Activated")]
+        public System.Boolean? FreeTier_Activated { get; set; }
+        #endregion
+        
         #region Parameter Arn
         /// <summary>
         /// <para>
@@ -168,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             context.Description = this.Description;
             context.ModifierPercentage = this.ModifierPercentage;
             context.Name = this.Name;
+            context.FreeTier_Activated = this.FreeTier_Activated;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -200,6 +212,40 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate Tiering
+            var requestTieringIsNull = true;
+            request.Tiering = new Amazon.BillingConductor.Model.UpdateTieringInput();
+            Amazon.BillingConductor.Model.UpdateFreeTierConfig requestTiering_tiering_FreeTier = null;
+            
+             // populate FreeTier
+            var requestTiering_tiering_FreeTierIsNull = true;
+            requestTiering_tiering_FreeTier = new Amazon.BillingConductor.Model.UpdateFreeTierConfig();
+            System.Boolean? requestTiering_tiering_FreeTier_freeTier_Activated = null;
+            if (cmdletContext.FreeTier_Activated != null)
+            {
+                requestTiering_tiering_FreeTier_freeTier_Activated = cmdletContext.FreeTier_Activated.Value;
+            }
+            if (requestTiering_tiering_FreeTier_freeTier_Activated != null)
+            {
+                requestTiering_tiering_FreeTier.Activated = requestTiering_tiering_FreeTier_freeTier_Activated.Value;
+                requestTiering_tiering_FreeTierIsNull = false;
+            }
+             // determine if requestTiering_tiering_FreeTier should be set to null
+            if (requestTiering_tiering_FreeTierIsNull)
+            {
+                requestTiering_tiering_FreeTier = null;
+            }
+            if (requestTiering_tiering_FreeTier != null)
+            {
+                request.Tiering.FreeTier = requestTiering_tiering_FreeTier;
+                requestTieringIsNull = false;
+            }
+             // determine if request.Tiering should be set to null
+            if (requestTieringIsNull)
+            {
+                request.Tiering = null;
             }
             if (cmdletContext.Type != null)
             {
@@ -270,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.String Description { get; set; }
             public System.Double? ModifierPercentage { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? FreeTier_Activated { get; set; }
             public Amazon.BillingConductor.PricingRuleType Type { get; set; }
             public System.Func<Amazon.BillingConductor.Model.UpdatePricingRuleResponse, UpdateABCPricingRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

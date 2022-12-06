@@ -114,7 +114,7 @@ $ABC_Completers = {
             ($_ -eq "Update-ABCPricingRule/Type")
         }
         {
-            $v = "DISCOUNT","MARKUP"
+            $v = "DISCOUNT","MARKUP","TIERING"
             break
         }
 

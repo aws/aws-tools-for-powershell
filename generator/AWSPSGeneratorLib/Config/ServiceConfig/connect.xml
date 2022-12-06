@@ -104,6 +104,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" OutputProperty="*" Verb="New" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSecurityProfile" OutputProperty="*" Verb="New" Noun="SecurityProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -153,6 +157,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteQuickConnect" Verb="Remove" Noun="QuickConnect" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -229,6 +237,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRoutingProfile" OutputProperty="RoutingProfile" Verb="Get" Noun="RoutingProfile" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRule" OutputProperty="Rule" Verb="Get" Noun="Rule" PipelineParameter="RuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -409,6 +421,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRoutingProfiles" OutputProperty="RoutingProfileSummaryList" Verb="Get" Noun="RoutingProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRules" OutputProperty="RuleSummaryList" Verb="Get" Noun="RuleList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -666,6 +682,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoutingProfileQueues" Verb="Update" Noun="RoutingProfileQueue" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRule" Verb="Update" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

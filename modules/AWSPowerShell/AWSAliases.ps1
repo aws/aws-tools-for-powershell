@@ -5083,6 +5083,8 @@ Set-Alias -Name Create-CONNQuickConnect -Value New-CONNQuickConnect
 Set-Alias -Name CONN-CreateQuickConnect -Value New-CONNQuickConnect
 Set-Alias -Name Create-CONNRoutingProfile -Value New-CONNRoutingProfile
 Set-Alias -Name CONN-CreateRoutingProfile -Value New-CONNRoutingProfile
+Set-Alias -Name Create-CONNRule -Value New-CONNRule
+Set-Alias -Name CONN-CreateRule -Value New-CONNRule
 Set-Alias -Name Create-CONNSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name CONN-CreateSecurityProfile -Value New-CONNSecurityProfile
 Set-Alias -Name Create-CONNTaskTemplate -Value New-CONNTaskTemplate
@@ -5109,6 +5111,8 @@ Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationA
 Set-Alias -Name CONN-DeleteIntegrationAssociation -Value Remove-CONNIntegrationAssociation
 Set-Alias -Name Delete-CONNQuickConnect -Value Remove-CONNQuickConnect
 Set-Alias -Name CONN-DeleteQuickConnect -Value Remove-CONNQuickConnect
+Set-Alias -Name Delete-CONNRule -Value Remove-CONNRule
+Set-Alias -Name CONN-DeleteRule -Value Remove-CONNRule
 Set-Alias -Name Delete-CONNSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name CONN-DeleteSecurityProfile -Value Remove-CONNSecurityProfile
 Set-Alias -Name Delete-CONNTaskTemplate -Value Remove-CONNTaskTemplate
@@ -5147,6 +5151,8 @@ Set-Alias -Name Describe-CONNQuickConnect -Value Get-CONNQuickConnect
 Set-Alias -Name CONN-DescribeQuickConnect -Value Get-CONNQuickConnect
 Set-Alias -Name Describe-CONNRoutingProfile -Value Get-CONNRoutingProfile
 Set-Alias -Name CONN-DescribeRoutingProfile -Value Get-CONNRoutingProfile
+Set-Alias -Name Describe-CONNRule -Value Get-CONNRule
+Set-Alias -Name CONN-DescribeRule -Value Get-CONNRule
 Set-Alias -Name Describe-CONNSecurityProfile -Value Get-CONNSecurityProfile
 Set-Alias -Name CONN-DescribeSecurityProfile -Value Get-CONNSecurityProfile
 Set-Alias -Name Describe-CONNTrafficDistributionGroup -Value Get-CONNTrafficDistributionGroup
@@ -5255,6 +5261,9 @@ Set-Alias -Name CONN-ListRoutingProfileQueues -Value Get-CONNRoutingProfileQueue
 Set-Alias -Name List-CONNRoutingProfiles -Value Get-CONNRoutingProfileList
 Set-Alias -Name List-CONNRoutingProfileList -Value Get-CONNRoutingProfileList
 Set-Alias -Name CONN-ListRoutingProfiles -Value Get-CONNRoutingProfileList
+Set-Alias -Name List-CONNRules -Value Get-CONNRuleList
+Set-Alias -Name List-CONNRuleList -Value Get-CONNRuleList
+Set-Alias -Name CONN-ListRules -Value Get-CONNRuleList
 Set-Alias -Name List-CONNSecurityKeys -Value Get-CONNSecurityKeyList
 Set-Alias -Name List-CONNSecurityKeyList -Value Get-CONNSecurityKeyList
 Set-Alias -Name CONN-ListSecurityKeys -Value Get-CONNSecurityKeyList
@@ -5342,6 +5351,7 @@ Set-Alias -Name CONN-UpdateRoutingProfileDefaultOutboundQueue -Value Update-CONN
 Set-Alias -Name CONN-UpdateRoutingProfileName -Value Update-CONNRoutingProfileName
 Set-Alias -Name Update-CONNRoutingProfileQueues -Value Update-CONNRoutingProfileQueue
 Set-Alias -Name CONN-UpdateRoutingProfileQueues -Value Update-CONNRoutingProfileQueue
+Set-Alias -Name CONN-UpdateRule -Value Update-CONNRule
 Set-Alias -Name CONN-UpdateSecurityProfile -Value Update-CONNSecurityProfile
 Set-Alias -Name CONN-UpdateTaskTemplate -Value Update-CONNTaskTemplate
 Set-Alias -Name CONN-UpdateTrafficDistribution -Value Update-CONNTrafficDistribution

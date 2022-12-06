@@ -5367,7 +5367,7 @@ $ABC_Completers = {
             ($_ -eq "Update-ABCPricingRule/Type")
         }
         {
-            $v = "DISCOUNT","MARKUP"
+            $v = "DISCOUNT","MARKUP","TIERING"
             break
         }
 
@@ -12807,6 +12807,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.EventSourceName
+        {
+            ($_ -eq "Get-CONNRuleList/EventSourceName") -Or
+            ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
+        }
+        {
+            $v = "OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            break
+        }
+
         # Amazon.Connect.HierarchyGroupMatchType
         "Search-CONNUser/SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"
         {
@@ -12882,6 +12892,17 @@ $CONN_Completers = {
         }
         {
             $v = "PHONE_NUMBER","QUEUE","USER"
+            break
+        }
+
+        # Amazon.Connect.RulePublishStatus
+        {
+            ($_ -eq "Get-CONNRuleList/PublishStatus") -Or
+            ($_ -eq "New-CONNRule/PublishStatus") -Or
+            ($_ -eq "Update-CONNRule/PublishStatus")
+        }
+        {
+            $v = "DRAFT","PUBLISHED"
             break
         }
 
@@ -12984,12 +13005,14 @@ $CONN_map = @{
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "EventSourceName"=@("Get-CONNRuleList")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
+    "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
@@ -13002,6 +13025,7 @@ $CONN_map = @{
     "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "TrafficType"=@("Start-CONNOutboundVoiceContact")
+    "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
@@ -13077,6 +13101,7 @@ $CONN_SelectMap = @{
                "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
+               "New-CONNRule",
                "New-CONNSecurityProfile",
                "New-CONNTaskTemplate",
                "New-CONNTrafficDistributionGroup",
@@ -13090,6 +13115,7 @@ $CONN_SelectMap = @{
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
                "Remove-CONNQuickConnect",
+               "Remove-CONNRule",
                "Remove-CONNSecurityProfile",
                "Remove-CONNTaskTemplate",
                "Remove-CONNTrafficDistributionGroup",
@@ -13109,6 +13135,7 @@ $CONN_SelectMap = @{
                "Get-CONNQueue",
                "Get-CONNQuickConnect",
                "Get-CONNRoutingProfile",
+               "Get-CONNRule",
                "Get-CONNSecurityProfile",
                "Get-CONNTrafficDistributionGroup",
                "Get-CONNUser",
@@ -13154,6 +13181,7 @@ $CONN_SelectMap = @{
                "Get-CONNQuickConnectList",
                "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
+               "Get-CONNRuleList",
                "Get-CONNSecurityKeyList",
                "Get-CONNSecurityProfilePermissionList",
                "Get-CONNSecurityProfileList",
@@ -13210,6 +13238,7 @@ $CONN_SelectMap = @{
                "Update-CONNRoutingProfileDefaultOutboundQueue",
                "Update-CONNRoutingProfileName",
                "Update-CONNRoutingProfileQueue",
+               "Update-CONNRule",
                "Update-CONNSecurityProfile",
                "Update-CONNTaskTemplate",
                "Update-CONNTrafficDistribution",
@@ -43466,7 +43495,7 @@ $RDS_Completers = {
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
-            $v = "custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-snapshot"
+            $v = "blue-green-deployment","custom-engine-version","db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-proxy","db-security-group","db-snapshot"
             break
         }
 

@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class NewABCPricingRuleCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        #region Parameter FreeTier_Activated
+        /// <summary>
+        /// <para>
+        /// <para> Activate or deactivate Amazon Web Services Free Tier. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tiering_FreeTier_Activated")]
+        public System.Boolean? FreeTier_Activated { get; set; }
+        #endregion
+        
         #region Parameter BillingEntity
         /// <summary>
         /// <para>
@@ -67,13 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         /// <para> A percentage modifier that's applied on the public pricing rates. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Double? ModifierPercentage { get; set; }
         #endregion
         
@@ -208,12 +213,6 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.ModifierPercentage = this.ModifierPercentage;
-            #if MODULAR
-            if (this.ModifierPercentage == null && ParameterWasBound(nameof(this.ModifierPercentage)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ModifierPercentage which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -237,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.FreeTier_Activated = this.FreeTier_Activated;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -291,6 +291,40 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate Tiering
+            var requestTieringIsNull = true;
+            request.Tiering = new Amazon.BillingConductor.Model.CreateTieringInput();
+            Amazon.BillingConductor.Model.CreateFreeTierConfig requestTiering_tiering_FreeTier = null;
+            
+             // populate FreeTier
+            var requestTiering_tiering_FreeTierIsNull = true;
+            requestTiering_tiering_FreeTier = new Amazon.BillingConductor.Model.CreateFreeTierConfig();
+            System.Boolean? requestTiering_tiering_FreeTier_freeTier_Activated = null;
+            if (cmdletContext.FreeTier_Activated != null)
+            {
+                requestTiering_tiering_FreeTier_freeTier_Activated = cmdletContext.FreeTier_Activated.Value;
+            }
+            if (requestTiering_tiering_FreeTier_freeTier_Activated != null)
+            {
+                requestTiering_tiering_FreeTier.Activated = requestTiering_tiering_FreeTier_freeTier_Activated.Value;
+                requestTiering_tiering_FreeTierIsNull = false;
+            }
+             // determine if requestTiering_tiering_FreeTier should be set to null
+            if (requestTiering_tiering_FreeTierIsNull)
+            {
+                requestTiering_tiering_FreeTier = null;
+            }
+            if (requestTiering_tiering_FreeTier != null)
+            {
+                request.Tiering.FreeTier = requestTiering_tiering_FreeTier;
+                requestTieringIsNull = false;
+            }
+             // determine if request.Tiering should be set to null
+            if (requestTieringIsNull)
+            {
+                request.Tiering = null;
             }
             if (cmdletContext.Type != null)
             {
@@ -365,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public Amazon.BillingConductor.PricingRuleScope Scope { get; set; }
             public System.String Service { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Boolean? FreeTier_Activated { get; set; }
             public Amazon.BillingConductor.PricingRuleType Type { get; set; }
             public System.Func<Amazon.BillingConductor.Model.CreatePricingRuleResponse, NewABCPricingRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
