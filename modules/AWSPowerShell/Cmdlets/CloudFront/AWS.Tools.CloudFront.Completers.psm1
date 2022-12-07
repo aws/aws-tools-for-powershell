@@ -531,6 +531,7 @@ $CF_SelectMap = @{
                "Update-CFCloudFrontOriginAccessIdentity",
                "Update-CFContinuousDeploymentPolicy",
                "Update-CFDistribution",
+               "Update-CFDistributionWithStagingConfig",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",
                "Update-CFFunction",

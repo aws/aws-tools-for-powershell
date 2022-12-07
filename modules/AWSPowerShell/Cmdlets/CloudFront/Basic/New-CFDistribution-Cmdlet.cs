@@ -147,6 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Boolean? DefaultCacheBehavior_Compress { get; set; }
         #endregion
         
+        #region Parameter DistributionConfig_ContinuousDeploymentPolicyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a continuous deployment policy. For more information, see <code>CreateContinuousDeploymentPolicy</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DistributionConfig_ContinuousDeploymentPolicyId { get; set; }
+        #endregion
+        
         #region Parameter DistributionConfig_DefaultRootObject
         /// <summary>
         /// <para>
@@ -880,6 +890,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.SSLSupportMethod ViewerCertificate_SSLSupportMethod { get; set; }
         #endregion
         
+        #region Parameter DistributionConfig_Staging
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean that indicates whether this is a staging distribution. When this value is
+        /// <code>true</code>, this is a staging distribution. When this value is <code>false</code>,
+        /// this is not a staging distribution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DistributionConfig_Staging { get; set; }
+        #endregion
+        
         #region Parameter DefaultCacheBehavior_TargetOriginId
         /// <summary>
         /// <para>
@@ -1107,6 +1129,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter DistributionConfig_Comment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DistributionConfig_ContinuousDeploymentPolicyId = this.DistributionConfig_ContinuousDeploymentPolicyId;
             if (this.CustomErrorResponses_Item != null)
             {
                 context.CustomErrorResponses_Item = new List<Amazon.CloudFront.Model.CustomErrorResponse>(this.CustomErrorResponses_Item);
@@ -1234,6 +1257,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             context.GeoRestriction_Quantity = this.GeoRestriction_Quantity;
             context.GeoRestriction_RestrictionType = this.GeoRestriction_RestrictionType;
+            context.DistributionConfig_Staging = this.DistributionConfig_Staging;
             context.ViewerCertificate_ACMCertificateArn = this.ViewerCertificate_ACMCertificateArn;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ViewerCertificate_Certificate = this.ViewerCertificate_Certificate;
@@ -1286,6 +1310,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 request.DistributionConfig.Comment = requestDistributionConfig_distributionConfig_Comment;
                 requestDistributionConfigIsNull = false;
             }
+            System.String requestDistributionConfig_distributionConfig_ContinuousDeploymentPolicyId = null;
+            if (cmdletContext.DistributionConfig_ContinuousDeploymentPolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_ContinuousDeploymentPolicyId = cmdletContext.DistributionConfig_ContinuousDeploymentPolicyId;
+            }
+            if (requestDistributionConfig_distributionConfig_ContinuousDeploymentPolicyId != null)
+            {
+                request.DistributionConfig.ContinuousDeploymentPolicyId = requestDistributionConfig_distributionConfig_ContinuousDeploymentPolicyId;
+                requestDistributionConfigIsNull = false;
+            }
             System.String requestDistributionConfig_distributionConfig_DefaultRootObject = null;
             if (cmdletContext.DistributionConfig_DefaultRootObject != null)
             {
@@ -1334,6 +1368,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfig_distributionConfig_PriceClass != null)
             {
                 request.DistributionConfig.PriceClass = requestDistributionConfig_distributionConfig_PriceClass;
+                requestDistributionConfigIsNull = false;
+            }
+            System.Boolean? requestDistributionConfig_distributionConfig_Staging = null;
+            if (cmdletContext.DistributionConfig_Staging != null)
+            {
+                requestDistributionConfig_distributionConfig_Staging = cmdletContext.DistributionConfig_Staging.Value;
+            }
+            if (requestDistributionConfig_distributionConfig_Staging != null)
+            {
+                request.DistributionConfig.Staging = requestDistributionConfig_distributionConfig_Staging.Value;
                 requestDistributionConfigIsNull = false;
             }
             System.String requestDistributionConfig_distributionConfig_WebACLId = null;
@@ -2325,6 +2369,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? CacheBehaviors_Quantity { get; set; }
             public System.String DistributionConfig_CallerReference { get; set; }
             public System.String DistributionConfig_Comment { get; set; }
+            public System.String DistributionConfig_ContinuousDeploymentPolicyId { get; set; }
             public List<Amazon.CloudFront.Model.CustomErrorResponse> CustomErrorResponses_Item { get; set; }
             public System.Int32? CustomErrorResponses_Quantity { get; set; }
             public List<System.String> CachedMethods_Item { get; set; }
@@ -2380,6 +2425,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public List<System.String> GeoRestriction_Item { get; set; }
             public System.Int32? GeoRestriction_Quantity { get; set; }
             public Amazon.CloudFront.GeoRestrictionType GeoRestriction_RestrictionType { get; set; }
+            public System.Boolean? DistributionConfig_Staging { get; set; }
             public System.String ViewerCertificate_ACMCertificateArn { get; set; }
             [System.ObsoleteAttribute]
             public System.String ViewerCertificate_Certificate { get; set; }

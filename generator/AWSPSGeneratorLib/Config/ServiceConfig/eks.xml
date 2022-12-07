@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAddonConfiguration" OutputProperty="*" Verb="Get" Noun="AddonConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAddonVersions" OutputProperty="Addons" Verb="Get" Noun="AddonVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

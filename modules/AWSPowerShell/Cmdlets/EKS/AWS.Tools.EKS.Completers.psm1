@@ -196,6 +196,7 @@ $EKS_SelectMap = @{
                "Remove-EKSNodegroup",
                "Unregister-EKSCluster",
                "Get-EKSAddon",
+               "Get-EKSAddonConfiguration",
                "Get-EKSAddonVersion",
                "Get-EKSCluster",
                "Get-EKSFargateProfile",

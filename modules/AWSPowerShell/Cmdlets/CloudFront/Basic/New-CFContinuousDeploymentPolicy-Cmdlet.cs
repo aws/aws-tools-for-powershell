@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter SingleWeightConfig_Weight
         /// <summary>
         /// <para>
-        /// <para>The percentage of traffic to send to the staging distribution, expressed as a decimal
-        /// number between 0 and 1.</para>
+        /// <para>The percentage of traffic to send to a staging distribution, expressed as a decimal
+        /// number between 0 and .15.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

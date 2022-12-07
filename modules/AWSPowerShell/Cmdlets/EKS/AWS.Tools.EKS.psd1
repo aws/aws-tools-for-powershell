@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-EKSIdentityProviderConfig', 
         'Add-EKSResourceTag', 
         'Get-EKSAddon', 
+        'Get-EKSAddonConfiguration', 
         'Get-EKSAddonList', 
         'Get-EKSAddonVersion', 
         'Get-EKSCluster', 

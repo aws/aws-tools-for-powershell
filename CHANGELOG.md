@@ -1,4 +1,16 @@
-﻿### 4.1.222 (2022-12-06 23:17Z)
+﻿### 4.1.223 (2022-12-07 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.434.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudFront
+    * Added cmdlet Update-CFDistributionWithStagingConfig leveraging the UpdateDistributionWithStagingConfig service API.
+    * Modified cmdlet New-CFDistribution: added parameters DistributionConfig_ContinuousDeploymentPolicyId and DistributionConfig_Staging.
+    * Modified cmdlet New-CFDistributionWithTag: added parameters DistributionConfig_ContinuousDeploymentPolicyId and DistributionConfig_Staging.
+    * Modified cmdlet Update-CFDistribution: added parameters DistributionConfig_ContinuousDeploymentPolicyId and DistributionConfig_Staging.
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlet Get-EKSAddonConfiguration leveraging the DescribeAddonConfiguration service API.
+    * Modified cmdlet New-EKSAddon: added parameter ConfigurationValue.
+    * Modified cmdlet Update-EKSAddon: added parameter ConfigurationValue.
+
+### 4.1.222 (2022-12-06 23:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.433.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet New-ABCPricingRule: added parameter FreeTier_Activated.

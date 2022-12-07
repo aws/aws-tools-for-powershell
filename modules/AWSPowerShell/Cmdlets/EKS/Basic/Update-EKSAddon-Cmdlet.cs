@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter ConfigurationValue
+        /// <summary>
+        /// <para>
+        /// <para>The set of configuration values for the add-on being created. Whatever values provided
+        /// here are validated against the schema from <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html">DescribeAddonConfiguration</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConfigurationValues")]
+        public System.String ConfigurationValue { get; set; }
+        #endregion
+        
         #region Parameter ResolveConflict
         /// <summary>
         /// <para>
@@ -206,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConfigurationValue = this.ConfigurationValue;
             context.ResolveConflict = this.ResolveConflict;
             context.ServiceAccountRoleArn = this.ServiceAccountRoleArn;
             
@@ -239,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.ConfigurationValue != null)
+            {
+                request.ConfigurationValues = cmdletContext.ConfigurationValue;
             }
             if (cmdletContext.ResolveConflict != null)
             {
@@ -313,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String AddonVersion { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
+            public System.String ConfigurationValue { get; set; }
             public Amazon.EKS.ResolveConflicts ResolveConflict { get; set; }
             public System.String ServiceAccountRoleArn { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateAddonResponse, UpdateEKSAddonCmdlet, object> Select { get; set; } =

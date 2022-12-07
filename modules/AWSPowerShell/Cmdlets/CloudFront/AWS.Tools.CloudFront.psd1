@@ -183,6 +183,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CFCloudFrontOriginAccessIdentity', 
         'Update-CFContinuousDeploymentPolicy', 
         'Update-CFDistribution', 
+        'Update-CFDistributionWithStagingConfig', 
         'Update-CFFieldLevelEncryptionConfig', 
         'Update-CFFieldLevelEncryptionProfile', 
         'Update-CFFunction', 

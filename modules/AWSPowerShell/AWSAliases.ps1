@@ -3484,6 +3484,7 @@ Set-Alias -Name CF-UpdateCachePolicy -Value Update-CFCachePolicy
 Set-Alias -Name CF-UpdateCloudFrontOriginAccessIdentity -Value Update-CFCloudFrontOriginAccessIdentity
 Set-Alias -Name CF-UpdateContinuousDeploymentPolicy -Value Update-CFContinuousDeploymentPolicy
 Set-Alias -Name CF-UpdateDistribution -Value Update-CFDistribution
+Set-Alias -Name CF-UpdateDistributionWithStagingConfig -Value Update-CFDistributionWithStagingConfig
 Set-Alias -Name CF-UpdateFieldLevelEncryptionConfig -Value Update-CFFieldLevelEncryptionConfig
 Set-Alias -Name CF-UpdateFieldLevelEncryptionProfile -Value Update-CFFieldLevelEncryptionProfile
 Set-Alias -Name CF-UpdateFunction -Value Update-CFFunction
@@ -8385,6 +8386,8 @@ Set-Alias -Name Deregister-EKSCluster -Value Unregister-EKSCluster
 Set-Alias -Name EKS-DeregisterCluster -Value Unregister-EKSCluster
 Set-Alias -Name Describe-EKSAddon -Value Get-EKSAddon
 Set-Alias -Name EKS-DescribeAddon -Value Get-EKSAddon
+Set-Alias -Name Describe-EKSAddonConfiguration -Value Get-EKSAddonConfiguration
+Set-Alias -Name EKS-DescribeAddonConfiguration -Value Get-EKSAddonConfiguration
 Set-Alias -Name Describe-EKSAddonVersions -Value Get-EKSAddonVersion
 Set-Alias -Name Describe-EKSAddonVersion -Value Get-EKSAddonVersion
 Set-Alias -Name EKS-DescribeAddonVersions -Value Get-EKSAddonVersion

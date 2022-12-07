@@ -407,6 +407,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDistributionWithStagingConfig" OutputProperty="Distribution" Verb="Update" Noun="DistributionWithStagingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFieldLevelEncryptionConfig" OutputProperty="FieldLevelEncryption" Verb="Update" Noun="FieldLevelEncryptionConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

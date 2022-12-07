@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter TrustAnchorCertificate
         /// <summary>
         /// <para>
-        /// <para>* CreateCustom</para><para>Specifies the certificate for an CloudHSM key store. This parameter is required for
+        /// <para>Specifies the certificate for an CloudHSM key store. This parameter is required for
         /// custom key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</para><para>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is
         /// the content of the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized
         /// the cluster</a>.</para>
