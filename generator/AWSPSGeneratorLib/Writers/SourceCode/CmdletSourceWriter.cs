@@ -154,7 +154,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         if (Operation.AnonymousAuthentication == ServiceOperation.AnonymousAuthenticationMode.Optional)
                             writer.WriteLine("this._ExecuteWithAnonymousCredentials = this.UseAnonymousCredentials;");
                         if (awsSignerAttributeTypeValue == "bearer")
-                            writer.WriteLine("this._ExecuteWithAnonymousCredentials = true;");
+                        {
+                            writer.WriteLine("this._ExecuteWithAnonymousCredentials = true;");                            
+                        }
+                        writer.WriteLine("this._AWSSignerType = \"{0}\";", awsSignerAttributeTypeValue);
 
                         writer.WriteLine("base.ProcessRecord();");
                         writer.WriteLine();
