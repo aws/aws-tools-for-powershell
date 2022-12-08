@@ -118,6 +118,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CloudWatchRUM.dll',
         'AWSSDK.CodeArtifact.dll',
         'AWSSDK.CodeBuild.dll',
+        'AWSSDK.CodeCatalyst.dll',
         'AWSSDK.CodeCommit.dll',
         'AWSSDK.CodeDeploy.dll',
         'AWSSDK.CodeGuruProfiler.dll',

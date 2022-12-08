@@ -83,6 +83,34 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public Amazon.GameLift.Model.GameSessionQueueDestination[] Destination { get; set; }
         #endregion
         
+        #region Parameter IsDestinationsSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.GameLift.Model.UpdateGameSessionQueueRequest.Destinations" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsDestinationsSet { get; set; }
+        #endregion
+        
+        #region Parameter IsPlayerLatencyPoliciesSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.GameLift.Model.UpdateGameSessionQueueRequest.PlayerLatencyPolicies" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsPlayerLatencyPoliciesSet { get; set; }
+        #endregion
+        
         #region Parameter PriorityConfiguration_LocationOrder
         /// <summary>
         /// <para>
@@ -237,6 +265,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.Destination = new List<Amazon.GameLift.Model.GameSessionQueueDestination>(this.Destination);
             }
+            context.IsDestinationsSet = this.IsDestinationsSet;
+            if (!ParameterWasBound(nameof(this.IsDestinationsSet)) && this.Destination != null)
+            {
+                context.IsDestinationsSet = true;
+            }
             if (this.FilterConfiguration_AllowedLocation != null)
             {
                 context.FilterConfiguration_AllowedLocation = new List<System.String>(this.FilterConfiguration_AllowedLocation);
@@ -252,6 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (this.PlayerLatencyPolicy != null)
             {
                 context.PlayerLatencyPolicy = new List<Amazon.GameLift.Model.PlayerLatencyPolicy>(this.PlayerLatencyPolicy);
+            }
+            context.IsPlayerLatencyPoliciesSet = this.IsPlayerLatencyPoliciesSet;
+            if (!ParameterWasBound(nameof(this.IsPlayerLatencyPoliciesSet)) && this.PlayerLatencyPolicy != null)
+            {
+                context.IsPlayerLatencyPoliciesSet = true;
             }
             if (this.PriorityConfiguration_LocationOrder != null)
             {
@@ -286,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.Destinations = cmdletContext.Destination;
             }
+            if (cmdletContext.IsDestinationsSet != null)
+            {
+                request.IsDestinationsSet = cmdletContext.IsDestinationsSet.Value;
+            }
             
              // populate FilterConfiguration
             var requestFilterConfigurationIsNull = true;
@@ -316,6 +358,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.PlayerLatencyPolicy != null)
             {
                 request.PlayerLatencyPolicies = cmdletContext.PlayerLatencyPolicy;
+            }
+            if (cmdletContext.IsPlayerLatencyPoliciesSet != null)
+            {
+                request.IsPlayerLatencyPoliciesSet = cmdletContext.IsPlayerLatencyPoliciesSet.Value;
             }
             
              // populate PriorityConfiguration
@@ -413,10 +459,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public System.String CustomEventData { get; set; }
             public List<Amazon.GameLift.Model.GameSessionQueueDestination> Destination { get; set; }
+            public System.Boolean? IsDestinationsSet { get; set; }
             public List<System.String> FilterConfiguration_AllowedLocation { get; set; }
             public System.String Name { get; set; }
             public System.String NotificationTarget { get; set; }
             public List<Amazon.GameLift.Model.PlayerLatencyPolicy> PlayerLatencyPolicy { get; set; }
+            public System.Boolean? IsPlayerLatencyPoliciesSet { get; set; }
             public List<System.String> PriorityConfiguration_LocationOrder { get; set; }
             public List<System.String> PriorityConfiguration_PriorityOrder { get; set; }
             public System.Int32? TimeoutInSecond { get; set; }
