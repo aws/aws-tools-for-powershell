@@ -111,6 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTRR
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

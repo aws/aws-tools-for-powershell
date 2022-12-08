@@ -136,6 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);

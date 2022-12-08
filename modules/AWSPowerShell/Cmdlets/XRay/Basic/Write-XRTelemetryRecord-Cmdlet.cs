@@ -120,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EC2InstanceId), MyInvocation.BoundParameters);

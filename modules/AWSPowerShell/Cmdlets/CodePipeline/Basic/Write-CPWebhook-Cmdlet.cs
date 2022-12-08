@@ -205,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Webhook_Name), MyInvocation.BoundParameters);

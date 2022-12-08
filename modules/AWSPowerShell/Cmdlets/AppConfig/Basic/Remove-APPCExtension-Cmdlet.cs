@@ -100,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExtensionIdentifier), MyInvocation.BoundParameters);

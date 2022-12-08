@@ -520,6 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "s3";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

@@ -176,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

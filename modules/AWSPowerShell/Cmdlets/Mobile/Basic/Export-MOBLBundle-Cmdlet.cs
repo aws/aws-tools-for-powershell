@@ -112,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BundleId), MyInvocation.BoundParameters);

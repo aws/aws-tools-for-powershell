@@ -141,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WebACLId), MyInvocation.BoundParameters);

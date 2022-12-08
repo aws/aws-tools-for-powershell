@@ -167,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

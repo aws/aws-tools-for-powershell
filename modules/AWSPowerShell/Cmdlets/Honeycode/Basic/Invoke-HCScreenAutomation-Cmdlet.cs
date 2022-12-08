@@ -185,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.HC
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ScreenAutomationId), MyInvocation.BoundParameters);

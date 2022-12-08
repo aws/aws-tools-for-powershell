@@ -269,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;

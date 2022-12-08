@@ -94,6 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReplicationConfiguration_Rule), MyInvocation.BoundParameters);

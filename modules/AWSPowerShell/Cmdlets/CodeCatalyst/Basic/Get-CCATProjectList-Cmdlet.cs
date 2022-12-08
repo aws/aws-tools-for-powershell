@@ -115,6 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         protected override void ProcessRecord()
         {
             this._ExecuteWithAnonymousCredentials = true;
+            this._AWSSignerType = "bearer";
             base.ProcessRecord();
             
             var context = new CmdletContext();

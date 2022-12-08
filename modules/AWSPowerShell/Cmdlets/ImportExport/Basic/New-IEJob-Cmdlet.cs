@@ -146,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v2";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobType), MyInvocation.BoundParameters);

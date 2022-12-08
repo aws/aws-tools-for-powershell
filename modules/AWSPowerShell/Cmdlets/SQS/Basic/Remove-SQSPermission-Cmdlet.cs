@@ -120,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Label), MyInvocation.BoundParameters);

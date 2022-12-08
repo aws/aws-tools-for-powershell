@@ -120,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GatewayName), MyInvocation.BoundParameters);

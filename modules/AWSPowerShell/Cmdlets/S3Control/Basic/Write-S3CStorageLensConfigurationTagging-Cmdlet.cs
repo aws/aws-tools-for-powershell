@@ -133,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "s3v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfigId), MyInvocation.BoundParameters);

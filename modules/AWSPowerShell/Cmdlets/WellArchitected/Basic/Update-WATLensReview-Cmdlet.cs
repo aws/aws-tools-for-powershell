@@ -128,6 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkloadId), MyInvocation.BoundParameters);

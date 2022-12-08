@@ -90,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactChannelId), MyInvocation.BoundParameters);

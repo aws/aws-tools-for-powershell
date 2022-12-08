@@ -87,6 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var context = new CmdletContext();

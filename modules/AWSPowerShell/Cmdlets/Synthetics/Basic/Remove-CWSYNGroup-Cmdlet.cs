@@ -98,6 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupIdentifier), MyInvocation.BoundParameters);

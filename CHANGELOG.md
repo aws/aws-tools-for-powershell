@@ -1,4 +1,7 @@
-﻿### 4.1.224 (2022-12-08 03:37Z)
+﻿### 4.1.225 (2022-12-08 09:22Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.435.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.224 (2022-12-08 03:37Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.435.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CodeCatalyst. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCAT and can be listed using the command 'Get-AWSCmdletName -Service CCAT'.
   * Amazon GameLift Service

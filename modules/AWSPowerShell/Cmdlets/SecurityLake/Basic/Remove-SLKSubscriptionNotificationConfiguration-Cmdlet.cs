@@ -90,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SubscriptionId), MyInvocation.BoundParameters);

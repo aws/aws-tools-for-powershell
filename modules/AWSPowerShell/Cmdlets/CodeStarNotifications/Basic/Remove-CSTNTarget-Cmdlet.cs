@@ -101,6 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetAddress), MyInvocation.BoundParameters);

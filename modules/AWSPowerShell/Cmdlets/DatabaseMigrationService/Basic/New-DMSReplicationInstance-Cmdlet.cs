@@ -291,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         protected override void ProcessRecord()
         {
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ReplicationInstanceIdentifier), MyInvocation.BoundParameters);

@@ -119,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         protected override void ProcessRecord()
         {
             this._ExecuteWithAnonymousCredentials = true;
+            this._AWSSignerType = "bearer";
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DisplayName), MyInvocation.BoundParameters);
