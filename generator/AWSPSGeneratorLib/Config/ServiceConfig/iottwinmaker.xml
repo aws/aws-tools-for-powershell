@@ -37,6 +37,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSyncJob" OutputProperty="*" Verb="New" Noun="SyncJob" ShouldProcessTarget="WorkspaceId" PipelineParameter="SyncSource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspace" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +54,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteScene" Verb="Remove" Noun="Scene" ShouldProcessTarget="SceneId" PipelineParameter="SceneId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSyncJob" OutputProperty="State" Verb="Remove" Noun="SyncJob" ShouldProcessTarget="WorkspaceId" PipelineParameter="SyncSource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -85,6 +93,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSyncJob" OutputProperty="*" Verb="Get" Noun="SyncJob" PipelineParameter="SyncSource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWorkspace" OutputProperty="*" Verb="Get" Noun="Workspace" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -98,6 +110,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListScenes" OutputProperty="SceneSummaries" Verb="Get" Noun="SceneList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSyncJobs" OutputProperty="SyncJobSummaries" Verb="Get" Noun="SyncJobList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSyncResources" OutputProperty="SyncResources" Verb="Get" Noun="SyncResourceList" PipelineParameter="SyncSource" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

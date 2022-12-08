@@ -34,6 +34,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLatestAssessmentId" OutputProperty="Id" Verb="Get" Noun="LatestAssessmentId" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPortfolioPreferences" OutputProperty="*" Verb="Get" Noun="PortfolioPreference" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

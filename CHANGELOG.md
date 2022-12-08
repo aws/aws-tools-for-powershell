@@ -1,4 +1,26 @@
-﻿### 4.1.225 (2022-12-08 09:22Z)
+﻿### 4.1.226 (2022-12-08 21:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.436.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Auto Scaling
+    * Added cmdlet Add-ASTrafficSource leveraging the AttachTrafficSources service API.
+    * Added cmdlet Dismount-ASTrafficSource leveraging the DetachTrafficSources service API.
+    * Added cmdlet Get-ASTrafficSource leveraging the DescribeTrafficSources service API.
+    * Modified cmdlet New-ASAutoScalingGroup: added parameter TrafficSource.
+    * Modified cmdlet Write-ASScalingPolicy: added parameter CustomizedMetricSpecification_Metric.
+  * Amazon IoT TwinMaker
+    * Added cmdlet Get-IOTTMSyncJob leveraging the GetSyncJob service API.
+    * Added cmdlet Get-IOTTMSyncJobList leveraging the ListSyncJobs service API.
+    * Added cmdlet Get-IOTTMSyncResourceList leveraging the ListSyncResources service API.
+    * Added cmdlet New-IOTTMSyncJob leveraging the CreateSyncJob service API.
+    * Added cmdlet Remove-IOTTMSyncJob leveraging the DeleteSyncJob service API.
+    * Modified cmdlet New-IOTTMComponentType: added parameter ComponentTypeName.
+    * Modified cmdlet Update-IOTTMComponentType: added parameter ComponentTypeName.
+  * Amazon Migration Hub Strategy Recommendations
+    * Added cmdlet Get-MHSLatestAssessmentId leveraging the GetLatestAssessmentId service API.
+    * Modified cmdlet Start-MHSAssessment: added parameter AssessmentTarget.
+    * Modified cmdlet Update-MHSApplicationComponentConfig: added parameters AppType and ConfigureOnly.
+    * Modified cmdlet Write-MHSPortfolioPreference: added parameter ApplicationMode.
+
+### 4.1.225 (2022-12-08 09:22Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.435.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.224 (2022-12-08 03:37Z)

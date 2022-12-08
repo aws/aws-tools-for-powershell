@@ -28,45 +28,19 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Gets information about the Elastic Load Balancing target groups for the specified
-    /// Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// To determine the attachment status of the target group, use the <code>State</code>
-    /// element in the response. When you attach a target group to an Auto Scaling group,
-    /// the initial <code>State</code> value is <code>Adding</code>. The state transitions
-    /// to <code>Added</code> after all Auto Scaling instances are registered with the target
-    /// group. If Elastic Load Balancing health checks are enabled for the Auto Scaling group,
-    /// the state transitions to <code>InService</code> after at least one Auto Scaling instance
-    /// passes the health check. When the target group is in the <code>InService</code> state,
-    /// Amazon EC2 Auto Scaling can terminate and replace any instances that are reported
-    /// as unhealthy. If no registered instances pass the health checks, the target group
-    /// doesn't enter the <code>InService</code> state. 
-    /// </para><para>
-    /// Target groups also have an <code>InService</code> state if you attach them in the
-    /// <a>CreateAutoScalingGroup</a> API call. If your target group state is <code>InService</code>,
-    /// but it is not working properly, check the scaling activities by calling <a>DescribeScalingActivities</a>
-    /// and take any corrective actions necessary.
-    /// </para><para>
-    /// For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting
-    /// Amazon EC2 Auto Scaling: Health checks</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
-    /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
-    /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
-    /// </para><note><para>
-    /// You can use this operation to describe target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
-    /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+    /// Do not use this API for production workloads. This API is also subject to change.</b><para>
+    /// Gets information about the traffic sources for the specified Auto Scaling group.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "ASLoadBalancerTargetGroup")]
-    [OutputType("Amazon.AutoScaling.Model.LoadBalancerTargetGroupState")]
-    [AWSCmdlet("Calls the AWS Auto Scaling DescribeLoadBalancerTargetGroups API operation.", Operation = new[] {"DescribeLoadBalancerTargetGroups"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse))]
-    [AWSCmdletOutput("Amazon.AutoScaling.Model.LoadBalancerTargetGroupState or Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse",
-        "This cmdlet returns a collection of Amazon.AutoScaling.Model.LoadBalancerTargetGroupState objects.",
-        "The service call response (type Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ASTrafficSource")]
+    [OutputType("Amazon.AutoScaling.Model.TrafficSourceState")]
+    [AWSCmdlet("Calls the AWS Auto Scaling DescribeTrafficSources API operation.", Operation = new[] {"DescribeTrafficSources"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse))]
+    [AWSCmdletOutput("Amazon.AutoScaling.Model.TrafficSourceState or Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse",
+        "This cmdlet returns a collection of Amazon.AutoScaling.Model.TrafficSourceState objects.",
+        "The service call response (type Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetASLoadBalancerTargetGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class GetASTrafficSourceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -86,21 +60,33 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
+        #region Parameter TrafficSourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of traffic source you are describing. Currently, the only valid value is
+        /// <code>vpc-lattice</code>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TrafficSourceType { get; set; }
+        #endregion
+        
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is <code>100</code>
-        /// and the maximum value is <code>100</code>.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
-        /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
-        /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
+        /// <para>The maximum number of items to return with this call. The maximum value is <code>50</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxRecords")]
-        public int? MaxRecord { get; set; }
+        [Alias("MaxRecords")]
+        public System.Int32? MaxRecord { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -120,13 +106,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'LoadBalancerTargetGroups'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse).
-        /// Specifying the name of a property of type Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TrafficSources'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse).
+        /// Specifying the name of a property of type Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "LoadBalancerTargetGroups";
+        public string Select { get; set; } = "TrafficSources";
         #endregion
         
         #region Parameter PassThru
@@ -162,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse, GetASLoadBalancerTargetGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse, GetASTrafficSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -182,16 +168,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             #endif
             context.MaxRecord = this.MaxRecord;
-            #if !MODULAR
-            if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
+            context.NextToken = this.NextToken;
+            context.TrafficSourceType = this.TrafficSourceType;
+            #if MODULAR
+            if (this.TrafficSourceType == null && ParameterWasBound(nameof(this.TrafficSourceType)))
             {
-                WriteWarning("AWSPowerShell and AWSPowerShell.NetCore use the MaxRecord parameter to limit the total number of items returned by the cmdlet." +
-                    " This behavior is obsolete and will be removed in a future version of these modules. Pipe the output of this cmdlet into Select-Object -First to terminate" +
-                    " retrieving data pages early and control the number of items returned. AWS.Tools already implements the new behavior of simply passing MaxRecord" +
-                    " to the service to specify how many items should be returned by each service call.");
+                WriteWarning("You are passing $null as a value for parameter TrafficSourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,7 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region IExecutor Members
         
-        #if MODULAR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
@@ -211,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsRequest();
+            var request = new Amazon.AutoScaling.Model.DescribeTrafficSourcesRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -219,7 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
+            }
+            if (cmdletContext.TrafficSourceType != null)
+            {
+                request.TrafficSourceType = cmdletContext.TrafficSourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -268,92 +255,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
             
             return null;
         }
-        #else
-        public object Execute(ExecutorContext context)
-        {
-            var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            
-            // create request and set iteration invariants
-            var request = new Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsRequest();
-            if (cmdletContext.AutoScalingGroupName != null)
-            {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
-            }
-            
-            // Initialize loop variants and commence piping
-            System.String _nextToken = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.MaxRecord.HasValue)
-            {
-                _emitLimit = cmdletContext.MaxRecord;
-            }
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
-            
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            do
-            {
-                request.NextToken = _nextToken;
-                if (_emitLimit.HasValue)
-                {
-                    request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                }
-                
-                CmdletOutput output;
-                
-                try
-                {
-                    
-                    var response = CallAWSServiceOperation(client, request);
-                    object pipelineOutput = null;
-                    if (!useParameterSelect)
-                    {
-                        pipelineOutput = cmdletContext.Select(response, this);
-                    }
-                    output = new CmdletOutput
-                    {
-                        PipelineOutput = pipelineOutput,
-                        ServiceResponse = response
-                    };
-                    int _receivedThisCall = response.LoadBalancerTargetGroups.Count;
-                    
-                    _nextToken = response.NextToken;
-                    _retrievedSoFar += _receivedThisCall;
-                    if (_emitLimit.HasValue)
-                    {
-                        _emitLimit -= _receivedThisCall;
-                    }
-                }
-                catch (Exception e)
-                {
-                    if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-                
-                ProcessOutput(output);
-            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
-            
-            
-            if (useParameterSelect)
-            {
-                WriteObject(cmdletContext.Select(null, this));
-            }
-            
-            
-            return null;
-        }
-        #endif
         
         public ExecutorContext CreateContext()
         {
@@ -364,15 +265,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsRequest request)
+        private Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeTrafficSourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "DescribeLoadBalancerTargetGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "DescribeTrafficSources");
             try
             {
                 #if DESKTOP
-                return client.DescribeLoadBalancerTargetGroups(request);
+                return client.DescribeTrafficSources(request);
                 #elif CORECLR
-                return client.DescribeLoadBalancerTargetGroupsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeTrafficSourcesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -393,10 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
-            public int? MaxRecord { get; set; }
+            public System.Int32? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse, GetASLoadBalancerTargetGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.LoadBalancerTargetGroups;
+            public System.String TrafficSourceType { get; set; }
+            public System.Func<Amazon.AutoScaling.Model.DescribeTrafficSourcesResponse, GetASTrafficSourceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TrafficSources;
         }
         
     }

@@ -56,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String ComponentTypeId { get; set; }
         #endregion
         
+        #region Parameter ComponentTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The component type name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ComponentTypeName { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -125,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace that contains the component type.</para>
+        /// <para>The ID of the workspace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 WriteWarning("You are passing $null as a value for parameter ComponentTypeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ComponentTypeName = this.ComponentTypeName;
             context.Description = this.Description;
             if (this.ExtendsFrom != null)
             {
@@ -264,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.ComponentTypeId != null)
             {
                 request.ComponentTypeId = cmdletContext.ComponentTypeId;
+            }
+            if (cmdletContext.ComponentTypeName != null)
+            {
+                request.ComponentTypeName = cmdletContext.ComponentTypeName;
             }
             if (cmdletContext.Description != null)
             {
@@ -355,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ComponentTypeId { get; set; }
+            public System.String ComponentTypeName { get; set; }
             public System.String Description { get; set; }
             public List<System.String> ExtendsFrom { get; set; }
             public Dictionary<System.String, Amazon.IoTTwinMaker.Model.FunctionRequest> Function { get; set; }

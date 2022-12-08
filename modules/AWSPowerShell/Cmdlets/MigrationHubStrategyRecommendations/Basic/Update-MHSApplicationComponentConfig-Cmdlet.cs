@@ -57,6 +57,29 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         public System.String ApplicationComponentId { get; set; }
         #endregion
         
+        #region Parameter AppType
+        /// <summary>
+        /// <para>
+        /// <para>The type of known component.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MigrationHubStrategyRecommendations.AppType")]
+        public Amazon.MigrationHubStrategyRecommendations.AppType AppType { get; set; }
+        #endregion
+        
+        #region Parameter ConfigureOnly
+        /// <summary>
+        /// <para>
+        /// <para>Update the configuration request of an application component. If it is set to true,
+        /// the source code and/or database credentials are updated. If it is set to false, the
+        /// source code and/or database credentials are updated and an analysis is initiated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ConfigureOnly { get; set; }
+        #endregion
+        
         #region Parameter InclusionStatus
         /// <summary>
         /// <para>
@@ -202,6 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
                 WriteWarning("You are passing $null as a value for parameter ApplicationComponentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AppType = this.AppType;
+            context.ConfigureOnly = this.ConfigureOnly;
             context.InclusionStatus = this.InclusionStatus;
             context.SecretsManagerKey = this.SecretsManagerKey;
             if (this.SourceCodeList != null)
@@ -231,6 +256,14 @@ namespace Amazon.PowerShell.Cmdlets.MHS
             if (cmdletContext.ApplicationComponentId != null)
             {
                 request.ApplicationComponentId = cmdletContext.ApplicationComponentId;
+            }
+            if (cmdletContext.AppType != null)
+            {
+                request.AppType = cmdletContext.AppType;
+            }
+            if (cmdletContext.ConfigureOnly != null)
+            {
+                request.ConfigureOnly = cmdletContext.ConfigureOnly.Value;
             }
             if (cmdletContext.InclusionStatus != null)
             {
@@ -355,6 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationComponentId { get; set; }
+            public Amazon.MigrationHubStrategyRecommendations.AppType AppType { get; set; }
+            public System.Boolean? ConfigureOnly { get; set; }
             public Amazon.MigrationHubStrategyRecommendations.InclusionStatus InclusionStatus { get; set; }
             public System.String SecretsManagerKey { get; set; }
             public List<Amazon.MigrationHubStrategyRecommendations.Model.SourceCode> SourceCodeList { get; set; }

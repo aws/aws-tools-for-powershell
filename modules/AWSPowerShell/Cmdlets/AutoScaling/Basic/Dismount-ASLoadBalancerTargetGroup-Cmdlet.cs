@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// the instances in the group. When all instances are deregistered, then you can no longer
     /// describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call.
     /// The instances remain running.
-    /// </para>
+    /// </para><note><para>
+    /// You can use this operation to detach target groups that were attached by using <a>AttachLoadBalancerTargetGroups</a>,
+    /// but not for target groups that were attached by using <a>AttachTrafficSources</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Dismount", "ASLoadBalancerTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

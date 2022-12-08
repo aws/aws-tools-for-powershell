@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class StartMHSAssessmentCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        #region Parameter AssessmentTarget
+        /// <summary>
+        /// <para>
+        /// <para>List of criteria for assessment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssessmentTargets")]
+        public Amazon.MigrationHubStrategyRecommendations.Model.AssessmentTarget[] AssessmentTarget { get; set; }
+        #endregion
+        
         #region Parameter S3bucketForAnalysisData
         /// <summary>
         /// <para>
@@ -104,6 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.MHS
                 context.Select = CreateSelectDelegate<Amazon.MigrationHubStrategyRecommendations.Model.StartAssessmentResponse, StartMHSAssessmentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AssessmentTarget != null)
+            {
+                context.AssessmentTarget = new List<Amazon.MigrationHubStrategyRecommendations.Model.AssessmentTarget>(this.AssessmentTarget);
+            }
             context.S3bucketForAnalysisData = this.S3bucketForAnalysisData;
             context.S3bucketForReportData = this.S3bucketForReportData;
             
@@ -122,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.MHS
             // create request
             var request = new Amazon.MigrationHubStrategyRecommendations.Model.StartAssessmentRequest();
             
+            if (cmdletContext.AssessmentTarget != null)
+            {
+                request.AssessmentTargets = cmdletContext.AssessmentTarget;
+            }
             if (cmdletContext.S3bucketForAnalysisData != null)
             {
                 request.S3bucketForAnalysisData = cmdletContext.S3bucketForAnalysisData;
@@ -191,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.MigrationHubStrategyRecommendations.Model.AssessmentTarget> AssessmentTarget { get; set; }
             public System.String S3bucketForAnalysisData { get; set; }
             public System.String S3bucketForReportData { get; set; }
             public System.Func<Amazon.MigrationHubStrategyRecommendations.Model.StartAssessmentResponse, StartMHSAssessmentCmdlet, object> Select { get; set; } =

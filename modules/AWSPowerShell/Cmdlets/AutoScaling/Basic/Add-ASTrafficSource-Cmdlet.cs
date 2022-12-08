@@ -28,40 +28,26 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Attaches one or more target groups to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// This operation is used with the following load balancer types: 
-    /// </para><ul><li><para>
-    /// Application Load Balancer - Operates at the application layer (layer 7) and supports
-    /// HTTP and HTTPS. 
-    /// </para></li><li><para>
-    /// Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP,
-    /// TLS, and UDP. 
-    /// </para></li><li><para>
-    /// Gateway Load Balancer - Operates at the network layer (layer 3).
-    /// </para></li></ul><para>
-    /// To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a>
-    /// API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a>
+    /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+    /// Do not use this API for production workloads. This API is also subject to change.</b><para>
+    /// Attaches one or more traffic sources to the specified Auto Scaling group.
+    /// </para><para>
+    /// To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a>
+    /// API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a>
     /// API.
     /// </para><para>
-    /// This operation is additive and does not detach existing target groups or Classic Load
-    /// Balancers from the Auto Scaling group.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
-    /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
-    /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
+    /// This operation is additive and does not detach existing traffic sources from the Auto
+    /// Scaling group.
     /// </para>
     /// </summary>
-    [Cmdlet("Add", "ASLoadBalancerTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "ASTrafficSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Auto Scaling AttachLoadBalancerTargetGroups API operation.", Operation = new[] {"AttachLoadBalancerTargetGroups"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse))]
-    [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse",
+    [AWSCmdlet("Calls the AWS Auto Scaling AttachTrafficSources API operation.", Operation = new[] {"AttachTrafficSources"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachTrafficSourcesResponse))]
+    [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachTrafficSourcesResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.AutoScaling.Model.AttachTrafficSourcesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddASLoadBalancerTargetGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class AddASTrafficSourceCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -71,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -81,29 +67,32 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
-        #region Parameter TargetGroupARNs
+        #region Parameter TrafficSource
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the target groups. You can specify up to 10 target
-        /// groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a>
-        /// API operation.</para>
+        /// <para>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic
+        /// sources.</para><para>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice
+        /// target group. Amazon EC2 Auto Scaling registers the running instances with the attached
+        /// target groups. The target groups receive incoming traffic and route requests to one
+        /// or more registered targets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String[] TargetGroupARNs { get; set; }
+        [Alias("TrafficSources")]
+        public Amazon.AutoScaling.Model.TrafficSourceIdentifier[] TrafficSource { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.AttachTrafficSourcesResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AutoScalingGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AutoScalingGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TrafficSource parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TrafficSource' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AutoScalingGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrafficSource' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -135,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AutoScalingGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASLoadBalancerTargetGroup (AttachLoadBalancerTargetGroups)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrafficSource), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASTrafficSource (AttachTrafficSources)"))
             {
                 return;
             }
@@ -149,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse, AddASLoadBalancerTargetGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.AttachTrafficSourcesResponse, AddASTrafficSourceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AutoScalingGroupName;
+                context.Select = (response, cmdlet) => this.TrafficSource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoScalingGroupName = this.AutoScalingGroupName;
@@ -168,14 +157,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TargetGroupARNs != null)
+            if (this.TrafficSource != null)
             {
-                context.TargetGroupARNs = new List<System.String>(this.TargetGroupARNs);
+                context.TrafficSource = new List<Amazon.AutoScaling.Model.TrafficSourceIdentifier>(this.TrafficSource);
             }
             #if MODULAR
-            if (this.TargetGroupARNs == null && ParameterWasBound(nameof(this.TargetGroupARNs)))
+            if (this.TrafficSource == null && ParameterWasBound(nameof(this.TrafficSource)))
             {
-                WriteWarning("You are passing $null as a value for parameter TargetGroupARNs which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TrafficSource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -192,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsRequest();
+            var request = new Amazon.AutoScaling.Model.AttachTrafficSourcesRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
                 request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
             }
-            if (cmdletContext.TargetGroupARNs != null)
+            if (cmdletContext.TrafficSource != null)
             {
-                request.TargetGroupARNs = cmdletContext.TargetGroupARNs;
+                request.TrafficSources = cmdletContext.TrafficSource;
             }
             
             CmdletOutput output;
@@ -235,15 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsRequest request)
+        private Amazon.AutoScaling.Model.AttachTrafficSourcesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachTrafficSourcesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "AttachLoadBalancerTargetGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "AttachTrafficSources");
             try
             {
                 #if DESKTOP
-                return client.AttachLoadBalancerTargetGroups(request);
+                return client.AttachTrafficSources(request);
                 #elif CORECLR
-                return client.AttachLoadBalancerTargetGroupsAsync(request).GetAwaiter().GetResult();
+                return client.AttachTrafficSourcesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -264,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> TargetGroupARNs { get; set; }
-            public System.Func<Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse, AddASLoadBalancerTargetGroupCmdlet, object> Select { get; set; } =
+            public List<Amazon.AutoScaling.Model.TrafficSourceIdentifier> TrafficSource { get; set; }
+            public System.Func<Amazon.AutoScaling.Model.AttachTrafficSourcesResponse, AddASTrafficSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

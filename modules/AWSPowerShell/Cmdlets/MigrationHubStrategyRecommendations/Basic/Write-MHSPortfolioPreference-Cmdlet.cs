@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class WriteMHSPortfolioPreferenceCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        #region Parameter ApplicationMode
+        /// <summary>
+        /// <para>
+        /// <para>The classification for application component types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MigrationHubStrategyRecommendations.ApplicationMode")]
+        public Amazon.MigrationHubStrategyRecommendations.ApplicationMode ApplicationMode { get; set; }
+        #endregion
+        
         #region Parameter DatabasePreferences_DatabaseManagementPreference
         /// <summary>
         /// <para>
@@ -205,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
                 context.Select = CreateSelectDelegate<Amazon.MigrationHubStrategyRecommendations.Model.PutPortfolioPreferencesResponse, WriteMHSPortfolioPreferenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ApplicationMode = this.ApplicationMode;
             if (this.AwsManagedResources_TargetDestination != null)
             {
                 context.AwsManagedResources_TargetDestination = new List<System.String>(this.AwsManagedResources_TargetDestination);
@@ -250,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.MHS
             // create request
             var request = new Amazon.MigrationHubStrategyRecommendations.Model.PutPortfolioPreferencesRequest();
             
+            if (cmdletContext.ApplicationMode != null)
+            {
+                request.ApplicationMode = cmdletContext.ApplicationMode;
+            }
             
              // populate ApplicationPreferences
             var requestApplicationPreferencesIsNull = true;
@@ -583,6 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.MHS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MigrationHubStrategyRecommendations.ApplicationMode ApplicationMode { get; set; }
             public List<System.String> AwsManagedResources_TargetDestination { get; set; }
             public List<System.String> NoPreference_TargetDestination { get; set; }
             public List<System.String> SelfManageResources_TargetDestination { get; set; }

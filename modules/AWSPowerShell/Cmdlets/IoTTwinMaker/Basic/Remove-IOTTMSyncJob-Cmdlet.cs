@@ -22,52 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AutoScaling;
-using Amazon.AutoScaling.Model;
+using Amazon.IoTTwinMaker;
+using Amazon.IoTTwinMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AS
+namespace Amazon.PowerShell.Cmdlets.IOTTM
 {
     /// <summary>
-    /// Attaches one or more target groups to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// This operation is used with the following load balancer types: 
-    /// </para><ul><li><para>
-    /// Application Load Balancer - Operates at the application layer (layer 7) and supports
-    /// HTTP and HTTPS. 
-    /// </para></li><li><para>
-    /// Network Load Balancer - Operates at the transport layer (layer 4) and supports TCP,
-    /// TLS, and UDP. 
-    /// </para></li><li><para>
-    /// Gateway Load Balancer - Operates at the network layer (layer 3).
-    /// </para></li></ul><para>
-    /// To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a>
-    /// API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a>
-    /// API.
-    /// </para><para>
-    /// This operation is additive and does not detach existing target groups or Classic Load
-    /// Balancers from the Auto Scaling group.
-    /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
-    /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
-    /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. 
-    /// </para>
+    /// Delete the SyncJob.
     /// </summary>
-    [Cmdlet("Add", "ASLoadBalancerTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Auto Scaling AttachLoadBalancerTargetGroups API operation.", Operation = new[] {"AttachLoadBalancerTargetGroups"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse))]
-    [AWSCmdletOutput("None or Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "IOTTMSyncJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.IoTTwinMaker.SyncJobState")]
+    [AWSCmdlet("Calls the AWS IoT TwinMaker DeleteSyncJob API operation.", Operation = new[] {"DeleteSyncJob"}, SelectReturnType = typeof(Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse))]
+    [AWSCmdletOutput("Amazon.IoTTwinMaker.SyncJobState or Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse",
+        "This cmdlet returns an Amazon.IoTTwinMaker.SyncJobState object.",
+        "The service call response (type Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddASLoadBalancerTargetGroupCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class RemoveIOTTMSyncJobCmdlet : AmazonIoTTwinMakerClientCmdlet, IExecutor
     {
         
-        #region Parameter AutoScalingGroupName
+        #region Parameter SyncSource
         /// <summary>
         /// <para>
-        /// <para>The name of the Auto Scaling group.</para>
+        /// <para>The sync source.</para><note><para>Currently the only supported syncSoucre is <code>SITEWISE </code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,44 +54,43 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AutoScalingGroupName { get; set; }
+        public System.String SyncSource { get; set; }
         #endregion
         
-        #region Parameter TargetGroupARNs
+        #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of the target groups. You can specify up to 10 target
-        /// groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a>
-        /// API operation.</para>
+        /// <para>The workspace Id.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String[] TargetGroupARNs { get; set; }
+        public System.String WorkspaceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'State'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse).
+        /// Specifying the name of a property of type Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "State";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AutoScalingGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AutoScalingGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SyncSource parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SyncSource' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AutoScalingGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SyncSource' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -135,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AutoScalingGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-ASLoadBalancerTargetGroup (AttachLoadBalancerTargetGroups)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkspaceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTTMSyncJob (DeleteSyncJob)"))
             {
                 return;
             }
@@ -149,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse, AddASLoadBalancerTargetGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse, RemoveIOTTMSyncJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,24 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AutoScalingGroupName;
+                context.Select = (response, cmdlet) => this.SyncSource;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AutoScalingGroupName = this.AutoScalingGroupName;
+            context.SyncSource = this.SyncSource;
             #if MODULAR
-            if (this.AutoScalingGroupName == null && ParameterWasBound(nameof(this.AutoScalingGroupName)))
+            if (this.SyncSource == null && ParameterWasBound(nameof(this.SyncSource)))
             {
-                WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SyncSource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TargetGroupARNs != null)
-            {
-                context.TargetGroupARNs = new List<System.String>(this.TargetGroupARNs);
-            }
+            context.WorkspaceId = this.WorkspaceId;
             #if MODULAR
-            if (this.TargetGroupARNs == null && ParameterWasBound(nameof(this.TargetGroupARNs)))
+            if (this.WorkspaceId == null && ParameterWasBound(nameof(this.WorkspaceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TargetGroupARNs which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter WorkspaceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -192,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsRequest();
+            var request = new Amazon.IoTTwinMaker.Model.DeleteSyncJobRequest();
             
-            if (cmdletContext.AutoScalingGroupName != null)
+            if (cmdletContext.SyncSource != null)
             {
-                request.AutoScalingGroupName = cmdletContext.AutoScalingGroupName;
+                request.SyncSource = cmdletContext.SyncSource;
             }
-            if (cmdletContext.TargetGroupARNs != null)
+            if (cmdletContext.WorkspaceId != null)
             {
-                request.TargetGroupARNs = cmdletContext.TargetGroupARNs;
+                request.WorkspaceId = cmdletContext.WorkspaceId;
             }
             
             CmdletOutput output;
@@ -235,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsRequest request)
+        private Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse CallAWSServiceOperation(IAmazonIoTTwinMaker client, Amazon.IoTTwinMaker.Model.DeleteSyncJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "AttachLoadBalancerTargetGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT TwinMaker", "DeleteSyncJob");
             try
             {
                 #if DESKTOP
-                return client.AttachLoadBalancerTargetGroups(request);
+                return client.DeleteSyncJob(request);
                 #elif CORECLR
-                return client.AttachLoadBalancerTargetGroupsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteSyncJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -263,10 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AutoScalingGroupName { get; set; }
-            public List<System.String> TargetGroupARNs { get; set; }
-            public System.Func<Amazon.AutoScaling.Model.AttachLoadBalancerTargetGroupsResponse, AddASLoadBalancerTargetGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String SyncSource { get; set; }
+            public System.String WorkspaceId { get; set; }
+            public System.Func<Amazon.IoTTwinMaker.Model.DeleteSyncJobResponse, RemoveIOTTMSyncJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.State;
         }
         
     }

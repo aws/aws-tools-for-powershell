@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MHSCollectorList', 
         'Get-MHSImportFileTask', 
         'Get-MHSImportFileTaskList', 
+        'Get-MHSLatestAssessmentId', 
         'Get-MHSPortfolioPreference', 
         'Get-MHSPortfolioSummary', 
         'Get-MHSRecommendationReportDetail', 

@@ -187,9 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking
         /// the health status of an EC2 instance that has come into service and marking it unhealthy
-        /// due to a failed Elastic Load Balancing or custom health check. This is useful if your
-        /// instances do not immediately pass these health checks after they enter the <code>InService</code>
-        /// state. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set
+        /// due to a failed health check. This is useful if your instances do not immediately
+        /// pass their health checks after they enter the <code>InService</code> state. For more
+        /// information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set
         /// the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto
         /// Scaling User Guide</i>.</para><para>Default: <code>0</code> seconds</para>
         /// </para>
@@ -201,11 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HealthCheckType
         /// <summary>
         /// <para>
-        /// <para>The service to use for the health checks. The valid values are <code>EC2</code> (default)
-        /// and <code>ELB</code>. If you configure an Auto Scaling group to use load balancer
-        /// (ELB) health checks, it considers the instance unhealthy if it fails either the EC2
-        /// status checks or the load balancer health checks. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-        /// checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// <para>Determines whether any additional health checks are performed on the instances in
+        /// this group. Amazon EC2 health checks are always on. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
+        /// checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>.
+        /// The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice,
+        /// which is in preview release and is subject to change.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -411,10 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TargetGroupARNs
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling
-        /// group. Instances are registered as targets with the target groups. The target groups
-        /// receive incoming traffic and route requests to one or more registered targets. For
-        /// more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
+        /// <para>The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate
+        /// with the Auto Scaling group. Instances are registered as targets with the target groups.
+        /// The target groups receive incoming traffic and route requests to one or more registered
+        /// targets. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use
         /// Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling
         /// group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -438,6 +438,22 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TerminationPolicies")]
         public System.String[] TerminationPolicy { get; set; }
+        #endregion
+        
+        #region Parameter TrafficSource
+        /// <summary>
+        /// <para>
+        /// <para><b>Reserved for use with Amazon VPC Lattice, which is in preview release and is subject
+        /// to change. Do not use this parameter for production workloads. It is also subject
+        /// to change.</b></para><para>The unique identifiers of one or more traffic sources.</para><para>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice
+        /// target group. Amazon EC2 Auto Scaling registers the running instances with the attached
+        /// target groups. The target groups receive incoming traffic and route requests to one
+        /// or more registered targets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrafficSources")]
+        public Amazon.AutoScaling.Model.TrafficSourceIdentifier[] TrafficSource { get; set; }
         #endregion
         
         #region Parameter LaunchTemplate_Version
@@ -593,6 +609,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.TerminationPolicy = new List<System.String>(this.TerminationPolicy);
             }
+            if (this.TrafficSource != null)
+            {
+                context.TrafficSource = new List<Amazon.AutoScaling.Model.TrafficSourceIdentifier>(this.TrafficSource);
+            }
             context.VPCZoneIdentifier = this.VPCZoneIdentifier;
             
             // allow further manipulation of loaded context prior to processing
@@ -745,6 +765,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.TerminationPolicies = cmdletContext.TerminationPolicy;
             }
+            if (cmdletContext.TrafficSource != null)
+            {
+                request.TrafficSources = cmdletContext.TrafficSource;
+            }
             if (cmdletContext.VPCZoneIdentifier != null)
             {
                 request.VPCZoneIdentifier = cmdletContext.VPCZoneIdentifier;
@@ -837,6 +861,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public List<Amazon.AutoScaling.Model.Tag> Tag { get; set; }
             public List<System.String> TargetGroupARNs { get; set; }
             public List<System.String> TerminationPolicy { get; set; }
+            public List<Amazon.AutoScaling.Model.TrafficSourceIdentifier> TrafficSource { get; set; }
             public System.String VPCZoneIdentifier { get; set; }
             public System.Func<Amazon.AutoScaling.Model.CreateAutoScalingGroupResponse, NewASAutoScalingGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

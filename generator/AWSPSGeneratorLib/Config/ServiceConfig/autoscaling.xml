@@ -50,6 +50,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AttachTrafficSources" Verb="Add" Noun="TrafficSource" ShouldProcessTarget="TrafficSources" PipelineParameter="TrafficSources" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteScheduledAction" OutputProperty="FailedScheduledActions" Verb="Remove" Noun="ScheduledActionBatch" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -193,6 +197,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrafficSources" OutputProperty="TrafficSources" Verb="Get" Noun="TrafficSource" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeWarmPool" OutputProperty="*" Verb="Get" Noun="WarmPool" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -206,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Verb="Dismount" Noun="LoadBalancerTargetGroup" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachTrafficSources" Verb="Dismount" Noun="TrafficSource" ShouldProcessTarget="TrafficSources" PipelineParameter="TrafficSources" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1662,6 +1662,9 @@ Set-Alias -Name AS-AttachLoadBalancers -Value Add-ASLoadBalancer
 Set-Alias -Name Attach-ASLoadBalancerTargetGroups -Value Add-ASLoadBalancerTargetGroup
 Set-Alias -Name Attach-ASLoadBalancerTargetGroup -Value Add-ASLoadBalancerTargetGroup
 Set-Alias -Name AS-AttachLoadBalancerTargetGroups -Value Add-ASLoadBalancerTargetGroup
+Set-Alias -Name Attach-ASTrafficSources -Value Add-ASTrafficSource
+Set-Alias -Name Attach-ASTrafficSource -Value Add-ASTrafficSource
+Set-Alias -Name AS-AttachTrafficSources -Value Add-ASTrafficSource
 Set-Alias -Name Batch-ASDeleteScheduledAction -Value Remove-ASScheduledActionBatch
 Set-Alias -Name Batch-ASScheduledActionBatch -Value Remove-ASScheduledActionBatch
 Set-Alias -Name AS-BatchDeleteScheduledAction -Value Remove-ASScheduledActionBatch
@@ -1752,6 +1755,9 @@ Set-Alias -Name AS-DescribeTags -Value Get-ASTag
 Set-Alias -Name Describe-ASTerminationPolicyTypes -Value Get-ASTerminationPolicyType
 Set-Alias -Name Describe-ASTerminationPolicyType -Value Get-ASTerminationPolicyType
 Set-Alias -Name AS-DescribeTerminationPolicyTypes -Value Get-ASTerminationPolicyType
+Set-Alias -Name Describe-ASTrafficSources -Value Get-ASTrafficSource
+Set-Alias -Name Describe-ASTrafficSource -Value Get-ASTrafficSource
+Set-Alias -Name AS-DescribeTrafficSources -Value Get-ASTrafficSource
 Set-Alias -Name Describe-ASWarmPool -Value Get-ASWarmPool
 Set-Alias -Name AS-DescribeWarmPool -Value Get-ASWarmPool
 Set-Alias -Name Detach-ASInstances -Value Dismount-ASInstance
@@ -1763,6 +1769,9 @@ Set-Alias -Name AS-DetachLoadBalancers -Value Dismount-ASLoadBalancer
 Set-Alias -Name Detach-ASLoadBalancerTargetGroups -Value Dismount-ASLoadBalancerTargetGroup
 Set-Alias -Name Detach-ASLoadBalancerTargetGroup -Value Dismount-ASLoadBalancerTargetGroup
 Set-Alias -Name AS-DetachLoadBalancerTargetGroups -Value Dismount-ASLoadBalancerTargetGroup
+Set-Alias -Name Detach-ASTrafficSources -Value Dismount-ASTrafficSource
+Set-Alias -Name Detach-ASTrafficSource -Value Dismount-ASTrafficSource
+Set-Alias -Name AS-DetachTrafficSources -Value Dismount-ASTrafficSource
 Set-Alias -Name AS-DisableMetricsCollection -Value Disable-ASMetricsCollection
 Set-Alias -Name AS-EnableMetricsCollection -Value Enable-ASMetricsCollection
 Set-Alias -Name AS-EnterStandby -Value Enter-ASStandby
@@ -13117,6 +13126,8 @@ Set-Alias -Name Create-IOTTMEntity -Value New-IOTTMEntity
 Set-Alias -Name IOTTM-CreateEntity -Value New-IOTTMEntity
 Set-Alias -Name Create-IOTTMScene -Value New-IOTTMScene
 Set-Alias -Name IOTTM-CreateScene -Value New-IOTTMScene
+Set-Alias -Name Create-IOTTMSyncJob -Value New-IOTTMSyncJob
+Set-Alias -Name IOTTM-CreateSyncJob -Value New-IOTTMSyncJob
 Set-Alias -Name Create-IOTTMWorkspace -Value New-IOTTMWorkspace
 Set-Alias -Name IOTTM-CreateWorkspace -Value New-IOTTMWorkspace
 Set-Alias -Name Delete-IOTTMComponentType -Value Remove-IOTTMComponentType
@@ -13125,6 +13136,8 @@ Set-Alias -Name Delete-IOTTMEntity -Value Remove-IOTTMEntity
 Set-Alias -Name IOTTM-DeleteEntity -Value Remove-IOTTMEntity
 Set-Alias -Name Delete-IOTTMScene -Value Remove-IOTTMScene
 Set-Alias -Name IOTTM-DeleteScene -Value Remove-IOTTMScene
+Set-Alias -Name Delete-IOTTMSyncJob -Value Remove-IOTTMSyncJob
+Set-Alias -Name IOTTM-DeleteSyncJob -Value Remove-IOTTMSyncJob
 Set-Alias -Name Delete-IOTTMWorkspace -Value Remove-IOTTMWorkspace
 Set-Alias -Name IOTTM-DeleteWorkspace -Value Remove-IOTTMWorkspace
 Set-Alias -Name Execute-IOTTMQuery -Value Invoke-IOTTMQuery
@@ -13135,6 +13148,7 @@ Set-Alias -Name IOTTM-GetPricingPlan -Value Get-IOTTMPricingPlan
 Set-Alias -Name IOTTM-GetPropertyValue -Value Get-IOTTMPropertyValue
 Set-Alias -Name IOTTM-GetPropertyValueHistory -Value Get-IOTTMPropertyValueHistory
 Set-Alias -Name IOTTM-GetScene -Value Get-IOTTMScene
+Set-Alias -Name IOTTM-GetSyncJob -Value Get-IOTTMSyncJob
 Set-Alias -Name IOTTM-GetWorkspace -Value Get-IOTTMWorkspace
 Set-Alias -Name List-IOTTMComponentTypes -Value Get-IOTTMComponentTypeList
 Set-Alias -Name List-IOTTMComponentTypeList -Value Get-IOTTMComponentTypeList
@@ -13145,6 +13159,12 @@ Set-Alias -Name IOTTM-ListEntities -Value Get-IOTTMEntityList
 Set-Alias -Name List-IOTTMScenes -Value Get-IOTTMSceneList
 Set-Alias -Name List-IOTTMSceneList -Value Get-IOTTMSceneList
 Set-Alias -Name IOTTM-ListScenes -Value Get-IOTTMSceneList
+Set-Alias -Name List-IOTTMSyncJobs -Value Get-IOTTMSyncJobList
+Set-Alias -Name List-IOTTMSyncJobList -Value Get-IOTTMSyncJobList
+Set-Alias -Name IOTTM-ListSyncJobs -Value Get-IOTTMSyncJobList
+Set-Alias -Name List-IOTTMSyncResources -Value Get-IOTTMSyncResourceList
+Set-Alias -Name List-IOTTMSyncResourceList -Value Get-IOTTMSyncResourceList
+Set-Alias -Name IOTTM-ListSyncResources -Value Get-IOTTMSyncResourceList
 Set-Alias -Name IOTTM-ListTagsForResource -Value Get-IOTTMResourceTag
 Set-Alias -Name List-IOTTMWorkspaces -Value Get-IOTTMWorkspaceList
 Set-Alias -Name List-IOTTMWorkspaceList -Value Get-IOTTMWorkspaceList
@@ -16024,6 +16044,7 @@ Set-Alias -Name Get-MHSApplicationComponentStrategies -Value Get-MHSApplicationC
 Set-Alias -Name MHS-GetApplicationComponentStrategies -Value Get-MHSApplicationComponentStrategy
 Set-Alias -Name MHS-GetAssessment -Value Get-MHSAssessment
 Set-Alias -Name MHS-GetImportFileTask -Value Get-MHSImportFileTask
+Set-Alias -Name MHS-GetLatestAssessmentId -Value Get-MHSLatestAssessmentId
 Set-Alias -Name Get-MHSPortfolioPreferences -Value Get-MHSPortfolioPreference
 Set-Alias -Name MHS-GetPortfolioPreferences -Value Get-MHSPortfolioPreference
 Set-Alias -Name MHS-GetPortfolioSummary -Value Get-MHSPortfolioSummary

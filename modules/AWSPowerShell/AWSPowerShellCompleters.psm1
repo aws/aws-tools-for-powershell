@@ -4513,6 +4513,7 @@ $AS_SelectMap = @{
     "Select"=@("Mount-ASInstance",
                "Add-ASLoadBalancer",
                "Add-ASLoadBalancerTargetGroup",
+               "Add-ASTrafficSource",
                "Remove-ASScheduledActionBatch",
                "Set-ASScheduledUpdateGroupActionBatch",
                "Stop-ASInstanceRefresh",
@@ -4547,10 +4548,12 @@ $AS_SelectMap = @{
                "Get-ASScheduledAction",
                "Get-ASTag",
                "Get-ASTerminationPolicyType",
+               "Get-ASTrafficSource",
                "Get-ASWarmPool",
                "Dismount-ASInstance",
                "Dismount-ASLoadBalancer",
                "Dismount-ASLoadBalancerTargetGroup",
+               "Dismount-ASTrafficSource",
                "Disable-ASMetricsCollection",
                "Enable-ASMetricsCollection",
                "Enter-ASStandby",
@@ -29450,10 +29453,12 @@ $IOTTM_SelectMap = @{
                "New-IOTTMComponentType",
                "New-IOTTMEntity",
                "New-IOTTMScene",
+               "New-IOTTMSyncJob",
                "New-IOTTMWorkspace",
                "Remove-IOTTMComponentType",
                "Remove-IOTTMEntity",
                "Remove-IOTTMScene",
+               "Remove-IOTTMSyncJob",
                "Remove-IOTTMWorkspace",
                "Invoke-IOTTMQuery",
                "Get-IOTTMComponentType",
@@ -29462,10 +29467,13 @@ $IOTTM_SelectMap = @{
                "Get-IOTTMPropertyValue",
                "Get-IOTTMPropertyValueHistory",
                "Get-IOTTMScene",
+               "Get-IOTTMSyncJob",
                "Get-IOTTMWorkspace",
                "Get-IOTTMComponentTypeList",
                "Get-IOTTMEntityList",
                "Get-IOTTMSceneList",
+               "Get-IOTTMSyncJobList",
+               "Get-IOTTMSyncResourceList",
                "Get-IOTTMResourceTag",
                "Get-IOTTMWorkspaceList",
                "Add-IOTTMResourceTag",
@@ -37007,7 +37015,21 @@ $MHS_Completers = {
         # Amazon.MigrationHubStrategyRecommendations.ApplicationComponentCriteria
         "Get-MHSApplicationComponentList/ApplicationComponentCriteria"
         {
-            $v = "APP_NAME","APP_TYPE","DESTINATION","NOT_DEFINED","SERVER_ID","STRATEGY"
+            $v = "ANALYSIS_STATUS","APP_NAME","APP_TYPE","DESTINATION","ERROR_CATEGORY","NOT_DEFINED","SERVER_ID","STRATEGY"
+            break
+        }
+
+        # Amazon.MigrationHubStrategyRecommendations.ApplicationMode
+        "Write-MHSPortfolioPreference/ApplicationMode"
+        {
+            $v = "ALL","KNOWN","UNKNOWN"
+            break
+        }
+
+        # Amazon.MigrationHubStrategyRecommendations.AppType
+        "Update-MHSApplicationComponentConfig/AppType"
+        {
+            $v = "Cassandra","DB2","Dotnet","DotnetCore","DotNetFramework","IBM WebSphere","IIS","Java","JBoss","Maria DB","Mongo DB","MySQL","Oracle","Oracle WebLogic","Other","PostgreSQLServer","Spring","SQLServer","Sybase","Tomcat","Unknown","Visual Basic"
             break
         }
 
@@ -37042,7 +37064,7 @@ $MHS_Completers = {
         # Amazon.MigrationHubStrategyRecommendations.ServerCriteria
         "Get-MHSServerList/ServerCriteria"
         {
-            $v = "DESTINATION","NOT_DEFINED","OS_NAME","SERVER_ID","STRATEGY"
+            $v = "ANALYSIS_STATUS","DESTINATION","ERROR_CATEGORY","NOT_DEFINED","OS_NAME","SERVER_ID","STRATEGY"
             break
         }
 
@@ -37072,7 +37094,7 @@ $MHS_Completers = {
             ($_ -eq "Update-MHSServerConfig/StrategyOption_TargetDestination")
         }
         {
-            $v = "Amazon DocumentDB","Amazon DynamoDB","Amazon Elastic Cloud Compute (EC2)","Amazon Elastic Container Service (ECS)","Amazon Elastic Kubernetes Service (EKS)","Amazon Relational Database Service","Amazon Relational Database Service on MySQL","Amazon Relational Database Service on PostgreSQL","Aurora MySQL","Aurora PostgreSQL","AWS Elastic BeanStalk","AWS Fargate","None specified"
+            $v = "Amazon DocumentDB","Amazon DynamoDB","Amazon Elastic Cloud Compute (EC2)","Amazon Elastic Container Service (ECS)","Amazon Elastic Kubernetes Service (EKS)","Amazon Relational Database Service","Amazon Relational Database Service on MySQL","Amazon Relational Database Service on PostgreSQL","Aurora MySQL","Aurora PostgreSQL","AWS Elastic BeanStalk","AWS Fargate","Babelfish for Aurora PostgreSQL","None specified"
             break
         }
 
@@ -37096,6 +37118,8 @@ $MHS_Completers = {
 
 $MHS_map = @{
     "ApplicationComponentCriteria"=@("Get-MHSApplicationComponentList")
+    "ApplicationMode"=@("Write-MHSPortfolioPreference")
+    "AppType"=@("Update-MHSApplicationComponentConfig")
     "DatabasePreferences_DatabaseManagementPreference"=@("Write-MHSPortfolioPreference")
     "DataSourceType"=@("Start-MHSImportFileTask")
     "InclusionStatus"=@("Update-MHSApplicationComponentConfig")
@@ -37161,6 +37185,7 @@ $MHS_SelectMap = @{
                "Get-MHSApplicationComponentStrategy",
                "Get-MHSAssessment",
                "Get-MHSImportFileTask",
+               "Get-MHSLatestAssessmentId",
                "Get-MHSPortfolioPreference",
                "Get-MHSPortfolioSummary",
                "Get-MHSRecommendationReportDetail",
