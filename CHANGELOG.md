@@ -1,4 +1,9 @@
-﻿### 4.1.226 (2022-12-08 21:51Z)
+﻿### 4.1.227 (2022-12-09 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.437.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet Update-EMLInputDevice: added parameters HdDeviceSettings_LatencyMs and UhdDeviceSettings_LatencyMs.
+
+### 4.1.226 (2022-12-08 21:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.436.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Auto Scaling
     * Added cmdlet Add-ASTrafficSource leveraging the AttachTrafficSources service API.

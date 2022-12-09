@@ -85,6 +85,28 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String InputDeviceId { get; set; }
         #endregion
         
+        #region Parameter HdDeviceSettings_LatencyMs
+        /// <summary>
+        /// <para>
+        /// The Link device's buffer size (latency) in milliseconds
+        /// (ms).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? HdDeviceSettings_LatencyMs { get; set; }
+        #endregion
+        
+        #region Parameter UhdDeviceSettings_LatencyMs
+        /// <summary>
+        /// <para>
+        /// The Link device's buffer size (latency) in milliseconds
+        /// (ms).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? UhdDeviceSettings_LatencyMs { get; set; }
+        #endregion
+        
         #region Parameter HdDeviceSettings_MaxBitrate
         /// <summary>
         /// <para>
@@ -181,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.HdDeviceSettings_ConfiguredInput = this.HdDeviceSettings_ConfiguredInput;
+            context.HdDeviceSettings_LatencyMs = this.HdDeviceSettings_LatencyMs;
             context.HdDeviceSettings_MaxBitrate = this.HdDeviceSettings_MaxBitrate;
             context.InputDeviceId = this.InputDeviceId;
             #if MODULAR
@@ -191,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             #endif
             context.Name = this.Name;
             context.UhdDeviceSettings_ConfiguredInput = this.UhdDeviceSettings_ConfiguredInput;
+            context.UhdDeviceSettings_LatencyMs = this.UhdDeviceSettings_LatencyMs;
             context.UhdDeviceSettings_MaxBitrate = this.UhdDeviceSettings_MaxBitrate;
             
             // allow further manipulation of loaded context prior to processing
@@ -220,6 +244,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestHdDeviceSettings_hdDeviceSettings_ConfiguredInput != null)
             {
                 request.HdDeviceSettings.ConfiguredInput = requestHdDeviceSettings_hdDeviceSettings_ConfiguredInput;
+                requestHdDeviceSettingsIsNull = false;
+            }
+            System.Int32? requestHdDeviceSettings_hdDeviceSettings_LatencyMs = null;
+            if (cmdletContext.HdDeviceSettings_LatencyMs != null)
+            {
+                requestHdDeviceSettings_hdDeviceSettings_LatencyMs = cmdletContext.HdDeviceSettings_LatencyMs.Value;
+            }
+            if (requestHdDeviceSettings_hdDeviceSettings_LatencyMs != null)
+            {
+                request.HdDeviceSettings.LatencyMs = requestHdDeviceSettings_hdDeviceSettings_LatencyMs.Value;
                 requestHdDeviceSettingsIsNull = false;
             }
             System.Int32? requestHdDeviceSettings_hdDeviceSettings_MaxBitrate = null;
@@ -257,6 +291,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput != null)
             {
                 request.UhdDeviceSettings.ConfiguredInput = requestUhdDeviceSettings_uhdDeviceSettings_ConfiguredInput;
+                requestUhdDeviceSettingsIsNull = false;
+            }
+            System.Int32? requestUhdDeviceSettings_uhdDeviceSettings_LatencyMs = null;
+            if (cmdletContext.UhdDeviceSettings_LatencyMs != null)
+            {
+                requestUhdDeviceSettings_uhdDeviceSettings_LatencyMs = cmdletContext.UhdDeviceSettings_LatencyMs.Value;
+            }
+            if (requestUhdDeviceSettings_uhdDeviceSettings_LatencyMs != null)
+            {
+                request.UhdDeviceSettings.LatencyMs = requestUhdDeviceSettings_uhdDeviceSettings_LatencyMs.Value;
                 requestUhdDeviceSettingsIsNull = false;
             }
             System.Int32? requestUhdDeviceSettings_uhdDeviceSettings_MaxBitrate = null;
@@ -336,10 +380,12 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.MediaLive.InputDeviceConfiguredInput HdDeviceSettings_ConfiguredInput { get; set; }
+            public System.Int32? HdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? HdDeviceSettings_MaxBitrate { get; set; }
             public System.String InputDeviceId { get; set; }
             public System.String Name { get; set; }
             public Amazon.MediaLive.InputDeviceConfiguredInput UhdDeviceSettings_ConfiguredInput { get; set; }
+            public System.Int32? UhdDeviceSettings_LatencyMs { get; set; }
             public System.Int32? UhdDeviceSettings_MaxBitrate { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateInputDeviceResponse, UpdateEMLInputDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
