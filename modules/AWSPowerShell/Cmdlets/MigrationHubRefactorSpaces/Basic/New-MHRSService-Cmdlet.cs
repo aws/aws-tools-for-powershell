@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter LambdaEndpoint_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Lambda endpoint. </para>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function or alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

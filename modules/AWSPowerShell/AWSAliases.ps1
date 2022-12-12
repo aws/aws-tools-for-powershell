@@ -13807,6 +13807,8 @@ Set-Alias -Name Delete-KVSignalingChannel -Value Remove-KVSignalingChannel
 Set-Alias -Name KV-DeleteSignalingChannel -Value Remove-KVSignalingChannel
 Set-Alias -Name Delete-KVStream -Value Remove-KVStream
 Set-Alias -Name KV-DeleteStream -Value Remove-KVStream
+Set-Alias -Name Describe-KVEdgeConfiguration -Value Get-KVEdgeConfiguration
+Set-Alias -Name KV-DescribeEdgeConfiguration -Value Get-KVEdgeConfiguration
 Set-Alias -Name Describe-KVImageGenerationConfiguration -Value Get-KVImageGenerationConfiguration
 Set-Alias -Name KV-DescribeImageGenerationConfiguration -Value Get-KVImageGenerationConfiguration
 Set-Alias -Name Describe-KVNotificationConfiguration -Value Get-KVNotificationConfiguration
@@ -13827,6 +13829,7 @@ Set-Alias -Name KV-ListTagsForResource -Value Get-KVResourceTag
 Set-Alias -Name List-KVTagsForStream -Value Get-KVTagsForStreamList
 Set-Alias -Name List-KVTagsForStreamList -Value Get-KVTagsForStreamList
 Set-Alias -Name KV-ListTagsForStream -Value Get-KVTagsForStreamList
+Set-Alias -Name KV-StartEdgeConfigurationUpdate -Value Start-KVEdgeConfigurationUpdate
 Set-Alias -Name KV-TagResource -Value Add-KVResourceTag
 Set-Alias -Name Tag-KVStream -Value Add-KVStreamTag
 Set-Alias -Name Tag-KVStreamTag -Value Add-KVStreamTag
@@ -21222,6 +21225,9 @@ Set-Alias -Name SMGS-StopEarthObservationJob -Value Stop-SMGSEarthObservationJob
 Set-Alias -Name SMGS-StopVectorEnrichmentJob -Value Stop-SMGSVectorEnrichmentJob
 Set-Alias -Name SMGS-TagResource -Value Add-SMGSResourceTag
 Set-Alias -Name SMGS-UntagResource -Value Remove-SMGSResourceTag
+Set-Alias -Name Batch-SMMPutMetrics -Value Add-SMMMetric
+Set-Alias -Name Batch-SMMMetric -Value Add-SMMMetric
+Set-Alias -Name SMM-BatchPutMetrics -Value Add-SMMMetric
 Set-Alias -Name Create-SPSavingsPlan -Value New-SPSavingsPlan
 Set-Alias -Name SP-CreateSavingsPlan -Value New-SPSavingsPlan
 Set-Alias -Name Delete-SPQueuedSavingsPlan -Value Remove-SPQueuedSavingsPlan

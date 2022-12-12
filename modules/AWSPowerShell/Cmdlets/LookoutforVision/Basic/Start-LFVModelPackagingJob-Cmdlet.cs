@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LFV
     /// API.
     /// </para><para>
     /// This operation requires the following permissions:
-    /// </para><ul><li><para><code>lookoutvision:StartModelPackagingJob</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>greengrass:CreateComponentVersion</code></para></li><li><para><code>greengrass:DescribeComponent</code></para></li><li><para>
+    /// </para><ul><li><para><code>lookoutvision:StartModelPackagingJob</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>kms:GenerateDataKey</code></para></li><li><para><code>greengrass:CreateComponentVersion</code></para></li><li><para><code>greengrass:DescribeComponent</code></para></li><li><para>
     /// (Optional) <code>greengrass:TagResource</code>. Only required if you want to tag the
     /// component.
     /// </para></li></ul><para>

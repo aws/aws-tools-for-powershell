@@ -446,6 +446,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public Amazon.CustomerProfiles.Gender Gender { get; set; }
         #endregion
         
+        #region Parameter GenderString
+        /// <summary>
+        /// <para>
+        /// <para>An alternative to <code>Gender</code> which accepts any string as input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenderString { get; set; }
+        #endregion
+        
         #region Parameter HomePhoneNumber
         /// <summary>
         /// <para>
@@ -495,6 +505,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CustomerProfiles.PartyType")]
         public Amazon.CustomerProfiles.PartyType PartyType { get; set; }
+        #endregion
+        
+        #region Parameter PartyTypeString
+        /// <summary>
+        /// <para>
+        /// <para>An alternative to <code>PartyType</code> which accepts any string as input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PartyTypeString { get; set; }
         #endregion
         
         #region Parameter PersonalEmailAddress
@@ -744,6 +764,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.EmailAddress = this.EmailAddress;
             context.FirstName = this.FirstName;
             context.Gender = this.Gender;
+            context.GenderString = this.GenderString;
             context.HomePhoneNumber = this.HomePhoneNumber;
             context.LastName = this.LastName;
             context.MailingAddress_Address1 = this.MailingAddress_Address1;
@@ -759,6 +780,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             context.MiddleName = this.MiddleName;
             context.MobilePhoneNumber = this.MobilePhoneNumber;
             context.PartyType = this.PartyType;
+            context.PartyTypeString = this.PartyTypeString;
             context.PersonalEmailAddress = this.PersonalEmailAddress;
             context.PhoneNumber = this.PhoneNumber;
             context.ShippingAddress_Address1 = this.ShippingAddress_Address1;
@@ -1049,6 +1071,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.Gender = cmdletContext.Gender;
             }
+            if (cmdletContext.GenderString != null)
+            {
+                request.GenderString = cmdletContext.GenderString;
+            }
             if (cmdletContext.HomePhoneNumber != null)
             {
                 request.HomePhoneNumber = cmdletContext.HomePhoneNumber;
@@ -1177,6 +1203,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.PartyType != null)
             {
                 request.PartyType = cmdletContext.PartyType;
+            }
+            if (cmdletContext.PartyTypeString != null)
+            {
+                request.PartyTypeString = cmdletContext.PartyTypeString;
             }
             if (cmdletContext.PersonalEmailAddress != null)
             {
@@ -1387,6 +1417,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String EmailAddress { get; set; }
             public System.String FirstName { get; set; }
             public Amazon.CustomerProfiles.Gender Gender { get; set; }
+            public System.String GenderString { get; set; }
             public System.String HomePhoneNumber { get; set; }
             public System.String LastName { get; set; }
             public System.String MailingAddress_Address1 { get; set; }
@@ -1402,6 +1433,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.String MiddleName { get; set; }
             public System.String MobilePhoneNumber { get; set; }
             public Amazon.CustomerProfiles.PartyType PartyType { get; set; }
+            public System.String PartyTypeString { get; set; }
             public System.String PersonalEmailAddress { get; set; }
             public System.String PhoneNumber { get; set; }
             public System.String ShippingAddress_Address1 { get; set; }

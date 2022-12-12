@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-metrics</C2jFilename>
+    <AssemblyName>SageMakerMetrics</AssemblyName>
+    <ServiceNounPrefix>SMM</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Metrics Service</ServiceName>
+    <ServiceClientInterface>IAmazonSageMakerMetrics</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerMetricsClient</ServiceClient>
+    <ServiceModuleGuid>e3953448-672b-4d94-99b1-49806e5cd843</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchPutMetrics" OutputProperty="Errors" Verb="Add" Noun="Metric" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

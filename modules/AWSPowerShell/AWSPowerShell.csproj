@@ -880,6 +880,9 @@
     <Reference Include="AWSSDK.SageMakerGeospatial">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerGeospatial.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SageMakerMetrics">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerMetrics.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
@@ -1859,6 +1862,9 @@
     </Reference>
     <Reference Include="AWSSDK.SageMakerGeospatial">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerGeospatial.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SageMakerMetrics">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerMetrics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMakerRuntime.dll</HintPath>

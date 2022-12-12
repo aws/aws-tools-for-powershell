@@ -1,4 +1,19 @@
-﻿### 4.1.227 (2022-12-09 21:47Z)
+﻿### 4.1.228 (2022-12-12 22:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.438.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet New-CPFProfile: added parameters GenderString and PartyTypeString.
+    * Modified cmdlet Update-CPFProfile: added parameters GenderString and PartyTypeString.
+  * Amazon Kinesis Video Streams
+    * Added cmdlet Get-KVEdgeConfiguration leveraging the DescribeEdgeConfiguration service API.
+    * Added cmdlet Start-KVEdgeConfigurationUpdate leveraging the StartEdgeConfigurationUpdate service API.
+  * Amazon Rekognition
+    * Modified cmdlet Get-REKLabelDetection: added parameter AggregateBy.
+    * Modified cmdlet Start-REKLabelDetection: added parameters Feature, GeneralLabels_LabelCategoryExclusionFilter, GeneralLabels_LabelCategoryInclusionFilter, GeneralLabels_LabelExclusionFilter and GeneralLabels_LabelInclusionFilter.
+  * Amazon Relational Database Service
+    * Modified cmdlet Copy-RDSDBSnapshot: added parameter CopyOptionGroup.
+  * Amazon SageMaker Metrics Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SMM and can be listed using the command 'Get-AWSCmdletName -Service SMM'.
+
+### 4.1.227 (2022-12-09 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.437.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elemental MediaLive
     * Modified cmdlet Update-EMLInputDevice: added parameters HdDeviceSettings_LatencyMs and UhdDeviceSettings_LatencyMs.

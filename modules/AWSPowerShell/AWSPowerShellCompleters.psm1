@@ -31218,6 +31218,20 @@ $KV_Completers = {
             break
         }
 
+        # Amazon.KinesisVideo.MediaUriType
+        "Start-KVEdgeConfigurationUpdate/EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType"
+        {
+            $v = "FILE_URI","RTSP_URI"
+            break
+        }
+
+        # Amazon.KinesisVideo.StrategyOnFullSize
+        "Start-KVEdgeConfigurationUpdate/EdgeConfig_DeletionConfig_LocalSizeConfig_StrategyOnFullSize"
+        {
+            $v = "DELETE_OLDEST_MEDIA","DENY_NEW_MEDIA"
+            break
+        }
+
         # Amazon.KinesisVideo.UpdateDataRetentionOperation
         "Update-KVDataRetention/Operation"
         {
@@ -31237,6 +31251,8 @@ $KV_map = @{
     "APIName"=@("Get-KVDataEndpoint")
     "ChannelNameCondition_ComparisonOperator"=@("Get-KVSignalingChannelList")
     "ChannelType"=@("New-KVSignalingChannel")
+    "EdgeConfig_DeletionConfig_LocalSizeConfig_StrategyOnFullSize"=@("Start-KVEdgeConfigurationUpdate")
+    "EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType"=@("Start-KVEdgeConfigurationUpdate")
     "ImageGenerationConfiguration_Format"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_ImageSelectorType"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_Status"=@("Update-KVImageGenerationConfiguration")
@@ -31299,6 +31315,7 @@ $KV_SelectMap = @{
                "New-KVStream",
                "Remove-KVSignalingChannel",
                "Remove-KVStream",
+               "Get-KVEdgeConfiguration",
                "Get-KVImageGenerationConfiguration",
                "Get-KVNotificationConfiguration",
                "Get-KVSignalingChannel",
@@ -31309,6 +31326,7 @@ $KV_SelectMap = @{
                "Get-KVStreamList",
                "Get-KVResourceTag",
                "Get-KVTagsForStreamList",
+               "Start-KVEdgeConfigurationUpdate",
                "Add-KVResourceTag",
                "Add-KVStreamTag",
                "Remove-KVResourceTag",
@@ -44534,6 +44552,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.LabelDetectionAggregateBy
+        "Get-REKLabelDetection/AggregateBy"
+        {
+            $v = "SEGMENTS","TIMESTAMPS"
+            break
+        }
+
         # Amazon.Rekognition.LabelDetectionSortBy
         "Get-REKLabelDetection/SortBy"
         {
@@ -44568,6 +44593,7 @@ $REK_Completers = {
 }
 
 $REK_map = @{
+    "AggregateBy"=@("Get-REKLabelDetection")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")
@@ -49483,6 +49509,61 @@ $SMGS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SMGS_SelectCompleters $SMGS_SelectMap
+# Argument completions for service Amazon SageMaker Metrics Service
+
+
+$SMM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SMM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMM_SelectMap = @{
+    "Select"=@("Add-SMMMetric")
+}
+
+_awsArgumentCompleterRegistration $SMM_SelectCompleters $SMM_SelectMap
 # Argument completions for service AWS Savings Plans
 
 

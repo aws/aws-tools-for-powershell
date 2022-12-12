@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEdgeConfiguration" OutputProperty="*" Verb="Get" Noun="EdgeConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeImageGenerationConfiguration" OutputProperty="ImageGenerationConfiguration" Verb="Get" Noun="ImageGenerationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -74,6 +78,15 @@
         <ServiceOperation MethodName="ListTagsForStream" OutputProperty="Tags" Verb="Get" Noun="TagsForStreamList" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartEdgeConfigurationUpdate" OutputProperty="*" Verb="Start" Noun="EdgeConfigurationUpdate" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EdgeConfig_RecorderConfig_ScheduleConfig_DurationInSeconds" NewName="EdgeConfig_RecorderConfig_ScheduleConfig_DurationInSeconds" />
+                <Param Name="EdgeConfig_RecorderConfig_ScheduleConfig_ScheduleExpression" NewName="EdgeConfig_RecorderConfig_ScheduleConfig_ScheduleExpression" />
+                <Param Name="EdgeConfig_UploaderConfig_ScheduleConfig_DurationInSeconds" NewName="EdgeConfig_UploaderConfig_ScheduleConfig_DurationInSeconds" />
+                <Param Name="EdgeConfig_UploaderConfig_ScheduleConfig_ScheduleExpression" NewName="EdgeConfig_UploaderConfig_ScheduleConfig_ScheduleExpression" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">

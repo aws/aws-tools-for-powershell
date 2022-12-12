@@ -53,11 +53,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class CopyRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter CopyOptionGroup
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to copy the DB option group associated with the source
+        /// DB snapshot to the target Amazon Web Services account and associate with the target
+        /// DB snapshot. The associated option group can be copied only with cross-account snapshot
+        /// copy calls.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopyOptionGroup { get; set; }
+        #endregion
+        
         #region Parameter CopyTag
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to copy all tags from the source DB snapshot to the
-        /// target DB snapshot. By default, tags are not copied.</para>
+        /// target DB snapshot. By default, tags aren't copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SourceRegion = this.SourceRegion;
+            context.CopyOptionGroup = this.CopyOptionGroup;
             context.CopyTag = this.CopyTag;
             context.KmsKeyId = this.KmsKeyId;
             context.OptionGroupName = this.OptionGroupName;
@@ -318,6 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceRegion != null)
             {
                 request.SourceRegion = cmdletContext.SourceRegion;
+            }
+            if (cmdletContext.CopyOptionGroup != null)
+            {
+                request.CopyOptionGroup = cmdletContext.CopyOptionGroup.Value;
             }
             if (cmdletContext.CopyTag != null)
             {
@@ -413,6 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceRegion { get; set; }
+            public System.Boolean? CopyOptionGroup { get; set; }
             public System.Boolean? CopyTag { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String OptionGroupName { get; set; }

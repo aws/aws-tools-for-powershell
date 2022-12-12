@@ -46,6 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// To get the results of the label detection operation, first check that the status value
     /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a>
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.
+    /// </para><para><i>Optional Parameters</i></para><para><code>StartLabelDetection</code> has the <code>GENERAL_LABELS</code> Feature applied
+    /// by default. This feature allows you to provide filtering criteria to the <code>Settings</code>
+    /// parameter. You can filter with sets of individual labels or with label categories.
+    /// You can specify inclusive filters, exclusive filters, or a combination of inclusive
+    /// and exclusive filters. For more information on filtering, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/labels-detecting-labels-video.html">Detecting
+    /// labels in a video</a>.
+    /// </para><para>
+    /// You can specify <code>MinConfidence</code> to control the confidence threshold for
+    /// the labels returned. The default is 50.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "REKLabelDetection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>The features to return after video analysis. You can specify that GENERAL_LABELS are
+        /// returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public System.String[] Feature { get; set; }
+        #endregion
+        
         #region Parameter JobTag
         /// <summary>
         /// <para>
@@ -83,6 +104,50 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String JobTag { get; set; }
         #endregion
         
+        #region Parameter GeneralLabels_LabelCategoryExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The label categories that should be excluded from the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelCategoryExclusionFilters")]
+        public System.String[] GeneralLabels_LabelCategoryExclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelCategoryInclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The label categories that should be included in the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelCategoryInclusionFilters")]
+        public System.String[] GeneralLabels_LabelCategoryInclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelExclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The labels that should be excluded from the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelExclusionFilters")]
+        public System.String[] GeneralLabels_LabelExclusionFilter { get; set; }
+        #endregion
+        
+        #region Parameter GeneralLabels_LabelInclusionFilter
+        /// <summary>
+        /// <para>
+        /// <para>The labels that should be included in the return from DetectLabels.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_GeneralLabels_LabelInclusionFilters")]
+        public System.String[] GeneralLabels_LabelInclusionFilter { get; set; }
+        #endregion
+        
         #region Parameter MinConfidence
         /// <summary>
         /// <para>
@@ -90,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// to return a detected label. Confidence represents how certain Amazon Rekognition is
         /// that a label is correctly identified.0 is the lowest confidence. 100 is the highest
         /// confidence. Amazon Rekognition Video doesn't return any labels with a confidence level
-        /// lower than this specified value.</para><para>If you don't specify <code>MinConfidence</code>, the operation returns labels with
-        /// confidence values greater than or equal to 50 percent.</para>
+        /// lower than this specified value.</para><para>If you don't specify <code>MinConfidence</code>, the operation returns labels and
+        /// bounding boxes (if detected) with confidence values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,10 +244,30 @@ namespace Amazon.PowerShell.Cmdlets.REK
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.Feature != null)
+            {
+                context.Feature = new List<System.String>(this.Feature);
+            }
             context.JobTag = this.JobTag;
             context.MinConfidence = this.MinConfidence;
             context.NotificationChannel_RoleArn = this.NotificationChannel_RoleArn;
             context.NotificationChannel_SNSTopicArn = this.NotificationChannel_SNSTopicArn;
+            if (this.GeneralLabels_LabelCategoryExclusionFilter != null)
+            {
+                context.GeneralLabels_LabelCategoryExclusionFilter = new List<System.String>(this.GeneralLabels_LabelCategoryExclusionFilter);
+            }
+            if (this.GeneralLabels_LabelCategoryInclusionFilter != null)
+            {
+                context.GeneralLabels_LabelCategoryInclusionFilter = new List<System.String>(this.GeneralLabels_LabelCategoryInclusionFilter);
+            }
+            if (this.GeneralLabels_LabelExclusionFilter != null)
+            {
+                context.GeneralLabels_LabelExclusionFilter = new List<System.String>(this.GeneralLabels_LabelExclusionFilter);
+            }
+            if (this.GeneralLabels_LabelInclusionFilter != null)
+            {
+                context.GeneralLabels_LabelInclusionFilter = new List<System.String>(this.GeneralLabels_LabelInclusionFilter);
+            }
             context.Video = this.Video;
             #if MODULAR
             if (this.Video == null && ParameterWasBound(nameof(this.Video)))
@@ -209,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
             }
             if (cmdletContext.JobTag != null)
             {
@@ -246,6 +335,70 @@ namespace Amazon.PowerShell.Cmdlets.REK
             if (requestNotificationChannelIsNull)
             {
                 request.NotificationChannel = null;
+            }
+            
+             // populate Settings
+            var requestSettingsIsNull = true;
+            request.Settings = new Amazon.Rekognition.Model.LabelDetectionSettings();
+            Amazon.Rekognition.Model.GeneralLabelsSettings requestSettings_settings_GeneralLabels = null;
+            
+             // populate GeneralLabels
+            var requestSettings_settings_GeneralLabelsIsNull = true;
+            requestSettings_settings_GeneralLabels = new Amazon.Rekognition.Model.GeneralLabelsSettings();
+            List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter = null;
+            if (cmdletContext.GeneralLabels_LabelCategoryExclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter = cmdletContext.GeneralLabels_LabelCategoryExclusionFilter;
+            }
+            if (requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels.LabelCategoryExclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryExclusionFilter;
+                requestSettings_settings_GeneralLabelsIsNull = false;
+            }
+            List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter = null;
+            if (cmdletContext.GeneralLabels_LabelCategoryInclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter = cmdletContext.GeneralLabels_LabelCategoryInclusionFilter;
+            }
+            if (requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels.LabelCategoryInclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelCategoryInclusionFilter;
+                requestSettings_settings_GeneralLabelsIsNull = false;
+            }
+            List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter = null;
+            if (cmdletContext.GeneralLabels_LabelExclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter = cmdletContext.GeneralLabels_LabelExclusionFilter;
+            }
+            if (requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels.LabelExclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelExclusionFilter;
+                requestSettings_settings_GeneralLabelsIsNull = false;
+            }
+            List<System.String> requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter = null;
+            if (cmdletContext.GeneralLabels_LabelInclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter = cmdletContext.GeneralLabels_LabelInclusionFilter;
+            }
+            if (requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter != null)
+            {
+                requestSettings_settings_GeneralLabels.LabelInclusionFilters = requestSettings_settings_GeneralLabels_generalLabels_LabelInclusionFilter;
+                requestSettings_settings_GeneralLabelsIsNull = false;
+            }
+             // determine if requestSettings_settings_GeneralLabels should be set to null
+            if (requestSettings_settings_GeneralLabelsIsNull)
+            {
+                requestSettings_settings_GeneralLabels = null;
+            }
+            if (requestSettings_settings_GeneralLabels != null)
+            {
+                request.Settings.GeneralLabels = requestSettings_settings_GeneralLabels;
+                requestSettingsIsNull = false;
+            }
+             // determine if request.Settings should be set to null
+            if (requestSettingsIsNull)
+            {
+                request.Settings = null;
             }
             if (cmdletContext.Video != null)
             {
@@ -313,10 +466,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<System.String> Feature { get; set; }
             public System.String JobTag { get; set; }
             public System.Single? MinConfidence { get; set; }
             public System.String NotificationChannel_RoleArn { get; set; }
             public System.String NotificationChannel_SNSTopicArn { get; set; }
+            public List<System.String> GeneralLabels_LabelCategoryExclusionFilter { get; set; }
+            public List<System.String> GeneralLabels_LabelCategoryInclusionFilter { get; set; }
+            public List<System.String> GeneralLabels_LabelExclusionFilter { get; set; }
+            public List<System.String> GeneralLabels_LabelInclusionFilter { get; set; }
             public Amazon.Rekognition.Model.Video Video { get; set; }
             public System.Func<Amazon.Rekognition.Model.StartLabelDetectionResponse, StartREKLabelDetectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;

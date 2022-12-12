@@ -70,6 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// URLs, a connection is opened to the public endpoint. If the URL is not reachable,
     /// the health check fails. 
     /// </para><para>
+    /// Refactor Spaces automatically resolves the public Domain Name System (DNS) names that
+    /// are set in <a>CreateServiceRequest$UrlEndpoint</a> when you create a service. The
+    /// DNS names resolve when the DNS time-to-live (TTL) expires, or every 60 seconds for
+    /// TTLs less than 60 seconds. This periodic DNS resolution ensures that the route configuration
+    /// remains up-to-date. 
+    /// </para><para>
     /// For private URLS, a target group is created on the Elastic Load Balancing and the
     /// target group health check is run. The <code>HealthCheckProtocol</code>, <code>HealthCheckPort</code>,
     /// and <code>HealthCheckPath</code> are the same protocol, port, and path specified in

@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.KinesisVideo'
+# Module manifest for module 'AWS.Tools.SageMakerMetrics'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.KinesisVideo.dll'
+    RootModule = 'AWS.Tools.SageMakerMetrics.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '7a1b7779-c37d-4e6b-9885-a060019ee36b'
+    GUID = 'e3953448-672b-4d94-99b1-49806e5cd843'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2022 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The KinesisVideo module of AWS Tools for PowerShell lets developers and administrators manage Amazon Kinesis Video Streams from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The SageMakerMetrics module of AWS Tools for PowerShell lets developers and administrators manage Amazon SageMaker Metrics Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.KinesisVideo.dll'
+        'AWSSDK.SageMakerMetrics.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.KinesisVideo.Format.ps1xml'
+        'AWS.Tools.SageMakerMetrics.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.KinesisVideo.Completers.psm1',
-        'AWS.Tools.KinesisVideo.Aliases.psm1'
+        'AWS.Tools.SageMakerMetrics.Completers.psm1',
+        'AWS.Tools.SageMakerMetrics.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,31 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-KVResourceTag', 
-        'Add-KVStreamTag', 
-        'Get-KVDataEndpoint', 
-        'Get-KVEdgeConfiguration', 
-        'Get-KVImageGenerationConfiguration', 
-        'Get-KVNotificationConfiguration', 
-        'Get-KVResourceTag', 
-        'Get-KVSignalingChannel', 
-        'Get-KVSignalingChannelEndpoint', 
-        'Get-KVSignalingChannelList', 
-        'Get-KVStream', 
-        'Get-KVStreamList', 
-        'Get-KVTagsForStreamList', 
-        'New-KVSignalingChannel', 
-        'New-KVStream', 
-        'Remove-KVResourceTag', 
-        'Remove-KVSignalingChannel', 
-        'Remove-KVStream', 
-        'Remove-KVStreamTag', 
-        'Start-KVEdgeConfigurationUpdate', 
-        'Update-KVDataRetention', 
-        'Update-KVImageGenerationConfiguration', 
-        'Update-KVNotificationConfiguration', 
-        'Update-KVSignalingChannel', 
-        'Update-KVStream')
+        'Add-SMMMetric')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -123,7 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.KinesisVideo.dll-Help.xml'
+        'AWS.Tools.SageMakerMetrics.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

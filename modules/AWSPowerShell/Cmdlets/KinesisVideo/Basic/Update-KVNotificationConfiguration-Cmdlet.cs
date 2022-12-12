@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter DestinationConfig_Uri
         /// <summary>
         /// <para>
-        /// <para>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</para>
+        /// <para>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li><li><para>
     ///  Aliases - Possible Aliases for the label. 
     /// </para></li><li><para>
-    ///  Categories - The label categories that the detected label belongs to. A given label
-    /// can belong to more than one category. 
+    ///  Categories - The label categories that the detected label belongs to. 
     /// </para></li><li><para>
     ///  BoundingBox — Bounding boxes are described for all instances of detected common object
     /// labels, returned in an array of Instance objects. An Instance object contains a BoundingBox
@@ -94,10 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li><li><para>
     /// Dominant Color - An array of the dominant colors in the image. 
     /// </para></li><li><para>
-    /// Foreground - Information about the Sharpness and Brightness of the input image’s foreground.
-    /// 
+    /// Foreground - Information about the sharpness, brightness, and dominant colors of the
+    /// input image’s foreground. 
     /// </para></li><li><para>
-    /// Background - Information about the Sharpness and Brightness of the input image’s background.
+    /// Background - Information about the sharpness, brightness, and dominant colors of the
+    /// input image’s background.
     /// </para></li></ul><para>
     /// The list of returned labels will include at least one label for every detected object,
     /// along with information about that label. In the following example, suppose the input

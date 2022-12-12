@@ -39,9 +39,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </para><ol><li><para>
     /// Create your logging destination. You can use an Amazon CloudWatch Logs log group,
     /// an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
-    /// For information about configuring logging destinations and the permissions that are
-    /// required for each, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
-    /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
+    /// 
+    /// </para><para>
+    /// The name that you give the destination must start with <code>aws-waf-logs-</code>.
+    /// Depending on the type of destination, you might need to configure additional settings
+    /// or permissions. 
+    /// </para><para>
+    /// For configuration requirements and pricing information for each destination type,
+    /// see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// web ACL traffic</a> in the <i>WAF Developer Guide</i>.
     /// </para></li><li><para>
     /// Associate your logging destination to your web ACL using a <code>PutLoggingConfiguration</code>
     /// request.

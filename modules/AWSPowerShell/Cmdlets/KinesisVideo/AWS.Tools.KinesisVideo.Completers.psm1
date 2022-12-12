@@ -132,6 +132,20 @@ $KV_Completers = {
             break
         }
 
+        # Amazon.KinesisVideo.MediaUriType
+        "Start-KVEdgeConfigurationUpdate/EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType"
+        {
+            $v = "FILE_URI","RTSP_URI"
+            break
+        }
+
+        # Amazon.KinesisVideo.StrategyOnFullSize
+        "Start-KVEdgeConfigurationUpdate/EdgeConfig_DeletionConfig_LocalSizeConfig_StrategyOnFullSize"
+        {
+            $v = "DELETE_OLDEST_MEDIA","DENY_NEW_MEDIA"
+            break
+        }
+
         # Amazon.KinesisVideo.UpdateDataRetentionOperation
         "Update-KVDataRetention/Operation"
         {
@@ -151,6 +165,8 @@ $KV_map = @{
     "APIName"=@("Get-KVDataEndpoint")
     "ChannelNameCondition_ComparisonOperator"=@("Get-KVSignalingChannelList")
     "ChannelType"=@("New-KVSignalingChannel")
+    "EdgeConfig_DeletionConfig_LocalSizeConfig_StrategyOnFullSize"=@("Start-KVEdgeConfigurationUpdate")
+    "EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType"=@("Start-KVEdgeConfigurationUpdate")
     "ImageGenerationConfiguration_Format"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_ImageSelectorType"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_Status"=@("Update-KVImageGenerationConfiguration")
@@ -213,6 +229,7 @@ $KV_SelectMap = @{
                "New-KVStream",
                "Remove-KVSignalingChannel",
                "Remove-KVStream",
+               "Get-KVEdgeConfiguration",
                "Get-KVImageGenerationConfiguration",
                "Get-KVNotificationConfiguration",
                "Get-KVSignalingChannel",
@@ -223,6 +240,7 @@ $KV_SelectMap = @{
                "Get-KVStreamList",
                "Get-KVResourceTag",
                "Get-KVTagsForStreamList",
+               "Start-KVEdgeConfigurationUpdate",
                "Add-KVResourceTag",
                "Add-KVStreamTag",
                "Remove-KVResourceTag",
