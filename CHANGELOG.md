@@ -1,4 +1,7 @@
-﻿### 4.1.228 (2022-12-12 22:07Z)
+﻿### 4.1.229 (2022-12-13 22:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.439.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.228 (2022-12-12 22:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.438.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Customer Profiles
     * Modified cmdlet New-CPFProfile: added parameters GenderString and PartyTypeString.
