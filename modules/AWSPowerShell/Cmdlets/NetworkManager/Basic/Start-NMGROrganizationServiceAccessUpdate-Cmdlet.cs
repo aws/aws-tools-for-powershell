@@ -28,7 +28,7 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Enables for the Network Manager service for an Amazon Web Services Organization. This
+    /// Enables the Network Manager service for an Amazon Web Services Organization. This
     /// can only be called by a management account within the organization.
     /// </summary>
     [Cmdlet("Start", "NMGROrganizationServiceAccessUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

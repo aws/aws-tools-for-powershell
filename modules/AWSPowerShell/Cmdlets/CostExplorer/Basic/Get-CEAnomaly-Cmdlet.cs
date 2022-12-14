@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
     /// Retrieves all of the cost anomalies detected on your account during the time period
-    /// that's specified by the <code>DateInterval</code> object.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that's specified by the <code>DateInterval</code> object. Anomalies are available
+    /// for up to 90 days.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CEAnomaly")]
     [OutputType("Amazon.CostExplorer.Model.Anomaly")]

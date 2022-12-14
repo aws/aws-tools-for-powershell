@@ -28,8 +28,8 @@ using Amazon.SageMakerMetrics.Model;
 namespace Amazon.PowerShell.Cmdlets.SMM
 {
     /// <summary>
-    /// Used to ingest training metrics into SageMaker which can be visualized in SageMaker
-    /// Studio and retrieved with the <code>GetMetrics</code> API.
+    /// Used to ingest training metrics into SageMaker. These metrics can be visualized in
+    /// SageMaker Studio and retrieved with the <code>GetMetrics</code> API.
     /// </summary>
     [Cmdlet("Add", "SMMMetric", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMakerMetrics.Model.BatchPutMetricsError")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SMM
         #region Parameter TrialComponentName
         /// <summary>
         /// <para>
-        /// <para>The name of Trial Component to associate the metrics with.</para>
+        /// <para>The name of the Trial Component to associate with the metrics.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,14 @@ using Amazon.RedshiftDataAPIService.Model;
 namespace Amazon.PowerShell.Cmdlets.RSD
 {
     /// <summary>
-    /// Cancels a running query. To be canceled, a query must be running.
+    /// Cancels a running query. To be canceled, a query must be running. 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about the Amazon Redshift Data API and CLI usage examples, see
+    /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
+    /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "RSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

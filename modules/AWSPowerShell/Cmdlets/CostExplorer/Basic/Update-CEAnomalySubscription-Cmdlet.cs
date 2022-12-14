@@ -99,13 +99,39 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public System.String SubscriptionName { get; set; }
         #endregion
         
-        #region Parameter Threshold
+        #region Parameter ThresholdExpression
         /// <summary>
         /// <para>
-        /// <para>The update to the threshold value for receiving notifications. </para>
+        /// <para>The update to the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object used to specify the anomalies that you want to generate alerts for. This supports
+        /// dimensions and nested expressions. The supported dimensions are <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code>
+        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>. The supported nested expression
+        /// types are <code>AND</code> and <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code>
+        /// is required. Values must be numbers between 0 and 10,000,000,000.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para>Percentage threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para><code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": { "Key":
+        /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
+        /// [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code></para></li><li><para><code>OR</code> two thresholds together: <code>{ "Or": [ { "Dimensions": { "Key":
+        /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
+        /// [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.Expression ThresholdExpression { get; set; }
+        #endregion
+        
+        #region Parameter Threshold
+        /// <summary>
+        /// <para>
+        /// <para>(deprecated)</para><para>The update to the threshold value for receiving notifications. </para><para>This field has been deprecated. To update a threshold, use ThresholdExpression. Continued
+        /// use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Threshold has been deprecated in favor of ThresholdExpression")]
         public System.Double? Threshold { get; set; }
         #endregion
         
@@ -188,7 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             }
             #endif
             context.SubscriptionName = this.SubscriptionName;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Threshold = this.Threshold;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ThresholdExpression = this.ThresholdExpression;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -225,9 +254,15 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 request.SubscriptionName = cmdletContext.SubscriptionName;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Threshold != null)
             {
                 request.Threshold = cmdletContext.Threshold.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.ThresholdExpression != null)
+            {
+                request.ThresholdExpression = cmdletContext.ThresholdExpression;
             }
             
             CmdletOutput output;
@@ -295,7 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public List<Amazon.CostExplorer.Model.Subscriber> Subscriber { get; set; }
             public System.String SubscriptionArn { get; set; }
             public System.String SubscriptionName { get; set; }
+            [System.ObsoleteAttribute]
             public System.Double? Threshold { get; set; }
+            public Amazon.CostExplorer.Model.Expression ThresholdExpression { get; set; }
             public System.Func<Amazon.CostExplorer.Model.UpdateAnomalySubscriptionResponse, UpdateCEAnomalySubscriptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SubscriptionArn;
         }

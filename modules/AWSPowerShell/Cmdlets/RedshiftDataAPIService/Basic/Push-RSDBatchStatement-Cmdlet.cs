@@ -43,7 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// operation is required. When connecting to a serverless workgroup, specify the workgroup
     /// name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code>
     /// operation is required. 
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For more information about the Amazon Redshift Data API and CLI usage examples, see
+    /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
+    /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Push", "RSDBatchStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementResponse")]
@@ -108,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter Sql
         /// <summary>
         /// <para>
-        /// <para>One or more SQL statements to run. </para>
+        /// Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementRequest.Sqls
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,6 +158,17 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String WorkgroupName { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -218,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
                 context.Select = (response, cmdlet) => this.ClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.Database = this.Database;
             #if MODULAR
@@ -257,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             // create request
             var request = new Amazon.RedshiftDataAPIService.Model.BatchExecuteStatementRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
@@ -350,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }

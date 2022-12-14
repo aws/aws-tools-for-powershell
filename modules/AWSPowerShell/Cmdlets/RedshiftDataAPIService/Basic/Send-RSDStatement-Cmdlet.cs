@@ -43,7 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// operation is required. When connecting to a serverless workgroup, specify the workgroup
     /// name and database name. Also, permission to call the <code>redshift-serverless:GetCredentials</code>
     /// operation is required. 
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For more information about the Amazon Redshift Data API and CLI usage examples, see
+    /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
+    /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "RSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -167,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         public System.String WorkgroupName { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
@@ -209,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
                 context.Select = CreateSelectDelegate<Amazon.RedshiftDataAPIService.Model.ExecuteStatementResponse, SendRSDStatementCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.Database = this.Database;
             #if MODULAR
@@ -249,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             // create request
             var request = new Amazon.RedshiftDataAPIService.Model.ExecuteStatementRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
@@ -346,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String ClusterIdentifier { get; set; }
             public System.String Database { get; set; }
             public System.String DbUser { get; set; }

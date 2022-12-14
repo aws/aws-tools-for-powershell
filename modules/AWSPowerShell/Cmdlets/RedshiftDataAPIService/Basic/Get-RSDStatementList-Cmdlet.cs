@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
 {
     /// <summary>
     /// List of SQL statements. By default, only finished statements are shown. A token is
-    /// returned to page through the statement list.
+    /// returned to page through the statement list. 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about the Amazon Redshift Data API and CLI usage examples, see
+    /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
+    /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "RSDStatementList")]
     [OutputType("Amazon.RedshiftDataAPIService.Model.StatementData")]

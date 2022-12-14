@@ -1,4 +1,16 @@
-﻿### 4.1.229 (2022-12-13 22:00Z)
+﻿### 4.1.230 (2022-12-14 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.440.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Cost Explorer
+    * Modified cmdlet New-CEAnomalySubscription: added parameter AnomalySubscription_ThresholdExpression.
+    * Modified cmdlet Update-CEAnomalySubscription: added parameter ThresholdExpression.
+  * Amazon Network Manager
+    * Modified cmdlet New-NMGRVpcAttachment: added parameter Options_ApplianceModeSupport.
+    * Modified cmdlet Update-NMGRVpcAttachment: added parameter Options_ApplianceModeSupport.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Push-RSDBatchStatement: added parameter ClientToken.
+    * Modified cmdlet Send-RSDStatement: added parameter ClientToken.
+
+### 4.1.229 (2022-12-13 22:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.439.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.228 (2022-12-12 22:07Z)

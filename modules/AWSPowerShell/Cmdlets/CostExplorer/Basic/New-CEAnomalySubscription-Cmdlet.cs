@@ -28,9 +28,9 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// Adds a subscription to a cost anomaly detection monitor. You can use each subscription
-    /// to define subscribers with email or SNS notifications. Email subscribers can set a
-    /// dollar threshold and a time frequency for receiving notifications.
+    /// Adds an alert subscription to a cost anomaly detection monitor. You can use each subscription
+    /// to define subscribers with email or SNS notifications. Email subscribers can set an
+    /// absolute or percentage threshold and a time frequency for receiving notifications.
     /// </summary>
     [Cmdlet("New", "CEAnomalySubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -147,19 +147,39 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public System.String AnomalySubscription_SubscriptionName { get; set; }
         #endregion
         
+        #region Parameter AnomalySubscription_ThresholdExpression
+        /// <summary>
+        /// <para>
+        /// <para>An <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// object used to specify the anomalies that you want to generate alerts for. This supports
+        /// dimensions and nested expressions. The supported dimensions are <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code>
+        /// and <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code>. The supported nested expression
+        /// types are <code>AND</code> and <code>OR</code>. The match option <code>GREATER_THAN_OR_EQUAL</code>
+        /// is required. Values must be numbers between 0 and 10,000,000,000.</para><para>One of Threshold or ThresholdExpression is required for this resource.</para><para>The following are examples of valid ThresholdExpressions:</para><ul><li><para>Absolute threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_ABSOLUTE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para>Percentage threshold: <code>{ "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE",
+        /// "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } }</code></para></li><li><para><code>AND</code> two thresholds together: <code>{ "And": [ { "Dimensions": { "Key":
+        /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
+        /// [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code></para></li><li><para><code>OR</code> two thresholds together: <code>{ "Or": [ { "Dimensions": { "Key":
+        /// "ANOMALY_TOTAL_IMPACT_ABSOLUTE", "MatchOptions": [ "GREATER_THAN_OR_EQUAL" ], "Values":
+        /// [ "100" ] } }, { "Dimensions": { "Key": "ANOMALY_TOTAL_IMPACT_PERCENTAGE", "MatchOptions":
+        /// [ "GREATER_THAN_OR_EQUAL" ], "Values": [ "100" ] } } ] }</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.Expression AnomalySubscription_ThresholdExpression { get; set; }
+        #endregion
+        
         #region Parameter AnomalySubscription_Threshold
         /// <summary>
         /// <para>
-        /// <para>The dollar value that triggers a notification if the threshold is exceeded. </para>
+        /// <para>(deprecated)</para><para>The dollar value that triggers a notification if the threshold is exceeded. </para><para>This field has been deprecated. To specify a threshold, use ThresholdExpression. Continued
+        /// use of Threshold will be treated as shorthand syntax for a ThresholdExpression.</para><para>One of Threshold or ThresholdExpression is required for this resource.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.ObsoleteAttribute("Threshold has been deprecated in favor of ThresholdExpression")]
         public System.Double? AnomalySubscription_Threshold { get; set; }
         #endregion
         
@@ -241,13 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 WriteWarning("You are passing $null as a value for parameter AnomalySubscription_SubscriptionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AnomalySubscription_Threshold = this.AnomalySubscription_Threshold;
-            #if MODULAR
-            if (this.AnomalySubscription_Threshold == null && ParameterWasBound(nameof(this.AnomalySubscription_Threshold)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AnomalySubscription_Threshold which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnomalySubscription_ThresholdExpression = this.AnomalySubscription_ThresholdExpression;
             if (this.ResourceTag != null)
             {
                 context.ResourceTag = new List<Amazon.CostExplorer.Model.ResourceTag>(this.ResourceTag);
@@ -332,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 request.AnomalySubscription.SubscriptionName = requestAnomalySubscription_anomalySubscription_SubscriptionName;
                 requestAnomalySubscriptionIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Double? requestAnomalySubscription_anomalySubscription_Threshold = null;
             if (cmdletContext.AnomalySubscription_Threshold != null)
             {
@@ -340,6 +358,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (requestAnomalySubscription_anomalySubscription_Threshold != null)
             {
                 request.AnomalySubscription.Threshold = requestAnomalySubscription_anomalySubscription_Threshold.Value;
+                requestAnomalySubscriptionIsNull = false;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            Amazon.CostExplorer.Model.Expression requestAnomalySubscription_anomalySubscription_ThresholdExpression = null;
+            if (cmdletContext.AnomalySubscription_ThresholdExpression != null)
+            {
+                requestAnomalySubscription_anomalySubscription_ThresholdExpression = cmdletContext.AnomalySubscription_ThresholdExpression;
+            }
+            if (requestAnomalySubscription_anomalySubscription_ThresholdExpression != null)
+            {
+                request.AnomalySubscription.ThresholdExpression = requestAnomalySubscription_anomalySubscription_ThresholdExpression;
                 requestAnomalySubscriptionIsNull = false;
             }
              // determine if request.AnomalySubscription should be set to null
@@ -418,7 +447,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
             public List<Amazon.CostExplorer.Model.Subscriber> AnomalySubscription_Subscriber { get; set; }
             public System.String AnomalySubscription_SubscriptionArn { get; set; }
             public System.String AnomalySubscription_SubscriptionName { get; set; }
+            [System.ObsoleteAttribute]
             public System.Double? AnomalySubscription_Threshold { get; set; }
+            public Amazon.CostExplorer.Model.Expression AnomalySubscription_ThresholdExpression { get; set; }
             public List<Amazon.CostExplorer.Model.ResourceTag> ResourceTag { get; set; }
             public System.Func<Amazon.CostExplorer.Model.CreateAnomalySubscriptionResponse, NewCEAnomalySubscriptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SubscriptionArn;

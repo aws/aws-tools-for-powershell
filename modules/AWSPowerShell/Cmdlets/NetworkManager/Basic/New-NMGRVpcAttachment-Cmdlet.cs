@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class NewNMGRVpcAttachmentCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        #region Parameter Options_ApplianceModeSupport
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether appliance mode is supported. If enabled, traffic flow between a
+        /// source and destination use the same Availability Zone for the VPC attachment for the
+        /// lifetime of that flow. The default value is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Options_ApplianceModeSupport { get; set; }
+        #endregion
+        
         #region Parameter CoreNetworkId
         /// <summary>
         /// <para>
@@ -193,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
                 WriteWarning("You are passing $null as a value for parameter CoreNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Options_ApplianceModeSupport = this.Options_ApplianceModeSupport;
             context.Options_Ipv6Support = this.Options_Ipv6Support;
             if (this.SubnetArn != null)
             {
@@ -243,6 +256,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
              // populate Options
             var requestOptionsIsNull = true;
             request.Options = new Amazon.NetworkManager.Model.VpcOptions();
+            System.Boolean? requestOptions_options_ApplianceModeSupport = null;
+            if (cmdletContext.Options_ApplianceModeSupport != null)
+            {
+                requestOptions_options_ApplianceModeSupport = cmdletContext.Options_ApplianceModeSupport.Value;
+            }
+            if (requestOptions_options_ApplianceModeSupport != null)
+            {
+                request.Options.ApplianceModeSupport = requestOptions_options_ApplianceModeSupport.Value;
+                requestOptionsIsNull = false;
+            }
             System.Boolean? requestOptions_options_Ipv6Support = null;
             if (cmdletContext.Options_Ipv6Support != null)
             {
@@ -333,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         {
             public System.String ClientToken { get; set; }
             public System.String CoreNetworkId { get; set; }
+            public System.Boolean? Options_ApplianceModeSupport { get; set; }
             public System.Boolean? Options_Ipv6Support { get; set; }
             public List<System.String> SubnetArn { get; set; }
             public List<Amazon.NetworkManager.Model.Tag> Tag { get; set; }

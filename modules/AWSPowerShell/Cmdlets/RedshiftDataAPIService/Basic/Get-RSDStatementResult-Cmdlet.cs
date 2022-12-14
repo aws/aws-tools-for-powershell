@@ -29,7 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
 {
     /// <summary>
     /// Fetches the temporarily cached result of an SQL statement. A token is returned to
-    /// page through the statement results.
+    /// page through the statement results. 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about the Amazon Redshift Data API and CLI usage examples, see
+    /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
+    /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "RSDStatementResult")]
     [OutputType("Amazon.RedshiftDataAPIService.Model.GetStatementResultResponse")]

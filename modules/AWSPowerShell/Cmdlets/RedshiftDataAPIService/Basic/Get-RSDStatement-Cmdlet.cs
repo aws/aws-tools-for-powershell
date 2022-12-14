@@ -30,7 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.RSD
     /// <summary>
     /// Describes the details about a specific instance when a query was run by the Amazon
     /// Redshift Data API. The information includes when the query started, when it finished,
-    /// the query status, the number of rows returned, and the SQL statement.
+    /// the query status, the number of rows returned, and the SQL statement. 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about the Amazon Redshift Data API and CLI usage examples, see
+    /// <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the
+    /// Amazon Redshift Data API</a> in the <i>Amazon Redshift Management Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "RSDStatement")]
     [OutputType("Amazon.RedshiftDataAPIService.Model.DescribeStatementResponse")]
