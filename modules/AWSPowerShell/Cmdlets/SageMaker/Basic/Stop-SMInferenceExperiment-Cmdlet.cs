@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DesiredModelVariant
         /// <summary>
         /// <para>
-        /// <para> Array of <code>ModelVariantConfig</code> objects. There is one for each variant that
-        /// you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code>
+        /// <para> An array of <code>ModelVariantConfig</code> objects. There is one for each variant
+        /// that you want to deploy after the inference experiment stops. Each <code>ModelVariantConfig</code>
         /// describes the infrastructure configuration for deploying the corresponding variant.
         /// </para>
         /// </para>

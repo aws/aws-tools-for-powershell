@@ -22,34 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.BackupGateway;
+using Amazon.BackupGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.BUGW
 {
     /// <summary>
-    /// The name of the flow.
-    /// 
-    ///  
-    /// <para>
-    /// You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon
-    /// Connect Flow language</a>.
-    /// </para>
+    /// This action sets the property mappings for the specified hypervisor. A hypervisor
+    /// property mapping displays the relationship of entity properties available from the
+    /// on-premises hypervisor to the properties available in Amazon Web Services.
     /// </summary>
-    [Cmdlet("Update", "CONNContactFlowName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service UpdateContactFlowName API operation.", Operation = new[] {"UpdateContactFlowName"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateContactFlowNameResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateContactFlowNameResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.UpdateContactFlowNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "BUGWHypervisorPropertyMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Backup Gateway PutHypervisorPropertyMappings API operation.", Operation = new[] {"PutHypervisorPropertyMappings"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse))]
+    [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCONNContactFlowNameCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class WriteBUGWHypervisorPropertyMappingCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter ContactFlowId
+        #region Parameter HypervisorArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the flow.</para>
+        /// <para>The Amazon Resource Name (ARN) of the hypervisor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,23 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactFlowId { get; set; }
+        public System.String HypervisorArn { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The description of the flow.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,35 +73,45 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String IamRoleArn { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter VmwareToAwsTagMapping
         /// <summary>
         /// <para>
-        /// <para>The name of the flow.</para>
+        /// <para>This action requests the mappings of on-premises VMware tags to the Amazon Web Services
+        /// tags.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("VmwareToAwsTagMappings")]
+        public Amazon.BackupGateway.Model.VmwareToAwsTagMapping[] VmwareToAwsTagMapping { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateContactFlowNameResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'HypervisorArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse).
+        /// Specifying the name of a property of type Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "HypervisorArn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactFlowId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the HypervisorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^HypervisorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactFlowId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HypervisorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -135,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactFlowId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNContactFlowName (UpdateContactFlowName)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HypervisorArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-BUGWHypervisorPropertyMapping (PutHypervisorPropertyMappings)"))
             {
                 return;
             }
@@ -149,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateContactFlowNameResponse, UpdateCONNContactFlowNameCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse, WriteBUGWHypervisorPropertyMappingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,25 +154,33 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactFlowId;
+                context.Select = (response, cmdlet) => this.HypervisorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactFlowId = this.ContactFlowId;
+            context.HypervisorArn = this.HypervisorArn;
             #if MODULAR
-            if (this.ContactFlowId == null && ParameterWasBound(nameof(this.ContactFlowId)))
+            if (this.HypervisorArn == null && ParameterWasBound(nameof(this.HypervisorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HypervisorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Description = this.Description;
-            context.InstanceId = this.InstanceId;
+            context.IamRoleArn = this.IamRoleArn;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.IamRoleArn == null && ParameterWasBound(nameof(this.IamRoleArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IamRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            if (this.VmwareToAwsTagMapping != null)
+            {
+                context.VmwareToAwsTagMapping = new List<Amazon.BackupGateway.Model.VmwareToAwsTagMapping>(this.VmwareToAwsTagMapping);
+            }
+            #if MODULAR
+            if (this.VmwareToAwsTagMapping == null && ParameterWasBound(nameof(this.VmwareToAwsTagMapping)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VmwareToAwsTagMapping which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,23 +195,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.UpdateContactFlowNameRequest();
+            var request = new Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsRequest();
             
-            if (cmdletContext.ContactFlowId != null)
+            if (cmdletContext.HypervisorArn != null)
             {
-                request.ContactFlowId = cmdletContext.ContactFlowId;
+                request.HypervisorArn = cmdletContext.HypervisorArn;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.IamRoleArn != null)
             {
-                request.Description = cmdletContext.Description;
+                request.IamRoleArn = cmdletContext.IamRoleArn;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.VmwareToAwsTagMapping != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.VmwareToAwsTagMappings = cmdletContext.VmwareToAwsTagMapping;
             }
             
             CmdletOutput output;
@@ -242,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.UpdateContactFlowNameResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateContactFlowNameRequest request)
+        private Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse CallAWSServiceOperation(IAmazonBackupGateway client, Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateContactFlowName");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup Gateway", "PutHypervisorPropertyMappings");
             try
             {
                 #if DESKTOP
-                return client.UpdateContactFlowName(request);
+                return client.PutHypervisorPropertyMappings(request);
                 #elif CORECLR
-                return client.UpdateContactFlowNameAsync(request).GetAwaiter().GetResult();
+                return client.PutHypervisorPropertyMappingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -270,12 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactFlowId { get; set; }
-            public System.String Description { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.Connect.Model.UpdateContactFlowNameResponse, UpdateCONNContactFlowNameCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String HypervisorArn { get; set; }
+            public System.String IamRoleArn { get; set; }
+            public List<Amazon.BackupGateway.Model.VmwareToAwsTagMapping> VmwareToAwsTagMapping { get; set; }
+            public System.Func<Amazon.BackupGateway.Model.PutHypervisorPropertyMappingsResponse, WriteBUGWHypervisorPropertyMappingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.HypervisorArn;
         }
         
     }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter EngineType
         /// <summary>
         /// <para>
-        /// <para>The engine type for the environment.</para>
+        /// <para>The engine type for the runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the environment.</para>
+        /// <para>The names of the runtime environments. Must be unique within the account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of environments to return.</para>
+        /// <para>The maximum number of runtime environments to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token to control the number of environments displayed in the list.</para>
+        /// <para>A pagination token to control the number of runtime environments displayed in the
+        /// list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

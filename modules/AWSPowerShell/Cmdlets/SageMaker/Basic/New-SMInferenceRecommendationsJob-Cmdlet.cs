@@ -302,6 +302,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String PayloadConfig_SamplePayloadUrl { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>. Specify
+        /// the security groups for the VPC that is specified in the <code>Subnets</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnets in the VPC to which you want to connect your model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
+        #endregion
+        
         #region Parameter PayloadConfig_SupportedContentType
         /// <summary>
         /// <para>
@@ -481,6 +504,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.TrafficPattern_TrafficType = this.TrafficPattern_TrafficType;
             context.InputConfig_VolumeKmsKeyId = this.InputConfig_VolumeKmsKeyId;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
+            }
             context.JobDescription = this.JobDescription;
             context.JobName = this.JobName;
             #if MODULAR
@@ -652,6 +683,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_TrafficPattern != null)
             {
                 request.InputConfig.TrafficPattern = requestInputConfig_inputConfig_TrafficPattern;
+                requestInputConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.RecommendationJobVpcConfig requestInputConfig_inputConfig_VpcConfig = null;
+            
+             // populate VpcConfig
+            var requestInputConfig_inputConfig_VpcConfigIsNull = true;
+            requestInputConfig_inputConfig_VpcConfig = new Amazon.SageMaker.Model.RecommendationJobVpcConfig();
+            List<System.String> requestInputConfig_inputConfig_VpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestInputConfig_inputConfig_VpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestInputConfig_inputConfig_VpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                requestInputConfig_inputConfig_VpcConfig.SecurityGroupIds = requestInputConfig_inputConfig_VpcConfig_vpcConfig_SecurityGroupId;
+                requestInputConfig_inputConfig_VpcConfigIsNull = false;
+            }
+            List<System.String> requestInputConfig_inputConfig_VpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnet != null)
+            {
+                requestInputConfig_inputConfig_VpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
+            }
+            if (requestInputConfig_inputConfig_VpcConfig_vpcConfig_Subnet != null)
+            {
+                requestInputConfig_inputConfig_VpcConfig.Subnets = requestInputConfig_inputConfig_VpcConfig_vpcConfig_Subnet;
+                requestInputConfig_inputConfig_VpcConfigIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_VpcConfig should be set to null
+            if (requestInputConfig_inputConfig_VpcConfigIsNull)
+            {
+                requestInputConfig_inputConfig_VpcConfig = null;
+            }
+            if (requestInputConfig_inputConfig_VpcConfig != null)
+            {
+                request.InputConfig.VpcConfig = requestInputConfig_inputConfig_VpcConfig;
                 requestInputConfigIsNull = false;
             }
             Amazon.SageMaker.Model.RecommendationJobContainerConfig requestInputConfig_inputConfig_ContainerConfig = null;
@@ -940,6 +1006,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.Phase> TrafficPattern_Phase { get; set; }
             public Amazon.SageMaker.TrafficType TrafficPattern_TrafficType { get; set; }
             public System.String InputConfig_VolumeKmsKeyId { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_Subnet { get; set; }
             public System.String JobDescription { get; set; }
             public System.String JobName { get; set; }
             public Amazon.SageMaker.RecommendationJobType JobType { get; set; }

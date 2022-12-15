@@ -29,9 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
     /// Updates the shard count of the specified stream to the specified number of shards.
+    /// This API is only supported for the data streams with the provisioned capacity mode.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note><para>
     /// Updating the shard count is an asynchronous operation. Upon receiving the request,
     /// Kinesis Data Streams returns immediately and sets the status of the stream to <code>UPDATING</code>.
     /// After the update is complete, Kinesis Data Streams sets the status of the stream back
@@ -97,20 +100,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public Amazon.Kinesis.ScalingType ScalingType { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
         #endregion
         
@@ -202,13 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter ScalingType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TargetShardCount = this.TargetShardCount;
             #if MODULAR
             if (this.TargetShardCount == null && ParameterWasBound(nameof(this.TargetShardCount)))
@@ -235,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.ScalingType != null)
             {
                 request.ScalingType = cmdletContext.ScalingType;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -306,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Kinesis.ScalingType ScalingType { get; set; }
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public System.Int32? TargetShardCount { get; set; }
             public System.Func<Amazon.Kinesis.Model.UpdateShardCountResponse, UpdateKINShardCountCmdlet, object> Select { get; set; } =

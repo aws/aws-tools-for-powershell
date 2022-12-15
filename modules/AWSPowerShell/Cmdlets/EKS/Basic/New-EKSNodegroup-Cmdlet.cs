@@ -39,10 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <para>
     /// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated
     /// Amazon EC2 instances that are managed by Amazon Web Services for an Amazon EKS cluster.
-    /// Each node group uses a version of the Amazon EKS optimized Amazon Linux 2 AMI. For
-    /// more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
-    /// Node Groups</a> in the <i>Amazon EKS User Guide</i>. 
-    /// </para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
+    /// node groups</a> in the <i>Amazon EKS User Guide</i>.
+    /// </para><note><para>
+    /// Windows AMI types are only supported for commercial Regions that support Windows Amazon
+    /// EKS.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EKSNodegroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EKS.Model.Nodegroup")]
@@ -57,13 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter AmiType
         /// <summary>
         /// <para>
-        /// <para>The AMI type for your node group. GPU instance types should use the <code>AL2_x86_64_GPU</code>
-        /// AMI type. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type. Arm instances
-        /// should use the <code>AL2_ARM_64</code> AMI type. All types use the Amazon EKS optimized
-        /// Amazon Linux 2 AMI. If you specify <code>launchTemplate</code>, and your launch template
-        /// uses a custom AMI, then don't specify <code>amiType</code>, or the node group deployment
-        /// will fail. For more information about using launch templates with Amazon EKS, see
-        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// <para>The AMI type for your node group. If you specify <code>launchTemplate</code>, and
+        /// your launch template uses a custom AMI, then don't specify <code>amiType</code>, or
+        /// the node group deployment will fail. If your launch template uses a Windows custom
+        /// AMI, then add <code>eks:kube-proxy-windows</code> to your Windows nodes <code>rolearn</code>
+        /// in the <code>aws-auth</code><code>ConfigMap</code>. For more information about using
+        /// launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -136,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The root device disk size (in GiB) for your node group instances. The default disk
-        /// size is 20 GiB. If you specify <code>launchTemplate</code>, then don't specify <code>diskSize</code>,
+        /// size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows.
+        /// If you specify <code>launchTemplate</code>, then don't specify <code>diskSize</code>,
         /// or the node group deployment will fail. For more information about using launch templates
         /// with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
@@ -152,7 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The Amazon EC2 SSH key name that provides access for SSH communication with the nodes
         /// in the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
         /// EC2 key pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User
-        /// Guide for Linux Instances</i>.</para>
+        /// Guide for Linux Instances</i>. For Windows, an Amazon EC2 SSH key is used to obtain
+        /// the RDP password. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html">Amazon
+        /// EC2 key pairs and Windows instances</a> in the <i>Amazon Elastic Compute Cloud User
+        /// Guide for Windows Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Specify the instance types for a node group. If you specify a GPU instance type, be
-        /// sure to specify <code>AL2_x86_64_GPU</code> with the <code>amiType</code> parameter.
+        /// <para>Specify the instance types for a node group. If you specify a GPU instance type, make
+        /// sure to also specify an applicable GPU AMI type with the <code>amiType</code> parameter.
         /// If you specify <code>launchTemplate</code>, then you can specify zero or one instance
         /// type in your launch template <i>or</i> you can specify 0-20 instance types for <code>instanceTypes</code>.
         /// If however, you specify an instance type in your launch template <i>and</i> specify
@@ -309,9 +314,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The AMI version of the Amazon EKS optimized AMI to use with your node group. By default,
         /// the latest available AMI version for the node group's current Kubernetes version is
-        /// used. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
-        /// EKS optimized Amazon Linux 2 AMI versions</a> in the <i>Amazon EKS User Guide</i>.
-        /// If you specify <code>launchTemplate</code>, and your launch template uses a custom
+        /// used. For information about Linux versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
+        /// EKS optimized Amazon Linux AMI versions</a> in the <i>Amazon EKS User Guide</i>. Amazon
+        /// EKS managed node groups support the November 2022 and later releases of the Windows
+        /// AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon
+        /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <code>launchTemplate</code>, and your launch template uses a custom
         /// AMI, then don't specify <code>releaseVersion</code>, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
@@ -325,10 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter RemoteAccess_SourceSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The security group ids that are allowed SSH access (port 22) to the nodes. If you
-        /// specify an Amazon EC2 SSH key but do not specify a source security group when you
-        /// create a managed node group, then port 22 on the nodes is opened to the internet (0.0.0.0/0).
-        /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+        /// <para>The security group IDs that are allowed SSH access (port 22) to the nodes. For Windows,
+        /// the port is 3389. If you specify an Amazon EC2 SSH key but don't specify a source
+        /// security group when you create a managed node group, then the port on the nodes is
+        /// opened to the internet (<code>0.0.0.0/0</code>). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

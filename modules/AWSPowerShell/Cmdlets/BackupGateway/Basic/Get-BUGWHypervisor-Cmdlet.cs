@@ -22,29 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MainframeModernization;
-using Amazon.MainframeModernization.Model;
+using Amazon.BackupGateway;
+using Amazon.BackupGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AMM
+namespace Amazon.PowerShell.Cmdlets.BUGW
 {
     /// <summary>
-    /// Deletes a specific runtime environment. The environment cannot contain deployed applications.
-    /// If it does, you must delete those applications before you delete the environment.
+    /// This action requests information about the specified hypervisor to which the gateway
+    /// will connect. A hypervisor is hardware, software, or firmware that creates and manages
+    /// virtual machines, and allocates resources to them.
     /// </summary>
-    [Cmdlet("Remove", "AMMEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the M2 DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.MainframeModernization.Model.DeleteEnvironmentResponse))]
-    [AWSCmdletOutput("None or Amazon.MainframeModernization.Model.DeleteEnvironmentResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.MainframeModernization.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BUGWHypervisor")]
+    [OutputType("Amazon.BackupGateway.Model.HypervisorDetails")]
+    [AWSCmdlet("Calls the AWS Backup Gateway GetHypervisor API operation.", Operation = new[] {"GetHypervisor"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.GetHypervisorResponse))]
+    [AWSCmdletOutput("Amazon.BackupGateway.Model.HypervisorDetails or Amazon.BackupGateway.Model.GetHypervisorResponse",
+        "This cmdlet returns an Amazon.BackupGateway.Model.HypervisorDetails object.",
+        "The service call response (type Amazon.BackupGateway.Model.GetHypervisorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveAMMEnvironmentCmdlet : AmazonMainframeModernizationClientCmdlet, IExecutor
+    public partial class GetBUGWHypervisorCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter EnvironmentId
+        #region Parameter HypervisorArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the runtime environment you want to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the hypervisor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,49 +56,34 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentId { get; set; }
+        public System.String HypervisorArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MainframeModernization.Model.DeleteEnvironmentResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Hypervisor'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BackupGateway.Model.GetHypervisorResponse).
+        /// Specifying the name of a property of type Amazon.BackupGateway.Model.GetHypervisorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Hypervisor";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the HypervisorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^HypervisorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HypervisorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AMMEnvironment (DeleteEnvironment)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -107,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MainframeModernization.Model.DeleteEnvironmentResponse, RemoveAMMEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BackupGateway.Model.GetHypervisorResponse, GetBUGWHypervisorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentId;
+                context.Select = (response, cmdlet) => this.HypervisorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EnvironmentId = this.EnvironmentId;
+            context.HypervisorArn = this.HypervisorArn;
             #if MODULAR
-            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            if (this.HypervisorArn == null && ParameterWasBound(nameof(this.HypervisorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HypervisorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MainframeModernization.Model.DeleteEnvironmentRequest();
+            var request = new Amazon.BackupGateway.Model.GetHypervisorRequest();
             
-            if (cmdletContext.EnvironmentId != null)
+            if (cmdletContext.HypervisorArn != null)
             {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.HypervisorArn = cmdletContext.HypervisorArn;
             }
             
             CmdletOutput output;
@@ -179,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         
         #region AWS Service Operation Call
         
-        private Amazon.MainframeModernization.Model.DeleteEnvironmentResponse CallAWSServiceOperation(IAmazonMainframeModernization client, Amazon.MainframeModernization.Model.DeleteEnvironmentRequest request)
+        private Amazon.BackupGateway.Model.GetHypervisorResponse CallAWSServiceOperation(IAmazonBackupGateway client, Amazon.BackupGateway.Model.GetHypervisorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "M2", "DeleteEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup Gateway", "GetHypervisor");
             try
             {
                 #if DESKTOP
-                return client.DeleteEnvironment(request);
+                return client.GetHypervisor(request);
                 #elif CORECLR
-                return client.DeleteEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.GetHypervisorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EnvironmentId { get; set; }
-            public System.Func<Amazon.MainframeModernization.Model.DeleteEnvironmentResponse, RemoveAMMEnvironmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String HypervisorArn { get; set; }
+            public System.Func<Amazon.BackupGateway.Model.GetHypervisorResponse, GetBUGWHypervisorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Hypervisor;
         }
         
     }

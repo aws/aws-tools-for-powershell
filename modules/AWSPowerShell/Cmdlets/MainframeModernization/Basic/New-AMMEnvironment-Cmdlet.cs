@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the environment.</para>
+        /// <para>The description of the runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter EngineType
         /// <summary>
         /// <para>
-        /// <para>The engine type for the environment.</para>
+        /// <para>The engine type for the runtime environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the engine type for the environment.</para>
+        /// <para>The version of the engine type for the runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The type of instance for the environment.</para>
+        /// <para>The type of instance for the runtime environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,10 +104,20 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         public System.String InstanceType { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a customer managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the environment.</para>
+        /// <para>The name of the runtime environment. Must be unique within the account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Configures a desired maintenance window for the environment. If you do not provide
-        /// a value, a random system-generated value will be assigned.</para>
+        /// <para>Configures the maintenance window you want for the runtime environment. If you do
+        /// not provide a value, a random system-generated value will be assigned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the environment is publicly accessible.</para>
+        /// <para>Specifies whether the runtime environment is publicly accessible.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The list of security groups for the VPC associated with this environment.</para>
+        /// <para>The list of security groups for the VPC associated with this runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter StorageConfiguration
         /// <summary>
         /// <para>
-        /// <para>Optional. The storage configurations for this environment.</para>
+        /// <para>Optional. The storage configurations for this runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The list of subnets associated with the VPC for this environment.</para>
+        /// <para>The list of subnets associated with the VPC for this runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags for the environment.</para>
+        /// <para>The tags for the runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,6 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -363,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.InstanceType != null)
             {
                 request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.Name != null)
             {
@@ -459,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public System.String EngineVersion { get; set; }
             public System.Int32? HighAvailabilityConfig_DesiredCapacity { get; set; }
             public System.String InstanceType { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }

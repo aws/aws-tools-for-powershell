@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ConfigurationValue
         /// <summary>
         /// <para>
-        /// <para>The set of configuration values for the add-on being created. Whatever values provided
-        /// here are validated against the schema from <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html">DescribeAddonConfiguration</a></para>
+        /// <para>The set of configuration values for the add-on that's created. The values that you
+        /// provide are validated against the schema in <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html">DescribeAddonConfiguration</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// in the translation output. You can set the value to informal or formal. If you don't
         /// specify a value for formality, or if the target language doesn't support formality,
         /// the translation will ignore the formality setting.</para><para> If you specify multiple target languages for the job, translate ignores the formality
-        /// setting for any unsupported target language.</para><para>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting
-        /// Formality</a> in the Amazon Translate Developer Guide.</para>
+        /// setting for any unsupported target language.</para><para>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported
+        /// languages</a> in the Amazon Translate Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// phrases in your translation output.</para><para>To mask profane words and phrases, Amazon Translate replaces them with the grawlix
         /// string “?$#@$“. This 5-character sequence is used for each profane word or phrase,
         /// regardless of the length or number of words.</para><para>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
-        /// that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html">Masking
-        /// profanity</a> in the Amazon Translate Developer Guide.</para><para>If you specify multiple target languages for the job, all the target languages must
+        /// that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported
+        /// languages</a> in the Amazon Translate Developer Guide.</para><para>If you specify multiple target languages for the job, all the target languages must
         /// support profanity masking. If any of the target languages don't support profanity
         /// masking, the translation job won't mask profanity for any target language.</para>
         /// </para>
@@ -135,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter Text
         /// <summary>
         /// <para>
-        /// <para>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending
-        /// on your character set, this may be fewer than 5,000 characters.</para>
+        /// <para>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending
+        /// on your character set, this may be fewer than 10,000 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -31,8 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Adds or updates tags for the specified Kinesis data stream. You can assign up to 50
     /// tags to a data stream.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note><para>
     /// If tags have already been assigned to the stream, <code>AddTagsToStream</code> overwrites
     /// any existing tags that correspond to the specified tag keys.
     /// </para><para><a>AddTagsToStream</a> has a limit of five transactions per second per account.
@@ -48,20 +50,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     public partial class AddKINTagsToStreamCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
         #endregion
         
@@ -144,13 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 context.Select = (response, cmdlet) => this.StreamName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -181,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // create request
             var request = new Amazon.Kinesis.Model.AddTagsToStreamRequest();
             
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
+            }
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
@@ -250,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Kinesis.Model.AddTagsToStreamResponse, AddKINTagsToStreamCmdlet, object> Select { get; set; } =

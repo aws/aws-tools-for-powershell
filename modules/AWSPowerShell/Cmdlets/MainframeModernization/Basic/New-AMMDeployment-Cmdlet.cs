@@ -28,7 +28,7 @@ using Amazon.MainframeModernization.Model;
 namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
-    /// Creates and starts a deployment to deploy an application into an environment.
+    /// Creates and starts a deployment to deploy an application into a runtime environment.
     /// </summary>
     [Cmdlet("New", "AMMDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the environment where this application will be deployed.</para>
+        /// <para>The identifier of the runtime environment where you want to deploy this application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

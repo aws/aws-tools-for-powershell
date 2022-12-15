@@ -30,8 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <summary>
     /// Gets data records from a Kinesis data stream's shard.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter in addition to the <code>ShardIterator</code> parameter.
+    /// </para></note><para>
     /// Specify a shard iterator using the <code>ShardIterator</code> parameter. The shard
     /// iterator specifies the position in the shard from which you want to start reading
     /// data records sequentially. If there are no records available in the portion of the
@@ -116,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String ShardIterator { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -182,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter ShardIterator which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamARN = this.StreamARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.ShardIterator != null)
             {
                 request.ShardIterator = cmdletContext.ShardIterator;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             
             CmdletOutput output;
@@ -269,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             public System.Int32? Limit { get; set; }
             public System.String ShardIterator { get; set; }
+            public System.String StreamARN { get; set; }
             public System.Func<Amazon.Kinesis.Model.GetRecordsResponse, GetKINRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

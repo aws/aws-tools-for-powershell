@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    ///  Use this API to schedule an experiment to compare model variants on a Amazon SageMaker
-    /// inference endpoint. For more information about inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow
+    ///  Use this API to setup and schedule an experiment to compare model variants on a Amazon
+    /// SageMaker inference endpoint. For more information about inference experiments, see
+    /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow
     /// tests</a>. 
     /// </para><para>
     ///  Amazon SageMaker begins your experiment at the scheduled time and routes traffic
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataStorageConfig_Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket where the inference experiment data is stored. </para>
+        /// <para>The Amazon S3 bucket where the inference request and response data is stored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataStorageConfig_KmsKey
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
-        /// that Amazon SageMaker uses to encrypt captured data when uploading to Amazon S3. </para>
+        /// <para> The Amazon Web Services Key Management Service key that Amazon SageMaker uses to
+        /// encrypt captured data at rest using Amazon S3 server-side encryption. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,10 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelVariant
         /// <summary>
         /// <para>
-        /// <para> Array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant
-        /// in the inference experiment. Each <code>ModelVariantConfigSummary</code> object in
-        /// the array describes the infrastructure configuration for the corresponding variant.
-        /// </para>
+        /// <para> An array of <code>ModelVariantConfig</code> objects. There is one for each variant
+        /// in the inference experiment. Each <code>ModelVariantConfig</code> object in the array
+        /// describes the infrastructure configuration for the corresponding variant. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -204,7 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts
-        /// and container images. </para>
+        /// and container images, and manage Amazon SageMaker Inference endpoints for model deployment.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -239,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShadowModeConfig_SourceModelVariantName
         /// <summary>
         /// <para>
-        /// <para> The name of the production variant. </para>
+        /// <para> The name of the production variant, which takes all the inference requests. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

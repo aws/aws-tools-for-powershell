@@ -36,6 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// statement, for example limit the actions to a specific cluster, you receive an <code>AccessDeniedException</code>
     /// when there is a mismatch between the condition key value and the corresponding parameter
     /// value.
+    /// </para><para>
+    /// For information about required permissions and considerations, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.htm">Using
+    /// Amazon ECS Exec for debugging</a> in the <i>Amazon ECS Developer Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "ECSCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

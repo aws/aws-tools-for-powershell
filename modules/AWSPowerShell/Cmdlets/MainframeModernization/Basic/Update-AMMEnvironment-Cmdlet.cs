@@ -28,7 +28,7 @@ using Amazon.MainframeModernization.Model;
 namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
-    /// Updates the configuration details for a specific environment.
+    /// Updates the configuration details for a specific runtime environment.
     /// </summary>
     [Cmdlet("Update", "AMMEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter ApplyDuringMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to update the environment during the maintenance window. The default
-        /// is false. Currently, Amazon Web Services Mainframe Modernization accepts the <code>engineVersion</code>
-        /// parameter only if <code>applyDuringMaintenanceWindow</code> is true. If any parameter
-        /// other than <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>,
+        /// <para>Indicates whether to update the runtime environment during the maintenance window.
+        /// The default is false. Currently, Amazon Web Services Mainframe Modernization accepts
+        /// the <code>engineVersion</code> parameter only if <code>applyDuringMaintenanceWindow</code>
+        /// is true. If any parameter other than <code>engineVersion</code> is provided in <code>UpdateEnvironmentRequest</code>,
         /// it will fail if <code>applyDuringMaintenanceWindow</code> is set to true.</para>
         /// </para>
         /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>The desired capacity for the environment to update.</para>
+        /// <para>The desired capacity for the runtime environment to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the runtime engine for the environment.</para>
+        /// <para>The version of the runtime engine for the runtime environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type for the environment to update.</para>
+        /// <para>The instance type for the runtime environment to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Configures a desired maintenance window for the environment. If you do not provide
-        /// a value, a random system-generated value will be assigned.</para>
+        /// <para>Configures the maintenance window you want for the runtime environment. If you do
+        /// not provide a value, a random system-generated value will be assigned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// applications that are operating on the stream before you delete the stream. If an
     /// application attempts to operate on a deleted stream, it receives the exception <code>ResourceNotFoundException</code>.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note><para>
     /// If the stream is in the <code>ACTIVE</code> state, you can delete it. After a <code>DeleteStream</code>
     /// request, the specified stream is in the <code>DELETING</code> state until Kinesis
     /// Data Streams completes the deletion.
@@ -71,20 +73,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.Boolean? EnforceConsumerDeletion { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream to delete.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
         #endregion
         
@@ -150,13 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EnforceConsumerDeletion = this.EnforceConsumerDeletion;
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.EnforceConsumerDeletion != null)
             {
                 request.EnforceConsumerDeletion = cmdletContext.EnforceConsumerDeletion.Value;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -243,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? EnforceConsumerDeletion { get; set; }
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.DeleteStreamResponse, RemoveKINStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

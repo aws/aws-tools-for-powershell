@@ -48,7 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// before all records written to the stream are encrypted. After you enable encryption,
     /// you can verify that encryption is applied by inspecting the API response from <code>PutRecord</code>
     /// or <code>PutRecords</code>.
-    /// </para>
+    /// </para><note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "KINStreamEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -97,20 +100,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String KeyId { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream for which to start encrypting records.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
         #endregion
         
@@ -189,13 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter KeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -287,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             public Amazon.Kinesis.EncryptionType EncryptionType { get; set; }
             public System.String KeyId { get; set; }
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.StartStreamEncryptionResponse, StartKINStreamEncryptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

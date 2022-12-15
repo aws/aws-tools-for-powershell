@@ -28,7 +28,7 @@ using Amazon.MainframeModernization.Model;
 namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
-    /// Creates a new application with given parameters. Requires an existing environment
+    /// Creates a new application with given parameters. Requires an existing runtime environment
     /// and application definition file.
     /// </summary>
     [Cmdlet("New", "AMMApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,6 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.AMM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.MainframeModernization.EngineType")]
         public Amazon.MainframeModernization.EngineType EngineType { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a customer managed key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyId { get; set; }
         #endregion
         
         #region Parameter Name
@@ -203,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 WriteWarning("You are passing $null as a value for parameter EngineType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -274,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             if (cmdletContext.EngineType != null)
             {
                 request.EngineType = cmdletContext.EngineType;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.Name != null)
             {
@@ -349,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             public System.String Definition_S3Location { get; set; }
             public System.String Description { get; set; }
             public Amazon.MainframeModernization.EngineType EngineType { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MainframeModernization.Model.CreateApplicationResponse, NewAMMApplicationCmdlet, object> Select { get; set; } =

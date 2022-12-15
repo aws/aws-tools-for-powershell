@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <summary>
     /// Lists the tags for the specified Kinesis data stream. This operation has a limit of
     /// five transactions per second per account.
+    /// 
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "KINTagsForStream")]
     [OutputType("Amazon.Kinesis.Model.ListTagsForStreamResponse")]
@@ -52,20 +57,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String ExclusiveStartTagKey { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The name of the stream.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
         #endregion
         
@@ -130,13 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExclusiveStartTagKey = this.ExclusiveStartTagKey;
             context.Limit = this.Limit;
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -228,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             public System.String ExclusiveStartTagKey { get; set; }
             public System.Int32? Limit { get; set; }
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.ListTagsForStreamResponse, GetKINTagsForStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

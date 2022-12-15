@@ -2011,7 +2011,11 @@ Set-Alias -Name Delete-BUGWHypervisor -Value Remove-BUGWHypervisor
 Set-Alias -Name BUGW-DeleteHypervisor -Value Remove-BUGWHypervisor
 Set-Alias -Name Disassociate-BUGWGatewayFromServer -Value Remove-BUGWGatewayFromServer
 Set-Alias -Name BUGW-DisassociateGatewayFromServer -Value Remove-BUGWGatewayFromServer
+Set-Alias -Name BUGW-GetBandwidthRateLimitSchedule -Value Get-BUGWBandwidthRateLimitSchedule
 Set-Alias -Name BUGW-GetGateway -Value Get-BUGWGateway
+Set-Alias -Name BUGW-GetHypervisor -Value Get-BUGWHypervisor
+Set-Alias -Name Get-BUGWHypervisorPropertyMappings -Value Get-BUGWHypervisorPropertyMapping
+Set-Alias -Name BUGW-GetHypervisorPropertyMappings -Value Get-BUGWHypervisorPropertyMapping
 Set-Alias -Name BUGW-GetVirtualMachine -Value Get-BUGWVirtualMachine
 Set-Alias -Name BUGW-ImportHypervisorConfiguration -Value Import-BUGWHypervisorConfiguration
 Set-Alias -Name List-BUGWGateways -Value Get-BUGWGatewayList
@@ -2024,8 +2028,14 @@ Set-Alias -Name BUGW-ListTagsForResource -Value Get-BUGWResourceTag
 Set-Alias -Name List-BUGWVirtualMachines -Value Get-BUGWVirtualMachineList
 Set-Alias -Name List-BUGWVirtualMachineList -Value Get-BUGWVirtualMachineList
 Set-Alias -Name BUGW-ListVirtualMachines -Value Get-BUGWVirtualMachineList
+Set-Alias -Name Put-BUGWBandwidthRateLimitSchedule -Value Write-BUGWBandwidthRateLimitSchedule
+Set-Alias -Name BUGW-PutBandwidthRateLimitSchedule -Value Write-BUGWBandwidthRateLimitSchedule
+Set-Alias -Name Put-BUGWHypervisorPropertyMappings -Value Write-BUGWHypervisorPropertyMapping
+Set-Alias -Name Put-BUGWHypervisorPropertyMapping -Value Write-BUGWHypervisorPropertyMapping
+Set-Alias -Name BUGW-PutHypervisorPropertyMappings -Value Write-BUGWHypervisorPropertyMapping
 Set-Alias -Name Put-BUGWMaintenanceStartTime -Value Write-BUGWMaintenanceStartTime
 Set-Alias -Name BUGW-PutMaintenanceStartTime -Value Write-BUGWMaintenanceStartTime
+Set-Alias -Name BUGW-StartVirtualMachinesMetadataSync -Value Start-BUGWVirtualMachinesMetadataSync
 Set-Alias -Name BUGW-TagResource -Value Add-BUGWResourceTag
 Set-Alias -Name BUGW-TestHypervisorConfiguration -Value Test-BUGWHypervisorConfiguration
 Set-Alias -Name BUGW-UntagResource -Value Remove-BUGWResourceTag

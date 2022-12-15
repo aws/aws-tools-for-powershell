@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// to as a <code>PutRecords</code> request). Use this operation to send data into the
     /// stream for data ingestion and processing. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note><para>
     /// Each <code>PutRecords</code> request can support up to 500 records. Each record in
     /// the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
     /// including partition keys. Each shard can support writes up to 1,000 records per second,
@@ -124,20 +126,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public Amazon.Kinesis.Model.PutRecordsRequestEntry[] Record { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
         /// <para>The stream name associated with the request.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
         #endregion
         
@@ -213,13 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter Record which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -239,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.Record != null)
             {
                 request.Records = cmdletContext.Record;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamName != null)
             {
@@ -306,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Kinesis.Model.PutRecordsRequestEntry> Record { get; set; }
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.PutRecordsResponse, WriteKINMultipleRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

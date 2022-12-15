@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataStorageConfig_Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket where the inference experiment data is stored. </para>
+        /// <para>The Amazon S3 bucket where the inference request and response data is stored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DataStorageConfig_KmsKey
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
-        /// that Amazon SageMaker uses to encrypt captured data when uploading to Amazon S3. </para>
+        /// <para> The Amazon Web Services Key Management Service key that Amazon SageMaker uses to
+        /// encrypt captured data at rest using Amazon S3 server-side encryption. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelVariant
         /// <summary>
         /// <para>
-        /// <para> Array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant,
+        /// <para> An array of <code>ModelVariantConfig</code> objects. There is one for each variant,
         /// whose infrastructure configuration you want to update. </para>
         /// </para>
         /// </summary>
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShadowModeConfig_SourceModelVariantName
         /// <summary>
         /// <para>
-        /// <para> The name of the production variant. </para>
+        /// <para> The name of the production variant, which takes all the inference requests. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         public System.String HypervisorArn { get; set; }
         #endregion
         
+        #region Parameter LogGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the group of gateways within the requested log.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogGroupArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -171,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
                 WriteWarning("You are passing $null as a value for parameter HypervisorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogGroupArn = this.LogGroupArn;
             context.Name = this.Name;
             context.Password = this.Password;
             context.Username = this.Username;
@@ -197,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
             if (cmdletContext.HypervisorArn != null)
             {
                 request.HypervisorArn = cmdletContext.HypervisorArn;
+            }
+            if (cmdletContext.LogGroupArn != null)
+            {
+                request.LogGroupArn = cmdletContext.LogGroupArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -273,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
         {
             public System.String HypervisorHost { get; set; }
             public System.String HypervisorArn { get; set; }
+            public System.String LogGroupArn { get; set; }
             public System.String Name { get; set; }
             public System.String Password { get; set; }
             public System.String Username { get; set; }

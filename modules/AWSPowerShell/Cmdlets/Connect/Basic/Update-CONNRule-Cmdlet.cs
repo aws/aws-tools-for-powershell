@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Updates a rule for the specified Amazon Connect instance.
+    /// 
+    ///  
+    /// <para>
+    /// Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules
+    /// Function language</a> to code conditions for the rule. 
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "CONNRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

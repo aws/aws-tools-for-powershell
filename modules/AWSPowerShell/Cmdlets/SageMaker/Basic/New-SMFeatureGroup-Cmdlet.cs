@@ -265,8 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OfflineStoreConfig_TableFormat
         /// <summary>
         /// <para>
-        /// <para>Format for the offline store feature group. <code>Iceberg</code> is the optimal format
-        /// for feature groups shared between offline and online stores.</para>
+        /// <para>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache
+        /// Iceberg</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

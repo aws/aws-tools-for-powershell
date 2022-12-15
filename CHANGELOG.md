@@ -1,4 +1,42 @@
-﻿### 4.1.230 (2022-12-14 21:59Z)
+﻿### 4.1.231 (2022-12-15 22:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.441.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Backup Gateway
+    * Added cmdlet Get-BUGWBandwidthRateLimitSchedule leveraging the GetBandwidthRateLimitSchedule service API.
+    * Added cmdlet Get-BUGWHypervisor leveraging the GetHypervisor service API.
+    * Added cmdlet Get-BUGWHypervisorPropertyMapping leveraging the GetHypervisorPropertyMappings service API.
+    * Added cmdlet Start-BUGWVirtualMachinesMetadataSync leveraging the StartVirtualMachinesMetadataSync service API.
+    * Added cmdlet Write-BUGWBandwidthRateLimitSchedule leveraging the PutBandwidthRateLimitSchedule service API.
+    * Added cmdlet Write-BUGWHypervisorPropertyMapping leveraging the PutHypervisorPropertyMappings service API.
+    * Modified cmdlet Update-BUGWHypervisor: added parameter LogGroupArn.
+  * Amazon Kinesis
+    * Modified cmdlet Write-KINRecord: added parameter StreamARN.
+    * Modified cmdlet Add-KINTagsToStream: added parameter StreamARN.
+    * Modified cmdlet Disable-KINEnhancedMonitoring: added parameter StreamARN.
+    * Modified cmdlet Enable-KINEnhancedMonitoring: added parameter StreamARN.
+    * Modified cmdlet Get-KINRecord: added parameter StreamARN.
+    * Modified cmdlet Get-KINShardIterator: added parameter StreamARN.
+    * Modified cmdlet Get-KINShardList: added parameter StreamARN.
+    * Modified cmdlet Get-KINStream: added parameter StreamARN.
+    * Modified cmdlet Get-KINStreamList: added parameters NextToken and NoAutoIteration.
+    * Modified cmdlet Get-KINStreamSummary: added parameter StreamARN.
+    * Modified cmdlet Get-KINTagsForStream: added parameter StreamARN.
+    * Modified cmdlet Merge-KINShard: added parameter StreamARN.
+    * Modified cmdlet Remove-KINStream: added parameter StreamARN.
+    * Modified cmdlet Remove-KINTagsFromStream: added parameter StreamARN.
+    * Modified cmdlet Request-KINStreamRetentionPeriodDecrease: added parameter StreamARN.
+    * Modified cmdlet Request-KINStreamRetentionPeriodIncrease: added parameter StreamARN.
+    * Modified cmdlet Split-KINShard: added parameter StreamARN.
+    * Modified cmdlet Start-KINStreamEncryption: added parameter StreamARN.
+    * Modified cmdlet Stop-KINStreamEncryption: added parameter StreamARN.
+    * Modified cmdlet Update-KINShardCount: added parameter StreamARN.
+    * Modified cmdlet Write-KINMultipleRecord: added parameter StreamARN.
+  * Amazon M2
+    * Modified cmdlet New-AMMApplication: added parameter KmsKeyId.
+    * Modified cmdlet New-AMMEnvironment: added parameter KmsKeyId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+
+### 4.1.230 (2022-12-14 21:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.440.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Cost Explorer
     * Modified cmdlet New-CEAnomalySubscription: added parameter AnomalySubscription_ThresholdExpression.

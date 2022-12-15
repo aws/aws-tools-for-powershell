@@ -31,8 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Lists the shards in a stream and provides information about each shard. This operation
     /// has a limit of 1000 transactions per second per data stream.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note><para>
     /// This action does not list expired shards. For information about expired shards, see
     /// <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing">Data
     /// Routing, Data Persistence, and Shard State after a Reshard</a>. 
@@ -75,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ShardFilter_ShardId { get; set; }
+        #endregion
+        
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
         #endregion
         
         #region Parameter StreamCreationTimestamp
@@ -253,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             context.ShardFilter_ShardId = this.ShardFilter_ShardId;
             context.ShardFilter_Timestamp = this.ShardFilter_Timestamp;
             context.ShardFilter_Type = this.ShardFilter_Type;
+            context.StreamARN = this.StreamARN;
             context.StreamCreationTimestamp = this.StreamCreationTimestamp;
             context.StreamName = this.StreamName;
             
@@ -322,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (requestShardFilterIsNull)
             {
                 request.ShardFilter = null;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamCreationTimestamp != null)
             {
@@ -428,6 +445,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (requestShardFilterIsNull)
             {
                 request.ShardFilter = null;
+            }
+            if (cmdletContext.StreamARN != null)
+            {
+                request.StreamARN = cmdletContext.StreamARN;
             }
             if (cmdletContext.StreamCreationTimestamp != null)
             {
@@ -562,6 +583,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.String ShardFilter_ShardId { get; set; }
             public System.DateTime? ShardFilter_Timestamp { get; set; }
             public Amazon.Kinesis.ShardFilterType ShardFilter_Type { get; set; }
+            public System.String StreamARN { get; set; }
             public System.DateTime? StreamCreationTimestamp { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.ListShardsResponse, GetKINShardListCmdlet, object> Select { get; set; } =

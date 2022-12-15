@@ -38,7 +38,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBandwidthRateLimitSchedule" OutputProperty="*" Verb="Get" Noun="BandwidthRateLimitSchedule" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHypervisor" OutputProperty="Hypervisor" Verb="Get" Noun="Hypervisor" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHypervisorPropertyMappings" OutputProperty="*" Verb="Get" Noun="HypervisorPropertyMapping" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,7 +80,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutBandwidthRateLimitSchedule" OutputProperty="GatewayArn" Verb="Write" Noun="BandwidthRateLimitSchedule" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutHypervisorPropertyMappings" OutputProperty="HypervisorArn" Verb="Write" Noun="HypervisorPropertyMapping" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutMaintenanceStartTime" OutputProperty="GatewayArn" Verb="Write" Noun="MaintenanceStartTime" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartVirtualMachinesMetadataSync" OutputProperty="HypervisorArn" Verb="Start" Noun="VirtualMachinesMetadataSync" ShouldProcessTarget="HypervisorArn" PipelineParameter="HypervisorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

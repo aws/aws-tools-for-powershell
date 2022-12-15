@@ -266,8 +266,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key
-        /// that SageMaker uses to encrypt data on the storage volume attached to the ML compute
-        /// instance that hosts the endpoint.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
+        /// that SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side
+        /// encryption.</para><para>The KmsKeyId can be any of the following formats: </para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias name ARN: <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -458,7 +458,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProductionVariant
         /// <summary>
         /// <para>
-        /// <para>An list of <code>ProductionVariant</code> objects, one for each model that you want
+        /// <para>An array of <code>ProductionVariant</code> objects, one for each model that you want
         /// to host at this endpoint.</para>
         /// </para>
         /// </summary>
@@ -500,11 +500,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ShadowProductionVariant
         /// <summary>
         /// <para>
-        /// <para> Array of <code>ProductionVariant</code> objects. There is one for each model that
-        /// you want to host at this endpoint in shadow mode with production traffic replicated
-        /// from the model specified on <code>ProductionVariants</code>.If you use this field,
-        /// you can only specify one variant for <code>ProductionVariants</code> and one variant
-        /// for <code>ShadowProductionVariants</code>. </para>
+        /// <para>An array of <code>ProductionVariant</code> objects, one for each model that you want
+        /// to host at this endpoint in shadow mode with production traffic replicated from the
+        /// model specified on <code>ProductionVariants</code>. If you use this field, you can
+        /// only specify one variant for <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

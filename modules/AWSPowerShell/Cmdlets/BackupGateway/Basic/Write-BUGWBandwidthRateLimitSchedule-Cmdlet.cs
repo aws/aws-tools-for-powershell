@@ -22,35 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kinesis;
-using Amazon.Kinesis.Model;
+using Amazon.BackupGateway;
+using Amazon.BackupGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KIN
+namespace Amazon.PowerShell.Cmdlets.BUGW
 {
     /// <summary>
-    /// Enables enhanced Kinesis data stream monitoring for shard-level metrics.
-    /// 
-    ///  <note><para>
-    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
-    /// parameter rather than the <code>StreamName</code> input parameter.
-    /// </para></note>
+    /// This action sets the bandwidth rate limit schedule for a specified gateway. By default,
+    /// gateways do not have a bandwidth rate limit schedule, which means no bandwidth rate
+    /// limiting is in effect. Use this to initiate a gateway's bandwidth rate limit schedule.
     /// </summary>
-    [Cmdlet("Enable", "KINEnhancedMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse")]
-    [AWSCmdlet("Calls the Amazon Kinesis EnableEnhancedMonitoring API operation.", Operation = new[] {"EnableEnhancedMonitoring"}, SelectReturnType = typeof(Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse))]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse",
-        "This cmdlet returns an Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "BUGWBandwidthRateLimitSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Backup Gateway PutBandwidthRateLimitSchedule API operation.", Operation = new[] {"PutBandwidthRateLimitSchedule"}, SelectReturnType = typeof(Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse))]
+    [AWSCmdletOutput("System.String or Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableKINEnhancedMonitoringCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class WriteBUGWBandwidthRateLimitScheduleCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter ShardLevelMetric
+        #region Parameter BandwidthRateLimitInterval
         /// <summary>
         /// <para>
-        /// <para>List of shard-level metrics to enable.</para><para>The following are the valid shard-level metrics. The value "<code>ALL</code>" enables
-        /// every metric.</para><ul><li><para><code>IncomingBytes</code></para></li><li><para><code>IncomingRecords</code></para></li><li><para><code>OutgoingBytes</code></para></li><li><para><code>OutgoingRecords</code></para></li><li><para><code>WriteProvisionedThroughputExceeded</code></para></li><li><para><code>ReadProvisionedThroughputExceeded</code></para></li><li><para><code>IteratorAgeMilliseconds</code></para></li><li><para><code>ALL</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring
-        /// the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon
-        /// Kinesis Data Streams Developer Guide</i>.</para>
+        /// <para>An array containing bandwidth rate limit schedule intervals for a gateway. When no
+        /// bandwidth rate limit intervals have been scheduled, the array is empty.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,47 +57,45 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ShardLevelMetrics")]
-        public System.String[] ShardLevelMetric { get; set; }
+        [Alias("BandwidthRateLimitIntervals")]
+        public Amazon.BackupGateway.Model.BandwidthRateLimitInterval[] BandwidthRateLimitInterval { get; set; }
         #endregion
         
-        #region Parameter StreamARN
+        #region Parameter GatewayArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the stream.</para>
+        /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_ListGateways.html"><code>ListGateways</code></a> operation to return a list of gateways for your account
+        /// and Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String StreamARN { get; set; }
-        #endregion
-        
-        #region Parameter StreamName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the stream for which to enable enhanced monitoring.</para>
-        /// </para>
-        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StreamName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String GatewayArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse).
-        /// Specifying the name of a property of type Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GatewayArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse).
+        /// Specifying the name of a property of type Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "GatewayArn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StreamName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GatewayArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GatewayArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StreamName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GatewayArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StreamName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-KINEnhancedMonitoring (EnableEnhancedMonitoring)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GatewayArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-BUGWBandwidthRateLimitSchedule (PutBandwidthRateLimitSchedule)"))
             {
                 return;
             }
@@ -135,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse, EnableKINEnhancedMonitoringCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse, WriteBUGWBandwidthRateLimitScheduleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,21 +138,26 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.StreamName;
+                context.Select = (response, cmdlet) => this.GatewayArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.ShardLevelMetric != null)
+            if (this.BandwidthRateLimitInterval != null)
             {
-                context.ShardLevelMetric = new List<System.String>(this.ShardLevelMetric);
+                context.BandwidthRateLimitInterval = new List<Amazon.BackupGateway.Model.BandwidthRateLimitInterval>(this.BandwidthRateLimitInterval);
             }
             #if MODULAR
-            if (this.ShardLevelMetric == null && ParameterWasBound(nameof(this.ShardLevelMetric)))
+            if (this.BandwidthRateLimitInterval == null && ParameterWasBound(nameof(this.BandwidthRateLimitInterval)))
             {
-                WriteWarning("You are passing $null as a value for parameter ShardLevelMetric which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter BandwidthRateLimitInterval which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.StreamARN = this.StreamARN;
-            context.StreamName = this.StreamName;
+            context.GatewayArn = this.GatewayArn;
+            #if MODULAR
+            if (this.GatewayArn == null && ParameterWasBound(nameof(this.GatewayArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GatewayArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.EnableEnhancedMonitoringRequest();
+            var request = new Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleRequest();
             
-            if (cmdletContext.ShardLevelMetric != null)
+            if (cmdletContext.BandwidthRateLimitInterval != null)
             {
-                request.ShardLevelMetrics = cmdletContext.ShardLevelMetric;
+                request.BandwidthRateLimitIntervals = cmdletContext.BandwidthRateLimitInterval;
             }
-            if (cmdletContext.StreamARN != null)
+            if (cmdletContext.GatewayArn != null)
             {
-                request.StreamARN = cmdletContext.StreamARN;
-            }
-            if (cmdletContext.StreamName != null)
-            {
-                request.StreamName = cmdletContext.StreamName;
+                request.GatewayArn = cmdletContext.GatewayArn;
             }
             
             CmdletOutput output;
@@ -220,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.EnableEnhancedMonitoringRequest request)
+        private Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse CallAWSServiceOperation(IAmazonBackupGateway client, Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "EnableEnhancedMonitoring");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup Gateway", "PutBandwidthRateLimitSchedule");
             try
             {
                 #if DESKTOP
-                return client.EnableEnhancedMonitoring(request);
+                return client.PutBandwidthRateLimitSchedule(request);
                 #elif CORECLR
-                return client.EnableEnhancedMonitoringAsync(request).GetAwaiter().GetResult();
+                return client.PutBandwidthRateLimitScheduleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,11 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ShardLevelMetric { get; set; }
-            public System.String StreamARN { get; set; }
-            public System.String StreamName { get; set; }
-            public System.Func<Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse, EnableKINEnhancedMonitoringCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<Amazon.BackupGateway.Model.BandwidthRateLimitInterval> BandwidthRateLimitInterval { get; set; }
+            public System.String GatewayArn { get; set; }
+            public System.Func<Amazon.BackupGateway.Model.PutBandwidthRateLimitScheduleResponse, WriteBUGWBandwidthRateLimitScheduleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.GatewayArn;
         }
         
     }

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AMM
 {
     /// <summary>
     /// Lists the applications associated with a specific Amazon Web Services account. You
-    /// can provide the unique identifier of a specific environment in a query parameter to
-    /// see all applications associated with that environment.
+    /// can provide the unique identifier of a specific runtime environment in a query parameter
+    /// to see all applications associated with that environment.
     /// </summary>
     [Cmdlet("Get", "AMMApplicationList")]
     [OutputType("Amazon.MainframeModernization.Model.ApplicationSummary")]

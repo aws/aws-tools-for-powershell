@@ -88,9 +88,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-BUGWGatewayToServer', 
         'Add-BUGWResourceTag', 
+        'Get-BUGWBandwidthRateLimitSchedule', 
         'Get-BUGWGateway', 
         'Get-BUGWGatewayList', 
+        'Get-BUGWHypervisor', 
         'Get-BUGWHypervisorList', 
+        'Get-BUGWHypervisorPropertyMapping', 
         'Get-BUGWResourceTag', 
         'Get-BUGWVirtualMachine', 
         'Get-BUGWVirtualMachineList', 
@@ -100,10 +103,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-BUGWGatewayFromServer', 
         'Remove-BUGWHypervisor', 
         'Remove-BUGWResourceTag', 
+        'Start-BUGWVirtualMachinesMetadataSync', 
         'Test-BUGWHypervisorConfiguration', 
         'Update-BUGWGatewayInformation', 
         'Update-BUGWGatewaySoftwareNow', 
         'Update-BUGWHypervisor', 
+        'Write-BUGWBandwidthRateLimitSchedule', 
+        'Write-BUGWHypervisorPropertyMapping', 
         'Write-BUGWMaintenanceStartTime')
 
     # Variables to export from this module

@@ -33,8 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// record at a time. Each shard can support writes up to 1,000 records per second, up
     /// to a maximum data write total of 1 MiB per second.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// When invoking this API, it is recommended you use the <code>StreamARN</code> input
+    /// parameter rather than the <code>StreamName</code> input parameter.
+    /// </para></note><para>
     /// You must specify the name of the stream that captures, stores, and transports the
     /// data; a partition key; and the data blob itself.
     /// </para><para>
@@ -146,6 +148,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String SequenceNumberForOrdering { get; set; }
         #endregion
         
+        #region Parameter StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamARN { get; set; }
+        #endregion
+        
         #region Parameter StreamName
         /// <summary>
         /// <para>
@@ -234,13 +246,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #endif
             context.SequenceNumberForOrdering = this.SequenceNumberForOrdering;
+            context.StreamARN = this.StreamARN;
             context.StreamName = this.StreamName;
-            #if MODULAR
-            if (this.StreamName == null && ParameterWasBound(nameof(this.StreamName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -277,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 if (cmdletContext.SequenceNumberForOrdering != null)
                 {
                     request.SequenceNumberForOrdering = cmdletContext.SequenceNumberForOrdering;
+                }
+                if (cmdletContext.StreamARN != null)
+                {
+                    request.StreamARN = cmdletContext.StreamARN;
                 }
                 if (cmdletContext.StreamName != null)
                 {
@@ -355,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.String ExplicitHashKey { get; set; }
             public System.String PartitionKey { get; set; }
             public System.String SequenceNumberForOrdering { get; set; }
+            public System.String StreamARN { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.PutRecordResponse, WriteKINRecordCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
