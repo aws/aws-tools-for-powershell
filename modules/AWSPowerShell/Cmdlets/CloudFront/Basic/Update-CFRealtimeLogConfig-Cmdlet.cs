@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// update.
     /// </para></li><li><para>
     /// Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire real-time
-    /// log configuration, including the parameters that you modified and those that you didn’t.
+    /// log configuration, including the parameters that you modified and those that you didn't.
     /// </para></li></ol><para>
-    /// You cannot update a real-time log configuration’s <code>Name</code> or <code>ARN</code>.
+    /// You cannot update a real-time log configuration's <code>Name</code> or <code>ARN</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "CFRealtimeLogConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

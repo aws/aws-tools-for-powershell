@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Removes a tag from an Amazon Web Services resource.
+    /// Removes tags from an Amazon Web Services resource.
     /// </summary>
     [Cmdlet("Remove", "DSYNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The keys in the key-value pair in the tag to remove.</para>
+        /// <para>Specifies the keys in the tags that you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to remove the tag from.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the resource to remove the tags from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

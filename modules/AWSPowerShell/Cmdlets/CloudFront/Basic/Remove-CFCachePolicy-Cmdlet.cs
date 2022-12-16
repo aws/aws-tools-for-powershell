@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// You cannot delete a cache policy if it’s attached to a cache behavior. First update
+    /// You cannot delete a cache policy if it's attached to a cache behavior. First update
     /// your distributions to remove the cache policy from all cache behaviors, then delete
     /// the cache policy.
     /// </para><para>
-    /// To delete a cache policy, you must provide the policy’s identifier and version. To
+    /// To delete a cache policy, you must provide the policy's identifier and version. To
     /// get these values, you can use <code>ListCachePolicies</code> or <code>GetCachePolicy</code>.
     /// </para>
     /// </summary>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The version of the cache policy that you are deleting. The version is the cache policy’s
+        /// <para>The version of the cache policy that you are deleting. The version is the cache policy's
         /// <code>ETag</code> value, which you can get using <code>ListCachePolicies</code>, <code>GetCachePolicy</code>,
         /// or <code>GetCachePolicyConfig</code>.</para>
         /// </para>

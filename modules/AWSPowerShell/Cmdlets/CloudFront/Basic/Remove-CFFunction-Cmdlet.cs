@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// You cannot delete a function if it’s associated with a cache behavior. First, update
+    /// You cannot delete a function if it's associated with a cache behavior. First, update
     /// your distributions to remove the function association from all cache behaviors, then
     /// delete the function.
     /// </para><para>
-    /// To delete a function, you must provide the function’s name and version (<code>ETag</code>
+    /// To delete a function, you must provide the function's name and version (<code>ETag</code>
     /// value). To get these values, you can use <code>ListFunctions</code> and <code>DescribeFunction</code>.
     /// </para>
     /// </summary>

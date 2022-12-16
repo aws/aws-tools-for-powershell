@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of origin access identities you want in the response body. </para>
+        /// <para>The maximum number of origin access identities you want in the response body.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

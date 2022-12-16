@@ -28,7 +28,13 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Applies a key-value pair to an Amazon Web Services resource.
+    /// Applies a <i>tag</i> to an Amazon Web Services resource. Tags are key-value pairs
+    /// that can help you manage, filter, and search for your resources.
+    /// 
+    ///  
+    /// <para>
+    /// These include DataSync resources, such as locations, tasks, and task executions.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "DSYNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to apply the tag to.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the resource to apply the tag to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to apply.</para>
+        /// <para>Specifies the tags that you want to apply to the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

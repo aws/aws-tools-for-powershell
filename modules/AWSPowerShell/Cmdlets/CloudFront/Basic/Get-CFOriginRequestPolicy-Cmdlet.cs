@@ -31,13 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Gets an origin request policy, including the following metadata:
     /// 
     ///  <ul><li><para>
-    /// The policy’s identifier.
+    /// The policy's identifier.
     /// </para></li><li><para>
     /// The date and time when the policy was last modified.
     /// </para></li></ul><para>
-    /// To get an origin request policy, you must provide the policy’s identifier. If the
-    /// origin request policy is attached to a distribution’s cache behavior, you can get
-    /// the policy’s identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
+    /// To get an origin request policy, you must provide the policy's identifier. If the
+    /// origin request policy is attached to a distribution's cache behavior, you can get
+    /// the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
     /// If the origin request policy is not attached to a cache behavior, you can get the
     /// identifier using <code>ListOriginRequestPolicies</code>.
     /// </para>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the origin request policy. If the origin request policy
-        /// is attached to a distribution’s cache behavior, you can get the policy’s identifier
+        /// is attached to a distribution's cache behavior, you can get the policy's identifier
         /// using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
         /// request policy is not attached to a cache behavior, you can get the identifier using
         /// <code>ListOriginRequestPolicies</code>.</para>

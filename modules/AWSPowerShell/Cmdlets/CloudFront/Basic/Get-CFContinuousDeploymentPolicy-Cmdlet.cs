@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets a continuous deployment policy, including metadata (the policy’s identifier and
+    /// Gets a continuous deployment policy, including metadata (the policy's identifier and
     /// the date and time when the policy was last modified).
     /// </summary>
     [Cmdlet("Get", "CFContinuousDeploymentPolicy")]

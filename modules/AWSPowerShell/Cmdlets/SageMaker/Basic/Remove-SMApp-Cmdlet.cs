@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the space.</para>
+        /// <para>The name of the space. If this value is not set, then <code>UserProfileName</code>
+        /// must be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
-        /// <para>The user profile name.</para>
+        /// <para>The user profile name. If this value is not set, then <code>SpaceName</code> must
+        /// be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

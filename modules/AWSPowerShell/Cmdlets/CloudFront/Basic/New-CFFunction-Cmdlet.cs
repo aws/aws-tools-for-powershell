@@ -36,13 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// about the function. The response contains an Amazon Resource Name (ARN) that uniquely
     /// identifies the function.
     /// </para><para>
-    /// When you create a function, it’s in the <code>DEVELOPMENT</code> stage. In this stage,
+    /// When you create a function, it's in the <code>DEVELOPMENT</code> stage. In this stage,
     /// you can test the function with <code>TestFunction</code>, and update it with <code>UpdateFunction</code>.
     /// </para><para>
-    /// When you’re ready to use your function with a CloudFront distribution, use <code>PublishFunction</code>
+    /// When you're ready to use your function with a CloudFront distribution, use <code>PublishFunction</code>
     /// to copy the function from the <code>DEVELOPMENT</code> stage to <code>LIVE</code>.
-    /// When it’s live, you can attach the function to a distribution’s cache behavior, using
-    /// the function’s ARN.
+    /// When it's live, you can attach the function to a distribution's cache behavior, using
+    /// the function's ARN.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CFFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter FunctionConfig_Runtime
         /// <summary>
         /// <para>
-        /// <para>The function’s runtime environment. The only valid value is <code>cloudfront-js-1.0</code>.</para>
+        /// <para>The function's runtime environment. The only valid value is <code>cloudfront-js-1.0</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

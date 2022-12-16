@@ -90,6 +90,29 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String EntitiesPath { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items that the operation returns in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that was provided by your prior <code>ListConnectorEntities</code> operation
+        /// if the response was too big for the page size. You specify this token to get the next
+        /// page of results in paginated response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectorEntityMap'.
@@ -140,6 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.ConnectorProfileName = this.ConnectorProfileName;
             context.ConnectorType = this.ConnectorType;
             context.EntitiesPath = this.EntitiesPath;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +196,14 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (cmdletContext.EntitiesPath != null)
             {
                 request.EntitiesPath = cmdletContext.EntitiesPath;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -237,6 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String ConnectorProfileName { get; set; }
             public Amazon.Appflow.ConnectorType ConnectorType { get; set; }
             public System.String EntitiesPath { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.Func<Amazon.Appflow.Model.ListConnectorEntitiesResponse, GetAFConnectorEntityListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectorEntityMap;
         }

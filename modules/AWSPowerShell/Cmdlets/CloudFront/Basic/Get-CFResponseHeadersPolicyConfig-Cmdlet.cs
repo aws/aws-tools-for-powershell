@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// To get a response headers policy configuration, you must provide the policy’s identifier.
-    /// If the response headers policy is attached to a distribution’s cache behavior, you
-    /// can get the policy’s identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
+    /// To get a response headers policy configuration, you must provide the policy's identifier.
+    /// If the response headers policy is attached to a distribution's cache behavior, you
+    /// can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
     /// If the response headers policy is not attached to a cache behavior, you can get the
     /// identifier using <code>ListResponseHeadersPolicies</code>.
     /// </para>
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier for the response headers policy.</para><para>If the response headers policy is attached to a distribution’s cache behavior, you
-        /// can get the policy’s identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
+        /// <para>The identifier for the response headers policy.</para><para>If the response headers policy is attached to a distribution's cache behavior, you
+        /// can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>.
         /// If the response headers policy is not attached to a cache behavior, you can get the
         /// identifier using <code>ListResponseHeadersPolicies</code>.</para>
         /// </para>

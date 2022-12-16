@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StreamingDistributionConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>Any comments you want to include about the streaming distribution. </para>
+        /// <para>Any comments you want to include about the streaming distribution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter S3Origin_DomainName
         /// <summary>
         /// <para>
-        /// <para>The DNS name of the Amazon S3 origin. </para>
+        /// <para>The DNS name of the Amazon S3 origin.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// for <code>Enabled</code>, and specify <code>empty Bucket</code> and <code>Prefix</code>
         /// elements. If you specify <code>false</code> for <code>Enabled</code> but you specify
         /// values for <code>Bucket</code> and <code>Prefix</code>, the values are automatically
-        /// deleted. </para>
+        /// deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Tags_Item
         /// <summary>
         /// <para>
-        /// <para> A complex type that contains <code>Tag</code> elements.</para>
+        /// <para>A complex type that contains <code>Tag</code> elements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,8 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter StreamingDistributionConfig_PriceClass
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains information about price class for this streaming distribution.
-        /// </para>
+        /// <para>A complex type that contains information about price class for this streaming distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SpaceNameEqual
         /// <summary>
         /// <para>
-        /// <para>A parameter to search by space name.</para>
+        /// <para>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set,
+        /// then this value cannot be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UserProfileNameEqual
         /// <summary>
         /// <para>
-        /// <para>A parameter to search by user profile name.</para>
+        /// <para>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set,
+        /// then this value cannot be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

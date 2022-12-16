@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identity's ID. </para>
+        /// <para>The identity's ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

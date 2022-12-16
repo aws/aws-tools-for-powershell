@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// the policy, and a set of configurations that specify the response headers.
     /// </para><para>
     /// After you create a response headers policy, you can use its ID to attach it to one
-    /// or more cache behaviors in a CloudFront distribution. When it’s attached to a cache
+    /// or more cache behaviors in a CloudFront distribution. When it's attached to a cache
     /// behavior, CloudFront adds the headers in the policy to HTTP responses that it sends
     /// for requests that match the cache behavior.
     /// </para>
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The value of the <code>X-Frame-Options</code> HTTP response header. Valid values are
-        /// <code>DENY</code> and <code>SAMEORIGIN</code>. </para><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>
+        /// <code>DENY</code> and <code>SAMEORIGIN</code>.</para><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>

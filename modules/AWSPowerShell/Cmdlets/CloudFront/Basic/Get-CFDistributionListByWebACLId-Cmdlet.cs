@@ -66,8 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// If you have more than <code>MaxItems</code> distributions that satisfy the request,
         /// the response includes a <code>NextMarker</code> element. To get the next page of results,
         /// submit another request. For the value of <code>Marker</code>, specify the value of
-        /// <code>NextMarker</code> from the last response. (For the first request, omit <code>Marker</code>.)
-        /// </para>
+        /// <code>NextMarker</code> from the last response. (For the first request, omit <code>Marker</code>.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

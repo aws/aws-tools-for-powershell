@@ -35,11 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// <para>
     /// To use a continuous deployment policy, first use <code>CopyDistribution</code> to
     /// create a staging distribution, then use <code>UpdateDistribution</code> to modify
-    /// the staging distribution’s configuration.
+    /// the staging distribution's configuration.
     /// </para><para>
     /// After you create and update a staging distribution, you can use a continuous deployment
     /// policy to incrementally move traffic to the staging distribution. This workflow enables
-    /// you to test changes to a distribution’s configuration before moving all of your domain’s
+    /// you to test changes to a distribution's configuration before moving all of your domain's
     /// production traffic to the new configuration.
     /// </para>
     /// </summary>
@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter SingleHeaderConfig_Header
         /// <summary>
         /// <para>
-        /// <para>The request header name that you want CloudFront to send to your staging distribution.</para>
+        /// <para>The request header name that you want CloudFront to send to your staging distribution.
+        /// The header must contain the prefix <code>aws-cf-cd-</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter SessionStickinessConfig_IdleTTL
         /// <summary>
         /// <para>
-        /// <para>The amount of time after which you want sessions to cease if no requests are received. Allowed
-        /// values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>MaximumTTL</code>.</para>
+        /// <para>The amount of time after which you want sessions to cease if no requests are received.
+        /// Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>MaximumTTL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

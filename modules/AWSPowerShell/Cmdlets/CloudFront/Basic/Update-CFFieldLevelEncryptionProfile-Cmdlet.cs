@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the field-level encryption profile request. </para>
+        /// <para>The ID of the field-level encryption profile request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,8 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter EncryptionEntities_Quantity
         /// <summary>
         /// <para>
-        /// <para>Number of field pattern items in a field-level encryption content type-profile mapping.
-        /// </para>
+        /// <para>Number of field pattern items in a field-level encryption content type-profile mapping.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,16 +28,12 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
-    /// an individual run of a task. Each task can have at most one <code>TaskExecution</code>
-    /// at a time.
+    /// Starts an DataSync task. For each task, you can only run one task execution at a time.
     /// 
     ///  
-    /// <para><code>TaskExecution</code> has the following transition phases: INITIALIZING | PREPARING
-    /// | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. 
-    /// </para><para>
-    /// For detailed information, see the Task Execution section in the Components and Terminology
-    /// topic in the <i>DataSync User Guide</i>.
+    /// <para>
+    /// There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task
+    /// execution statuses</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "DSYNTaskExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Exclude
         /// <summary>
         /// <para>
-        /// <para>A list of filter rules that determines which files to exclude from a task. The list
-        /// contains a single filter string that consists of the patterns to exclude. The patterns
-        /// are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
+        /// <para>Specifies a list of filter rules that determines which files to exclude from a task.
+        /// The list contains a single filter string that consists of the patterns to exclude.
+        /// The patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -67,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>A list of filter rules that determines which files to include when running a task.
-        /// The pattern should contain a single filter string that consists of the patterns to
-        /// include. The patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
+        /// <para>Specifies a list of filter rules that determines which files to include when running
+        /// a task. The pattern should contain a single filter string that consists of the patterns
+        /// to include. The patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -89,10 +85,23 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public Amazon.DataSync.Model.Options OverrideOption { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing
+        /// the task execution.</para><para><i>Tags</i> are key-value pairs that help you manage, filter, and search for your
+        /// DataSync resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.DataSync.Model.TagListEntry[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task to start.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the task that you want to start.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -177,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Include = new List<Amazon.DataSync.Model.FilterRule>(this.Include);
             }
             context.OverrideOption = this.OverrideOption;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.DataSync.Model.TagListEntry>(this.Tag);
+            }
             context.TaskArn = this.TaskArn;
             #if MODULAR
             if (this.TaskArn == null && ParameterWasBound(nameof(this.TaskArn)))
@@ -211,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (cmdletContext.OverrideOption != null)
             {
                 request.OverrideOptions = cmdletContext.OverrideOption;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TaskArn != null)
             {
@@ -280,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public List<Amazon.DataSync.Model.FilterRule> Exclude { get; set; }
             public List<Amazon.DataSync.Model.FilterRule> Include { get; set; }
             public Amazon.DataSync.Model.Options OverrideOption { get; set; }
+            public List<Amazon.DataSync.Model.TagListEntry> Tag { get; set; }
             public System.String TaskArn { get; set; }
             public System.Func<Amazon.DataSync.Model.StartTaskExecutionResponse, StartDSYNTaskExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TaskExecutionArn;

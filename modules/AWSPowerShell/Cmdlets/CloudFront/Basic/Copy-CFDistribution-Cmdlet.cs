@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     ///  
     /// <para>
     /// After you create a staging distribution, you can use <code>UpdateDistribution</code>
-    /// to modify the staging distribution’s configuration. Then you can use <code>CreateContinuousDeploymentPolicy</code>
+    /// to modify the staging distribution's configuration. Then you can use <code>CreateContinuousDeploymentPolicy</code>
     /// to incrementally move traffic to the staging distribution.
     /// </para>
     /// </summary>

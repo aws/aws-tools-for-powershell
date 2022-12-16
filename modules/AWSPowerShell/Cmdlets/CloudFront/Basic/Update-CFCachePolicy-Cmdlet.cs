@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Locally modify the fields in the cache policy configuration that you want to update.
     /// </para></li><li><para>
     /// Call <code>UpdateCachePolicy</code> by providing the entire cache policy configuration,
-    /// including the fields that you modified and those that you didn’t.
+    /// including the fields that you modified and those that you didn't.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFCachePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The default amount of time, in seconds, that you want objects to stay in the CloudFront
         /// cache before CloudFront sends another request to the origin to see if the object has
-        /// been updated. CloudFront uses this value as the object’s time to live (TTL) only when
+        /// been updated. CloudFront uses this value as the object's time to live (TTL) only when
         /// the origin does <i>not</i> send <code>Cache-Control</code> or <code>Expires</code>
         /// headers with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
         /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
@@ -110,14 +110,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>A flag that can affect whether the <code>Accept-Encoding</code> HTTP header is included
         /// in the cache key and included in requests that CloudFront sends to the origin.</para><para>This field is related to the <code>EnableAcceptEncodingGzip</code> field. If one or
         /// both of these fields is <code>true</code><i>and</i> the viewer request includes the
-        /// <code>Accept-Encoding</code> header, then CloudFront does the following:</para><ul><li><para>Normalizes the value of the viewer’s <code>Accept-Encoding</code> header</para></li><li><para>Includes the normalized header in the cache key</para></li><li><para>Includes the normalized header in the request to the origin, if a request is necessary</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects">Compression
+        /// <code>Accept-Encoding</code> header, then CloudFront does the following:</para><ul><li><para>Normalizes the value of the viewer's <code>Accept-Encoding</code> header</para></li><li><para>Includes the normalized header in the cache key</para></li><li><para>Includes the normalized header in the request to the origin, if a request is necessary</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects">Compression
         /// support</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you set this value to <code>true</code>, and this cache behavior also has an origin
         /// request policy attached, do not include the <code>Accept-Encoding</code> header in
         /// the origin request policy. CloudFront always includes the <code>Accept-Encoding</code>
         /// header in origin requests when the value of this field is <code>true</code>, so including
         /// this header in an origin request policy has no effect.</para><para>If both of these fields are <code>false</code>, then CloudFront treats the <code>Accept-Encoding</code>
-        /// header the same as any other HTTP header in the viewer request. By default, it’s not
-        /// included in the cache key and it’s not included in origin requests. In this case,
+        /// header the same as any other HTTP header in the viewer request. By default, it's not
+        /// included in the cache key and it's not included in origin requests. In this case,
         /// you can manually add <code>Accept-Encoding</code> to the headers whitelist like any
         /// other HTTP header.</para>
         /// </para>
@@ -133,14 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>A flag that can affect whether the <code>Accept-Encoding</code> HTTP header is included
         /// in the cache key and included in requests that CloudFront sends to the origin.</para><para>This field is related to the <code>EnableAcceptEncodingBrotli</code> field. If one
         /// or both of these fields is <code>true</code><i>and</i> the viewer request includes
-        /// the <code>Accept-Encoding</code> header, then CloudFront does the following:</para><ul><li><para>Normalizes the value of the viewer’s <code>Accept-Encoding</code> header</para></li><li><para>Includes the normalized header in the cache key</para></li><li><para>Includes the normalized header in the request to the origin, if a request is necessary</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects">Compression
+        /// the <code>Accept-Encoding</code> header, then CloudFront does the following:</para><ul><li><para>Normalizes the value of the viewer's <code>Accept-Encoding</code> header</para></li><li><para>Includes the normalized header in the cache key</para></li><li><para>Includes the normalized header in the request to the origin, if a request is necessary</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects">Compression
         /// support</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you set this value to <code>true</code>, and this cache behavior also has an origin
         /// request policy attached, do not include the <code>Accept-Encoding</code> header in
         /// the origin request policy. CloudFront always includes the <code>Accept-Encoding</code>
         /// header in origin requests when the value of this field is <code>true</code>, so including
         /// this header in an origin request policy has no effect.</para><para>If both of these fields are <code>false</code>, then CloudFront treats the <code>Accept-Encoding</code>
-        /// header the same as any other HTTP header in the viewer request. By default, it’s not
-        /// included in the cache key and it’s not included in origin requests. In this case,
+        /// header the same as any other HTTP header in the viewer request. By default, it's not
+        /// included in the cache key and it's not included in origin requests. In this case,
         /// you can manually add <code>Accept-Encoding</code> to the headers whitelist like any
         /// other HTTP header.</para>
         /// </para>
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the cache policy that you are updating. The identifier is
-        /// returned in a cache behavior’s <code>CachePolicyId</code> field in the response to
+        /// returned in a cache behavior's <code>CachePolicyId</code> field in the response to
         /// <code>GetDistributionConfig</code>.</para>
         /// </para>
         /// </summary>
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The version of the cache policy that you are updating. The version is returned in
-        /// the cache policy’s <code>ETag</code> field in the response to <code>GetCachePolicyConfig</code>.</para>
+        /// the cache policy's <code>ETag</code> field in the response to <code>GetCachePolicyConfig</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,18 +28,20 @@ using Amazon.ElasticFileSystem.Model;
 namespace Amazon.PowerShell.Cmdlets.EFS
 {
     /// <summary>
-    /// Use this action to manage EFS lifecycle management and intelligent tiering. A <code>LifecycleConfiguration</code>
-    /// consists of one or more <code>LifecyclePolicy</code> objects that define the following:
+    /// Use this action to manage EFS lifecycle management and EFS Intelligent-Tiering. A
+    /// <code>LifecycleConfiguration</code> consists of one or more <code>LifecyclePolicy</code>
+    /// objects that define the following:
     /// 
     ///  <ul><li><para><b>EFS Lifecycle management</b> - When Amazon EFS automatically transitions files
-    /// in a file system into the lower-cost Infrequent Access (IA) storage class.
+    /// in a file system into the lower-cost EFS Infrequent Access (IA) storage class.
     /// </para><para>
     /// To enable EFS Lifecycle management, set the value of <code>TransitionToIA</code> to
     /// one of the available options.
-    /// </para></li><li><para><b>EFS Intelligent tiering</b> - When Amazon EFS automatically transitions files
-    /// from IA back into the file system's primary storage class (Standard or One Zone Standard.
+    /// </para></li><li><para><b>EFS Intelligent-Tiering</b> - When Amazon EFS automatically transitions files
+    /// from IA back into the file system's primary storage class (EFS Standard or EFS One
+    /// Zone Standard).
     /// </para><para>
-    /// To enable EFS Intelligent Tiering, set the value of <code>TransitionToPrimaryStorageClass</code>
+    /// To enable EFS Intelligent-Tiering, set the value of <code>TransitionToPrimaryStorageClass</code>
     /// to <code>AFTER_1_ACCESS</code>.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">EFS
@@ -51,12 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// modifies the existing configuration. A <code>PutLifecycleConfiguration</code> call
     /// with an empty <code>LifecyclePolicies</code> array in the request body deletes any
     /// existing <code>LifecycleConfiguration</code> and turns off lifecycle management and
-    /// intelligent tiering for the file system.
+    /// EFS Intelligent-Tiering for the file system.
     /// </para><para>
     /// In the request, specify the following: 
     /// </para><ul><li><para>
     /// The ID for the file system for which you are enabling, disabling, or modifying lifecycle
-    /// management and intelligent tiering.
+    /// management and EFS Intelligent-Tiering.
     /// </para></li><li><para>
     /// A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
     /// define when files are moved into IA storage, and when they are moved back to Standard

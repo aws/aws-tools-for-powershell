@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Deletes a task.
+    /// Deletes an DataSync task.
     /// </summary>
     [Cmdlet("Remove", "DSYNTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task to delete.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the task that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

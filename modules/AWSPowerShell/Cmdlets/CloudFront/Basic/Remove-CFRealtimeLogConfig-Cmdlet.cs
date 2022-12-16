@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// You cannot delete a real-time log configuration if it’s attached to a cache behavior.
+    /// You cannot delete a real-time log configuration if it's attached to a cache behavior.
     /// First update your distributions to remove the real-time log configuration from all
     /// cache behaviors, then delete the real-time log configuration.
     /// </para><para>
-    /// To delete a real-time log configuration, you can provide the configuration’s name
+    /// To delete a real-time log configuration, you can provide the configuration's name
     /// or its Amazon Resource Name (ARN). You must provide at least one. If you provide both,
     /// CloudFront uses the name to identify the real-time log configuration to delete.
     /// </para>

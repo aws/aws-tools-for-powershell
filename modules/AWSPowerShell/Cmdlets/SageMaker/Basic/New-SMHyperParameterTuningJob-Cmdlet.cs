@@ -462,6 +462,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ParentHyperParameterTuningJob[] WarmStartConfig_ParentHyperParameterTuningJob { get; set; }
         #endregion
         
+        #region Parameter HyperParameterTuningJobConfig_RandomSeed
+        /// <summary>
+        /// <para>
+        /// <para>A value used to initialize a pseudo-random number generator. Setting a random seed
+        /// and using the same seed later for the same tuning job will allow hyperparameter optimization
+        /// to find more a consistent hyperparameter configuration between the two runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? HyperParameterTuningJobConfig_RandomSeed { get; set; }
+        #endregion
+        
         #region Parameter TrainingJobDefinition_ResourceConfig
         /// <summary>
         /// <para>
@@ -805,6 +817,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.ParameterRanges_IntegerParameterRange = new List<Amazon.SageMaker.Model.IntegerParameterRange>(this.ParameterRanges_IntegerParameterRange);
             }
+            context.HyperParameterTuningJobConfig_RandomSeed = this.HyperParameterTuningJobConfig_RandomSeed;
             context.ResourceLimits_MaxNumberOfTrainingJob = this.ResourceLimits_MaxNumberOfTrainingJob;
             context.ResourceLimits_MaxParallelTrainingJob = this.ResourceLimits_MaxParallelTrainingJob;
             #if MODULAR
@@ -926,6 +939,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate HyperParameterTuningJobConfig
             var requestHyperParameterTuningJobConfigIsNull = true;
             request.HyperParameterTuningJobConfig = new Amazon.SageMaker.Model.HyperParameterTuningJobConfig();
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_RandomSeed = null;
+            if (cmdletContext.HyperParameterTuningJobConfig_RandomSeed != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_RandomSeed = cmdletContext.HyperParameterTuningJobConfig_RandomSeed.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_RandomSeed != null)
+            {
+                request.HyperParameterTuningJobConfig.RandomSeed = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_RandomSeed.Value;
+                requestHyperParameterTuningJobConfigIsNull = false;
+            }
             Amazon.SageMaker.HyperParameterTuningJobStrategyType requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_Strategy = null;
             if (cmdletContext.HyperParameterTuningJobConfig_Strategy != null)
             {
@@ -1687,6 +1710,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.CategoricalParameterRange> ParameterRanges_CategoricalParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.ContinuousParameterRange> ParameterRanges_ContinuousParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.IntegerParameterRange> ParameterRanges_IntegerParameterRange { get; set; }
+            public System.Int32? HyperParameterTuningJobConfig_RandomSeed { get; set; }
             public System.Int32? ResourceLimits_MaxNumberOfTrainingJob { get; set; }
             public System.Int32? ResourceLimits_MaxParallelTrainingJob { get; set; }
             public Amazon.SageMaker.HyperParameterTuningJobStrategyType HyperParameterTuningJobConfig_Strategy { get; set; }

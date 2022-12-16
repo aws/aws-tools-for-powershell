@@ -36,12 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// update some policy fields independent of others. To update a response headers policy
     /// configuration:
     /// </para><ol><li><para>
-    /// Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy’s configuration.
+    /// Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy's configuration.
     /// </para></li><li><para>
     /// Modify the fields in the response headers policy configuration that you want to update.
     /// </para></li><li><para>
     /// Call <code>UpdateResponseHeadersPolicy</code>, providing the entire response headers
-    /// policy configuration, including the fields that you modified and those that you didn’t.
+    /// policy configuration, including the fields that you modified and those that you didn't.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFResponseHeadersPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The value of the <code>X-Frame-Options</code> HTTP response header. Valid values are
-        /// <code>DENY</code> and <code>SAMEORIGIN</code>. </para><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>
+        /// <code>DENY</code> and <code>SAMEORIGIN</code>.</para><para>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>
         /// in the MDN Web Docs.</para>
         /// </para>
         /// </summary>
@@ -163,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The version of the response headers policy that you are updating.</para><para>The version is returned in the cache policy’s <code>ETag</code> field in the response
+        /// <para>The version of the response headers policy that you are updating.</para><para>The version is returned in the cache policy's <code>ETag</code> field in the response
         /// to <code>GetResponseHeadersPolicyConfig</code>.</para>
         /// </para>
         /// </summary>

@@ -31,12 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// Gets a cache policy, including the following metadata:
     /// 
     ///  <ul><li><para>
-    /// The policy’s identifier.
+    /// The policy's identifier.
     /// </para></li><li><para>
     /// The date and time when the policy was last modified.
     /// </para></li></ul><para>
-    /// To get a cache policy, you must provide the policy’s identifier. If the cache policy
-    /// is attached to a distribution’s cache behavior, you can get the policy’s identifier
+    /// To get a cache policy, you must provide the policy's identifier. If the cache policy
+    /// is attached to a distribution's cache behavior, you can get the policy's identifier
     /// using <code>ListDistributions</code> or <code>GetDistribution</code>. If the cache
     /// policy is not attached to a cache behavior, you can get the identifier using <code>ListCachePolicies</code>.
     /// </para>
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the cache policy. If the cache policy is attached to a distribution’s
-        /// cache behavior, you can get the policy’s identifier using <code>ListDistributions</code>
+        /// <para>The unique identifier for the cache policy. If the cache policy is attached to a distribution's
+        /// cache behavior, you can get the policy's identifier using <code>ListDistributions</code>
         /// or <code>GetDistribution</code>. If the cache policy is not attached to a cache behavior,
         /// you can get the identifier using <code>ListCachePolicies</code>.</para>
         /// </para>

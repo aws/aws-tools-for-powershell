@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets a list of distributions that have a cache behavior that’s associated with the
+    /// Gets a list of distributions that have a cache behavior that's associated with the
     /// specified real-time log configuration.
     /// 
     ///  
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// If the total number of items in the list exceeds the maximum that you specify, or
     /// the default maximum, the response is paginated. To get the next page of items, send
     /// a subsequent request that specifies the <code>NextMarker</code> value from the current
-    /// response as the <code>Marker</code> value in the subsequent request. 
+    /// response as the <code>Marker</code> value in the subsequent request.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFDistributionsByRealtimeLogConfig")]
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Use this field when paginating results to indicate where to begin in your list of
         /// distributions. The response includes distributions in the list that occur after the
-        /// marker. To get the next page of the list, set this field’s value to the value of <code>NextMarker</code>
-        /// from the current page’s response.</para>
+        /// marker. To get the next page of the list, set this field's value to the value of <code>NextMarker</code>
+        /// from the current page's response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

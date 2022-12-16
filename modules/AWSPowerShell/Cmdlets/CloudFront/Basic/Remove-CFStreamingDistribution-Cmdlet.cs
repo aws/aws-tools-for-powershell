@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The distribution ID. </para>
+        /// <para>The distribution ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

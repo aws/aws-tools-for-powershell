@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the filter.</para>
+        /// <para>The description of the filter. Valid special characters include period (.), underscore
+        /// (_), dash (-), and whitespace. The new line character is considered to be an invalid
+        /// input for description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

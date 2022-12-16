@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Gets a list of distribution IDs for distributions that have a cache behavior that’s
+    /// Gets a list of distribution IDs for distributions that have a cache behavior that's
     /// associated with the specified response headers policy.
     /// 
     ///  
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Use this field when paginating results to indicate where to begin in your list of
         /// distribution IDs. The response includes distribution IDs in the list that occur after
-        /// the marker. To get the next page of the list, set this field’s value to the value
-        /// of <code>NextMarker</code> from the current page’s response.</para>
+        /// the marker. To get the next page of the list, set this field's value to the value
+        /// of <code>NextMarker</code> from the current page's response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

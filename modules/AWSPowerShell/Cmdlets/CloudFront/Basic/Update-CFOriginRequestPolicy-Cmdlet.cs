@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// to update.
     /// </para></li><li><para>
     /// Call <code>UpdateOriginRequestPolicy</code> by providing the entire origin request
-    /// policy configuration, including the fields that you modified and those that you didn’t.
+    /// policy configuration, including the fields that you modified and those that you didn't.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFOriginRequestPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the origin request policy that you are updating. The identifier
-        /// is returned in a cache behavior’s <code>OriginRequestPolicyId</code> field in the
+        /// is returned in a cache behavior's <code>OriginRequestPolicyId</code> field in the
         /// response to <code>GetDistributionConfig</code>.</para>
         /// </para>
         /// </summary>
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The version of the origin request policy that you are updating. The version is returned
-        /// in the origin request policy’s <code>ETag</code> field in the response to <code>GetOriginRequestPolicyConfig</code>.</para>
+        /// in the origin request policy's <code>ETag</code> field in the response to <code>GetOriginRequestPolicyConfig</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

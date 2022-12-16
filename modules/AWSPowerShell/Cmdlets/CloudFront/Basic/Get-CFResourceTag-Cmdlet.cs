@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para> An ARN of a CloudFront resource.</para>
+        /// <para>An ARN of a CloudFront resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

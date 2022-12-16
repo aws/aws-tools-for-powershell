@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
     /// Gets configuration information and metadata about a CloudFront function, but not the
-    /// function’s code. To get a function’s code, use <code>GetFunction</code>.
+    /// function's code. To get a function's code, use <code>GetFunction</code>.
     /// 
     ///  
     /// <para>
     /// To get configuration information and metadata about a function, you must provide the
-    /// function’s name and stage. To get these values, you can use <code>ListFunctions</code>.
+    /// function's name and stage. To get these values, you can use <code>ListFunctions</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CFFunctionSummary")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Stage
         /// <summary>
         /// <para>
-        /// <para>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</para>
+        /// <para>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

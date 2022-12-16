@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// You cannot delete a continuous deployment policy that’s attached to a primary distribution.
+    /// You cannot delete a continuous deployment policy that's attached to a primary distribution.
     /// First update your distribution to remove the continuous deployment policy, then you
     /// can delete the policy.
     /// </para>

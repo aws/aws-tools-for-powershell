@@ -119,8 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_Comment
         /// <summary>
         /// <para>
-        /// <para>An optional comment to describe the distribution. The comment cannot be longer than
-        /// 128 characters.</para>
+        /// <para>A comment to describe the distribution. The comment cannot be longer than 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -329,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// distribution, specify <code>true</code>. If you specify <code>false</code>, CloudFront
         /// responds to IPv6 DNS requests with the DNS response code <code>NOERROR</code> and
         /// with no IP addresses. This allows viewers to submit a second request, for an IPv4
-        /// address for your distribution. </para><para>In general, you should enable IPv6 if you have users on IPv6 networks who want to
+        /// address for your distribution.</para><para>In general, you should enable IPv6 if you have users on IPv6 networks who want to
         /// access your content. However, if you're using signed URLs or signed cookies to restrict
         /// access to your content, and if you're using a custom policy that includes the <code>IpAddress</code>
         /// parameter to restrict the IP addresses that can access your content, don't enable
@@ -439,7 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A list that contains the query string parameters that you want CloudFront to use as
         /// a basis for caching for a cache behavior. If <code>Quantity</code> is 0, you can omit
-        /// <code>Items</code>. </para>
+        /// <code>Items</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -527,9 +526,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter GeoRestriction_Item
         /// <summary>
         /// <para>
-        /// <para> A complex type that contains a <code>Location</code> element for each country in
-        /// which you want CloudFront either to distribute your content (<code>whitelist</code>)
-        /// or not distribute your content (<code>blacklist</code>).</para><para>The <code>Location</code> element is a two-letter, uppercase country code for a country
+        /// <para>A complex type that contains a <code>Location</code> element for each country in which
+        /// you want CloudFront either to distribute your content (<code>whitelist</code>) or
+        /// not distribute your content (<code>blacklist</code>).</para><para>The <code>Location</code> element is a two-letter, uppercase country code for a country
         /// that you want to include in your <code>blacklist</code> or <code>whitelist</code>.
         /// Include one <code>Location</code> element for each country.</para><para>CloudFront and <code>MaxMind</code> both use <code>ISO 3166</code> country codes.
         /// For the current list of countries and the corresponding codes, see <code>ISO 3166-1-alpha-2</code>
@@ -546,7 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Tags_Item
         /// <summary>
         /// <para>
-        /// <para> A complex type that contains <code>Tag</code> elements.</para>
+        /// <para>A complex type that contains <code>Tag</code> elements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -562,7 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// with viewers. The security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.</para></li><li><para>The ciphers that CloudFront can use to encrypt the content that it returns to viewers.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security
         /// Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported
         /// Protocols and Ciphers Between Viewers and CloudFront</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
+        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>When you're using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
         /// you must specify <code>TLSv1</code> or higher.</para><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>
         /// (you set <code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront
         /// automatically sets the security policy to <code>TLSv1</code> regardless of the value
@@ -638,7 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter CacheBehaviors_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of cache behaviors for this distribution. </para>
+        /// <para>The number of cache behaviors for this distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -879,7 +878,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// format using the origin that is associated with this cache behavior. If so, specify
         /// <code>true</code>; if not, specify <code>false</code>. If you specify <code>true</code>
         /// for <code>SmoothStreaming</code>, you can still distribute other content using this
-        /// cache behavior if the content matches the value of <code>PathPattern</code>. </para>
+        /// cache behavior if the content matches the value of <code>PathPattern</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -895,12 +894,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// that support <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">server
         /// name indication (SNI)</a>. This is recommended. Most browsers and clients support
         /// SNI.</para></li><li><para><code>vip</code> – The distribution accepts HTTPS connections from all viewers including
-        /// those that don’t support SNI. This is not recommended, and results in additional monthly
+        /// those that don't support SNI. This is not recommended, and results in additional monthly
         /// charges from CloudFront.</para></li><li><para><code>static-ip</code> - Do not specify this value unless your distribution has been
         /// enabled for this feature by the CloudFront team. If you have a use case that requires
         /// static IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">Amazon
         /// Web Services Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
-        /// don’t set a value for this field.</para>
+        /// don't set a value for this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -952,7 +951,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// HTTP status code of 403 (Forbidden).</para></li></ul><para>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring
         /// HTTPS Between Viewers and CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><note><para>The only way to guarantee that viewers retrieve an object that was fetched from the
         /// origin using HTTPS is never to use any other protocol to fetch the object. If you
-        /// have recently changed from HTTP to HTTPS, we recommend that you clear your objects’
+        /// have recently changed from HTTP to HTTPS, we recommend that you clear your objects'
         /// cache because cached objects are protocol agnostic. That means that an edge location
         /// will return an object from the cache regardless of whether the current request protocol
         /// matches the protocol used previously. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
@@ -984,7 +983,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront
         /// to return a custom error page when a request is blocked. For more information about
         /// WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">WAF
-        /// Developer Guide</a>. </para>
+        /// Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

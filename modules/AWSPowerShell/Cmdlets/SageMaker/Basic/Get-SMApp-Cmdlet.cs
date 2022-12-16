@@ -103,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UserProfileName
         /// <summary>
         /// <para>
-        /// <para>The user profile name.</para>
+        /// <para>The user profile name. If this value is not set, then <code>SpaceName</code> must
+        /// be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

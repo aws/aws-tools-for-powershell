@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns all the tags associated with a specified resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all the tags associated with an Amazon Web Services resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DSYNResourceTagList")]
     [OutputType("Amazon.DataSync.Model.TagListEntry")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource whose tags to list.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the resource that you want tag information
+        /// on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of locations to return.</para>
+        /// <para>Specifies how many results that you want in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -77,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An opaque string that indicates the position at which to begin the next list of locations.</para>
+        /// <para>Specifies an opaque string that indicates the position to begin the next list of results
+        /// in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

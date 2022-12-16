@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The distribution ID. </para>
+        /// <para>The distribution ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The value of the <code>ETag</code> header that you received when you disabled the
-        /// distribution. For example: <code>E2QWRUHAPOMQZL</code>. </para>
+        /// distribution. For example: <code>E2QWRUHAPOMQZL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

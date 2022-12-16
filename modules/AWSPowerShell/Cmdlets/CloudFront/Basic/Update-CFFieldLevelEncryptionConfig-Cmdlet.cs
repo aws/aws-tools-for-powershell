@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter FieldLevelEncryptionConfig
         /// <summary>
         /// <para>
-        /// <para>Request to update a field-level encryption configuration. </para>
+        /// <para>Request to update a field-level encryption configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

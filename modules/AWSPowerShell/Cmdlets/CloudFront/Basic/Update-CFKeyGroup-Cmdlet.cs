@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// or remove public key IDs.
     /// </para></li><li><para>
     /// Call <code>UpdateKeyGroup</code> with the entire key group object, including the fields
-    /// that you modified and those that you didn’t.
+    /// that you modified and those that you didn't.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFKeyGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The version of the key group that you are updating. The version is the key group’s
+        /// <para>The version of the key group that you are updating. The version is the key group's
         /// <code>ETag</code> value.</para>
         /// </para>
         /// </summary>

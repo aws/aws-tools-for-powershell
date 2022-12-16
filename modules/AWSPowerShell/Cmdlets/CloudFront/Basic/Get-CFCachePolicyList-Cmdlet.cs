@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Use this field when paginating results to indicate where to begin in your list of
         /// cache policies. The response includes cache policies in the list that occur after
-        /// the marker. To get the next page of the list, set this field’s value to the value
-        /// of <code>NextMarker</code> from the current page’s response.</para>
+        /// the marker. To get the next page of the list, set this field's value to the value
+        /// of <code>NextMarker</code> from the current page's response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

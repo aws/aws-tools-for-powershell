@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// With this operation you can move an alias that’s already in use on a CloudFront distribution
+    /// With this operation you can move an alias that's already in use on a CloudFront distribution
     /// to a different distribution in one step. This prevents the downtime that could occur
     /// if you first remove the alias from one distribution and then separately add the alias
     /// to another distribution.
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TargetDistributionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the distribution that you’re associating the alias with.</para>
+        /// <para>The ID of the distribution that you're associating the alias with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

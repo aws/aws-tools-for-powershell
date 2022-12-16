@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> A complex type that contains <code>Tag</code> key elements.</para>
+        /// <para>A complex type that contains <code>Tag</code> key elements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para> An ARN of a CloudFront resource.</para>
+        /// <para>An ARN of a CloudFront resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

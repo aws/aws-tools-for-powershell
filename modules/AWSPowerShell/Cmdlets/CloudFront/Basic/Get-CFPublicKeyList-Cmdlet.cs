@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// keys. The results include public keys in the list that occur after the marker. To
         /// get the next page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code>
         /// from the current page's response (which is also the ID of the last public key on that
-        /// page). </para>
+        /// page).</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of public keys you want in the response body. </para>
+        /// <para>The maximum number of public keys you want in the response body.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

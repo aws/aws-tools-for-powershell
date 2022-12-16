@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </para></li><li><para>
     /// Use <code>UpdateContinuousDeploymentPolicy</code>, providing the entire continuous
     /// deployment policy configuration, including the fields that you modified and those
-    /// that you didn’t.
+    /// that you didn't.
     /// </para></li></ol>
     /// </summary>
     [Cmdlet("Update", "CFContinuousDeploymentPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter SingleHeaderConfig_Header
         /// <summary>
         /// <para>
-        /// <para>The request header name that you want CloudFront to send to your staging distribution.</para>
+        /// <para>The request header name that you want CloudFront to send to your staging distribution.
+        /// The header must contain the prefix <code>aws-cf-cd-</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter SessionStickinessConfig_IdleTTL
         /// <summary>
         /// <para>
-        /// <para>The amount of time after which you want sessions to cease if no requests are received. Allowed
-        /// values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>MaximumTTL</code>.</para>
+        /// <para>The amount of time after which you want sessions to cease if no requests are received.
+        /// Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <code>MaximumTTL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

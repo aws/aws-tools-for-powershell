@@ -1,4 +1,13 @@
-﻿### 4.1.231 (2022-12-15 22:04Z)
+﻿### 4.1.232 (2022-12-16 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.443.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Modified cmdlet Get-AFConnectorEntityList: added parameters MaxResult and NextToken.
+  * Amazon DataSync
+    * Modified cmdlet Start-DSYNTaskExecution: added parameter Tag.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameter HyperParameterTuningJobConfig_RandomSeed.
+
+### 4.1.231 (2022-12-15 22:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.441.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Backup Gateway
     * Added cmdlet Get-BUGWBandwidthRateLimitSchedule leveraging the GetBandwidthRateLimitSchedule service API.

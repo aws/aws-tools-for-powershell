@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// To get a function’s code, you must provide the function’s name and stage. To get these
+    /// To get a function's code, you must provide the function's name and stage. To get these
     /// values, you can use <code>ListFunctions</code>.
     /// </para>
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Stage
         /// <summary>
         /// <para>
-        /// <para>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</para>
+        /// <para>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

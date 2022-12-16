@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
     ///  
     /// <para>
     /// When a function is published to the <code>LIVE</code> stage, you can attach the function
-    /// to a distribution’s cache behavior, using the function’s Amazon Resource Name (ARN).
+    /// to a distribution's cache behavior, using the function's Amazon Resource Name (ARN).
     /// </para><para>
-    /// To publish a function, you must provide the function’s name and version (<code>ETag</code>
+    /// To publish a function, you must provide the function's name and version (<code>ETag</code>
     /// value). To get these values, you can use <code>ListFunctions</code> and <code>DescribeFunction</code>.
     /// </para>
     /// </summary>

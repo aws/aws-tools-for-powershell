@@ -35,15 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// A task includes a source location, a destination location, and the preferences for
     /// how and when you want to transfer your data (such as bandwidth limits, scheduling,
     /// among other options).
-    /// </para><para>
-    /// When you create a task that transfers data between Amazon Web Services services in
-    /// different Amazon Web Services Regions, one of your locations must reside in the Region
-    /// where you're using DataSync.
-    /// </para><para>
-    /// For more information, see the following topics:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html">Working
-    /// with DataSync locations</a></para></li><li><para><a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure
-    /// DataSync task settings</a></para></li></ul>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -87,10 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Exclude
         /// <summary>
         /// <para>
-        /// <para>A list of filter rules that determines which files to exclude from a task. The list
-        /// should contain a single filter string that consists of the patterns to exclude. The
-        /// patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.
-        /// </para>
+        /// <para>Specifies a list of filter rules that exclude specific data during your transfer.
+        /// For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering
+        /// data transferred by DataSync</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>A list of filter rules that determines which files to include when running a task.
-        /// The pattern contains a single filter string that consists of the patterns to include.
-        /// The patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.</para>
+        /// <para>Specifies a list of filter rules that include specific data during your transfer.
+        /// For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering
+        /// data transferred by DataSync</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,13 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Option
         /// <summary>
         /// <para>
-        /// <para>The set of configuration options that control the behavior of a single execution of
-        /// the task that occurs when you call <code>StartTaskExecution</code>. You can configure
-        /// these options to preserve metadata such as user ID (UID) and group ID (GID), file
-        /// permissions, data integrity verification, and so on.</para><para>For each individual task execution, you can override these options by specifying the
-        /// <code>OverrideOptions</code> before starting the task execution. For more information,
-        /// see the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>
-        /// operation. </para>
+        /// <para>Specifies the configuration options for a task. Some options include preserving file
+        /// or object metadata and verifying data integrity.</para><para>You can also override these options before starting an individual run of a task (also
+        /// known as a <i>task execution</i>). For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html">StartTaskExecution</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents the tag that you want to add to the resource. The
-        /// value can be an empty string. </para>
+        /// <para>Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing
+        /// the task.</para><para><i>Tags</i> are key-value pairs that help you manage, filter, and search for your
+        /// DataSync resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

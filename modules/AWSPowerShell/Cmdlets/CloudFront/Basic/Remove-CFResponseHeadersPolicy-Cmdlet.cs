@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// You cannot delete a response headers policy if it’s attached to a cache behavior.
+    /// You cannot delete a response headers policy if it's attached to a cache behavior.
     /// First update your distributions to remove the response headers policy from all cache
     /// behaviors, then delete the response headers policy.
     /// </para><para>
-    /// To delete a response headers policy, you must provide the policy’s identifier and
+    /// To delete a response headers policy, you must provide the policy's identifier and
     /// version. To get these values, you can use <code>ListResponseHeadersPolicies</code>
-    /// or <code>GetResponseHeadersPolicy</code>. 
+    /// or <code>GetResponseHeadersPolicy</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CFResponseHeadersPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The version of the response headers policy that you are deleting.</para><para>The version is the response headers policy’s <code>ETag</code> value, which you can
+        /// <para>The version of the response headers policy that you are deleting.</para><para>The version is the response headers policy's <code>ETag</code> value, which you can
         /// get using <code>ListResponseHeadersPolicies</code>, <code>GetResponseHeadersPolicy</code>,
         /// or <code>GetResponseHeadersPolicyConfig</code>.</para>
         /// </para>

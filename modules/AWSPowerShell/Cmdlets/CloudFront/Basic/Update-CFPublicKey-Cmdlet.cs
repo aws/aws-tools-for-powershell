@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_CallerReference
         /// <summary>
         /// <para>
-        /// <para>A string included in the request to help make sure that the request can’t be replayed.</para>
+        /// <para>A string included in the request to help make sure that the request can't be replayed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

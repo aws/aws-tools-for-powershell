@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// You cannot delete an origin request policy if it’s attached to any cache behaviors.
+    /// You cannot delete an origin request policy if it's attached to any cache behaviors.
     /// First update your distributions to remove the origin request policy from all cache
     /// behaviors, then delete the origin request policy.
     /// </para><para>
-    /// To delete an origin request policy, you must provide the policy’s identifier and version.
+    /// To delete an origin request policy, you must provide the policy's identifier and version.
     /// To get the identifier, you can use <code>ListOriginRequestPolicies</code> or <code>GetOriginRequestPolicy</code>.
     /// </para>
     /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The version of the origin request policy that you are deleting. The version is the
-        /// origin request policy’s <code>ETag</code> value, which you can get using <code>ListOriginRequestPolicies</code>,
+        /// origin request policy's <code>ETag</code> value, which you can get using <code>ListOriginRequestPolicies</code>,
         /// <code>GetOriginRequestPolicy</code>, or <code>GetOriginRequestPolicyConfig</code>.</para>
         /// </para>
         /// </summary>

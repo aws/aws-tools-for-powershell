@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Exclude
         /// <summary>
         /// <para>
-        /// <para>A list of filter rules that determines which files to exclude from a task. The list
-        /// should contain a single filter string that consists of the patterns to exclude. The
-        /// patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.</para>
+        /// <para>Specifies a list of filter rules that exclude specific data during your transfer.
+        /// For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering
+        /// data transferred by DataSync</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>A list of filter rules that determines which files to include when running a task.
-        /// The pattern contains a single filter string that consists of the patterns to include.
-        /// The patterns are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.</para>
+        /// <para>Specifies a list of filter rules that include specific data during your transfer.
+        /// For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering
+        /// data transferred by DataSync</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

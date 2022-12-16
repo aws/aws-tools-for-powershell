@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     ///  
     /// <para>
     /// After you create an origin request policy, you can attach it to one or more cache
-    /// behaviors. When it’s attached to a cache behavior, the origin request policy determines
+    /// behaviors. When it's attached to a cache behavior, the origin request policy determines
     /// the values that CloudFront includes in requests that it sends to the origin. Each
     /// request that CloudFront sends to the origin includes the following:
     /// </para><ul><li><para>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// or the origin request policy. These can include items from the viewer request and,
     /// in the case of headers, additional ones that are added by CloudFront.
     /// </para></li></ul><para>
-    /// CloudFront sends a request when it can’t find a valid object in its cache that matches
+    /// CloudFront sends a request when it can't find a valid object in its cache that matches
     /// the request. If you want to send values to the origin and also include them in the
     /// cache key, use <code>CachePolicy</code>.
     /// </para><para>

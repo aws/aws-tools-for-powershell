@@ -37,10 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// <para>
     /// You can use this operation in a continuous deployment workflow after you have tested
     /// configuration changes on the staging distribution. After using a continuous deployment
-    /// policy to move a portion of your domain name’s traffic to the staging distribution
+    /// policy to move a portion of your domain name's traffic to the staging distribution
     /// and verifying that it works as intended, you can use this operation to copy the staging
-    /// distribution’s configuration to the primary distribution. This action will disable
-    /// the continuous deployment policy and move your domain’s traffic back to the primary
+    /// distribution's configuration to the primary distribution. This action will disable
+    /// the continuous deployment policy and move your domain's traffic back to the primary
     /// distribution.
     /// </para>
     /// </summary>
