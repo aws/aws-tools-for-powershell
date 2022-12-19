@@ -28,23 +28,22 @@ using Amazon.KinesisVideo.Model;
 namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// An asynchronous API that updates a stream’s existing edge configuration. If this API
-    /// is invoked for the first time, a new edge configuration will be created for the stream,
-    /// and the sync status will be set to <code>SYNCING</code>. 
+    /// An asynchronous API that updates a stream’s existing edge configuration. The Kinesis
+    /// Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
+    /// component that runs on an IoT Hub Device, setup at your premise. The time to sync
+    /// can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code>
+    /// will be updated as the edge configuration is acknowledged, and synced with the Edge
+    /// Agent. 
     /// 
     ///  
     /// <para>
-    /// The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent
-    /// IoT Greengrass component that runs on an IoT Hub Device setup at your premise. The
-    /// time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code>
-    /// will be updated as the edge configuration is acknowledged, and synced with the Edge
-    /// Agent. You will have to wait for the sync status to reach a terminal state such as:
-    /// <code>IN_SYNC</code> and <code>SYNC_FAILED</code>, before using this API again.
-    /// </para><para>
-    /// If you invoke this API during the syncing process, a <code>ResourceInUseException</code>
-    /// will be thrown. The connectivity of the stream's edge configuration and the Edge Agent
-    /// will be retried for 15 minutes. After 15 minutes, the status will transition into
-    /// the <code>SYNC_FAILED</code> state. 
+    /// If this API is invoked for the first time, a new edge configuration will be created
+    /// for the stream, and the sync status will be set to <code>SYNCING</code>. You will
+    /// have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code>,
+    /// or <code>SYNC_FAILED</code>, before using this API again. If you invoke this API during
+    /// the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity
+    /// of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes.
+    /// After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "KVEdgeConfigurationUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -158,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter MediaSourceConfig_MediaUriType
         /// <summary>
         /// <para>
-        /// <para>The Uniform Resource Identifier (Uri) type. The <code>FILE_URI</code> value can be
-        /// used to stream local media files.</para>
+        /// <para>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be
+        /// used to stream local media files.</para><note><para>Preview only supports the <code>RTSP_URI</code> media source URI format .</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -13821,6 +13821,10 @@ Set-Alias -Name Describe-KVEdgeConfiguration -Value Get-KVEdgeConfiguration
 Set-Alias -Name KV-DescribeEdgeConfiguration -Value Get-KVEdgeConfiguration
 Set-Alias -Name Describe-KVImageGenerationConfiguration -Value Get-KVImageGenerationConfiguration
 Set-Alias -Name KV-DescribeImageGenerationConfiguration -Value Get-KVImageGenerationConfiguration
+Set-Alias -Name Describe-KVMappedResourceConfiguration -Value Get-KVMappedResourceConfiguration
+Set-Alias -Name KV-DescribeMappedResourceConfiguration -Value Get-KVMappedResourceConfiguration
+Set-Alias -Name Describe-KVMediaStorageConfiguration -Value Get-KVMediaStorageConfiguration
+Set-Alias -Name KV-DescribeMediaStorageConfiguration -Value Get-KVMediaStorageConfiguration
 Set-Alias -Name Describe-KVNotificationConfiguration -Value Get-KVNotificationConfiguration
 Set-Alias -Name KV-DescribeNotificationConfiguration -Value Get-KVNotificationConfiguration
 Set-Alias -Name Describe-KVSignalingChannel -Value Get-KVSignalingChannel
@@ -13850,12 +13854,15 @@ Set-Alias -Name Untag-KVStreamTag -Value Remove-KVStreamTag
 Set-Alias -Name KV-UntagStream -Value Remove-KVStreamTag
 Set-Alias -Name KV-UpdateDataRetention -Value Update-KVDataRetention
 Set-Alias -Name KV-UpdateImageGenerationConfiguration -Value Update-KVImageGenerationConfiguration
+Set-Alias -Name KV-UpdateMediaStorageConfiguration -Value Update-KVMediaStorageConfiguration
 Set-Alias -Name KV-UpdateNotificationConfiguration -Value Update-KVNotificationConfiguration
 Set-Alias -Name KV-UpdateSignalingChannel -Value Update-KVSignalingChannel
 Set-Alias -Name KV-UpdateStream -Value Update-KVStream
 Set-Alias -Name KVM-GetMedia -Value Get-KVMMedia
 Set-Alias -Name KVSC-GetIceServerConfig -Value Get-KVSCIceServerConfig
 Set-Alias -Name KVSC-SendAlexaOfferToMaster -Value Send-KVSCAlexaOfferToMaster
+Set-Alias -Name KVWS-JoinStorageSessionAsViewer -Value Join-KVWSStorageSessionAsViewer
+Set-Alias -Name KVWS-JoinStorageSession -Value Join-KVWSStorageSession
 Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name KMS-CancelKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name KMS-ConnectCustomKeyStore -Value Connect-KMSCustomKeyStore
@@ -20916,6 +20923,9 @@ Set-Alias -Name SM-ListActions -Value Get-SMActionList
 Set-Alias -Name List-SMAlgorithms -Value Get-SMAlgorithmList
 Set-Alias -Name List-SMAlgorithmList -Value Get-SMAlgorithmList
 Set-Alias -Name SM-ListAlgorithms -Value Get-SMAlgorithmList
+Set-Alias -Name List-SMAliases -Value Get-SMAliasList
+Set-Alias -Name List-SMAliasList -Value Get-SMAliasList
+Set-Alias -Name SM-ListAliases -Value Get-SMAliasList
 Set-Alias -Name List-SMAppImageConfigs -Value Get-SMAppImageConfigList
 Set-Alias -Name List-SMAppImageConfigList -Value Get-SMAppImageConfigList
 Set-Alias -Name SM-ListAppImageConfigs -Value Get-SMAppImageConfigList
@@ -21170,6 +21180,7 @@ Set-Alias -Name SM-UpdateFeatureGroup -Value Update-SMFeatureGroup
 Set-Alias -Name SM-UpdateFeatureMetadata -Value Update-SMFeatureMetadata
 Set-Alias -Name SM-UpdateHub -Value Update-SMHub
 Set-Alias -Name SM-UpdateImage -Value Update-SMImage
+Set-Alias -Name SM-UpdateImageVersion -Value Update-SMImageVersion
 Set-Alias -Name SM-UpdateInferenceExperiment -Value Update-SMInferenceExperiment
 Set-Alias -Name SM-UpdateModelCard -Value Update-SMModelCard
 Set-Alias -Name SM-UpdateModelPackage -Value Update-SMModelPackage

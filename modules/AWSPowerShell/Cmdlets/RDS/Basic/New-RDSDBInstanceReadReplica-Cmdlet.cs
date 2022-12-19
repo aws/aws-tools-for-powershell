@@ -214,6 +214,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] EnableCloudwatchLogsExport { get; set; }
         #endregion
         
+        #region Parameter EnableCustomerOwnedIp
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable a customer-owned IP address (CoIP) for an
+        /// RDS on Outposts read replica.</para><para>A <i>CoIP</i> provides local or external connectivity to resources in your Outpost
+        /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
+        /// latency for connections to the read replica from outside of its virtual private cloud
+        /// (VPC) on your local network.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
+        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned
+        /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableCustomerOwnedIp { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -657,6 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
+            context.EnableCustomerOwnedIp = this.EnableCustomerOwnedIp;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.Iops = this.Iops;
@@ -762,6 +779,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnableCloudwatchLogsExport != null)
             {
                 request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExport;
+            }
+            if (cmdletContext.EnableCustomerOwnedIp != null)
+            {
+                request.EnableCustomerOwnedIp = cmdletContext.EnableCustomerOwnedIp.Value;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -929,6 +950,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
+            public System.Boolean? EnableCustomerOwnedIp { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.Int32? Iops { get; set; }

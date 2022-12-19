@@ -233,6 +233,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.KinesisVideo.dll',
         'AWSSDK.KinesisVideoMedia.dll',
         'AWSSDK.KinesisVideoSignalingChannels.dll',
+        'AWSSDK.KinesisVideoWebRTCStorage.dll',
         'AWSSDK.LakeFormation.dll',
         'AWSSDK.Lambda.dll',
         'AWSSDK.Lex.dll',

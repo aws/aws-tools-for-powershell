@@ -22,42 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Athena;
-using Amazon.Athena.Model;
+using Amazon.KinesisVideoWebRTCStorage;
+using Amazon.KinesisVideoWebRTCStorage.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ATH
+namespace Amazon.PowerShell.Cmdlets.KVWS
 {
     /// <summary>
-    /// Updates the contents of a Spark notebook.
+    /// Join the ongoing one way-video and/or multi-way audio WebRTC session as a viewer
+    /// for an input channel. If there’s no existing session for the channel, create a new
+    /// streaming session and provide the Amazon Resource Name (ARN) of the signaling channel
+    /// (<code>channelArn</code>) and client id (<code>clientId</code>). 
+    /// 
+    ///  
+    /// <para>
+    /// Currently for <code>SINGLE_MASTER</code> type, a video producing device is able to
+    /// ingest both audio and video media into a stream, while viewers can only ingest audio.
+    /// Both a video producing device and viewers can join a session first and wait for other
+    /// participants. While participants are having peer to peer conversations through webRTC,
+    /// the ingested media session will be stored into the Kinesis Video Stream. Multiple
+    /// viewers are able to playback real-time media. 
+    /// </para><para>
+    /// Customers can also use existing Kinesis Video Streams features like <code>HLS</code>
+    /// or <code>DASH</code> playback, Image generation, and more with ingested WebRTC media.
+    /// If there’s an existing session with the same <code>clientId</code> that's found in
+    /// the join session request, the new request takes precedence.
+    /// </para>
     /// </summary>
-    [Cmdlet("Update", "ATHNotebook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Join", "KVWSStorageSessionAsViewer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Athena UpdateNotebook API operation.", Operation = new[] {"UpdateNotebook"}, SelectReturnType = typeof(Amazon.Athena.Model.UpdateNotebookResponse))]
-    [AWSCmdletOutput("None or Amazon.Athena.Model.UpdateNotebookResponse",
+    [AWSCmdlet("Calls the Amazon Kinesis Video WebRTC Storage JoinStorageSessionAsViewer API operation.", Operation = new[] {"JoinStorageSessionAsViewer"}, SelectReturnType = typeof(Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse))]
+    [AWSCmdletOutput("None or Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.UpdateNotebookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateATHNotebookCmdlet : AmazonAthenaClientCmdlet, IExecutor
+    public partial class JoinKVWSStorageSessionAsViewerCmdlet : AmazonKinesisVideoWebRTCStorageClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientRequestToken
+        #region Parameter ChannelArn
         /// <summary>
         /// <para>
-        /// <para>A unique case-sensitive string used to ensure the request to create the notebook is
-        /// idempotent (executes only once).</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
-        /// the Amazon Web Services SDK for Java) auto-generate the token for you. If you are
-        /// not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
-        /// this token or the action will fail.</para></important>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
-        #endregion
-        
-        #region Parameter NotebookId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the notebook to update.</para>
+        /// <para> The Amazon Resource Name (ARN) of the signaling channel. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,13 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NotebookId { get; set; }
+        public System.String ChannelArn { get; set; }
         #endregion
         
-        #region Parameter Payload
+        #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The updated content for the notebook.</para>
+        /// <para> The unique identifier for the sender client. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,40 +89,13 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Payload { get; set; }
-        #endregion
-        
-        #region Parameter SessionId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the session in which the notebook will be updated.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SessionId { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The notebook content type. Currently, the only valid type is <code>IPYNB</code>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Athena.NotebookType")]
-        public Amazon.Athena.NotebookType Type { get; set; }
+        public System.String ClientId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.UpdateNotebookResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,10 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NotebookId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NotebookId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChannelArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NotebookId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -150,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NotebookId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ATHNotebook (UpdateNotebook)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-KVWSStorageSessionAsViewer (JoinStorageSessionAsViewer)"))
             {
                 return;
             }
@@ -164,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Athena.Model.UpdateNotebookResponse, UpdateATHNotebookCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse, JoinKVWSStorageSessionAsViewerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -173,30 +150,21 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NotebookId;
+                context.Select = (response, cmdlet) => this.ChannelArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientRequestToken = this.ClientRequestToken;
-            context.NotebookId = this.NotebookId;
+            context.ChannelArn = this.ChannelArn;
             #if MODULAR
-            if (this.NotebookId == null && ParameterWasBound(nameof(this.NotebookId)))
+            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter NotebookId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Payload = this.Payload;
+            context.ClientId = this.ClientId;
             #if MODULAR
-            if (this.Payload == null && ParameterWasBound(nameof(this.Payload)))
+            if (this.ClientId == null && ParameterWasBound(nameof(this.ClientId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Payload which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SessionId = this.SessionId;
-            context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClientId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -213,27 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Athena.Model.UpdateNotebookRequest();
+            var request = new Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerRequest();
             
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.ChannelArn != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.ChannelArn = cmdletContext.ChannelArn;
             }
-            if (cmdletContext.NotebookId != null)
+            if (cmdletContext.ClientId != null)
             {
-                request.NotebookId = cmdletContext.NotebookId;
-            }
-            if (cmdletContext.Payload != null)
-            {
-                request.Payload = cmdletContext.Payload;
-            }
-            if (cmdletContext.SessionId != null)
-            {
-                request.SessionId = cmdletContext.SessionId;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
+                request.ClientId = cmdletContext.ClientId;
             }
             
             CmdletOutput output;
@@ -268,15 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region AWS Service Operation Call
         
-        private Amazon.Athena.Model.UpdateNotebookResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.UpdateNotebookRequest request)
+        private Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse CallAWSServiceOperation(IAmazonKinesisVideoWebRTCStorage client, Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "UpdateNotebook");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Video WebRTC Storage", "JoinStorageSessionAsViewer");
             try
             {
                 #if DESKTOP
-                return client.UpdateNotebook(request);
+                return client.JoinStorageSessionAsViewer(request);
                 #elif CORECLR
-                return client.UpdateNotebookAsync(request).GetAwaiter().GetResult();
+                return client.JoinStorageSessionAsViewerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -296,12 +252,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientRequestToken { get; set; }
-            public System.String NotebookId { get; set; }
-            public System.String Payload { get; set; }
-            public System.String SessionId { get; set; }
-            public Amazon.Athena.NotebookType Type { get; set; }
-            public System.Func<Amazon.Athena.Model.UpdateNotebookResponse, UpdateATHNotebookCmdlet, object> Select { get; set; } =
+            public System.String ChannelArn { get; set; }
+            public System.String ClientId { get; set; }
+            public System.Func<Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse, JoinKVWSStorageSessionAsViewerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

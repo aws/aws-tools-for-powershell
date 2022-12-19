@@ -548,6 +548,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.JobType
+        {
+            ($_ -eq "New-SMImageVersion/JobType") -Or
+            ($_ -eq "Update-SMImageVersion/JobType")
+        }
+        {
+            $v = "INFERENCE","NOTEBOOK_KERNEL","TRAINING"
+            break
+        }
+
         # Amazon.SageMaker.JoinSource
         "New-SMTransformJob/DataProcessing_JoinSource"
         {
@@ -880,6 +890,16 @@ $SM_Completers = {
         }
         {
             $v = "File","Pipe"
+            break
+        }
+
+        # Amazon.SageMaker.Processor
+        {
+            ($_ -eq "New-SMImageVersion/Processor") -Or
+            ($_ -eq "Update-SMImageVersion/Processor")
+        }
+        {
+            $v = "CPU","GPU"
             break
         }
 
@@ -1264,6 +1284,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.VendorGuidance
+        {
+            ($_ -eq "New-SMImageVersion/VendorGuidance") -Or
+            ($_ -eq "Update-SMImageVersion/VendorGuidance")
+        }
+        {
+            $v = "ARCHIVED","NOT_PROVIDED","STABLE","TO_BE_ARCHIVED"
+            break
+        }
+
         # Amazon.SageMaker.WarmPoolResourceStatus
         "Get-SMTrainingJobList/WarmPoolStatusEquals"
         {
@@ -1319,7 +1349,7 @@ $SM_map = @{
     "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "JobResources_ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
-    "JobType"=@("New-SMInferenceRecommendationsJob")
+    "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelBiasJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
     "ModelBiasJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
@@ -1346,6 +1376,7 @@ $SM_map = @{
     "OutputConfig_TargetPlatform_Os"=@("New-SMCompilationJob")
     "ProblemType"=@("New-SMAutoMLJob")
     "ProcessingResources_ClusterConfig_InstanceType"=@("New-SMProcessingJob")
+    "Processor"=@("New-SMImageVersion","Update-SMImageVersion")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
@@ -1370,6 +1401,7 @@ $SM_map = @{
     "TransformOutput_AssembleWith"=@("New-SMTransformJob")
     "TransformResources_InstanceType"=@("New-SMTransformJob")
     "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment")
+    "VendorGuidance"=@("New-SMImageVersion","Update-SMImageVersion")
     "WarmPoolStatusEquals"=@("Get-SMTrainingJobList")
     "WarmStartConfig_WarmStartType"=@("New-SMHyperParameterTuningJob")
 }
@@ -1595,6 +1627,7 @@ $SM_SelectMap = @{
                "Import-SMHubContent",
                "Get-SMActionList",
                "Get-SMAlgorithmList",
+               "Get-SMAliasList",
                "Get-SMAppImageConfigList",
                "Get-SMAppList",
                "Get-SMArtifactList",
@@ -1705,6 +1738,7 @@ $SM_SelectMap = @{
                "Update-SMFeatureMetadata",
                "Update-SMHub",
                "Update-SMImage",
+               "Update-SMImageVersion",
                "Update-SMInferenceExperiment",
                "Update-SMModelCard",
                "Update-SMModelPackage",

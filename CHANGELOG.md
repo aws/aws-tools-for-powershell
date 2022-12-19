@@ -1,4 +1,23 @@
-﻿### 4.1.232 (2022-12-16 21:58Z)
+﻿### 4.1.233 (2022-12-19 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.444.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSService: added parameters Alarms_AlarmName, Alarms_Enable and Alarms_Rollback.
+    * Modified cmdlet Update-ECSService: added parameters Alarms_AlarmName, Alarms_Enable and Alarms_Rollback.
+  * Amazon Kinesis Video Streams
+    * Added cmdlet Get-KVMappedResourceConfiguration leveraging the DescribeMappedResourceConfiguration service API.
+    * Added cmdlet Get-KVMediaStorageConfiguration leveraging the DescribeMediaStorageConfiguration service API.
+    * Added cmdlet Update-KVMediaStorageConfiguration leveraging the UpdateMediaStorageConfiguration service API.
+  * Amazon Kinesis Video WebRTC Storage. Added cmdlets to support the service. Cmdlets for the service have the noun prefix KVWS and can be listed using the command 'Get-AWSCmdletName -Service KVWS'.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter EnableCustomerOwnedIp.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMAliasList leveraging the ListAliases service API.
+    * Added cmdlet Update-SMImageVersion leveraging the UpdateImageVersion service API.
+    * Modified cmdlet Get-SMImageVersion: added parameter Alias.
+    * Modified cmdlet New-SMImageVersion: added parameters Alias, Horovod, JobType, MLFramework, Processor, ProgrammingLang, ReleaseNote and VendorGuidance.
+    * Modified cmdlet Remove-SMImageVersion: added parameter Alias.
+
+### 4.1.232 (2022-12-16 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.443.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Modified cmdlet Get-AFConnectorEntityList: added parameters MaxResult and NextToken.

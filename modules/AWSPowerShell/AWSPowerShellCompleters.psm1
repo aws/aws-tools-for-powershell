@@ -31224,6 +31224,13 @@ $KV_Completers = {
             break
         }
 
+        # Amazon.KinesisVideo.MediaStorageConfigurationStatus
+        "Update-KVMediaStorageConfiguration/MediaStorageConfiguration_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.KinesisVideo.MediaUriType
         "Start-KVEdgeConfigurationUpdate/EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType"
         {
@@ -31262,6 +31269,7 @@ $KV_map = @{
     "ImageGenerationConfiguration_Format"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_ImageSelectorType"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_Status"=@("Update-KVImageGenerationConfiguration")
+    "MediaStorageConfiguration_Status"=@("Update-KVMediaStorageConfiguration")
     "NotificationConfiguration_Status"=@("Update-KVNotificationConfiguration")
     "Operation"=@("Update-KVDataRetention")
     "SingleMasterChannelEndpointConfiguration_Role"=@("Get-KVSignalingChannelEndpoint")
@@ -31323,6 +31331,8 @@ $KV_SelectMap = @{
                "Remove-KVStream",
                "Get-KVEdgeConfiguration",
                "Get-KVImageGenerationConfiguration",
+               "Get-KVMappedResourceConfiguration",
+               "Get-KVMediaStorageConfiguration",
                "Get-KVNotificationConfiguration",
                "Get-KVSignalingChannel",
                "Get-KVStream",
@@ -31339,6 +31349,7 @@ $KV_SelectMap = @{
                "Remove-KVStreamTag",
                "Update-KVDataRetention",
                "Update-KVImageGenerationConfiguration",
+               "Update-KVMediaStorageConfiguration",
                "Update-KVNotificationConfiguration",
                "Update-KVSignalingChannel",
                "Update-KVStream")
@@ -31482,6 +31493,62 @@ $KVSC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $KVSC_SelectCompleters $KVSC_SelectMap
+# Argument completions for service Amazon Kinesis Video WebRTC Storage
+
+
+$KVWS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.KVWS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KVWS_SelectMap = @{
+    "Select"=@("Join-KVWSStorageSession",
+               "Join-KVWSStorageSessionAsViewer")
+}
+
+_awsArgumentCompleterRegistration $KVWS_SelectCompleters $KVWS_SelectMap
 # Argument completions for service AWS Key Management Service
 
 
@@ -47932,6 +47999,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.JobType
+        {
+            ($_ -eq "New-SMImageVersion/JobType") -Or
+            ($_ -eq "Update-SMImageVersion/JobType")
+        }
+        {
+            $v = "INFERENCE","NOTEBOOK_KERNEL","TRAINING"
+            break
+        }
+
         # Amazon.SageMaker.JoinSource
         "New-SMTransformJob/DataProcessing_JoinSource"
         {
@@ -48264,6 +48341,16 @@ $SM_Completers = {
         }
         {
             $v = "File","Pipe"
+            break
+        }
+
+        # Amazon.SageMaker.Processor
+        {
+            ($_ -eq "New-SMImageVersion/Processor") -Or
+            ($_ -eq "Update-SMImageVersion/Processor")
+        }
+        {
+            $v = "CPU","GPU"
             break
         }
 
@@ -48648,6 +48735,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.VendorGuidance
+        {
+            ($_ -eq "New-SMImageVersion/VendorGuidance") -Or
+            ($_ -eq "Update-SMImageVersion/VendorGuidance")
+        }
+        {
+            $v = "ARCHIVED","NOT_PROVIDED","STABLE","TO_BE_ARCHIVED"
+            break
+        }
+
         # Amazon.SageMaker.WarmPoolResourceStatus
         "Get-SMTrainingJobList/WarmPoolStatusEquals"
         {
@@ -48703,7 +48800,7 @@ $SM_map = @{
     "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "JobResources_ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
-    "JobType"=@("New-SMInferenceRecommendationsJob")
+    "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
     "ModelBiasJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
     "ModelBiasJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
@@ -48730,6 +48827,7 @@ $SM_map = @{
     "OutputConfig_TargetPlatform_Os"=@("New-SMCompilationJob")
     "ProblemType"=@("New-SMAutoMLJob")
     "ProcessingResources_ClusterConfig_InstanceType"=@("New-SMProcessingJob")
+    "Processor"=@("New-SMImageVersion","Update-SMImageVersion")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
@@ -48754,6 +48852,7 @@ $SM_map = @{
     "TransformOutput_AssembleWith"=@("New-SMTransformJob")
     "TransformResources_InstanceType"=@("New-SMTransformJob")
     "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment")
+    "VendorGuidance"=@("New-SMImageVersion","Update-SMImageVersion")
     "WarmPoolStatusEquals"=@("Get-SMTrainingJobList")
     "WarmStartConfig_WarmStartType"=@("New-SMHyperParameterTuningJob")
 }
@@ -48979,6 +49078,7 @@ $SM_SelectMap = @{
                "Import-SMHubContent",
                "Get-SMActionList",
                "Get-SMAlgorithmList",
+               "Get-SMAliasList",
                "Get-SMAppImageConfigList",
                "Get-SMAppList",
                "Get-SMArtifactList",
@@ -49089,6 +49189,7 @@ $SM_SelectMap = @{
                "Update-SMFeatureMetadata",
                "Update-SMHub",
                "Update-SMImage",
+               "Update-SMImageVersion",
                "Update-SMInferenceExperiment",
                "Update-SMModelCard",
                "Update-SMModelPackage",

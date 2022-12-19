@@ -761,6 +761,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAliases" OutputProperty="SageMakerImageVersionAliases" Verb="Get" Noun="AliasList" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAppImageConfigs" OutputProperty="AppImageConfigs" Verb="Get" Noun="AppImageConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1207,6 +1211,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateImage" OutputProperty="ImageArn" Verb="Update" Noun="Image" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImageVersion" OutputProperty="ImageVersionArn" Verb="Update" Noun="ImageVersion" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

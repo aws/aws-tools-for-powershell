@@ -1,0 +1,3 @@
+﻿# KinesisVideoWebRTCStorage
+
+Export-ModuleMember -Alias *

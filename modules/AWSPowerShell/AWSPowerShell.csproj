@@ -595,6 +595,9 @@
     <Reference Include="AWSSDK.KinesisVideoSignalingChannels">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisVideoSignalingChannels.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.KinesisVideoWebRTCStorage">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KinesisVideoWebRTCStorage.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.LakeFormation">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.LakeFormation.dll</HintPath>
     </Reference>
@@ -1577,6 +1580,9 @@
     </Reference>
     <Reference Include="AWSSDK.KinesisVideoSignalingChannels">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.KinesisVideoSignalingChannels.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KinesisVideoWebRTCStorage">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.KinesisVideoWebRTCStorage.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LakeFormation">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.LakeFormation.dll</HintPath>

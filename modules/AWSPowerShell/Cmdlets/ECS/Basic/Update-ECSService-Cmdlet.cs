@@ -141,6 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UpdateECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        #region Parameter Alarms_AlarmName
+        /// <summary>
+        /// <para>
+        /// <para>One or more CloudWatch alarm names. Use a "," to separate the alarms.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_Alarms_AlarmNames")]
+        public System.String[] Alarms_AlarmName { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_AssignPublicIp
         /// <summary>
         /// <para>
@@ -197,6 +208,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? DesiredCount { get; set; }
+        #endregion
+        
+        #region Parameter Alarms_Enable
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to use the CloudWatch alarm option in the service deployment process.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_Alarms_Enable")]
+        public System.Boolean? Alarms_Enable { get; set; }
         #endregion
         
         #region Parameter DeploymentCircuitBreaker_Enable
@@ -474,12 +496,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.PropagateTags PropagateTag { get; set; }
         #endregion
         
+        #region Parameter Alarms_Rollback
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to configure Amazon ECS to roll back the service if a service deployment
+        /// fails. If rollback is used, when a service deployment fails, the service is rolled
+        /// back to the last deployment that completed successfully.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentConfiguration_Alarms_Rollback")]
+        public System.Boolean? Alarms_Rollback { get; set; }
+        #endregion
+        
         #region Parameter DeploymentCircuitBreaker_Rollback
         /// <summary>
         /// <para>
         /// <para>Determines whether to configure Amazon ECS to roll back the service if a service deployment
-        /// fails. If rollback is enabled, when a service deployment fails, the service is rolled
-        /// back to the last deployment that completed successfully.</para>
+        /// fails. If rollback is on, when a service deployment fails, the service is rolled back
+        /// to the last deployment that completed successfully.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -656,6 +691,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
             }
             context.Cluster = this.Cluster;
+            if (this.Alarms_AlarmName != null)
+            {
+                context.Alarms_AlarmName = new List<System.String>(this.Alarms_AlarmName);
+            }
+            context.Alarms_Enable = this.Alarms_Enable;
+            context.Alarms_Rollback = this.Alarms_Rollback;
             context.DeploymentCircuitBreaker_Enable = this.DeploymentCircuitBreaker_Enable;
             context.DeploymentCircuitBreaker_Rollback = this.DeploymentCircuitBreaker_Rollback;
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
@@ -800,6 +841,51 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker != null)
             {
                 request.DeploymentConfiguration.DeploymentCircuitBreaker = requestDeploymentConfiguration_deploymentConfiguration_DeploymentCircuitBreaker;
+                requestDeploymentConfigurationIsNull = false;
+            }
+            Amazon.ECS.Model.DeploymentAlarms requestDeploymentConfiguration_deploymentConfiguration_Alarms = null;
+            
+             // populate Alarms
+            var requestDeploymentConfiguration_deploymentConfiguration_AlarmsIsNull = true;
+            requestDeploymentConfiguration_deploymentConfiguration_Alarms = new Amazon.ECS.Model.DeploymentAlarms();
+            List<System.String> requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_AlarmName = null;
+            if (cmdletContext.Alarms_AlarmName != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_AlarmName = cmdletContext.Alarms_AlarmName;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_AlarmName != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms.AlarmNames = requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_AlarmName;
+                requestDeploymentConfiguration_deploymentConfiguration_AlarmsIsNull = false;
+            }
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Enable = null;
+            if (cmdletContext.Alarms_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Enable = cmdletContext.Alarms_Enable.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Enable != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms.Enable = requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Enable.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_AlarmsIsNull = false;
+            }
+            System.Boolean? requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Rollback = null;
+            if (cmdletContext.Alarms_Rollback != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Rollback = cmdletContext.Alarms_Rollback.Value;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Rollback != null)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms.Rollback = requestDeploymentConfiguration_deploymentConfiguration_Alarms_alarms_Rollback.Value;
+                requestDeploymentConfiguration_deploymentConfiguration_AlarmsIsNull = false;
+            }
+             // determine if requestDeploymentConfiguration_deploymentConfiguration_Alarms should be set to null
+            if (requestDeploymentConfiguration_deploymentConfiguration_AlarmsIsNull)
+            {
+                requestDeploymentConfiguration_deploymentConfiguration_Alarms = null;
+            }
+            if (requestDeploymentConfiguration_deploymentConfiguration_Alarms != null)
+            {
+                request.DeploymentConfiguration.Alarms = requestDeploymentConfiguration_deploymentConfiguration_Alarms;
                 requestDeploymentConfigurationIsNull = false;
             }
              // determine if request.DeploymentConfiguration should be set to null
@@ -1060,6 +1146,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String Cluster { get; set; }
+            public List<System.String> Alarms_AlarmName { get; set; }
+            public System.Boolean? Alarms_Enable { get; set; }
+            public System.Boolean? Alarms_Rollback { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Enable { get; set; }
             public System.Boolean? DeploymentCircuitBreaker_Rollback { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }

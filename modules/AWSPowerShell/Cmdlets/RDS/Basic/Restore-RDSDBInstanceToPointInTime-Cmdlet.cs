@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// subnets through your on-premises network. For some use cases, a CoIP can provide lower
         /// latency for connections to the DB instance from outside of its virtual private cloud
         /// (VPC) on your local network.</para><para>This setting doesn't apply to RDS Custom.</para><para>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working
-        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned
+        /// with Amazon RDS on Amazon Web Services Outposts</a> in the <i>Amazon RDS User Guide</i>.</para><para>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned
         /// IP addresses</a> in the <i>Amazon Web Services Outposts User Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker
-        /// to perform tasks on your behalf.</para>
+        /// <para>The new ARN for the IAM role that enables Amazon SageMaker to perform tasks on your
+        /// behalf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

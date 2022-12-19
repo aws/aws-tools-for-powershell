@@ -28,15 +28,16 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Describes a version of a SageMaker image.
+    /// Lists the aliases of a specified image or image version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SMImageVersion")]
-    [OutputType("Amazon.SageMaker.Model.DescribeImageVersionResponse")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeImageVersion API operation.", Operation = new[] {"DescribeImageVersion"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeImageVersionResponse))]
-    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeImageVersionResponse",
-        "This cmdlet returns an Amazon.SageMaker.Model.DescribeImageVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMAliasList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service ListAliases API operation.", Operation = new[] {"ListAliases"}, SelectReturnType = typeof(Amazon.SageMaker.Model.ListAliasesResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.ListAliasesResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.SageMaker.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMImageVersionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetSMAliasListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         #region Parameter Alias
@@ -69,22 +70,49 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version of the image. If not specified, the latest version is described.</para>
+        /// <para>The version of the image. If image version is not specified, the aliases of all versions
+        /// of the image are listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Version { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of aliases to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>If the previous call to <code>ListAliases</code> didn't return the full set of aliases,
+        /// the call returns a token for retrieving the next set of aliases.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeImageVersionResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeImageVersionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SageMakerImageVersionAliases'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.ListAliasesResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.ListAliasesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "SageMakerImageVersionAliases";
         #endregion
         
         #region Parameter PassThru
@@ -95,6 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -110,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeImageVersionResponse, GetSMImageVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.ListAliasesResponse, GetSMAliasListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,6 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ImageName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
@@ -144,8 +184,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.SageMaker.Model.DescribeImageVersionRequest();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
+            var request = new Amazon.SageMaker.Model.ListAliasesRequest();
             
             if (cmdletContext.Alias != null)
             {
@@ -155,32 +199,60 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ImageName = cmdletContext.ImageName;
             }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
             if (cmdletContext.Version != null)
             {
                 request.Version = cmdletContext.Version.Value;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -192,15 +264,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DescribeImageVersionResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeImageVersionRequest request)
+        private Amazon.SageMaker.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.ListAliasesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeImageVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "ListAliases");
             try
             {
                 #if DESKTOP
-                return client.DescribeImageVersion(request);
+                return client.ListAliases(request);
                 #elif CORECLR
-                return client.DescribeImageVersionAsync(request).GetAwaiter().GetResult();
+                return client.ListAliasesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,9 +294,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String Alias { get; set; }
             public System.String ImageName { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.Int32? Version { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DescribeImageVersionResponse, GetSMImageVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.SageMaker.Model.ListAliasesResponse, GetSMAliasListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SageMakerImageVersionAliases;
         }
         
     }

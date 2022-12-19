@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kinesis-video-webrtc-storage</C2jFilename>
+    <AssemblyName>KinesisVideoWebRTCStorage</AssemblyName>
+    <ServiceNounPrefix>KVWS</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Video WebRTC Storage</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisVideoWebRTCStorage</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisVideoWebRTCStorageClient</ServiceClient>
+    <ServiceModuleGuid>54379206-7404-4e7b-9166-3baba1d935d7</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="JoinStorageSession" Verb="Join" Noun="StorageSession" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="JoinStorageSessionAsViewer" Verb="Join" Noun="StorageSessionAsViewer" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

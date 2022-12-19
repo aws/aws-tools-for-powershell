@@ -28,48 +28,46 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a version of the SageMaker image specified by <code>ImageName</code>. The
-    /// version represents the Amazon Elastic Container Registry (ECR) container image specified
-    /// by <code>BaseImage</code>.
+    /// Updates the properties of a SageMaker image version.
     /// </summary>
-    [Cmdlet("New", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "SMImageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service CreateImageVersion API operation.", Operation = new[] {"CreateImageVersion"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateImageVersionResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.CreateImageVersionResponse",
+    [AWSCmdlet("Calls the Amazon SageMaker Service UpdateImageVersion API operation.", Operation = new[] {"UpdateImageVersion"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateImageVersionResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateImageVersionResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.CreateImageVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.UpdateImageVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSMImageVersionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class UpdateSMImageVersionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>A list of aliases created with the image version.</para>
+        /// <para>The alias of the image version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Aliases")]
-        public System.String[] Alias { get; set; }
+        public System.String Alias { get; set; }
         #endregion
         
-        #region Parameter BaseImage
+        #region Parameter AliasesToAdd
         /// <summary>
         /// <para>
-        /// <para>The registry path of the container image to use as the starting point for this version.
-        /// The path is an Amazon Elastic Container Registry (ECR) URI in the following format:</para><para><code>&lt;acct-id&gt;.dkr.ecr.&lt;region&gt;.amazonaws.com/&lt;repo-name[:tag] or
-        /// [@digest]&gt;</code></para>
+        /// <para>A list of aliases to add.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BaseImage { get; set; }
+        public System.String[] AliasesToAdd { get; set; }
+        #endregion
+        
+        #region Parameter AliasesToDelete
+        /// <summary>
+        /// <para>
+        /// <para>A list of aliases to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AliasesToDelete { get; set; }
         #endregion
         
         #region Parameter Horovod
@@ -85,13 +83,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The <code>ImageName</code> of the <code>Image</code> to create a version of.</para>
+        /// <para>The name of the image.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -157,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VendorGuidance
         /// <summary>
         /// <para>
-        /// <para>The stability of the image version, specified by the maintainer.</para><ul><li><para><code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version
+        /// <para>The availability of the image version specified by the maintainer.</para><ul><li><para><code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version
         /// stability.</para></li><li><para><code>STABLE</code>: The image version is stable.</para></li><li><para><code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image
         /// versions that are set to be archived are automatically archived after three months.</para></li><li><para><code>ARCHIVED</code>: The image version is archived. Archived image versions are
         /// not searchable and are no longer actively supported. </para></li></ul>
@@ -168,26 +166,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.VendorGuidance VendorGuidance { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>A unique ID. If not specified, the Amazon Web Services CLI and Amazon Web Services
-        /// SDKs, such as the SDK for Python (Boto3), add a unique value to the call.</para>
+        /// <para>The version of the image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.Int32? Version { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ImageVersionArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.CreateImageVersionResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.CreateImageVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.UpdateImageVersionResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.UpdateImageVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "ImageVersionArn";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ImageName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImageName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -206,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImageName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SMImageVersion (CreateImageVersion)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SMImageVersion (UpdateImageVersion)"))
             {
                 return;
             }
@@ -216,23 +223,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateImageVersionResponse, NewSMImageVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateImageVersionResponse, UpdateSMImageVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            if (this.Alias != null)
+            else if (this.PassThru.IsPresent)
             {
-                context.Alias = new List<System.String>(this.Alias);
+                context.Select = (response, cmdlet) => this.ImageName;
             }
-            context.BaseImage = this.BaseImage;
-            #if MODULAR
-            if (this.BaseImage == null && ParameterWasBound(nameof(this.BaseImage)))
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Alias = this.Alias;
+            if (this.AliasesToAdd != null)
             {
-                WriteWarning("You are passing $null as a value for parameter BaseImage which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AliasesToAdd = new List<System.String>(this.AliasesToAdd);
             }
-            #endif
-            context.ClientToken = this.ClientToken;
+            if (this.AliasesToDelete != null)
+            {
+                context.AliasesToDelete = new List<System.String>(this.AliasesToDelete);
+            }
             context.Horovod = this.Horovod;
             context.ImageName = this.ImageName;
             #if MODULAR
@@ -247,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ProgrammingLang = this.ProgrammingLang;
             context.ReleaseNote = this.ReleaseNote;
             context.VendorGuidance = this.VendorGuidance;
+            context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -261,19 +276,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.CreateImageVersionRequest();
+            var request = new Amazon.SageMaker.Model.UpdateImageVersionRequest();
             
             if (cmdletContext.Alias != null)
             {
-                request.Aliases = cmdletContext.Alias;
+                request.Alias = cmdletContext.Alias;
             }
-            if (cmdletContext.BaseImage != null)
+            if (cmdletContext.AliasesToAdd != null)
             {
-                request.BaseImage = cmdletContext.BaseImage;
+                request.AliasesToAdd = cmdletContext.AliasesToAdd;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.AliasesToDelete != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.AliasesToDelete = cmdletContext.AliasesToDelete;
             }
             if (cmdletContext.Horovod != null)
             {
@@ -306,6 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.VendorGuidance != null)
             {
                 request.VendorGuidance = cmdletContext.VendorGuidance;
+            }
+            if (cmdletContext.Version != null)
+            {
+                request.Version = cmdletContext.Version.Value;
             }
             
             CmdletOutput output;
@@ -340,15 +359,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.CreateImageVersionResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.CreateImageVersionRequest request)
+        private Amazon.SageMaker.Model.UpdateImageVersionResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.UpdateImageVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "CreateImageVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateImageVersion");
             try
             {
                 #if DESKTOP
-                return client.CreateImageVersion(request);
+                return client.UpdateImageVersion(request);
                 #elif CORECLR
-                return client.CreateImageVersionAsync(request).GetAwaiter().GetResult();
+                return client.UpdateImageVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -368,9 +387,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Alias { get; set; }
-            public System.String BaseImage { get; set; }
-            public System.String ClientToken { get; set; }
+            public System.String Alias { get; set; }
+            public List<System.String> AliasesToAdd { get; set; }
+            public List<System.String> AliasesToDelete { get; set; }
             public System.Boolean? Horovod { get; set; }
             public System.String ImageName { get; set; }
             public Amazon.SageMaker.JobType JobType { get; set; }
@@ -379,7 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ProgrammingLang { get; set; }
             public System.String ReleaseNote { get; set; }
             public Amazon.SageMaker.VendorGuidance VendorGuidance { get; set; }
-            public System.Func<Amazon.SageMaker.Model.CreateImageVersionResponse, NewSMImageVersionCmdlet, object> Select { get; set; } =
+            public System.Int32? Version { get; set; }
+            public System.Func<Amazon.SageMaker.Model.UpdateImageVersionResponse, UpdateSMImageVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageVersionArn;
         }
         

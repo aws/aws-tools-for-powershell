@@ -43,6 +43,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMappedResourceConfiguration" OutputProperty="MappedResourceConfigurationList" Verb="Get" Noun="MappedResourceConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMediaStorageConfiguration" OutputProperty="MediaStorageConfiguration" Verb="Get" Noun="MediaStorageConfiguration" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNotificationConfiguration" OutputProperty="NotificationConfiguration" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="StreamARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +118,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateImageGenerationConfiguration" Verb="Update" Noun="ImageGenerationConfiguration" ShouldProcessTarget="StreamName" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMediaStorageConfiguration" Verb="Update" Noun="MediaStorageConfiguration" ShouldProcessTarget="ChannelARN" PipelineParameter="ChannelARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

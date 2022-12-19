@@ -132,6 +132,13 @@ $KV_Completers = {
             break
         }
 
+        # Amazon.KinesisVideo.MediaStorageConfigurationStatus
+        "Update-KVMediaStorageConfiguration/MediaStorageConfiguration_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.KinesisVideo.MediaUriType
         "Start-KVEdgeConfigurationUpdate/EdgeConfig_RecorderConfig_MediaSourceConfig_MediaUriType"
         {
@@ -170,6 +177,7 @@ $KV_map = @{
     "ImageGenerationConfiguration_Format"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_ImageSelectorType"=@("Update-KVImageGenerationConfiguration")
     "ImageGenerationConfiguration_Status"=@("Update-KVImageGenerationConfiguration")
+    "MediaStorageConfiguration_Status"=@("Update-KVMediaStorageConfiguration")
     "NotificationConfiguration_Status"=@("Update-KVNotificationConfiguration")
     "Operation"=@("Update-KVDataRetention")
     "SingleMasterChannelEndpointConfiguration_Role"=@("Get-KVSignalingChannelEndpoint")
@@ -231,6 +239,8 @@ $KV_SelectMap = @{
                "Remove-KVStream",
                "Get-KVEdgeConfiguration",
                "Get-KVImageGenerationConfiguration",
+               "Get-KVMappedResourceConfiguration",
+               "Get-KVMediaStorageConfiguration",
                "Get-KVNotificationConfiguration",
                "Get-KVSignalingChannel",
                "Get-KVStream",
@@ -247,6 +257,7 @@ $KV_SelectMap = @{
                "Remove-KVStreamTag",
                "Update-KVDataRetention",
                "Update-KVImageGenerationConfiguration",
+               "Update-KVMediaStorageConfiguration",
                "Update-KVNotificationConfiguration",
                "Update-KVSignalingChannel",
                "Update-KVStream")

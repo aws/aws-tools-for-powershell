@@ -22,61 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Athena;
-using Amazon.Athena.Model;
+using Amazon.KinesisVideo;
+using Amazon.KinesisVideo.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ATH
+namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Returns query execution runtime statistics related to a single execution of a query
-    /// if you have access to the workgroup in which the query ran. Query execution runtime
-    /// statistics are returned only when <a>QueryExecutionStatus$State</a> is in a SUCCEEDED
-    /// or FAILED state. Stage-level input and output row count and data size statistics are
-    /// not shown when a query has row-level filters defined in Lake Formation.
+    /// Returns the most current information about the channel. Specify the <code>ChannelName</code>
+    /// or <code>ChannelARN</code> in the input.
     /// </summary>
-    [Cmdlet("Get", "ATHQueryRuntimeStatistic")]
-    [OutputType("Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse")]
-    [AWSCmdlet("Calls the Amazon Athena GetQueryRuntimeStatistics API operation.", Operation = new[] {"GetQueryRuntimeStatistics"}, SelectReturnType = typeof(Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse))]
-    [AWSCmdletOutput("Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse",
-        "This cmdlet returns an Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KVMediaStorageConfiguration")]
+    [OutputType("Amazon.KinesisVideo.Model.MediaStorageConfiguration")]
+    [AWSCmdlet("Calls the Amazon Kinesis Video Streams DescribeMediaStorageConfiguration API operation.", Operation = new[] {"DescribeMediaStorageConfiguration"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.KinesisVideo.Model.MediaStorageConfiguration or Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse",
+        "This cmdlet returns an Amazon.KinesisVideo.Model.MediaStorageConfiguration object.",
+        "The service call response (type Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetATHQueryRuntimeStatisticCmdlet : AmazonAthenaClientCmdlet, IExecutor
+    public partial class GetKVMediaStorageConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
-        #region Parameter QueryExecutionId
+        #region Parameter ChannelARN
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the query execution.</para>
+        /// <para>The Amazon Resource Name (ARN) of the channel.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueryExecutionId { get; set; }
+        public System.String ChannelARN { get; set; }
+        #endregion
+        
+        #region Parameter ChannelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChannelName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse).
-        /// Specifying the name of a property of type Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MediaStorageConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "MediaStorageConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the QueryExecutionId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^QueryExecutionId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChannelARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueryExecutionId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse, GetATHQueryRuntimeStatisticCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse, GetKVMediaStorageConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,16 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.QueryExecutionId;
+                context.Select = (response, cmdlet) => this.ChannelARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.QueryExecutionId = this.QueryExecutionId;
-            #if MODULAR
-            if (this.QueryExecutionId == null && ParameterWasBound(nameof(this.QueryExecutionId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueryExecutionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ChannelARN = this.ChannelARN;
+            context.ChannelName = this.ChannelName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,11 +123,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Athena.Model.GetQueryRuntimeStatisticsRequest();
+            var request = new Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationRequest();
             
-            if (cmdletContext.QueryExecutionId != null)
+            if (cmdletContext.ChannelARN != null)
             {
-                request.QueryExecutionId = cmdletContext.QueryExecutionId;
+                request.ChannelARN = cmdletContext.ChannelARN;
+            }
+            if (cmdletContext.ChannelName != null)
+            {
+                request.ChannelName = cmdletContext.ChannelName;
             }
             
             CmdletOutput output;
@@ -166,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region AWS Service Operation Call
         
-        private Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.GetQueryRuntimeStatisticsRequest request)
+        private Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse CallAWSServiceOperation(IAmazonKinesisVideo client, Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "GetQueryRuntimeStatistics");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Video Streams", "DescribeMediaStorageConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetQueryRuntimeStatistics(request);
+                return client.DescribeMediaStorageConfiguration(request);
                 #elif CORECLR
-                return client.GetQueryRuntimeStatisticsAsync(request).GetAwaiter().GetResult();
+                return client.DescribeMediaStorageConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String QueryExecutionId { get; set; }
-            public System.Func<Amazon.Athena.Model.GetQueryRuntimeStatisticsResponse, GetATHQueryRuntimeStatisticCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ChannelARN { get; set; }
+            public System.String ChannelName { get; set; }
+            public System.Func<Amazon.KinesisVideo.Model.DescribeMediaStorageConfigurationResponse, GetKVMediaStorageConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MediaStorageConfiguration;
         }
         
     }

@@ -22,42 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Athena;
-using Amazon.Athena.Model;
+using Amazon.KinesisVideo;
+using Amazon.KinesisVideo.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ATH
+namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
-    /// Updates the contents of a Spark notebook.
+    /// Associates a <code>SignalingChannel</code> to a stream to store the media. There are
+    /// two signaling modes that can specified :
+    /// 
+    ///  <ul><li><para>
+    /// If the <code>StorageStatus</code> is disabled, no data will be stored, and the <code>StreamARN</code>
+    /// parameter will not be needed. 
+    /// </para></li><li><para>
+    /// If the <code>StorageStatus</code> is enabled, the data will be stored in the <code>StreamARN</code>
+    /// provided. 
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Update", "ATHNotebook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "KVMediaStorageConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Athena UpdateNotebook API operation.", Operation = new[] {"UpdateNotebook"}, SelectReturnType = typeof(Amazon.Athena.Model.UpdateNotebookResponse))]
-    [AWSCmdletOutput("None or Amazon.Athena.Model.UpdateNotebookResponse",
+    [AWSCmdlet("Calls the Amazon Kinesis Video Streams UpdateMediaStorageConfiguration API operation.", Operation = new[] {"UpdateMediaStorageConfiguration"}, SelectReturnType = typeof(Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.UpdateNotebookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateATHNotebookCmdlet : AmazonAthenaClientCmdlet, IExecutor
+    public partial class UpdateKVMediaStorageConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientRequestToken
+        #region Parameter ChannelARN
         /// <summary>
         /// <para>
-        /// <para>A unique case-sensitive string used to ensure the request to create the notebook is
-        /// idempotent (executes only once).</para><important><para>This token is listed as not required because Amazon Web Services SDKs (for example
-        /// the Amazon Web Services SDK for Java) auto-generate the token for you. If you are
-        /// not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
-        /// this token or the action will fail.</para></important>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
-        #endregion
-        
-        #region Parameter NotebookId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the notebook to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,40 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NotebookId { get; set; }
+        public System.String ChannelARN { get; set; }
         #endregion
         
-        #region Parameter Payload
+        #region Parameter MediaStorageConfiguration_Status
         /// <summary>
         /// <para>
-        /// <para>The updated content for the notebook.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Payload { get; set; }
-        #endregion
-        
-        #region Parameter SessionId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the session in which the notebook will be updated.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SessionId { get; set; }
-        #endregion
-        
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The notebook content type. Currently, the only valid type is <code>IPYNB</code>.</para>
+        /// <para>The status of the media storage configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,14 +79,24 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.Athena.NotebookType")]
-        public Amazon.Athena.NotebookType Type { get; set; }
+        [AWSConstantClassSource("Amazon.KinesisVideo.MediaStorageConfigurationStatus")]
+        public Amazon.KinesisVideo.MediaStorageConfigurationStatus MediaStorageConfiguration_Status { get; set; }
+        #endregion
+        
+        #region Parameter MediaStorageConfiguration_StreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the stream </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MediaStorageConfiguration_StreamARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.UpdateNotebookResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NotebookId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NotebookId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChannelARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NotebookId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -150,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NotebookId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ATHNotebook (UpdateNotebook)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-KVMediaStorageConfiguration (UpdateMediaStorageConfiguration)"))
             {
                 return;
             }
@@ -164,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Athena.Model.UpdateNotebookResponse, UpdateATHNotebookCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse, UpdateKVMediaStorageConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -173,32 +151,24 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NotebookId;
+                context.Select = (response, cmdlet) => this.ChannelARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientRequestToken = this.ClientRequestToken;
-            context.NotebookId = this.NotebookId;
+            context.ChannelARN = this.ChannelARN;
             #if MODULAR
-            if (this.NotebookId == null && ParameterWasBound(nameof(this.NotebookId)))
+            if (this.ChannelARN == null && ParameterWasBound(nameof(this.ChannelARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter NotebookId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Payload = this.Payload;
+            context.MediaStorageConfiguration_Status = this.MediaStorageConfiguration_Status;
             #if MODULAR
-            if (this.Payload == null && ParameterWasBound(nameof(this.Payload)))
+            if (this.MediaStorageConfiguration_Status == null && ParameterWasBound(nameof(this.MediaStorageConfiguration_Status)))
             {
-                WriteWarning("You are passing $null as a value for parameter Payload which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MediaStorageConfiguration_Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SessionId = this.SessionId;
-            context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MediaStorageConfiguration_StreamARN = this.MediaStorageConfiguration_StreamARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,27 +183,40 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Athena.Model.UpdateNotebookRequest();
+            var request = new Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationRequest();
             
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.ChannelARN != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.ChannelARN = cmdletContext.ChannelARN;
             }
-            if (cmdletContext.NotebookId != null)
+            
+             // populate MediaStorageConfiguration
+            var requestMediaStorageConfigurationIsNull = true;
+            request.MediaStorageConfiguration = new Amazon.KinesisVideo.Model.MediaStorageConfiguration();
+            Amazon.KinesisVideo.MediaStorageConfigurationStatus requestMediaStorageConfiguration_mediaStorageConfiguration_Status = null;
+            if (cmdletContext.MediaStorageConfiguration_Status != null)
             {
-                request.NotebookId = cmdletContext.NotebookId;
+                requestMediaStorageConfiguration_mediaStorageConfiguration_Status = cmdletContext.MediaStorageConfiguration_Status;
             }
-            if (cmdletContext.Payload != null)
+            if (requestMediaStorageConfiguration_mediaStorageConfiguration_Status != null)
             {
-                request.Payload = cmdletContext.Payload;
+                request.MediaStorageConfiguration.Status = requestMediaStorageConfiguration_mediaStorageConfiguration_Status;
+                requestMediaStorageConfigurationIsNull = false;
             }
-            if (cmdletContext.SessionId != null)
+            System.String requestMediaStorageConfiguration_mediaStorageConfiguration_StreamARN = null;
+            if (cmdletContext.MediaStorageConfiguration_StreamARN != null)
             {
-                request.SessionId = cmdletContext.SessionId;
+                requestMediaStorageConfiguration_mediaStorageConfiguration_StreamARN = cmdletContext.MediaStorageConfiguration_StreamARN;
             }
-            if (cmdletContext.Type != null)
+            if (requestMediaStorageConfiguration_mediaStorageConfiguration_StreamARN != null)
             {
-                request.Type = cmdletContext.Type;
+                request.MediaStorageConfiguration.StreamARN = requestMediaStorageConfiguration_mediaStorageConfiguration_StreamARN;
+                requestMediaStorageConfigurationIsNull = false;
+            }
+             // determine if request.MediaStorageConfiguration should be set to null
+            if (requestMediaStorageConfigurationIsNull)
+            {
+                request.MediaStorageConfiguration = null;
             }
             
             CmdletOutput output;
@@ -268,15 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region AWS Service Operation Call
         
-        private Amazon.Athena.Model.UpdateNotebookResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.UpdateNotebookRequest request)
+        private Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse CallAWSServiceOperation(IAmazonKinesisVideo client, Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "UpdateNotebook");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Video Streams", "UpdateMediaStorageConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UpdateNotebook(request);
+                return client.UpdateMediaStorageConfiguration(request);
                 #elif CORECLR
-                return client.UpdateNotebookAsync(request).GetAwaiter().GetResult();
+                return client.UpdateMediaStorageConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -296,12 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientRequestToken { get; set; }
-            public System.String NotebookId { get; set; }
-            public System.String Payload { get; set; }
-            public System.String SessionId { get; set; }
-            public Amazon.Athena.NotebookType Type { get; set; }
-            public System.Func<Amazon.Athena.Model.UpdateNotebookResponse, UpdateATHNotebookCmdlet, object> Select { get; set; } =
+            public System.String ChannelARN { get; set; }
+            public Amazon.KinesisVideo.MediaStorageConfigurationStatus MediaStorageConfiguration_Status { get; set; }
+            public System.String MediaStorageConfiguration_StreamARN { get; set; }
+            public System.Func<Amazon.KinesisVideo.Model.UpdateMediaStorageConfigurationResponse, UpdateKVMediaStorageConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

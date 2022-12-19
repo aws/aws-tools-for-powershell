@@ -41,10 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class RemoveSMImageVersionCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter Alias
+        /// <summary>
+        /// <para>
+        /// <para>The alias of the image to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Alias { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The name of the image.</para>
+        /// <para>The name of the image to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The version to delete.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? Version { get; set; }
         #endregion
         
@@ -115,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteImageVersionResponse, RemoveSMImageVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Alias = this.Alias;
             context.ImageName = this.ImageName;
             #if MODULAR
             if (this.ImageName == null && ParameterWasBound(nameof(this.ImageName)))
@@ -123,12 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.Version = this.Version;
-            #if MODULAR
-            if (this.Version == null && ParameterWasBound(nameof(this.Version)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Version which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.DeleteImageVersionRequest();
             
+            if (cmdletContext.Alias != null)
+            {
+                request.Alias = cmdletContext.Alias;
+            }
             if (cmdletContext.ImageName != null)
             {
                 request.ImageName = cmdletContext.ImageName;
@@ -214,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Alias { get; set; }
             public System.String ImageName { get; set; }
             public System.Int32? Version { get; set; }
             public System.Func<Amazon.SageMaker.Model.DeleteImageVersionResponse, RemoveSMImageVersionCmdlet, object> Select { get; set; } =
