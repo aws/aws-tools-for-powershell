@@ -28,7 +28,7 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Get a Studio resource.
+    /// Get a studio resource.
     /// </summary>
     [Cmdlet("Get", "NSStudio")]
     [OutputType("Amazon.NimbleStudio.Model.Studio")]

@@ -28,7 +28,7 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Get Eula.
+    /// Get EULA.
     /// </summary>
     [Cmdlet("Get", "NSEula")]
     [OutputType("Amazon.NimbleStudio.Model.Eula")]

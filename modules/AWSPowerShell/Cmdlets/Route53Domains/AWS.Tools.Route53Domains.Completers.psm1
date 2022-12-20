@@ -121,8 +121,18 @@ $R53D_Completers = {
             break
         }
 
+        # Amazon.Route53Domains.ListOperationsSortAttributeName
+        "Get-R53DOperationList/SortBy"
+        {
+            $v = "SubmittedDate"
+            break
+        }
+
         # Amazon.Route53Domains.SortOrder
-        "Get-R53DDomainList/SortCondition_SortOrder"
+        {
+            ($_ -eq "Get-R53DDomainList/SortCondition_SortOrder") -Or
+            ($_ -eq "Get-R53DOperationList/SortOrder")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -141,8 +151,10 @@ $R53D_map = @{
     "AdminContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "RegistrantContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "RegistrantContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
+    "SortBy"=@("Get-R53DOperationList")
     "SortCondition_Name"=@("Get-R53DDomainList")
     "SortCondition_SortOrder"=@("Get-R53DDomainList")
+    "SortOrder"=@("Get-R53DOperationList")
     "TechContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "TechContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
 }
@@ -198,6 +210,7 @@ $R53D_SelectCompleters = {
 
 $R53D_SelectMap = @{
     "Select"=@("Approve-R53DDomainTransferFromAnotherAwsAccount",
+               "Add-R53DDelegationSignerToDomain",
                "Stop-R53DDomainTransferToAnotherAwsAccount",
                "Test-R53DDomainAvailability",
                "Test-R53DDomainTransferability",
@@ -205,6 +218,7 @@ $R53D_SelectMap = @{
                "Remove-R53DTagsForDomain",
                "Disable-R53DDomainAutoRenew",
                "Disable-R53DDomainTransferLock",
+               "Remove-R53DDelegationSignerFromDomain",
                "Enable-R53DDomainAutoRenew",
                "Enable-R53DDomainTransferLock",
                "Get-R53DContactReachabilityStatus",
@@ -215,10 +229,12 @@ $R53D_SelectMap = @{
                "Get-R53DOperationList",
                "Get-R53DPriceList",
                "Get-R53DTagsForDomain",
+               "Push-R53DDomain",
                "Register-R53DDomain",
                "Deny-R53DDomainTransferFromAnotherAwsAccount",
                "Update-R53DDomainRenewal",
                "Send-R53DContactReachabilityEmail",
+               "Send-R53DOperationAuthorization",
                "Get-R53DDomainAuthCode",
                "Invoke-R53DDomainTransfer",
                "Move-R53DDomainToAnotherAwsAccount",

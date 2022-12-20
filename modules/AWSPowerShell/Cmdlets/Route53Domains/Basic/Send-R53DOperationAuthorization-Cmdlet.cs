@@ -22,28 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.NimbleStudio;
-using Amazon.NimbleStudio.Model;
+using Amazon.Route53Domains;
+using Amazon.Route53Domains.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NS
+namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// Delete a user from studio membership.
+    /// Resend the form of authorization email for this operation.
     /// </summary>
-    [Cmdlet("Remove", "NSStudioMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Send", "R53DOperationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Nimble Studio DeleteStudioMember API operation.", Operation = new[] {"DeleteStudioMember"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.DeleteStudioMemberResponse))]
-    [AWSCmdletOutput("None or Amazon.NimbleStudio.Model.DeleteStudioMemberResponse",
+    [AWSCmdlet("Calls the Amazon Route 53 Domains ResendOperationAuthorization API operation.", Operation = new[] {"ResendOperationAuthorization"}, SelectReturnType = typeof(Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse))]
+    [AWSCmdletOutput("None or Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NimbleStudio.Model.DeleteStudioMemberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveNSStudioMemberCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
+    public partial class SendR53DOperationAuthorizationCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
-        #region Parameter PrincipalId
+        #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The principal ID. This currently supports a IAM Identity Center UserId. </para>
+        /// <para> Operation ID. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,42 +54,13 @@ namespace Amazon.PowerShell.Cmdlets.NS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PrincipalId { get; set; }
-        #endregion
-        
-        #region Parameter StudioId
-        /// <summary>
-        /// <para>
-        /// <para>The studio ID. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String StudioId { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
-        /// generates a client token and uses it for the request to ensure idempotency.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String OperationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NimbleStudio.Model.DeleteStudioMemberResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PrincipalId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PrincipalId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OperationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OperationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PrincipalId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OperationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PrincipalId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NSStudioMember (DeleteStudioMember)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OperationId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-R53DOperationAuthorization (ResendOperationAuthorization)"))
             {
                 return;
             }
@@ -135,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NimbleStudio.Model.DeleteStudioMemberResponse, RemoveNSStudioMemberCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse, SendR53DOperationAuthorizationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,22 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.NS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PrincipalId;
+                context.Select = (response, cmdlet) => this.OperationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.PrincipalId = this.PrincipalId;
+            context.OperationId = this.OperationId;
             #if MODULAR
-            if (this.PrincipalId == null && ParameterWasBound(nameof(this.PrincipalId)))
+            if (this.OperationId == null && ParameterWasBound(nameof(this.OperationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PrincipalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.StudioId = this.StudioId;
-            #if MODULAR
-            if (this.StudioId == null && ParameterWasBound(nameof(this.StudioId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StudioId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,19 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.NS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NimbleStudio.Model.DeleteStudioMemberRequest();
+            var request = new Amazon.Route53Domains.Model.ResendOperationAuthorizationRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.OperationId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.PrincipalId != null)
-            {
-                request.PrincipalId = cmdletContext.PrincipalId;
-            }
-            if (cmdletContext.StudioId != null)
-            {
-                request.StudioId = cmdletContext.StudioId;
+                request.OperationId = cmdletContext.OperationId;
             }
             
             CmdletOutput output;
@@ -223,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         #region AWS Service Operation Call
         
-        private Amazon.NimbleStudio.Model.DeleteStudioMemberResponse CallAWSServiceOperation(IAmazonNimbleStudio client, Amazon.NimbleStudio.Model.DeleteStudioMemberRequest request)
+        private Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ResendOperationAuthorizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Nimble Studio", "DeleteStudioMember");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "ResendOperationAuthorization");
             try
             {
                 #if DESKTOP
-                return client.DeleteStudioMember(request);
+                return client.ResendOperationAuthorization(request);
                 #elif CORECLR
-                return client.DeleteStudioMemberAsync(request).GetAwaiter().GetResult();
+                return client.ResendOperationAuthorizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,10 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String PrincipalId { get; set; }
-            public System.String StudioId { get; set; }
-            public System.Func<Amazon.NimbleStudio.Model.DeleteStudioMemberResponse, RemoveNSStudioMemberCmdlet, object> Select { get; set; } =
+            public System.String OperationId { get; set; }
+            public System.Func<Amazon.Route53Domains.Model.ResendOperationAuthorizationResponse, SendR53DOperationAuthorizationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

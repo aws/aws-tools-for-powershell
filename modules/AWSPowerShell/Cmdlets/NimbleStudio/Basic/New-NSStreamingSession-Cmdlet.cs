@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     ///  
     /// <para>
     /// After invoking this operation, you must poll GetStreamingSession until the streaming
-    /// session is in state READY.
+    /// session is in the <code>READY</code> state.
     /// </para>
     /// </summary>
     [Cmdlet("New", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,10 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The launch profile ID.</para>
+        /// <para>The ID of the launch profile used to control access from the streaming session.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LaunchProfileId { get; set; }
         #endregion
         
@@ -108,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A collection of labels, in the form of key:value pairs, that apply to this resource.</para>
+        /// <para>A collection of labels, in the form of key-value pairs, that apply to this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,6 +200,12 @@ namespace Amazon.PowerShell.Cmdlets.NS
             context.ClientToken = this.ClientToken;
             context.Ec2InstanceType = this.Ec2InstanceType;
             context.LaunchProfileId = this.LaunchProfileId;
+            #if MODULAR
+            if (this.LaunchProfileId == null && ParameterWasBound(nameof(this.LaunchProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LaunchProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.OwnedBy = this.OwnedBy;
             context.StreamingImageId = this.StreamingImageId;
             context.StudioId = this.StudioId;

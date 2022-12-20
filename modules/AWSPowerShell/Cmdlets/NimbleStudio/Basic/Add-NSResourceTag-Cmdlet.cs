@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the resource you want to add tags to. </para>
+        /// <para>The Amazon Resource Name (ARN) of the resource you want to add tags to. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A collection of labels, in the form of key:value pairs, that apply to this resource.</para>
+        /// <para>A collection of labels, in the form of key-value pairs, that apply to this resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

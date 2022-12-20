@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-R53DDelegationSignerToDomain', 
         'Approve-R53DDomainTransferFromAnotherAwsAccount', 
         'Deny-R53DDomainTransferFromAnotherAwsAccount', 
         'Disable-R53DDomainAutoRenew', 
@@ -104,10 +105,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53DTagsForDomain', 
         'Invoke-R53DDomainTransfer', 
         'Move-R53DDomainToAnotherAwsAccount', 
+        'Push-R53DDomain', 
         'Register-R53DDomain', 
+        'Remove-R53DDelegationSignerFromDomain', 
         'Remove-R53DDomain', 
         'Remove-R53DTagsForDomain', 
         'Send-R53DContactReachabilityEmail', 
+        'Send-R53DOperationAuthorization', 
         'Stop-R53DDomainTransferToAnotherAwsAccount', 
         'Test-R53DDomainAvailability', 
         'Test-R53DDomainTransferability', 

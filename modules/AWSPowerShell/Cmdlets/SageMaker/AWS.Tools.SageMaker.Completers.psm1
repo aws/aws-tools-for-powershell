@@ -189,7 +189,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AutoMLMetricEnum
         "New-SMAutoMLJob/AutoMLJobObjective_MetricName"
         {
-            $v = "Accuracy","AUC","F1","F1macro","MSE"
+            $v = "Accuracy","AUC","BalancedAccuracy","F1","F1macro","MAE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE"
             break
         }
 

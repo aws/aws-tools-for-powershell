@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The Launch Profile ID.</para>
+        /// <para>The ID of the launch profile used to control access from the streaming session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

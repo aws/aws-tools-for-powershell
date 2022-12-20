@@ -97,6 +97,13 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.InferenceSchedulerStatus
+        "Get-L4EInferenceSchedulerList/Status"
+        {
+            $v = "PENDING","RUNNING","STOPPED","STOPPING"
+            break
+        }
+
         # Amazon.LookoutEquipment.IngestionJobStatus
         "Get-L4EDataIngestionJobList/Status"
         {
@@ -137,7 +144,7 @@ $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
     "Rating"=@("New-L4ELabel")
-    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EModelList")
+    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList")
 }
 
 _awsArgumentCompleterRegistration $L4E_Completers $L4E_map

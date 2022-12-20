@@ -34,6 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     /// all views in that Region. These actions occur as asynchronous background tasks. You
     /// can check to see when the actions are complete by using the <a>GetIndex</a> operation
     /// and checking the <code>Status</code> response value.
+    /// 
+    ///  <note><para>
+    /// If the index you delete is the aggregator index for the Amazon Web Services account,
+    /// you must wait 24 hours before you can promote another local index to be the aggregator
+    /// index for the account. Users can't perform account-wide searches using Resource Explorer
+    /// until another aggregator index is configured.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "AREXIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ResourceExplorer2.Model.DeleteIndexResponse")]

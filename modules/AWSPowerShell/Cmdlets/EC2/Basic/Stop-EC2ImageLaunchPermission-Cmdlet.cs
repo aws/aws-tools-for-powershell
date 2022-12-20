@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Removes your Amazon Web Services account from the launch permissions for the specified
     /// AMI. For more information, see <a href="https://docs.aws.amazon.com/">Cancel having
-    /// an AMI shared with your Amazon Web Services account</a> in the <i>Amazon Elastic Compute
-    /// Cloud User Guide</i>.
+    /// an AMI shared with your Amazon Web Services account</a> in the <i>Amazon EC2 User
+    /// Guide</i>.
     /// </summary>
     [Cmdlet("Stop", "EC2ImageLaunchPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

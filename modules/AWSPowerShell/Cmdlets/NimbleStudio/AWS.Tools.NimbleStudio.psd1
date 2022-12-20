@@ -101,6 +101,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-NSStreamingImage', 
         'Get-NSStreamingImageList', 
         'Get-NSStreamingSession', 
+        'Get-NSStreamingSessionBackup', 
+        'Get-NSStreamingSessionBackupList', 
         'Get-NSStreamingSessionList', 
         'Get-NSStreamingSessionStream', 
         'Get-NSStudio', 

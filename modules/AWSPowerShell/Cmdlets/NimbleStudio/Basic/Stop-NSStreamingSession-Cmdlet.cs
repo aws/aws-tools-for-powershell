@@ -28,8 +28,9 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Transitions sessions from the READY state into the STOPPED state. The STOP_IN_PROGRESS
-    /// state is the intermediate state between the READY and STOPPED states.
+    /// Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
+    /// state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
+    /// <code>READY</code> and <code>STOPPED</code> states.
     /// </summary>
     [Cmdlet("Stop", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NimbleStudio.Model.StreamingSession")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The streaming session ID for the StopStreamingSessionRequest.</para>
+        /// <para>The streaming session ID for the <code>StopStreamingSessionRequest</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,12 +76,24 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String StudioId { get; set; }
         #endregion
         
+        #region Parameter VolumeRetentionMode
+        /// <summary>
+        /// <para>
+        /// <para>Adds additional instructions to a streaming session stop action to either retain the
+        /// EBS volumes or delete the EBS volumes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NimbleStudio.VolumeRetentionMode")]
+        public Amazon.NimbleStudio.VolumeRetentionMode VolumeRetentionMode { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 WriteWarning("You are passing $null as a value for parameter StudioId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.VolumeRetentionMode = this.VolumeRetentionMode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
             if (cmdletContext.StudioId != null)
             {
                 request.StudioId = cmdletContext.StudioId;
+            }
+            if (cmdletContext.VolumeRetentionMode != null)
+            {
+                request.VolumeRetentionMode = cmdletContext.VolumeRetentionMode;
             }
             
             CmdletOutput output;
@@ -256,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             public System.String ClientToken { get; set; }
             public System.String SessionId { get; set; }
             public System.String StudioId { get; set; }
+            public Amazon.NimbleStudio.VolumeRetentionMode VolumeRetentionMode { get; set; }
             public System.Func<Amazon.NimbleStudio.Model.StopStreamingSessionResponse, StopNSStreamingSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Session;
         }

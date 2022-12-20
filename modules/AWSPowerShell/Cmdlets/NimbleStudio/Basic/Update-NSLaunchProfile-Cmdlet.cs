@@ -40,11 +40,27 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class UpdateNSLaunchProfileCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        #region Parameter StreamConfiguration_AutomaticTerminationMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if a streaming session created from this launch profile should be terminated
+        /// automatically or retained without termination after being in a <code>STOPPED</code>
+        /// state.</para><ul><li><para>When <code>ACTIVATED</code>, the streaming session is scheduled for termination after
+        /// being in the <code>STOPPED</code> state for the time specified in <code>maxStoppedSessionLengthInMinutes</code>.</para></li><li><para>When <code>DEACTIVATED</code>, the streaming session can remain in the <code>STOPPED</code>
+        /// state indefinitely.</para></li></ul><para>This parameter is only allowed when <code>sessionPersistenceMode</code> is <code>ACTIVATED</code>.
+        /// When allowed, the default value for this parameter is <code>DEACTIVATED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NimbleStudio.AutomaticTerminationMode")]
+        public Amazon.NimbleStudio.AutomaticTerminationMode StreamConfiguration_AutomaticTerminationMode { get; set; }
+        #endregion
+        
         #region Parameter StreamConfiguration_ClipboardMode
         /// <summary>
         /// <para>
-        /// <para>Enable or disable the use of the system clipboard to copy and paste between the streaming
-        /// session and streaming client.</para>
+        /// <para>Allows or deactivates the use of the system clipboard to copy and paste between the
+        /// streaming session and streaming client.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String[] StreamConfiguration_Ec2InstanceType { get; set; }
         #endregion
         
+        #region Parameter VolumeConfiguration_Iops
+        /// <summary>
+        /// <para>
+        /// <para>The number of I/O operations per second for the root volume that is attached to streaming
+        /// session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_VolumeConfiguration_Iops")]
+        public System.Int32? VolumeConfiguration_Iops { get; set; }
+        #endregion
+        
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The Launch Profile ID.</para>
+        /// <para>The ID of the launch profile used to control access from the streaming session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,6 +142,18 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String Root_Linux { get; set; }
         #endregion
         
+        #region Parameter SessionBackup_MaxBackupsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of backups that each streaming session created from this launch
+        /// profile can have.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_SessionBackup_MaxBackupsToRetain")]
+        public System.Int32? SessionBackup_MaxBackupsToRetain { get; set; }
+        #endregion
+        
         #region Parameter StreamConfiguration_MaxSessionLengthInMinute
         /// <summary>
         /// <para>
@@ -132,18 +172,34 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Integer that determines if you can start and stop your sessions and how long a session
-        /// can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</para><para>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-        /// <code>StopStreamingSession</code>, the session fails. If the time that a session stays
-        /// in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the session
-        /// will automatically be terminated (instead of stopped).</para><para>If the value is set to a positive number, the session can be stopped. You can call
-        /// <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-        /// that a session stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code>
+        /// can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value
+        /// is 5760.</para><para>This field is allowed only when <code>sessionPersistenceMode</code> is <code>ACTIVATED</code>
+        /// and <code>automaticTerminationMode</code> is <code>ACTIVATED</code>.</para><para>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+        /// call <code>StopStreamingSession</code>, the session fails. If the time that a session
+        /// stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+        /// value, the session will automatically be terminated (instead of <code>STOPPED</code>).</para><para>If the value is set to a positive number, the session can be stopped. You can call
+        /// <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+        /// If the time that a session stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
         /// value, the session will automatically be stopped (instead of terminated).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StreamConfiguration_MaxStoppedSessionLengthInMinutes")]
         public System.Int32? StreamConfiguration_MaxStoppedSessionLengthInMinute { get; set; }
+        #endregion
+        
+        #region Parameter SessionBackup_Mode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how artists sessions are backed up.</para><para>Configures backups for streaming sessions launched with this launch profile. The default
+        /// value is <code>DEACTIVATED</code>, which means that backups are deactivated. To allow
+        /// backups, set this value to <code>AUTOMATIC</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_SessionBackup_Mode")]
+        [AWSConstantClassSource("Amazon.NimbleStudio.SessionBackupMode")]
+        public Amazon.NimbleStudio.SessionBackupMode SessionBackup_Mode { get; set; }
         #endregion
         
         #region Parameter SessionStorage_Mode
@@ -165,6 +221,31 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter StreamConfiguration_SessionPersistenceMode
+        /// <summary>
+        /// <para>
+        /// <para>Determine if a streaming session created from this launch profile can configure persistent
+        /// storage. This means that <code>volumeConfiguration</code> and <code>automaticTerminationMode</code>
+        /// are configured.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NimbleStudio.SessionPersistenceMode")]
+        public Amazon.NimbleStudio.SessionPersistenceMode StreamConfiguration_SessionPersistenceMode { get; set; }
+        #endregion
+        
+        #region Parameter VolumeConfiguration_Size
+        /// <summary>
+        /// <para>
+        /// <para>The size of the root volume that is attached to the streaming session. The root volume
+        /// size is measured in GiBs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_VolumeConfiguration_Size")]
+        public System.Int32? VolumeConfiguration_Size { get; set; }
         #endregion
         
         #region Parameter StreamConfiguration_StreamingImageId
@@ -208,6 +289,18 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String StudioId { get; set; }
         #endregion
         
+        #region Parameter VolumeConfiguration_Throughput
+        /// <summary>
+        /// <para>
+        /// <para>The throughput to provision for the root volume that is attached to the streaming
+        /// session. The throughput is measured in MiB/s.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamConfiguration_VolumeConfiguration_Throughput")]
+        public System.Int32? VolumeConfiguration_Throughput { get; set; }
+        #endregion
+        
         #region Parameter Root_Window
         /// <summary>
         /// <para>
@@ -223,8 +316,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -307,6 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 context.LaunchProfileProtocolVersion = new List<System.String>(this.LaunchProfileProtocolVersion);
             }
             context.Name = this.Name;
+            context.StreamConfiguration_AutomaticTerminationMode = this.StreamConfiguration_AutomaticTerminationMode;
             context.StreamConfiguration_ClipboardMode = this.StreamConfiguration_ClipboardMode;
             if (this.StreamConfiguration_Ec2InstanceType != null)
             {
@@ -314,6 +408,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
             }
             context.StreamConfiguration_MaxSessionLengthInMinute = this.StreamConfiguration_MaxSessionLengthInMinute;
             context.StreamConfiguration_MaxStoppedSessionLengthInMinute = this.StreamConfiguration_MaxStoppedSessionLengthInMinute;
+            context.SessionBackup_MaxBackupsToRetain = this.SessionBackup_MaxBackupsToRetain;
+            context.SessionBackup_Mode = this.SessionBackup_Mode;
+            context.StreamConfiguration_SessionPersistenceMode = this.StreamConfiguration_SessionPersistenceMode;
             if (this.SessionStorage_Mode != null)
             {
                 context.SessionStorage_Mode = new List<System.String>(this.SessionStorage_Mode);
@@ -324,6 +421,9 @@ namespace Amazon.PowerShell.Cmdlets.NS
             {
                 context.StreamConfiguration_StreamingImageId = new List<System.String>(this.StreamConfiguration_StreamingImageId);
             }
+            context.VolumeConfiguration_Iops = this.VolumeConfiguration_Iops;
+            context.VolumeConfiguration_Size = this.VolumeConfiguration_Size;
+            context.VolumeConfiguration_Throughput = this.VolumeConfiguration_Throughput;
             if (this.StudioComponentId != null)
             {
                 context.StudioComponentId = new List<System.String>(this.StudioComponentId);
@@ -375,6 +475,16 @@ namespace Amazon.PowerShell.Cmdlets.NS
              // populate StreamConfiguration
             var requestStreamConfigurationIsNull = true;
             request.StreamConfiguration = new Amazon.NimbleStudio.Model.StreamConfigurationCreate();
+            Amazon.NimbleStudio.AutomaticTerminationMode requestStreamConfiguration_streamConfiguration_AutomaticTerminationMode = null;
+            if (cmdletContext.StreamConfiguration_AutomaticTerminationMode != null)
+            {
+                requestStreamConfiguration_streamConfiguration_AutomaticTerminationMode = cmdletContext.StreamConfiguration_AutomaticTerminationMode;
+            }
+            if (requestStreamConfiguration_streamConfiguration_AutomaticTerminationMode != null)
+            {
+                request.StreamConfiguration.AutomaticTerminationMode = requestStreamConfiguration_streamConfiguration_AutomaticTerminationMode;
+                requestStreamConfigurationIsNull = false;
+            }
             Amazon.NimbleStudio.StreamingClipboardMode requestStreamConfiguration_streamConfiguration_ClipboardMode = null;
             if (cmdletContext.StreamConfiguration_ClipboardMode != null)
             {
@@ -415,6 +525,16 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 request.StreamConfiguration.MaxStoppedSessionLengthInMinutes = requestStreamConfiguration_streamConfiguration_MaxStoppedSessionLengthInMinute.Value;
                 requestStreamConfigurationIsNull = false;
             }
+            Amazon.NimbleStudio.SessionPersistenceMode requestStreamConfiguration_streamConfiguration_SessionPersistenceMode = null;
+            if (cmdletContext.StreamConfiguration_SessionPersistenceMode != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionPersistenceMode = cmdletContext.StreamConfiguration_SessionPersistenceMode;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionPersistenceMode != null)
+            {
+                request.StreamConfiguration.SessionPersistenceMode = requestStreamConfiguration_streamConfiguration_SessionPersistenceMode;
+                requestStreamConfigurationIsNull = false;
+            }
             List<System.String> requestStreamConfiguration_streamConfiguration_StreamingImageId = null;
             if (cmdletContext.StreamConfiguration_StreamingImageId != null)
             {
@@ -423,6 +543,41 @@ namespace Amazon.PowerShell.Cmdlets.NS
             if (requestStreamConfiguration_streamConfiguration_StreamingImageId != null)
             {
                 request.StreamConfiguration.StreamingImageIds = requestStreamConfiguration_streamConfiguration_StreamingImageId;
+                requestStreamConfigurationIsNull = false;
+            }
+            Amazon.NimbleStudio.Model.StreamConfigurationSessionBackup requestStreamConfiguration_streamConfiguration_SessionBackup = null;
+            
+             // populate SessionBackup
+            var requestStreamConfiguration_streamConfiguration_SessionBackupIsNull = true;
+            requestStreamConfiguration_streamConfiguration_SessionBackup = new Amazon.NimbleStudio.Model.StreamConfigurationSessionBackup();
+            System.Int32? requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_MaxBackupsToRetain = null;
+            if (cmdletContext.SessionBackup_MaxBackupsToRetain != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_MaxBackupsToRetain = cmdletContext.SessionBackup_MaxBackupsToRetain.Value;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_MaxBackupsToRetain != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionBackup.MaxBackupsToRetain = requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_MaxBackupsToRetain.Value;
+                requestStreamConfiguration_streamConfiguration_SessionBackupIsNull = false;
+            }
+            Amazon.NimbleStudio.SessionBackupMode requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_Mode = null;
+            if (cmdletContext.SessionBackup_Mode != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_Mode = cmdletContext.SessionBackup_Mode;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_Mode != null)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionBackup.Mode = requestStreamConfiguration_streamConfiguration_SessionBackup_sessionBackup_Mode;
+                requestStreamConfiguration_streamConfiguration_SessionBackupIsNull = false;
+            }
+             // determine if requestStreamConfiguration_streamConfiguration_SessionBackup should be set to null
+            if (requestStreamConfiguration_streamConfiguration_SessionBackupIsNull)
+            {
+                requestStreamConfiguration_streamConfiguration_SessionBackup = null;
+            }
+            if (requestStreamConfiguration_streamConfiguration_SessionBackup != null)
+            {
+                request.StreamConfiguration.SessionBackup = requestStreamConfiguration_streamConfiguration_SessionBackup;
                 requestStreamConfigurationIsNull = false;
             }
             Amazon.NimbleStudio.Model.StreamConfigurationSessionStorage requestStreamConfiguration_streamConfiguration_SessionStorage = null;
@@ -483,6 +638,51 @@ namespace Amazon.PowerShell.Cmdlets.NS
             if (requestStreamConfiguration_streamConfiguration_SessionStorage != null)
             {
                 request.StreamConfiguration.SessionStorage = requestStreamConfiguration_streamConfiguration_SessionStorage;
+                requestStreamConfigurationIsNull = false;
+            }
+            Amazon.NimbleStudio.Model.VolumeConfiguration requestStreamConfiguration_streamConfiguration_VolumeConfiguration = null;
+            
+             // populate VolumeConfiguration
+            var requestStreamConfiguration_streamConfiguration_VolumeConfigurationIsNull = true;
+            requestStreamConfiguration_streamConfiguration_VolumeConfiguration = new Amazon.NimbleStudio.Model.VolumeConfiguration();
+            System.Int32? requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Iops = null;
+            if (cmdletContext.VolumeConfiguration_Iops != null)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Iops = cmdletContext.VolumeConfiguration_Iops.Value;
+            }
+            if (requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Iops != null)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration.Iops = requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Iops.Value;
+                requestStreamConfiguration_streamConfiguration_VolumeConfigurationIsNull = false;
+            }
+            System.Int32? requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Size = null;
+            if (cmdletContext.VolumeConfiguration_Size != null)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Size = cmdletContext.VolumeConfiguration_Size.Value;
+            }
+            if (requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Size != null)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration.Size = requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Size.Value;
+                requestStreamConfiguration_streamConfiguration_VolumeConfigurationIsNull = false;
+            }
+            System.Int32? requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Throughput = null;
+            if (cmdletContext.VolumeConfiguration_Throughput != null)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Throughput = cmdletContext.VolumeConfiguration_Throughput.Value;
+            }
+            if (requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Throughput != null)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration.Throughput = requestStreamConfiguration_streamConfiguration_VolumeConfiguration_volumeConfiguration_Throughput.Value;
+                requestStreamConfiguration_streamConfiguration_VolumeConfigurationIsNull = false;
+            }
+             // determine if requestStreamConfiguration_streamConfiguration_VolumeConfiguration should be set to null
+            if (requestStreamConfiguration_streamConfiguration_VolumeConfigurationIsNull)
+            {
+                requestStreamConfiguration_streamConfiguration_VolumeConfiguration = null;
+            }
+            if (requestStreamConfiguration_streamConfiguration_VolumeConfiguration != null)
+            {
+                request.StreamConfiguration.VolumeConfiguration = requestStreamConfiguration_streamConfiguration_VolumeConfiguration;
                 requestStreamConfigurationIsNull = false;
             }
              // determine if request.StreamConfiguration should be set to null
@@ -564,14 +764,21 @@ namespace Amazon.PowerShell.Cmdlets.NS
             public System.String LaunchProfileId { get; set; }
             public List<System.String> LaunchProfileProtocolVersion { get; set; }
             public System.String Name { get; set; }
+            public Amazon.NimbleStudio.AutomaticTerminationMode StreamConfiguration_AutomaticTerminationMode { get; set; }
             public Amazon.NimbleStudio.StreamingClipboardMode StreamConfiguration_ClipboardMode { get; set; }
             public List<System.String> StreamConfiguration_Ec2InstanceType { get; set; }
             public System.Int32? StreamConfiguration_MaxSessionLengthInMinute { get; set; }
             public System.Int32? StreamConfiguration_MaxStoppedSessionLengthInMinute { get; set; }
+            public System.Int32? SessionBackup_MaxBackupsToRetain { get; set; }
+            public Amazon.NimbleStudio.SessionBackupMode SessionBackup_Mode { get; set; }
+            public Amazon.NimbleStudio.SessionPersistenceMode StreamConfiguration_SessionPersistenceMode { get; set; }
             public List<System.String> SessionStorage_Mode { get; set; }
             public System.String Root_Linux { get; set; }
             public System.String Root_Window { get; set; }
             public List<System.String> StreamConfiguration_StreamingImageId { get; set; }
+            public System.Int32? VolumeConfiguration_Iops { get; set; }
+            public System.Int32? VolumeConfiguration_Size { get; set; }
+            public System.Int32? VolumeConfiguration_Throughput { get; set; }
             public List<System.String> StudioComponentId { get; set; }
             public System.String StudioId { get; set; }
             public System.Func<Amazon.NimbleStudio.Model.UpdateLaunchProfileResponse, UpdateNSLaunchProfileCmdlet, object> Select { get; set; } =

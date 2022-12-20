@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>An IAM role attached to a Studio Component that gives the studio component access
-        /// to AWS resources at anytime while the instance is running. </para>
+        /// to Amazon Web Services resources at anytime while the instance is running. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,8 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>An IAM role attached to Studio Component when the system initialization script runs
-        /// which give the studio component access to AWS resources when the system initialization
-        /// script runs.</para>
+        /// which give the studio component access to Amazon Web Services resources when the system
+        /// initialization script runs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,8 +298,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

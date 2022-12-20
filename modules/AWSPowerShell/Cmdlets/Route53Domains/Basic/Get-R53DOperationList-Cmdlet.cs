@@ -46,6 +46,38 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class GetR53DOperationListCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para> The sort type for returned values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Domains.ListOperationsSortAttributeName")]
+        public Amazon.Route53Domains.ListOperationsSortAttributeName SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para> The sort order ofr returned values, either ascending or descending. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Domains.SortOrder")]
+        public Amazon.Route53Domains.SortOrder SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para> The status of the operations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Status { get; set; }
+        #endregion
+        
         #region Parameter SubmittedSince
         /// <summary>
         /// <para>
@@ -56,6 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? SubmittedSince { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para> An arrays of the domains operation types. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Type { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -147,7 +189,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Marker = this.Marker;
             context.MaxItem = this.MaxItem;
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
+            if (this.Status != null)
+            {
+                context.Status = new List<System.String>(this.Status);
+            }
             context.SubmittedSince = this.SubmittedSince;
+            if (this.Type != null)
+            {
+                context.Type = new List<System.String>(this.Type);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,9 +224,25 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 request.MaxItems = cmdletContext.MaxItem.Value;
             }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
+            }
             if (cmdletContext.SubmittedSince != null)
             {
                 request.SubmittedSince = cmdletContext.SubmittedSince.Value;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             // Initialize loop variant and commence piping
@@ -263,7 +331,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             public System.String Marker { get; set; }
             public System.Int32? MaxItem { get; set; }
+            public Amazon.Route53Domains.ListOperationsSortAttributeName SortBy { get; set; }
+            public Amazon.Route53Domains.SortOrder SortOrder { get; set; }
+            public List<System.String> Status { get; set; }
             public System.DateTime? SubmittedSince { get; set; }
+            public List<System.String> Type { get; set; }
             public System.Func<Amazon.Route53Domains.Model.ListOperationsResponse, GetR53DOperationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operations;
         }

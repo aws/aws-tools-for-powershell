@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the domain will be automatically renewed (true) or not (false).
-        /// Autorenewal only takes effect after the account is charged.</para><para>Default: true</para>
+        /// Auto renewal only takes effect after the account is charged.</para><para>Default: true</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

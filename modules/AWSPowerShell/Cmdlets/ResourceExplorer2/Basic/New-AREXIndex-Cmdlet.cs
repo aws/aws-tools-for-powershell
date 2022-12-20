@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     /// in the <i>Amazon Web Services Resource Explorer User Guide</i>.
     /// </para><para>
     /// If this is the first Amazon Web Services Region in which you've created an index for
-    /// Resource Explorer, then this operation also <a href="https://docs.aws.amazon.com/arexug/mainline/security_iam_service-linked-roles.html">creates
+    /// Resource Explorer, then this operation also <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html">creates
     /// a service-linked role</a> in your Amazon Web Services account that allows Resource
     /// Explorer to enumerate your resources to populate the index.
     /// </para><ul><li><para><b>Action</b>: <code>resource-explorer-2:CreateIndex</code></para><para><b>Resource</b>: The ARN of the index (as it will exist after the operation completes)

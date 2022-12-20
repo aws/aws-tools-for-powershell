@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
     /// </para><para>
     /// If the studio does not have a valid IAM Identity Center configuration currently associated
     /// with it, then a new IAM Identity Center application is created for the studio and
-    /// the studio is changed to the READY state.
+    /// the studio is changed to the <code>READY</code> state.
     /// </para><para>
     /// After the IAM Identity Center application is repaired, you must use the Amazon Nimble
     /// Studio console to add administrators and users to your studio.
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

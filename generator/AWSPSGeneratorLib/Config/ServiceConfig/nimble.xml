@@ -102,6 +102,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamingSessionBackup" OutputProperty="StreamingSessionBackup" Verb="Get" Noun="StreamingSessionBackup" PipelineParameter="BackupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStreamingSessionStream" OutputProperty="Stream" Verb="Get" Noun="StreamingSessionStream" PipelineParameter="StreamId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListStreamingImages" OutputProperty="StreamingImages" Verb="Get" Noun="StreamingImageList" PipelineParameter="StudioId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamingSessionBackups" OutputProperty="StreamingSessionBackups" Verb="Get" Noun="StreamingSessionBackupList" PipelineParameter="StudioId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

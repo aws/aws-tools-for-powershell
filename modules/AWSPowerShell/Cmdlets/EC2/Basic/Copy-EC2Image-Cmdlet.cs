@@ -47,11 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// encryption key for the Region, or a different key that you specify in the request
     /// using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information,
     /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
-    /// User Guide</i>.
+    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an
-    /// AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// AMI</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// this parameter when copying an AMI from an Amazon Web Services Region to an Outpost.
         /// The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from
         /// an Outpost to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-        /// Copy AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon Elastic
-        /// Compute Cloud User Guide</i>.</para>
+        /// Copy AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon EC2
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you
         /// specify a non-default Key Management Service (KMS) KMS key using <code>KmsKeyId</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

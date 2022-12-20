@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The Launch Profile ID.</para>
+        /// <para>The ID of the launch profile used to control access from the streaming session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to request the next page of results. </para>
+        /// <para>The token for the next set of results, or null if there are no more results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

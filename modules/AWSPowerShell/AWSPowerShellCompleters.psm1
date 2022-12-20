@@ -33593,6 +33593,13 @@ $L4E_Completers = {
             break
         }
 
+        # Amazon.LookoutEquipment.InferenceSchedulerStatus
+        "Get-L4EInferenceSchedulerList/Status"
+        {
+            $v = "PENDING","RUNNING","STOPPED","STOPPING"
+            break
+        }
+
         # Amazon.LookoutEquipment.IngestionJobStatus
         "Get-L4EDataIngestionJobList/Status"
         {
@@ -33633,7 +33640,7 @@ $L4E_map = @{
     "DataPreProcessingConfiguration_TargetSamplingRate"=@("New-L4EModel")
     "DataUploadFrequency"=@("New-L4EInferenceScheduler","Update-L4EInferenceScheduler")
     "Rating"=@("New-L4ELabel")
-    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EModelList")
+    "Status"=@("Get-L4EDataIngestionJobList","Get-L4EInferenceExecutionList","Get-L4EInferenceSchedulerList","Get-L4EModelList")
 }
 
 _awsArgumentCompleterRegistration $L4E_Completers $L4E_map
@@ -39006,10 +39013,40 @@ $NS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NimbleStudio.AutomaticTerminationMode
+        {
+            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_AutomaticTerminationMode") -Or
+            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_AutomaticTerminationMode")
+        }
+        {
+            $v = "ACTIVATED","DEACTIVATED"
+            break
+        }
+
         # Amazon.NimbleStudio.LaunchProfilePersona
         "Update-NSLaunchProfileMember/Persona"
         {
             $v = "USER"
+            break
+        }
+
+        # Amazon.NimbleStudio.SessionBackupMode
+        {
+            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_SessionBackup_Mode") -Or
+            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_SessionBackup_Mode")
+        }
+        {
+            $v = "AUTOMATIC","DEACTIVATED"
+            break
+        }
+
+        # Amazon.NimbleStudio.SessionPersistenceMode
+        {
+            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_SessionPersistenceMode") -Or
+            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_SessionPersistenceMode")
+        }
+        {
+            $v = "ACTIVATED","DEACTIVATED"
             break
         }
 
@@ -39057,6 +39094,13 @@ $NS_Completers = {
             break
         }
 
+        # Amazon.NimbleStudio.VolumeRetentionMode
+        "Stop-NSStreamingSession/VolumeRetentionMode"
+        {
+            $v = "DELETE","RETAIN"
+            break
+        }
+
 
     }
 
@@ -39068,10 +39112,14 @@ $NS_Completers = {
 $NS_map = @{
     "Ec2InstanceType"=@("New-NSStreamingSession")
     "Persona"=@("Update-NSLaunchProfileMember")
+    "StreamConfiguration_AutomaticTerminationMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StreamConfiguration_ClipboardMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
+    "StreamConfiguration_SessionBackup_Mode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
+    "StreamConfiguration_SessionPersistenceMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StudioEncryptionConfiguration_KeyType"=@("New-NSStudio")
     "Subtype"=@("New-NSStudioComponent","Update-NSStudioComponent")
     "Type"=@("New-NSStudioComponent","Update-NSStudioComponent")
+    "VolumeRetentionMode"=@("Stop-NSStreamingSession")
 }
 
 _awsArgumentCompleterRegistration $NS_Completers $NS_map
@@ -39145,6 +39193,7 @@ $NS_SelectMap = @{
                "Get-NSLaunchProfileMember",
                "Get-NSStreamingImage",
                "Get-NSStreamingSession",
+               "Get-NSStreamingSessionBackup",
                "Get-NSStreamingSessionStream",
                "Get-NSStudio",
                "Get-NSStudioComponent",
@@ -39154,6 +39203,7 @@ $NS_SelectMap = @{
                "Get-NSLaunchProfileMemberList",
                "Get-NSLaunchProfileList",
                "Get-NSStreamingImageList",
+               "Get-NSStreamingSessionBackupList",
                "Get-NSStreamingSessionList",
                "Get-NSStudioComponentList",
                "Get-NSStudioMemberList",
@@ -45753,8 +45803,18 @@ $R53D_Completers = {
             break
         }
 
+        # Amazon.Route53Domains.ListOperationsSortAttributeName
+        "Get-R53DOperationList/SortBy"
+        {
+            $v = "SubmittedDate"
+            break
+        }
+
         # Amazon.Route53Domains.SortOrder
-        "Get-R53DDomainList/SortCondition_SortOrder"
+        {
+            ($_ -eq "Get-R53DDomainList/SortCondition_SortOrder") -Or
+            ($_ -eq "Get-R53DOperationList/SortOrder")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -45773,8 +45833,10 @@ $R53D_map = @{
     "AdminContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "RegistrantContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "RegistrantContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
+    "SortBy"=@("Get-R53DOperationList")
     "SortCondition_Name"=@("Get-R53DDomainList")
     "SortCondition_SortOrder"=@("Get-R53DDomainList")
+    "SortOrder"=@("Get-R53DOperationList")
     "TechContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "TechContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
 }
@@ -45830,6 +45892,7 @@ $R53D_SelectCompleters = {
 
 $R53D_SelectMap = @{
     "Select"=@("Approve-R53DDomainTransferFromAnotherAwsAccount",
+               "Add-R53DDelegationSignerToDomain",
                "Stop-R53DDomainTransferToAnotherAwsAccount",
                "Test-R53DDomainAvailability",
                "Test-R53DDomainTransferability",
@@ -45837,6 +45900,7 @@ $R53D_SelectMap = @{
                "Remove-R53DTagsForDomain",
                "Disable-R53DDomainAutoRenew",
                "Disable-R53DDomainTransferLock",
+               "Remove-R53DDelegationSignerFromDomain",
                "Enable-R53DDomainAutoRenew",
                "Enable-R53DDomainTransferLock",
                "Get-R53DContactReachabilityStatus",
@@ -45847,10 +45911,12 @@ $R53D_SelectMap = @{
                "Get-R53DOperationList",
                "Get-R53DPriceList",
                "Get-R53DTagsForDomain",
+               "Push-R53DDomain",
                "Register-R53DDomain",
                "Deny-R53DDomainTransferFromAnotherAwsAccount",
                "Update-R53DDomainRenewal",
                "Send-R53DContactReachabilityEmail",
+               "Send-R53DOperationAuthorization",
                "Get-R53DDomainAuthCode",
                "Invoke-R53DDomainTransfer",
                "Move-R53DDomainToAnotherAwsAccount",
@@ -47640,7 +47706,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AutoMLMetricEnum
         "New-SMAutoMLJob/AutoMLJobObjective_MetricName"
         {
-            $v = "Accuracy","AUC","F1","F1macro","MSE"
+            $v = "Accuracy","AUC","BalancedAccuracy","F1","F1macro","MAE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE"
             break
         }
 
@@ -54562,7 +54628,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "af-ZA","ar-AE","ar-SA","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fa-IR","fr-CA","fr-FR","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","th-TH","tr-TR","zh-CN","zh-TW"
+            $v = "af-ZA","ar-AE","ar-SA","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fa-IR","fr-CA","fr-FR","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","sv-SE","ta-IN","te-IN","th-TH","tr-TR","vi-VN","zh-CN","zh-TW"
             break
         }
 

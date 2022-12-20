@@ -28,7 +28,7 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// List studios in your Amazon Web Services account in the requested Amazon Web Services
+    /// List studios in your Amazon Web Services accounts in the requested Amazon Web Services
     /// Region.
     /// </summary>
     [Cmdlet("Get", "NSStudioList")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to request the next page of results. </para>
+        /// <para>The token for the next set of results, or null if there are no more results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

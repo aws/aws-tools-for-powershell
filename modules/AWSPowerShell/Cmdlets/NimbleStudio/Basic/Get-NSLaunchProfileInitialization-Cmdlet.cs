@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>
-        /// <para>The Launch Profile ID.</para>
+        /// <para>The ID of the launch profile used to control access from the streaming session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>The platform where this Launch Profile will be used, either WINDOWS or LINUX.</para>
+        /// <para>The platform where this Launch Profile will be used, either Windows or Linux.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

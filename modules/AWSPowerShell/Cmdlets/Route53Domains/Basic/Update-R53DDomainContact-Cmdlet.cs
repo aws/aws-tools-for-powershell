@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     ///  
     /// <para>
     /// If the update is successful, this method returns an operation ID that you can use
-    /// to track the progress and completion of the action. If the request is not completed
+    /// to track the progress and completion of the operation. If the request is not completed
     /// successfully, the domain registrant will be notified by email.
     /// </para>
     /// </summary>
@@ -225,6 +225,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public Amazon.Route53Domains.CountryCode TechContact_CountryCode { get; set; }
         #endregion
         
+        #region Parameter Consent_Currency
+        /// <summary>
+        /// <para>
+        /// <para> Currency for the <code>MaxPrice</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Consent_Currency { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -396,6 +406,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TechContact_LastName { get; set; }
+        #endregion
+        
+        #region Parameter Consent_MaxPrice
+        /// <summary>
+        /// <para>
+        /// <para> Maximum amount the customer agreed to accept. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? Consent_MaxPrice { get; set; }
         #endregion
         
         #region Parameter AdminContact_OrganizationName
@@ -600,6 +620,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.AdminContact_PhoneNumber = this.AdminContact_PhoneNumber;
             context.AdminContact_State = this.AdminContact_State;
             context.AdminContact_ZipCode = this.AdminContact_ZipCode;
+            context.Consent_Currency = this.Consent_Currency;
+            context.Consent_MaxPrice = this.Consent_MaxPrice;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -805,6 +827,35 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContactIsNull)
             {
                 request.AdminContact = null;
+            }
+            
+             // populate Consent
+            var requestConsentIsNull = true;
+            request.Consent = new Amazon.Route53Domains.Model.Consent();
+            System.String requestConsent_consent_Currency = null;
+            if (cmdletContext.Consent_Currency != null)
+            {
+                requestConsent_consent_Currency = cmdletContext.Consent_Currency;
+            }
+            if (requestConsent_consent_Currency != null)
+            {
+                request.Consent.Currency = requestConsent_consent_Currency;
+                requestConsentIsNull = false;
+            }
+            System.Double? requestConsent_consent_MaxPrice = null;
+            if (cmdletContext.Consent_MaxPrice != null)
+            {
+                requestConsent_consent_MaxPrice = cmdletContext.Consent_MaxPrice.Value;
+            }
+            if (requestConsent_consent_MaxPrice != null)
+            {
+                request.Consent.MaxPrice = requestConsent_consent_MaxPrice.Value;
+                requestConsentIsNull = false;
+            }
+             // determine if request.Consent should be set to null
+            if (requestConsentIsNull)
+            {
+                request.Consent = null;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -1183,6 +1234,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             public System.String AdminContact_PhoneNumber { get; set; }
             public System.String AdminContact_State { get; set; }
             public System.String AdminContact_ZipCode { get; set; }
+            public System.String Consent_Currency { get; set; }
+            public System.Double? Consent_MaxPrice { get; set; }
             public System.String DomainName { get; set; }
             public System.String RegistrantContact_AddressLine1 { get; set; }
             public System.String RegistrantContact_AddressLine2 { get; set; }

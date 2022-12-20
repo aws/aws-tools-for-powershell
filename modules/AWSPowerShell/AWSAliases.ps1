@@ -16872,6 +16872,7 @@ Set-Alias -Name NS-GetLaunchProfileInitialization -Value Get-NSLaunchProfileInit
 Set-Alias -Name NS-GetLaunchProfileMember -Value Get-NSLaunchProfileMember
 Set-Alias -Name NS-GetStreamingImage -Value Get-NSStreamingImage
 Set-Alias -Name NS-GetStreamingSession -Value Get-NSStreamingSession
+Set-Alias -Name NS-GetStreamingSessionBackup -Value Get-NSStreamingSessionBackup
 Set-Alias -Name NS-GetStreamingSessionStream -Value Get-NSStreamingSessionStream
 Set-Alias -Name NS-GetStudio -Value Get-NSStudio
 Set-Alias -Name NS-GetStudioComponent -Value Get-NSStudioComponent
@@ -16891,6 +16892,9 @@ Set-Alias -Name NS-ListLaunchProfiles -Value Get-NSLaunchProfileList
 Set-Alias -Name List-NSStreamingImages -Value Get-NSStreamingImageList
 Set-Alias -Name List-NSStreamingImageList -Value Get-NSStreamingImageList
 Set-Alias -Name NS-ListStreamingImages -Value Get-NSStreamingImageList
+Set-Alias -Name List-NSStreamingSessionBackups -Value Get-NSStreamingSessionBackupList
+Set-Alias -Name List-NSStreamingSessionBackupList -Value Get-NSStreamingSessionBackupList
+Set-Alias -Name NS-ListStreamingSessionBackups -Value Get-NSStreamingSessionBackupList
 Set-Alias -Name List-NSStreamingSessions -Value Get-NSStreamingSessionList
 Set-Alias -Name List-NSStreamingSessionList -Value Get-NSStreamingSessionList
 Set-Alias -Name NS-ListStreamingSessions -Value Get-NSStreamingSessionList
@@ -20044,6 +20048,8 @@ Set-Alias -Name R53-UpdateTrafficPolicyComment -Value Update-R53TrafficPolicyCom
 Set-Alias -Name R53-UpdateTrafficPolicyInstance -Value Update-R53TrafficPolicyInstance
 Set-Alias -Name Accept-R53DDomainTransferFromAnotherAwsAccount -Value Approve-R53DDomainTransferFromAnotherAwsAccount
 Set-Alias -Name R53D-AcceptDomainTransferFromAnotherAwsAccount -Value Approve-R53DDomainTransferFromAnotherAwsAccount
+Set-Alias -Name Associate-R53DDelegationSignerToDomain -Value Add-R53DDelegationSignerToDomain
+Set-Alias -Name R53D-AssociateDelegationSignerToDomain -Value Add-R53DDelegationSignerToDomain
 Set-Alias -Name Cancel-R53DDomainTransferToAnotherAwsAccount -Value Stop-R53DDomainTransferToAnotherAwsAccount
 Set-Alias -Name R53D-CancelDomainTransferToAnotherAwsAccount -Value Stop-R53DDomainTransferToAnotherAwsAccount
 Set-Alias -Name Check-R53DDomainAvailability -Value Test-R53DDomainAvailability
@@ -20056,6 +20062,8 @@ Set-Alias -Name Delete-R53DTagsForDomain -Value Remove-R53DTagsForDomain
 Set-Alias -Name R53D-DeleteTagsForDomain -Value Remove-R53DTagsForDomain
 Set-Alias -Name R53D-DisableDomainAutoRenew -Value Disable-R53DDomainAutoRenew
 Set-Alias -Name R53D-DisableDomainTransferLock -Value Disable-R53DDomainTransferLock
+Set-Alias -Name Disassociate-R53DDelegationSignerFromDomain -Value Remove-R53DDelegationSignerFromDomain
+Set-Alias -Name R53D-DisassociateDelegationSignerFromDomain -Value Remove-R53DDelegationSignerFromDomain
 Set-Alias -Name R53D-EnableDomainAutoRenew -Value Enable-R53DDomainAutoRenew
 Set-Alias -Name R53D-EnableDomainTransferLock -Value Enable-R53DDomainTransferLock
 Set-Alias -Name R53D-GetContactReachabilityStatus -Value Get-R53DContactReachabilityStatus
@@ -20074,6 +20082,7 @@ Set-Alias -Name List-R53DPriceList -Value Get-R53DPriceList
 Set-Alias -Name R53D-ListPrices -Value Get-R53DPriceList
 Set-Alias -Name List-R53DTagsForDomain -Value Get-R53DTagsForDomain
 Set-Alias -Name R53D-ListTagsForDomain -Value Get-R53DTagsForDomain
+Set-Alias -Name R53D-PushDomain -Value Push-R53DDomain
 Set-Alias -Name R53D-RegisterDomain -Value Register-R53DDomain
 Set-Alias -Name Reject-R53DDomainTransferFromAnotherAwsAccount -Value Deny-R53DDomainTransferFromAnotherAwsAccount
 Set-Alias -Name R53D-RejectDomainTransferFromAnotherAwsAccount -Value Deny-R53DDomainTransferFromAnotherAwsAccount
@@ -20082,6 +20091,8 @@ Set-Alias -Name Renew-R53DDomainRenewal -Value Update-R53DDomainRenewal
 Set-Alias -Name R53D-RenewDomain -Value Update-R53DDomainRenewal
 Set-Alias -Name Resend-R53DContactReachabilityEmail -Value Send-R53DContactReachabilityEmail
 Set-Alias -Name R53D-ResendContactReachabilityEmail -Value Send-R53DContactReachabilityEmail
+Set-Alias -Name Resend-R53DOperationAuthorization -Value Send-R53DOperationAuthorization
+Set-Alias -Name R53D-ResendOperationAuthorization -Value Send-R53DOperationAuthorization
 Set-Alias -Name Retrieve-R53DDomainAuthCode -Value Get-R53DDomainAuthCode
 Set-Alias -Name R53D-RetrieveDomainAuthCode -Value Get-R53DDomainAuthCode
 Set-Alias -Name Transfer-R53DDomain -Value Invoke-R53DDomainTransfer

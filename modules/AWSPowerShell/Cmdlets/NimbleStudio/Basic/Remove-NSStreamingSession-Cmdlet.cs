@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
     ///  
     /// <para>
     /// After invoking this operation, use GetStreamingSession to poll the resource until
-    /// it transitions to a DELETED state.
+    /// it transitions to a <code>DELETED</code> state.
     /// </para><para>
     /// A streaming session will count against your streaming session quota until it is marked
-    /// DELETED.
+    /// <code>DELETED</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

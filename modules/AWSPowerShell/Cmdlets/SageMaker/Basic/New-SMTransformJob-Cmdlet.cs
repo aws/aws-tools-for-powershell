@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_ExperimentName
         /// <summary>
         /// <para>
-        /// <para>The name of an existing experiment to associate the trial component with.</para>
+        /// <para>The name of an existing experiment to associate with the trial component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_RunName
         /// <summary>
         /// <para>
-        /// <para>The name of the experiment run to associate the trial component with.</para>
+        /// <para>The name of the experiment run to associate with the trial component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

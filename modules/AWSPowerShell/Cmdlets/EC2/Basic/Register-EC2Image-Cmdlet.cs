@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
     /// Instance. For information about how to obtain the platform details and billing information
     /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
-    /// AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -103,8 +103,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The billing product codes. Your account must be authorized to specify billing product
-        /// codes. Otherwise, you can use the Amazon Web Services Marketplace to bill for the
-        /// use of an AMI.</para>
+        /// codes.</para><para>If your account is not authorized to specify billing product codes, you can publish
+        /// AMIs that include billable software and list them on the Amazon Web Services Marketplace.
+        /// You must first register as a seller on the Amazon Web Services Marketplace. For more
+        /// information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting
+        /// started as a seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
+        /// products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,9 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The block device mapping entries.</para><para>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't
         /// specify the encryption state of the volume.</para><para>If you create an AMI on an Outpost, then all backing snapshots must be on the same
         /// Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots
-        /// can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-        /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.</para>
+        /// can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">Amazon
+        /// EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
-        /// modes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// modes</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// so that, by default, the instance requires that IMDSv2 is used when requesting instance
         /// metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-        /// the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><note><para>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
+        /// the AMI</a> in the <i>Amazon EC2 User Guide</i>.</para><note><para>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
         /// IMDSv2.</para></note>
         /// </para>
         /// </summary>
@@ -258,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// data, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a>
         /// command. You can inspect and modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars
         /// tool</a> on GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI
-        /// Secure Boot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// Secure Boot</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

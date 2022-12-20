@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public System.String ModelName { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the current status of the inference schedulers to list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LookoutEquipment.InferenceSchedulerStatus")]
+        public Amazon.LookoutEquipment.InferenceSchedulerStatus Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -126,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             context.MaxResult = this.MaxResult;
             context.ModelName = this.ModelName;
             context.NextToken = this.NextToken;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             if (cmdletContext.ModelName != null)
             {
                 request.ModelName = cmdletContext.ModelName;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variant and commence piping
@@ -245,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             public System.Int32? MaxResult { get; set; }
             public System.String ModelName { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.LookoutEquipment.InferenceSchedulerStatus Status { get; set; }
             public System.Func<Amazon.LookoutEquipment.Model.ListInferenceSchedulersResponse, GetL4EInferenceSchedulerListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InferenceSchedulerSummaries;
         }

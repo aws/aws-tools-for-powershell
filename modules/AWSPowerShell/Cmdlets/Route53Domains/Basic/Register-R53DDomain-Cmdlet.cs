@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// four name servers to your hosted zone and automatically updates your domain registration
     /// with the names of these name servers.
     /// </para></li><li><para>
-    /// Enables autorenew, so your domain registration will renew automatically each year.
+    /// Enables auto renew, so your domain registration will renew automatically each year.
     /// We'll notify you in advance of the renewal date so you can choose whether to renew
     /// the registration.
     /// </para></li><li><para>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the domain will be automatically renewed (<code>true</code>) or
-        /// not (<code>false</code>). Autorenewal only takes effect after the account is charged.</para><para>Default: <code>true</code></para>
+        /// not (<code>false</code>). Auto renewal only takes effect after the account is charged.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

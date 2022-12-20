@@ -80,10 +80,40 @@ $NS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NimbleStudio.AutomaticTerminationMode
+        {
+            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_AutomaticTerminationMode") -Or
+            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_AutomaticTerminationMode")
+        }
+        {
+            $v = "ACTIVATED","DEACTIVATED"
+            break
+        }
+
         # Amazon.NimbleStudio.LaunchProfilePersona
         "Update-NSLaunchProfileMember/Persona"
         {
             $v = "USER"
+            break
+        }
+
+        # Amazon.NimbleStudio.SessionBackupMode
+        {
+            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_SessionBackup_Mode") -Or
+            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_SessionBackup_Mode")
+        }
+        {
+            $v = "AUTOMATIC","DEACTIVATED"
+            break
+        }
+
+        # Amazon.NimbleStudio.SessionPersistenceMode
+        {
+            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_SessionPersistenceMode") -Or
+            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_SessionPersistenceMode")
+        }
+        {
+            $v = "ACTIVATED","DEACTIVATED"
             break
         }
 
@@ -131,6 +161,13 @@ $NS_Completers = {
             break
         }
 
+        # Amazon.NimbleStudio.VolumeRetentionMode
+        "Stop-NSStreamingSession/VolumeRetentionMode"
+        {
+            $v = "DELETE","RETAIN"
+            break
+        }
+
 
     }
 
@@ -142,10 +179,14 @@ $NS_Completers = {
 $NS_map = @{
     "Ec2InstanceType"=@("New-NSStreamingSession")
     "Persona"=@("Update-NSLaunchProfileMember")
+    "StreamConfiguration_AutomaticTerminationMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StreamConfiguration_ClipboardMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
+    "StreamConfiguration_SessionBackup_Mode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
+    "StreamConfiguration_SessionPersistenceMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StudioEncryptionConfiguration_KeyType"=@("New-NSStudio")
     "Subtype"=@("New-NSStudioComponent","Update-NSStudioComponent")
     "Type"=@("New-NSStudioComponent","Update-NSStudioComponent")
+    "VolumeRetentionMode"=@("Stop-NSStreamingSession")
 }
 
 _awsArgumentCompleterRegistration $NS_Completers $NS_map
@@ -219,6 +260,7 @@ $NS_SelectMap = @{
                "Get-NSLaunchProfileMember",
                "Get-NSStreamingImage",
                "Get-NSStreamingSession",
+               "Get-NSStreamingSessionBackup",
                "Get-NSStreamingSessionStream",
                "Get-NSStudio",
                "Get-NSStudioComponent",
@@ -228,6 +270,7 @@ $NS_SelectMap = @{
                "Get-NSLaunchProfileMemberList",
                "Get-NSLaunchProfileList",
                "Get-NSStreamingImageList",
+               "Get-NSStreamingSessionBackupList",
                "Get-NSStreamingSessionList",
                "Get-NSStudioComponentList",
                "Get-NSStudioMemberList",

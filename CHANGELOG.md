@@ -1,4 +1,25 @@
-﻿### 4.1.233 (2022-12-19 22:01Z)
+﻿### 4.1.234 (2022-12-20 22:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.445.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Get-EC2Image: added parameters MaxResult, NextToken and NoAutoIteration.
+  * Amazon Lookout for Equipment
+    * Modified cmdlet Get-L4EInferenceSchedulerList: added parameter Status.
+  * Amazon Nimble Studio
+    * Added cmdlet Get-NSStreamingSessionBackup leveraging the GetStreamingSessionBackup service API.
+    * Added cmdlet Get-NSStreamingSessionBackupList leveraging the ListStreamingSessionBackups service API.
+    * Modified cmdlet New-NSLaunchProfile: added parameters SessionBackup_MaxBackupsToRetain, SessionBackup_Mode, StreamConfiguration_AutomaticTerminationMode, StreamConfiguration_SessionPersistenceMode, VolumeConfiguration_Iops, VolumeConfiguration_Size and VolumeConfiguration_Throughput.
+    * Modified cmdlet Start-NSStreamingSession: added parameter BackupId.
+    * Modified cmdlet Stop-NSStreamingSession: added parameter VolumeRetentionMode.
+    * Modified cmdlet Update-NSLaunchProfile: added parameters SessionBackup_MaxBackupsToRetain, SessionBackup_Mode, StreamConfiguration_AutomaticTerminationMode, StreamConfiguration_SessionPersistenceMode, VolumeConfiguration_Iops, VolumeConfiguration_Size and VolumeConfiguration_Throughput.
+  * Amazon Route 53 Domains
+    * Added cmdlet Add-R53DDelegationSignerToDomain leveraging the AssociateDelegationSignerToDomain service API.
+    * Added cmdlet Push-R53DDomain leveraging the PushDomain service API.
+    * Added cmdlet Remove-R53DDelegationSignerFromDomain leveraging the DisassociateDelegationSignerFromDomain service API.
+    * Added cmdlet Send-R53DOperationAuthorization leveraging the ResendOperationAuthorization service API.
+    * Modified cmdlet Get-R53DOperationList: added parameters SortBy, SortOrder, Status and Type.
+    * Modified cmdlet Update-R53DDomainContact: added parameters Consent_Currency and Consent_MaxPrice.
+
+### 4.1.233 (2022-12-19 22:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.444.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon EC2 Container Service
     * Modified cmdlet New-ECSService: added parameters Alarms_AlarmName, Alarms_Enable and Alarms_Rollback.

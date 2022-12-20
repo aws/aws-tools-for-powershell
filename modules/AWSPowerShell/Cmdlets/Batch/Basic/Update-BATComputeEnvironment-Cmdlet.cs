@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// price for that instance type before instances are launched. For example, if your maximum
         /// percentage is 20%, the Spot price must be less than 20% of the current On-Demand price
         /// for that Amazon EC2 instance. You always pay the lowest (market) price and never more
-        /// than your maximum percentage.</para><para>When updating a compute environment, changing the bid percentage requires an infrastructure
+        /// than your maximum percentage. For most use cases, we recommend leaving this field
+        /// empty.</para><para>When updating a compute environment, changing the bid percentage requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
@@ -360,7 +361,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
         /// and subnets</a> in the <i>Amazon VPC User Guide</i>.</para><para>When updating a compute environment, changing the VPC subnets requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
-        /// compute environments</a> in the <i>Batch User Guide</i>.</para>
+        /// compute environments</a> in the <i>Batch User Guide</i>.</para><note><para>Batch on Amazon EC2 and Batch on Amazon EKS support Local Zones. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-local-zones">
+        /// Local Zones</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>, <a href="https://docs.aws.amazon.com/eks/latest/userguide/local-zones.html">Amazon
+        /// EKS and Amazon Web Services Local Zones</a> in the <i>Amazon EKS User Guide</i> and
+        /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-regions-zones.html#clusters-local-zones">
+        /// Amazon ECS clusters in Local Zones, Wavelength Zones, and Amazon Web Services Outposts</a>
+        /// in the <i>Amazon ECS Developer Guide</i>.</para><para>Batch on Fargate doesn't currently support Local Zones.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

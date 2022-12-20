@@ -28,8 +28,8 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation returns the AuthCode for the domain. To transfer a domain to another
-    /// registrar, you provide this value to the new registrar.
+    /// This operation returns the authorization code for the domain. To transfer a domain
+    /// to another registrar, you provide this value to the new registrar.
     /// </summary>
     [Cmdlet("Get", "R53DDomainAuthCode")]
     [OutputType("System.String")]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-    /// Bin</a> in the Amazon Elastic Compute Cloud User Guide.
+    /// Bin</a> in the <i>Amazon EC2 User Guide</i>.
     /// </summary>
     [Cmdlet("Restore", "EC2ImageFromRecycleBin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

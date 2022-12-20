@@ -28,22 +28,28 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Delete a user from studio membership.
+    /// Gets <code>StreamingSessionBackup</code> resource.
+    /// 
+    ///  
+    /// <para>
+    /// Invoke this operation to poll for a streaming session backup while stopping a streaming
+    /// session.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "NSStudioMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Nimble Studio DeleteStudioMember API operation.", Operation = new[] {"DeleteStudioMember"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.DeleteStudioMemberResponse))]
-    [AWSCmdletOutput("None or Amazon.NimbleStudio.Model.DeleteStudioMemberResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.NimbleStudio.Model.DeleteStudioMemberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "NSStreamingSessionBackup")]
+    [OutputType("Amazon.NimbleStudio.Model.StreamingSessionBackup")]
+    [AWSCmdlet("Calls the Amazon Nimble Studio GetStreamingSessionBackup API operation.", Operation = new[] {"GetStreamingSessionBackup"}, SelectReturnType = typeof(Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse))]
+    [AWSCmdletOutput("Amazon.NimbleStudio.Model.StreamingSessionBackup or Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse",
+        "This cmdlet returns an Amazon.NimbleStudio.Model.StreamingSessionBackup object.",
+        "The service call response (type Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveNSStudioMemberCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
+    public partial class GetNSStreamingSessionBackupCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
-        #region Parameter PrincipalId
+        #region Parameter BackupId
         /// <summary>
         /// <para>
-        /// <para>The principal ID. This currently supports a IAM Identity Center UserId. </para>
+        /// <para>The ID of the backup.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PrincipalId { get; set; }
+        public System.String BackupId { get; set; }
         #endregion
         
         #region Parameter StudioId
@@ -74,58 +80,31 @@ namespace Amazon.PowerShell.Cmdlets.NS
         public System.String StudioId { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
-        /// generates a client token and uses it for the request to ensure idempotency.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NimbleStudio.Model.DeleteStudioMemberResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'StreamingSessionBackup'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse).
+        /// Specifying the name of a property of type Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "StreamingSessionBackup";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PrincipalId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PrincipalId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the BackupId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BackupId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PrincipalId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PrincipalId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NSStudioMember (DeleteStudioMember)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -135,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NimbleStudio.Model.DeleteStudioMemberResponse, RemoveNSStudioMemberCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse, GetNSStreamingSessionBackupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,15 +123,14 @@ namespace Amazon.PowerShell.Cmdlets.NS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PrincipalId;
+                context.Select = (response, cmdlet) => this.BackupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.PrincipalId = this.PrincipalId;
+            context.BackupId = this.BackupId;
             #if MODULAR
-            if (this.PrincipalId == null && ParameterWasBound(nameof(this.PrincipalId)))
+            if (this.BackupId == null && ParameterWasBound(nameof(this.BackupId)))
             {
-                WriteWarning("You are passing $null as a value for parameter PrincipalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter BackupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.StudioId = this.StudioId;
@@ -176,15 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.NS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.NimbleStudio.Model.DeleteStudioMemberRequest();
+            var request = new Amazon.NimbleStudio.Model.GetStreamingSessionBackupRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.BackupId != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.PrincipalId != null)
-            {
-                request.PrincipalId = cmdletContext.PrincipalId;
+                request.BackupId = cmdletContext.BackupId;
             }
             if (cmdletContext.StudioId != null)
             {
@@ -223,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         #region AWS Service Operation Call
         
-        private Amazon.NimbleStudio.Model.DeleteStudioMemberResponse CallAWSServiceOperation(IAmazonNimbleStudio client, Amazon.NimbleStudio.Model.DeleteStudioMemberRequest request)
+        private Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse CallAWSServiceOperation(IAmazonNimbleStudio client, Amazon.NimbleStudio.Model.GetStreamingSessionBackupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Nimble Studio", "DeleteStudioMember");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Nimble Studio", "GetStreamingSessionBackup");
             try
             {
                 #if DESKTOP
-                return client.DeleteStudioMember(request);
+                return client.GetStreamingSessionBackup(request);
                 #elif CORECLR
-                return client.DeleteStudioMemberAsync(request).GetAwaiter().GetResult();
+                return client.GetStreamingSessionBackupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,11 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String PrincipalId { get; set; }
+            public System.String BackupId { get; set; }
             public System.String StudioId { get; set; }
-            public System.Func<Amazon.NimbleStudio.Model.DeleteStudioMemberResponse, RemoveNSStudioMemberCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.NimbleStudio.Model.GetStreamingSessionBackupResponse, GetNSStreamingSessionBackupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.StreamingSessionBackup;
         }
         
     }

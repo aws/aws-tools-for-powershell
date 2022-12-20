@@ -28,8 +28,9 @@ using Amazon.NimbleStudio.Model;
 namespace Amazon.PowerShell.Cmdlets.NS
 {
     /// <summary>
-    /// Transitions sessions from the STOPPED state into the READY state. The START_IN_PROGRESS
-    /// state is the intermediate state between the STOPPED and READY states.
+    /// Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
+    /// state. The <code>START_IN_PROGRESS</code> state is the intermediate state between
+    /// the <code>STOPPED</code> and <code>READY</code> states.
     /// </summary>
     [Cmdlet("Start", "NSStreamingSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NimbleStudio.Model.StreamingSession")]
@@ -41,10 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class StartNSStreamingSessionCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        #region Parameter BackupId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BackupId { get; set; }
+        #endregion
+        
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The streaming session ID for the StartStreamingSessionRequest.</para>
+        /// <para>The streaming session ID for the <code>StartStreamingSessionRequest</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. If you don’t specify a client token, the AWS SDK automatically generates
-        /// a client token and uses it for the request to ensure idempotency.</para>
+        /// request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+        /// generates a client token and uses it for the request to ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
                 context.Select = (response, cmdlet) => this.SessionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BackupId = this.BackupId;
             context.ClientToken = this.ClientToken;
             context.SessionId = this.SessionId;
             #if MODULAR
@@ -180,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
             // create request
             var request = new Amazon.NimbleStudio.Model.StartStreamingSessionRequest();
             
+            if (cmdletContext.BackupId != null)
+            {
+                request.BackupId = cmdletContext.BackupId;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -253,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.NS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String BackupId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String SessionId { get; set; }
             public System.String StudioId { get; set; }
