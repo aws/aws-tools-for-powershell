@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
-    /// If you call the Amazon Web Services Support API from an account that does not have
+    /// If you call the Amazon Web Services Support API from an account that doesn't have
     /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.

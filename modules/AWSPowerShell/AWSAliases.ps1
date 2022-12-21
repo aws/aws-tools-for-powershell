@@ -14329,6 +14329,16 @@ Set-Alias -Name LICM-UpdateLicenseManagerReportGenerator -Value Update-LICMLicen
 Set-Alias -Name LICM-UpdateLicenseSpecificationsForResource -Value Update-LICMLicenseSpecificationsForResource
 Set-Alias -Name Update-LICMServiceSettings -Value Update-LICMServiceSetting
 Set-Alias -Name LICM-UpdateServiceSettings -Value Update-LICMServiceSetting
+Set-Alias -Name Get-LLMSServiceSettings -Value Get-LLMSServiceSetting
+Set-Alias -Name LLMS-GetServiceSettings -Value Get-LLMSServiceSetting
+Set-Alias -Name List-LLMSLinuxSubscriptionInstances -Value Get-LLMSLinuxSubscriptionInstanceList
+Set-Alias -Name List-LLMSLinuxSubscriptionInstanceList -Value Get-LLMSLinuxSubscriptionInstanceList
+Set-Alias -Name LLMS-ListLinuxSubscriptionInstances -Value Get-LLMSLinuxSubscriptionInstanceList
+Set-Alias -Name List-LLMSLinuxSubscriptions -Value Get-LLMSLinuxSubscriptionList
+Set-Alias -Name List-LLMSLinuxSubscriptionList -Value Get-LLMSLinuxSubscriptionList
+Set-Alias -Name LLMS-ListLinuxSubscriptions -Value Get-LLMSLinuxSubscriptionList
+Set-Alias -Name Update-LLMSServiceSettings -Value Update-LLMSServiceSetting
+Set-Alias -Name LLMS-UpdateServiceSettings -Value Update-LLMSServiceSetting
 Set-Alias -Name Associate-LMUSUser -Value Add-LMUSUser
 Set-Alias -Name LMUS-AssociateUser -Value Add-LMUSUser
 Set-Alias -Name Deregister-LMUSIdentityProvider -Value Unregister-LMUSIdentityProvider

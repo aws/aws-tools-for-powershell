@@ -83,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_EncryptionAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm that is used to encrypt the file.</para><note><para>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. This
-        /// ensures that no traffic is sent in clear text.</para></note>
+        /// <para>The algorithm that is used to encrypt the file.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_MdnSigningAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The signing algorithm for the MDN response.</para><note><para>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code>
+        /// <para>The signing algorithm for the MDN response.</para><note><para>If set to DEFAULT (or not set at all), the value for <code>SigningAlogorithm</code>
         /// is used.</para></note>
         /// </para>
         /// </summary>

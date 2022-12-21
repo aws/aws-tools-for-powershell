@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>ID of the current policy version. The hash helps to prevent a situation where multiple
-        /// users attempt to overwrite a policy.</para>
+        /// users attempt to overwrite a policy. You must provide this hash when updating or deleting
+        /// a policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (ARN) of the resource to which the policies are attached.</para>
+        /// <para>Amazon Resource Name (ARN) of the resource to which you want to attach a policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

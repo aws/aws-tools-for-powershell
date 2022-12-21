@@ -131,7 +131,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AppSecurityGroupManagement
-        "New-SMDomain/AppSecurityGroupManagement"
+        {
+            ($_ -eq "New-SMDomain/AppSecurityGroupManagement") -Or
+            ($_ -eq "Update-SMDomain/AppSecurityGroupManagement")
+        }
         {
             $v = "Customer","Service"
             break
@@ -1311,7 +1314,7 @@ $SM_Completers = {
 
 $SM_map = @{
     "AppNetworkAccessType"=@("New-SMDomain")
-    "AppSecurityGroupManagement"=@("New-SMDomain")
+    "AppSecurityGroupManagement"=@("New-SMDomain","Update-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
     "AppTypeEquals"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")

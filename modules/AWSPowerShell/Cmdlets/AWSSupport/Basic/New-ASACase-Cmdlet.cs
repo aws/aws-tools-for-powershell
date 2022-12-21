@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
-    /// If you call the Amazon Web Services Support API from an account that does not have
+    /// If you call the Amazon Web Services Support API from an account that doesn't have
     /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
@@ -141,9 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>The language in which Amazon Web Services Support handles the case. You must specify
-        /// the ISO 639-1 code for the <code>language</code> parameter if you want support in
-        /// that language. Currently, English ("en") and Japanese ("ja") are supported.</para>
+        /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
+        /// Support currently supports English ("en") and Japanese ("ja"). You must specify the
+        /// ISO 639-1 code for the <code>language</code> parameter if you want support in that
+        /// language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

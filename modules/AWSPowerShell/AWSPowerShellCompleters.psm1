@@ -32640,6 +32640,98 @@ $LICM_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $LICM_SelectCompleters $LICM_SelectMap
+# Argument completions for service AWS License Manager - Linux Subscriptions
+
+
+$LLMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LicenseManagerLinuxSubscriptions.LinuxSubscriptionsDiscovery
+        "Update-LLMSServiceSetting/LinuxSubscriptionsDiscovery"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
+        # Amazon.LicenseManagerLinuxSubscriptions.OrganizationIntegration
+        "Update-LLMSServiceSetting/LinuxSubscriptionsDiscoverySettings_OrganizationIntegration"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LLMS_map = @{
+    "LinuxSubscriptionsDiscovery"=@("Update-LLMSServiceSetting")
+    "LinuxSubscriptionsDiscoverySettings_OrganizationIntegration"=@("Update-LLMSServiceSetting")
+}
+
+_awsArgumentCompleterRegistration $LLMS_Completers $LLMS_map
+
+$LLMS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.LLMS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LLMS_SelectMap = @{
+    "Select"=@("Get-LLMSServiceSetting",
+               "Get-LLMSLinuxSubscriptionInstanceList",
+               "Get-LLMSLinuxSubscriptionList",
+               "Update-LLMSServiceSetting")
+}
+
+_awsArgumentCompleterRegistration $LLMS_SelectCompleters $LLMS_SelectMap
 # Argument completions for service AWS License Manager User Subscription
 
 
@@ -47648,7 +47740,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AppSecurityGroupManagement
-        "New-SMDomain/AppSecurityGroupManagement"
+        {
+            ($_ -eq "New-SMDomain/AppSecurityGroupManagement") -Or
+            ($_ -eq "Update-SMDomain/AppSecurityGroupManagement")
+        }
         {
             $v = "Customer","Service"
             break
@@ -48828,7 +48923,7 @@ $SM_Completers = {
 
 $SM_map = @{
     "AppNetworkAccessType"=@("New-SMDomain")
-    "AppSecurityGroupManagement"=@("New-SMDomain")
+    "AppSecurityGroupManagement"=@("New-SMDomain","Update-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
     "AppTypeEquals"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")

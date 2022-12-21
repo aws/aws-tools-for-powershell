@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>license-manager-linux-subscriptions</C2jFilename>
+    <AssemblyName>LicenseManagerLinuxSubscriptions</AssemblyName>
+    <ServiceNounPrefix>LLMS</ServiceNounPrefix>
+    <ServiceName>AWS License Manager - Linux Subscriptions</ServiceName>
+    <ServiceClientInterface>IAmazonLicenseManagerLinuxSubscriptions</ServiceClientInterface>
+    <ServiceClient>AmazonLicenseManagerLinuxSubscriptionsClient</ServiceClient>
+    <ServiceModuleGuid>8A8BC202-CD46-46C8-8E3E-F3503E171418</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetServiceSettings" OutputProperty="*" Verb="Get" Noun="ServiceSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLinuxSubscriptionInstances" OutputProperty="Instances" Verb="Get" Noun="LinuxSubscriptionInstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLinuxSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="LinuxSubscriptionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceSettings" OutputProperty="*" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="LinuxSubscriptionsDiscovery" PipelineParameter="LinuxSubscriptionsDiscovery" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

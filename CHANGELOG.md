@@ -1,4 +1,10 @@
-﻿### 4.1.234 (2022-12-20 22:04Z)
+﻿### 4.1.235 (2022-12-21 22:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.446.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon License Manager - Linux Subscriptions. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LLMS and can be listed using the command 'Get-AWSCmdletName -Service LLMS'.
+  * Amazon SageMaker Service
+    * Modified cmdlet Update-SMDomain: added parameters AppSecurityGroupManagement, DomainSettingsForUpdate_SecurityGroupId, RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl and RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl.
+
+### 4.1.234 (2022-12-20 22:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.445.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Get-EC2Image: added parameters MaxResult, NextToken and NoAutoIteration.

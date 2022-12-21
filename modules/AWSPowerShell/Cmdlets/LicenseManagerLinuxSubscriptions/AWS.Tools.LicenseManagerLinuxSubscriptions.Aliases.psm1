@@ -1,0 +1,3 @@
+﻿# LicenseManagerLinuxSubscriptions
+
+Export-ModuleMember -Alias *

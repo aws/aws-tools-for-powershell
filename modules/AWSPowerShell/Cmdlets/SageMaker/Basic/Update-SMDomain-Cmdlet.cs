@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter AppSecurityGroupManagement
+        /// <summary>
+        /// <para>
+        /// <para>The entity that creates and manages the required security groups for inter-app communication
+        /// in <code>VPCOnly</code> mode. Required when <code>CreateDomain.AppNetworkAccessType</code>
+        /// is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code>
+        /// is provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.AppSecurityGroupManagement")]
+        public Amazon.SageMaker.AppSecurityGroupManagement AppSecurityGroupManagement { get; set; }
+        #endregion
+        
         #region Parameter JupyterServerAppSettings_CodeRepository
         /// <summary>
         /// <para>
@@ -221,6 +235,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
         #endregion
         
+        #region Parameter RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl
+        /// <summary>
+        /// <para>
+        /// <para>A URL pointing to an RStudio Connect server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl")]
+        public System.String RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl { get; set; }
+        #endregion
+        
+        #region Parameter RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl
+        /// <summary>
+        /// <para>
+        /// <para>A URL pointing to an RStudio Package Manager server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl")]
+        public System.String RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl { get; set; }
+        #endregion
+        
         #region Parameter DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageArn
         /// <summary>
         /// <para>
@@ -281,6 +317,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionArn")]
         public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+        #endregion
+        
+        #region Parameter DomainSettingsForUpdate_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code>
+        /// uses for communication between Domain-level apps and user apps.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettingsForUpdate_SecurityGroupIds")]
+        public System.String[] DomainSettingsForUpdate_SecurityGroupId { get; set; }
         #endregion
         
         #region Parameter DefaultSpaceSettings_SecurityGroup
@@ -356,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.DomainId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AppSecurityGroupManagement = this.AppSecurityGroupManagement;
             context.DefaultSpaceSettings_ExecutionRole = this.DefaultSpaceSettings_ExecutionRole;
             if (this.JupyterServerAppSettings_CodeRepository != null)
             {
@@ -399,6 +448,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultResourceSpec_SageMakerImageArn = this.DefaultResourceSpec_SageMakerImageArn;
             context.DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultResourceSpec_SageMakerImageVersionArn;
             context.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn = this.RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn;
+            context.RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl = this.RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl;
+            context.RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl = this.RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl;
+            if (this.DomainSettingsForUpdate_SecurityGroupId != null)
+            {
+                context.DomainSettingsForUpdate_SecurityGroupId = new List<System.String>(this.DomainSettingsForUpdate_SecurityGroupId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -415,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateDomainRequest();
             
+            if (cmdletContext.AppSecurityGroupManagement != null)
+            {
+                request.AppSecurityGroupManagement = cmdletContext.AppSecurityGroupManagement;
+            }
             
              // populate DefaultSpaceSettings
             var requestDefaultSpaceSettingsIsNull = true;
@@ -646,6 +705,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettingsForUpdate.ExecutionRoleIdentityConfig = requestDomainSettingsForUpdate_domainSettingsForUpdate_ExecutionRoleIdentityConfig;
                 requestDomainSettingsForUpdateIsNull = false;
             }
+            List<System.String> requestDomainSettingsForUpdate_domainSettingsForUpdate_SecurityGroupId = null;
+            if (cmdletContext.DomainSettingsForUpdate_SecurityGroupId != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_SecurityGroupId = cmdletContext.DomainSettingsForUpdate_SecurityGroupId;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_SecurityGroupId != null)
+            {
+                request.DomainSettingsForUpdate.SecurityGroupIds = requestDomainSettingsForUpdate_domainSettingsForUpdate_SecurityGroupId;
+                requestDomainSettingsForUpdateIsNull = false;
+            }
             Amazon.SageMaker.Model.RStudioServerProDomainSettingsForUpdate requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate = null;
             
              // populate RStudioServerProDomainSettingsForUpdate
@@ -659,6 +728,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn != null)
             {
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate.DomainExecutionRoleArn = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioConnectUrl = null;
+            if (cmdletContext.RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioConnectUrl = cmdletContext.RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioConnectUrl != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate.RStudioConnectUrl = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioConnectUrl;
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull = false;
+            }
+            System.String requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl = null;
+            if (cmdletContext.RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl = cmdletContext.RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl;
+            }
+            if (requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl != null)
+            {
+                requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate.RStudioPackageManagerUrl = requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl;
                 requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdateIsNull = false;
             }
             Amazon.SageMaker.Model.ResourceSpec requestDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_domainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec = null;
@@ -792,6 +881,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.AppSecurityGroupManagement AppSecurityGroupManagement { get; set; }
             public System.String DefaultSpaceSettings_ExecutionRole { get; set; }
             public List<Amazon.SageMaker.Model.CodeRepository> JupyterServerAppSettings_CodeRepository { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType { get; set; }
@@ -814,6 +904,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DefaultResourceSpec_SageMakerImageArn { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
             public System.String RStudioServerProDomainSettingsForUpdate_DomainExecutionRoleArn { get; set; }
+            public System.String RStudioServerProDomainSettingsForUpdate_RStudioConnectUrl { get; set; }
+            public System.String RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl { get; set; }
+            public List<System.String> DomainSettingsForUpdate_SecurityGroupId { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateDomainResponse, UpdateSMDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainArn;
         }

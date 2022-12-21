@@ -45,11 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// You must have a Business, Enterprise On-Ramp, or Enterprise Support plan to use the
     /// Amazon Web Services Support API. 
     /// </para></li><li><para>
-    /// If you call the Amazon Web Services Support API from an account that does not have
+    /// If you call the Amazon Web Services Support API from an account that doesn't have
     /// a Business, Enterprise On-Ramp, or Enterprise Support plan, the <code>SubscriptionRequiredException</code>
     /// error message appears. For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">Amazon
     /// Web Services Support</a>.
-    /// </para></li></ul></note>
+    /// </para></li></ul></note><para>
+    /// To call the Trusted Advisor operations in the Amazon Web Services Support API, you
+    /// must use the US East (N. Virginia) endpoint. Currently, the US West (Oregon) and Europe
+    /// (Ireland) endpoints don't support the Trusted Advisor operations. For more information,
+    /// see <a href="https://docs.aws.amazon.com/awssupport/latest/user/about-support-api.html#endpoint">About
+    /// the Amazon Web Services Support API</a> in the <i>Amazon Web Services Support User
+    /// Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheckResult")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckResult")]
@@ -81,9 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>The ISO 639-1 code for the language in which Amazon Web Services provides support.
-        /// Amazon Web Services Support currently supports English ("en") and Japanese ("ja").
-        /// Language parameters must be passed explicitly for operations that take them.</para>
+        /// <para>The ISO 639-1 code for the language that you want your check results to appear in.</para><para>The Amazon Web Services Support API currently supports the following languages for
+        /// Trusted Advisor:</para><ul><li><para>Chinese, Simplified - <code>zh</code></para></li><li><para>Chinese, Traditional - <code>zh_TW</code></para></li><li><para>English - <code>en</code></para></li><li><para>French - <code>fr</code></para></li><li><para>German - <code>de</code></para></li><li><para>Indonesian - <code>id</code></para></li><li><para>Italian - <code>it</code></para></li><li><para>Japanese - <code>ja</code></para></li><li><para>Korean - <code>ko</code></para></li><li><para>Portuguese, Brazilian - <code>pt_BR</code></para></li><li><para>Spanish - <code>es</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
