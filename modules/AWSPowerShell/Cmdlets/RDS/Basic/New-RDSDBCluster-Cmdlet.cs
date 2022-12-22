@@ -427,6 +427,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter ManageMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to manage the master user password with Amazon Web
+        /// Services Secrets Manager.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
+        /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
+        /// <code>MasterUserPassword</code> is specified.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
@@ -441,11 +457,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// ASCII character except "/", """, or "@".</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB cluster.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+        /// KMS key is used to encrypt the secret. If the secret is in a different Amazon Web
+        /// Services account, then you can't use the <code>aws/secretsmanager</code> KMS key to
+        /// encrypt the secret, and you must use a customer managed KMS key.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter ScalingConfiguration_MaxCapacity
@@ -883,8 +917,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
+            context.ManageMasterUserPassword = this.ManageMasterUserPassword;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.NetworkType = this.NetworkType;
@@ -1043,6 +1079,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
+            if (cmdletContext.ManageMasterUserPassword != null)
+            {
+                request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
             if (cmdletContext.MasterUsername != null)
             {
                 request.MasterUsername = cmdletContext.MasterUsername;
@@ -1050,6 +1090,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUserSecretKmsKeyId != null)
+            {
+                request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
             }
             if (cmdletContext.MonitoringInterval != null)
             {
@@ -1302,8 +1346,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String GlobalClusterIdentifier { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Boolean? ManageMasterUserPassword { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.String NetworkType { get; set; }

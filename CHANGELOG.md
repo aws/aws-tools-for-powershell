@@ -1,4 +1,22 @@
-﻿### 4.1.235 (2022-12-21 22:51Z)
+﻿### 4.1.236 (2022-12-22 21:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.447.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Compute Optimizer
+    * Added cmdlet Export-COECSServiceRecommendation leveraging the ExportECSServiceRecommendations service API.
+    * Added cmdlet Get-COECSServiceRecommendation leveraging the GetECSServiceRecommendations service API.
+    * Added cmdlet Get-COECSServiceRecommendationProjectedMetric leveraging the GetECSServiceRecommendationProjectedMetrics service API.
+  * Amazon Connect Service
+    * Added cmdlet Update-CONNParticipantRoleConfig leveraging the UpdateParticipantRoleConfig service API.
+  * KVWS
+    * [Breaking Change] Removed cmdlet Join-KVWSStorageSessionAsViewer.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameters ManageMasterUserPassword, MasterUserSecretKmsKeyId and RotateMasterUserPassword.
+    * Modified cmdlet Edit-RDSDBInstance: added parameters ManageMasterUserPassword, MasterUserSecretKmsKeyId and RotateMasterUserPassword.
+    * Modified cmdlet New-RDSDBCluster: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+    * Modified cmdlet New-RDSDBInstance: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameters ManageMasterUserPassword and MasterUserSecretKmsKeyId.
+
+### 4.1.235 (2022-12-21 22:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.446.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon License Manager - Linux Subscriptions. Added cmdlets to support the service. Cmdlets for the service have the noun prefix LLMS and can be listed using the command 'Get-AWSCmdletName -Service LLMS'.
   * Amazon SageMaker Service

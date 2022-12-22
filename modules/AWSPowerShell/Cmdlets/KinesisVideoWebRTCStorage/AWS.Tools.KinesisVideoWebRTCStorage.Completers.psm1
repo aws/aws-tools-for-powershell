@@ -123,8 +123,7 @@ $KVWS_SelectCompleters = {
 }
 
 $KVWS_SelectMap = @{
-    "Select"=@("Join-KVWSStorageSession",
-               "Join-KVWSStorageSessionAsViewer")
+    "Select"=@("Join-KVWSStorageSession")
 }
 
 _awsArgumentCompleterRegistration $KVWS_SelectCompleters $KVWS_SelectMap

@@ -48,10 +48,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_DevicePermissionRoleArn
         /// <summary>
         /// <para>
-        /// <para>Gets the device permission ARN.</para>
+        /// <para>Gets the device permission ARN. This is a required parameter.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SuiteDefinitionConfiguration_DevicePermissionRoleArn { get; set; }
         #endregion
         
@@ -79,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_IsLongDurationTest
         /// <summary>
         /// <para>
-        /// <para> Verifies if the test suite is a long duration test. </para>
+        /// <para>Verifies if the test suite is a long duration test.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_Protocol
         /// <summary>
         /// <para>
-        /// <para> Gets the MQTT protocol that is configured in the suite definition.</para>
+        /// <para>Sets the MQTT protocol that is configured in the suite definition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,20 +107,34 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteDefinitionConfiguration_RootGroup
         /// <summary>
         /// <para>
-        /// <para>Gets test suite root group.</para>
+        /// <para>Gets the test suite root group. This is a required parameter.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SuiteDefinitionConfiguration_RootGroup { get; set; }
         #endregion
         
         #region Parameter SuiteDefinitionConfiguration_SuiteDefinitionName
         /// <summary>
         /// <para>
-        /// <para>Gets Suite Definition Configuration name.</para>
+        /// <para>Gets the suite definition name. This is a required parameter.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SuiteDefinitionConfiguration_SuiteDefinitionName { get; set; }
         #endregion
         
@@ -171,6 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.SuiteDefinitionConfiguration_DevicePermissionRoleArn = this.SuiteDefinitionConfiguration_DevicePermissionRoleArn;
+            #if MODULAR
+            if (this.SuiteDefinitionConfiguration_DevicePermissionRoleArn == null && ParameterWasBound(nameof(this.SuiteDefinitionConfiguration_DevicePermissionRoleArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SuiteDefinitionConfiguration_DevicePermissionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.SuiteDefinitionConfiguration_Device != null)
             {
                 context.SuiteDefinitionConfiguration_Device = new List<Amazon.IoTDeviceAdvisor.Model.DeviceUnderTest>(this.SuiteDefinitionConfiguration_Device);
@@ -179,7 +206,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             context.SuiteDefinitionConfiguration_IsLongDurationTest = this.SuiteDefinitionConfiguration_IsLongDurationTest;
             context.SuiteDefinitionConfiguration_Protocol = this.SuiteDefinitionConfiguration_Protocol;
             context.SuiteDefinitionConfiguration_RootGroup = this.SuiteDefinitionConfiguration_RootGroup;
+            #if MODULAR
+            if (this.SuiteDefinitionConfiguration_RootGroup == null && ParameterWasBound(nameof(this.SuiteDefinitionConfiguration_RootGroup)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SuiteDefinitionConfiguration_RootGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SuiteDefinitionConfiguration_SuiteDefinitionName = this.SuiteDefinitionConfiguration_SuiteDefinitionName;
+            #if MODULAR
+            if (this.SuiteDefinitionConfiguration_SuiteDefinitionName == null && ParameterWasBound(nameof(this.SuiteDefinitionConfiguration_SuiteDefinitionName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SuiteDefinitionConfiguration_SuiteDefinitionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

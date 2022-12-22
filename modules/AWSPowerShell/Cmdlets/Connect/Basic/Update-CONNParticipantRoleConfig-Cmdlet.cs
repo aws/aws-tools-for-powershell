@@ -28,41 +28,43 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
-    /// specified by <i>userId</i> will be set to silent monitoring mode on the contact. Supports
-    /// voice and chat contacts.
+    /// Updates timeouts for when human chat participants are to be considered idle, and when
+    /// agents are automatically disconnected from a chat due to idleness. You can set four
+    /// timers:
+    /// 
+    ///  <ul><li><para>
+    /// Customer idle timeout
+    /// </para></li><li><para>
+    /// Customer auto-disconnect timeout
+    /// </para></li><li><para>
+    /// Agent idle timeout
+    /// </para></li><li><para>
+    /// Agent auto-disconnect timeout
+    /// </para></li></ul><para>
+    /// For more information about how chat timeouts work, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-chat-timeouts.html">Set
+    /// up chat timeouts for human participants</a>. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Start", "CONNContactMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Connect.Model.MonitorContactResponse")]
-    [AWSCmdlet("Calls the Amazon Connect Service MonitorContact API operation.", Operation = new[] {"MonitorContact"}, SelectReturnType = typeof(Amazon.Connect.Model.MonitorContactResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.MonitorContactResponse",
-        "This cmdlet returns an Amazon.Connect.Model.MonitorContactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CONNParticipantRoleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Service UpdateParticipantRoleConfig API operation.", Operation = new[] {"UpdateParticipantRoleConfig"}, SelectReturnType = typeof(Amazon.Connect.Model.UpdateParticipantRoleConfigResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.UpdateParticipantRoleConfigResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Connect.Model.UpdateParticipantRoleConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartCONNContactMonitoringCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class UpdateCONNParticipantRoleConfigCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
-        
-        #region Parameter AllowedMonitorCapability
-        /// <summary>
-        /// <para>
-        /// <para>Specify which monitoring actions the user is allowed to take. For example, whether
-        /// the user is allowed to escalate from silent monitoring to barge.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AllowedMonitorCapabilities")]
-        public System.String[] AllowedMonitorCapability { get; set; }
-        #endregion
         
         #region Parameter ContactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact.</para>
+        /// <para>The identifier of the contact in this instance of Amazon Connect. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -78,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -88,41 +90,22 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter UserId
+        #region Parameter Chat_ParticipantTimerConfigList
         /// <summary>
         /// <para>
-        /// <para>The identifier of the user account.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserId { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
-        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
-        /// retries safe with idempotent APIs</a>.</para>
+        /// <para>A list of participant timers. You can specify any unique combination of role and timer
+        /// type. Duplicate entries error out the request with a 400.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        [Alias("ChannelConfiguration_Chat_ParticipantTimerConfigList")]
+        public Amazon.Connect.Model.ParticipantTimerConfiguration[] Chat_ParticipantTimerConfigList { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.MonitorContactResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.MonitorContactResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.UpdateParticipantRoleConfigResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -154,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-CONNContactMonitoring (MonitorContact)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNParticipantRoleConfig (UpdateParticipantRoleConfig)"))
             {
                 return;
             }
@@ -168,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.MonitorContactResponse, StartCONNContactMonitoringCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.UpdateParticipantRoleConfigResponse, UpdateCONNParticipantRoleConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -177,14 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactId;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AllowedMonitorCapability != null)
+            if (this.Chat_ParticipantTimerConfigList != null)
             {
-                context.AllowedMonitorCapability = new List<System.String>(this.AllowedMonitorCapability);
+                context.Chat_ParticipantTimerConfigList = new List<Amazon.Connect.Model.ParticipantTimerConfiguration>(this.Chat_ParticipantTimerConfigList);
             }
-            context.ClientToken = this.ClientToken;
             context.ContactId = this.ContactId;
             #if MODULAR
             if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
@@ -197,13 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -220,15 +195,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.MonitorContactRequest();
+            var request = new Amazon.Connect.Model.UpdateParticipantRoleConfigRequest();
             
-            if (cmdletContext.AllowedMonitorCapability != null)
+            
+             // populate ChannelConfiguration
+            var requestChannelConfigurationIsNull = true;
+            request.ChannelConfiguration = new Amazon.Connect.Model.UpdateParticipantRoleConfigChannelInfo();
+            Amazon.Connect.Model.ChatParticipantRoleConfig requestChannelConfiguration_channelConfiguration_Chat = null;
+            
+             // populate Chat
+            var requestChannelConfiguration_channelConfiguration_ChatIsNull = true;
+            requestChannelConfiguration_channelConfiguration_Chat = new Amazon.Connect.Model.ChatParticipantRoleConfig();
+            List<Amazon.Connect.Model.ParticipantTimerConfiguration> requestChannelConfiguration_channelConfiguration_Chat_chat_ParticipantTimerConfigList = null;
+            if (cmdletContext.Chat_ParticipantTimerConfigList != null)
             {
-                request.AllowedMonitorCapabilities = cmdletContext.AllowedMonitorCapability;
+                requestChannelConfiguration_channelConfiguration_Chat_chat_ParticipantTimerConfigList = cmdletContext.Chat_ParticipantTimerConfigList;
             }
-            if (cmdletContext.ClientToken != null)
+            if (requestChannelConfiguration_channelConfiguration_Chat_chat_ParticipantTimerConfigList != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                requestChannelConfiguration_channelConfiguration_Chat.ParticipantTimerConfigList = requestChannelConfiguration_channelConfiguration_Chat_chat_ParticipantTimerConfigList;
+                requestChannelConfiguration_channelConfiguration_ChatIsNull = false;
+            }
+             // determine if requestChannelConfiguration_channelConfiguration_Chat should be set to null
+            if (requestChannelConfiguration_channelConfiguration_ChatIsNull)
+            {
+                requestChannelConfiguration_channelConfiguration_Chat = null;
+            }
+            if (requestChannelConfiguration_channelConfiguration_Chat != null)
+            {
+                request.ChannelConfiguration.Chat = requestChannelConfiguration_channelConfiguration_Chat;
+                requestChannelConfigurationIsNull = false;
+            }
+             // determine if request.ChannelConfiguration should be set to null
+            if (requestChannelConfigurationIsNull)
+            {
+                request.ChannelConfiguration = null;
             }
             if (cmdletContext.ContactId != null)
             {
@@ -237,10 +238,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.UserId != null)
-            {
-                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -275,15 +272,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.MonitorContactResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.MonitorContactRequest request)
+        private Amazon.Connect.Model.UpdateParticipantRoleConfigResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.UpdateParticipantRoleConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "MonitorContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "UpdateParticipantRoleConfig");
             try
             {
                 #if DESKTOP
-                return client.MonitorContact(request);
+                return client.UpdateParticipantRoleConfig(request);
                 #elif CORECLR
-                return client.MonitorContactAsync(request).GetAwaiter().GetResult();
+                return client.UpdateParticipantRoleConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -303,13 +300,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AllowedMonitorCapability { get; set; }
-            public System.String ClientToken { get; set; }
+            public List<Amazon.Connect.Model.ParticipantTimerConfiguration> Chat_ParticipantTimerConfigList { get; set; }
             public System.String ContactId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.String UserId { get; set; }
-            public System.Func<Amazon.Connect.Model.MonitorContactResponse, StartCONNContactMonitoringCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Connect.Model.UpdateParticipantRoleConfigResponse, UpdateCONNParticipantRoleConfigCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

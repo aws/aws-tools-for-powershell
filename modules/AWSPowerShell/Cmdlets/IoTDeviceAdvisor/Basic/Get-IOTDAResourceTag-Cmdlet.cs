@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IoT Device Advisor resource.</para>
+        /// <para>The resource ARN of the IoT Device Advisor resource. This can be SuiteDefinition ARN
+        /// or SuiteRun ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

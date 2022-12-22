@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExportECSServiceRecommendations" OutputProperty="*" Verb="Export" Noun="ECSServiceRecommendation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ExportLambdaFunctionRecommendations" OutputProperty="*" Verb="Export" Noun="LambdaFunctionRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +60,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEC2RecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="EC2RecommendationProjectedMetric" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetECSServiceRecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="ECSServiceRecommendationProjectedMetric" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetECSServiceRecommendations" OutputProperty="*" Verb="Get" Noun="ECSServiceRecommendation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

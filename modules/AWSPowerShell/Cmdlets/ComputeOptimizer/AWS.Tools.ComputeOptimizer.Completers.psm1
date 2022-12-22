@@ -99,6 +99,7 @@ $CO_Completers = {
             ($_ -eq "Export-COAutoScalingGroupRecommendation/FileFormat") -Or
             ($_ -eq "Export-COEBSVolumeRecommendation/FileFormat") -Or
             ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat") -Or
+            ($_ -eq "Export-COECSServiceRecommendation/FileFormat") -Or
             ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat")
         }
         {
@@ -114,7 +115,10 @@ $CO_Completers = {
         }
 
         # Amazon.ComputeOptimizer.MetricStatistic
-        "Get-COEC2RecommendationProjectedMetric/Stat"
+        {
+            ($_ -eq "Get-COEC2RecommendationProjectedMetric/Stat") -Or
+            ($_ -eq "Get-COECSServiceRecommendationProjectedMetric/Stat")
+        }
         {
             $v = "Average","Maximum"
             break
@@ -127,7 +131,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","LambdaFunction","NotApplicable"
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","NotApplicable"
             break
         }
 
@@ -160,11 +164,11 @@ $CO_Completers = {
 $CO_map = @{
     "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
-    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COLambdaFunctionRecommendation")
+    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation")
     "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
-    "Stat"=@("Get-COEC2RecommendationProjectedMetric")
+    "Stat"=@("Get-COEC2RecommendationProjectedMetric","Get-COECSServiceRecommendationProjectedMetric")
     "Status"=@("Update-COEnrollmentStatus")
 }
 
@@ -223,11 +227,14 @@ $CO_SelectMap = @{
                "Export-COAutoScalingGroupRecommendation",
                "Export-COEBSVolumeRecommendation",
                "Export-COEC2InstanceRecommendation",
+               "Export-COECSServiceRecommendation",
                "Export-COLambdaFunctionRecommendation",
                "Get-COAutoScalingGroupRecommendation",
                "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",
                "Get-COEC2RecommendationProjectedMetric",
+               "Get-COECSServiceRecommendationProjectedMetric",
+               "Get-COECSServiceRecommendation",
                "Get-COEffectiveRecommendationPreference",
                "Get-COEnrollmentStatus",
                "Get-COEnrollmentStatusesForOrganization",

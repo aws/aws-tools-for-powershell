@@ -4897,6 +4897,8 @@ Set-Alias -Name Export-COEBSVolumeRecommendations -Value Export-COEBSVolumeRecom
 Set-Alias -Name CO-ExportEBSVolumeRecommendations -Value Export-COEBSVolumeRecommendation
 Set-Alias -Name Export-COEC2InstanceRecommendations -Value Export-COEC2InstanceRecommendation
 Set-Alias -Name CO-ExportEC2InstanceRecommendations -Value Export-COEC2InstanceRecommendation
+Set-Alias -Name Export-COECSServiceRecommendations -Value Export-COECSServiceRecommendation
+Set-Alias -Name CO-ExportECSServiceRecommendations -Value Export-COECSServiceRecommendation
 Set-Alias -Name Export-COLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
 Set-Alias -Name CO-ExportLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
 Set-Alias -Name Get-COAutoScalingGroupRecommendations -Value Get-COAutoScalingGroupRecommendation
@@ -4907,6 +4909,10 @@ Set-Alias -Name Get-COEC2InstanceRecommendations -Value Get-COEC2InstanceRecomme
 Set-Alias -Name CO-GetEC2InstanceRecommendations -Value Get-COEC2InstanceRecommendation
 Set-Alias -Name Get-COEC2RecommendationProjectedMetrics -Value Get-COEC2RecommendationProjectedMetric
 Set-Alias -Name CO-GetEC2RecommendationProjectedMetrics -Value Get-COEC2RecommendationProjectedMetric
+Set-Alias -Name Get-COECSServiceRecommendationProjectedMetrics -Value Get-COECSServiceRecommendationProjectedMetric
+Set-Alias -Name CO-GetECSServiceRecommendationProjectedMetrics -Value Get-COECSServiceRecommendationProjectedMetric
+Set-Alias -Name Get-COECSServiceRecommendations -Value Get-COECSServiceRecommendation
+Set-Alias -Name CO-GetECSServiceRecommendations -Value Get-COECSServiceRecommendation
 Set-Alias -Name Get-COEffectiveRecommendationPreferences -Value Get-COEffectiveRecommendationPreference
 Set-Alias -Name CO-GetEffectiveRecommendationPreferences -Value Get-COEffectiveRecommendationPreference
 Set-Alias -Name CO-GetEnrollmentStatus -Value Get-COEnrollmentStatus
@@ -5404,6 +5410,7 @@ Set-Alias -Name CONN-UpdateContactSchedule -Value Update-CONNContactSchedule
 Set-Alias -Name CONN-UpdateHoursOfOperation -Value Update-CONNHoursOfOperation
 Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
+Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig
 Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
 Set-Alias -Name CONN-UpdateQueueHoursOfOperation -Value Update-CONNQueueHoursOfOperation
 Set-Alias -Name Update-CONNQueueMaxContacts -Value Update-CONNQueueMaxContact
@@ -13861,7 +13868,6 @@ Set-Alias -Name KV-UpdateStream -Value Update-KVStream
 Set-Alias -Name KVM-GetMedia -Value Get-KVMMedia
 Set-Alias -Name KVSC-GetIceServerConfig -Value Get-KVSCIceServerConfig
 Set-Alias -Name KVSC-SendAlexaOfferToMaster -Value Send-KVSCAlexaOfferToMaster
-Set-Alias -Name KVWS-JoinStorageSessionAsViewer -Value Join-KVWSStorageSessionAsViewer
 Set-Alias -Name KVWS-JoinStorageSession -Value Join-KVWSStorageSession
 Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name KMS-CancelKeyDeletion -Value Stop-KMSKeyDeletion

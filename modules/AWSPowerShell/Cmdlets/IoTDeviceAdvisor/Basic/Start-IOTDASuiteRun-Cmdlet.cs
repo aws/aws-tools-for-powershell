@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter SuiteRunConfiguration_SelectedTestList
         /// <summary>
         /// <para>
-        /// <para>Gets test case list.</para>
+        /// <para>Sets test case list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

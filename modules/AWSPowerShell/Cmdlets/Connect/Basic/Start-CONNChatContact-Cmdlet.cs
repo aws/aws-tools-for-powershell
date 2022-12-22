@@ -114,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitialMessage_Content
         /// <summary>
         /// <para>
-        /// <para>The content of the chat message.</para>
+        /// <para>The content of the chat message. </para><ul><li><para>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints
+        /// are Minimum of 1, Maximum of 1024. </para></li><li><para>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum
+        /// of 12000. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InitialMessage_ContentType
         /// <summary>
         /// <para>
-        /// <para>The type of the content. Supported types are <code>text/plain</code>.</para>
+        /// <para>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>,
+        /// and <code>application/json</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,8 +172,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SupportedMessagingContentType
         /// <summary>
         /// <para>
-        /// <para>The supported chat message content types. Content types can be text/plain or both
-        /// text/plain and text/markdown.</para>
+        /// <para>The supported chat message content types. Content types must always contain <code>text/plain</code>.
+        /// You can then put any other supported type in the list. For example, all the following
+        /// lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown,
+        /// application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain,
+        /// application/json]</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

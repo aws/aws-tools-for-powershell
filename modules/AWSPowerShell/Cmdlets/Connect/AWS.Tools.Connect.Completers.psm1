@@ -552,6 +552,7 @@ $CONN_SelectMap = @{
                "Update-CONNHoursOfOperation",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
+               "Update-CONNParticipantRoleConfig",
                "Update-CONNPhoneNumber",
                "Update-CONNQueueHoursOfOperation",
                "Update-CONNQueueMaxContact",

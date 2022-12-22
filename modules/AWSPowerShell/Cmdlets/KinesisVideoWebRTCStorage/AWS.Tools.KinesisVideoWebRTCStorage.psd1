@@ -86,8 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Join-KVWSStorageSession', 
-        'Join-KVWSStorageSessionAsViewer')
+        'Join-KVWSStorageSession')
 
     # Variables to export from this module
     VariablesToExport = '*'

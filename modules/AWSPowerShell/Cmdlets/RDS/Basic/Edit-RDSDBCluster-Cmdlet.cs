@@ -349,15 +349,56 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? Iops { get; set; }
         #endregion
         
+        #region Parameter ManageMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to manage the master user password with Amazon Web
+        /// Services Secrets Manager.</para><para>If the DB cluster doesn't manage the master user password with Amazon Web Services
+        /// Secrets Manager, you can turn on this management. In this case, you can't specify
+        /// <code>MasterUserPassword</code>.</para><para>If the DB cluster already manages the master user password with Amazon Web Services
+        /// Secrets Manager, and you specify that the master user password is not managed with
+        /// Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
+        /// In this case, RDS deletes the secret and uses the new password for the master user
+        /// specified by <code>MasterUserPassword</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
+        /// Guide.</i></para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
         /// <para>The new password for the master database user. This password can contain any printable
-        /// ASCII character except "/", """, or "@".</para><para>Constraints: Must contain from 8 to 41 characters.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// ASCII character except "/", """, or "@".</para><para>Constraints:</para><ul><li><para>Must contain from 8 to 41 characters.</para></li><li><para>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if both of the following conditions are met:</para><ul><li><para>The DB cluster doesn't manage the master user password in Amazon Web Services Secrets
+        /// Manager.</para><para>If the DB cluster already manages the master user password in Amazon Web Services
+        /// Secrets Manager, you can't change the KMS key that is used to encrypt the secret.</para></li><li><para>You are turning on <code>ManageMasterUserPassword</code> to manage the master user
+        /// password in Amazon Web Services Secrets Manager.</para><para>If you are turning on <code>ManageMasterUserPassword</code> and don't specify <code>MasterUserSecretKmsKeyId</code>,
+        /// then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If
+        /// the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code>
+        /// KMS key to encrypt the secret, and you must use a customer managed KMS key.</para></li></ul><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter ScalingConfiguration_MaxCapacity
@@ -540,6 +581,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String PreferredMaintenanceWindow { get; set; }
         #endregion
         
+        #region Parameter RotateMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to rotate the secret managed by Amazon Web Services
+        /// Secrets Manager for the master user password.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB cluster. The secret value contains the updated
+        /// password.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon Aurora User
+        /// Guide.</i></para><para>Constraints:</para><ul><li><para>You must apply the change immediately when rotating the master user password.</para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RotateMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_SecondsBeforeTimeout
         /// <summary>
         /// <para>
@@ -695,7 +753,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
+            context.ManageMasterUserPassword = this.ManageMasterUserPassword;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.NetworkType = this.NetworkType;
@@ -706,6 +766,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.RotateMasterUserPassword = this.RotateMasterUserPassword;
             context.ScalingConfiguration_AutoPause = this.ScalingConfiguration_AutoPause;
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
             context.ScalingConfiguration_MinCapacity = this.ScalingConfiguration_MinCapacity;
@@ -844,9 +905,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Iops = cmdletContext.Iops.Value;
             }
+            if (cmdletContext.ManageMasterUserPassword != null)
+            {
+                request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUserSecretKmsKeyId != null)
+            {
+                request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
             }
             if (cmdletContext.MonitoringInterval != null)
             {
@@ -887,6 +956,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.RotateMasterUserPassword != null)
+            {
+                request.RotateMasterUserPassword = cmdletContext.RotateMasterUserPassword.Value;
             }
             
              // populate ScalingConfiguration
@@ -1077,7 +1150,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
+            public System.Boolean? ManageMasterUserPassword { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.String NetworkType { get; set; }
@@ -1088,6 +1163,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.Boolean? RotateMasterUserPassword { get; set; }
             public System.Boolean? ScalingConfiguration_AutoPause { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public System.Int32? ScalingConfiguration_MinCapacity { get; set; }

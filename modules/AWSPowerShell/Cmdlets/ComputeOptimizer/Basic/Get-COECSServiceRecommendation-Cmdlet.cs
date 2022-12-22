@@ -28,40 +28,30 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Returns the optimization findings for an account.
+    /// Returns Amazon ECS service recommendations. 
     /// 
     ///  
     /// <para>
-    /// It returns the number of:
-    /// </para><ul><li><para>
-    /// Amazon EC2 instances in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>,
-    /// or <code>Optimized</code>.
-    /// </para></li><li><para>
-    /// Auto Scaling groups in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
-    /// </para></li><li><para>
-    /// Amazon EBS volumes in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
-    /// </para></li><li><para>
-    /// Lambda functions in an account that are <code>NotOptimized</code>, or <code>Optimized</code>.
-    /// </para></li><li><para>
-    /// Amazon ECS services in an account that are <code>Underprovisioned</code>, <code>Overprovisioned</code>,
-    /// or <code>Optimized</code>.
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  Compute Optimizer generates recommendations for Amazon ECS services on Fargate that
+    /// meet a specific set of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+    /// resources and requirements</a> in the <i>Compute Optimizer User Guide</i>. 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CORecommendationSummary")]
-    [OutputType("Amazon.ComputeOptimizer.Model.RecommendationSummary")]
-    [AWSCmdlet("Calls the AWS Compute Optimizer GetRecommendationSummaries API operation.", Operation = new[] {"GetRecommendationSummaries"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse))]
-    [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.RecommendationSummary or Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse",
-        "This cmdlet returns a collection of Amazon.ComputeOptimizer.Model.RecommendationSummary objects.",
-        "The service call response (type Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "COECSServiceRecommendation")]
+    [OutputType("Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse")]
+    [AWSCmdlet("Calls the AWS Compute Optimizer GetECSServiceRecommendations API operation.", Operation = new[] {"GetECSServiceRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse))]
+    [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse",
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCORecommendationSummaryCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
+    public partial class GetCOECSServiceRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account for which to return recommendation summaries.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member account for which you want to return recommendation summaries.</para><para>Only one account ID can be specified per request.</para>
+        /// <para> Return the ECS service recommendations to the specified Amazon Web Services account
+        /// IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// use this parameter to return the ECS service recommendations to specific member accounts.</para><para>You can only specify one account ID per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,10 +59,34 @@ namespace Amazon.PowerShell.Cmdlets.CO
         public System.String[] AccountId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para> An array of objects to specify a filter that returns a more specific list of ECS
+        /// service recommendations. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.ComputeOptimizer.Model.ECSServiceRecommendationFilter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter ServiceArn
+        /// <summary>
+        /// <para>
+        /// <para> The ARN that identifies the ECS service. </para><para> The following is the format of the ARN: </para><para><code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ServiceArns")]
+        public System.String[] ServiceArn { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of recommendation summaries to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// <para> The maximum number of ECS service recommendations to return with a single request.
+        /// </para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
         /// value.</para>
         /// </para>
         /// </summary>
@@ -84,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of recommendation summaries.</para>
+        /// <para> The token to advance to the next page of ECS service recommendations. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -97,13 +111,13 @@ namespace Amazon.PowerShell.Cmdlets.CO
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RecommendationSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse).
-        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse).
+        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RecommendationSummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -128,15 +142,23 @@ namespace Amazon.PowerShell.Cmdlets.CO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse, GetCORecommendationSummaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse, GetCOECSServiceRecommendationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             if (this.AccountId != null)
             {
                 context.AccountId = new List<System.String>(this.AccountId);
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.ComputeOptimizer.Model.ECSServiceRecommendationFilter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.ServiceArn != null)
+            {
+                context.ServiceArn = new List<System.String>(this.ServiceArn);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,15 +175,23 @@ namespace Amazon.PowerShell.Cmdlets.CO
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ComputeOptimizer.Model.GetRecommendationSummariesRequest();
+            var request = new Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsRequest();
             
             if (cmdletContext.AccountId != null)
             {
                 request.AccountIds = cmdletContext.AccountId;
             }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ServiceArn != null)
+            {
+                request.ServiceArns = cmdletContext.ServiceArn;
             }
             
             // Initialize loop variant and commence piping
@@ -220,15 +250,15 @@ namespace Amazon.PowerShell.Cmdlets.CO
         
         #region AWS Service Operation Call
         
-        private Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.GetRecommendationSummariesRequest request)
+        private Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "GetRecommendationSummaries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "GetECSServiceRecommendations");
             try
             {
                 #if DESKTOP
-                return client.GetRecommendationSummaries(request);
+                return client.GetECSServiceRecommendations(request);
                 #elif CORECLR
-                return client.GetRecommendationSummariesAsync(request).GetAwaiter().GetResult();
+                return client.GetECSServiceRecommendationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,10 +279,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AccountId { get; set; }
+            public List<Amazon.ComputeOptimizer.Model.ECSServiceRecommendationFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ComputeOptimizer.Model.GetRecommendationSummariesResponse, GetCORecommendationSummaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RecommendationSummaries;
+            public List<System.String> ServiceArn { get; set; }
+            public System.Func<Amazon.ComputeOptimizer.Model.GetECSServiceRecommendationsResponse, GetCOECSServiceRecommendationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

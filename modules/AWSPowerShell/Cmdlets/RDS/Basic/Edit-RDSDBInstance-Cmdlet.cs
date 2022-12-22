@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// instance class support for RDS Custom for Oracle</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS">
         /// DB instance class support for RDS Custom for SQL Server</a>.</para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless you specify <code>ApplyImmediately</code>
-        /// in your request.</para><para>Default: Uses existing setting</para>
+        /// in your request. </para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,6 +431,26 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String LicenseModel { get; set; }
         #endregion
         
+        #region Parameter ManageMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to manage the master user password with Amazon Web
+        /// Services Secrets Manager.</para><para>If the DB cluster doesn't manage the master user password with Amazon Web Services
+        /// Secrets Manager, you can turn on this management. In this case, you can't specify
+        /// <code>MasterUserPassword</code>.</para><para>If the DB cluster already manages the master user password with Amazon Web Services
+        /// Secrets Manager, and you specify that the master user password is not managed with
+        /// Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
+        /// In this case, RDS deletes the secret and uses the new password for the master user
+        /// specified by <code>MasterUserPassword</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide.</i></para><para>Constraints:</para><ul><li><para>Can't manage the master user password with Amazon Web Services Secrets Manager if
+        /// <code>MasterUserPassword</code> is specified.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManageMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -439,13 +459,34 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response.</para><para>This setting doesn't apply to RDS Custom.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
-        /// more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><note><para>Amazon RDS API operations never return the password, so this action provides a way
+        /// more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned
+        /// on.</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><note><para>Amazon RDS API operations never return the password, so this action provides a way
         /// to regain access to a primary instance user if the password is lost. This includes
         /// restoring privileges that might have been accidentally revoked.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MasterUserPassword { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserSecretKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically
+        /// generated and managed in Amazon Web Services Secrets Manager.</para><para>This setting is valid only if both of the following conditions are met:</para><ul><li><para>The DB instance doesn't manage the master user password in Amazon Web Services Secrets
+        /// Manager.</para><para>If the DB instance already manages the master user password in Amazon Web Services
+        /// Secrets Manager, you can't change the KMS key used to encrypt the secret.</para></li><li><para>You are turning on <code>ManageMasterUserPassword</code> to manage the master user
+        /// password in Amazon Web Services Secrets Manager.</para><para>If you are turning on <code>ManageMasterUserPassword</code> and don't specify <code>MasterUserSecretKmsKeyId</code>,
+        /// then the <code>aws/secretsmanager</code> KMS key is used to encrypt the secret. If
+        /// the secret is in a different Amazon Web Services account, then you can't use the <code>aws/secretsmanager</code>
+        /// KMS key to encrypt the secret, and you must use a customer managed KMS key.</para></li></ul><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
+        /// name for the KMS key. To use a KMS key in a different Amazon Web Services account,
+        /// specify the key ARN or alias ARN.</para><para>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services
+        /// account has a different default KMS key for each Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MasterUserSecretKmsKeyId { get; set; }
         #endregion
         
         #region Parameter MaxAllocatedStorage
@@ -681,6 +722,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? ResumeFullAutomationModeMinute { get; set; }
         #endregion
         
+        #region Parameter RotateMasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to rotate the secret managed by Amazon Web Services
+        /// Secrets Manager for the master user password.</para><para>This setting is valid only if the master user password is managed by RDS in Amazon
+        /// Web Services Secrets Manager for the DB cluster. The secret value contains the updated
+        /// password.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password
+        /// management with Amazon Web Services Secrets Manager</a> in the <i>Amazon RDS User
+        /// Guide.</i></para><para>Constraints:</para><ul><li><para>You must apply the change immediately when rotating the master user password.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RotateMasterUserPassword { get; set; }
+        #endregion
+        
         #region Parameter StorageThroughput
         /// <summary>
         /// <para>
@@ -862,7 +918,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
             context.LicenseModel = this.LicenseModel;
+            context.ManageMasterUserPassword = this.ManageMasterUserPassword;
             context.MasterUserPassword = this.MasterUserPassword;
+            context.MasterUserSecretKmsKeyId = this.MasterUserSecretKmsKeyId;
             context.MaxAllocatedStorage = this.MaxAllocatedStorage;
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
@@ -882,6 +940,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReplicaMode = this.ReplicaMode;
             context.ResumeFullAutomationModeMinute = this.ResumeFullAutomationModeMinute;
+            context.RotateMasterUserPassword = this.RotateMasterUserPassword;
             context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
             context.TdeCredentialArn = this.TdeCredentialArn;
@@ -1036,9 +1095,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.LicenseModel = cmdletContext.LicenseModel;
             }
+            if (cmdletContext.ManageMasterUserPassword != null)
+            {
+                request.ManageMasterUserPassword = cmdletContext.ManageMasterUserPassword.Value;
+            }
             if (cmdletContext.MasterUserPassword != null)
             {
                 request.MasterUserPassword = cmdletContext.MasterUserPassword;
+            }
+            if (cmdletContext.MasterUserSecretKmsKeyId != null)
+            {
+                request.MasterUserSecretKmsKeyId = cmdletContext.MasterUserSecretKmsKeyId;
             }
             if (cmdletContext.MaxAllocatedStorage != null)
             {
@@ -1103,6 +1170,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.ResumeFullAutomationModeMinute != null)
             {
                 request.ResumeFullAutomationModeMinutes = cmdletContext.ResumeFullAutomationModeMinute.Value;
+            }
+            if (cmdletContext.RotateMasterUserPassword != null)
+            {
+                request.RotateMasterUserPassword = cmdletContext.RotateMasterUserPassword.Value;
             }
             if (cmdletContext.StorageThroughput != null)
             {
@@ -1216,7 +1287,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }
+            public System.Boolean? ManageMasterUserPassword { get; set; }
             public System.String MasterUserPassword { get; set; }
+            public System.String MasterUserSecretKmsKeyId { get; set; }
             public System.Int32? MaxAllocatedStorage { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
@@ -1233,6 +1306,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? PubliclyAccessible { get; set; }
             public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
             public System.Int32? ResumeFullAutomationModeMinute { get; set; }
+            public System.Boolean? RotateMasterUserPassword { get; set; }
             public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }
             public System.String TdeCredentialArn { get; set; }
