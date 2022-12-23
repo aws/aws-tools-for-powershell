@@ -28,11 +28,10 @@ using Amazon.ConnectParticipant.Model;
 namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
-    /// Sends an event. Note that ConnectionToken is used for invoking this API instead of
-    /// ParticipantToken.
+    /// Sends an event. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.
+    /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
     /// </para>
@@ -66,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the event to be sent (for example, message text). This is not yet supported.</para>
+        /// <para>The content of the event to be sent (for example, message text). For content related
+        /// to message receipts, this is supported in the form of a JSON string.</para><para>Sample Content: "{\"messageId\":\"11111111-aaaa-bbbb-cccc-EXAMPLE01234\"}"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The content type of the request. Supported types are:</para><ul><li><para>application/vnd.amazonaws.connect.event.typing</para></li><li><para>application/vnd.amazonaws.connect.event.connection.acknowledged</para></li></ul>
+        /// <para>The content type of the request. Supported types are:</para><ul><li><para>application/vnd.amazonaws.connect.event.typing</para></li><li><para>application/vnd.amazonaws.connect.event.connection.acknowledged</para></li><li><para>application/vnd.amazonaws.connect.event.message.delivered</para></li><li><para>application/vnd.amazonaws.connect.event.message.read</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

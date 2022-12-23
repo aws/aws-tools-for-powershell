@@ -224,9 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// Regions where Amazon FSx for OpenZFS is available, except US West (Oregon).</para></li><li><para><code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160
         /// - 10,240 MB/s using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only
         /// in the US East (N. Virginia), US East (Ohio), US West (Oregon), and Europe (Ireland)
-        /// Amazon Web Services Regions.</para></li></ul><para>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html">Deployment
-        /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html">
-        /// File system performance</a>in the<i>Amazon FSx for OpenZFS User Guide</i>.</para>
+        /// Amazon Web Services Regions.</para></li></ul><para>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment
+        /// type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File
+        /// system performance</a> in the <i>Amazon FSx for OpenZFS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

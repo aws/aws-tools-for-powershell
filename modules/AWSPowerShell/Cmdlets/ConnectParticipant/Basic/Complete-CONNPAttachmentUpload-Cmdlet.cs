@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// Allows you to confirm that the attachment has been uploaded using the pre-signed URL
     /// provided in StartAttachmentUpload API. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.
+    /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
     /// </para>
@@ -86,7 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

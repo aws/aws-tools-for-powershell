@@ -1,4 +1,11 @@
-﻿### 4.1.236 (2022-12-22 21:57Z)
+﻿### 4.1.237 (2022-12-23 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.448.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Service
+    * Modified cmdlet Get-CONNCurrentMetricData: added parameters Filters_RoutingProfile and SortCriterion.
+    * Modified cmdlet Get-CONNCurrentUserData: added parameters Filters_Agent, Filters_RoutingProfile and Filters_UserHierarchyGroup.
+    * Modified cmdlet Get-CONNMetricData: added parameter Filters_RoutingProfile.
+
+### 4.1.236 (2022-12-22 21:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.447.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Compute Optimizer
     * Added cmdlet Export-COECSServiceRecommendation leveraging the ExportECSServiceRecommendations service API.

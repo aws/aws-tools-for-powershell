@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     /// Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
     /// S3.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.
+    /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
     /// </para>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         /// <summary>
         /// <para>
         /// <para>Describes the MIME file type of the attachment. For a list of supported file types,
-        /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature
+        /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html">Feature
         /// specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -119,7 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique case sensitive identifier to support idempotency of request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

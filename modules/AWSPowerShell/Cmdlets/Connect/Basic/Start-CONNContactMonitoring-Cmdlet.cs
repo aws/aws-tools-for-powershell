@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
-    /// specified by <i>userId</i> will be set to silent monitoring mode on the contact. Supports
-    /// voice and chat contacts.
+    /// specified by <i>userId</i> will be set to silent monitoring mode on the contact.
     /// </summary>
     [Cmdlet("Start", "CONNContactMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.MonitorContactResponse")]

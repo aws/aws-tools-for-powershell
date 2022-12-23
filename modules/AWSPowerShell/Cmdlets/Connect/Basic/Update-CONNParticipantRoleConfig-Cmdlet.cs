@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactId), MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CONNParticipantRoleConfig (UpdateParticipantRoleConfig)"))
             {
                 return;

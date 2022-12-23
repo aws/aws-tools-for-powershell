@@ -28,11 +28,10 @@ using Amazon.ConnectParticipant.Model;
 namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
-    /// Creates the participant's connection. Note that ParticipantToken is used for invoking
-    /// this API instead of ConnectionToken.
+    /// Creates the participant's connection. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para><code>ParticipantToken</code> is used for invoking this API instead of <code>ConnectionToken</code>.
+    /// </para></note><para>
     /// The participant token is valid for the lifetime of the participant – until they are
     /// part of a contact.
     /// </para><para>
@@ -98,17 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>Type of connection information required.</para>
+        /// <para>Type of connection information required. This can be omitted if <code>ConnectParticipant</code>
+        /// is <code>true</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String[] Type { get; set; }
         #endregion
         
@@ -186,12 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
             {
                 context.Type = new List<System.String>(this.Type);
             }
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

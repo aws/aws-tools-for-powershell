@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNCurrentUserDataCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter Filters_Agent
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 100 agent IDs or ARNs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_Agents")]
+        public System.String[] Filters_Agent { get; set; }
+        #endregion
+        
         #region Parameter ContactFilter_ContactState
         /// <summary>
         /// <para>
@@ -73,12 +84,34 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Filters_Queue
         /// <summary>
         /// <para>
-        /// <para>Contains information about a queue resource for which metrics are returned.</para>
+        /// <para>A list of up to 100 queues or ARNs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters_Queues")]
         public System.String[] Filters_Queue { get; set; }
+        #endregion
+        
+        #region Parameter Filters_RoutingProfile
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 100 routing profile IDs or ARNs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_RoutingProfiles")]
+        public System.String[] Filters_RoutingProfile { get; set; }
+        #endregion
+        
+        #region Parameter Filters_UserHierarchyGroup
+        /// <summary>
+        /// <para>
+        /// <para>A UserHierarchyGroup ID or ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_UserHierarchyGroups")]
+        public System.String[] Filters_UserHierarchyGroup { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -163,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filters_Agent != null)
+            {
+                context.Filters_Agent = new List<System.String>(this.Filters_Agent);
+            }
             if (this.ContactFilter_ContactState != null)
             {
                 context.ContactFilter_ContactState = new List<System.String>(this.ContactFilter_ContactState);
@@ -170,6 +207,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (this.Filters_Queue != null)
             {
                 context.Filters_Queue = new List<System.String>(this.Filters_Queue);
+            }
+            if (this.Filters_RoutingProfile != null)
+            {
+                context.Filters_RoutingProfile = new List<System.String>(this.Filters_RoutingProfile);
+            }
+            if (this.Filters_UserHierarchyGroup != null)
+            {
+                context.Filters_UserHierarchyGroup = new List<System.String>(this.Filters_UserHierarchyGroup);
             }
             context.InstanceId = this.InstanceId;
             #if MODULAR
@@ -204,6 +249,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
              // populate Filters
             var requestFiltersIsNull = true;
             request.Filters = new Amazon.Connect.Model.UserDataFilters();
+            List<System.String> requestFilters_filters_Agent = null;
+            if (cmdletContext.Filters_Agent != null)
+            {
+                requestFilters_filters_Agent = cmdletContext.Filters_Agent;
+            }
+            if (requestFilters_filters_Agent != null)
+            {
+                request.Filters.Agents = requestFilters_filters_Agent;
+                requestFiltersIsNull = false;
+            }
             List<System.String> requestFilters_filters_Queue = null;
             if (cmdletContext.Filters_Queue != null)
             {
@@ -212,6 +267,26 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Queue != null)
             {
                 request.Filters.Queues = requestFilters_filters_Queue;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_RoutingProfile = null;
+            if (cmdletContext.Filters_RoutingProfile != null)
+            {
+                requestFilters_filters_RoutingProfile = cmdletContext.Filters_RoutingProfile;
+            }
+            if (requestFilters_filters_RoutingProfile != null)
+            {
+                request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_UserHierarchyGroup = null;
+            if (cmdletContext.Filters_UserHierarchyGroup != null)
+            {
+                requestFilters_filters_UserHierarchyGroup = cmdletContext.Filters_UserHierarchyGroup;
+            }
+            if (requestFilters_filters_UserHierarchyGroup != null)
+            {
+                request.Filters.UserHierarchyGroups = requestFilters_filters_UserHierarchyGroup;
                 requestFiltersIsNull = false;
             }
             Amazon.Connect.Model.ContactFilter requestFilters_filters_ContactFilter = null;
@@ -337,8 +412,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filters_Agent { get; set; }
             public List<System.String> ContactFilter_ContactState { get; set; }
             public List<System.String> Filters_Queue { get; set; }
+            public List<System.String> Filters_RoutingProfile { get; set; }
+            public List<System.String> Filters_UserHierarchyGroup { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

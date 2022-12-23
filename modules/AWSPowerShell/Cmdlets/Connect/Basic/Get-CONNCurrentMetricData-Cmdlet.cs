@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>,
         /// the metrics returned apply to each queue rather than aggregated for all queues. </para><ul><li><para>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE,
         /// CHAT, and TASK channels are supported.</para></li><li><para>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing
-        /// profile filter.</para></li><li><para>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</para></li></ul>
+        /// profile filter. In addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>,
+        /// <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</para></li><li><para>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,6 +127,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters_Queues")]
         public System.String[] Filters_Queue { get; set; }
+        #endregion
+        
+        #region Parameter Filters_RoutingProfile
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 100 routing profile IDs or ARNs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_RoutingProfiles")]
+        public System.String[] Filters_RoutingProfile { get; set; }
+        #endregion
+        
+        #region Parameter SortCriterion
+        /// <summary>
+        /// <para>
+        /// <para>The way to sort the resulting response based on metrics. You can enter one sort criteria.
+        /// By default resources are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>.
+        /// The metric collection is sorted based on the input metrics.</para><para>Note the following:</para><ul><li><para>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SortCriteria")]
+        public Amazon.Connect.Model.CurrentMetricSortCriteria[] SortCriterion { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -232,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.Filters_Queue = new List<System.String>(this.Filters_Queue);
             }
+            if (this.Filters_RoutingProfile != null)
+            {
+                context.Filters_RoutingProfile = new List<System.String>(this.Filters_RoutingProfile);
+            }
             if (this.Grouping != null)
             {
                 context.Grouping = new List<System.String>(this.Grouping);
@@ -245,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.SortCriterion != null)
+            {
+                context.SortCriterion = new List<Amazon.Connect.Model.CurrentMetricSortCriteria>(this.SortCriterion);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -294,6 +327,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Filters.Queues = requestFilters_filters_Queue;
                 requestFiltersIsNull = false;
             }
+            List<System.String> requestFilters_filters_RoutingProfile = null;
+            if (cmdletContext.Filters_RoutingProfile != null)
+            {
+                requestFilters_filters_RoutingProfile = cmdletContext.Filters_RoutingProfile;
+            }
+            if (requestFilters_filters_RoutingProfile != null)
+            {
+                request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
+            }
              // determine if request.Filters should be set to null
             if (requestFiltersIsNull)
             {
@@ -310,6 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.SortCriterion != null)
+            {
+                request.SortCriteria = cmdletContext.SortCriterion;
             }
             
             // Initialize loop variant and commence piping
@@ -393,6 +440,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.Filters.Queues = requestFilters_filters_Queue;
                 requestFiltersIsNull = false;
             }
+            List<System.String> requestFilters_filters_RoutingProfile = null;
+            if (cmdletContext.Filters_RoutingProfile != null)
+            {
+                requestFilters_filters_RoutingProfile = cmdletContext.Filters_RoutingProfile;
+            }
+            if (requestFilters_filters_RoutingProfile != null)
+            {
+                request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
+                requestFiltersIsNull = false;
+            }
              // determine if request.Filters should be set to null
             if (requestFiltersIsNull)
             {
@@ -413,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.SortCriterion != null)
+            {
+                request.SortCriteria = cmdletContext.SortCriterion;
             }
             
             CmdletOutput output;
@@ -479,10 +540,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.CurrentMetric> CurrentMetric { get; set; }
             public List<System.String> Filters_Channel { get; set; }
             public List<System.String> Filters_Queue { get; set; }
+            public List<System.String> Filters_RoutingProfile { get; set; }
             public List<System.String> Grouping { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.Connect.Model.CurrentMetricSortCriteria> SortCriterion { get; set; }
             public System.Func<Amazon.Connect.Model.GetCurrentMetricDataResponse, GetCONNCurrentMetricDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

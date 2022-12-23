@@ -144,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] Filters_Queue { get; set; }
         #endregion
         
+        #region Parameter Filters_RoutingProfile
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 100 routing profile IDs or ARNs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_RoutingProfiles")]
+        public System.String[] Filters_RoutingProfile { get; set; }
+        #endregion
+        
         #region Parameter StartTime
         /// <summary>
         /// <para>
@@ -266,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 context.Filters_Queue = new List<System.String>(this.Filters_Queue);
             }
+            if (this.Filters_RoutingProfile != null)
+            {
+                context.Filters_RoutingProfile = new List<System.String>(this.Filters_RoutingProfile);
+            }
             if (this.Grouping != null)
             {
                 context.Grouping = new List<System.String>(this.Grouping);
@@ -359,6 +374,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Queue != null)
             {
                 request.Filters.Queues = requestFilters_filters_Queue;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_RoutingProfile = null;
+            if (cmdletContext.Filters_RoutingProfile != null)
+            {
+                requestFilters_filters_RoutingProfile = cmdletContext.Filters_RoutingProfile;
+            }
+            if (requestFilters_filters_RoutingProfile != null)
+            {
+                request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -467,6 +492,16 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestFilters_filters_Queue != null)
             {
                 request.Filters.Queues = requestFilters_filters_Queue;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_RoutingProfile = null;
+            if (cmdletContext.Filters_RoutingProfile != null)
+            {
+                requestFilters_filters_RoutingProfile = cmdletContext.Filters_RoutingProfile;
+            }
+            if (requestFilters_filters_RoutingProfile != null)
+            {
+                request.Filters.RoutingProfiles = requestFilters_filters_RoutingProfile;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -616,6 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.DateTime? EndTime { get; set; }
             public List<System.String> Filters_Channel { get; set; }
             public List<System.String> Filters_Queue { get; set; }
+            public List<System.String> Filters_RoutingProfile { get; set; }
             public List<System.String> Grouping { get; set; }
             public List<Amazon.Connect.Model.HistoricalMetric> HistoricalMetric { get; set; }
             public System.String InstanceId { get; set; }

@@ -637,7 +637,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" AnonymousShouldProcessTarget="true" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateParticipantRoleConfig" Verb="Update" Noun="ParticipantRoleConfig" ShouldProcessTarget="ContactId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
