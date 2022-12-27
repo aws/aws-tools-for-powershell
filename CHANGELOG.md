@@ -1,4 +1,11 @@
-﻿### 4.1.237 (2022-12-23 21:55Z)
+﻿### 4.1.238 (2022-12-27 21:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.449.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon MemoryDB
+    * Added cmdlet Get-MDBReservedNode leveraging the DescribeReservedNodes service API.
+    * Added cmdlet Get-MDBReservedNodesOffering leveraging the DescribeReservedNodesOfferings service API.
+    * Added cmdlet Request-MDBReservedNodesOffering leveraging the PurchaseReservedNodesOffering service API.
+
+### 4.1.237 (2022-12-23 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.448.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Service
     * Modified cmdlet Get-CONNCurrentMetricData: added parameters Filters_RoutingProfile and SortCriterion.

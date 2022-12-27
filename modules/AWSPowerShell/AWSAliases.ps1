@@ -15828,6 +15828,12 @@ Set-Alias -Name MDB-DescribeParameterGroups -Value Get-MDBParameterGroup
 Set-Alias -Name Describe-MDBParameters -Value Get-MDBParameter
 Set-Alias -Name Describe-MDBParameter -Value Get-MDBParameter
 Set-Alias -Name MDB-DescribeParameters -Value Get-MDBParameter
+Set-Alias -Name Describe-MDBReservedNodes -Value Get-MDBReservedNode
+Set-Alias -Name Describe-MDBReservedNode -Value Get-MDBReservedNode
+Set-Alias -Name MDB-DescribeReservedNodes -Value Get-MDBReservedNode
+Set-Alias -Name Describe-MDBReservedNodesOfferings -Value Get-MDBReservedNodesOffering
+Set-Alias -Name Describe-MDBReservedNodesOffering -Value Get-MDBReservedNodesOffering
+Set-Alias -Name MDB-DescribeReservedNodesOfferings -Value Get-MDBReservedNodesOffering
 Set-Alias -Name Describe-MDBServiceUpdates -Value Get-MDBServiceUpdate
 Set-Alias -Name Describe-MDBServiceUpdate -Value Get-MDBServiceUpdate
 Set-Alias -Name MDB-DescribeServiceUpdates -Value Get-MDBServiceUpdate
@@ -15847,6 +15853,8 @@ Set-Alias -Name List-MDBAllowedNodeTypeUpdates -Value Get-MDBAllowedNodeTypeUpda
 Set-Alias -Name List-MDBAllowedNodeTypeUpdateList -Value Get-MDBAllowedNodeTypeUpdateList
 Set-Alias -Name MDB-ListAllowedNodeTypeUpdates -Value Get-MDBAllowedNodeTypeUpdateList
 Set-Alias -Name MDB-ListTags -Value Get-MDBTag
+Set-Alias -Name Purchase-MDBReservedNodesOffering -Value Request-MDBReservedNodesOffering
+Set-Alias -Name MDB-PurchaseReservedNodesOffering -Value Request-MDBReservedNodesOffering
 Set-Alias -Name MDB-ResetParameterGroup -Value Reset-MDBParameterGroup
 Set-Alias -Name MDB-TagResource -Value Add-MDBResourceTag
 Set-Alias -Name MDB-UntagResource -Value Remove-MDBResourceTag

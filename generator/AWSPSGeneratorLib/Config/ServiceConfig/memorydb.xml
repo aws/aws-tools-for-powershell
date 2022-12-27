@@ -98,6 +98,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedNodes" OutputProperty="ReservedNodes" Verb="Get" Noun="ReservedNode" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedNodesOfferings" OutputProperty="ReservedNodesOfferings" Verb="Get" Noun="ReservedNodesOffering" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -123,6 +131,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedNodesOffering" OutputProperty="*" Verb="Request" Noun="ReservedNodesOffering" ShouldProcessTarget="ReservedNodesOfferingId" PipelineParameter="ReservedNodesOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

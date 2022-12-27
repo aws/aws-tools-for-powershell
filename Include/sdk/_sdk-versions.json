@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.448.0",
+    "ProductVersion" : "3.7.449.0",
     "CoreVersion"    : "3.7.103.6",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1258,7 +1258,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.103.2",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.6"
@@ -2218,7 +2218,7 @@
             "InPreview"               : false
         },
         "MemoryDB"                        : {
-            "Version" : "3.7.101.36",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.6"
