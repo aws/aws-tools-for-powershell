@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
     /// </para><para>
     /// Assertion rule: An assertion rule enforces that, when you change a routing control
     /// state, that a certain criteria is met. For example, the criteria might be that at
-    /// least one routing control state is On after the transation so that traffic continues
+    /// least one routing control state is On after the transaction so that traffic continues
     /// to flow to at least one cell for the application. This ensures that you avoid a fail-open
     /// scenario.
     /// </para><para>
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.R53RC
         /// <para>
         /// <para>Routing controls that can only be set or unset if the specified RuleConfig evaluates
         /// to true for the specified GatingControls. For example, say you have three gating controls,
-        /// one for each of three Amazon Web Services Regions. Now you specify AtLeast 2 as your
+        /// one for each of three Amazon Web Services Regions. Now you specify ATLEAST 2 as your
         /// RuleConfig. With these settings, you can only change (set or unset) the routing controls
         /// that you have specified as TargetControls if that rule evaluates to true.</para><para>In other words, your ability to change the routing controls that you have specified
         /// as TargetControls is gated by the rule that you set for the routing controls in GatingControls.</para>

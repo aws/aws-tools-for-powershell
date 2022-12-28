@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.449.0",
+    "ProductVersion" : "3.7.450.0",
     "CoreVersion"    : "3.7.103.6",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -168,7 +168,7 @@
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "3.7.102.25",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.6"
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.111.1",
+            "Version" : "3.7.112.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.6"
@@ -1890,7 +1890,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.100.44",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.6"
@@ -2178,7 +2178,7 @@
             "InPreview"               : false
         },
         "Route53RecoveryControlConfig"    : {
-            "Version" : "3.7.100.44",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.6"

@@ -1,4 +1,12 @@
-﻿### 4.1.238 (2022-12-27 21:39Z)
+﻿### 4.1.239 (2022-12-28 21:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.450.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECReplicationGroup: added parameters TransitEncryptionEnabled and TransitEncryptionMode.
+    * Modified cmdlet New-ECReplicationGroup: added parameter TransitEncryptionMode.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSCustomDBEngineVersion: added parameter ImageId.
+
+### 4.1.238 (2022-12-27 21:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.449.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon MemoryDB
     * Added cmdlet Get-MDBReservedNode leveraging the DescribeReservedNodes service API.

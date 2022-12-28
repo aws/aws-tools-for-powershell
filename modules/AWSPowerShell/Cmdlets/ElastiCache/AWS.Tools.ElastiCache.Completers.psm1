@@ -146,6 +146,16 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.TransitEncryptionMode
+        {
+            ($_ -eq "Edit-ECReplicationGroup/TransitEncryptionMode") -Or
+            ($_ -eq "New-ECReplicationGroup/TransitEncryptionMode")
+        }
+        {
+            $v = "preferred","required"
+            break
+        }
+
 
     }
 
@@ -162,6 +172,7 @@ $EC_map = @{
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
     "OutpostMode"=@("New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
+    "TransitEncryptionMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
 }
 
 _awsArgumentCompleterRegistration $EC_Completers $EC_map

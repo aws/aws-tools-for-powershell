@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The name of the cache engine to be used for the clusters in this replication group.
-        /// Must be Redis.</para>
+        /// The value must be set to <code>Redis</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -550,9 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter TransitEncryptionEnabled
         /// <summary>
         /// <para>
-        /// <para>A flag that enables in-transit encryption when set to <code>true</code>.</para><para>You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster
-        /// is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code>
-        /// to <code>true</code> when you create a cluster.</para><para>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
+        /// <para>A flag that enables in-transit encryption when set to <code>true</code>.</para><para>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
         /// the <code>EngineVersion</code> parameter is <code>3.2.6</code>, <code>4.x</code> or
         /// later, and the cluster is being created in an Amazon VPC.</para><para>If you enable in-transit encryption, you must also specify a value for <code>CacheSubnetGroup</code>.</para><para><b>Required:</b> Only available when creating a replication group in an Amazon VPC
         /// using redis version <code>3.2.6</code>, <code>4.x</code> or later.</para><para>Default: <code>false</code></para><important><para>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
@@ -561,6 +559,25 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TransitEncryptionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter TransitEncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>A setting that allows you to migrate your clients to use in-transit encryption, with
+        /// no downtime.</para><para>When setting <code>TransitEncryptionEnabled</code> to <code>true</code>, you can set
+        /// your <code>TransitEncryptionMode</code> to <code>preferred</code> in the same request,
+        /// to allow both encrypted and unencrypted connections at the same time. Once you migrate
+        /// all your Redis clients to use encrypted connections you can modify the value to <code>required</code>
+        /// to allow encrypted connections only.</para><para>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
+        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>
+        /// first, after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.TransitEncryptionMode")]
+        public Amazon.ElastiCache.TransitEncryptionMode TransitEncryptionMode { get; set; }
         #endregion
         
         #region Parameter UserGroupId
@@ -704,6 +721,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.Tag = new List<Amazon.ElastiCache.Model.Tag>(this.Tag);
             }
             context.TransitEncryptionEnabled = this.TransitEncryptionEnabled;
+            context.TransitEncryptionMode = this.TransitEncryptionMode;
             if (this.UserGroupId != null)
             {
                 context.UserGroupId = new List<System.String>(this.UserGroupId);
@@ -864,6 +882,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.TransitEncryptionEnabled = cmdletContext.TransitEncryptionEnabled.Value;
             }
+            if (cmdletContext.TransitEncryptionMode != null)
+            {
+                request.TransitEncryptionMode = cmdletContext.TransitEncryptionMode;
+            }
             if (cmdletContext.UserGroupId != null)
             {
                 request.UserGroupIds = cmdletContext.UserGroupId;
@@ -964,6 +986,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String SnapshotWindow { get; set; }
             public List<Amazon.ElastiCache.Model.Tag> Tag { get; set; }
             public System.Boolean? TransitEncryptionEnabled { get; set; }
+            public Amazon.ElastiCache.TransitEncryptionMode TransitEncryptionMode { get; set; }
             public List<System.String> UserGroupId { get; set; }
             public System.Func<Amazon.ElastiCache.Model.CreateReplicationGroupResponse, NewECReplicationGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationGroup;

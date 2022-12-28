@@ -328,6 +328,37 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String SnapshotWindow { get; set; }
         #endregion
         
+        #region Parameter TransitEncryptionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A flag that enables in-transit encryption when set to true. If you are enabling in-transit
+        /// encryption for an existing cluster, you must also set <code>TransitEncryptionMode</code>
+        /// to <code>preferred</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TransitEncryptionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter TransitEncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>A setting that allows you to migrate your clients to use in-transit encryption, with
+        /// no downtime.</para><para>You must set <code>TransitEncryptionEnabled</code> to <code>true</code>, for your
+        /// existing cluster, and set <code>TransitEncryptionMode</code> to <code>preferred</code>
+        /// in the same request to allow both encrypted and unencrypted connections at the same
+        /// time. Once you migrate all your Redis clients to use encrypted connections you can
+        /// set the value to <code>required</code> to allow encrypted connections only.</para><para>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
+        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>
+        /// first, after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.TransitEncryptionMode")]
+        public Amazon.ElastiCache.TransitEncryptionMode TransitEncryptionMode { get; set; }
+        #endregion
+        
         #region Parameter UserGroupIdsToAdd
         /// <summary>
         /// <para>
@@ -464,6 +495,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.SnapshotRetentionLimit = this.SnapshotRetentionLimit;
             context.SnapshottingClusterId = this.SnapshottingClusterId;
             context.SnapshotWindow = this.SnapshotWindow;
+            context.TransitEncryptionEnabled = this.TransitEncryptionEnabled;
+            context.TransitEncryptionMode = this.TransitEncryptionMode;
             if (this.UserGroupIdsToAdd != null)
             {
                 context.UserGroupIdsToAdd = new List<System.String>(this.UserGroupIdsToAdd);
@@ -586,6 +619,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.SnapshotWindow = cmdletContext.SnapshotWindow;
             }
+            if (cmdletContext.TransitEncryptionEnabled != null)
+            {
+                request.TransitEncryptionEnabled = cmdletContext.TransitEncryptionEnabled.Value;
+            }
+            if (cmdletContext.TransitEncryptionMode != null)
+            {
+                request.TransitEncryptionMode = cmdletContext.TransitEncryptionMode;
+            }
             if (cmdletContext.UserGroupIdsToAdd != null)
             {
                 request.UserGroupIdsToAdd = cmdletContext.UserGroupIdsToAdd;
@@ -680,6 +721,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Int32? SnapshotRetentionLimit { get; set; }
             public System.String SnapshottingClusterId { get; set; }
             public System.String SnapshotWindow { get; set; }
+            public System.Boolean? TransitEncryptionEnabled { get; set; }
+            public Amazon.ElastiCache.TransitEncryptionMode TransitEncryptionMode { get; set; }
             public List<System.String> UserGroupIdsToAdd { get; set; }
             public List<System.String> UserGroupIdsToRemove { get; set; }
             public System.Func<Amazon.ElastiCache.Model.ModifyReplicationGroupResponse, EditECReplicationGroupCmdlet, object> Select { get; set; } =

@@ -28,42 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a custom DB engine version (CEV). A CEV is a binary volume snapshot of a database
-    /// engine and specific AMI. The supported engines are the following:
-    /// 
-    ///  <ul><li><para>
-    /// Oracle Database 12.1 Enterprise Edition with the January 2021 or later RU/RUR
-    /// </para></li><li><para>
-    /// Oracle Database 19c Enterprise Edition with the January 2021 or later RU/RUR
-    /// </para></li></ul><para>
-    /// Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI)
-    /// and database software. The Amazon RDS database software is preinstalled, so you need
-    /// only select a DB engine and version, and create your database. With Amazon RDS Custom
-    /// for Oracle, you upload your database installation files in Amazon S3.
-    /// </para><para>
-    /// When you create a custom engine version, you specify the files in a JSON document
-    /// called a CEV manifest. This document describes installation .zip files stored in Amazon
-    /// S3. RDS Custom creates your CEV from the installation files that you provided. This
-    /// service model is called Bring Your Own Media (BYOM).
-    /// </para><para>
-    /// Creation takes approximately two hours. If creation fails, RDS Custom issues <code>RDS-EVENT-0196</code>
-    /// with the message <code>Creation failed for custom engine version</code>, and includes
-    /// details about the failure. For example, the event prints missing files.
-    /// </para><para>
-    /// After you create the CEV, it is available for use. You can create multiple CEVs, and
-    /// create multiple RDS Custom instances from any CEV. You can also change the status
-    /// of a CEV to make it available or inactive.
-    /// </para><note><para>
-    /// The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated
-    /// with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in
-    /// CloudTrail, calls to the <code>CreateCustomDbEngineVersion</code> event aren't logged.
-    /// However, you might see calls from the API gateway that accesses your Amazon S3 bucket.
-    /// These calls originate from the MediaImport service for the <code>CreateCustomDbEngineVersion</code>
-    /// event.
-    /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.create">
-    /// Creating a CEV</a> in the <i>Amazon RDS User Guide</i>.
-    /// </para>
+    /// Creates a custom DB engine version (CEV).
     /// </summary>
     [Cmdlet("New", "RDSCustomDBEngineVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.CreateCustomDBEngineVersionResponse")]
@@ -81,14 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// CEV. For example, a valid bucket name is <code>my-custom-installation-files</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatabaseInstallationFilesS3BucketName { get; set; }
         #endregion
         
@@ -152,6 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter ImageId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AMI. An AMI ID is required to create a CEV for RDS Custom for SQL Server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageId { get; set; }
+        #endregion
+        
         #region Parameter KMSKeyId
         /// <summary>
         /// <para>
@@ -164,14 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// or choose different keys.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KMSKeyId { get; set; }
         #endregion
         
@@ -185,14 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Manifest { get; set; }
         #endregion
         
@@ -250,12 +204,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.DatabaseInstallationFilesS3BucketName = this.DatabaseInstallationFilesS3BucketName;
-            #if MODULAR
-            if (this.DatabaseInstallationFilesS3BucketName == null && ParameterWasBound(nameof(this.DatabaseInstallationFilesS3BucketName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DatabaseInstallationFilesS3BucketName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DatabaseInstallationFilesS3Prefix = this.DatabaseInstallationFilesS3Prefix;
             context.Description = this.Description;
             context.Engine = this.Engine;
@@ -272,20 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter EngineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImageId = this.ImageId;
             context.KMSKeyId = this.KMSKeyId;
-            #if MODULAR
-            if (this.KMSKeyId == null && ParameterWasBound(nameof(this.KMSKeyId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KMSKeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Manifest = this.Manifest;
-            #if MODULAR
-            if (this.Manifest == null && ParameterWasBound(nameof(this.Manifest)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Manifest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -325,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.ImageId != null)
+            {
+                request.ImageId = cmdletContext.ImageId;
             }
             if (cmdletContext.KMSKeyId != null)
             {
@@ -404,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Description { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String ImageId { get; set; }
             public System.String KMSKeyId { get; set; }
             public System.String Manifest { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
