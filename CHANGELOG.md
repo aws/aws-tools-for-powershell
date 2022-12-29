@@ -1,4 +1,11 @@
-﻿### 4.1.239 (2022-12-28 21:45Z)
+﻿### 4.1.240 (2022-12-29 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.451.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic MapReduce
+    * Added cmdlet Get-EMRClusterSessionCredential leveraging the GetClusterSessionCredentials service API.
+  * Amazon Secrets Manager
+    * Modified cmdlet Get-SECSecretList: added parameter IncludePlannedDeletion.
+
+### 4.1.239 (2022-12-28 21:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.450.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon ElastiCache
     * Modified cmdlet Edit-ECReplicationGroup: added parameters TransitEncryptionEnabled and TransitEncryptionMode.

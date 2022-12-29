@@ -76,6 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public Amazon.SecretsManager.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludePlannedDeletion
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludePlannedDeletion { get; set; }
+        #endregion
+        
         #region Parameter SortOrder
         /// <summary>
         /// <para>
@@ -180,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             {
                 context.Filter = new List<Amazon.SecretsManager.Model.Filter>(this.Filter);
             }
+            context.IncludePlannedDeletion = this.IncludePlannedDeletion;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -216,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludePlannedDeletion != null)
+            {
+                request.IncludePlannedDeletion = cmdletContext.IncludePlannedDeletion.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -283,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludePlannedDeletion != null)
+            {
+                request.IncludePlannedDeletion = cmdletContext.IncludePlannedDeletion.Value;
             }
             if (cmdletContext.SortOrder != null)
             {
@@ -408,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SecretsManager.Model.Filter> Filter { get; set; }
+            public System.Boolean? IncludePlannedDeletion { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SecretsManager.SortOrderType SortOrder { get; set; }

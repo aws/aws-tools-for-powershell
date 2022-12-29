@@ -21058,6 +21058,7 @@ $EMR_SelectMap = @{
                "Get-EMRStudio",
                "Get-EMRAutoTerminationPolicy",
                "Get-EMRBlockPublicAccessConfiguration",
+               "Get-EMRClusterSessionCredential",
                "Get-EMRManagedScalingPolicy",
                "Get-EMRStudioSessionMapping",
                "Get-EMRBootstrapActionList",

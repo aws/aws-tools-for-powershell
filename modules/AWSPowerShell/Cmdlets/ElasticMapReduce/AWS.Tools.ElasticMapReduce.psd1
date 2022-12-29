@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMRBootstrapActionList', 
         'Get-EMRCluster', 
         'Get-EMRClusterList', 
+        'Get-EMRClusterSessionCredential', 
         'Get-EMRInstanceFleetList', 
         'Get-EMRInstanceGroupList', 
         'Get-EMRInstanceList', 

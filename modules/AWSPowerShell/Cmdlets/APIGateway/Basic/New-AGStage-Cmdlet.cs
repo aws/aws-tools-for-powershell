@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CacheClusterSize
         /// <summary>
         /// <para>
-        /// <para>The stage's cache cluster size.</para>
+        /// <para>The stage's cache capacity in GB. For more information about choosing a cache size,
+        /// see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling
+        /// API caching to enhance responsiveness</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

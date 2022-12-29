@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter AuthMode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the Studio authenticates users using IAM or Amazon Web Services
-        /// SSO.</para>
+        /// <para>Specifies whether the Studio authenticates users using IAM or IAM Identity Center.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The IAM user role that users and groups assume when logged in to an Amazon EMR Studio.
-        /// Only specify a <code>UserRole</code> when you use Amazon Web Services SSO authentication.
+        /// Only specify a <code>UserRole</code> when you use IAM Identity Center authentication.
         /// The permissions attached to the <code>UserRole</code> can be scoped down for each
         /// user or group using session policies.</para>
         /// </para>

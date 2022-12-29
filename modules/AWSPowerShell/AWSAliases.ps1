@@ -9026,6 +9026,8 @@ Set-Alias -Name Describe-EMRStudio -Value Get-EMRStudio
 Set-Alias -Name EMR-DescribeStudio -Value Get-EMRStudio
 Set-Alias -Name EMR-GetAutoTerminationPolicy -Value Get-EMRAutoTerminationPolicy
 Set-Alias -Name EMR-GetBlockPublicAccessConfiguration -Value Get-EMRBlockPublicAccessConfiguration
+Set-Alias -Name Get-EMRClusterSessionCredentials -Value Get-EMRClusterSessionCredential
+Set-Alias -Name EMR-GetClusterSessionCredentials -Value Get-EMRClusterSessionCredential
 Set-Alias -Name EMR-GetManagedScalingPolicy -Value Get-EMRManagedScalingPolicy
 Set-Alias -Name EMR-GetStudioSessionMapping -Value Get-EMRStudioSessionMapping
 Set-Alias -Name List-EMRBootstrapActions -Value Get-EMRBootstrapActionList

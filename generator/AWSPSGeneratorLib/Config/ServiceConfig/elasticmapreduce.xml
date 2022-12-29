@@ -111,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetClusterSessionCredentials" OutputProperty="*" Verb="Get" Noun="ClusterSessionCredential" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetManagedScalingPolicy" OutputProperty="ManagedScalingPolicy" Verb="Get" Noun="ManagedScalingPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
