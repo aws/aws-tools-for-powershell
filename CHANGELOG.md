@@ -1,4 +1,10 @@
-﻿### 4.1.240 (2022-12-29 21:59Z)
+﻿### 4.1.241 (2022-12-30 21:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.452.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudFront
+    * Modified cmdlet New-CFResponseHeadersPolicy: added parameters RemoveHeadersConfig_Item and RemoveHeadersConfig_Quantity.
+    * Modified cmdlet Update-CFResponseHeadersPolicy: added parameters RemoveHeadersConfig_Item and RemoveHeadersConfig_Quantity.
+
+### 4.1.240 (2022-12-29 21:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.451.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic MapReduce
     * Added cmdlet Get-EMRClusterSessionCredential leveraging the GetClusterSessionCredentials service API.

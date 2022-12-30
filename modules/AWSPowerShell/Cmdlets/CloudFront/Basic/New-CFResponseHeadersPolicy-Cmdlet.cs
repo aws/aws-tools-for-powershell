@@ -32,14 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// A response headers policy contains information about a set of HTTP response headers
-    /// and their values. To create a response headers policy, you provide some metadata about
-    /// the policy, and a set of configurations that specify the response headers.
+    /// A response headers policy contains information about a set of HTTP headers. To create
+    /// a response headers policy, you provide some metadata about the policy and a set of
+    /// configurations that specify the headers.
     /// </para><para>
     /// After you create a response headers policy, you can use its ID to attach it to one
     /// or more cache behaviors in a CloudFront distribution. When it's attached to a cache
-    /// behavior, CloudFront adds the headers in the policy to HTTP responses that it sends
-    /// for requests that match the cache behavior.
+    /// behavior, the response headers policy affects the HTTP headers that CloudFront includes
+    /// in HTTP responses to requests that match the cache behavior. CloudFront adds or removes
+    /// response headers according to the configuration of the response headers policy.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">Adding
+    /// or removing HTTP headers in CloudFront responses</a> in the <i>Amazon CloudFront Developer
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CFResponseHeadersPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -205,6 +210,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResponseHeadersPolicyConfig_CustomHeadersConfig_Items")]
         public Amazon.CloudFront.Model.ResponseHeadersPolicyCustomHeader[] CustomHeadersConfig_Item { get; set; }
+        #endregion
+        
+        #region Parameter RemoveHeadersConfig_Item
+        /// <summary>
+        /// <para>
+        /// <para>The list of HTTP header names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResponseHeadersPolicyConfig_RemoveHeadersConfig_Items")]
+        public Amazon.CloudFront.Model.ResponseHeadersPolicyRemoveHeader[] RemoveHeadersConfig_Item { get; set; }
         #endregion
         
         #region Parameter XSSProtection_ModeBlock
@@ -410,6 +426,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Int32? CustomHeadersConfig_Quantity { get; set; }
         #endregion
         
+        #region Parameter RemoveHeadersConfig_Quantity
+        /// <summary>
+        /// <para>
+        /// <para>The number of HTTP header names in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResponseHeadersPolicyConfig_RemoveHeadersConfig_Quantity")]
+        public System.Int32? RemoveHeadersConfig_Quantity { get; set; }
+        #endregion
+        
         #region Parameter ReferrerPolicy_ReferrerPolicy
         /// <summary>
         /// <para>
@@ -551,6 +578,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 WriteWarning("You are passing $null as a value for parameter ResponseHeadersPolicyConfig_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RemoveHeadersConfig_Item != null)
+            {
+                context.RemoveHeadersConfig_Item = new List<Amazon.CloudFront.Model.ResponseHeadersPolicyRemoveHeader>(this.RemoveHeadersConfig_Item);
+            }
+            context.RemoveHeadersConfig_Quantity = this.RemoveHeadersConfig_Quantity;
             context.ContentSecurityPolicy_ContentSecurityPolicy = this.ContentSecurityPolicy_ContentSecurityPolicy;
             context.ContentSecurityPolicy_Override = this.ContentSecurityPolicy_Override;
             context.ContentTypeOptions_Override = this.ContentTypeOptions_Override;
@@ -641,6 +673,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_CustomHeadersConfig != null)
             {
                 request.ResponseHeadersPolicyConfig.CustomHeadersConfig = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_CustomHeadersConfig;
+                requestResponseHeadersPolicyConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.ResponseHeadersPolicyRemoveHeadersConfig requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig = null;
+            
+             // populate RemoveHeadersConfig
+            var requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfigIsNull = true;
+            requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig = new Amazon.CloudFront.Model.ResponseHeadersPolicyRemoveHeadersConfig();
+            List<Amazon.CloudFront.Model.ResponseHeadersPolicyRemoveHeader> requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Item = null;
+            if (cmdletContext.RemoveHeadersConfig_Item != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Item = cmdletContext.RemoveHeadersConfig_Item;
+            }
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Item != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig.Items = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Item;
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfigIsNull = false;
+            }
+            System.Int32? requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Quantity = null;
+            if (cmdletContext.RemoveHeadersConfig_Quantity != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Quantity = cmdletContext.RemoveHeadersConfig_Quantity.Value;
+            }
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Quantity != null)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig.Quantity = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig_removeHeadersConfig_Quantity.Value;
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfigIsNull = false;
+            }
+             // determine if requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig should be set to null
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfigIsNull)
+            {
+                requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig = null;
+            }
+            if (requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig != null)
+            {
+                request.ResponseHeadersPolicyConfig.RemoveHeadersConfig = requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_RemoveHeadersConfig;
                 requestResponseHeadersPolicyConfigIsNull = false;
             }
             Amazon.CloudFront.Model.ResponseHeadersPolicyServerTimingHeadersConfig requestResponseHeadersPolicyConfig_responseHeadersPolicyConfig_ServerTimingHeadersConfig = null;
@@ -1199,6 +1266,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public List<Amazon.CloudFront.Model.ResponseHeadersPolicyCustomHeader> CustomHeadersConfig_Item { get; set; }
             public System.Int32? CustomHeadersConfig_Quantity { get; set; }
             public System.String ResponseHeadersPolicyConfig_Name { get; set; }
+            public List<Amazon.CloudFront.Model.ResponseHeadersPolicyRemoveHeader> RemoveHeadersConfig_Item { get; set; }
+            public System.Int32? RemoveHeadersConfig_Quantity { get; set; }
             public System.String ContentSecurityPolicy_ContentSecurityPolicy { get; set; }
             public System.Boolean? ContentSecurityPolicy_Override { get; set; }
             public System.Boolean? ContentTypeOptions_Override { get; set; }

@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         /// <para>
         /// <para> (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970
         /// at midnight UTC time). Vehicle data won't be collected after the campaign expires.
-        /// </para><para>Default: 253402243200 (December 31, 9999, 00:00:00 UTC)</para>
+        /// </para><para>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
