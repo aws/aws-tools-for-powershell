@@ -28,7 +28,8 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Update the subscription notification for exception notification.
+    /// Updates the specified notification subscription in Amazon Security Lake for the organization
+    /// you specify.
     /// </summary>
     [Cmdlet("Update", "SLKDatalakeExceptionsSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter NotificationEndpoint
         /// <summary>
         /// <para>
-        /// <para>The account which is subscribed to receive exception notifications.</para>
+        /// <para>The account that is subscribed to receive exception notifications.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

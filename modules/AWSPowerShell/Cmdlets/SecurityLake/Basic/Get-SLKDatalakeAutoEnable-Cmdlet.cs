@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
     /// Retrieves the configuration that will be automatically set up for accounts added to
-    /// the organization after the organization has on boarded to Amazon Security Lake. This
+    /// the organization after the organization has onboarded to Amazon Security Lake. This
     /// API does not take input parameters.
     /// </summary>
     [Cmdlet("Get", "SLKDatalakeAutoEnable")]

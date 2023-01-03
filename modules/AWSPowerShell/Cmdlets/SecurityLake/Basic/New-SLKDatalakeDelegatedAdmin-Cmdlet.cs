@@ -28,9 +28,9 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Designates the Security Lake administrator account for the organization. This API
-    /// can only be called by the organization management account. The organization management
-    /// account cannot be the delegated administrator account.
+    /// Designates the Amazon Security Lake delegated administrator account for the organization.
+    /// This API can only be called by the organization management account. The organization
+    /// management account cannot be the delegated administrator account.
     /// </summary>
     [Cmdlet("New", "SLKDatalakeDelegatedAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>Account ID of the Security Lake delegated administrator.</para>
+        /// <para>The Amazon Web Services account ID of the Security Lake delegated administrator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// List the Amazon Security Lake exceptions that you can use to find the source of problems
+    /// Lists the Amazon Security Lake exceptions that you can use to find the source of problems
     /// and fix them.
     /// </summary>
     [Cmdlet("Get", "SLKDatalakeExceptionList")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter RegionSet
         /// <summary>
         /// <para>
-        /// <para>List the regions from which exceptions are retrieved.</para>
+        /// <para>List the Amazon Web Services Regions from which exceptions are retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>List if there are more results available. if nextToken is returned, You can make the
-        /// call again using the returned token to retrieve the next page</para>
+        /// <para>List if there are more results available. The value of nextToken is a unique pagination
+        /// token for each page. Repeat the call using the returned token to retrieve the next
+        /// page. Keep all other arguments unchanged. </para><para>Each pagination token expires after 24 hours. Using an expired pagination token will
+        /// return an HTTP 400 InvalidToken error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

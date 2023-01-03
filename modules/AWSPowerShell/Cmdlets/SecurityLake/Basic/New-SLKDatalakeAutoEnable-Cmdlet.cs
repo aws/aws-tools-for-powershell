@@ -28,10 +28,9 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Automatically enable Security Lake in the specified Regions to begin ingesting security
-    /// data. When you choose to enable organization accounts automatically, then Security
-    /// Lake begins to enable new accounts as member accounts as they are added to the organization.
-    /// Security Lake does not enable existing organization accounts that are not yet enabled.
+    /// Automatically enables Amazon Security Lake for new member accounts in your organization.
+    /// Security Lake is not automatically enabled for any existing member accounts in your
+    /// organization.
     /// </summary>
     [Cmdlet("New", "SLKDatalakeAutoEnable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ConfigurationForNewAccount
         /// <summary>
         /// <para>
-        /// <para>Enable Amazon Security Lake with the specified configurations settings to begin ingesting
-        /// security data for new accounts in Security Lake. </para>
+        /// <para>Enable Security Lake with the specified configuration settings to begin collecting
+        /// security data for new accounts in your organization. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

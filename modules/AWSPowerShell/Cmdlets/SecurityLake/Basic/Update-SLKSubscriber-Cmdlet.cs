@@ -28,7 +28,9 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Update the subscription permission for the given Security Lake account ID.
+    /// Updates an existing subscription for the given Amazon Security Lake account ID. You
+    /// can update a subscriber by changing the sources that the subscriber consumes data
+    /// from.
     /// </summary>
     [Cmdlet("Update", "SLKSubscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityLake.Model.SubscriberResource")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ExternalId
         /// <summary>
         /// <para>
-        /// <para>External ID of the Security Lake account.</para>
+        /// <para>The external ID of the Security Lake account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>A value created by Security Lake that uniquely identifies your <code>UpdateSubscriber</code>
-        /// API request. </para>
+        /// <para>A value created by Security Lake that uniquely identifies your subscription. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,13 +72,19 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The supported Amazon Web Services services from which logs and events are collected.
-        /// Amazon Security Lake supports logs and events collection for the following natively-supported
-        /// Amazon Web Services services. For more information, see the Amazon Security Lake User
-        /// Guide.</para>
+        /// <para>The supported Amazon Web Services from which logs and events are collected. For the
+        /// list of supported Amazon Web Services, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Amazon
+        /// Security Lake User Guide</a>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SourceTypes")]
         public Amazon.SecurityLake.Model.SourceType[] SourceType { get; set; }
         #endregion
@@ -85,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberDescription
         /// <summary>
         /// <para>
-        /// <para>Description of the Security Lake account subscriber.</para>
+        /// <para>The description of the Security Lake account subscriber.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberName
         /// <summary>
         /// <para>
-        /// <para>Name of the Security Lake account subscriber. </para>
+        /// <para>The name of the Security Lake account subscriber. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,6 +183,12 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             {
                 context.SourceType = new List<Amazon.SecurityLake.Model.SourceType>(this.SourceType);
             }
+            #if MODULAR
+            if (this.SourceType == null && ParameterWasBound(nameof(this.SourceType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SubscriberDescription = this.SubscriberDescription;
             context.SubscriberName = this.SubscriberName;
             

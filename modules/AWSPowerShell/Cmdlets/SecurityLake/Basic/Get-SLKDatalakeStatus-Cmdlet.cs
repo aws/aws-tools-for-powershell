@@ -28,8 +28,8 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieve the Security Lake configuration object for the specified account ID. This
-    /// API does not take input parameters.
+    /// Retrieves a snapshot of the current Region, including whether Amazon Security Lake
+    /// is enabled for those accounts and which sources Security Lake is collecting data from.
     /// </summary>
     [Cmdlet("Get", "SLKDatalakeStatus")]
     [OutputType("Amazon.SecurityLake.Model.AccountSources")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter AccountSet
         /// <summary>
         /// <para>
-        /// <para>The account IDs for which a static snapshot of the current Region, including enabled
-        /// accounts and log sources is retrieved.</para>
+        /// <para>The Amazon Web Services account ID for which a static snapshot of the current Amazon
+        /// Web Services Region, including enabled accounts and log sources, is retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter MaxAccountResult
         /// <summary>
         /// <para>
-        /// <para>The maximum limit of accounts for which the static snapshot of the current Region
-        /// including enabled accounts and log sources is retrieved.</para>
+        /// <para>The maximum limit of accounts for which the static snapshot of the current Region,
+        /// including enabled accounts and log sources, is retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,11 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If nextToken is returned, there are more results available. The value of nextToken
-        /// is a unique pagination token for each page. Make the call again using the returned
-        /// token to retrieve the next page. Keep all other arguments unchanged. Each pagination
-        /// token expires after 24 hours. Using an expired pagination token will return an HTTP
-        /// 400 InvalidToken error.</para>
+        /// <para>Lists if there are more results available. The value of nextToken is a unique pagination
+        /// token for each page. Repeat the call using the returned token to retrieve the next
+        /// page. Keep all other arguments unchanged. </para><para>Each pagination token expires after 24 hours. Using an expired pagination token will
+        /// return an HTTP 400 InvalidToken error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

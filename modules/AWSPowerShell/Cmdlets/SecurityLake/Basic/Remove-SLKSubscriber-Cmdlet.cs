@@ -28,8 +28,9 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Deletes the specified subscription permissions to Security Lake. Deletes the specified
-    /// subscription permissions from the specified organization.
+    /// Deletes the subscription permission for accounts that are already enabled in Amazon
+    /// Security Lake. You can delete a subscriber and remove access to data in the current
+    /// Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Remove", "SLKSubscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -28,7 +28,7 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Removes a custom log source from Security Lake.
+    /// Removes a custom log source from Amazon Security Lake.
     /// </summary>
     [Cmdlet("Remove", "SLKCustomLogSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter CustomSourceName
         /// <summary>
         /// <para>
-        /// <para>The custom source name for the custome log source.</para>
+        /// <para>The custom source name for the custom log source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

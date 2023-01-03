@@ -28,7 +28,7 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Lists the log sources in the current region.
+    /// Retrieves the log sources in the current Amazon Web Services Region.
     /// </summary>
     [Cmdlet("Get", "SLKLogSourceList")]
     [OutputType("System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.Dictionary<System.String, System.Collections.Generic.List<System.String>>>")]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ListAllDimension
         /// <summary>
         /// <para>
-        /// <para>List the view of log sources for enabled Security Lake accounts in all Regions and
-        /// source types.</para>
+        /// <para>List the view of log sources for enabled Amazon Security Lake accounts for specific
+        /// Amazon Web Services sources from specific accounts and specific Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ListSingleDimension
         /// <summary>
         /// <para>
-        /// <para>List the view of log sources for enabled Security Lake accounts for the entire region.</para>
+        /// <para>List the view of log sources for enabled Security Lake accounts for all Amazon Web
+        /// Services sources from specific accounts or specific Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ListTwoDimension
         /// <summary>
         /// <para>
-        /// <para>Lists the log sources for the specified source types in enabled Security Lake accounts
-        /// for the entire Region, for selected member accounts.</para>
+        /// <para>Lists the view of log sources for enabled Security Lake accounts for specific Amazon
+        /// Web Services sources from specific accounts or specific Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of accounts for which the configuration is displayed.</para>
+        /// <para>The maximum number of accounts for which the log sources are displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If nextToken is returned, there are more results available. You can make the call
-        /// again using the returned token to retrieve the next page.</para>
+        /// <para>If nextToken is returned, there are more results available. You can repeat the call
+        /// using the returned token to retrieve the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

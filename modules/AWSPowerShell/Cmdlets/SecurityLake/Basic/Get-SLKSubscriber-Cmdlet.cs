@@ -28,7 +28,8 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Retrieves subscription information for the specified subscription ID.
+    /// Retrieves the subscription information for the specified subscription ID. You can
+    /// get information about a specific subscriber.
     /// </summary>
     [Cmdlet("Get", "SLKSubscriber")]
     [OutputType("Amazon.SecurityLake.Model.SubscriberResource")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>A value created by Security Lake that uniquely identifies your <code>GetSubscriber</code>
+        /// <para>A value created by Amazon Security Lake that uniquely identifies your <code>GetSubscriber</code>
         /// API request.</para>
         /// </para>
         /// </summary>

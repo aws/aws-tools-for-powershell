@@ -28,8 +28,8 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Deletes the specified notification subscription in Security Lake. Deletes the specified
-    /// subscription notifications in the specified organization.
+    /// Deletes the specified notification subscription in Amazon Security Lake for the organization
+    /// you specify.
     /// </summary>
     [Cmdlet("Remove", "SLKDatalakeExceptionsSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

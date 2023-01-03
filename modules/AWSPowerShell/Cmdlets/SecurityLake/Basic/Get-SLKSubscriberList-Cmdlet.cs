@@ -28,7 +28,9 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// List all subscribers for the specific Security Lake account ID.
+    /// List all subscribers for the specific Amazon Security Lake account ID. You can retrieve
+    /// a list of subscriptions associated with a specific organization or Amazon Web Services
+    /// account.
     /// </summary>
     [Cmdlet("Get", "SLKSubscriberList")]
     [OutputType("Amazon.SecurityLake.Model.SubscriberResource")]
@@ -54,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If nextToken is returned, there are more results available. You can make the call
-        /// again using the returned token to retrieve the next page.</para>
+        /// <para>If nextToken is returned, there are more results available. You can repeat the call
+        /// using the returned token to retrieve the next page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

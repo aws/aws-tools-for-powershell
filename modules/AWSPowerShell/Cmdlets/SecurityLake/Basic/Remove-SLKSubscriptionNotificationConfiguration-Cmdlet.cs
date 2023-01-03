@@ -28,8 +28,8 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Deletes the specified notification subscription in Security Lake. Deletes the specified
-    /// subscription notifications from the specified organization.
+    /// Deletes the specified notification subscription in Amazon Security Lake for the organization
+    /// you specify.
     /// </summary>
     [Cmdlet("Remove", "SLKSubscriptionNotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriptionId
         /// <summary>
         /// <para>
-        /// <para>The subscription ID of the Amazon Security Lake subscriber account.</para>
+        /// <para>The ID of the Security Lake subscriber account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

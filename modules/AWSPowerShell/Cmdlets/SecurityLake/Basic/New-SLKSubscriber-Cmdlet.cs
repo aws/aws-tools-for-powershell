@@ -28,8 +28,9 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Creates a subscription permission for accounts that are already enabled in Security
-    /// Lake.
+    /// Creates a subscription permission for accounts that are already enabled in Amazon
+    /// Security Lake. You can create a subscriber with access to data in the current Amazon
+    /// Web Services Region.
     /// </summary>
     [Cmdlet("New", "SLKSubscriber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityLake.Model.CreateSubscriberResponse")]
@@ -54,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The third party Amazon Web Services account ID used to access your data.</para>
+        /// <para>The Amazon Web Services account ID used to access your data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ExternalId
         /// <summary>
         /// <para>
-        /// <para>The external ID of the subscriber. External ID allows the user that is assuming the
-        /// role to assert the circumstances in which they are operating. It also provides a way
-        /// for the account owner to permit the role to be assumed only under specific circumstances.</para>
+        /// <para>The external ID of the subscriber. This lets the user that is assuming the role assert
+        /// the circumstances in which they are operating. It also provides a way for the account
+        /// owner to permit the role to be assumed only under specific circumstances.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,9 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The supported Amazon Web Services services from which logs and events are collected.
-        /// Amazon Security Lake supports logs and events collection for natively-supported Amazon
-        /// Web Services services.</para>
+        /// <para>The supported Amazon Web Services from which logs and events are collected. Security
+        /// Lake supports log and event collection for natively supported Amazon Web Services.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberDescription
         /// <summary>
         /// <para>
-        /// <para>The subscriber descriptions for the subscriber account in Amazon Security Lake. </para>
+        /// <para>The description for your subscriber account in Security Lake. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriberName
         /// <summary>
         /// <para>
-        /// <para>The name of your Amazon Security Lake subscriber account.</para>
+        /// <para>The name of your Security Lake subscriber account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

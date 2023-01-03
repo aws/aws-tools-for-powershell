@@ -28,7 +28,7 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Create a new subscription notification or add the existing subscription notification
+    /// Creates a new subscription notification or adds the existing subscription notification
     /// setting for the specified subscription ID.
     /// </summary>
     [Cmdlet("Update", "SLKSubscriptionNotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter CreateSq
         /// <summary>
         /// <para>
-        /// <para>Create a new subscription notification for the specified subscription ID in Security
-        /// Lake.</para>
+        /// <para>Create a new subscription notification for the specified subscription ID in Amazon
+        /// Security Lake.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,8 +28,8 @@ using Amazon.SecurityLake.Model;
 namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
-    /// Creates the specified notification subscription in Security Lake. Creates the specified
-    /// subscription notifications from the specified organization.
+    /// Notifies the subscriber when new data is written to the data lake for the sources
+    /// that the subscriber consumes in Security Lake.
     /// </summary>
     [Cmdlet("New", "SLKSubscriptionNotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter CreateSq
         /// <summary>
         /// <para>
-        /// <para>Create a new subscription notification for the specified subscription ID in Security
-        /// Lake.</para>
+        /// <para>Create an Amazon Simple Queue Service queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter HttpsApiKeyName
         /// <summary>
         /// <para>
-        /// <para>The key name for the subscription notification.</para>
+        /// <para>The key name for the notification subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter HttpsApiKeyValue
         /// <summary>
         /// <para>
-        /// <para>The key value for the subscription notification.</para>
+        /// <para>The key value for the notification subscription.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter HttpsMethod
         /// <summary>
         /// <para>
-        /// <para>The HTTPS method used for the subscription notification. </para>
+        /// <para>The HTTPS method used for the notification subscription. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) specifying the role of the subscriber.</para>
+        /// <para>The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriptionEndpoint
         /// <summary>
         /// <para>
-        /// <para>The subscription endpoint in Security Lake.</para>
+        /// <para>The subscription endpoint in Security Lake. If you prefer notification with an HTTPs
+        /// endpoint, populate this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriptionId
         /// <summary>
         /// <para>
-        /// <para>The subscription ID for which the subscription notification is specified. </para>
+        /// <para>The subscription ID for the notification subscription/</para>
         /// </para>
         /// </summary>
         #if !MODULAR
