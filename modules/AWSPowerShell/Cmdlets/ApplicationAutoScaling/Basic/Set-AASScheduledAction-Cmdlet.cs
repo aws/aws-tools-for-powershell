@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the resource. If you want to specify a higher limit, you can request an increase.
         /// For more information, consult the documentation for that service. For information
         /// about the default quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service
-        /// Endpoints and Quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableTargetAction_MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum capacity.</para><para>For certain resources, the minimum value allowed is 0. This includes Lambda provisioned
-        /// concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom
-        /// resources. For all other resources, the minimum value allowed is 1.</para>
+        /// <para>The minimum capacity.</para><para>When the scheduled action runs, the resource will have at least this much capacity,
+        /// but it might have more depending on other settings, such as the target utilization
+        /// level of a target tracking scaling policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
         /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
         /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
-        /// for an SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
+        /// for a SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
         /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency

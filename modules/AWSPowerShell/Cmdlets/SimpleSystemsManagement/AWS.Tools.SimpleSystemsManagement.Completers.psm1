@@ -163,7 +163,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.DocumentType
         "New-SSMDocument/DocumentType"
         {
-            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","Automation.ChangeTemplate","ChangeCalendar","CloudFormation","Command","ConformancePackTemplate","DeploymentStrategy","Package","Policy","ProblemAnalysis","ProblemAnalysisTemplate","Session"
+            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","Automation.ChangeTemplate","ChangeCalendar","CloudFormation","Command","ConformancePackTemplate","DeploymentStrategy","Package","Policy","ProblemAnalysis","ProblemAnalysisTemplate","QuickSetup","Session"
             break
         }
 

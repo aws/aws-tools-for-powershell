@@ -28,18 +28,22 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Registers or updates a scalable target. 
+    /// Registers or updates a scalable target, the resource that you want to scale.
     /// 
     ///  
     /// <para>
-    /// A scalable target is a resource that Application Auto Scaling can scale out and scale
-    /// in. Scalable targets are uniquely identified by the combination of resource ID, scalable
-    /// dimension, and namespace. 
+    /// Scalable targets are uniquely identified by the combination of resource ID, scalable
+    /// dimension, and namespace, which represents some capacity dimension of the underlying
+    /// service.
     /// </para><para>
-    /// When you register a new scalable target, you must specify values for minimum and maximum
-    /// capacity. Current capacity will be adjusted within the specified range when scaling
-    /// starts. Application Auto Scaling scaling policies will not scale capacity to values
-    /// that are outside of this range.
+    /// When you register a new scalable target, you must specify values for the minimum and
+    /// maximum capacity. If the specified resource is not active in the target service, this
+    /// operation does not change the resource's current capacity. Otherwise, it changes the
+    /// resource's current capacity to a value that is inside of this range.
+    /// </para><para>
+    /// If you choose to add a scaling policy, current capacity is adjustable within the specified
+    /// range when scaling starts. Application Auto Scaling scaling policies will not scale
+    /// capacity to values that are outside of the minimum and maximum range.
     /// </para><para>
     /// After you register a scalable target, you do not need to register it again to use
     /// other Application Auto Scaling operations. To see which resources have been registered,
@@ -106,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the resource. If you want to specify a higher limit, you can request an increase.
         /// For more information, consult the documentation for that service. For information
         /// about the default quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service
-        /// Endpoints and Quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,9 +123,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>The minimum value that you plan to scale in to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale in (contract) as needed to the minimum capacity
         /// limit in response to changing demand. This property is required when registering a
-        /// new scalable target.</para><para>For certain resources, the minimum value allowed is 0. This includes Lambda provisioned
-        /// concurrency, Spot Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom
-        /// resources. For all other resources, the minimum value allowed is 1.</para>
+        /// new scalable target.</para><para>For the following resources, the minimum value allowed is 0.</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para> Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>custom resources</para></li></ul><para>It's strongly recommended that you specify a value greater than 0. A value greater
+        /// than 0 means that data points are continuously reported to CloudWatch that scaling
+        /// policies can use to scale on a metric like average CPU utilization.</para><para>For all other resources, the minimum allowed value depends on the type of resource
+        /// that you are using. If you provide a value that is lower than what a resource can
+        /// accept, an error occurs. In which case, the error message will provide the minimum
+        /// value that the resource can accept.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
         /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
         /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
-        /// for an SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
+        /// for a SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
         /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency

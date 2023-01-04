@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     ///  
     /// <para>
     /// You can filter the results using <code>ResourceId</code> and <code>ScalableDimension</code>.
+    /// </para><para>
+    /// For information about viewing scaling activities using the Amazon Web Services CLI,
+    /// see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling
+    /// activities for Application Auto Scaling</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AASScalingActivity")]
@@ -45,6 +49,21 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     )]
     public partial class GetAASScalingActivityCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter IncludeNotScaledActivity
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include activities that aren't scaled (<i>not scaled activities</i>)
+        /// in the response. Not scaled activities are activities that aren't completed or started
+        /// for various reasons, such as preventing infinite scaling loops. For help interpreting
+        /// the not scaled reason details in the response, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scaling-activities.html">Scaling
+        /// activities for Application Auto Scaling</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeNotScaledActivities")]
+        public System.Boolean? IncludeNotScaledActivity { get; set; }
+        #endregion
         
         #region Parameter ResourceId
         /// <summary>
@@ -93,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
         /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
         /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
-        /// for an SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
+        /// for a SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
         /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
@@ -221,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                 context.Select = (response, cmdlet) => this.ServiceNamespace;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludeNotScaledActivity = this.IncludeNotScaledActivity;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -262,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             // create request and set iteration invariants
             var request = new Amazon.ApplicationAutoScaling.Model.DescribeScalingActivitiesRequest();
             
+            if (cmdletContext.IncludeNotScaledActivity != null)
+            {
+                request.IncludeNotScaledActivities = cmdletContext.IncludeNotScaledActivity.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -333,6 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             
             // create request and set iteration invariants
             var request = new Amazon.ApplicationAutoScaling.Model.DescribeScalingActivitiesRequest();
+            if (cmdletContext.IncludeNotScaledActivity != null)
+            {
+                request.IncludeNotScaledActivities = cmdletContext.IncludeNotScaledActivity.Value;
+            }
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
@@ -457,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeNotScaledActivity { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResourceId { get; set; }

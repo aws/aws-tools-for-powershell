@@ -156,7 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter CustomizedMetricSpecification_MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the metric. </para>
+        /// <para>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
+        /// the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a>
+        /// object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the scaling policy.</para>
+        /// <para>The name of the scaling policy.</para><para>You cannot change the name of a scaling policy, but you can delete the original scaling
+        /// policy and create a new scaling policy with the same settings and a different name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -210,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
+        /// <para>The scaling policy type. This parameter is required if you are creating a scaling
+        /// policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
         /// Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
         /// tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
         /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
@@ -225,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only
-        /// to Spot Fleet requests and ECS services.</para>
+        /// to Spot Fleets and ECS services.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>Identifies the resource associated with the metric type. You can't specify a resource
         /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
-        /// a target group attached to the Spot Fleet request or ECS service.</para><para>You create the resource label by appending the final portion of the load balancer
+        /// a target group attached to the Spot Fleet or ECS service.</para><para>You create the resource label by appending the final portion of the load balancer
         /// ARN and the final portion of the target group ARN into a single value, separated by
         /// a forward slash (/). The format of the resource label is:</para><para><code>app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff</code>.</para><para>Where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
         /// load balancer ARN</para></li><li><para>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion
@@ -306,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
         /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
         /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
-        /// for an SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
+        /// for a SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
         /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
@@ -415,7 +419,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// range of -2^360 to 2^360. The value must be a valid number based on the choice of
         /// metric. For example, if the metric is CPU utilization, then the target value is a
         /// percent value that represents how much of the CPU can be used before scaling out.
-        /// </para>
+        /// </para><note><para>If the scaling policy specifies the <code>ALBRequestCountPerTarget</code> predefined
+        /// metric, specify the target utilization as the optimal average request count per target
+        /// during any one-minute interval.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -425,7 +431,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter CustomizedMetricSpecification_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of the metric.</para>
+        /// <para>The unit of the metric. For a complete list of the units that CloudWatch supports,
+        /// see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a>
+        /// data type in the <i>Amazon CloudWatch API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
