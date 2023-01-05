@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ForceDeleteAddOn
         /// <summary>
         /// <para>
-        /// <para>A Boolean value to indicate whether to delete the enabled add-ons for the disk.</para>
+        /// <para>A Boolean value to indicate whether to delete all add-ons for the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

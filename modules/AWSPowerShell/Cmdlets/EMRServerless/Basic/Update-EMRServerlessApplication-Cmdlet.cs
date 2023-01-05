@@ -122,6 +122,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }
         #endregion
         
+        #region Parameter ImageConfiguration_ImageUri
+        /// <summary>
+        /// <para>
+        /// <para>The URI of an image in the Amazon ECR registry. This field is required when you create
+        /// a new application. If you leave this field blank in an update, Amazon EMR will remove
+        /// the image configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageConfiguration_ImageUri { get; set; }
+        #endregion
+        
         #region Parameter InitialCapacity
         /// <summary>
         /// <para>
@@ -162,6 +174,22 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfiguration_SubnetIds")]
         public System.String[] NetworkConfiguration_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter WorkerTypeSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>.
+        /// This parameter must contain all valid worker types for a Spark or Hive application.
+        /// Valid worker types include <code>Driver</code> and <code>Executor</code> for Spark
+        /// applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications.
+        /// You can either set image details in this parameter for each worker type, or in <code>imageConfiguration</code>
+        /// for all worker types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkerTypeSpecifications")]
+        public System.Collections.Hashtable WorkerTypeSpecification { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -249,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.AutoStopConfiguration_Enabled = this.AutoStopConfiguration_Enabled;
             context.AutoStopConfiguration_IdleTimeoutMinute = this.AutoStopConfiguration_IdleTimeoutMinute;
             context.ClientToken = this.ClientToken;
+            context.ImageConfiguration_ImageUri = this.ImageConfiguration_ImageUri;
             if (this.InitialCapacity != null)
             {
                 context.InitialCapacity = new Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig>(StringComparer.Ordinal);
@@ -267,6 +296,14 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (this.NetworkConfiguration_SubnetId != null)
             {
                 context.NetworkConfiguration_SubnetId = new List<System.String>(this.NetworkConfiguration_SubnetId);
+            }
+            if (this.WorkerTypeSpecification != null)
+            {
+                context.WorkerTypeSpecification = new Dictionary<System.String, Amazon.EMRServerless.Model.WorkerTypeSpecificationInput>(StringComparer.Ordinal);
+                foreach (var hashKey in this.WorkerTypeSpecification.Keys)
+                {
+                    context.WorkerTypeSpecification.Add((String)hashKey, (WorkerTypeSpecificationInput)(this.WorkerTypeSpecification[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -344,6 +381,25 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            
+             // populate ImageConfiguration
+            var requestImageConfigurationIsNull = true;
+            request.ImageConfiguration = new Amazon.EMRServerless.Model.ImageConfigurationInput();
+            System.String requestImageConfiguration_imageConfiguration_ImageUri = null;
+            if (cmdletContext.ImageConfiguration_ImageUri != null)
+            {
+                requestImageConfiguration_imageConfiguration_ImageUri = cmdletContext.ImageConfiguration_ImageUri;
+            }
+            if (requestImageConfiguration_imageConfiguration_ImageUri != null)
+            {
+                request.ImageConfiguration.ImageUri = requestImageConfiguration_imageConfiguration_ImageUri;
+                requestImageConfigurationIsNull = false;
+            }
+             // determine if request.ImageConfiguration should be set to null
+            if (requestImageConfigurationIsNull)
+            {
+                request.ImageConfiguration = null;
+            }
             if (cmdletContext.InitialCapacity != null)
             {
                 request.InitialCapacity = cmdletContext.InitialCapacity;
@@ -416,6 +472,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 request.NetworkConfiguration = null;
             }
+            if (cmdletContext.WorkerTypeSpecification != null)
+            {
+                request.WorkerTypeSpecifications = cmdletContext.WorkerTypeSpecification;
+            }
             
             CmdletOutput output;
             
@@ -483,12 +543,14 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.Boolean? AutoStopConfiguration_Enabled { get; set; }
             public System.Int32? AutoStopConfiguration_IdleTimeoutMinute { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String ImageConfiguration_ImageUri { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
             public System.String MaximumCapacity_Cpu { get; set; }
             public System.String MaximumCapacity_Disk { get; set; }
             public System.String MaximumCapacity_Memory { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroupId { get; set; }
             public List<System.String> NetworkConfiguration_SubnetId { get; set; }
+            public Dictionary<System.String, Amazon.EMRServerless.Model.WorkerTypeSpecificationInput> WorkerTypeSpecification { get; set; }
             public System.Func<Amazon.EMRServerless.Model.UpdateApplicationResponse, UpdateEMRServerlessApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Application;
         }

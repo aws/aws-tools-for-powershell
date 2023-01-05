@@ -29,7 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Lists the set of CA certificates provided by Amazon RDS for this Amazon Web Services
-    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// account.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+    /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>
+    /// and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+    /// Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+    /// User Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSCertificate")]
     [OutputType("Amazon.RDS.Model.Certificate")]

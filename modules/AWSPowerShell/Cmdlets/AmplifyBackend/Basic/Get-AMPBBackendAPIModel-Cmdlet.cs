@@ -28,7 +28,7 @@ using Amazon.AmplifyBackend.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPB
 {
     /// <summary>
-    /// Generates a model schema for existing backend API resource.
+    /// Gets a model introspection schema for an existing backend API resource.
     /// </summary>
     [Cmdlet("Get", "AMPBBackendAPIModel")]
     [OutputType("Amazon.AmplifyBackend.Model.GetBackendAPIModelsResponse")]

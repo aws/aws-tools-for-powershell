@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The ID of the Amazon Web Services KMS key to use to encrypt the snapshot exported
         /// to Amazon S3. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
         /// ARN, or alias name for the KMS key. The caller of this operation must be authorized
-        /// to execute the following operations. These can be set in the Amazon Web Services KMS
-        /// key policy:</para><ul><li><para>GrantOperation.Encrypt</para></li><li><para>GrantOperation.Decrypt</para></li><li><para>GrantOperation.GenerateDataKey</para></li><li><para>GrantOperation.GenerateDataKeyWithoutPlaintext</para></li><li><para>GrantOperation.ReEncryptFrom</para></li><li><para>GrantOperation.ReEncryptTo</para></li><li><para>GrantOperation.CreateGrant</para></li><li><para>GrantOperation.DescribeKey</para></li><li><para>GrantOperation.RetireGrant</para></li></ul>
+        /// to run the following operations. These can be set in the Amazon Web Services KMS key
+        /// policy:</para><ul><li><para>kms:Encrypt</para></li><li><para>kms:Decrypt</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:GenerateDataKeyWithoutPlaintext</para></li><li><para>kms:ReEncryptFrom</para></li><li><para>kms:ReEncryptTo</para></li><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:RetireGrant</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

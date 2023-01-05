@@ -331,12 +331,47 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         public Amazon.AppRunner.Runtime CodeConfigurationValues_Runtime { get; set; }
         #endregion
         
+        #region Parameter CodeConfigurationValues_RuntimeEnvironmentSecret
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs representing the secrets and parameters that get referenced
+        /// to your service as an environment variable. The supported values are either the full
+        /// Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter
+        /// in the Amazon Web Services Systems Manager Parameter Store.</para><note><ul><li><para> If the Amazon Web Services Systems Manager Parameter Store parameter exists in the
+        /// same Amazon Web Services Region as the service that you're launching, you can use
+        /// either the full ARN or name of the secret. If the parameter exists in a different
+        /// Region, then the full ARN must be specified. </para></li><li><para> Currently, cross account referencing of Amazon Web Services Systems Manager Parameter
+        /// Store parameter is not supported. </para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_RuntimeEnvironmentSecrets")]
+        public System.Collections.Hashtable CodeConfigurationValues_RuntimeEnvironmentSecret { get; set; }
+        #endregion
+        
+        #region Parameter ImageConfiguration_RuntimeEnvironmentSecret
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs representing the secrets and parameters that get referenced
+        /// to your service as an environment variable. The supported values are either the full
+        /// Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter
+        /// in the Amazon Web Services Systems Manager Parameter Store.</para><note><ul><li><para> If the Amazon Web Services Systems Manager Parameter Store parameter exists in the
+        /// same Amazon Web Services Region as the service that you're launching, you can use
+        /// either the full ARN or name of the secret. If the parameter exists in a different
+        /// Region, then the full ARN must be specified. </para></li><li><para> Currently, cross account referencing of Amazon Web Services Systems Manager Parameter
+        /// Store parameter is not supported. </para></li></ul></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceConfiguration_ImageRepository_ImageConfiguration_RuntimeEnvironmentSecrets")]
+        public System.Collections.Hashtable ImageConfiguration_RuntimeEnvironmentSecret { get; set; }
+        #endregion
+        
         #region Parameter CodeConfigurationValues_RuntimeEnvironmentVariable
         /// <summary>
         /// <para>
         /// <para>The environment variables that are available to your running App Runner service. An
-        /// array of key-value pairs. Keys with a prefix of <code>AWSAPPRUNNER</code> are reserved
-        /// for system use and aren't valid.</para>
+        /// array of key-value pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,8 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
         /// <summary>
         /// <para>
         /// <para>Environment variables that are available to your running App Runner service. An array
-        /// of key-value pairs. Keys with a prefix of <code>AWSAPPRUNNER</code> are reserved for
-        /// system use and aren't valid.</para>
+        /// of key-value pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -558,6 +592,14 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.CodeConfigurationValues_BuildCommand = this.CodeConfigurationValues_BuildCommand;
             context.CodeConfigurationValues_Port = this.CodeConfigurationValues_Port;
             context.CodeConfigurationValues_Runtime = this.CodeConfigurationValues_Runtime;
+            if (this.CodeConfigurationValues_RuntimeEnvironmentSecret != null)
+            {
+                context.CodeConfigurationValues_RuntimeEnvironmentSecret = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CodeConfigurationValues_RuntimeEnvironmentSecret.Keys)
+                {
+                    context.CodeConfigurationValues_RuntimeEnvironmentSecret.Add((String)hashKey, (String)(this.CodeConfigurationValues_RuntimeEnvironmentSecret[hashKey]));
+                }
+            }
             if (this.CodeConfigurationValues_RuntimeEnvironmentVariable != null)
             {
                 context.CodeConfigurationValues_RuntimeEnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -572,6 +614,14 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             context.SourceCodeVersion_Type = this.SourceCodeVersion_Type;
             context.SourceCodeVersion_Value = this.SourceCodeVersion_Value;
             context.ImageConfiguration_Port = this.ImageConfiguration_Port;
+            if (this.ImageConfiguration_RuntimeEnvironmentSecret != null)
+            {
+                context.ImageConfiguration_RuntimeEnvironmentSecret = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ImageConfiguration_RuntimeEnvironmentSecret.Keys)
+                {
+                    context.ImageConfiguration_RuntimeEnvironmentSecret.Add((String)hashKey, (String)(this.ImageConfiguration_RuntimeEnvironmentSecret[hashKey]));
+                }
+            }
             if (this.ImageConfiguration_RuntimeEnvironmentVariable != null)
             {
                 context.ImageConfiguration_RuntimeEnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -950,6 +1000,16 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues.Runtime = requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_codeConfigurationValues_Runtime;
                 requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValuesIsNull = false;
             }
+            Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_codeConfigurationValues_RuntimeEnvironmentSecret = null;
+            if (cmdletContext.CodeConfigurationValues_RuntimeEnvironmentSecret != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_codeConfigurationValues_RuntimeEnvironmentSecret = cmdletContext.CodeConfigurationValues_RuntimeEnvironmentSecret;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_codeConfigurationValues_RuntimeEnvironmentSecret != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues.RuntimeEnvironmentSecrets = requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_codeConfigurationValues_RuntimeEnvironmentSecret;
+                requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValuesIsNull = false;
+            }
             Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_CodeRepository_sourceConfiguration_CodeRepository_CodeConfiguration_sourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_codeConfigurationValues_RuntimeEnvironmentVariable = null;
             if (cmdletContext.CodeConfigurationValues_RuntimeEnvironmentVariable != null)
             {
@@ -1073,6 +1133,16 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port != null)
             {
                 requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.Port = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_Port;
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret = null;
+            if (cmdletContext.ImageConfiguration_RuntimeEnvironmentSecret != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret = cmdletContext.ImageConfiguration_RuntimeEnvironmentSecret;
+            }
+            if (requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret != null)
+            {
+                requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration.RuntimeEnvironmentSecrets = requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentSecret;
                 requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfigurationIsNull = false;
             }
             Dictionary<System.String, System.String> requestSourceConfiguration_sourceConfiguration_ImageRepository_sourceConfiguration_ImageRepository_ImageConfiguration_imageConfiguration_RuntimeEnvironmentVariable = null;
@@ -1208,6 +1278,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public System.String CodeConfigurationValues_BuildCommand { get; set; }
             public System.String CodeConfigurationValues_Port { get; set; }
             public Amazon.AppRunner.Runtime CodeConfigurationValues_Runtime { get; set; }
+            public Dictionary<System.String, System.String> CodeConfigurationValues_RuntimeEnvironmentSecret { get; set; }
             public Dictionary<System.String, System.String> CodeConfigurationValues_RuntimeEnvironmentVariable { get; set; }
             public System.String CodeConfigurationValues_StartCommand { get; set; }
             public Amazon.AppRunner.ConfigurationSource CodeConfiguration_ConfigurationSource { get; set; }
@@ -1215,6 +1286,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
             public Amazon.AppRunner.SourceCodeVersionType SourceCodeVersion_Type { get; set; }
             public System.String SourceCodeVersion_Value { get; set; }
             public System.String ImageConfiguration_Port { get; set; }
+            public Dictionary<System.String, System.String> ImageConfiguration_RuntimeEnvironmentSecret { get; set; }
             public Dictionary<System.String, System.String> ImageConfiguration_RuntimeEnvironmentVariable { get; set; }
             public System.String ImageConfiguration_StartCommand { get; set; }
             public System.String ImageRepository_ImageIdentifier { get; set; }

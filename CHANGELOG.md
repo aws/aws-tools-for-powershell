@@ -1,4 +1,15 @@
-﻿### 4.1.243 (2023-01-04 21:46Z)
+﻿### 4.1.244 (2023-01-05 21:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.455.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon App Runner
+    * Modified cmdlet New-AARService: added parameters CodeConfigurationValues_RuntimeEnvironmentSecret and ImageConfiguration_RuntimeEnvironmentSecret.
+    * Modified cmdlet Update-AARService: added parameters CodeConfigurationValues_RuntimeEnvironmentSecret and ImageConfiguration_RuntimeEnvironmentSecret.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameters ImageConfiguration_ImageUri and WorkerTypeSpecification.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameters ImageConfiguration_ImageUri and WorkerTypeSpecification.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstance: added parameter CACertificateIdentifier.
+
+### 4.1.243 (2023-01-04 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.454.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Application Auto Scaling
     * Modified cmdlet Get-AASScalingActivity: added parameter IncludeNotScaledActivity.
