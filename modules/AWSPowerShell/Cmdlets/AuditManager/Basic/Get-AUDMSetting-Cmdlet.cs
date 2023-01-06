@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para> The list of <code>SettingAttribute</code> enum values. </para>
+        /// <para> The list of setting attribute enum values. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

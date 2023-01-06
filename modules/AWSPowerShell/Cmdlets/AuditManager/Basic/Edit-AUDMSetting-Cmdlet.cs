@@ -51,6 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         public Amazon.AuditManager.Model.Role[] DefaultProcessOwner { get; set; }
         #endregion
         
+        #region Parameter DeregistrationPolicy_DeleteResource
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which Audit Manager data will be deleted when you deregister Audit Manager.</para><ul><li><para>If you set the value to <code>ALL</code>, all of your data is deleted within seven
+        /// days of deregistration.</para></li><li><para>If you set the value to <code>DEFAULT</code>, none of your data is deleted at the
+        /// time of deregistration. However, keep in mind that the Audit Manager data retention
+        /// policy still applies. As a result, any evidence data will be deleted two years after
+        /// its creation date. Your other Audit Manager resources will continue to exist indefinitely.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeregistrationPolicy_DeleteResources")]
+        [AWSConstantClassSource("Amazon.AuditManager.DeleteResources")]
+        public Amazon.AuditManager.DeleteResources DeregistrationPolicy_DeleteResource { get; set; }
+        #endregion
+        
         #region Parameter DefaultAssessmentReportsDestination_Destination
         /// <summary>
         /// <para>
@@ -80,9 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         /// event data store that’s used to query your evidence data. As a result, you can’t re-enable
         /// evidence finder and use the feature again. Your only alternative is to <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister</a>
         /// and then <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html">re-register</a>
-        /// Audit Manager. </para><para>Disabling evidence finder is permanent, so consider this decision carefully before
-        /// you proceed. If you’re using Audit Manager as a delegated administrator, keep in mind
-        /// that this action applies to all member accounts in your organization.</para></important>
+        /// Audit Manager. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             {
                 context.DefaultProcessOwner = new List<Amazon.AuditManager.Model.Role>(this.DefaultProcessOwner);
             }
+            context.DeregistrationPolicy_DeleteResource = this.DeregistrationPolicy_DeleteResource;
             context.EvidenceFinderEnabled = this.EvidenceFinderEnabled;
             context.KmsKey = this.KmsKey;
             context.SnsTopic = this.SnsTopic;
@@ -209,6 +224,25 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             if (cmdletContext.DefaultProcessOwner != null)
             {
                 request.DefaultProcessOwners = cmdletContext.DefaultProcessOwner;
+            }
+            
+             // populate DeregistrationPolicy
+            var requestDeregistrationPolicyIsNull = true;
+            request.DeregistrationPolicy = new Amazon.AuditManager.Model.DeregistrationPolicy();
+            Amazon.AuditManager.DeleteResources requestDeregistrationPolicy_deregistrationPolicy_DeleteResource = null;
+            if (cmdletContext.DeregistrationPolicy_DeleteResource != null)
+            {
+                requestDeregistrationPolicy_deregistrationPolicy_DeleteResource = cmdletContext.DeregistrationPolicy_DeleteResource;
+            }
+            if (requestDeregistrationPolicy_deregistrationPolicy_DeleteResource != null)
+            {
+                request.DeregistrationPolicy.DeleteResources = requestDeregistrationPolicy_deregistrationPolicy_DeleteResource;
+                requestDeregistrationPolicyIsNull = false;
+            }
+             // determine if request.DeregistrationPolicy should be set to null
+            if (requestDeregistrationPolicyIsNull)
+            {
+                request.DeregistrationPolicy = null;
             }
             if (cmdletContext.EvidenceFinderEnabled != null)
             {
@@ -286,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             public System.String DefaultAssessmentReportsDestination_Destination { get; set; }
             public Amazon.AuditManager.AssessmentReportDestinationType DefaultAssessmentReportsDestination_DestinationType { get; set; }
             public List<Amazon.AuditManager.Model.Role> DefaultProcessOwner { get; set; }
+            public Amazon.AuditManager.DeleteResources DeregistrationPolicy_DeleteResource { get; set; }
             public System.Boolean? EvidenceFinderEnabled { get; set; }
             public System.String KmsKey { get; set; }
             public System.String SnsTopic { get; set; }

@@ -1,4 +1,9 @@
-﻿### 4.1.244 (2023-01-05 21:58Z)
+﻿### 4.1.245 (2023-01-06 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.456.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Audit Manager
+    * Modified cmdlet Edit-AUDMSetting: added parameter DeregistrationPolicy_DeleteResource.
+
+### 4.1.244 (2023-01-05 21:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.455.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon App Runner
     * Modified cmdlet New-AARService: added parameters CodeConfigurationValues_RuntimeEnvironmentSecret and ImageConfiguration_RuntimeEnvironmentSecret.

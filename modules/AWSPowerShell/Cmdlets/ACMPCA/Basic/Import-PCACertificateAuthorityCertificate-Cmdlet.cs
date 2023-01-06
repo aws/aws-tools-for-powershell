@@ -28,15 +28,16 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Imports a signed private CA certificate into ACM Private CA. This action is used when
-    /// you are using a chain of trust whose root is located outside ACM Private CA. Before
-    /// you can call this action, the following preparations must in place:
+    /// Imports a signed private CA certificate into Amazon Web Services Private CA. This
+    /// action is used when you are using a chain of trust whose root is located outside Amazon
+    /// Web Services Private CA. Before you can call this action, the following preparations
+    /// must in place:
     /// 
     ///  <ol><li><para>
-    /// In ACM Private CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>
+    /// In Amazon Web Services Private CA, call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>
     /// action to create the private CA that you plan to back with the imported certificate.
     /// </para></li><li><para>
-    /// Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCsr.html">GetCertificateAuthorityCsr</a>
+    /// Call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html">GetCertificateAuthorityCsr</a>
     /// action to generate a certificate signing request (CSR).
     /// </para></li><li><para>
     /// Sign the CSR using a root or intermediate CA hosted by either an on-premises PKI hierarchy
@@ -45,12 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// Create a certificate chain and copy the signed certificate and the certificate chain
     /// to your working directory.
     /// </para></li></ol><para>
-    /// ACM Private CA supports three scenarios for installing a CA certificate:
+    /// Amazon Web Services Private CA supports three scenarios for installing a CA certificate:
     /// </para><ul><li><para>
-    /// Installing a certificate for a root CA hosted by ACM Private CA.
+    /// Installing a certificate for a root CA hosted by Amazon Web Services Private CA.
     /// </para></li><li><para>
-    /// Installing a subordinate CA certificate whose parent authority is hosted by ACM Private
-    /// CA.
+    /// Installing a subordinate CA certificate whose parent authority is hosted by Amazon
+    /// Web Services Private CA.
     /// </para></li><li><para>
     /// Installing a subordinate CA certificate whose parent authority is externally hosted.
     /// </para></li></ul><para>
@@ -73,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// </para></li><li><para>
     /// The maximum allowed size of a certificate chain is 2 MB.
     /// </para></li></ul><para><i>Enforcement of Critical Constraints</i></para><para>
-    /// ACM Private CA allows the following extensions to be marked critical in the imported
-    /// CA certificate or chain.
+    /// Amazon Web Services Private CA allows the following extensions to be marked critical
+    /// in the imported CA certificate or chain.
     /// </para><ul><li><para>
     /// Basic constraints (<i>must</i> be marked critical)
     /// </para></li><li><para>
@@ -100,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// </para></li><li><para>
     /// Inhibit anyPolicy
     /// </para></li></ul><para>
-    /// ACM Private CA rejects the following extensions when they are marked critical in an
-    /// imported CA certificate or chain.
+    /// Amazon Web Services Private CA rejects the following extensions when they are marked
+    /// critical in an imported CA certificate or chain.
     /// </para><ul><li><para>
     /// Name constraints
     /// </para></li><li><para>
@@ -148,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
+        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
         /// This must be of the form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
@@ -167,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>A PEM-encoded file that contains all of your certificates, other than the certificate
-        /// you're importing, chaining up to your root CA. Your ACM Private CA-hosted or on-premises
-        /// root certificate is the last in the chain, and each certificate in the chain signs
-        /// the one preceding. </para><para>This parameter must be supplied when you import a subordinate CA. When you import
+        /// you're importing, chaining up to your root CA. Your Amazon Web Services Private CA-hosted
+        /// or on-premises root certificate is the last in the chain, and each certificate in
+        /// the chain signs the one preceding. </para><para>This parameter must be supplied when you import a subordinate CA. When you import
         /// a root CA, there is no chain.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>

@@ -28,10 +28,10 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>
+    /// Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>
     /// action. Audit information is created every time the certificate authority (CA) private
-    /// key is used. The private key is used when you call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a>
-    /// action or the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a>
+    /// key is used. The private key is used when you call the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a>
+    /// action or the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a>
     /// action.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityAuditReport")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter AuditReportId
         /// <summary>
         /// <para>
-        /// <para>The report ID returned by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>
+        /// <para>The report ID returned by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a>
         /// action.</para>
         /// </para>
         /// </summary>

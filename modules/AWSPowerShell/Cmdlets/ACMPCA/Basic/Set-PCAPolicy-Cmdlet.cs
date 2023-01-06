@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The
-        /// ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
+        /// ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
         /// action.</para>
         /// </para>
         /// </summary>

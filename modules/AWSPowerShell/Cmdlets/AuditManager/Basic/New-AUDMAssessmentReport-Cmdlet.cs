@@ -90,12 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         /// <para>A SQL statement that represents an evidence finder query.</para><para>Provide this parameter when you want to generate an assessment report from the results
         /// of an evidence finder search query. When you use this parameter, Audit Manager generates
         /// a one-time report using only the evidence from the query output. This report does
-        /// not include any assessment evidence that was manually <a href="https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence">added
-        /// to a report using the console</a>, or <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html">associated
-        /// with a report using the API</a>. </para><para>To use this parameter, the <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus">enablementStatus</a>
+        /// not include any assessment evidence that was manually <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence">added
+        /// to a report using the console</a>, or <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_BatchAssociateAssessmentReportEvidence.html">associated
+        /// with a report using the API</a>. </para><para>To use this parameter, the <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_EvidenceFinderEnablement.html#auditmanager-Type-EvidenceFinderEnablement-enablementStatus">enablementStatus</a>
         /// of evidence finder must be <code>ENABLED</code>. </para><para> For examples and help resolving <code>queryStatement</code> validation exceptions,
         /// see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions">Troubleshooting
-        /// evidence finder issues</a> in the AWS Audit Manager User Guide. </para>
+        /// evidence finder issues</a> in the <i>Audit Manager User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
