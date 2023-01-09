@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the resource for which to list the
-        /// tags. Currently, the supported resource is an Amazon ECR Public repository.</para>
+        /// <para>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.
+        /// Currently, the supported resource is an Amazon ECR Public repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

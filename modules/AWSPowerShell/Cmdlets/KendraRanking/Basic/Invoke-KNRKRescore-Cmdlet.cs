@@ -22,46 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECRPublic;
-using Amazon.ECRPublic.Model;
+using Amazon.KendraRanking;
+using Amazon.KendraRanking.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECRP
+namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
-    /// Deletes specified tags from a resource.
+    /// Rescores or re-ranks search results from a search service such as OpenSearch (self
+    /// managed). You use the semantic search capabilities of Amazon Kendra Intelligent Ranking
+    /// to improve the search service's results.
     /// </summary>
-    [Cmdlet("Remove", "ECRPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Elastic Container Registry Public UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.ECRPublic.Model.UntagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ECRPublic.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Invoke", "KNRKRescore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.KendraRanking.Model.RescoreResponse")]
+    [AWSCmdlet("Calls the Amazon Kendra Intelligent Ranking Rescore API operation.", Operation = new[] {"Rescore"}, SelectReturnType = typeof(Amazon.KendraRanking.Model.RescoreResponse))]
+    [AWSCmdletOutput("Amazon.KendraRanking.Model.RescoreResponse",
+        "This cmdlet returns an Amazon.KendraRanking.Model.RescoreResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveECRPResourceTagCmdlet : AmazonECRPublicClientCmdlet, IExecutor
+    public partial class InvokeKNRKRescoreCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to delete tags from. Currently, the
-        /// supported resource is an Amazon ECR Public repository.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The keys of the tags to be removed.</para>
+        /// <para>The list of documents for Amazon Kendra Intelligent Ranking to rescore or rank on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,14 +55,51 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("Documents")]
+        public Amazon.KendraRanking.Model.Document[] Document { get; set; }
+        #endregion
+        
+        #region Parameter RescoreExecutionPlanId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the rescore execution plan. A rescore execution plan is an Amazon
+        /// Kendra Intelligent Ranking resource used for provisioning the <code>Rescore</code>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RescoreExecutionPlanId { get; set; }
+        #endregion
+        
+        #region Parameter SearchQuery
+        /// <summary>
+        /// <para>
+        /// <para>The input query from the search service.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SearchQuery { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECRPublic.Model.UntagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KendraRanking.Model.RescoreResponse).
+        /// Specifying the name of a property of type Amazon.KendraRanking.Model.RescoreResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the RescoreExecutionPlanId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^RescoreExecutionPlanId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RescoreExecutionPlanId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ECRPResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RescoreExecutionPlanId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-KNRKRescore (Rescore)"))
             {
                 return;
             }
@@ -125,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ECRPublic.Model.UntagResourceResponse, RemoveECRPResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KendraRanking.Model.RescoreResponse, InvokeKNRKRescoreCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,24 +154,31 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.RescoreExecutionPlanId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
-            #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.Document != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Document = new List<Amazon.KendraRanking.Model.Document>(this.Document);
+            }
+            #if MODULAR
+            if (this.Document == null && ParameterWasBound(nameof(this.Document)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Document which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.RescoreExecutionPlanId = this.RescoreExecutionPlanId;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.RescoreExecutionPlanId == null && ParameterWasBound(nameof(this.RescoreExecutionPlanId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RescoreExecutionPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.SearchQuery = this.SearchQuery;
+            #if MODULAR
+            if (this.SearchQuery == null && ParameterWasBound(nameof(this.SearchQuery)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SearchQuery which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,15 +195,19 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECRPublic.Model.UntagResourceRequest();
+            var request = new Amazon.KendraRanking.Model.RescoreRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.Document != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.Documents = cmdletContext.Document;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.RescoreExecutionPlanId != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.RescoreExecutionPlanId = cmdletContext.RescoreExecutionPlanId;
+            }
+            if (cmdletContext.SearchQuery != null)
+            {
+                request.SearchQuery = cmdletContext.SearchQuery;
             }
             
             CmdletOutput output;
@@ -211,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         #region AWS Service Operation Call
         
-        private Amazon.ECRPublic.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonECRPublic client, Amazon.ECRPublic.Model.UntagResourceRequest request)
+        private Amazon.KendraRanking.Model.RescoreResponse CallAWSServiceOperation(IAmazonKendraRanking client, Amazon.KendraRanking.Model.RescoreRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry Public", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra Intelligent Ranking", "Rescore");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.Rescore(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.RescoreAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,10 +270,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.ECRPublic.Model.UntagResourceResponse, RemoveECRPResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.KendraRanking.Model.Document> Document { get; set; }
+            public System.String RescoreExecutionPlanId { get; set; }
+            public System.String SearchQuery { get; set; }
+            public System.Func<Amazon.KendraRanking.Model.RescoreResponse, InvokeKNRKRescoreCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the public registry that contains the repository
-        /// in which to describe images. If you do not specify a registry, the default public
-        /// registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID that's associated with the public registry that
+        /// contains the repository where images are described. If you do not specify a registry,
+        /// the default public registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository results returned by <code>DescribeImageTags</code>
+        /// <para>The maximum number of repository results that's returned by <code>DescribeImageTags</code>
         /// in paginated output. When this parameter is used, <code>DescribeImageTags</code> only
         /// returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
+        /// response element. You can see the remaining results of the initial request by sending
         /// another <code>DescribeImageTags</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeImageTags</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable. This
-        /// option cannot be used when you specify images with <code>imageIds</code>.</para>
+        /// value. This value can be between 1 and 1000. If this parameter isn't used, then <code>DescribeImageTags</code>
+        /// returns up to 100 results and a <code>nextToken</code> value, if applicable. If you
+        /// specify images with <code>imageIds</code>, you can't use this option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,12 +90,12 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeImageTags</code>
+        /// <para>The <code>nextToken</code> value that's returned from a previous paginated <code>DescribeImageTags</code>
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return. This option cannot be used when you specify images
-        /// with <code>imageIds</code>.</para>
+        /// returned the <code>nextToken</code> value. If there are no more results to return,
+        /// this value is <code>null</code>. If you specify images with <code>imageIds</code>,
+        /// you can't use this option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

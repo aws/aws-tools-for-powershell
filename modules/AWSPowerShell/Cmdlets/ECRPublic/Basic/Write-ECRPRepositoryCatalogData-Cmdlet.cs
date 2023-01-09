@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter CatalogData_AboutText
         /// <summary>
         /// <para>
-        /// <para>A detailed description of the contents of the repository. It is publicly visible in
+        /// <para>A detailed description of the contents of the repository. It's publicly visible in
         /// the Amazon ECR Public Gallery. The text must be in markdown format.</para>
         /// </para>
         /// </summary>
@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// <summary>
         /// <para>
         /// <para>The system architecture that the images in the repository are compatible with. On
-        /// the Amazon ECR Public Gallery, the following supported architectures will appear as
-        /// badges on the repository and are used as search filters.</para><ul><li><para><code>Linux</code></para></li><li><para><code>Windows</code></para></li></ul><note><para>If an unsupported tag is added to your repository catalog data, it will be associated
-        /// with the repository and can be retrieved using the API but will not be discoverable
-        /// in the Amazon ECR Public Gallery.</para></note>
+        /// the Amazon ECR Public Gallery, the following supported architectures appear as badges
+        /// on the repository and are used as search filters.</para><note><para>If an unsupported tag is added to your repository catalog data, it's associated with
+        /// the repository and can be retrieved using the API but isn't discoverable in the Amazon
+        /// ECR Public Gallery.</para></note><ul><li><para><code>ARM</code></para></li><li><para><code>ARM 64</code></para></li><li><para><code>x86</code></para></li><li><para><code>x86-64</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,10 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         /// <summary>
         /// <para>
         /// <para>The operating systems that the images in the repository are compatible with. On the
-        /// Amazon ECR Public Gallery, the following supported operating systems will appear as
-        /// badges on the repository and are used as search filters.</para><ul><li><para><code>ARM</code></para></li><li><para><code>ARM 64</code></para></li><li><para><code>x86</code></para></li><li><para><code>x86-64</code></para></li></ul><note><para>If an unsupported tag is added to your repository catalog data, it will be associated
-        /// with the repository and can be retrieved using the API but will not be discoverable
-        /// in the Amazon ECR Public Gallery.</para></note>
+        /// Amazon ECR Public Gallery, the following supported operating systems appear as badges
+        /// on the repository and are used as search filters.</para><note><para>If an unsupported tag is added to your repository catalog data, it's associated with
+        /// the repository and can be retrieved using the API but isn't discoverable in the Amazon
+        /// ECR Public Gallery.</para></note><ul><li><para><code>Linux</code></para></li><li><para><code>Windows</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the public registry the repository is in. If you
-        /// do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID that's associated with the public registry the
+        /// repository is in. If you do not specify a registry, the default public registry is
+        /// assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter CatalogData_UsageText
         /// <summary>
         /// <para>
-        /// <para>Detailed information on how to use the contents of the repository. It is publicly
+        /// <para>Detailed information about how to use the contents of the repository. It's publicly
         /// visible in the Amazon ECR Public Gallery. The usage text provides context, support
         /// information, and additional usage details for users of the repository. The text must
         /// be in markdown format.</para>

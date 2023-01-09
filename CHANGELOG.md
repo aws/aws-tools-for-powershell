@@ -1,4 +1,11 @@
-﻿### 4.1.245 (2023-01-06 21:55Z)
+﻿### 4.1.246 (2023-01-09 22:26Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.457.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Kendra Intelligent Ranking. Added cmdlets to support the service. Cmdlets for the service have the noun prefix KNRK and can be listed using the command 'Get-AWSCmdletName -Service KNRK'.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWPortal: added parameter AuthenticationType.
+    * Modified cmdlet Update-WSWPortal: added parameter AuthenticationType.
+
+### 4.1.245 (2023-01-06 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.456.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Audit Manager
     * Modified cmdlet Edit-AUDMSetting: added parameter DeregistrationPolicy_DeleteResource.

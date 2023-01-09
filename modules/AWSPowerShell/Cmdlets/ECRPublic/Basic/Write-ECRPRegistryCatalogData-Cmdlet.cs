@@ -28,7 +28,7 @@ using Amazon.ECRPublic.Model;
 namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
-    /// Create or updates the catalog data for a public registry.
+    /// Create or update the catalog data for a public registry.
     /// </summary>
     [Cmdlet("Write", "ECRPRegistryCatalogData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECRPublic.Model.RegistryCatalogData")]

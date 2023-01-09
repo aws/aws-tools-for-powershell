@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kendra-ranking</C2jFilename>
+    <AssemblyName>KendraRanking</AssemblyName>
+    <ServiceNounPrefix>KNRK</ServiceNounPrefix>
+    <ServiceName>Amazon Kendra Intelligent Ranking</ServiceName>
+    <ServiceClientInterface>IAmazonKendraRanking</ServiceClientInterface>
+    <ServiceClient>AmazonKendraRankingClient</ServiceClient>
+    <ServiceModuleGuid>cac3e42a-ad4a-4326-8d04-d947b68b14ac</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateRescoreExecutionPlan" OutputProperty="*" Verb="New" Noun="RescoreExecutionPlan" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRescoreExecutionPlan" Verb="Remove" Noun="RescoreExecutionPlan" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRescoreExecutionPlan" OutputProperty="*" Verb="Get" Noun="RescoreExecutionPlan" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRescoreExecutionPlans" OutputProperty="SummaryItems" Verb="Get" Noun="RescoreExecutionPlanList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Rescore" OutputProperty="*" Verb="Invoke" Noun="Rescore" ShouldProcessTarget="RescoreExecutionPlanId" PipelineParameter="RescoreExecutionPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRescoreExecutionPlan" Verb="Update" Noun="RescoreExecutionPlan" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

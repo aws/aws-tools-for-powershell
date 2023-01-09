@@ -28,12 +28,12 @@ using Amazon.ECRPublic.Model;
 namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
-    /// Creates or updates the image manifest and tags associated with an image.
+    /// Creates or updates the image manifest and tags that are associated with an image.
     /// 
     ///  
     /// <para>
     /// When an image is pushed and all new image layers have been uploaded, the PutImage
-    /// API is called once to create or update the image manifest and the tags associated
+    /// API is called once to create or update the image manifest and the tags that are associated
     /// with the image.
     /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter ImageDigest
         /// <summary>
         /// <para>
-        /// <para>The image digest of the image manifest corresponding to the image.</para>
+        /// <para>The image digest of the image manifest that corresponds to the image.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter ImageManifest
         /// <summary>
         /// <para>
-        /// <para>The image manifest corresponding to the image to be uploaded.</para>
+        /// <para>The image manifest that corresponds to the image to be uploaded.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter ImageManifestMediaType
         /// <summary>
         /// <para>
-        /// <para>The media type of the image manifest. If you push an image manifest that does not
-        /// contain the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code>
+        /// <para>The media type of the image manifest. If you push an image manifest that doesn't contain
+        /// the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code>
         /// in the request.</para>
         /// </para>
         /// </summary>
@@ -104,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the public registry that contains the repository
-        /// in which to put the image. If you do not specify a registry, the default public registry
-        /// is assumed.</para>
+        /// <para>The Amazon Web Services account ID, or registry alias, that's associated with the
+        /// public registry that contains the repository where the image is put. If you do not
+        /// specify a registry, the default public registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository in which to put the image.</para>
+        /// <para>The name of the repository where the image is put.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,34 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECRPublic;
-using Amazon.ECRPublic.Model;
+using Amazon.KendraRanking;
+using Amazon.KendraRanking.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECRP
+namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
-    /// Returns details for a public registry.
+    /// Lists your rescore execution plans. A rescore execution plan is an Amazon Kendra Intelligent
+    /// Ranking resource used for provisioning the <code>Rescore</code> API.
     /// </summary>
-    [Cmdlet("Get", "ECRPRegistry")]
-    [OutputType("Amazon.ECRPublic.Model.Registry")]
-    [AWSCmdlet("Calls the Amazon Elastic Container Registry Public DescribeRegistries API operation.", Operation = new[] {"DescribeRegistries"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.DescribeRegistriesResponse))]
-    [AWSCmdletOutput("Amazon.ECRPublic.Model.Registry or Amazon.ECRPublic.Model.DescribeRegistriesResponse",
-        "This cmdlet returns a collection of Amazon.ECRPublic.Model.Registry objects.",
-        "The service call response (type Amazon.ECRPublic.Model.DescribeRegistriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KNRKRescoreExecutionPlanList")]
+    [OutputType("Amazon.KendraRanking.Model.RescoreExecutionPlanSummary")]
+    [AWSCmdlet("Calls the Amazon Kendra Intelligent Ranking ListRescoreExecutionPlans API operation.", Operation = new[] {"ListRescoreExecutionPlans"}, SelectReturnType = typeof(Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse))]
+    [AWSCmdletOutput("Amazon.KendraRanking.Model.RescoreExecutionPlanSummary or Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse",
+        "This cmdlet returns a collection of Amazon.KendraRanking.Model.RescoreExecutionPlanSummary objects.",
+        "The service call response (type Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetECRPRegistryCmdlet : AmazonECRPublicClientCmdlet, IExecutor
+    public partial class GetKNRKRescoreExecutionPlanListCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository results that's returned by <code>DescribeRegistries</code>
-        /// in paginated output. When this parameter is used, <code>DescribeRegistries</code>
-        /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>DescribeRegistries</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 1000. If this parameter isn't used, then <code>DescribeRegistries</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable.</para>
+        /// <para>The maximum number of rescore execution plans to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,12 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value that's returned from a previous paginated <code>DescribeRegistries</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. If there are no more results to return,
-        /// this value is <code>null</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
-        /// the next items in a list and not for other programmatic purposes.</para></note>
+        /// <para>If the response is truncated, Amazon Kendra Intelligent Ranking returns a pagination
+        /// token in the response. You can use this pagination token to retrieve the next set
+        /// of rescore execution plans.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,13 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Registries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECRPublic.Model.DescribeRegistriesResponse).
-        /// Specifying the name of a property of type Amazon.ECRPublic.Model.DescribeRegistriesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SummaryItems'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse).
+        /// Specifying the name of a property of type Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Registries";
+        public string Select { get; set; } = "SummaryItems";
         #endregion
         
         protected override void ProcessRecord()
@@ -95,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ECRPublic.Model.DescribeRegistriesResponse, GetECRPRegistryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse, GetKNRKRescoreExecutionPlanListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.MaxResult = this.MaxResult;
@@ -114,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECRPublic.Model.DescribeRegistriesRequest();
+            var request = new Amazon.KendraRanking.Model.ListRescoreExecutionPlansRequest();
             
             if (cmdletContext.MaxResult != null)
             {
@@ -157,15 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         #region AWS Service Operation Call
         
-        private Amazon.ECRPublic.Model.DescribeRegistriesResponse CallAWSServiceOperation(IAmazonECRPublic client, Amazon.ECRPublic.Model.DescribeRegistriesRequest request)
+        private Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse CallAWSServiceOperation(IAmazonKendraRanking client, Amazon.KendraRanking.Model.ListRescoreExecutionPlansRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry Public", "DescribeRegistries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra Intelligent Ranking", "ListRescoreExecutionPlans");
             try
             {
                 #if DESKTOP
-                return client.DescribeRegistries(request);
+                return client.ListRescoreExecutionPlans(request);
                 #elif CORECLR
-                return client.DescribeRegistriesAsync(request).GetAwaiter().GetResult();
+                return client.ListRescoreExecutionPlansAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -187,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ECRPublic.Model.DescribeRegistriesResponse, GetECRPRegistryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Registries;
+            public System.Func<Amazon.KendraRanking.Model.ListRescoreExecutionPlansResponse, GetKNRKRescoreExecutionPlanListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SummaryItems;
         }
         
     }

@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     /// 
     ///  
     /// <para>
-    /// When an image is pushed, the InitiateLayerUpload API is called once per image layer
-    /// that has not already been uploaded. Whether or not an image layer has been uploaded
-    /// is determined by the BatchCheckLayerAvailability API action.
+    /// When an image is pushed, the InitiateLayerUpload API is called once for each image
+    /// layer that hasn't already been uploaded. Whether an image layer uploads is determined
+    /// by the BatchCheckLayerAvailability API action.
     /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
     /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
@@ -53,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry to which you intend to upload layers.
-        /// If you do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID, or registry alias, that's associated with the
+        /// registry to which you intend to upload layers. If you do not specify a registry, the
+        /// default public registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository to which you intend to upload layers.</para>
+        /// <para>The name of the repository that you want to upload layers to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

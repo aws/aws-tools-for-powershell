@@ -22,39 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ECRPublic;
-using Amazon.ECRPublic.Model;
+using Amazon.KendraRanking;
+using Amazon.KendraRanking.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ECRP
+namespace Amazon.PowerShell.Cmdlets.KNRK
 {
     /// <summary>
-    /// Retrieves the repository policy for the specified repository.
+    /// Deletes a rescore execution plan. A rescore execution plan is an Amazon Kendra Intelligent
+    /// Ranking resource used for provisioning the <code>Rescore</code> API.
     /// </summary>
-    [Cmdlet("Get", "ECRPRepositoryPolicy")]
-    [OutputType("Amazon.ECRPublic.Model.GetRepositoryPolicyResponse")]
-    [AWSCmdlet("Calls the Amazon Elastic Container Registry Public GetRepositoryPolicy API operation.", Operation = new[] {"GetRepositoryPolicy"}, SelectReturnType = typeof(Amazon.ECRPublic.Model.GetRepositoryPolicyResponse))]
-    [AWSCmdletOutput("Amazon.ECRPublic.Model.GetRepositoryPolicyResponse",
-        "This cmdlet returns an Amazon.ECRPublic.Model.GetRepositoryPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "KNRKRescoreExecutionPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Kendra Intelligent Ranking DeleteRescoreExecutionPlan API operation.", Operation = new[] {"DeleteRescoreExecutionPlan"}, SelectReturnType = typeof(Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse))]
+    [AWSCmdletOutput("None or Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetECRPRepositoryPolicyCmdlet : AmazonECRPublicClientCmdlet, IExecutor
+    public partial class RemoveKNRKRescoreExecutionPlanCmdlet : AmazonKendraRankingClientCmdlet, IExecutor
     {
         
-        #region Parameter RegistryId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID that's associated with the public registry that
-        /// contains the repository. If you do not specify a registry, the default public registry
-        /// is assumed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RegistryId { get; set; }
-        #endregion
-        
-        #region Parameter RepositoryName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the repository with the policy to retrieve.</para>
+        /// <para>The identifier of the rescore execution plan that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,14 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RepositoryName { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECRPublic.Model.GetRepositoryPolicyResponse).
-        /// Specifying the name of a property of type Amazon.ECRPublic.Model.GetRepositoryPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,18 +70,34 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RepositoryName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RepositoryName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RepositoryName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KNRKRescoreExecutionPlan (DeleteRescoreExecutionPlan)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -102,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ECRPublic.Model.GetRepositoryPolicyResponse, GetECRPRepositoryPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse, RemoveKNRKRescoreExecutionPlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -111,15 +116,14 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RepositoryName;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.RegistryId = this.RegistryId;
-            context.RepositoryName = this.RepositoryName;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.RepositoryName == null && ParameterWasBound(nameof(this.RepositoryName)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter RepositoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -136,15 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECRPublic.Model.GetRepositoryPolicyRequest();
+            var request = new Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanRequest();
             
-            if (cmdletContext.RegistryId != null)
+            if (cmdletContext.Id != null)
             {
-                request.RegistryId = cmdletContext.RegistryId;
-            }
-            if (cmdletContext.RepositoryName != null)
-            {
-                request.RepositoryName = cmdletContext.RepositoryName;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -179,15 +179,15 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         #region AWS Service Operation Call
         
-        private Amazon.ECRPublic.Model.GetRepositoryPolicyResponse CallAWSServiceOperation(IAmazonECRPublic client, Amazon.ECRPublic.Model.GetRepositoryPolicyRequest request)
+        private Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse CallAWSServiceOperation(IAmazonKendraRanking client, Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Container Registry Public", "GetRepositoryPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kendra Intelligent Ranking", "DeleteRescoreExecutionPlan");
             try
             {
                 #if DESKTOP
-                return client.GetRepositoryPolicy(request);
+                return client.DeleteRescoreExecutionPlan(request);
                 #elif CORECLR
-                return client.GetRepositoryPolicyAsync(request).GetAwaiter().GetResult();
+                return client.DeleteRescoreExecutionPlanAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,10 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RegistryId { get; set; }
-            public System.String RepositoryName { get; set; }
-            public System.Func<Amazon.ECRPublic.Model.GetRepositoryPolicyResponse, GetECRPRepositoryPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.KendraRanking.Model.DeleteRescoreExecutionPlanResponse, RemoveKNRKRescoreExecutionPlanCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

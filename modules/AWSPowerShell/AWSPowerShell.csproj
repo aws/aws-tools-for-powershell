@@ -568,6 +568,9 @@
     <Reference Include="AWSSDK.Kendra">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Kendra.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.KendraRanking">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KendraRanking.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
@@ -1556,6 +1559,9 @@
     </Reference>
     <Reference Include="AWSSDK.Kendra">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Kendra.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KendraRanking">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.KendraRanking.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.KeyManagementService.dll</HintPath>

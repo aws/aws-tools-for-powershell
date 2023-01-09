@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
     ///  
     /// <para>
     /// When an image is pushed, each new image layer is uploaded in parts. The maximum size
-    /// of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart
-    /// API is called once per each new image layer part.
+    /// of each image layer part can be 20971520 bytes (about 20MB). The UploadLayerPart API
+    /// is called once for each new image layer part.
     /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
     /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
@@ -99,8 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry to which you are uploading layer parts.
-        /// If you do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID, or registry alias, that's associated with the
+        /// registry that you're uploading layer parts to. If you do not specify a registry, the
+        /// default public registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository to which you are uploading layer parts.</para>
+        /// <para>The name of the repository that you're uploading layer parts to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

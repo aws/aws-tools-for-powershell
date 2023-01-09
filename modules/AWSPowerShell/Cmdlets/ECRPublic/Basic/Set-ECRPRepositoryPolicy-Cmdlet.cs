@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter OverridePolicy
         /// <summary>
         /// <para>
-        /// <para>If the policy you are attempting to set on a repository policy would prevent you from
-        /// setting another policy in the future, you must force the <a>SetRepositoryPolicy</a>
-        /// operation. This is intended to prevent accidental repository lock outs.</para>
+        /// <para>If the policy that you want to set on a repository policy would prevent you from setting
+        /// another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation.
+        /// This prevents accidental repository lockouts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository. If you
-        /// do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID that's associated with the registry that contains
+        /// the repository. If you do not specify a registry, the default public registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

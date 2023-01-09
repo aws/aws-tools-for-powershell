@@ -40,6 +40,25 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class UpdateWSWPortalCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>The type of authentication integration points used when signing into the web portal.
+        /// Defaults to <code>Standard</code>.</para><para><code>Standard</code> web portals are authenticated directly through your identity
+        /// provider. You need to call <code>CreateIdentityProvider</code> to integrate your identity
+        /// provider with your web portal. User and group access to your web portal is controlled
+        /// through your identity provider.</para><para><code>IAM_Identity_Center</code> web portals are authenticated through AWS IAM Identity
+        /// Center (successor to AWS Single Sign-On). They provide additional features, such as
+        /// IdP-initiated authentication. Identity sources (including external identity provider
+        /// integration), plus user and group access to your web portal, can be configured in
+        /// the IAM Identity Center.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.AuthenticationType")]
+        public Amazon.WorkSpacesWeb.AuthenticationType AuthenticationType { get; set; }
+        #endregion
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
@@ -129,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 context.Select = (response, cmdlet) => this.PortalArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AuthenticationType = this.AuthenticationType;
             context.DisplayName = this.DisplayName;
             context.PortalArn = this.PortalArn;
             #if MODULAR
@@ -153,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             // create request
             var request = new Amazon.WorkSpacesWeb.Model.UpdatePortalRequest();
             
+            if (cmdletContext.AuthenticationType != null)
+            {
+                request.AuthenticationType = cmdletContext.AuthenticationType;
+            }
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
@@ -222,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WorkSpacesWeb.AuthenticationType AuthenticationType { get; set; }
             public System.String DisplayName { get; set; }
             public System.String PortalArn { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.UpdatePortalResponse, UpdateWSWPortalCmdlet, object> Select { get; set; } =

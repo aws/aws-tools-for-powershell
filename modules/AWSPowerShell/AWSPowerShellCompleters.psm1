@@ -30670,6 +30670,69 @@ $KNDR_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $KNDR_SelectCompleters $KNDR_SelectMap
+# Argument completions for service Amazon Kendra Intelligent Ranking
+
+
+$KNRK_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.KNRK.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KNRK_SelectMap = @{
+    "Select"=@("New-KNRKRescoreExecutionPlan",
+               "Remove-KNRKRescoreExecutionPlan",
+               "Get-KNRKRescoreExecutionPlan",
+               "Get-KNRKRescoreExecutionPlanList",
+               "Get-KNRKResourceTag",
+               "Invoke-KNRKRescore",
+               "Add-KNRKResourceTag",
+               "Remove-KNRKResourceTag",
+               "Update-KNRKRescoreExecutionPlan")
+}
+
+_awsArgumentCompleterRegistration $KNRK_SelectCompleters $KNRK_SelectMap
 # Argument completions for service Amazon Keyspaces
 
 
@@ -57343,6 +57406,16 @@ $WSW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkSpacesWeb.AuthenticationType
+        {
+            ($_ -eq "New-WSWPortal/AuthenticationType") -Or
+            ($_ -eq "Update-WSWPortal/AuthenticationType")
+        }
+        {
+            $v = "IAM_Identity_Center","Standard"
+            break
+        }
+
         # Amazon.WorkSpacesWeb.EnabledType
         {
             ($_ -eq "New-WSWUserSetting/CopyAllowed") -Or
@@ -57380,6 +57453,7 @@ $WSW_Completers = {
 }
 
 $WSW_map = @{
+    "AuthenticationType"=@("New-WSWPortal","Update-WSWPortal")
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "IdentityProviderType"=@("New-WSWIdentityProvider","Update-WSWIdentityProvider")

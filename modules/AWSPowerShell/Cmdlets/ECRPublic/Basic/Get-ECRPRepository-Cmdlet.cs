@@ -28,7 +28,7 @@ using Amazon.ECRPublic.Model;
 namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
-    /// Describes repositories in a public registry.
+    /// Describes repositories that are in a public registry.
     /// </summary>
     [Cmdlet("Get", "ECRPRepository")]
     [OutputType("Amazon.ECRPublic.Model.Repository")]
@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repositories to
-        /// be described. If you do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID that's associated with the registry that contains
+        /// the repositories to be described. If you do not specify a registry, the default public
+        /// registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,14 +67,14 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of repository results returned by <code>DescribeRepositories</code>
+        /// <para>The maximum number of repository results that's returned by <code>DescribeRepositories</code>
         /// in paginated output. When this parameter is used, <code>DescribeRepositories</code>
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
+        /// response element. You can see the remaining results of the initial request by sending
         /// another <code>DescribeRepositories</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeRepositories</code>
-        /// returns up to 100 results and a <code>nextToken</code> value, if applicable. This
-        /// option cannot be used when you specify repositories with <code>repositoryNames</code>.</para>
+        /// value. This value can be between 1 and 1000. If this parameter isn't used, then <code>DescribeRepositories</code>
+        /// returns up to 100 results and a <code>nextToken</code> value, if applicable. If you
+        /// specify repositories with <code>repositoryNames</code>, you can't use this option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,12 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>DescribeRepositories</code>
+        /// <para>The <code>nextToken</code> value that's returned from a previous paginated <code>DescribeRepositories</code>
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return. This option cannot be used when you specify repositories
-        /// with <code>repositoryNames</code>.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// returned the <code>nextToken</code> value. If there are no more results to return,
+        /// this value is <code>null</code>. If you specify repositories with <code>repositoryNames</code>,
+        /// you can't use this option.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// </summary>

@@ -28,14 +28,14 @@ using Amazon.ECRPublic.Model;
 namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
-    /// Informs Amazon ECR that the image layer upload has completed for a specified public
+    /// Informs Amazon ECR that the image layer upload is complete for a specified public
     /// registry, repository name, and upload ID. You can optionally provide a <code>sha256</code>
     /// digest of the image layer for data validation purposes.
     /// 
     ///  
     /// <para>
-    /// When an image is pushed, the CompleteLayerUpload API is called once per each new image
-    /// layer to verify that the upload has completed.
+    /// When an image is pushed, the CompleteLayerUpload API is called once for each new image
+    /// layer to verify that the upload is complete.
     /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
     /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
@@ -72,8 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry to which to upload layers. If you
-        /// do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID, or registry alias, associated with the registry
+        /// where layers are uploaded. If you do not specify a registry, the default public registry
+        /// is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
     /// Associates the specified tags to a resource with the specified <code>resourceArn</code>.
-    /// If existing tags on a resource are not specified in the request parameters, they are
-    /// not changed. When a resource is deleted, the tags associated with that resource are
-    /// deleted as well.
+    /// If existing tags on a resource aren't specified in the request parameters, they aren't
+    /// changed. When a resource is deleted, the tags associated with that resource are also
+    /// deleted.
     /// </summary>
     [Cmdlet("Add", "ECRPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
-        /// supported resource is an Amazon ECR Public repository.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported
+        /// resource is an Amazon ECR Public repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

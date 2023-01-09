@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
     /// Deletes a repository in a public registry. If the repository contains images, you
-    /// must either delete all images in the repository or use the <code>force</code> option
-    /// which deletes all images on your behalf before deleting the repository.
+    /// must either manually delete all images in the repository or use the <code>force</code>
+    /// option. This option deletes all images on your behalf before deleting the repository.
     /// </summary>
     [Cmdlet("Remove", "ECRPRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECRPublic.Model.Repository")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter IgnoreExistingImages
         /// <summary>
         /// <para>
-        /// <para> If a repository contains images, forces the deletion.</para>
+        /// <para> The force option can be used to delete a repository that contains images. If the
+        /// force option is not used, the repository must be empty prior to deletion.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the public registry that contains the repository
-        /// to delete. If you do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID that's associated with the public registry that
+        /// contains the repository to delete. If you do not specify a registry, the default public
+        /// registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

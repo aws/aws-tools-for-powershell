@@ -28,10 +28,10 @@ using Amazon.ECRPublic.Model;
 namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
-    /// Checks the availability of one or more image layers within a repository in a public
-    /// registry. When an image is pushed to a repository, each image layer is checked to
-    /// verify if it has been uploaded before. If it has been uploaded, then the image layer
-    /// is skipped.
+    /// Checks the availability of one or more image layers that are within a repository in
+    /// a public registry. When an image is pushed to a repository, each image layer is checked
+    /// to verify if it has been uploaded before. If it has been uploaded, then the image
+    /// layer is skipped.
     /// 
     ///  <note><para>
     /// This operation is used by the Amazon ECR proxy and is not generally used by customers
@@ -69,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the public registry that contains the image layers
-        /// to check. If you do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID, or registry alias, associated with the public
+        /// registry that contains the image layers to check. If you do not specify a registry,
+        /// the default public registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository that is associated with the image layers to check.</para>
+        /// <para>The name of the repository that's associated with the image layers to check.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

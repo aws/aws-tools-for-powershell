@@ -28,16 +28,16 @@ using Amazon.ECRPublic.Model;
 namespace Amazon.PowerShell.Cmdlets.ECRP
 {
     /// <summary>
-    /// Deletes a list of specified images within a repository in a public registry. Images
-    /// are specified with either an <code>imageTag</code> or <code>imageDigest</code>.
+    /// Deletes a list of specified images that are within a repository in a public registry.
+    /// Images are specified with either an <code>imageTag</code> or <code>imageDigest</code>.
     /// 
     ///  
     /// <para>
     /// You can remove a tag from an image by specifying the image's tag in your request.
     /// When you remove the last tag from an image, the image is deleted from your repository.
     /// </para><para>
-    /// You can completely delete an image (and all of its tags) by specifying the image's
-    /// digest in your request.
+    /// You can completely delete an image (and all of its tags) by specifying the digest
+    /// of the image in your request.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ECRPImageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -71,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.ECRP
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the image to delete.
-        /// If you do not specify a registry, the default public registry is assumed.</para>
+        /// <para>The Amazon Web Services account ID that's associated with the registry that contains
+        /// the image to delete. If you do not specify a registry, the default public registry
+        /// is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

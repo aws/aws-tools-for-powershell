@@ -224,6 +224,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Kafka.dll',
         'AWSSDK.KafkaConnect.dll',
         'AWSSDK.Kendra.dll',
+        'AWSSDK.KendraRanking.dll',
         'AWSSDK.KeyManagementService.dll',
         'AWSSDK.Keyspaces.dll',
         'AWSSDK.Kinesis.dll',

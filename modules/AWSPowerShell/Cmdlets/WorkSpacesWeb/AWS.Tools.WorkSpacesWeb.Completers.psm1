@@ -80,6 +80,16 @@ $WSW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkSpacesWeb.AuthenticationType
+        {
+            ($_ -eq "New-WSWPortal/AuthenticationType") -Or
+            ($_ -eq "Update-WSWPortal/AuthenticationType")
+        }
+        {
+            $v = "IAM_Identity_Center","Standard"
+            break
+        }
+
         # Amazon.WorkSpacesWeb.EnabledType
         {
             ($_ -eq "New-WSWUserSetting/CopyAllowed") -Or
@@ -117,6 +127,7 @@ $WSW_Completers = {
 }
 
 $WSW_map = @{
+    "AuthenticationType"=@("New-WSWPortal","Update-WSWPortal")
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "IdentityProviderType"=@("New-WSWIdentityProvider","Update-WSWIdentityProvider")
