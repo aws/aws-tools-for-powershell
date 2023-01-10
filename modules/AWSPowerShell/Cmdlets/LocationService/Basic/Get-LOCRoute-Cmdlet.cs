@@ -254,7 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>
         /// <para>Specifies the mode of transport when calculating a route. Used in estimating the speed
         /// of travel and road compatibility. You can choose <code>Car</code>, <code>Truck</code>,
-        /// or <code>Walking</code> as options for the <code>TravelMode</code>.</para><para>The <code>TravelMode</code> you specify also determines how you specify route preferences:
+        /// <code>Walking</code>, <code>Bicycle</code> or <code>Motorcycle</code> as options for
+        /// the <code>TravelMode</code>.</para><note><para><code>Bicycle</code> and <code>Motorcycle</code> are only valid when using Grab as
+        /// a data provider, and only within Southeast Asia.</para><para><code>Truck</code> is not available for Grab.</para><para>For more details on the using Grab for routing, including areas of coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
+        /// in the <i>Amazon Location Service Developer Guide</i>.</para></note><para>The <code>TravelMode</code> you specify also determines how you specify route preferences:
         /// </para><ul><li><para>If traveling by <code>Car</code> use the <code>CarModeOptions</code> parameter.</para></li><li><para>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code> parameter.</para></li></ul><para>Default Value: <code>Car</code></para>
         /// </para>
         /// </summary>

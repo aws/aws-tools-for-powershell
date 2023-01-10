@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// 
     ///  <note><para>
     /// If your application is tracking or routing assets you use in your business, such as
-    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
     /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
     /// for more details.
     /// </para></note>
@@ -106,7 +106,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// retrieve both raster and vector tiles, and your charges will be based on total tiles
         /// retrieved.</para><note><para>Hybrid styles use both vector and raster tiles when rendering the map that you see.
         /// This means that more tiles are retrieved than when using either vector or raster tiles
-        /// alone. Your charges will include all tiles retrieved.</para></note></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
+        /// alone. Your charges will include all tiles retrieved.</para></note></li></ul><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps
+        /// map styles</a>:</para><ul><li><para><code>VectorGrabStandardLight</code> – The Grab Standard Light map style provides
+        /// a basemap with detailed land use coloring, area names, roads, landmarks, and points
+        /// of interest covering Southeast Asia.</para></li><li><para><code>VectorGrabStandardDark</code> – The Grab Standard Dark map style provides a
+        /// dark variation of the standard basemap covering Southeast Asia.</para></li></ul><note><para>Grab provides maps only for countries in Southeast Asia, and is only available in
+        /// the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>). For more information,
+        /// see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
+        /// countries and area covered</a>.</para></note><para>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
         /// Data (Preview) map styles</a>:</para><ul><li><para><code>VectorOpenDataStandardLight</code> – The Open Data Standard Light (preview)
         /// map style provides a detailed basemap for the world suitable for website and mobile
         /// application use. The map includes highways major roads, minor roads, railways, water

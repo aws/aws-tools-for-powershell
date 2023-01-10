@@ -33460,7 +33460,7 @@ $LOC_Completers = {
             ($_ -eq "Get-LOCRouteMatrix/TravelMode")
         }
         {
-            $v = "Car","Truck","Walking"
+            $v = "Bicycle","Car","Motorcycle","Truck","Walking"
             break
         }
 

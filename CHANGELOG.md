@@ -1,4 +1,11 @@
-﻿### 4.1.246 (2023-01-09 22:26Z)
+﻿### 4.1.247 (2023-01-10 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.458.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter AllocatedStorage.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter AllocatedStorage.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter AllocatedStorage.
+
+### 4.1.246 (2023-01-09 22:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.457.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Kendra Intelligent Ranking. Added cmdlets to support the service. Cmdlets for the service have the noun prefix KNRK and can be listed using the command 'Get-AWSCmdletName -Service KNRK'.
   * Amazon WorkSpaces Web

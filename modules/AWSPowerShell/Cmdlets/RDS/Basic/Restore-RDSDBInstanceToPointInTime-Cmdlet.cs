@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class RestoreRDSDBInstanceToPointInTimeCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter AllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
+        /// the allocation rules specified in <code>CreateDBInstance</code>.</para><note><para>Be sure to allocate enough memory for your new DB instance so that the restore operation
+        /// can succeed. You can also allocate additional memory for future growth.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AllocatedStorage { get; set; }
+        #endregion
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
@@ -583,6 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.SourceDBInstanceIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllocatedStorage = this.AllocatedStorage;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
             context.BackupTarget = this.BackupTarget;
@@ -658,6 +671,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.RestoreDBInstanceToPointInTimeRequest();
             
+            if (cmdletContext.AllocatedStorage != null)
+            {
+                request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
+            }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
@@ -881,6 +898,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.String BackupTarget { get; set; }

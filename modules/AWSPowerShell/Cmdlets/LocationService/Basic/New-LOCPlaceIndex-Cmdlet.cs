@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// 
     ///  <note><para>
     /// If your application is tracking or routing assets you use in your business, such as
-    /// delivery vehicles or employees, you may only use HERE as your geolocation provider.
+    /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
     /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
     /// for more details.
     /// </para></note>
@@ -56,7 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <para>Specifies the geospatial data provider for the new place index.</para><note><para>This field is case-sensitive. Enter the valid values as shown. For example, entering
         /// <code>HERE</code> returns an error.</para></note><para>Valid values include:</para><ul><li><para><code>Esri</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a>'s
         /// coverage in your region of interest, see <a href="https://developers.arcgis.com/rest/geocode/api-reference/geocode-coverage.htm">Esri
-        /// details on geocoding coverage</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
+        /// details on geocoding coverage</a>.</para></li><li><para><code>Grab</code> – Grab provides place index functionality for Southeast Asia. For
+        /// additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>'
+        /// coverage, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area">GrabMaps
+        /// countries and areas covered</a>.</para></li><li><para><code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
         /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
         /// details on goecoding coverage</a>.</para><important><para>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may
         /// not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store

@@ -55,6 +55,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class NewRDSDBInstanceReadReplicaCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter AllocatedStorage
+        /// <summary>
+        /// <para>
+        /// <para>The amount of storage (in gibibytes) to allocate initially for the read replica. Follow
+        /// the allocation rules specified in <code>CreateDBInstance</code>.</para><note><para>Be sure to allocate enough memory for your read replica so that the create operation
+        /// can succeed. You can also allocate additional memory for future growth.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AllocatedStorage { get; set; }
+        #endregion
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
@@ -652,6 +664,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SourceRegion = this.SourceRegion;
+            context.AllocatedStorage = this.AllocatedStorage;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
@@ -731,6 +744,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.SourceRegion != null)
             {
                 request.SourceRegion = cmdletContext.SourceRegion;
+            }
+            if (cmdletContext.AllocatedStorage != null)
+            {
+                request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
             }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
@@ -938,6 +955,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceRegion { get; set; }
+            public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
