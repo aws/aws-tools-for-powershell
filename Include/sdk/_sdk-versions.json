@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.458.0",
+    "ProductVersion" : "3.7.459.0",
     "CoreVersion"    : "3.7.103.14",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1682,7 +1682,7 @@
             "InPreview"               : false
         },
         "Kendra"                          : {
-            "Version" : "3.7.101.29",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.14"

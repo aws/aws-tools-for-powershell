@@ -1,4 +1,7 @@
-﻿### 4.1.247 (2023-01-10 21:56Z)
+﻿### 4.1.248 (2023-01-11 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.459.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.247 (2023-01-10 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.458.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Relational Database Service
     * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter AllocatedStorage.
