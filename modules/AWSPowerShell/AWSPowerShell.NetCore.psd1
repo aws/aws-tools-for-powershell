@@ -101,6 +101,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ChimeSDKMeetings.dll',
         'AWSSDK.ChimeSDKMessaging.dll',
         'AWSSDK.ChimeSDKVoice.dll',
+        'AWSSDK.CleanRooms.dll',
         'AWSSDK.Cloud9.dll',
         'AWSSDK.CloudControlApi.dll',
         'AWSSDK.CloudDirectory.dll',

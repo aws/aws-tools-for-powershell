@@ -35,6 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// <para>
     /// To change the rotation configuration of a secret, use <a>RotateSecret</a> instead.
     /// </para><para>
+    /// To change a secret so that it is managed by another service, you need to recreate
+    /// the secret in that service. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html">Secrets
+    /// Manager secrets managed by other Amazon Web Services services</a>.
+    /// </para><para>
     /// We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more
     /// than once every 10 minutes. When you call <code>UpdateSecret</code> to update the
     /// secret value, Secrets Manager creates a new version of the secret. Secrets Manager

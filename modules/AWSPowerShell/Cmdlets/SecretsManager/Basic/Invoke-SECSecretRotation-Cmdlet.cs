@@ -28,41 +28,20 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Configures and starts the asynchronous process of rotating the secret. For more information
+    /// Configures and starts the asynchronous process of rotating the secret. For information
     /// about rotation, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotate
-    /// secrets</a>.
+    /// secrets</a> in the <i>Secrets Manager User Guide</i>. If you include the configuration
+    /// parameters, the operation sets the values for the secret and then immediately starts
+    /// a rotation. If you don't include the configuration parameters, the operation starts
+    /// a rotation with the values already stored in the secret. 
     /// 
     ///  
     /// <para>
-    /// If you include the configuration parameters, the operation sets the values for the
-    /// secret and then immediately starts a rotation. If you don't include the configuration
-    /// parameters, the operation starts a rotation with the values already stored in the
-    /// secret. 
-    /// </para><para>
-    /// For database credentials you want to rotate, for Secrets Manager to be able to rotate
-    /// the secret, you must make sure the secret value is in the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html">
-    /// JSON structure of a database secret</a>. In particular, if you want to use the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users">
-    /// alternating users strategy</a>, your secret must contain the ARN of a superuser secret.
-    /// </para><para>
-    /// To configure rotation, you also need the ARN of an Amazon Web Services Lambda function
-    /// and the schedule for the rotation. The Lambda rotation function creates a new version
-    /// of the secret and creates or updates the credentials on the database or service to
-    /// match. After testing the new credentials, the function marks the new secret version
-    /// with the staging label <code>AWSCURRENT</code>. Then anyone who retrieves the secret
-    /// gets the new version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">How
-    /// rotation works</a>.
-    /// </para><para>
-    /// You can create the Lambda rotation function based on the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html">rotation
-    /// function templates</a> that Secrets Manager provides. Choose a template that matches
-    /// your <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html">Rotation
-    /// strategy</a>.
-    /// </para><para>
     /// When rotation is successful, the <code>AWSPENDING</code> staging label might be attached
     /// to the same version as the <code>AWSCURRENT</code> version, or it might not be attached
     /// to any version. If the <code>AWSPENDING</code> staging label is present but not attached
     /// to the same version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
     /// assumes that a previous rotation request is still in progress and returns an error.
-    /// </para><para>
     /// When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be
     /// attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot
     /// rotation</a> in the <i>Secrets Manager User Guide</i>.
@@ -91,9 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RotationRules_AutomaticallyAfterDay
         /// <summary>
         /// <para>
-        /// <para>The number of days between automatic scheduled rotations of the secret. You can use
-        /// this value to check that your secret meets your compliance guidelines for how often
-        /// secrets must be rotated.</para><para>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated
+        /// <para>The number of days between rotations of the secret. You can use this value to check
+        /// that your secret meets your compliance guidelines for how often secrets must be rotated.
+        /// If you use this field to set the rotation schedule, Secrets Manager calculates the
+        /// next rotation date based on the previous rotation. Manually updating the secret value
+        /// by calling <code>PutSecretValue</code> or <code>UpdateSecret</code> is considered
+        /// a valid rotation.</para><para>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated
         /// from the rotation schedule after every successful rotation. In <code>RotateSecret</code>,
         /// you can set the rotation schedule in <code>RotationRules</code> with <code>AutomaticallyAfterDays</code>
         /// or <code>ScheduleExpression</code>, but not both. To set a rotation schedule in hours,
@@ -147,8 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>Specifies whether to rotate the secret immediately or wait until the next scheduled
-        /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration
-        /// by running the <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><code>testSecret</code> step</a> of the Lambda rotation function. The test creates
+        /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>For secrets that use a Lambda rotation function to rotate, if you don't immediately
+        /// rotate the secret, Secrets Manager tests the rotation configuration by running the
+        /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><code>testSecret</code> step</a> of the Lambda rotation function. The test creates
         /// an <code>AWSPENDING</code> version of the secret and then removes it.</para><para>If you don't specify this value, then by default, Secrets Manager rotates the secret
         /// immediately.</para>
         /// </para>
@@ -160,7 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RotationLambdaARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Lambda rotation function that can rotate the secret.</para>
+        /// <para>For secrets that use a Lambda rotation function to rotate, the ARN of the Lambda rotation
+        /// function. </para><para>For secrets that use <i>managed rotation</i>, omit this field. For more information,
+        /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html">Managed
+        /// rotation</a> in the <i>Secrets Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

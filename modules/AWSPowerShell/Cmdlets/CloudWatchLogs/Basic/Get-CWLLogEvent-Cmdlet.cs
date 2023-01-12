@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// in a monitoring account and view data from the linked source accounts. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
     /// cross-account observability</a>.
+    /// </para><para>
+    /// You can specify the log group to search by using either <code>logGroupIdentifier</code>
+    /// or <code>logGroupName</code>. You must include one of these two parameters, but you
+    /// can't include both. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvent")]
@@ -70,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Specify either the name or ARN of the log group to view events from. If the log group
         /// is in a source account and you are using a monitoring account, you must use the log
-        /// group ARN.</para><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-        /// the action returns an <code>InvalidParameterException</code> error.</para>
+        /// group ARN.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,14 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LogGroupName { get; set; }
         #endregion
         
@@ -221,12 +218,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             context.Limit = this.Limit;
             context.LogGroupIdentifier = this.LogGroupIdentifier;
             context.LogGroupName = this.LogGroupName;
-            #if MODULAR
-            if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LogGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LogStreamName = this.LogStreamName;
             #if MODULAR
             if (this.LogStreamName == null && ParameterWasBound(nameof(this.LogStreamName)))

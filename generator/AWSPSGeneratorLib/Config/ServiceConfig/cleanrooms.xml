@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cleanrooms</C2jFilename>
+    <AssemblyName>CleanRooms</AssemblyName>
+    <ServiceNounPrefix>CRS</ServiceNounPrefix>
+    <ServiceName>AWS Clean Rooms Service</ServiceName>
+    <ServiceClientInterface>IAmazonCleanRooms</ServiceClientInterface>
+    <ServiceClient>AmazonCleanRoomsClient</ServiceClient>
+    <ServiceModuleGuid>6688eea5-a0e9-4b25-98f3-4017334da5dc</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetSchema" OutputProperty="*" Verb="Get" Noun="BatchSchema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCollaboration" OutputProperty="Collaboration" Verb="New" Noun="Collaboration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredTable" OutputProperty="ConfiguredTable" Verb="New" Noun="ConfiguredTable" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="New" Noun="ConfiguredTableAssociation" ShouldProcessTarget="Name" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMembership" OutputProperty="Membership" Verb="New" Noun="Membership" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCollaboration" Verb="Remove" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredTable" Verb="Remove" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredTableAnalysisRule" Verb="Remove" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredTableAssociation" Verb="Remove" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="AccountId" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMembership" Verb="Remove" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaboration" OutputProperty="Collaboration" Verb="Get" Noun="Collaboration" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredTable" OutputProperty="ConfiguredTable" Verb="Get" Noun="ConfiguredTable" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="ConfiguredTableAnalysisRule" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Get" Noun="ConfiguredTableAssociation" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMembership" OutputProperty="Membership" Verb="Get" Noun="Membership" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProtectedQuery" OutputProperty="ProtectedQuery" Verb="Get" Noun="ProtectedQuery" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchema" OutputProperty="Schema" Verb="Get" Noun="Schema" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchemaAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="SchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborations" OutputProperty="CollaborationList" Verb="Get" Noun="CollaborationList" PipelineParameter="MemberStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfiguredTableAssociations" OutputProperty="ConfiguredTableAssociationSummaries" Verb="Get" Noun="ConfiguredTableAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfiguredTables" OutputProperty="ConfiguredTableSummaries" Verb="Get" Noun="ConfiguredTableList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMembers" OutputProperty="MemberSummaries" Verb="Get" Noun="MemberList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMemberships" OutputProperty="MembershipSummaries" Verb="Get" Noun="MembershipList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectedQueries" OutputProperty="ProtectedQueries" Verb="Get" Noun="ProtectedQueryList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="SchemaSummaries" Verb="Get" Noun="SchemaList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartProtectedQuery" OutputProperty="ProtectedQuery" Verb="Start" Noun="ProtectedQuery" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCollaboration" OutputProperty="Collaboration" Verb="Update" Noun="Collaboration" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfiguredTable" OutputProperty="ConfiguredTable" Verb="Update" Noun="ConfiguredTable" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfiguredTableAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAnalysisRule" ShouldProcessTarget="ConfiguredTableIdentifier" PipelineParameter="ConfiguredTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Update" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMembership" OutputProperty="Membership" Verb="Update" Noun="Membership" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProtectedQuery" OutputProperty="ProtectedQuery" Verb="Update" Noun="ProtectedQuery" ShouldProcessTarget="ProtectedQueryIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

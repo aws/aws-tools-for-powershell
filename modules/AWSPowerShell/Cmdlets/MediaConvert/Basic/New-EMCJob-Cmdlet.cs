@@ -59,8 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// Optional. Idempotency token for CreateJob
-        /// operation.
+        /// Prevent duplicate jobs from being created
+        /// and ensure idempotency for your requests. A client request token can be any string
+        /// that includes up to 64 ASCII characters. If you reuse a client request token within
+        /// one minute of a successful request, the API returns the job details of the original
+        /// request instead. For more information see https://docs.aws.amazon.com/mediaconvert/latest/apireference/idempotency.html.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

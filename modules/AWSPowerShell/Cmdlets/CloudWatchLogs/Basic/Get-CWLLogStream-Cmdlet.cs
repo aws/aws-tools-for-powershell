@@ -33,6 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
+    /// You can specify the log group to search by using either <code>logGroupIdentifier</code>
+    /// or <code>logGroupName</code>. You must include one of these two parameters, but you
+    /// can't include both. 
+    /// </para><para>
     /// This operation has a limit of five transactions per second, after which transactions
     /// are throttled.
     /// </para><para>
@@ -68,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Specify either the name or ARN of the log group to view. If the log group is in a
         /// source account and you are using a monitoring account, you must use the log group
-        /// ARN.</para><para>If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-        /// the action returns an <code>InvalidParameterException</code> error.</para>
+        /// ARN.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
+        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,14 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// the action returns an <code>InvalidParameterException</code> error. </para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LogGroupName { get; set; }
         #endregion
         
@@ -223,12 +220,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #endif
             context.LogGroupIdentifier = this.LogGroupIdentifier;
             context.LogGroupName = this.LogGroupName;
-            #if MODULAR
-            if (this.LogGroupName == null && ParameterWasBound(nameof(this.LogGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LogGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LogStreamNamePrefix = this.LogStreamNamePrefix;
             context.NextToken = this.NextToken;
             context.OrderBy = this.OrderBy;

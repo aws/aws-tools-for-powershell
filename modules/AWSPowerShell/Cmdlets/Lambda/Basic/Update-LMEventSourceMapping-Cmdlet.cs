@@ -42,17 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Amazon MQ and RabbitMQ</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Amazon MSK</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Apache Kafka</a></para></li></ul><para>
     /// The following error handling options are available only for stream sources (DynamoDB
     /// and Kinesis):
-    /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
+    /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> – If the function returns an error, split
     /// the batch in two and retry.
-    /// </para></li><li><para><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or
+    /// </para></li><li><para><code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue or
     /// Amazon SNS topic.
-    /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
+    /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> – Discard records older than the specified
     /// age. The default value is infinite (-1). When set to infinite (-1), failed records
     /// are retried until the record expires
-    /// </para></li><li><para><code>MaximumRetryAttempts</code> - Discard records after the specified number of
+    /// </para></li><li><para><code>MaximumRetryAttempts</code> – Discard records after the specified number of
     /// retries. The default value is infinite (-1). When set to infinite (-1), failed records
     /// are retried until the record expires.
-    /// </para></li><li><para><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
+    /// </para></li><li><para><code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.
     /// </para></li></ul><para>
     /// For information about which configuration parameters apply to each event source, see
     /// the following topics.
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>The maximum number of records in each batch that Lambda pulls from your stream or
         /// queue and sends to your function. Lambda passes all of the records in the batch to
         /// the function in a single call, up to the payload limit for synchronous invocation
-        /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000.
-        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Self-managed Apache Kafka</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</para></li></ul>
+        /// (6 MB).</para><ul><li><para><b>Amazon Kinesis</b> – Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> – Default 100. Max 10,000.</para></li><li><para><b>Amazon Simple Queue Service</b> – Default 10. For standard queues the max is 10,000.
+        /// For FIFO queues the max is 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> – Default 100. Max 10,000.</para></li><li><para><b>Self-managed Apache Kafka</b> – Default 100. Max 10,000.</para></li><li><para><b>Amazon MQ (ActiveMQ and RabbitMQ)</b> – Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,6 +181,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaximumBatchingWindowInSeconds")]
         public System.Int32? MaximumBatchingWindowInSecond { get; set; }
+        #endregion
+        
+        #region Parameter ScalingConfig_MaximumConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
         #endregion
         
         #region Parameter MaximumRecordAgeInSecond
@@ -339,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
             context.ParallelizationFactor = this.ParallelizationFactor;
+            context.ScalingConfig_MaximumConcurrency = this.ScalingConfig_MaximumConcurrency;
             if (this.SourceAccessConfiguration != null)
             {
                 context.SourceAccessConfiguration = new List<Amazon.Lambda.Model.SourceAccessConfiguration>(this.SourceAccessConfiguration);
@@ -481,6 +492,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.ParallelizationFactor = cmdletContext.ParallelizationFactor.Value;
             }
+            
+             // populate ScalingConfig
+            var requestScalingConfigIsNull = true;
+            request.ScalingConfig = new Amazon.Lambda.Model.ScalingConfig();
+            System.Int32? requestScalingConfig_scalingConfig_MaximumConcurrency = null;
+            if (cmdletContext.ScalingConfig_MaximumConcurrency != null)
+            {
+                requestScalingConfig_scalingConfig_MaximumConcurrency = cmdletContext.ScalingConfig_MaximumConcurrency.Value;
+            }
+            if (requestScalingConfig_scalingConfig_MaximumConcurrency != null)
+            {
+                request.ScalingConfig.MaximumConcurrency = requestScalingConfig_scalingConfig_MaximumConcurrency.Value;
+                requestScalingConfigIsNull = false;
+            }
+             // determine if request.ScalingConfig should be set to null
+            if (requestScalingConfigIsNull)
+            {
+                request.ScalingConfig = null;
+            }
             if (cmdletContext.SourceAccessConfiguration != null)
             {
                 request.SourceAccessConfigurations = cmdletContext.SourceAccessConfiguration;
@@ -566,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }
             public System.Int32? ParallelizationFactor { get; set; }
+            public System.Int32? ScalingConfig_MaximumConcurrency { get; set; }
             public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
             public System.Int32? TumblingWindowInSecond { get; set; }
             public System.String UUID { get; set; }

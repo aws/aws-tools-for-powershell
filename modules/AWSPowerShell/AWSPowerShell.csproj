@@ -199,6 +199,9 @@
     <Reference Include="AWSSDK.ChimeSDKVoice">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ChimeSDKVoice.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CleanRooms">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CleanRooms.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Cloud9">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Cloud9.dll</HintPath>
     </Reference>
@@ -1190,6 +1193,9 @@
     </Reference>
     <Reference Include="AWSSDK.ChimeSDKVoice">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ChimeSDKVoice.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CleanRooms">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CleanRooms.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Cloud9">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Cloud9.dll</HintPath>

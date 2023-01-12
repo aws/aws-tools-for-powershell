@@ -1,0 +1,3 @@
+﻿# CleanRooms
+
+Export-ModuleMember -Alias *
