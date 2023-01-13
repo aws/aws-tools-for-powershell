@@ -40917,7 +40917,7 @@ $OUTP_Completers = {
             ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerDrawKva")
         }
         {
-            $v = "POWER_10_KVA","POWER_15_KVA","POWER_5_KVA"
+            $v = "POWER_10_KVA","POWER_15_KVA","POWER_30_KVA","POWER_5_KVA"
             break
         }
 
@@ -45515,6 +45515,32 @@ _awsArgumentCompleterRegistration $AREX_SelectCompleters $AREX_SelectMap
 # Argument completions for service AWS Resource Groups
 
 
+$RG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ResourceGroups.GroupLifecycleEventsDesiredStatus
+        "Update-RGAccountSetting/GroupLifecycleEventsDesiredStatus"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RG_map = @{
+    "GroupLifecycleEventsDesiredStatus"=@("Update-RGAccountSetting")
+}
+
+_awsArgumentCompleterRegistration $RG_Completers $RG_map
+
 $RG_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -45565,6 +45591,7 @@ $RG_SelectCompleters = {
 $RG_SelectMap = @{
     "Select"=@("New-RGGroup",
                "Remove-RGGroup",
+               "Get-RGAccountSetting",
                "Get-RGGroup",
                "Get-RGGroupConfiguration",
                "Get-RGGroupQuery",
@@ -45577,6 +45604,7 @@ $RG_SelectMap = @{
                "Add-RGResourceTag",
                "Remove-RGResource",
                "Remove-RGResourceTag",
+               "Update-RGAccountSetting",
                "Update-RGGroup",
                "Update-RGGroupQuery")
 }

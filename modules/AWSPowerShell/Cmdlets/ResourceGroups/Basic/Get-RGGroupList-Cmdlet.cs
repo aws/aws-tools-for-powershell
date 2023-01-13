@@ -28,7 +28,7 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of existing resource groups in your account.
+    /// Returns a list of existing Resource Groups in your account.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// operation.</para><ul><li><para><code>resource-type</code> - Filter the results to include only those of the specified
         /// resource types. Specify up to five resource types in the format <code>AWS::<i>ServiceCode</i>::<i>ResourceType</i></code>. For example, <code>AWS::EC2::Instance</code>, or <code>AWS::S3::Bucket</code>.</para></li><li><para><code>configuration-type</code> - Filter the results to include only those groups
         /// that have the specified configuration types attached. The current supported values
-        /// are:</para><ul><li><para><code>AWS:EC2::CapacityReservationPool</code></para></li><li><para><code>AWS:EC2::HostManagement</code></para></li></ul></li></ul>
+        /// are:</para><ul><li><para><code>AWS::EC2::CapacityReservationPool</code></para></li><li><para><code>AWS::EC2::HostManagement</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -51,16 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// operation. Filters the results to include only those of the specified resource types.</para><ul><li><para><code>resource-type</code> - Filter resources by their type. Specify up to five resource
         /// types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>,
         /// or <code>AWS::S3::Bucket</code>. </para></li></ul><para>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>,
-        /// AWS Resource Groups validates your filter resource types against the types that are
-        /// defined in the query associated with the group. For example, if a group contains only
-        /// S3 buckets because its query specifies only that resource type, but your <code>resource-type</code>
+        /// Resource Groups validates your filter resource types against the types that are defined
+        /// in the query associated with the group. For example, if a group contains only S3 buckets
+        /// because its query specifies only that resource type, but your <code>resource-type</code>
         /// filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances.
         /// In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code>
         /// error with a message similar to the following:</para><para><code>The resource types specified as filters in the request are not valid.</code></para><para>The error includes a list of resource types that failed the validation because they
         /// are not part of the query associated with the group. This validation doesn't occur
         /// when the group query specifies <code>AWS::AllSupported</code>, because a group based
         /// on such a query can contain any of the allowed resource types for the query type (tag-based
-        /// or AWS CloudFormation stack-based queries).</para>
+        /// or Amazon CloudFront stack-based queries).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

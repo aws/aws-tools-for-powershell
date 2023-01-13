@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
     /// Creates a resource group with the specified name and description. You can optionally
-    /// include a resource query, or a service configuration. For more information about constructing
-    /// a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
-    /// a tag-based group in Resource Groups</a>. For more information about service configurations,
-    /// see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-    /// configurations for resource groups</a>.
+    /// include either a resource query or a service configuration. For more information about
+    /// constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html">Build
+    /// queries and groups in Resource Groups</a> in the <i>Resource Groups User Guide</i>.
+    /// For more information about service-linked groups and service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
+    /// configurations for Resource Groups</a>.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -52,11 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>A configuration associates the resource group with an AWS service and specifies how
-        /// the service can interact with the resources in the group. A configuration is an array
-        /// of <a>GroupConfigurationItem</a> elements. For details about the syntax of service
-        /// configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-        /// configurations for resource groups</a>.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
+        /// <para>A configuration associates the resource group with an Amazon Web Services service
+        /// and specifies how the service can interact with the resources in the group. A configuration
+        /// is an array of <a>GroupConfigurationItem</a> elements. For details about the syntax
+        /// of service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
+        /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
         /// but not both.</para></note>
         /// </para>
         /// </summary>
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// can't change the name of a resource group after you create it. A resource group name
         /// can consist of letters, numbers, hyphens, periods, and underscores. The name cannot
         /// start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group
-        /// name must be unique within each AWS Region in your AWS account.</para>
+        /// name must be unique within each Amazon Web Services Region in your Amazon Web Services
+        /// account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceQuery
         /// <summary>
         /// <para>
-        /// <para>The resource query that determines which AWS resources are members of this group.
-        /// For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
+        /// <para>The resource query that determines which Amazon Web Services resources are members
+        /// of this group. For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
         /// a tag-based group in Resource Groups</a>. </para><note><para>A resource group can contain either a <code>ResourceQuery</code> or a <code>Configuration</code>,
         /// but not both.</para></note>
         /// </para>

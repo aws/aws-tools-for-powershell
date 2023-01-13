@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>principal</code> - The ARN of the principal.</para></li><li><para><code>principal-type</code> - The principal type (<code>All</code> | <code>Service</code>
+        /// <para>The filters.</para><ul><li><para><code>principal</code> - The ARN of the principal.</para></li><li><para><code>principal-type</code> - The principal type (<code>All</code> | <code>Service</code>
         /// | <code>OrganizationUnit</code> | <code>Account</code> | <code>User</code> | <code>Role</code>).</para></li></ul>
         /// </para>
         /// </summary>

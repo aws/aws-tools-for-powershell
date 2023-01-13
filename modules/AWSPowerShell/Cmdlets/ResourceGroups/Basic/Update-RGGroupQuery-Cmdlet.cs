@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceQuery
         /// <summary>
         /// <para>
-        /// <para>The resource query to determine which AWS resources are members of this resource group.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
+        /// <para>The resource query to determine which Amazon Web Services resources are members of
+        /// this resource group.</para><note><para>A resource group can contain either a <code>Configuration</code> or a <code>ResourceQuery</code>,
         /// but not both.</para></note>
         /// </para>
         /// </summary>

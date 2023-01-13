@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the permissions for your VPC endpoint service. You can add or remove permissions
-    /// for service consumers (IAM users, IAM roles, and Amazon Web Services accounts) to
-    /// connect to your endpoint service.
+    /// for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect
+    /// to your endpoint service.
     /// 
     ///  
     /// <para>
@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddAllowedPrincipal
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of one or more principals. Permissions are granted
-        /// to the principals in this list. To grant permissions to all principals, specify an
-        /// asterisk (*).</para>
+        /// <para>The Amazon Resource Names (ARN) of the principals. Permissions are granted to the
+        /// principals in this list. To grant permissions to all principals, specify an asterisk
+        /// (*).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveAllowedPrincipal
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of one or more principals. Permissions are revoked
-        /// for principals in this list.</para>
+        /// <para>The Amazon Resource Names (ARN) of the principals. Permissions are revoked for principals
+        /// in this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

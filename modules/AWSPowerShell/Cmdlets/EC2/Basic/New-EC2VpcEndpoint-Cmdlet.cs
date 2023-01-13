@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) One or more route table IDs.</para>
+        /// <para>(Gateway endpoint) The route table IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The ID of one or more security groups to associate with the endpoint
-        /// network interface.</para>
+        /// <para>(Interface endpoint) The IDs of the security groups to associate with the endpoint
+        /// network interface. If this parameter is not specified, we use the default security
+        /// group for the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The service name. To get a list of available services, use the <a>DescribeVpcEndpointServices</a>
-        /// request, or get the name from the service provider.</para>
+        /// <para>The service name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>(Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which
-        /// to create an endpoint network interface. For a Gateway Load Balancer endpoint, you
-        /// can specify one subnet only.</para>
+        /// <para>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to
+        /// create an endpoint network interface. For a Gateway Load Balancer endpoint, you can
+        /// specify only one subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC in which the endpoint will be used.</para>
+        /// <para>The ID of the VPC for the endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

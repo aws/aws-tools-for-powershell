@@ -28,9 +28,9 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns the service configuration associated with the specified resource group. For
-    /// details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-    /// configurations for resource groups</a>.
+    /// Retrieves the service configuration associated with the specified resource group.
+    /// For details about the service configuration syntax, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
+    /// configurations for Resource Groups</a>.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group.</para>
+        /// <para>The name or the ARN of the resource group for which you want to retrive the service
+        /// configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

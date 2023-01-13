@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Creates a VPC endpoint service to which service consumers (Amazon Web Services accounts,
-    /// IAM users, and IAM roles) can connect.
+    /// users, and IAM roles) can connect.
     /// 
     ///  
     /// <para>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GatewayLoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the Gateway Load Balancers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkLoadBalancerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the Network Load Balancers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

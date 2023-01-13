@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Rejects one or more VPC endpoint connection requests to your VPC endpoint service.
+    /// Rejects VPC endpoint connection requests to your VPC endpoint service.
     /// </summary>
     [Cmdlet("Deny", "EC2EndpointConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more VPC endpoints.</para>
+        /// <para>The IDs of the VPC endpoints.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

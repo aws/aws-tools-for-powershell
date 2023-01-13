@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ConnectionEvent
         /// <summary>
         /// <para>
-        /// <para>One or more endpoint events for which to receive notifications. Valid values are <code>Accept</code>,
+        /// <para>The endpoint events for which to receive notifications. Valid values are <code>Accept</code>,
         /// <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</para>
         /// </para>
         /// </summary>

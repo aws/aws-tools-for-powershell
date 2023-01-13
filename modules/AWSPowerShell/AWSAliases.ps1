@@ -19821,6 +19821,8 @@ Set-Alias -Name Create-RGGroup -Value New-RGGroup
 Set-Alias -Name RG-CreateGroup -Value New-RGGroup
 Set-Alias -Name Delete-RGGroup -Value Remove-RGGroup
 Set-Alias -Name RG-DeleteGroup -Value Remove-RGGroup
+Set-Alias -Name Get-RGAccountSettings -Value Get-RGAccountSetting
+Set-Alias -Name RG-GetAccountSettings -Value Get-RGAccountSetting
 Set-Alias -Name RG-GetGroup -Value Get-RGGroup
 Set-Alias -Name RG-GetGroupConfiguration -Value Get-RGGroupConfiguration
 Set-Alias -Name RG-GetGroupQuery -Value Get-RGGroupQuery
@@ -19847,6 +19849,8 @@ Set-Alias -Name Ungroup-RGResource -Value Remove-RGResource
 Set-Alias -Name RG-UngroupResources -Value Remove-RGResource
 Set-Alias -Name Remove-RGTag -Value Remove-RGResourceTag
 Set-Alias -Name RG-Untag -Value Remove-RGResourceTag
+Set-Alias -Name Update-RGAccountSettings -Value Update-RGAccountSetting
+Set-Alias -Name RG-UpdateAccountSettings -Value Update-RGAccountSetting
 Set-Alias -Name RG-UpdateGroup -Value Update-RGGroup
 Set-Alias -Name RG-UpdateGroupQuery -Value Update-RGGroupQuery
 Set-Alias -Name Describe-RGTReportCreation -Value Get-RGTReportCreation

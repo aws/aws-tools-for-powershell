@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddRouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) One or more route tables IDs to associate with the endpoint.</para>
+        /// <para>(Gateway endpoint) The IDs of the route tables to associate with the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) One or more security group IDs to associate with the network
+        /// <para>(Interface endpoint) The IDs of the security groups to associate with the network
         /// interface.</para>
         /// </para>
         /// </summary>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddSubnetId
         /// <summary>
         /// <para>
-        /// <para>(Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to
+        /// <para>(Interface and Gateway Load Balancer endpoints) The IDs of the subnets in which to
         /// serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one
         /// subnet.</para>
         /// </para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveRouteTableId
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</para>
+        /// <para>(Gateway endpoint) The IDs of the route tables to disassociate from the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) One or more security group IDs to disassociate from the network
+        /// <para>(Interface endpoint) The IDs of the security groups to disassociate from the network
         /// interface.</para>
         /// </para>
         /// </summary>
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RemoveSubnetId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) One or more subnets IDs in which to remove the endpoint.</para>
+        /// <para>(Interface endpoint) The IDs of the subnets from which to remove the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

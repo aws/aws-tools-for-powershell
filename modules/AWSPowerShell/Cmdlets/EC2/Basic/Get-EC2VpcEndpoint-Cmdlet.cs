@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your VPC endpoints.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes your VPC endpoints.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpoint")]
     [OutputType("Amazon.EC2.Model.VpcEndpoint")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</para></li><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// <para>The filters.</para><ul><li><para><code>ip-address-type</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</para></li><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>One or more endpoint IDs.</para>
+        /// <para>The IDs of the VPC endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Deletes one or more VPC endpoint connection notifications.
+    /// Deletes the specified VPC endpoint connection notifications.
     /// </summary>
     [Cmdlet("Remove", "EC2EndpointConnectionNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ConnectionNotificationId
         /// <summary>
         /// <para>
-        /// <para>One or more notification IDs.</para>
+        /// <para>The IDs of the notifications.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

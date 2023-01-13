@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-RGResource', 
         'Add-RGResourceTag', 
         'Find-RGResource', 
+        'Get-RGAccountSetting', 
         'Get-RGGroup', 
         'Get-RGGroupConfiguration', 
         'Get-RGGroupList', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-RGGroup', 
         'Remove-RGResource', 
         'Remove-RGResourceTag', 
+        'Update-RGAccountSetting', 
         'Update-RGGroup', 
         'Update-RGGroupQuery', 
         'Write-RGGroupConfiguration')

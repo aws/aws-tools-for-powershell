@@ -429,13 +429,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MetadataOptions_HttpToken
         /// <summary>
         /// <para>
-        /// <para>The state of token usage for your instance metadata requests.</para><para>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-        /// with or without a session token on your request. If you retrieve the IAM role credentials
-        /// without a token, the version 1.0 role credentials are returned. If you retrieve the
-        /// IAM role credentials using a valid session token, the version 2.0 role credentials
-        /// are returned.</para><para>If the state is <code>required</code>, you must send a session token with any instance
-        /// metadata retrieval requests. In this state, retrieving the IAM role credentials always
-        /// returns the version 2.0 credentials; the version 1.0 credentials are not available.</para><para>Default: <code>optional</code></para>
+        /// <para>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
+        /// (in other words, set the use of IMDSv2 to <code>optional</code>) or <code>required</code>
+        /// (in other words, set the use of IMDSv2 to <code>required</code>).</para><ul><li><para><code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance
+        /// metadata with or without a session token in your request. If you retrieve the IAM
+        /// role credentials without a token, the IMDSv1 role credentials are returned. If you
+        /// retrieve the IAM role credentials using a valid session token, the IMDSv2 role credentials
+        /// are returned.</para></li><li><para><code>required</code> - When IMDSv2 is required, you must send a session token with
+        /// any instance metadata retrieval requests. In this state, retrieving the IAM role credentials
+        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default: <code>optional</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -701,8 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC,
-        /// you must use security group IDs instead.</para><para>If you specify a network interface, you must specify any security groups as part of
+        /// <para>[EC2-Classic, default VPC] The names of the security groups.</para><para>If you specify a network interface, you must specify any security groups as part of
         /// the network interface.</para><para>Default: Amazon EC2 uses the default security group.</para>
         /// </para>
         /// </summary>

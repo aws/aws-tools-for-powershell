@@ -29,6 +29,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
@@ -80,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="Untag" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Keys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="AccountSettings" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="GroupLifecycleEventsDesiredStatus" PipelineParameter="GroupLifecycleEventsDesiredStatus" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

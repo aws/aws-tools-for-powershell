@@ -150,7 +150,7 @@ $OUTP_Completers = {
             ($_ -eq "New-OUTPSite/RackPhysicalProperties_PowerDrawKva")
         }
         {
-            $v = "POWER_10_KVA","POWER_15_KVA","POWER_5_KVA"
+            $v = "POWER_10_KVA","POWER_15_KVA","POWER_30_KVA","POWER_5_KVA"
             break
         }
 

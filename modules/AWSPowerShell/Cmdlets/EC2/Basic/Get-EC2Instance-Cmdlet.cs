@@ -91,9 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example, <code>2021-09-29T11:04:43.305Z</code>.
         /// You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
         /// matches an entire day.</para></li><li><para><code>metadata-options.http-tokens</code> - The metadata request authorization state
-        /// (<code>optional</code> | <code>required</code>)</para></li><li><para><code>metadata-options.http-put-response-hop-limit</code> - The http metadata request
-        /// put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</para></li><li><para><code>metadata-options.http-endpoint</code> - Enable or disable metadata access on
-        /// http endpoint (<code>enabled</code> | <code>disabled</code>)</para></li><li><para><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled
+        /// (<code>optional</code> | <code>required</code>)</para></li><li><para><code>metadata-options.http-put-response-hop-limit</code> - The HTTP metadata request
+        /// put response hop limit (integer, possible values <code>1</code> to <code>64</code>)</para></li><li><para><code>metadata-options.http-endpoint</code> - The status of access to the HTTP metadata
+        /// endpoint on your instance (<code>enabled</code> | <code>disabled</code>)</para></li><li><para><code>metadata-options.instance-metadata-tags</code> - The status of access to instance
+        /// tags from the instance metadata (<code>enabled</code> | <code>disabled</code>)</para></li><li><para><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled
         /// (<code>disabled</code> | <code>enabled</code>).</para></li><li><para><code>network-interface.addresses.private-ip-address</code> - The private IPv4 address
         /// associated with the network interface.</para></li><li><para><code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address
         /// of the network interface is the primary private IPv4 address.</para></li><li><para><code>network-interface.addresses.association.public-ip</code> - The ID of the association

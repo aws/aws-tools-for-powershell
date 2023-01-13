@@ -391,7 +391,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_TargetCapacityUnitType
         /// <summary>
         /// <para>
-        /// <para>The unit for the target capacity.</para><para>Default: <code>units</code> (translates to number of instances)</para>
+        /// <para>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be
+        /// specified when <code>InstanceRequirements</code> is specified.</para><para>Default: <code>units</code> (translates to number of instances)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

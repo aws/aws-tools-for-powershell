@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Accepts one or more interface VPC endpoint connection requests to your VPC endpoint
-    /// service.
+    /// Accepts connection requests to your VPC endpoint service.
     /// </summary>
     [Cmdlet("Approve", "EC2EndpointConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more interface VPC endpoints.</para>
+        /// <para>The IDs of the interface VPC endpoints.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>service-id</code> - The ID of the service.</para></li><li><para><code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code>
+        /// <para>The filters.</para><ul><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>service-id</code> - The ID of the service.</para></li><li><para><code>service-state</code> - The state of the service (<code>Pending</code> | <code>Available</code>
         /// | <code>Deleting</code> | <code>Deleted</code> | <code>Failed</code>). </para></li><li><para><code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code>
         /// | <code>ipv6</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more services.</para>
+        /// <para>The IDs of the endpoint services.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

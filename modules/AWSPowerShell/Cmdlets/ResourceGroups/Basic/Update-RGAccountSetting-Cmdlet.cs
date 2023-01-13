@@ -22,61 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.ResourceGroups;
+using Amazon.ResourceGroups.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Deletes the specified VPC endpoint service configurations. Before you can delete an
-    /// endpoint service configuration, you must reject any <code>Available</code> or <code>PendingAcceptance</code>
-    /// interface endpoint connections that are attached to the service.
+    /// Turns on or turns off optional features in Resource Groups.
+    /// 
+    ///  
+    /// <para>
+    /// The preceding example shows that the request to turn on group lifecycle events is
+    /// <code>IN_PROGRESS</code>. You can call the <a>GetAccountSettings</a> operation to
+    /// check for completion by looking for <code>GroupLifecycleEventsStatus</code> to change
+    /// to <code>ACTIVE</code>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "EC2EndpointServiceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteVpcEndpointServiceConfigurations API operation.", Operation = new[] {"DeleteVpcEndpointServiceConfigurations"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem or Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.UnsuccessfulItem objects.",
-        "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "RGAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ResourceGroups.Model.AccountSettings")]
+    [AWSCmdlet("Calls the AWS Resource Groups UpdateAccountSettings API operation.", Operation = new[] {"UpdateAccountSettings"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse))]
+    [AWSCmdletOutput("Amazon.ResourceGroups.Model.AccountSettings or Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse",
+        "This cmdlet returns an Amazon.ResourceGroups.Model.AccountSettings object.",
+        "The service call response (type Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveEC2EndpointServiceConfigurationCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class UpdateRGAccountSettingCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
-        #region Parameter ServiceId
+        #region Parameter GroupLifecycleEventsDesiredStatus
         /// <summary>
         /// <para>
-        /// <para>The IDs of the services.</para>
+        /// <para>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group
+        /// lifecycle events</a> on or off.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ServiceIds")]
-        public System.String[] ServiceId { get; set; }
+        [AWSConstantClassSource("Amazon.ResourceGroups.GroupLifecycleEventsDesiredStatus")]
+        public Amazon.ResourceGroups.GroupLifecycleEventsDesiredStatus GroupLifecycleEventsDesiredStatus { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Unsuccessful'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountSettings'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse).
+        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Unsuccessful";
+        public string Select { get; set; } = "AccountSettings";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ServiceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ServiceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GroupLifecycleEventsDesiredStatus parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GroupLifecycleEventsDesiredStatus' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServiceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GroupLifecycleEventsDesiredStatus' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ServiceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2EndpointServiceConfiguration (DeleteVpcEndpointServiceConfigurations)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GroupLifecycleEventsDesiredStatus), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-RGAccountSetting (UpdateAccountSettings)"))
             {
                 return;
             }
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse, RemoveEC2EndpointServiceConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse, UpdateRGAccountSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,19 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ServiceId;
+                context.Select = (response, cmdlet) => this.GroupLifecycleEventsDesiredStatus;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.ServiceId != null)
-            {
-                context.ServiceId = new List<System.String>(this.ServiceId);
-            }
-            #if MODULAR
-            if (this.ServiceId == null && ParameterWasBound(nameof(this.ServiceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.GroupLifecycleEventsDesiredStatus = this.GroupLifecycleEventsDesiredStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,11 +137,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsRequest();
+            var request = new Amazon.ResourceGroups.Model.UpdateAccountSettingsRequest();
             
-            if (cmdletContext.ServiceId != null)
+            if (cmdletContext.GroupLifecycleEventsDesiredStatus != null)
             {
-                request.ServiceIds = cmdletContext.ServiceId;
+                request.GroupLifecycleEventsDesiredStatus = cmdletContext.GroupLifecycleEventsDesiredStatus;
             }
             
             CmdletOutput output;
@@ -185,15 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsRequest request)
+        private Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.UpdateAccountSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteVpcEndpointServiceConfigurations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "UpdateAccountSettings");
             try
             {
                 #if DESKTOP
-                return client.DeleteVpcEndpointServiceConfigurations(request);
+                return client.UpdateAccountSettings(request);
                 #elif CORECLR
-                return client.DeleteVpcEndpointServiceConfigurationsAsync(request).GetAwaiter().GetResult();
+                return client.UpdateAccountSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,9 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ServiceId { get; set; }
-            public System.Func<Amazon.EC2.Model.DeleteVpcEndpointServiceConfigurationsResponse, RemoveEC2EndpointServiceConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Unsuccessful;
+            public Amazon.ResourceGroups.GroupLifecycleEventsDesiredStatus GroupLifecycleEventsDesiredStatus { get; set; }
+            public System.Func<Amazon.ResourceGroups.Model.UpdateAccountSettingsResponse, UpdateRGAccountSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccountSettings;
         }
         
     }

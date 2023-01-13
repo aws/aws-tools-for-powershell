@@ -1,4 +1,10 @@
-﻿### 4.1.249 (2023-01-12 22:00Z)
+﻿### 4.1.250 (2023-01-13 22:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.461.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Resource Groups
+    * Added cmdlet Get-RGAccountSetting leveraging the GetAccountSettings service API.
+    * Added cmdlet Update-RGAccountSetting leveraging the UpdateAccountSettings service API.
+
+### 4.1.249 (2023-01-12 22:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.460.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Clean Rooms Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CRS and can be listed using the command 'Get-AWSCmdletName -Service CRS'.
   * Amazon Lambda
