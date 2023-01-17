@@ -99,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Operation
+        /// <summary>
+        /// <para>
+        /// <para> Operation is the specific Amazon Web Services action covered by this line item. This
+        /// describes the specific usage of the line item.</para><para> If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates
+        /// which operation the <code>PricingRule</code> is modifying. For example, a value of
+        /// <code>RunInstances:0202</code> indicates the operation of running an Amazon EC2 instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Operation { get; set; }
+        #endregion
+        
         #region Parameter Scope
         /// <summary>
         /// <para>
@@ -120,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para> If the <code>Scope</code> attribute is set to <code>SERVICE</code>, the attribute
-        /// indicates which service the <code>PricingRule</code> is applicable for. </para>
+        /// <para> If the <code>Scope</code> attribute is set to <code>SERVICE</code> or <code>SKU</code>,
+        /// the attribute indicates which service the <code>PricingRule</code> is applicable for.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,6 +169,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.BillingConductor.PricingRuleType")]
         public Amazon.BillingConductor.PricingRuleType Type { get; set; }
+        #endregion
+        
+        #region Parameter UsageType
+        /// <summary>
+        /// <para>
+        /// Amazon.BillingConductor.Model.CreatePricingRuleRequest.UsageType
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UsageType { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -221,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Operation = this.Operation;
             context.Scope = this.Scope;
             #if MODULAR
             if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
@@ -245,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UsageType = this.UsageType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -280,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Operation != null)
+            {
+                request.Operation = cmdletContext.Operation;
             }
             if (cmdletContext.Scope != null)
             {
@@ -330,6 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
+            }
+            if (cmdletContext.UsageType != null)
+            {
+                request.UsageType = cmdletContext.UsageType;
             }
             
             CmdletOutput output;
@@ -397,11 +431,13 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.String Description { get; set; }
             public System.Double? ModifierPercentage { get; set; }
             public System.String Name { get; set; }
+            public System.String Operation { get; set; }
             public Amazon.BillingConductor.PricingRuleScope Scope { get; set; }
             public System.String Service { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Boolean? FreeTier_Activated { get; set; }
             public Amazon.BillingConductor.PricingRuleType Type { get; set; }
+            public System.String UsageType { get; set; }
             public System.Func<Amazon.BillingConductor.Model.CreatePricingRuleResponse, NewABCPricingRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Arn;
         }

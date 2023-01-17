@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Component
         /// <summary>
         /// <para>
-        /// <para>Components for build and test that are included in the container recipe.</para>
+        /// <para>Components for build and test that are included in the container recipe. Recipes require
+        /// a minimum of one build component, and can have a maximum of 20 build and test components
+        /// in any combination.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Component
         /// <summary>
         /// <para>
-        /// <para>The components of the image recipe.</para>
+        /// <para>The components included in the image recipe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

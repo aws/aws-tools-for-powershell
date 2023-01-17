@@ -116,7 +116,7 @@ $EC2IB_Completers = {
             ($_ -eq "Get-EC2IBImageRecipeList/Owner")
         }
         {
-            $v = "Amazon","Self","Shared"
+            $v = "Amazon","Self","Shared","ThirdParty"
             break
         }
 

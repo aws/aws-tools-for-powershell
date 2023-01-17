@@ -28,7 +28,9 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Returns the list of component build versions for the specified semantic version.
+    /// Returns the list of components that can be filtered by name, or by using the listed
+    /// <code>filters</code> to streamline results. Newly created components can take up to
+    /// two minutes to appear in the ListComponents API Results.
     /// 
     ///  <note><para>
     /// The semantic version has four nodes: &lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;/&lt;build&gt;.
@@ -52,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ByName
         /// <summary>
         /// <para>
-        /// <para>Returns the list of component build versions for the specified name.</para>
+        /// <para>Returns the list of components for the specified name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>The owner defines which components you want to list. By default, this request will
-        /// only show components owned by your account. You can use this field to specify if you
-        /// want to view components owned by yourself, by Amazon, or those components that have
-        /// been shared with you by other customers.</para>
+        /// <para>Filters results based on the type of owner for the component. By default, this request
+        /// returns a list of components that your account owns. To see results for other types
+        /// of owners, you can specify components that Amazon manages, third party components,
+        /// or components that other accounts have shared with you.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

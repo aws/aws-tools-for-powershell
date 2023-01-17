@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_TimeoutMinute
         /// <summary>
         /// <para>
-        /// <para>The maximum time in minutes that tests are permitted to run.</para>
+        /// <para>The maximum time in minutes that tests are permitted to run.</para><note><para>The timeoutMinutes attribute is not currently active. This value is ignored.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>Limit the number of hops that an instance metadata request can traverse to reach its
-        /// destination.</para>
+        /// destination. The default is one hop. However, if HTTP tokens are required, container
+        /// image builds need a minimum of two hops.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
