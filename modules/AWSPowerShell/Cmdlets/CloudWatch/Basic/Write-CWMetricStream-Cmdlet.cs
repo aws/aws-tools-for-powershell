@@ -60,6 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// When you use <code>PutMetricStream</code> to create a new metric stream, the stream
     /// is created in the <code>running</code> state. If you use it to update an existing
     /// stream, the state of the stream is not changed.
+    /// </para><para>
+    /// If you are using CloudWatch cross-account observability and you create a metric stream
+    /// in a monitoring account, you can choose whether to include metrics from source accounts
+    /// in the stream. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch
+    /// cross-account observability</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWMetricStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("IncludeFilters")]
         public Amazon.CloudWatch.Model.MetricStreamFilter[] IncludeFilter { get; set; }
+        #endregion
+        
+        #region Parameter IncludeLinkedAccountsMetric
+        /// <summary>
+        /// <para>
+        /// <para>If you are creating a metric stream in a monitoring account, specify <code>true</code>
+        /// to include metrics from source accounts in the metric stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccountsMetrics")]
+        public System.Boolean? IncludeLinkedAccountsMetric { get; set; }
         #endregion
         
         #region Parameter Name
@@ -289,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 context.IncludeFilter = new List<Amazon.CloudWatch.Model.MetricStreamFilter>(this.IncludeFilter);
             }
+            context.IncludeLinkedAccountsMetric = this.IncludeLinkedAccountsMetric;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -345,6 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.IncludeFilter != null)
             {
                 request.IncludeFilters = cmdletContext.IncludeFilter;
+            }
+            if (cmdletContext.IncludeLinkedAccountsMetric != null)
+            {
+                request.IncludeLinkedAccountsMetrics = cmdletContext.IncludeLinkedAccountsMetric.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -430,6 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public List<Amazon.CloudWatch.Model.MetricStreamFilter> ExcludeFilter { get; set; }
             public System.String FirehoseArn { get; set; }
             public List<Amazon.CloudWatch.Model.MetricStreamFilter> IncludeFilter { get; set; }
+            public System.Boolean? IncludeLinkedAccountsMetric { get; set; }
             public System.String Name { get; set; }
             public Amazon.CloudWatch.MetricStreamOutputFormat OutputFormat { get; set; }
             public System.String RoleArn { get; set; }

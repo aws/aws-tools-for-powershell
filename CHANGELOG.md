@@ -1,4 +1,9 @@
-﻿### 4.1.251 (2023-01-17 21:51Z)
+﻿### 4.1.252 (2023-01-18 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.463.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWMetricStream: added parameter IncludeLinkedAccountsMetric.
+
+### 4.1.251 (2023-01-17 21:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet New-ABCPricingRule: added parameters Operation and UsageType.

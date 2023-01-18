@@ -32,10 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// 
     ///  <note><para>
     /// This operation completely replaces the mutable specifications that you already have
-    /// for the rule group with the ones that you provide to this call. To modify the rule
-    /// group, retrieve it by calling <a>GetRuleGroup</a>, update the settings as needed,
-    /// and then provide the complete rule group specification to this call.
-    /// </para></note><para>
+    /// for the rule group with the ones that you provide to this call. 
+    /// </para><para>
+    /// To modify a rule group, do the following: 
+    /// </para><ol><li><para>
+    /// Retrieve it by calling <a>GetRuleGroup</a></para></li><li><para>
+    /// Update its settings as needed
+    /// </para></li><li><para>
+    /// Provide the complete rule group specification to this call
+    /// </para></li></ol></note><para>
     /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
     /// WAF propagates the changes everywhere that the web ACL and its components are stored
     /// and used. Your changes are applied within seconds, but there might be a brief period
@@ -156,10 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>A name of the Amazon CloudWatch metric. The name can contain only the characters:
+        /// <para>A name of the Amazon CloudWatch metric dimension. The name can contain only the characters:
         /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
-        /// long. It can't contain whitespace or metric names reserved for WAF, for example <code>All</code>
-        /// and <code>Default_Action</code>. </para>
+        /// long. It can't contain whitespace or metric names that are reserved for WAF, for example
+        /// <code>All</code> and <code>Default_Action</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

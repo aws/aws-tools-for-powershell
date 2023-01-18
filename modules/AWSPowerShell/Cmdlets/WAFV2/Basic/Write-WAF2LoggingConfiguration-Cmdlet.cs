@@ -32,6 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// according to the configuration provided. 
     /// 
     ///  <note><para>
+    /// This operation completely replaces any mutable specifications that you already have
+    /// for a logging configuration with the ones that you provide to this call. 
+    /// </para><para>
+    /// To modify an existing logging configuration, do the following: 
+    /// </para><ol><li><para>
+    /// Retrieve it by calling <a>GetLoggingConfiguration</a></para></li><li><para>
+    /// Update its settings as needed
+    /// </para></li><li><para>
+    /// Provide the complete logging configuration specification to this call
+    /// </para></li></ol></note><note><para>
     /// You can define one logging destination per web ACL.
     /// </para></note><para>
     /// You can access information about the traffic that WAF inspects using the following
@@ -60,13 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </para><para>
     /// For additional information about web ACL logging, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// web ACL traffic information</a> in the <i>WAF Developer Guide</i>.
-    /// </para><note><para>
-    /// This operation completely replaces the mutable specifications that you already have
-    /// for the logging configuration with the ones that you provide to this call. To modify
-    /// the logging configuration, retrieve it by calling <a>GetLoggingConfiguration</a>,
-    /// update the settings as needed, and then provide the complete logging configuration
-    /// specification to this call.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "WAF2LoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFV2.Model.LoggingConfiguration")]

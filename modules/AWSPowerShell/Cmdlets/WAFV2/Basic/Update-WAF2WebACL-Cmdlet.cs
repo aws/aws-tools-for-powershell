@@ -31,8 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Updates the specified <a>WebACL</a>. While updating a web ACL, WAF provides continuous
     /// coverage to the resources that you have associated with the web ACL. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This operation completely replaces the mutable specifications that you already have
+    /// for the web ACL with the ones that you provide to this call. 
+    /// </para><para>
+    /// To modify a web ACL, do the following: 
+    /// </para><ol><li><para>
+    /// Retrieve it by calling <a>GetWebACL</a></para></li><li><para>
+    /// Update its settings as needed
+    /// </para></li><li><para>
+    /// Provide the complete web ACL specification to this call
+    /// </para></li></ol></note><para>
     /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
     /// WAF propagates the changes everywhere that the web ACL and its components are stored
     /// and used. Your changes are applied within seconds, but there might be a brief period
@@ -44,12 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// associate a web ACL with an Amazon Web Services resource and when you change a web
     /// ACL that is already associated with a resource. Generally, any inconsistencies of
     /// this type last only a few seconds.
-    /// </para><note><para>
-    /// This operation completely replaces the mutable specifications that you already have
-    /// for the web ACL with the ones that you provide to this call. To modify the web ACL,
-    /// retrieve it by calling <a>GetWebACL</a>, update the settings as needed, and then provide
-    /// the complete web ACL specification to this call.
-    /// </para></note><para>
+    /// </para><para>
     ///  A web ACL defines a collection of rules to use to inspect and control web requests.
     /// Each rule has an action defined (allow, block, or count) for requests that match the
     /// statement of the rule. In the web ACL, you assign a default action to take (allow,
@@ -206,10 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>A name of the Amazon CloudWatch metric. The name can contain only the characters:
+        /// <para>A name of the Amazon CloudWatch metric dimension. The name can contain only the characters:
         /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
-        /// long. It can't contain whitespace or metric names reserved for WAF, for example <code>All</code>
-        /// and <code>Default_Action</code>. </para>
+        /// long. It can't contain whitespace or metric names that are reserved for WAF, for example
+        /// <code>All</code> and <code>Default_Action</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

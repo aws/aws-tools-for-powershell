@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter RuleMetricName
         /// <summary>
         /// <para>
-        /// <para>The metric name assigned to the <code>Rule</code> or <code>RuleGroup</code> for which
-        /// you want a sample of requests.</para>
+        /// <para>The metric name assigned to the <code>Rule</code> or <code>RuleGroup</code> dimension
+        /// for which you want a sample of requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

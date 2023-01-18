@@ -121,10 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>A name of the Amazon CloudWatch metric. The name can contain only the characters:
+        /// <para>A name of the Amazon CloudWatch metric dimension. The name can contain only the characters:
         /// A-Z, a-z, 0-9, - (hyphen), and _ (underscore). The name can be from one to 128 characters
-        /// long. It can't contain whitespace or metric names reserved for WAF, for example <code>All</code>
-        /// and <code>Default_Action</code>. </para>
+        /// long. It can't contain whitespace or metric names that are reserved for WAF, for example
+        /// <code>All</code> and <code>Default_Action</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
