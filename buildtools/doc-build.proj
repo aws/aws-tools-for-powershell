@@ -1,14 +1,6 @@
 <Project ToolsVersion="4.0" 
 	DefaultTargets="doc-build"
 	xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-    <PropertyGroup>
-        <InternalBuildTools Condition="'$(InternalBuildTools)'==''">..\..\AWSDotNetBuildTools</InternalBuildTools>
-    </PropertyGroup>
-    
-	<Import Project="$(InternalBuildTools)\references.targets" Condition="Exists('$(InternalBuildTools)\references.targets')" />
-	<Import Project="$(InternalBuildTools)\common.targets" Condition="Exists('$(InternalBuildTools)\common.targets')" />
-
 	
 	<PropertyGroup>
         <!-- perform a release build by default -->
