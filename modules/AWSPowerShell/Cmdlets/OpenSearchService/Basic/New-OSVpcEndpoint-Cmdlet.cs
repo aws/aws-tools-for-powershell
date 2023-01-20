@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the domain to grant access to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the domain to create the endpoint for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

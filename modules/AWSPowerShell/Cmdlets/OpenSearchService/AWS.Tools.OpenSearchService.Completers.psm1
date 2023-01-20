@@ -90,6 +90,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DryRunMode
+        "Update-OSDomainConfig/DryRunMode"
+        {
+            $v = "Basic","Verbose"
+            break
+        }
+
         # Amazon.OpenSearchService.EngineType
         "Get-OSDomainNameList/EngineType"
         {
@@ -169,6 +176,7 @@ $OS_map = @{
     "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
+    "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
@@ -244,6 +252,7 @@ $OS_SelectMap = @{
                "Get-OSDomainChangeProgress",
                "Get-OSDomainConfig",
                "Get-OSDomainList",
+               "Get-OSDryRunProgress",
                "Get-OSInboundConnection",
                "Get-OSInstanceTypeLimit",
                "Get-OSOutboundConnection",

@@ -105,6 +105,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String MinVersion { get; set; }
         #endregion
         
+        #region Parameter ResolveAlias
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
+        /// the AMI ID is displayed in the response for <code>imageId</code>.</para><para>If <code>false</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
+        /// the parameter is displayed in the response for <code>imageId</code>.</para><para> For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
+        /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResolveAlias { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
@@ -210,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.MaxVersion = this.MaxVersion;
             context.MinVersion = this.MinVersion;
             context.NextToken = this.NextToken;
+            context.ResolveAlias = this.ResolveAlias;
             if (this.Version != null)
             {
                 context.Version = new List<System.String>(this.Version);
@@ -256,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.MinVersion != null)
             {
                 request.MinVersion = cmdletContext.MinVersion;
+            }
+            if (cmdletContext.ResolveAlias != null)
+            {
+                request.ResolveAlias = cmdletContext.ResolveAlias.Value;
             }
             if (cmdletContext.Version != null)
             {
@@ -335,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.MinVersion != null)
             {
                 request.MinVersion = cmdletContext.MinVersion;
+            }
+            if (cmdletContext.ResolveAlias != null)
+            {
+                request.ResolveAlias = cmdletContext.ResolveAlias.Value;
             }
             if (cmdletContext.Version != null)
             {
@@ -459,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String MaxVersion { get; set; }
             public System.String MinVersion { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? ResolveAlias { get; set; }
             public List<System.String> Version { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeLaunchTemplateVersionsResponse, GetEC2TemplateVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LaunchTemplateVersions;

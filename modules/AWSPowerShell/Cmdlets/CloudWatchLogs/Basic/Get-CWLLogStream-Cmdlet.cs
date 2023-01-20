@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Specify either the name or ARN of the log group to view. If the log group is in a
         /// source account and you are using a monitoring account, you must use the log group
-        /// ARN.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
+        /// ARN.</para><note><para> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>,
+        /// but not both. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the log group.</para><note><para> If you specify values for both <code>logGroupName</code> and <code>logGroupIdentifier</code>,
-        /// the action returns an <code>InvalidParameterException</code> error. </para></note>
+        /// <para>The name of the log group.</para><note><para> You must include either <code>logGroupIdentifier</code> or <code>logGroupName</code>,
+        /// but not both. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

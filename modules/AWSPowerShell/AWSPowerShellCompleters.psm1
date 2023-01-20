@@ -2256,7 +2256,7 @@ $AF_Completers = {
             ($_ -eq "Update-AFFlow/SourceFlowConfig_ConnectorType")
         }
         {
-            $v = "Amplitude","CustomConnector","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
+            $v = "Amplitude","CustomConnector","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Pardot","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
             break
         }
 
@@ -13254,6 +13254,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.RehydrationType
+        "Start-CONNChatContact/PersistentChat_RehydrationType"
+        {
+            $v = "ENTIRE_PAST_SESSION","FROM_SEGMENT"
+            break
+        }
+
         # Amazon.Connect.RulePublishStatus
         {
             ($_ -eq "Get-CONNRuleList/PublishStatus") -Or
@@ -13369,6 +13376,7 @@ $CONN_map = @{
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
@@ -39989,6 +39997,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DryRunMode
+        "Update-OSDomainConfig/DryRunMode"
+        {
+            $v = "Basic","Verbose"
+            break
+        }
+
         # Amazon.OpenSearchService.EngineType
         "Get-OSDomainNameList/EngineType"
         {
@@ -40068,6 +40083,7 @@ $OS_map = @{
     "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
+    "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
@@ -40143,6 +40159,7 @@ $OS_SelectMap = @{
                "Get-OSDomainChangeProgress",
                "Get-OSDomainConfig",
                "Get-OSDomainList",
+               "Get-OSDryRunProgress",
                "Get-OSInboundConnection",
                "Get-OSInstanceTypeLimit",
                "Get-OSOutboundConnection",

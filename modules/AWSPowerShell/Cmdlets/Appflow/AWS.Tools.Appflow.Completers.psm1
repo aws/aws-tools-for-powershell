@@ -108,7 +108,7 @@ $AF_Completers = {
             ($_ -eq "Update-AFFlow/SourceFlowConfig_ConnectorType")
         }
         {
-            $v = "Amplitude","CustomConnector","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
+            $v = "Amplitude","CustomConnector","CustomerProfiles","Datadog","Dynatrace","EventBridge","Googleanalytics","Honeycode","Infornexus","LookoutMetrics","Marketo","Pardot","Redshift","S3","Salesforce","SAPOData","Servicenow","Singular","Slack","Snowflake","Trendmicro","Upsolver","Veeva","Zendesk"
             break
         }
 

@@ -17211,6 +17211,8 @@ Set-Alias -Name OS-DescribeDomainConfig -Value Get-OSDomainConfig
 Set-Alias -Name Describe-OSDomains -Value Get-OSDomainList
 Set-Alias -Name Describe-OSDomainList -Value Get-OSDomainList
 Set-Alias -Name OS-DescribeDomains -Value Get-OSDomainList
+Set-Alias -Name Describe-OSDryRunProgress -Value Get-OSDryRunProgress
+Set-Alias -Name OS-DescribeDryRunProgress -Value Get-OSDryRunProgress
 Set-Alias -Name Describe-OSInboundConnections -Value Get-OSInboundConnection
 Set-Alias -Name Describe-OSInboundConnection -Value Get-OSInboundConnection
 Set-Alias -Name OS-DescribeInboundConnections -Value Get-OSInboundConnection

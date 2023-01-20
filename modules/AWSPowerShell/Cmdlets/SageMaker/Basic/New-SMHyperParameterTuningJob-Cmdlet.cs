@@ -179,6 +179,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? TrainingJobDefinition_EnableNetworkIsolation { get; set; }
         #endregion
         
+        #region Parameter TrainingJobDefinition_Environment
+        /// <summary>
+        /// <para>
+        /// <para>An environment variable that you can pass into the SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a>
+        /// API. You can use an existing <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment">environment
+        /// variable from the training container</a> or use your own. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics.html">Define
+        /// metrics and variables</a> for more information.</para><note><para>The maximum number of items specified for <code>Map Entries</code> refers to the maximum
+        /// number of environment variables for each <code>TrainingJobDefinition</code> and also
+        /// the maximum for the hyperparameter tuning job itself. That is, the sum of the number
+        /// of environment variables for all the training job definitions can't exceed the maximum
+        /// number specified.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable TrainingJobDefinition_Environment { get; set; }
+        #endregion
+        
         #region Parameter HyperParameterTuningJobName
         /// <summary>
         /// <para>
@@ -861,6 +878,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.TrainingJobDefinition_EnableInterContainerTrafficEncryption = this.TrainingJobDefinition_EnableInterContainerTrafficEncryption;
             context.TrainingJobDefinition_EnableManagedSpotTraining = this.TrainingJobDefinition_EnableManagedSpotTraining;
             context.TrainingJobDefinition_EnableNetworkIsolation = this.TrainingJobDefinition_EnableNetworkIsolation;
+            if (this.TrainingJobDefinition_Environment != null)
+            {
+                context.TrainingJobDefinition_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.TrainingJobDefinition_Environment.Keys)
+                {
+                    context.TrainingJobDefinition_Environment.Add((String)hashKey, (String)(this.TrainingJobDefinition_Environment[hashKey]));
+                }
+            }
             if (this.HyperParameterRanges_CategoricalParameterRange != null)
             {
                 context.HyperParameterRanges_CategoricalParameterRange = new List<Amazon.SageMaker.Model.CategoricalParameterRange>(this.HyperParameterRanges_CategoricalParameterRange);
@@ -1214,6 +1239,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation != null)
             {
                 request.TrainingJobDefinition.EnableNetworkIsolation = requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation.Value;
+                requestTrainingJobDefinitionIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestTrainingJobDefinition_trainingJobDefinition_Environment = null;
+            if (cmdletContext.TrainingJobDefinition_Environment != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_Environment = cmdletContext.TrainingJobDefinition_Environment;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_Environment != null)
+            {
+                request.TrainingJobDefinition.Environment = requestTrainingJobDefinition_trainingJobDefinition_Environment;
                 requestTrainingJobDefinitionIsNull = false;
             }
             List<Amazon.SageMaker.Model.Channel> requestTrainingJobDefinition_trainingJobDefinition_InputDataConfig = null;
@@ -1730,6 +1765,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Boolean? TrainingJobDefinition_EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? TrainingJobDefinition_EnableManagedSpotTraining { get; set; }
             public System.Boolean? TrainingJobDefinition_EnableNetworkIsolation { get; set; }
+            public Dictionary<System.String, System.String> TrainingJobDefinition_Environment { get; set; }
             public List<Amazon.SageMaker.Model.CategoricalParameterRange> HyperParameterRanges_CategoricalParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.ContinuousParameterRange> HyperParameterRanges_ContinuousParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.IntegerParameterRange> HyperParameterRanges_IntegerParameterRange { get; set; }

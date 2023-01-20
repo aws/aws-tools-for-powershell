@@ -1,4 +1,24 @@
-﻿### 4.1.252 (2023-01-18 22:01Z)
+﻿### 4.1.253 (2023-01-20 02:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.464.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Modified cmdlet New-AFFlow: added parameter Pardot_Object.
+    * Modified cmdlet Update-AFFlow: added parameter Pardot_Object.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameters PersistentChat_RehydrationType and PersistentChat_SourceContactId.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2LaunchTemplateVersion: added parameter ResolveAlias.
+    * Modified cmdlet Get-EC2TemplateVersion: added parameter ResolveAlias.
+  * Amazon Ground Station
+    * Modified cmdlet New-GSDataflowEndpointGroup: added parameters ContactPostPassDurationSecond and ContactPrePassDurationSecond.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSDryRunProgress leveraging the DescribeDryRunProgress service API.
+    * Modified cmdlet Update-OSDomainConfig: added parameter DryRunMode.
+  * Amazon Panorama
+    * Modified cmdlet New-PANJobForDevice: added parameter OTAJobConfig_AllowMajorVersionUpdate.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameter TrainingJobDefinition_Environment.
+
+### 4.1.252 (2023-01-18 22:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.463.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch
     * Modified cmdlet Write-CWMetricStream: added parameter IncludeLinkedAccountsMetric.

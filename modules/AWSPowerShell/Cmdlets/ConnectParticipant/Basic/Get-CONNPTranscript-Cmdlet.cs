@@ -28,7 +28,10 @@ using Amazon.ConnectParticipant.Model;
 namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
-    /// Retrieves a transcript of the session, including details about any attachments. 
+    /// Retrieves a transcript of the session, including details about any attachments. For
+    /// information about accessing past chat contact transcripts for a persistent chat, see
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
+    /// persistent chat</a>. 
     /// 
     ///  <note><para><code>ConnectionToken</code> is used for invoking this API instead of <code>ParticipantToken</code>.
     /// </para></note><para>

@@ -221,6 +221,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.RehydrationType
+        "Start-CONNChatContact/PersistentChat_RehydrationType"
+        {
+            $v = "ENTIRE_PAST_SESSION","FROM_SEGMENT"
+            break
+        }
+
         # Amazon.Connect.RulePublishStatus
         {
             ($_ -eq "Get-CONNRuleList/PublishStatus") -Or
@@ -336,6 +343,7 @@ $CONN_map = @{
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")

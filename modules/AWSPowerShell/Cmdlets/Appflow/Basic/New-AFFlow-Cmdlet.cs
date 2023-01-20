@@ -410,6 +410,17 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public System.String Marketo_Object { get; set; }
         #endregion
         
+        #region Parameter Pardot_Object
+        /// <summary>
+        /// <para>
+        /// <para>The object specified in the Salesforce Pardot flow source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SourceFlowConfig_SourceConnectorProperties_Pardot_Object")]
+        public System.String Pardot_Object { get; set; }
+        #endregion
+        
         #region Parameter Salesforce_Object
         /// <summary>
         /// <para>
@@ -758,6 +769,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             context.GoogleAnalytics_Object = this.GoogleAnalytics_Object;
             context.InforNexus_Object = this.InforNexus_Object;
             context.Marketo_Object = this.Marketo_Object;
+            context.Pardot_Object = this.Pardot_Object;
             context.S3_BucketName = this.S3_BucketName;
             context.S3_BucketPrefix = this.S3_BucketPrefix;
             context.S3InputFormatConfig_S3InputFileType = this.S3InputFormatConfig_S3InputFileType;
@@ -1107,6 +1119,31 @@ namespace Amazon.PowerShell.Cmdlets.AF
             if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Marketo != null)
             {
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Marketo = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Marketo;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
+            }
+            Amazon.Appflow.Model.PardotSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot = null;
+            
+             // populate Pardot
+            var requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_PardotIsNull = true;
+            requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot = new Amazon.Appflow.Model.PardotSourceProperties();
+            System.String requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot_pardot_Object = null;
+            if (cmdletContext.Pardot_Object != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot_pardot_Object = cmdletContext.Pardot_Object;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot_pardot_Object != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot.Object = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot_pardot_Object;
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_PardotIsNull = false;
+            }
+             // determine if requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot should be set to null
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_PardotIsNull)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot = null;
+            }
+            if (requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot != null)
+            {
+                requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties.Pardot = requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_Pardot;
                 requestSourceFlowConfig_sourceFlowConfig_SourceConnectorPropertiesIsNull = false;
             }
             Amazon.Appflow.Model.SAPODataSourceProperties requestSourceFlowConfig_sourceFlowConfig_SourceConnectorProperties_sourceFlowConfig_SourceConnectorProperties_SAPOData = null;
@@ -1706,6 +1743,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
             public System.String GoogleAnalytics_Object { get; set; }
             public System.String InforNexus_Object { get; set; }
             public System.String Marketo_Object { get; set; }
+            public System.String Pardot_Object { get; set; }
             public System.String S3_BucketName { get; set; }
             public System.String S3_BucketPrefix { get; set; }
             public Amazon.Appflow.S3InputFileType S3InputFormatConfig_S3InputFileType { get; set; }

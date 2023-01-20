@@ -209,11 +209,26 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>This flag, when set to True, specifies whether the <code>UpdateDomain</code> request
-        /// should return the results of validation check without actually applying the change.</para>
+        /// should return the results of a dry run analysis without actually applying the change.
+        /// A dry run determines what type of deployment the update will cause.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DryRun { get; set; }
+        #endregion
+        
+        #region Parameter DryRunMode
+        /// <summary>
+        /// <para>
+        /// <para>The type of dry run to perform.</para><ul><li><para><code>Basic</code> only returns the type of deployment (blue/green or dynamic) that
+        /// the update will cause.</para></li><li><para><code>Verbose</code> runs an additional check to validate the changes you're making.
+        /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-configuration-changes#validation-check">Validating
+        /// a domain update</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.DryRunMode")]
+        public Amazon.OpenSearchService.DryRunMode DryRunMode { get; set; }
         #endregion
         
         #region Parameter EBSOptions_EBSEnabled
@@ -748,6 +763,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #endif
             context.DryRun = this.DryRun;
+            context.DryRunMode = this.DryRunMode;
             context.EBSOptions_EBSEnabled = this.EBSOptions_EBSEnabled;
             context.EBSOptions_Iops = this.EBSOptions_Iops;
             context.EBSOptions_Throughput = this.EBSOptions_Throughput;
@@ -1295,6 +1311,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.DryRun = cmdletContext.DryRun.Value;
             }
+            if (cmdletContext.DryRunMode != null)
+            {
+                request.DryRunMode = cmdletContext.DryRunMode;
+            }
             
              // populate EBSOptions
             var requestEBSOptionsIsNull = true;
@@ -1556,6 +1576,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Amazon.OpenSearchService.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
             public System.String DomainName { get; set; }
             public System.Boolean? DryRun { get; set; }
+            public Amazon.OpenSearchService.DryRunMode DryRunMode { get; set; }
             public System.Boolean? EBSOptions_EBSEnabled { get; set; }
             public System.Int32? EBSOptions_Iops { get; set; }
             public System.Int32? EBSOptions_Throughput { get; set; }

@@ -169,6 +169,34 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter PersistentChat_RehydrationType
+        /// <summary>
+        /// <para>
+        /// <para>The contactId that is used for rehydration depends on the rehydration type. RehydrationType
+        /// is required for persistent chat. </para><ul><li><para><code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated
+        /// past chat contact of the specified past ended chat session. To use this type, provide
+        /// the <code>initialContactId</code> of the past ended chat session in the <code>sourceContactId</code>
+        /// field. In this type, Amazon Connect determines the most recent chat contact on the
+        /// specified chat session that has ended, and uses it to start a persistent chat. </para></li><li><para><code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified
+        /// in the <code>sourceContactId</code> field. </para></li></ul><para>The actual contactId used for rehydration is provided in the response of this API.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.RehydrationType")]
+        public Amazon.Connect.RehydrationType PersistentChat_RehydrationType { get; set; }
+        #endregion
+        
+        #region Parameter PersistentChat_SourceContactId
+        /// <summary>
+        /// <para>
+        /// <para>The contactId from which a persistent chat session must be started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PersistentChat_SourceContactId { get; set; }
+        #endregion
+        
         #region Parameter SupportedMessagingContentType
         /// <summary>
         /// <para>
@@ -292,6 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter ParticipantDetails_DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PersistentChat_RehydrationType = this.PersistentChat_RehydrationType;
+            context.PersistentChat_SourceContactId = this.PersistentChat_SourceContactId;
             if (this.SupportedMessagingContentType != null)
             {
                 context.SupportedMessagingContentType = new List<System.String>(this.SupportedMessagingContentType);
@@ -380,6 +410,35 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.ParticipantDetails = null;
             }
+            
+             // populate PersistentChat
+            var requestPersistentChatIsNull = true;
+            request.PersistentChat = new Amazon.Connect.Model.PersistentChat();
+            Amazon.Connect.RehydrationType requestPersistentChat_persistentChat_RehydrationType = null;
+            if (cmdletContext.PersistentChat_RehydrationType != null)
+            {
+                requestPersistentChat_persistentChat_RehydrationType = cmdletContext.PersistentChat_RehydrationType;
+            }
+            if (requestPersistentChat_persistentChat_RehydrationType != null)
+            {
+                request.PersistentChat.RehydrationType = requestPersistentChat_persistentChat_RehydrationType;
+                requestPersistentChatIsNull = false;
+            }
+            System.String requestPersistentChat_persistentChat_SourceContactId = null;
+            if (cmdletContext.PersistentChat_SourceContactId != null)
+            {
+                requestPersistentChat_persistentChat_SourceContactId = cmdletContext.PersistentChat_SourceContactId;
+            }
+            if (requestPersistentChat_persistentChat_SourceContactId != null)
+            {
+                request.PersistentChat.SourceContactId = requestPersistentChat_persistentChat_SourceContactId;
+                requestPersistentChatIsNull = false;
+            }
+             // determine if request.PersistentChat should be set to null
+            if (requestPersistentChatIsNull)
+            {
+                request.PersistentChat = null;
+            }
             if (cmdletContext.SupportedMessagingContentType != null)
             {
                 request.SupportedMessagingContentTypes = cmdletContext.SupportedMessagingContentType;
@@ -453,6 +512,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InitialMessage_ContentType { get; set; }
             public System.String InstanceId { get; set; }
             public System.String ParticipantDetails_DisplayName { get; set; }
+            public Amazon.Connect.RehydrationType PersistentChat_RehydrationType { get; set; }
+            public System.String PersistentChat_SourceContactId { get; set; }
             public List<System.String> SupportedMessagingContentType { get; set; }
             public System.Func<Amazon.Connect.Model.StartChatContactResponse, StartCONNChatContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

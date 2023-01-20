@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>,
         /// whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code>
         /// specifies the list of type <a>VariantProperty</a> to override with the values provided
-        /// by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeAllVariantProperties</code>,
+        /// by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>,
         /// no variant properties are overridden. </para>
         /// </para>
         /// </summary>

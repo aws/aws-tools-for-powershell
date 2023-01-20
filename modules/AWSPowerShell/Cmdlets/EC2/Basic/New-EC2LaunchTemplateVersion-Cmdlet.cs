@@ -93,6 +93,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LaunchTemplateName { get; set; }
         #endregion
         
+        #region Parameter ResolveAlias
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, and if a Systems Manager parameter is specified for <code>ImageId</code>,
+        /// the AMI ID is displayed in the response for <code>imageID</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
+        /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute
+        /// Cloud User Guide</i>.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ResolveAlias { get; set; }
+        #endregion
+        
         #region Parameter SourceVersion
         /// <summary>
         /// <para>
@@ -201,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.LaunchTemplateId = this.LaunchTemplateId;
             context.LaunchTemplateName = this.LaunchTemplateName;
+            context.ResolveAlias = this.ResolveAlias;
             context.SourceVersion = this.SourceVersion;
             context.VersionDescription = this.VersionDescription;
             
@@ -234,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LaunchTemplateName != null)
             {
                 request.LaunchTemplateName = cmdletContext.LaunchTemplateName;
+            }
+            if (cmdletContext.ResolveAlias != null)
+            {
+                request.ResolveAlias = cmdletContext.ResolveAlias.Value;
             }
             if (cmdletContext.SourceVersion != null)
             {
@@ -308,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.Model.RequestLaunchTemplateData LaunchTemplateData { get; set; }
             public System.String LaunchTemplateId { get; set; }
             public System.String LaunchTemplateName { get; set; }
+            public System.Boolean? ResolveAlias { get; set; }
             public System.String SourceVersion { get; set; }
             public System.String VersionDescription { get; set; }
             public System.Func<Amazon.EC2.Model.CreateLaunchTemplateVersionResponse, NewEC2LaunchTemplateVersionCmdlet, object> Select { get; set; } =

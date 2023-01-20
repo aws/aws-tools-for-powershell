@@ -28,8 +28,7 @@ using Amazon.Panorama.Model;
 namespace Amazon.PowerShell.Cmdlets.PAN
 {
     /// <summary>
-    /// Creates a job to run on one or more devices. A job can update a device's software
-    /// or reboot it.
+    /// Creates a job to run on a device. A job can update a device's software or reboot it.
     /// </summary>
     [Cmdlet("New", "PANJobForDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Panorama.Model.Job")]
@@ -41,10 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.PAN
     public partial class NewPANJobForDeviceCmdlet : AmazonPanoramaClientCmdlet, IExecutor
     {
         
+        #region Parameter OTAJobConfig_AllowMajorVersionUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Whether to apply the update if it is a major version change.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeviceJobConfig_OTAJobConfig_AllowMajorVersionUpdate")]
+        public System.Boolean? OTAJobConfig_AllowMajorVersionUpdate { get; set; }
+        #endregion
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>
-        /// <para>IDs of target devices.</para>
+        /// <para>ID of target device.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -159,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
                 WriteWarning("You are passing $null as a value for parameter DeviceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OTAJobConfig_AllowMajorVersionUpdate = this.OTAJobConfig_AllowMajorVersionUpdate;
             context.OTAJobConfig_ImageVersion = this.OTAJobConfig_ImageVersion;
             context.JobType = this.JobType;
             #if MODULAR
@@ -196,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.PAN
              // populate OTAJobConfig
             var requestDeviceJobConfig_deviceJobConfig_OTAJobConfigIsNull = true;
             requestDeviceJobConfig_deviceJobConfig_OTAJobConfig = new Amazon.Panorama.Model.OTAJobConfig();
+            System.Boolean? requestDeviceJobConfig_deviceJobConfig_OTAJobConfig_oTAJobConfig_AllowMajorVersionUpdate = null;
+            if (cmdletContext.OTAJobConfig_AllowMajorVersionUpdate != null)
+            {
+                requestDeviceJobConfig_deviceJobConfig_OTAJobConfig_oTAJobConfig_AllowMajorVersionUpdate = cmdletContext.OTAJobConfig_AllowMajorVersionUpdate.Value;
+            }
+            if (requestDeviceJobConfig_deviceJobConfig_OTAJobConfig_oTAJobConfig_AllowMajorVersionUpdate != null)
+            {
+                requestDeviceJobConfig_deviceJobConfig_OTAJobConfig.AllowMajorVersionUpdate = requestDeviceJobConfig_deviceJobConfig_OTAJobConfig_oTAJobConfig_AllowMajorVersionUpdate.Value;
+                requestDeviceJobConfig_deviceJobConfig_OTAJobConfigIsNull = false;
+            }
             System.String requestDeviceJobConfig_deviceJobConfig_OTAJobConfig_oTAJobConfig_ImageVersion = null;
             if (cmdletContext.OTAJobConfig_ImageVersion != null)
             {
@@ -287,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> DeviceId { get; set; }
+            public System.Boolean? OTAJobConfig_AllowMajorVersionUpdate { get; set; }
             public System.String OTAJobConfig_ImageVersion { get; set; }
             public Amazon.Panorama.JobType JobType { get; set; }
             public System.Func<Amazon.Panorama.Model.CreateJobForDevicesResponse, NewPANJobForDeviceCmdlet, object> Select { get; set; } =

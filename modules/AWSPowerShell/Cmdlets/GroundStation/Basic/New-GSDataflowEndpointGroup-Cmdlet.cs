@@ -50,6 +50,32 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class NewGSDataflowEndpointGroupCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        #region Parameter ContactPostPassDurationSecond
+        /// <summary>
+        /// <para>
+        /// <para>Amount of time, in seconds, after a contact ends for the contact to remain in a <code>POSTPASS</code>
+        /// state. A CloudWatch event is emitted when the contact enters and exits the <code>POSTPASS</code>
+        /// state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContactPostPassDurationSeconds")]
+        public System.Int32? ContactPostPassDurationSecond { get; set; }
+        #endregion
+        
+        #region Parameter ContactPrePassDurationSecond
+        /// <summary>
+        /// <para>
+        /// <para>Amount of time, in seconds, prior to contact start for the contact to remain in a
+        /// <code>PREPASS</code> state. A CloudWatch event is emitted when the contact enters
+        /// and exits the <code>PREPASS</code> state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContactPrePassDurationSeconds")]
+        public System.Int32? ContactPrePassDurationSecond { get; set; }
+        #endregion
+        
         #region Parameter EndpointDetail
         /// <summary>
         /// <para>
@@ -141,6 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 context.Select = (response, cmdlet) => this.EndpointDetail;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContactPostPassDurationSecond = this.ContactPostPassDurationSecond;
+            context.ContactPrePassDurationSecond = this.ContactPrePassDurationSecond;
             if (this.EndpointDetail != null)
             {
                 context.EndpointDetail = new List<Amazon.GroundStation.Model.EndpointDetails>(this.EndpointDetail);
@@ -175,6 +203,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
             // create request
             var request = new Amazon.GroundStation.Model.CreateDataflowEndpointGroupRequest();
             
+            if (cmdletContext.ContactPostPassDurationSecond != null)
+            {
+                request.ContactPostPassDurationSeconds = cmdletContext.ContactPostPassDurationSecond.Value;
+            }
+            if (cmdletContext.ContactPrePassDurationSecond != null)
+            {
+                request.ContactPrePassDurationSeconds = cmdletContext.ContactPrePassDurationSecond.Value;
+            }
             if (cmdletContext.EndpointDetail != null)
             {
                 request.EndpointDetails = cmdletContext.EndpointDetail;
@@ -244,6 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ContactPostPassDurationSecond { get; set; }
+            public System.Int32? ContactPrePassDurationSecond { get; set; }
             public List<Amazon.GroundStation.Model.EndpointDetails> EndpointDetail { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.GroundStation.Model.CreateDataflowEndpointGroupResponse, NewGSDataflowEndpointGroupCmdlet, object> Select { get; set; } =

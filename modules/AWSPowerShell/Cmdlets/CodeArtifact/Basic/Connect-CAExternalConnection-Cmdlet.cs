@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> The name of the external connection to add to the repository. The following values
-        /// are supported: </para><ul><li><para><code>public:npmjs</code> - for the npm public repository. </para></li><li><para><code>public:pypi</code> - for the Python Package Index. </para></li><li><para><code>public:maven-central</code> - for Maven Central. </para></li><li><para><code>public:maven-googleandroid</code> - for the Google Android repository. </para></li><li><para><code>public:maven-gradleplugins</code> - for the Gradle plugins repository. </para></li><li><para><code>public:maven-commonsware</code> - for the CommonsWare Android repository. </para></li></ul>
+        /// are supported: </para><ul><li><para><code>public:npmjs</code> - for the npm public repository. </para></li><li><para><code>public:nuget-org</code> - for the NuGet Gallery. </para></li><li><para><code>public:pypi</code> - for the Python Package Index. </para></li><li><para><code>public:maven-central</code> - for Maven Central. </para></li><li><para><code>public:maven-googleandroid</code> - for the Google Android repository. </para></li><li><para><code>public:maven-gradleplugins</code> - for the Gradle plugins repository. </para></li><li><para><code>public:maven-commonsware</code> - for the CommonsWare Android repository. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
