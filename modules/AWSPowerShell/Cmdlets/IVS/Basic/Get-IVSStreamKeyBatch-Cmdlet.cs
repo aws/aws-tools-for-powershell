@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>Array of ARNs, one per channel.</para>
+        /// <para>Array of ARNs, one per stream key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,7 @@
-﻿### 4.1.253 (2023-01-20 02:05Z)
+﻿### 4.1.254 (2023-01-20 22:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.465.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.253 (2023-01-20 02:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.464.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Modified cmdlet New-AFFlow: added parameter Pardot_Object.
