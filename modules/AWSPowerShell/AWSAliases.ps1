@@ -14177,6 +14177,7 @@ Set-Alias -Name LM-GetLayerVersionByArn -Value Get-LMLayerVersionByArn
 Set-Alias -Name LM-GetLayerVersionPolicy -Value Get-LMLayerVersionPolicy
 Set-Alias -Name LM-GetPolicy -Value Get-LMPolicy
 Set-Alias -Name LM-GetProvisionedConcurrencyConfig -Value Get-LMProvisionedConcurrencyConfig
+Set-Alias -Name LM-GetRuntimeManagementConfig -Value Get-LMRuntimeManagementConfig
 Set-Alias -Name Invoke-LM -Value Invoke-LMFunction
 Set-Alias -Name LM-Invoke -Value Invoke-LMFunction
 Set-Alias -Name Invoke-LMAsync -Value Invoke-LMFunctionAsync
@@ -14225,6 +14226,8 @@ Set-Alias -Name Put-LMFunctionEventInvokeConfig -Value Write-LMFunctionEventInvo
 Set-Alias -Name LM-PutFunctionEventInvokeConfig -Value Write-LMFunctionEventInvokeConfig
 Set-Alias -Name Put-LMProvisionedConcurrencyConfig -Value Write-LMProvisionedConcurrencyConfig
 Set-Alias -Name LM-PutProvisionedConcurrencyConfig -Value Write-LMProvisionedConcurrencyConfig
+Set-Alias -Name Put-LMRuntimeManagementConfig -Value Write-LMRuntimeManagementConfig
+Set-Alias -Name LM-PutRuntimeManagementConfig -Value Write-LMRuntimeManagementConfig
 Set-Alias -Name LM-RemoveLayerVersionPermission -Value Remove-LMLayerVersionPermission
 Set-Alias -Name LM-RemovePermission -Value Remove-LMPermission
 Set-Alias -Name LM-TagResource -Value Add-LMResourceTag

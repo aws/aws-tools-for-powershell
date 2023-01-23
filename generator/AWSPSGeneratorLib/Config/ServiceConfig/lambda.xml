@@ -159,6 +159,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRuntimeManagementConfig" OutputProperty="*" Verb="Get" Noun="RuntimeManagementConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Invoke" OutputProperty="*" Verb="Invoke" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Payload;ClientContext;InvocationType;LogType" PipelineParameter="FunctionName" NoPipelineParameter="false" ConfirmImpact="Low">
             <Params>
                 <Param Name="Payload" DefaultValue="{}" />
@@ -242,6 +246,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutProvisionedConcurrencyConfig" OutputProperty="*" Verb="Write" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRuntimeManagementConfig" OutputProperty="*" Verb="Write" Noun="RuntimeManagementConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

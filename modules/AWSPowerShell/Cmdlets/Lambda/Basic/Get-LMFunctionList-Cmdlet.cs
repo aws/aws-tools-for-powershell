@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para><note><para>
     /// The <code>ListFunctions</code> operation returns a subset of the <a>FunctionConfiguration</a>
     /// fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus,
-    /// LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use
-    /// <a>GetFunction</a>.
+    /// LastUpdateStatusReason, LastUpdateStatusReasonCode, RuntimeVersionConfig) for a function
+    /// or version, use <a>GetFunction</a>.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMFunctionList")]

@@ -28,21 +28,26 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html">alias</a>.
+    /// Retrieves the runtime management configuration for a function's version. If the runtime
+    /// update mode is <b>Manual</b>, this includes the ARN of the runtime version and the
+    /// runtime update mode. If the runtime update mode is <b>Auto</b> or <b>Function update</b>,
+    /// this includes the runtime update mode and <code>null</code> is returned for the ARN.
+    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html">Runtime
+    /// updates</a>.
     /// </summary>
-    [Cmdlet("Get", "LMAlias")]
-    [OutputType("Amazon.Lambda.Model.GetAliasResponse")]
-    [AWSCmdlet("Calls the AWS Lambda GetAlias API operation.", Operation = new[] {"GetAlias"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetAliasResponse))]
-    [AWSCmdletOutput("Amazon.Lambda.Model.GetAliasResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.GetAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMRuntimeManagementConfig")]
+    [OutputType("Amazon.Lambda.Model.GetRuntimeManagementConfigResponse")]
+    [AWSCmdlet("Calls the AWS Lambda GetRuntimeManagementConfig API operation.", Operation = new[] {"GetRuntimeManagementConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetRuntimeManagementConfigResponse))]
+    [AWSCmdletOutput("Amazon.Lambda.Model.GetRuntimeManagementConfigResponse",
+        "This cmdlet returns an Amazon.Lambda.Model.GetRuntimeManagementConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class GetLMRuntimeManagementConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// Amazon.Lambda.Model.GetAliasRequest.FunctionName
+        /// Amazon.Lambda.Model.GetRuntimeManagementConfigRequest.FunctionName
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,28 +61,23 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String FunctionName { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>The name of the alias.</para>
+        /// <para>Specify a version of the function. This can be <code>$LATEST</code> or a published
+        /// version number. If no value is specified, the configuration for the <code>$LATEST</code>
+        /// version is returned.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String Qualifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.GetAliasResponse).
-        /// Specifying the name of a property of type Amazon.Lambda.Model.GetAliasResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.GetRuntimeManagementConfigResponse).
+        /// Specifying the name of a property of type Amazon.Lambda.Model.GetRuntimeManagementConfigResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.GetAliasResponse, GetLMAliasCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.GetRuntimeManagementConfigResponse, GetLMRuntimeManagementConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,13 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
-            #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Qualifier = this.Qualifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,15 +141,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lambda.Model.GetAliasRequest();
+            var request = new Amazon.Lambda.Model.GetRuntimeManagementConfigRequest();
             
             if (cmdletContext.FunctionName != null)
             {
                 request.FunctionName = cmdletContext.FunctionName;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Qualifier != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Qualifier = cmdletContext.Qualifier;
             }
             
             CmdletOutput output;
@@ -190,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private Amazon.Lambda.Model.GetAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetAliasRequest request)
+        private Amazon.Lambda.Model.GetRuntimeManagementConfigResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetRuntimeManagementConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetRuntimeManagementConfig");
             try
             {
                 #if DESKTOP
-                return client.GetAlias(request);
+                return client.GetRuntimeManagementConfig(request);
                 #elif CORECLR
-                return client.GetAliasAsync(request).GetAwaiter().GetResult();
+                return client.GetRuntimeManagementConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -219,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FunctionName { get; set; }
-            public System.String Name { get; set; }
-            public System.Func<Amazon.Lambda.Model.GetAliasResponse, GetLMAliasCmdlet, object> Select { get; set; } =
+            public System.String Qualifier { get; set; }
+            public System.Func<Amazon.Lambda.Model.GetRuntimeManagementConfigResponse, GetLMRuntimeManagementConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

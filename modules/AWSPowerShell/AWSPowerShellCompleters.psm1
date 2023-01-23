@@ -32408,6 +32408,13 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.UpdateRuntimeOn
+        "Write-LMRuntimeManagementConfig/UpdateRuntimeOn"
+        {
+            $v = "Auto","FunctionUpdate","Manual"
+            break
+        }
+
 
     }
 
@@ -32430,6 +32437,7 @@ $LM_map = @{
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
     "TracingConfig_Mode"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
+    "UpdateRuntimeOn"=@("Write-LMRuntimeManagementConfig")
 }
 
 _awsArgumentCompleterRegistration $LM_Completers $LM_map
@@ -32514,6 +32522,7 @@ $LM_SelectMap = @{
                "Get-LMLayerVersionPolicy",
                "Get-LMPolicy",
                "Get-LMProvisionedConcurrencyConfig",
+               "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
                "Invoke-LMFunctionAsync",
                "Get-LMAliasList",
@@ -32534,6 +32543,7 @@ $LM_SelectMap = @{
                "Write-LMFunctionConcurrency",
                "Write-LMFunctionEventInvokeConfig",
                "Write-LMProvisionedConcurrencyConfig",
+               "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
                "Remove-LMPermission",
                "Add-LMResourceTag",
