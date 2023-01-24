@@ -171,6 +171,7 @@ $SMSAP_SelectMap = @{
                "Get-SMSAPApplicationList",
                "Get-SMSAPComponentList",
                "Get-SMSAPDatabasisList",
+               "Get-SMSAPOperationList",
                "Get-SMSAPResourceTag",
                "Write-SMSAPResourcePermission",
                "Register-SMSAPApplication",

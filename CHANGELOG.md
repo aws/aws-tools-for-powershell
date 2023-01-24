@@ -1,4 +1,10 @@
-﻿### 4.1.255 (2023-01-23 22:07Z)
+﻿### 4.1.256 (2023-01-24 22:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.467.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Systems Manager for SAP
+    * Added cmdlet Get-SMSAPOperationList leveraging the ListOperations service API.
+    * Modified cmdlet Get-SMSAPApplication: added parameter AppRegistryArn.
+
+### 4.1.255 (2023-01-23 22:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.466.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Lambda
     * Added cmdlet Get-LMRuntimeManagementConfig leveraging the GetRuntimeManagementConfig service API.

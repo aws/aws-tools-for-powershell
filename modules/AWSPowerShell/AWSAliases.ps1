@@ -22922,6 +22922,9 @@ Set-Alias -Name SMSAP-ListComponents -Value Get-SMSAPComponentList
 Set-Alias -Name List-SMSAPDatabases -Value Get-SMSAPDatabasisList
 Set-Alias -Name List-SMSAPDatabasisList -Value Get-SMSAPDatabasisList
 Set-Alias -Name SMSAP-ListDatabases -Value Get-SMSAPDatabasisList
+Set-Alias -Name List-SMSAPOperations -Value Get-SMSAPOperationList
+Set-Alias -Name List-SMSAPOperationList -Value Get-SMSAPOperationList
+Set-Alias -Name SMSAP-ListOperations -Value Get-SMSAPOperationList
 Set-Alias -Name SMSAP-ListTagsForResource -Value Get-SMSAPResourceTag
 Set-Alias -Name Put-SMSAPResourcePermission -Value Write-SMSAPResourcePermission
 Set-Alias -Name SMSAP-PutResourcePermission -Value Write-SMSAPResourcePermission

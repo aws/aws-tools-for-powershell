@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter ApplicationArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the application. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,11 +53,21 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter AppRegistryArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the application registry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AppRegistryArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -88,6 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             }
             context.ApplicationArn = this.ApplicationArn;
             context.ApplicationId = this.ApplicationId;
+            context.AppRegistryArn = this.AppRegistryArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,6 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.AppRegistryArn != null)
+            {
+                request.AppRegistryArn = cmdletContext.AppRegistryArn;
             }
             
             CmdletOutput output;
@@ -175,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         {
             public System.String ApplicationArn { get; set; }
             public System.String ApplicationId { get; set; }
+            public System.String AppRegistryArn { get; set; }
             public System.Func<Amazon.SsmSap.Model.GetApplicationResponse, GetSMSAPApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

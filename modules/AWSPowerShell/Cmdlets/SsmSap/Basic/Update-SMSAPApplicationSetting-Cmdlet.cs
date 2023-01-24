@@ -28,7 +28,7 @@ using Amazon.SsmSap.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSAP
 {
     /// <summary>
-    
+    /// Updates the settings of an application registered with AWS Systems Manager for SAP.
     /// </summary>
     [Cmdlet("Update", "SMSAPApplicationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SsmSap.Model.UpdateApplicationSettingsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter CredentialsToAddOrUpdate
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The credentials to be added or updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter CredentialsToRemove
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The credentials to be removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

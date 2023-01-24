@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter ApplicationType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of the application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter ApplicationCredentials
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The credentials of the SAP application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter Instance
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon EC2 instances on which your SAP application is running.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter SapInstanceNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SAP instance number of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter Sid
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The System ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The tags to be attached to the SAP application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

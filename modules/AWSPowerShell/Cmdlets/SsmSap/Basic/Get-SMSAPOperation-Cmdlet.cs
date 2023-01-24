@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
