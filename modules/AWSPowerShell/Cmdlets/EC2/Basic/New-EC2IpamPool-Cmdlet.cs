@@ -192,6 +192,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Locale { get; set; }
         #endregion
         
+        #region Parameter PublicIpSource
+        /// <summary>
+        /// <para>
+        /// <para>The IP address source for pools in the public scope. Only used for provisioning IP
+        /// address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create
+        /// IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>. By default, you can add only
+        /// one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is
+        /// <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">
+        /// Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.IpamPoolPublicIpSource")]
+        public Amazon.EC2.IpamPoolPublicIpSource PublicIpSource { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAdvertisable
         /// <summary>
         /// <para>
@@ -330,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.Locale = this.Locale;
+            context.PublicIpSource = this.PublicIpSource;
             context.PubliclyAdvertisable = this.PubliclyAdvertisable;
             context.SourceIpamPoolId = this.SourceIpamPoolId;
             if (this.TagSpecification != null)
@@ -395,6 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Locale != null)
             {
                 request.Locale = cmdletContext.Locale;
+            }
+            if (cmdletContext.PublicIpSource != null)
+            {
+                request.PublicIpSource = cmdletContext.PublicIpSource;
             }
             if (cmdletContext.PubliclyAdvertisable != null)
             {
@@ -480,6 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public System.String IpamScopeId { get; set; }
             public System.String Locale { get; set; }
+            public Amazon.EC2.IpamPoolPublicIpSource PublicIpSource { get; set; }
             public System.Boolean? PubliclyAdvertisable { get; set; }
             public System.String SourceIpamPoolId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

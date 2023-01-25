@@ -28,48 +28,47 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.
-    /// 
-    ///  
-    /// <para>
-    /// If you already have a BYOIPv4 CIDR with Amazon Web Services, you can move the CIDR
-    /// to IPAM from a public IPv4 pool. You cannot move an IPv6 CIDR to IPAM. If you are
-    /// bringing a new IP address to Amazon Web Services for the first time, complete the
-    /// steps in <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam.html">Tutorial:
-    /// BYOIP address CIDRs to IPAM</a>.
-    /// </para>
+    /// Modifies a resource discovery. A resource discovery is an IPAM component that enables
+    /// IPAM Service to manage and monitor resources that belong to the owning account.
     /// </summary>
-    [Cmdlet("Move", "EC2ByoipCidrToIpam", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.ByoipCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) MoveByoipCidrToIpam API operation.", Operation = new[] {"MoveByoipCidrToIpam"}, SelectReturnType = typeof(Amazon.EC2.Model.MoveByoipCidrToIpamResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.ByoipCidr or Amazon.EC2.Model.MoveByoipCidrToIpamResponse",
-        "This cmdlet returns an Amazon.EC2.Model.ByoipCidr object.",
-        "The service call response (type Amazon.EC2.Model.MoveByoipCidrToIpamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "EC2IpamResourceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.IpamResourceDiscovery")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyIpamResourceDiscovery API operation.", Operation = new[] {"ModifyIpamResourceDiscovery"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamResourceDiscovery or Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse",
+        "This cmdlet returns an Amazon.EC2.Model.IpamResourceDiscovery object.",
+        "The service call response (type Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class MoveEC2ByoipCidrToIpamCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class EditEC2IpamResourceDiscoveryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter Cidr
+        #region Parameter AddOperatingRegion
         /// <summary>
         /// <para>
-        /// <para>The BYOIP CIDR.</para>
+        /// <para>Add operating Regions to the resource discovery. Operating Regions are Amazon Web
+        /// Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers
+        /// and monitors resources in the Amazon Web Services Regions you select as operating
+        /// Regions.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Cidr { get; set; }
+        [Alias("AddOperatingRegions")]
+        public Amazon.EC2.Model.AddIpamOperatingRegion[] AddOperatingRegion { get; set; }
         #endregion
         
-        #region Parameter IpamPoolId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The IPAM pool ID.</para>
+        /// <para>A resource discovery description.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter IpamResourceDiscoveryId
+        /// <summary>
+        /// <para>
+        /// <para>A resource discovery ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,43 +79,37 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpamPoolId { get; set; }
+        public System.String IpamResourceDiscoveryId { get; set; }
         #endregion
         
-        #region Parameter IpamPoolOwner
+        #region Parameter RemoveOperatingRegion
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the owner of the IPAM pool.</para>
+        /// <para>Remove operating Regions.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpamPoolOwner { get; set; }
+        [Alias("RemoveOperatingRegions")]
+        public Amazon.EC2.Model.RemoveIpamOperatingRegion[] RemoveOperatingRegion { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ByoipCidr'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.MoveByoipCidrToIpamResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.MoveByoipCidrToIpamResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamResourceDiscovery'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ByoipCidr";
+        public string Select { get; set; } = "IpamResourceDiscovery";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the IpamPoolId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^IpamPoolId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IpamResourceDiscoveryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IpamResourceDiscoveryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpamPoolId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpamResourceDiscoveryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -136,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IpamPoolId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Move-EC2ByoipCidrToIpam (MoveByoipCidrToIpam)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IpamResourceDiscoveryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2IpamResourceDiscovery (ModifyIpamResourceDiscovery)"))
             {
                 return;
             }
@@ -150,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.MoveByoipCidrToIpamResponse, MoveEC2ByoipCidrToIpamCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse, EditEC2IpamResourceDiscoveryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,30 +152,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.IpamPoolId;
+                context.Select = (response, cmdlet) => this.IpamResourceDiscoveryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Cidr = this.Cidr;
-            #if MODULAR
-            if (this.Cidr == null && ParameterWasBound(nameof(this.Cidr)))
+            if (this.AddOperatingRegion != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Cidr which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AddOperatingRegion = new List<Amazon.EC2.Model.AddIpamOperatingRegion>(this.AddOperatingRegion);
+            }
+            context.Description = this.Description;
+            context.IpamResourceDiscoveryId = this.IpamResourceDiscoveryId;
+            #if MODULAR
+            if (this.IpamResourceDiscoveryId == null && ParameterWasBound(nameof(this.IpamResourceDiscoveryId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamResourceDiscoveryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IpamPoolId = this.IpamPoolId;
-            #if MODULAR
-            if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
+            if (this.RemoveOperatingRegion != null)
             {
-                WriteWarning("You are passing $null as a value for parameter IpamPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.RemoveOperatingRegion = new List<Amazon.EC2.Model.RemoveIpamOperatingRegion>(this.RemoveOperatingRegion);
             }
-            #endif
-            context.IpamPoolOwner = this.IpamPoolOwner;
-            #if MODULAR
-            if (this.IpamPoolOwner == null && ParameterWasBound(nameof(this.IpamPoolOwner)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IpamPoolOwner which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,19 +185,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.MoveByoipCidrToIpamRequest();
+            var request = new Amazon.EC2.Model.ModifyIpamResourceDiscoveryRequest();
             
-            if (cmdletContext.Cidr != null)
+            if (cmdletContext.AddOperatingRegion != null)
             {
-                request.Cidr = cmdletContext.Cidr;
+                request.AddOperatingRegions = cmdletContext.AddOperatingRegion;
             }
-            if (cmdletContext.IpamPoolId != null)
+            if (cmdletContext.Description != null)
             {
-                request.IpamPoolId = cmdletContext.IpamPoolId;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.IpamPoolOwner != null)
+            if (cmdletContext.IpamResourceDiscoveryId != null)
             {
-                request.IpamPoolOwner = cmdletContext.IpamPoolOwner;
+                request.IpamResourceDiscoveryId = cmdletContext.IpamResourceDiscoveryId;
+            }
+            if (cmdletContext.RemoveOperatingRegion != null)
+            {
+                request.RemoveOperatingRegions = cmdletContext.RemoveOperatingRegion;
             }
             
             CmdletOutput output;
@@ -244,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.MoveByoipCidrToIpamResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.MoveByoipCidrToIpamRequest request)
+        private Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyIpamResourceDiscoveryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "MoveByoipCidrToIpam");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyIpamResourceDiscovery");
             try
             {
                 #if DESKTOP
-                return client.MoveByoipCidrToIpam(request);
+                return client.ModifyIpamResourceDiscovery(request);
                 #elif CORECLR
-                return client.MoveByoipCidrToIpamAsync(request).GetAwaiter().GetResult();
+                return client.ModifyIpamResourceDiscoveryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,11 +264,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Cidr { get; set; }
-            public System.String IpamPoolId { get; set; }
-            public System.String IpamPoolOwner { get; set; }
-            public System.Func<Amazon.EC2.Model.MoveByoipCidrToIpamResponse, MoveEC2ByoipCidrToIpamCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ByoipCidr;
+            public List<Amazon.EC2.Model.AddIpamOperatingRegion> AddOperatingRegion { get; set; }
+            public System.String Description { get; set; }
+            public System.String IpamResourceDiscoveryId { get; set; }
+            public List<Amazon.EC2.Model.RemoveIpamOperatingRegion> RemoveOperatingRegion { get; set; }
+            public System.Func<Amazon.EC2.Model.ModifyIpamResourceDiscoveryResponse, EditEC2IpamResourceDiscoveryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamResourceDiscovery;
         }
         
     }

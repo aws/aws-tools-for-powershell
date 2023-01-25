@@ -41,6 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMInferenceRecommendationsJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter ContainerConfig_DataInputConfig
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name and shape of the expected data inputs for your trained model with
+        /// a JSON dictionary form. This field is used for optimizing your model using SageMaker
+        /// Neo. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig">DataInputConfig</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_ContainerConfig_DataInputConfig")]
+        public System.String ContainerConfig_DataInputConfig { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfig_Domain
         /// <summary>
         /// <para>
@@ -217,20 +230,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ModelLatencyThreshold[] StoppingConditions_ModelLatencyThreshold { get; set; }
         #endregion
         
+        #region Parameter InputConfig_ModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the created model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputConfig_ModelName { get; set; }
+        #endregion
+        
         #region Parameter InputConfig_ModelPackageVersionArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a versioned model package.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputConfig_ModelPackageVersionArn { get; set; }
         #endregion
         
@@ -466,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.JobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContainerConfig_DataInputConfig = this.ContainerConfig_DataInputConfig;
             context.ContainerConfig_Domain = this.ContainerConfig_Domain;
             context.ContainerConfig_Framework = this.ContainerConfig_Framework;
             context.ContainerConfig_FrameworkVersion = this.ContainerConfig_FrameworkVersion;
@@ -489,13 +506,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.InputConfig_Endpoint = new List<Amazon.SageMaker.Model.EndpointInfo>(this.InputConfig_Endpoint);
             }
             context.InputConfig_JobDurationInSecond = this.InputConfig_JobDurationInSecond;
+            context.InputConfig_ModelName = this.InputConfig_ModelName;
             context.InputConfig_ModelPackageVersionArn = this.InputConfig_ModelPackageVersionArn;
-            #if MODULAR
-            if (this.InputConfig_ModelPackageVersionArn == null && ParameterWasBound(nameof(this.InputConfig_ModelPackageVersionArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputConfig_ModelPackageVersionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResourceLimit_MaxNumberOfTest = this.ResourceLimit_MaxNumberOfTest;
             context.ResourceLimit_MaxParallelOfTest = this.ResourceLimit_MaxParallelOfTest;
             if (this.TrafficPattern_Phase != null)
@@ -593,6 +605,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestInputConfig_inputConfig_JobDurationInSecond != null)
             {
                 request.InputConfig.JobDurationInSeconds = requestInputConfig_inputConfig_JobDurationInSecond.Value;
+                requestInputConfigIsNull = false;
+            }
+            System.String requestInputConfig_inputConfig_ModelName = null;
+            if (cmdletContext.InputConfig_ModelName != null)
+            {
+                requestInputConfig_inputConfig_ModelName = cmdletContext.InputConfig_ModelName;
+            }
+            if (requestInputConfig_inputConfig_ModelName != null)
+            {
+                request.InputConfig.ModelName = requestInputConfig_inputConfig_ModelName;
                 requestInputConfigIsNull = false;
             }
             System.String requestInputConfig_inputConfig_ModelPackageVersionArn = null;
@@ -725,6 +747,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate ContainerConfig
             var requestInputConfig_inputConfig_ContainerConfigIsNull = true;
             requestInputConfig_inputConfig_ContainerConfig = new Amazon.SageMaker.Model.RecommendationJobContainerConfig();
+            System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_DataInputConfig = null;
+            if (cmdletContext.ContainerConfig_DataInputConfig != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig_containerConfig_DataInputConfig = cmdletContext.ContainerConfig_DataInputConfig;
+            }
+            if (requestInputConfig_inputConfig_ContainerConfig_containerConfig_DataInputConfig != null)
+            {
+                requestInputConfig_inputConfig_ContainerConfig.DataInputConfig = requestInputConfig_inputConfig_ContainerConfig_containerConfig_DataInputConfig;
+                requestInputConfig_inputConfig_ContainerConfigIsNull = false;
+            }
             System.String requestInputConfig_inputConfig_ContainerConfig_containerConfig_Domain = null;
             if (cmdletContext.ContainerConfig_Domain != null)
             {
@@ -989,6 +1021,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContainerConfig_DataInputConfig { get; set; }
             public System.String ContainerConfig_Domain { get; set; }
             public System.String ContainerConfig_Framework { get; set; }
             public System.String ContainerConfig_FrameworkVersion { get; set; }
@@ -1000,6 +1033,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.EndpointInputConfiguration> InputConfig_EndpointConfiguration { get; set; }
             public List<Amazon.SageMaker.Model.EndpointInfo> InputConfig_Endpoint { get; set; }
             public System.Int32? InputConfig_JobDurationInSecond { get; set; }
+            public System.String InputConfig_ModelName { get; set; }
             public System.String InputConfig_ModelPackageVersionArn { get; set; }
             public System.Int32? ResourceLimit_MaxNumberOfTest { get; set; }
             public System.Int32? ResourceLimit_MaxParallelOfTest { get; set; }

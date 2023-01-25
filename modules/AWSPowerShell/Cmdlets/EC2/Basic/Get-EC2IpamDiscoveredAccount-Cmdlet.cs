@@ -28,26 +28,42 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is associated
-    /// with more than one resource discovery, the resource CIDRs across all of the resource
-    /// discoveries is returned. A resource discovery is an IPAM component that enables IPAM
-    /// Service to manage and monitor resources that belong to the owning account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets IPAM discovered accounts. A discovered account is an Amazon Web Services account
+    /// that is monitored under a resource discovery. If you have integrated IPAM with Amazon
+    /// Web Services Organizations, all accounts in the organization are discovered accounts.
+    /// Only the IPAM account can get all discovered accounts in the organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EC2IpamResourceCidr")]
-    [OutputType("Amazon.EC2.Model.IpamResourceCidr")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamResourceCidrs API operation.", Operation = new[] {"GetIpamResourceCidrs"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamResourceCidrsResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.IpamResourceCidr or Amazon.EC2.Model.GetIpamResourceCidrsResponse",
-        "This cmdlet returns a collection of Amazon.EC2.Model.IpamResourceCidr objects.",
-        "The service call response (type Amazon.EC2.Model.GetIpamResourceCidrsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2IpamDiscoveredAccount")]
+    [OutputType("Amazon.EC2.Model.IpamDiscoveredAccount")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetIpamDiscoveredAccounts API operation.", Operation = new[] {"GetIpamDiscoveredAccounts"}, SelectReturnType = typeof(Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamDiscoveredAccount or Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.IpamDiscoveredAccount objects.",
+        "The service call response (type Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEC2IpamResourceCidrCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class GetEC2IpamDiscoveredAccountCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DiscoveryRegion
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Region that the account information is returned from.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DiscoveryRegion { get; set; }
+        #endregion
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering
-        /// CLI output</a>.</para>
+        /// <para>Discovered account filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,20 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter IpamPoolId
+        #region Parameter IpamResourceDiscoveryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the IPAM pool that the resource is in.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String IpamPoolId { get; set; }
-        #endregion
-        
-        #region Parameter IpamScopeId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the scope that the resource is in.</para>
+        /// <para>A resource discovery ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,65 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IpamScopeId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceTag_Key
-        /// <summary>
-        /// <para>
-        /// <para>The key of a tag assigned to the resource. Use this filter to find all resources assigned
-        /// a tag with a specific key, regardless of the tag value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceTag_Key { get; set; }
-        #endregion
-        
-        #region Parameter ResourceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceOwner
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the Amazon Web Services account that owns the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceOwner { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The resource type.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.EC2.IpamResourceType")]
-        public Amazon.EC2.IpamResourceType ResourceType { get; set; }
-        #endregion
-        
-        #region Parameter ResourceTag_Value
-        /// <summary>
-        /// <para>
-        /// <para>The value for the tag.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceTag_Value { get; set; }
+        public System.String IpamResourceDiscoveryId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in the request.</para>
+        /// <para>The maximum number of discovered accounts to return in one page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>Specify the pagination token from a previous request to retrieve the next page of
+        /// results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -161,21 +116,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamResourceCidrs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetIpamResourceCidrsResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.GetIpamResourceCidrsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamDiscoveredAccounts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "IpamResourceCidrs";
+        public string Select { get; set; } = "IpamDiscoveredAccounts";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the IpamScopeId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^IpamScopeId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IpamResourceDiscoveryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IpamResourceDiscoveryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpamScopeId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpamResourceDiscoveryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -203,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetIpamResourceCidrsResponse, GetEC2IpamResourceCidrCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse, GetEC2IpamDiscoveredAccountCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -212,28 +167,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.IpamScopeId;
+                context.Select = (response, cmdlet) => this.IpamResourceDiscoveryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DiscoveryRegion = this.DiscoveryRegion;
+            #if MODULAR
+            if (this.DiscoveryRegion == null && ParameterWasBound(nameof(this.DiscoveryRegion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DiscoveryRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
-            context.IpamPoolId = this.IpamPoolId;
-            context.IpamScopeId = this.IpamScopeId;
+            context.IpamResourceDiscoveryId = this.IpamResourceDiscoveryId;
             #if MODULAR
-            if (this.IpamScopeId == null && ParameterWasBound(nameof(this.IpamScopeId)))
+            if (this.IpamResourceDiscoveryId == null && ParameterWasBound(nameof(this.IpamResourceDiscoveryId)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpamScopeId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IpamResourceDiscoveryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ResourceId = this.ResourceId;
-            context.ResourceOwner = this.ResourceOwner;
-            context.ResourceTag_Key = this.ResourceTag_Key;
-            context.ResourceTag_Value = this.ResourceTag_Value;
-            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -252,64 +208,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.EC2.Model.GetIpamResourceCidrsRequest();
+            var request = new Amazon.EC2.Model.GetIpamDiscoveredAccountsRequest();
             
+            if (cmdletContext.DiscoveryRegion != null)
+            {
+                request.DiscoveryRegion = cmdletContext.DiscoveryRegion;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
             }
-            if (cmdletContext.IpamPoolId != null)
+            if (cmdletContext.IpamResourceDiscoveryId != null)
             {
-                request.IpamPoolId = cmdletContext.IpamPoolId;
-            }
-            if (cmdletContext.IpamScopeId != null)
-            {
-                request.IpamScopeId = cmdletContext.IpamScopeId;
+                request.IpamResourceDiscoveryId = cmdletContext.IpamResourceDiscoveryId;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ResourceId != null)
-            {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.ResourceOwner != null)
-            {
-                request.ResourceOwner = cmdletContext.ResourceOwner;
-            }
-            
-             // populate ResourceTag
-            var requestResourceTagIsNull = true;
-            request.ResourceTag = new Amazon.EC2.Model.RequestIpamResourceTag();
-            System.String requestResourceTag_resourceTag_Key = null;
-            if (cmdletContext.ResourceTag_Key != null)
-            {
-                requestResourceTag_resourceTag_Key = cmdletContext.ResourceTag_Key;
-            }
-            if (requestResourceTag_resourceTag_Key != null)
-            {
-                request.ResourceTag.Key = requestResourceTag_resourceTag_Key;
-                requestResourceTagIsNull = false;
-            }
-            System.String requestResourceTag_resourceTag_Value = null;
-            if (cmdletContext.ResourceTag_Value != null)
-            {
-                requestResourceTag_resourceTag_Value = cmdletContext.ResourceTag_Value;
-            }
-            if (requestResourceTag_resourceTag_Value != null)
-            {
-                request.ResourceTag.Value = requestResourceTag_resourceTag_Value;
-                requestResourceTagIsNull = false;
-            }
-             // determine if request.ResourceTag should be set to null
-            if (requestResourceTagIsNull)
-            {
-                request.ResourceTag = null;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -368,15 +283,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.GetIpamResourceCidrsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamResourceCidrsRequest request)
+        private Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetIpamDiscoveredAccountsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamResourceCidrs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetIpamDiscoveredAccounts");
             try
             {
                 #if DESKTOP
-                return client.GetIpamResourceCidrs(request);
+                return client.GetIpamDiscoveredAccounts(request);
                 #elif CORECLR
-                return client.GetIpamResourceCidrsAsync(request).GetAwaiter().GetResult();
+                return client.GetIpamDiscoveredAccountsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -396,18 +311,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DiscoveryRegion { get; set; }
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
-            public System.String IpamPoolId { get; set; }
-            public System.String IpamScopeId { get; set; }
+            public System.String IpamResourceDiscoveryId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceId { get; set; }
-            public System.String ResourceOwner { get; set; }
-            public System.String ResourceTag_Key { get; set; }
-            public System.String ResourceTag_Value { get; set; }
-            public Amazon.EC2.IpamResourceType ResourceType { get; set; }
-            public System.Func<Amazon.EC2.Model.GetIpamResourceCidrsResponse, GetEC2IpamResourceCidrCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.IpamResourceCidrs;
+            public System.Func<Amazon.EC2.Model.GetIpamDiscoveredAccountsResponse, GetEC2IpamDiscoveredAccountCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamDiscoveredAccounts;
         }
         
     }

@@ -50,7 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The CIDR you want to assign to the IPAM pool.</para>
+        /// <para>The CIDR you want to assign to the IPAM pool. Either "NetmaskLength" or "Cidr" is
+        /// required. This value will be null if you specify "NetmaskLength" and will be filled
+        /// in during the provisioning process.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,6 +86,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrAuthorizationContext_Message { get; set; }
         #endregion
         
+        #region Parameter NetmaskLength
+        /// <summary>
+        /// <para>
+        /// <para>The netmask length of the CIDR you'd like to provision to a pool. Can be used for
+        /// provisioning Amazon-provided IPv6 CIDRs to top-level pools and for provisioning CIDRs
+        /// to pools with source pools. Cannot be used to provision BYOIP CIDRs to top-level pools.
+        /// Either "NetmaskLength" or "Cidr" is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NetmaskLength { get; set; }
+        #endregion
+        
         #region Parameter CidrAuthorizationContext_Signature
         /// <summary>
         /// <para>
@@ -92,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CidrAuthorizationContext_Signature { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Cidr = this.Cidr;
             context.CidrAuthorizationContext_Message = this.CidrAuthorizationContext_Message;
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
+            context.ClientToken = this.ClientToken;
             context.IpamPoolId = this.IpamPoolId;
             #if MODULAR
             if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
@@ -166,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter IpamPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetmaskLength = this.NetmaskLength;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,9 +244,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CidrAuthorizationContext = null;
             }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.IpamPoolId != null)
             {
                 request.IpamPoolId = cmdletContext.IpamPoolId;
+            }
+            if (cmdletContext.NetmaskLength != null)
+            {
+                request.NetmaskLength = cmdletContext.NetmaskLength.Value;
             }
             
             CmdletOutput output;
@@ -283,7 +320,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Cidr { get; set; }
             public System.String CidrAuthorizationContext_Message { get; set; }
             public System.String CidrAuthorizationContext_Signature { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String IpamPoolId { get; set; }
+            public System.Int32? NetmaskLength { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionIpamPoolCidrResponse, RegisterEC2IpamPoolCidrCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamPoolCidr;
         }

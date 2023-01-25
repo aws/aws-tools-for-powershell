@@ -28,59 +28,58 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Create an IPAM. Amazon VPC IP Address Manager (IPAM) is a VPC feature that you can
-    /// use to automate your IP address management workflows including assigning, tracking,
-    /// troubleshooting, and auditing IP addresses across Amazon Web Services Regions and
-    /// accounts throughout your Amazon Web Services Organization.
-    /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create
-    /// an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. 
-    /// </para>
+    /// Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery
+    /// is an IPAM component that enables IPAM Service to manage and monitor resources that
+    /// belong to the owning account.
     /// </summary>
-    [Cmdlet("New", "EC2Ipam", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.EC2.Model.Ipam")]
-    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreateIpam API operation.", Operation = new[] {"CreateIpam"}, SelectReturnType = typeof(Amazon.EC2.Model.CreateIpamResponse))]
-    [AWSCmdletOutput("Amazon.EC2.Model.Ipam or Amazon.EC2.Model.CreateIpamResponse",
-        "This cmdlet returns an Amazon.EC2.Model.Ipam object.",
-        "The service call response (type Amazon.EC2.Model.CreateIpamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "EC2IpamResourceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.IpamResourceDiscoveryAssociation")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) AssociateIpamResourceDiscovery API operation.", Operation = new[] {"AssociateIpamResourceDiscovery"}, SelectReturnType = typeof(Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamResourceDiscoveryAssociation or Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse",
+        "This cmdlet returns an Amazon.EC2.Model.IpamResourceDiscoveryAssociation object.",
+        "The service call response (type Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewEC2IpamCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class RegisterEC2IpamResourceDiscoveryCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        #region Parameter IpamId
         /// <summary>
         /// <para>
-        /// <para>A description for the IPAM.</para>
+        /// <para>An IPAM ID.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String Description { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IpamId { get; set; }
         #endregion
         
-        #region Parameter OperatingRegion
+        #region Parameter IpamResourceDiscoveryId
         /// <summary>
         /// <para>
-        /// <para>The operating Regions for the IPAM. Operating Regions are Amazon Web Services Regions
-        /// where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors
-        /// resources in the Amazon Web Services Regions you select as operating Regions. </para><para>For more information about operating Regions, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html">Create
-        /// an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>. </para>
+        /// <para>A resource discovery ID.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("OperatingRegions")]
-        public Amazon.EC2.Model.AddIpamOperatingRegion[] OperatingRegion { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IpamResourceDiscoveryId { get; set; }
         #endregion
         
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The key/value combination of a tag assigned to the resource. Use the tag key in the
-        /// filter name and the tag value as the filter value. For example, to find all resources
-        /// that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>,
-        /// specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the
-        /// filter value.</para>
+        /// <para>Tag specifications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
+        /// <para>A client token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,21 +99,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Ipam'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreateIpamResponse).
-        /// Specifying the name of a property of type Amazon.EC2.Model.CreateIpamResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamResourceDiscoveryAssociation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Ipam";
+        public string Select { get; set; } = "IpamResourceDiscoveryAssociation";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Description parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Description' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IpamId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IpamId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Description' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpamId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -136,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Description), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2Ipam (CreateIpam)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IpamId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-EC2IpamResourceDiscovery (AssociateIpamResourceDiscovery)"))
             {
                 return;
             }
@@ -150,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreateIpamResponse, NewEC2IpamCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse, RegisterEC2IpamResourceDiscoveryCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,15 +156,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Description;
+                context.Select = (response, cmdlet) => this.IpamId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            context.Description = this.Description;
-            if (this.OperatingRegion != null)
+            context.IpamId = this.IpamId;
+            #if MODULAR
+            if (this.IpamId == null && ParameterWasBound(nameof(this.IpamId)))
             {
-                context.OperatingRegion = new List<Amazon.EC2.Model.AddIpamOperatingRegion>(this.OperatingRegion);
+                WriteWarning("You are passing $null as a value for parameter IpamId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.IpamResourceDiscoveryId = this.IpamResourceDiscoveryId;
+            #if MODULAR
+            if (this.IpamResourceDiscoveryId == null && ParameterWasBound(nameof(this.IpamResourceDiscoveryId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamResourceDiscoveryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -186,19 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.CreateIpamRequest();
+            var request = new Amazon.EC2.Model.AssociateIpamResourceDiscoveryRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.IpamId != null)
             {
-                request.Description = cmdletContext.Description;
+                request.IpamId = cmdletContext.IpamId;
             }
-            if (cmdletContext.OperatingRegion != null)
+            if (cmdletContext.IpamResourceDiscoveryId != null)
             {
-                request.OperatingRegions = cmdletContext.OperatingRegion;
+                request.IpamResourceDiscoveryId = cmdletContext.IpamResourceDiscoveryId;
             }
             if (cmdletContext.TagSpecification != null)
             {
@@ -237,15 +243,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.CreateIpamResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.CreateIpamRequest request)
+        private Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.AssociateIpamResourceDiscoveryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "CreateIpam");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "AssociateIpamResourceDiscovery");
             try
             {
                 #if DESKTOP
-                return client.CreateIpam(request);
+                return client.AssociateIpamResourceDiscovery(request);
                 #elif CORECLR
-                return client.CreateIpamAsync(request).GetAwaiter().GetResult();
+                return client.AssociateIpamResourceDiscoveryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,11 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public System.String Description { get; set; }
-            public List<Amazon.EC2.Model.AddIpamOperatingRegion> OperatingRegion { get; set; }
+            public System.String IpamId { get; set; }
+            public System.String IpamResourceDiscoveryId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
-            public System.Func<Amazon.EC2.Model.CreateIpamResponse, NewEC2IpamCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Ipam;
+            public System.Func<Amazon.EC2.Model.AssociateIpamResourceDiscoveryResponse, RegisterEC2IpamResourceDiscoveryCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamResourceDiscoveryAssociation;
         }
         
     }

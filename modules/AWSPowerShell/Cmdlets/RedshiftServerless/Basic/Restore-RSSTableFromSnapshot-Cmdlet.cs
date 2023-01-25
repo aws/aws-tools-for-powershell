@@ -28,7 +28,9 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Restores a table from a snapshot to your Amazon Redshift Serverless instance.
+    /// Restores a table from a snapshot to your Amazon Redshift Serverless instance. You
+    /// can't use this operation to restore tables with <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html#t_Sorting_data-interleaved">interleaved
+    /// sort keys</a>.
     /// </summary>
     [Cmdlet("Restore", "RSSTableFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RedshiftServerless.Model.TableRestoreStatus")]

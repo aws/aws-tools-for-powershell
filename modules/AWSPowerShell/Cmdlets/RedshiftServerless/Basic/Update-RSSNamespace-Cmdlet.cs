@@ -28,7 +28,10 @@ using Amazon.RedshiftServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.RSS
 {
     /// <summary>
-    /// Updates a namespace with the specified settings.
+    /// Updates a namespace with the specified settings. Unless required, you can't update
+    /// multiple parameters in one request. For example, you must specify both <code>adminUsername</code>
+    /// and <code>adminUserPassword</code> to update either field, but you can't update both
+    /// <code>kmsKeyId</code> and <code>logExports</code> in a single request.
     /// </summary>
     [Cmdlet("Update", "RSSNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RedshiftServerless.Model.Namespace")]
@@ -43,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter AdminUsername
         /// <summary>
         /// <para>
-        /// <para>The username of the administrator for the first database created in the namespace.</para>
+        /// <para>The username of the administrator for the first database created in the namespace.
+        /// This parameter must be updated together with <code>adminUserPassword</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter AdminUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password of the administrator for the first database created in the namespace.</para>
+        /// <para>The password of the administrator for the first database created in the namespace.
+        /// This parameter must be updated together with <code>adminUsername</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter DefaultIamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace.
+        /// This parameter must be updated together with <code>iamRoles</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter IamRole
         /// <summary>
         /// <para>
-        /// <para>A list of IAM roles to associate with the namespace.</para>
+        /// <para>A list of IAM roles to associate with the namespace. This parameter must be updated
+        /// together with <code>defaultIamRoleArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         #region Parameter NamespaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the namespace.</para>
+        /// <para>The name of the namespace to update. You can't update the name of a namespace once
+        /// it is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

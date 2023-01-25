@@ -60,12 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// hour).
     /// </para><para><b>Permissions</b></para><para>
     /// You can use the temporary credentials created by <code>GetFederationToken</code> in
-    /// any Amazon Web Services service except the following:
+    /// any Amazon Web Services service with the following exceptions:
     /// </para><ul><li><para>
-    /// You cannot call any IAM operations using the CLI or the Amazon Web Services API. 
+    /// You cannot call any IAM operations using the CLI or the Amazon Web Services API. This
+    /// limitation does not apply to console sessions.
     /// </para></li><li><para>
     /// You cannot call any STS operations except <code>GetCallerIdentity</code>.
     /// </para></li></ul><para>
+    /// You can use temporary credentials for single sign-on (SSO) to the console.
+    /// </para><para>
     /// You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session
     /// policy</a> to this operation. You can pass a single JSON policy document to use as
     /// an inline session policy. You can also specify up to 10 managed policy Amazon Resource

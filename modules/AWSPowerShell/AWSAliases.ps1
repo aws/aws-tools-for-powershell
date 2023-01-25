@@ -7075,6 +7075,8 @@ Set-Alias -Name Associate-EC2IamInstanceProfile -Value Register-EC2IamInstancePr
 Set-Alias -Name EC2-AssociateIamInstanceProfile -Value Register-EC2IamInstanceProfile
 Set-Alias -Name Associate-EC2InstanceEventWindow -Value Register-EC2InstanceEventWindow
 Set-Alias -Name EC2-AssociateInstanceEventWindow -Value Register-EC2InstanceEventWindow
+Set-Alias -Name Associate-EC2IpamResourceDiscovery -Value Register-EC2IpamResourceDiscovery
+Set-Alias -Name EC2-AssociateIpamResourceDiscovery -Value Register-EC2IpamResourceDiscovery
 Set-Alias -Name Associate-EC2RouteTable -Value Register-EC2RouteTable
 Set-Alias -Name EC2-AssociateRouteTable -Value Register-EC2RouteTable
 Set-Alias -Name Associate-EC2SubnetCidrBlock -Value Register-EC2SubnetCidrBlock
@@ -7179,6 +7181,8 @@ Set-Alias -Name Create-EC2Ipam -Value New-EC2Ipam
 Set-Alias -Name EC2-CreateIpam -Value New-EC2Ipam
 Set-Alias -Name Create-EC2IpamPool -Value New-EC2IpamPool
 Set-Alias -Name EC2-CreateIpamPool -Value New-EC2IpamPool
+Set-Alias -Name Create-EC2IpamResourceDiscovery -Value New-EC2IpamResourceDiscovery
+Set-Alias -Name EC2-CreateIpamResourceDiscovery -Value New-EC2IpamResourceDiscovery
 Set-Alias -Name Create-EC2IpamScope -Value New-EC2IpamScope
 Set-Alias -Name EC2-CreateIpamScope -Value New-EC2IpamScope
 Set-Alias -Name Create-EC2KeyPair -Value New-EC2KeyPair
@@ -7332,6 +7336,8 @@ Set-Alias -Name Delete-EC2Ipam -Value Remove-EC2Ipam
 Set-Alias -Name EC2-DeleteIpam -Value Remove-EC2Ipam
 Set-Alias -Name Delete-EC2IpamPool -Value Remove-EC2IpamPool
 Set-Alias -Name EC2-DeleteIpamPool -Value Remove-EC2IpamPool
+Set-Alias -Name Delete-EC2IpamResourceDiscovery -Value Remove-EC2IpamResourceDiscovery
+Set-Alias -Name EC2-DeleteIpamResourceDiscovery -Value Remove-EC2IpamResourceDiscovery
 Set-Alias -Name Delete-EC2IpamScope -Value Remove-EC2IpamScope
 Set-Alias -Name EC2-DeleteIpamScope -Value Remove-EC2IpamScope
 Set-Alias -Name Delete-EC2KeyPair -Value Remove-EC2KeyPair
@@ -7619,6 +7625,12 @@ Set-Alias -Name EC2-DescribeInternetGateways -Value Get-EC2InternetGateway
 Set-Alias -Name Describe-EC2IpamPools -Value Get-EC2IpamPool
 Set-Alias -Name Describe-EC2IpamPool -Value Get-EC2IpamPool
 Set-Alias -Name EC2-DescribeIpamPools -Value Get-EC2IpamPool
+Set-Alias -Name Describe-EC2IpamResourceDiscoveries -Value Get-EC2IpamResourceDiscovery
+Set-Alias -Name Describe-EC2IpamResourceDiscovery -Value Get-EC2IpamResourceDiscovery
+Set-Alias -Name EC2-DescribeIpamResourceDiscoveries -Value Get-EC2IpamResourceDiscovery
+Set-Alias -Name Describe-EC2IpamResourceDiscoveryAssociations -Value Get-EC2IpamResourceDiscoveryAssociation
+Set-Alias -Name Describe-EC2IpamResourceDiscoveryAssociation -Value Get-EC2IpamResourceDiscoveryAssociation
+Set-Alias -Name EC2-DescribeIpamResourceDiscoveryAssociations -Value Get-EC2IpamResourceDiscoveryAssociation
 Set-Alias -Name Describe-EC2Ipams -Value Get-EC2Ipam
 Set-Alias -Name Describe-EC2Ipam -Value Get-EC2Ipam
 Set-Alias -Name EC2-DescribeIpams -Value Get-EC2Ipam
@@ -7905,6 +7917,8 @@ Set-Alias -Name Disassociate-EC2IamInstanceProfile -Value Unregister-EC2IamInsta
 Set-Alias -Name EC2-DisassociateIamInstanceProfile -Value Unregister-EC2IamInstanceProfile
 Set-Alias -Name Disassociate-EC2InstanceEventWindow -Value Unregister-EC2InstanceEventWindow
 Set-Alias -Name EC2-DisassociateInstanceEventWindow -Value Unregister-EC2InstanceEventWindow
+Set-Alias -Name Disassociate-EC2IpamResourceDiscovery -Value Unregister-EC2IpamResourceDiscovery
+Set-Alias -Name EC2-DisassociateIpamResourceDiscovery -Value Unregister-EC2IpamResourceDiscovery
 Set-Alias -Name Disassociate-EC2RouteTable -Value Unregister-EC2RouteTable
 Set-Alias -Name EC2-DisassociateRouteTable -Value Unregister-EC2RouteTable
 Set-Alias -Name Disassociate-EC2SubnetCidrBlock -Value Unregister-EC2SubnetCidrBlock
@@ -7958,6 +7972,10 @@ Set-Alias -Name Get-EC2InstanceTypesFromInstanceRequirements -Value Get-EC2Insta
 Set-Alias -Name EC2-GetInstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceUefiData -Value Get-EC2InstanceUefiData
 Set-Alias -Name EC2-GetIpamAddressHistory -Value Get-EC2IpamAddressHistory
+Set-Alias -Name Get-EC2IpamDiscoveredAccounts -Value Get-EC2IpamDiscoveredAccount
+Set-Alias -Name EC2-GetIpamDiscoveredAccounts -Value Get-EC2IpamDiscoveredAccount
+Set-Alias -Name Get-EC2IpamDiscoveredResourceCidrs -Value Get-EC2IpamDiscoveredResourceCidr
+Set-Alias -Name EC2-GetIpamDiscoveredResourceCidrs -Value Get-EC2IpamDiscoveredResourceCidr
 Set-Alias -Name Get-EC2IpamPoolAllocations -Value Get-EC2IpamPoolAllocation
 Set-Alias -Name EC2-GetIpamPoolAllocations -Value Get-EC2IpamPoolAllocation
 Set-Alias -Name Get-EC2IpamPoolCidrs -Value Get-EC2IpamPoolCidr
@@ -8059,6 +8077,8 @@ Set-Alias -Name Modify-EC2IpamPool -Value Edit-EC2IpamPool
 Set-Alias -Name EC2-ModifyIpamPool -Value Edit-EC2IpamPool
 Set-Alias -Name Modify-EC2IpamResourceCidr -Value Edit-EC2IpamResourceCidr
 Set-Alias -Name EC2-ModifyIpamResourceCidr -Value Edit-EC2IpamResourceCidr
+Set-Alias -Name Modify-EC2IpamResourceDiscovery -Value Edit-EC2IpamResourceDiscovery
+Set-Alias -Name EC2-ModifyIpamResourceDiscovery -Value Edit-EC2IpamResourceDiscovery
 Set-Alias -Name Modify-EC2IpamScope -Value Edit-EC2IpamScope
 Set-Alias -Name EC2-ModifyIpamScope -Value Edit-EC2IpamScope
 Set-Alias -Name Modify-EC2LaunchTemplate -Value Edit-EC2LaunchTemplate

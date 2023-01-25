@@ -615,6 +615,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.IpamPoolPublicIpSource
+        "New-EC2IpamPool/PublicIpSource"
+        {
+            $v = "amazon","byoip"
+            break
+        }
+
         # Amazon.EC2.IpamResourceType
         "Get-EC2IpamResourceCidr/ResourceType"
         {
@@ -1181,6 +1188,7 @@ $EC2_map = @{
     "PrivateDnsNameOptions_HostnameType"=@("New-EC2Instance")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
     "Protocol"=@("New-EC2NetworkInsightsPath")
+    "PublicIpSource"=@("New-EC2IpamPool")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
@@ -1286,6 +1294,7 @@ $EC2_SelectMap = @{
                "Register-EC2EnclaveCertificateIamRole",
                "Register-EC2IamInstanceProfile",
                "Register-EC2InstanceEventWindow",
+               "Register-EC2IpamResourceDiscovery",
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
                "Register-EC2TransitGatewayMulticastDomain",
@@ -1337,6 +1346,7 @@ $EC2_SelectMap = @{
                "New-EC2InternetGateway",
                "New-EC2Ipam",
                "New-EC2IpamPool",
+               "New-EC2IpamResourceDiscovery",
                "New-EC2IpamScope",
                "New-EC2KeyPair",
                "New-EC2LaunchTemplate",
@@ -1411,6 +1421,7 @@ $EC2_SelectMap = @{
                "Remove-EC2InternetGateway",
                "Remove-EC2Ipam",
                "Remove-EC2IpamPool",
+               "Remove-EC2IpamResourceDiscovery",
                "Remove-EC2IpamScope",
                "Remove-EC2KeyPair",
                "Remove-EC2LaunchTemplate",
@@ -1528,6 +1539,8 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceType",
                "Get-EC2InternetGateway",
                "Get-EC2IpamPool",
+               "Get-EC2IpamResourceDiscovery",
+               "Get-EC2IpamResourceDiscoveryAssociation",
                "Get-EC2Ipam",
                "Get-EC2IpamScope",
                "Get-EC2Ipv6Pool",
@@ -1639,6 +1652,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2InstanceEventWindow",
+               "Unregister-EC2IpamResourceDiscovery",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
                "Unregister-EC2TransitGatewayMulticastDomain",
@@ -1680,6 +1694,8 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceTypesFromInstanceRequirement",
                "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",
+               "Get-EC2IpamDiscoveredAccount",
+               "Get-EC2IpamDiscoveredResourceCidr",
                "Get-EC2IpamPoolAllocation",
                "Get-EC2IpamPoolCidr",
                "Get-EC2IpamResourceCidr",
@@ -1733,6 +1749,7 @@ $EC2_SelectMap = @{
                "Edit-EC2Ipam",
                "Edit-EC2IpamPool",
                "Edit-EC2IpamResourceCidr",
+               "Edit-EC2IpamResourceDiscovery",
                "Edit-EC2IpamScope",
                "Edit-EC2LaunchTemplate",
                "Edit-EC2LocalGatewayRoute",

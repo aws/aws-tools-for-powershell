@@ -1,4 +1,21 @@
-﻿### 4.1.256 (2023-01-24 22:00Z)
+﻿### 4.1.257 (2023-01-25 22:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.468.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2IpamResourceDiscovery leveraging the ModifyIpamResourceDiscovery service API.
+    * Added cmdlet Get-EC2IpamDiscoveredAccount leveraging the GetIpamDiscoveredAccounts service API.
+    * Added cmdlet Get-EC2IpamDiscoveredResourceCidr leveraging the GetIpamDiscoveredResourceCidrs service API.
+    * Added cmdlet Get-EC2IpamResourceDiscovery leveraging the DescribeIpamResourceDiscoveries service API.
+    * Added cmdlet Get-EC2IpamResourceDiscoveryAssociation leveraging the DescribeIpamResourceDiscoveryAssociations service API.
+    * Added cmdlet New-EC2IpamResourceDiscovery leveraging the CreateIpamResourceDiscovery service API.
+    * Added cmdlet Register-EC2IpamResourceDiscovery leveraging the AssociateIpamResourceDiscovery service API.
+    * Added cmdlet Remove-EC2IpamResourceDiscovery leveraging the DeleteIpamResourceDiscovery service API.
+    * Added cmdlet Unregister-EC2IpamResourceDiscovery leveraging the DisassociateIpamResourceDiscovery service API.
+    * Modified cmdlet New-EC2IpamPool: added parameter PublicIpSource.
+    * Modified cmdlet Register-EC2IpamPoolCidr: added parameters ClientToken and NetmaskLength.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMInferenceRecommendationsJob: added parameters ContainerConfig_DataInputConfig and InputConfig_ModelName.
+
+### 4.1.256 (2023-01-24 22:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.467.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Systems Manager for SAP
     * Added cmdlet Get-SMSAPOperationList leveraging the ListOperations service API.
