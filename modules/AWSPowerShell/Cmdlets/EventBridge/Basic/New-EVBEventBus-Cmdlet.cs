@@ -56,10 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the new event bus. </para><para>Event bus names cannot contain the / character. You can't use the name <code>default</code>
-        /// for a custom event bus, as this name is already used for your account's default event
-        /// bus.</para><para>If this is a partner event bus, the name must exactly match the name of the partner
-        /// event source that this event bus is matched to.</para>
+        /// <para>The name of the new event bus. </para><para>Custom event bus names can't contain the <code>/</code> character, but you can use
+        /// the <code>/</code> character in partner event bus names. In addition, for partner
+        /// event buses, the name must exactly match the name of the partner event source that
+        /// this event bus is matched to.</para><para>You can't use the name <code>default</code> for a custom event bus, as this name is
+        /// already used for your account's default event bus.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

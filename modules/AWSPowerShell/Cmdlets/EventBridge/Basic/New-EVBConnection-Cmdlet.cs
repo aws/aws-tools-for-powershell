@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter AuthorizationType
         /// <summary>
         /// <para>
-        /// <para>The type of authorization to use for the connection.</para>
+        /// <para>The type of authorization to use for the connection.</para><note><para>OAUTH tokens are refreshed when a 401 or 407 response is returned.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
