@@ -184,7 +184,8 @@ $EMT_SelectCompleters = {
 }
 
 $EMT_SelectMap = @{
-    "Select"=@("Add-EMTLogsForPlaybackConfiguration",
+    "Select"=@("Add-EMTLogsForChannel",
+               "Add-EMTLogsForPlaybackConfiguration",
                "New-EMTChannel",
                "New-EMTLiveSource",
                "New-EMTPrefetchSchedule",

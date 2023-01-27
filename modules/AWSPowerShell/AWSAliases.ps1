@@ -15807,6 +15807,8 @@ Set-Alias -Name List-EMSDItemList -Value Get-EMSDItemList
 Set-Alias -Name EMSD-ListItems -Value Get-EMSDItemList
 Set-Alias -Name Put-EMSDObject -Value Write-EMSDObject
 Set-Alias -Name EMSD-PutObject -Value Write-EMSDObject
+Set-Alias -Name Configure-EMTLogsForChannel -Value Add-EMTLogsForChannel
+Set-Alias -Name EMT-ConfigureLogsForChannel -Value Add-EMTLogsForChannel
 Set-Alias -Name Configure-EMTLogsForPlaybackConfiguration -Value Add-EMTLogsForPlaybackConfiguration
 Set-Alias -Name EMT-ConfigureLogsForPlaybackConfiguration -Value Add-EMTLogsForPlaybackConfiguration
 Set-Alias -Name Create-EMTChannel -Value New-EMTChannel

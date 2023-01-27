@@ -1,4 +1,11 @@
-﻿### 4.1.258 (2023-01-26 21:55Z)
+﻿### 4.1.259 (2023-01-27 22:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.470.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elemental MediaTailor
+    * Added cmdlet Add-EMTLogsForChannel leveraging the ConfigureLogsForChannel service API.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpointAsync: added parameter InvocationTimeoutSecond.
+
+### 4.1.258 (2023-01-26 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.469.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.257 (2023-01-25 22:15Z)

@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ConfigureLogsForChannel" OutputProperty="*" Verb="Add" Noun="LogsForChannel" ShouldProcessTarget="ChannelName" PipelineParameter="ChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ConfigureLogsForPlaybackConfiguration" OutputProperty="*" Verb="Add" Noun="LogsForPlaybackConfiguration" ShouldProcessTarget="PlaybackConfigurationName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

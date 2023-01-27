@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.469.0",
+    "ProductVersion" : "3.7.470.0",
     "CoreVersion"    : "3.7.103.24",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -176,7 +176,7 @@
             "InPreview"               : false
         },
         "ElasticBeanstalk"  : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -208,7 +208,7 @@
             "InPreview"               : false
         },
         "Glacier"              : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24",
@@ -554,7 +554,7 @@
             "InPreview"               : false
         },
         "ApplicationAutoScaling"          : {
-            "Version" : "3.7.101.14",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -642,7 +642,7 @@
             "InPreview"               : false
         },
         "AppStream"                       : {
-            "Version" : "3.7.101.57",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -802,7 +802,7 @@
             "InPreview"               : false
         },
         "Greengrass"                      : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -930,7 +930,7 @@
             "InPreview"               : false
         },
         "SageMakerRuntime"                : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -946,7 +946,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.116.1",
+            "Version" : "3.7.117.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -1010,7 +1010,7 @@
             "InPreview"               : false
         },
         "ServerlessApplicationRepository" : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -1130,7 +1130,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "3.7.102.57",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -1714,7 +1714,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.101.8",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -2010,7 +2010,7 @@
             "InPreview"               : false
         },
         "GreengrassV2"                    : {
-            "Version" : "3.7.101.45",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -2074,7 +2074,7 @@
             "InPreview"               : false
         },
         "FIS"                             : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"

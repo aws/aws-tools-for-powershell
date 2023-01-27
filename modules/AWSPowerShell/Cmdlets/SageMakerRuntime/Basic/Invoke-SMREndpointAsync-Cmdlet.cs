@@ -35,16 +35,16 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     ///  
     /// <para>
     /// Inference requests sent to this API are enqueued for asynchronous processing. The
-    /// processing of the inference request may or may not complete before the you receive
-    /// a response from this API. The response from this API will not contain the result of
-    /// the inference request but contain information about where you can locate it.
+    /// processing of the inference request may or may not complete before you receive a response
+    /// from this API. The response from this API will not contain the result of the inference
+    /// request but contain information about where you can locate it.
     /// </para><para>
     /// Amazon SageMaker strips all <code>POST</code> headers except those supported by the
     /// API. Amazon SageMaker might add additional headers. You should not rely on the behavior
     /// of headers outside those enumerated in the request syntax.
     /// </para><para>
     /// Calls to <code>InvokeEndpointAsync</code> are authenticated by using Amazon Web Services
-    /// Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
+    /// Signature Version 4. For information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
     /// Requests (Amazon Web Services Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.
     /// </para>
     /// </summary>
@@ -145,6 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String InputLocation { get; set; }
         #endregion
         
+        #region Parameter InvocationTimeoutSecond
+        /// <summary>
+        /// <para>
+        /// <para>Maximum amount of time in seconds a request can be processed before it is marked as
+        /// expired.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InvocationTimeoutSeconds")]
+        public System.Int32? InvocationTimeoutSecond { get; set; }
+        #endregion
+        
         #region Parameter RequestTTLSecond
         /// <summary>
         /// <para>
@@ -236,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 WriteWarning("You are passing $null as a value for parameter InputLocation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InvocationTimeoutSecond = this.InvocationTimeoutSecond;
             context.RequestTTLSecond = this.RequestTTLSecond;
             
             // allow further manipulation of loaded context prior to processing
@@ -276,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             if (cmdletContext.InputLocation != null)
             {
                 request.InputLocation = cmdletContext.InputLocation;
+            }
+            if (cmdletContext.InvocationTimeoutSecond != null)
+            {
+                request.InvocationTimeoutSeconds = cmdletContext.InvocationTimeoutSecond.Value;
             }
             if (cmdletContext.RequestTTLSecond != null)
             {
@@ -348,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String EndpointName { get; set; }
             public System.String InferenceId { get; set; }
             public System.String InputLocation { get; set; }
+            public System.Int32? InvocationTimeoutSecond { get; set; }
             public System.Int32? RequestTTLSecond { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointAsyncResponse, InvokeSMREndpointAsyncCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
