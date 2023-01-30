@@ -50,15 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// specific match.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DestinationCidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter DestinationPrefixListId
+        /// <summary>
+        /// <para>
+        /// <para> The ID of the prefix list. Use a prefix list in place of <code>DestinationCidrBlock</code>.
+        /// You cannot use <code>DestinationPrefixListId</code> and <code>DestinationCidrBlock</code>
+        /// in the same request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationPrefixListId { get; set; }
         #endregion
         
         #region Parameter LocalGatewayRouteTableId
@@ -161,12 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DestinationCidrBlock = this.DestinationCidrBlock;
-            #if MODULAR
-            if (this.DestinationCidrBlock == null && ParameterWasBound(nameof(this.DestinationCidrBlock)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DestinationCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.DestinationPrefixListId = this.DestinationPrefixListId;
             context.LocalGatewayRouteTableId = this.LocalGatewayRouteTableId;
             #if MODULAR
             if (this.LocalGatewayRouteTableId == null && ParameterWasBound(nameof(this.LocalGatewayRouteTableId)))
@@ -195,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
+            }
+            if (cmdletContext.DestinationPrefixListId != null)
+            {
+                request.DestinationPrefixListId = cmdletContext.DestinationPrefixListId;
             }
             if (cmdletContext.LocalGatewayRouteTableId != null)
             {
@@ -270,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DestinationCidrBlock { get; set; }
+            public System.String DestinationPrefixListId { get; set; }
             public System.String LocalGatewayRouteTableId { get; set; }
             public System.String LocalGatewayVirtualInterfaceGroupId { get; set; }
             public System.String NetworkInterfaceId { get; set; }

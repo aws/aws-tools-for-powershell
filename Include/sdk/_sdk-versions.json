@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.470.0",
+    "ProductVersion" : "3.7.471.0",
     "CoreVersion"    : "3.7.103.24",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -30,7 +30,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.103.1",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.118.1",
+            "Version" : "3.7.119.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -354,7 +354,7 @@
             "InPreview"               : false
         },
         "SimpleWorkflow"            : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -546,7 +546,7 @@
             "InPreview"               : false
         },
         "ApplicationDiscoveryService"     : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -722,7 +722,7 @@
             "InPreview"               : false
         },
         "CloudDirectory"                  : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -898,7 +898,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.103.9",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -1154,7 +1154,7 @@
             "InPreview"               : false
         },
         "DLM"                             : {
-            "Version" : "3.7.100.62",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -1330,7 +1330,7 @@
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "3.7.101.59",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"
@@ -1642,7 +1642,7 @@
             "InPreview"               : false
         },
         "Imagebuilder"                    : {
-            "Version" : "3.7.101.7",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.103.24"

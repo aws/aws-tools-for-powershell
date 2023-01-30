@@ -1,4 +1,11 @@
-﻿### 4.1.259 (2023-01-27 22:03Z)
+﻿### 4.1.260 (2023-01-30 22:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.471.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.
+    * Modified cmdlet New-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.
+    * Modified cmdlet Remove-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.
+
+### 4.1.259 (2023-01-27 22:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.470.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elemental MediaTailor
     * Added cmdlet Add-EMTLogsForChannel leveraging the ConfigureLogsForChannel service API.
