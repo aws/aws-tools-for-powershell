@@ -3589,7 +3589,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNDataSource/Type")
         }
         {
-            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AMAZON_OPENSEARCH_SERVICE","AWS_LAMBDA","HTTP","NONE","RELATIONAL_DATABASE"
+            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AMAZON_EVENTBRIDGE","AMAZON_OPENSEARCH_SERVICE","AWS_LAMBDA","HTTP","NONE","RELATIONAL_DATABASE"
             break
         }
 
@@ -9588,9 +9588,12 @@ $CT_SelectCompleters = {
 $CT_SelectMap = @{
     "Select"=@("Add-CTResourceTag",
                "Stop-CTQuery",
+               "New-CTChannel",
                "New-CTEventDataStore",
                "New-CTTrail",
+               "Remove-CTChannel",
                "Remove-CTEventDataStore",
+               "Remove-CTResourcePolicy",
                "Remove-CTTrail",
                "Unregister-CTOrganizationDelegatedAdmin",
                "Get-CTQuery",
@@ -9601,6 +9604,7 @@ $CT_SelectMap = @{
                "Get-CTImport",
                "Get-CTInsightSelector",
                "Get-CTQueryResult",
+               "Get-CTResourcePolicy",
                "Get-CTTrailByName",
                "Get-CTTrailStatus",
                "Get-CTChannelSummary",
@@ -9614,6 +9618,7 @@ $CT_SelectMap = @{
                "Find-CTEvent",
                "Write-CTEventSelector",
                "Write-CTInsightSelector",
+               "Write-CTResourcePolicy",
                "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
@@ -9622,11 +9627,67 @@ $CT_SelectMap = @{
                "Start-CTQuery",
                "Stop-CTImport",
                "Stop-CTLogging",
+               "Update-CTChannel",
                "Update-CTEventDataStore",
                "Update-CTTrail")
 }
 
 _awsArgumentCompleterRegistration $CT_SelectCompleters $CT_SelectMap
+# Argument completions for service AWS CloudTrail Data Service
+
+
+$CTD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CTD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CTD_SelectMap = @{
+    "Select"=@("Write-CTDAuditEvent")
+}
+
+_awsArgumentCompleterRegistration $CTD_SelectCompleters $CTD_SelectMap
 # Argument completions for service AWS CodeArtifact
 
 
@@ -9667,6 +9728,7 @@ $CA_Completers = {
             ($_ -eq "Get-CAPackageVersionList/Format") -Or
             ($_ -eq "Get-CAPackageVersionReadme/Format") -Or
             ($_ -eq "Get-CARepositoryEndpoint/Format") -Or
+            ($_ -eq "Remove-CAPackage/Format") -Or
             ($_ -eq "Remove-CAPackageVersion/Format") -Or
             ($_ -eq "Unpublish-CAPackageVersion/Format") -Or
             ($_ -eq "Update-CAPackageVersionsStatus/Format") -Or
@@ -9714,7 +9776,7 @@ $CA_Completers = {
 
 $CA_map = @{
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
-    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
     "OriginType"=@("Get-CAPackageVersionList")
     "Publish"=@("Get-CAPackageList")
     "Restrictions_Publish"=@("Write-CAPackageOriginConfiguration")
@@ -9781,6 +9843,7 @@ $CA_SelectMap = @{
                "New-CARepository",
                "Remove-CADomain",
                "Remove-CADomainPermissionsPolicy",
+               "Remove-CAPackage",
                "Remove-CAPackageVersion",
                "Remove-CARepository",
                "Remove-CARepositoryPermissionsPolicy",
@@ -18874,6 +18937,7 @@ $EC2_SelectMap = @{
                "Add-EC2SecurityGroupToClientVpnTargetNetwork",
                "Register-EC2Ipv6AddressList",
                "Register-EC2PrivateIpAddress",
+               "Register-EC2PrivateNatGatewayAddress",
                "Register-EC2Address",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
@@ -18881,6 +18945,7 @@ $EC2_SelectMap = @{
                "Register-EC2IamInstanceProfile",
                "Register-EC2InstanceEventWindow",
                "Register-EC2IpamResourceDiscovery",
+               "Register-EC2NatGatewayAddress",
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
                "Register-EC2TransitGatewayMulticastDomain",
@@ -19239,6 +19304,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2InstanceEventWindow",
                "Unregister-EC2IpamResourceDiscovery",
+               "Unregister-EC2NatGatewayAddress",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
                "Unregister-EC2TransitGatewayMulticastDomain",
@@ -19436,6 +19502,7 @@ $EC2_SelectMap = @{
                "Remove-EC2Instance",
                "Unregister-EC2Ipv6AddressList",
                "Unregister-EC2PrivateIpAddress",
+               "Unregister-EC2PrivateNatGatewayAddress",
                "Stop-EC2InstanceMonitoring",
                "Update-EC2SecurityGroupRuleEgressDescription",
                "Update-EC2SecurityGroupRuleIngressDescription",
@@ -25859,6 +25926,13 @@ $GS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GroundStation.AgentStatus
+        "Update-GSAgentStatus/AggregateStatus_Status"
+        {
+            $v = "ACTIVE","FAILED","INACTIVE","SUCCESS"
+            break
+        }
+
         # Amazon.GroundStation.ConfigCapabilityType
         {
             ($_ -eq "Get-GSConfig/ConfigType") -Or
@@ -25879,6 +25953,7 @@ $GS_Completers = {
 }
 
 $GS_map = @{
+    "AggregateStatus_Status"=@("Update-GSAgentStatus")
     "ConfigType"=@("Get-GSConfig","Remove-GSConfig","Update-GSConfig")
 }
 
@@ -25943,6 +26018,7 @@ $GS_SelectMap = @{
                "Remove-GSMissionProfile",
                "Get-GSContact",
                "Get-GSEphemeris",
+               "Get-GSAgentConfiguration",
                "Get-GSConfig",
                "Get-GSDataflowEndpointGroup",
                "Get-GSMinuteUsage",
@@ -25956,9 +26032,11 @@ $GS_SelectMap = @{
                "Get-GSMissionProfileList",
                "Get-GSSatelliteList",
                "Get-GSResourceTag",
+               "Register-GSAgent",
                "Add-GSReservedContact",
                "Add-GSResourceTag",
                "Remove-GSResourceTag",
+               "Update-GSAgentStatus",
                "Update-GSConfig",
                "Update-GSEphemeris",
                "Update-GSMissionProfile")
@@ -40025,6 +40103,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.ConnectionMode
+        "New-OSOutboundConnection/ConnectionMode"
+        {
+            $v = "DIRECT","VPC_ENDPOINT"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
@@ -40110,6 +40195,7 @@ $OS_map = @{
     "ClusterConfig_DedicatedMasterType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
+    "ConnectionMode"=@("New-OSOutboundConnection")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")
@@ -42670,7 +42756,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Salli","Seoyeon","Sergio","Suvi","Takumi","Tatyana","Thiago","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Stephen","Suvi","Takumi","Tatyana","Thiago","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 
@@ -48295,6 +48381,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.CompleteOnConvergence
+        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.CompressionType
         "New-SMTransformJob/TransformInput_CompressionType"
         {
@@ -49340,6 +49433,7 @@ $SM_map = @{
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")

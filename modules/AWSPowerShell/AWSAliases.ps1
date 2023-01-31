@@ -3722,12 +3722,18 @@ Set-Alias -Name Add-CTTags -Value Add-CTResourceTag
 Set-Alias -Name CT-AddTags -Value Add-CTResourceTag
 Set-Alias -Name Cancel-CTQuery -Value Stop-CTQuery
 Set-Alias -Name CT-CancelQuery -Value Stop-CTQuery
+Set-Alias -Name Create-CTChannel -Value New-CTChannel
+Set-Alias -Name CT-CreateChannel -Value New-CTChannel
 Set-Alias -Name Create-CTEventDataStore -Value New-CTEventDataStore
 Set-Alias -Name CT-CreateEventDataStore -Value New-CTEventDataStore
 Set-Alias -Name Create-CTTrail -Value New-CTTrail
 Set-Alias -Name CT-CreateTrail -Value New-CTTrail
+Set-Alias -Name Delete-CTChannel -Value Remove-CTChannel
+Set-Alias -Name CT-DeleteChannel -Value Remove-CTChannel
 Set-Alias -Name Delete-CTEventDataStore -Value Remove-CTEventDataStore
 Set-Alias -Name CT-DeleteEventDataStore -Value Remove-CTEventDataStore
+Set-Alias -Name Delete-CTResourcePolicy -Value Remove-CTResourcePolicy
+Set-Alias -Name CT-DeleteResourcePolicy -Value Remove-CTResourcePolicy
 Set-Alias -Name Delete-CTTrail -Value Remove-CTTrail
 Set-Alias -Name CT-DeleteTrail -Value Remove-CTTrail
 Set-Alias -Name Deregister-CTOrganizationDelegatedAdmin -Value Unregister-CTOrganizationDelegatedAdmin
@@ -3746,6 +3752,7 @@ Set-Alias -Name Get-CTInsightSelectors -Value Get-CTInsightSelector
 Set-Alias -Name CT-GetInsightSelectors -Value Get-CTInsightSelector
 Set-Alias -Name Get-CTQueryResults -Value Get-CTQueryResult
 Set-Alias -Name CT-GetQueryResults -Value Get-CTQueryResult
+Set-Alias -Name CT-GetResourcePolicy -Value Get-CTResourcePolicy
 Set-Alias -Name Get-CTTrail -Value Get-CTTrailByName
 Set-Alias -Name CT-GetTrail -Value Get-CTTrailByName
 Set-Alias -Name CT-GetTrailStatus -Value Get-CTTrailStatus
@@ -3781,6 +3788,8 @@ Set-Alias -Name CT-PutEventSelectors -Value Write-CTEventSelector
 Set-Alias -Name Put-CTInsightSelectors -Value Write-CTInsightSelector
 Set-Alias -Name Put-CTInsightSelector -Value Write-CTInsightSelector
 Set-Alias -Name CT-PutInsightSelectors -Value Write-CTInsightSelector
+Set-Alias -Name Put-CTResourcePolicy -Value Write-CTResourcePolicy
+Set-Alias -Name CT-PutResourcePolicy -Value Write-CTResourcePolicy
 Set-Alias -Name CT-RegisterOrganizationDelegatedAdmin -Value Register-CTOrganizationDelegatedAdmin
 Set-Alias -Name Remove-CTTags -Value Remove-CTResourceTag
 Set-Alias -Name CT-RemoveTags -Value Remove-CTResourceTag
@@ -3790,8 +3799,12 @@ Set-Alias -Name CT-StartLogging -Value Start-CTLogging
 Set-Alias -Name CT-StartQuery -Value Start-CTQuery
 Set-Alias -Name CT-StopImport -Value Stop-CTImport
 Set-Alias -Name CT-StopLogging -Value Stop-CTLogging
+Set-Alias -Name CT-UpdateChannel -Value Update-CTChannel
 Set-Alias -Name CT-UpdateEventDataStore -Value Update-CTEventDataStore
 Set-Alias -Name CT-UpdateTrail -Value Update-CTTrail
+Set-Alias -Name Put-CTDAuditEvents -Value Write-CTDAuditEvent
+Set-Alias -Name Put-CTDAuditEvent -Value Write-CTDAuditEvent
+Set-Alias -Name CTD-PutAuditEvents -Value Write-CTDAuditEvent
 Set-Alias -Name Associate-CAExternalConnection -Value Connect-CAExternalConnection
 Set-Alias -Name CA-AssociateExternalConnection -Value Connect-CAExternalConnection
 Set-Alias -Name Copy-CAPackageVersions -Value Copy-CAPackageVersion
@@ -3804,6 +3817,8 @@ Set-Alias -Name Delete-CADomain -Value Remove-CADomain
 Set-Alias -Name CA-DeleteDomain -Value Remove-CADomain
 Set-Alias -Name Delete-CADomainPermissionsPolicy -Value Remove-CADomainPermissionsPolicy
 Set-Alias -Name CA-DeleteDomainPermissionsPolicy -Value Remove-CADomainPermissionsPolicy
+Set-Alias -Name Delete-CAPackage -Value Remove-CAPackage
+Set-Alias -Name CA-DeletePackage -Value Remove-CAPackage
 Set-Alias -Name Delete-CAPackageVersions -Value Remove-CAPackageVersion
 Set-Alias -Name Delete-CAPackageVersion -Value Remove-CAPackageVersion
 Set-Alias -Name CA-DeletePackageVersions -Value Remove-CAPackageVersion
@@ -7062,6 +7077,8 @@ Set-Alias -Name EC2-AssignIpv6Addresses -Value Register-EC2Ipv6AddressList
 Set-Alias -Name Assign-EC2PrivateIpAddresses -Value Register-EC2PrivateIpAddress
 Set-Alias -Name Assign-EC2PrivateIpAddress -Value Register-EC2PrivateIpAddress
 Set-Alias -Name EC2-AssignPrivateIpAddresses -Value Register-EC2PrivateIpAddress
+Set-Alias -Name Assign-EC2PrivateNatGatewayAddress -Value Register-EC2PrivateNatGatewayAddress
+Set-Alias -Name EC2-AssignPrivateNatGatewayAddress -Value Register-EC2PrivateNatGatewayAddress
 Set-Alias -Name Associate-EC2Address -Value Register-EC2Address
 Set-Alias -Name EC2-AssociateAddress -Value Register-EC2Address
 Set-Alias -Name Associate-EC2ClientVpnTargetNetwork -Value Register-EC2ClientVpnTargetNetwork
@@ -7077,6 +7094,8 @@ Set-Alias -Name Associate-EC2InstanceEventWindow -Value Register-EC2InstanceEven
 Set-Alias -Name EC2-AssociateInstanceEventWindow -Value Register-EC2InstanceEventWindow
 Set-Alias -Name Associate-EC2IpamResourceDiscovery -Value Register-EC2IpamResourceDiscovery
 Set-Alias -Name EC2-AssociateIpamResourceDiscovery -Value Register-EC2IpamResourceDiscovery
+Set-Alias -Name Associate-EC2NatGatewayAddress -Value Register-EC2NatGatewayAddress
+Set-Alias -Name EC2-AssociateNatGatewayAddress -Value Register-EC2NatGatewayAddress
 Set-Alias -Name Associate-EC2RouteTable -Value Register-EC2RouteTable
 Set-Alias -Name EC2-AssociateRouteTable -Value Register-EC2RouteTable
 Set-Alias -Name Associate-EC2SubnetCidrBlock -Value Register-EC2SubnetCidrBlock
@@ -7919,6 +7938,8 @@ Set-Alias -Name Disassociate-EC2InstanceEventWindow -Value Unregister-EC2Instanc
 Set-Alias -Name EC2-DisassociateInstanceEventWindow -Value Unregister-EC2InstanceEventWindow
 Set-Alias -Name Disassociate-EC2IpamResourceDiscovery -Value Unregister-EC2IpamResourceDiscovery
 Set-Alias -Name EC2-DisassociateIpamResourceDiscovery -Value Unregister-EC2IpamResourceDiscovery
+Set-Alias -Name Disassociate-EC2NatGatewayAddress -Value Unregister-EC2NatGatewayAddress
+Set-Alias -Name EC2-DisassociateNatGatewayAddress -Value Unregister-EC2NatGatewayAddress
 Set-Alias -Name Disassociate-EC2RouteTable -Value Unregister-EC2RouteTable
 Set-Alias -Name EC2-DisassociateRouteTable -Value Unregister-EC2RouteTable
 Set-Alias -Name Disassociate-EC2SubnetCidrBlock -Value Unregister-EC2SubnetCidrBlock
@@ -8278,6 +8299,8 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name Unassign-EC2PrivateIpAddress -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
+Set-Alias -Name Unassign-EC2PrivateNatGatewayAddress -Value Unregister-EC2PrivateNatGatewayAddress
+Set-Alias -Name EC2-UnassignPrivateNatGatewayAddress -Value Unregister-EC2PrivateNatGatewayAddress
 Set-Alias -Name Unmonitor-EC2Instances -Value Stop-EC2InstanceMonitoring
 Set-Alias -Name Unmonitor-EC2InstanceMonitoring -Value Stop-EC2InstanceMonitoring
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
@@ -11394,6 +11417,7 @@ Set-Alias -Name Describe-GSContact -Value Get-GSContact
 Set-Alias -Name GS-DescribeContact -Value Get-GSContact
 Set-Alias -Name Describe-GSEphemeris -Value Get-GSEphemeris
 Set-Alias -Name GS-DescribeEphemeris -Value Get-GSEphemeris
+Set-Alias -Name GS-GetAgentConfiguration -Value Get-GSAgentConfiguration
 Set-Alias -Name GS-GetConfig -Value Get-GSConfig
 Set-Alias -Name GS-GetDataflowEndpointGroup -Value Get-GSDataflowEndpointGroup
 Set-Alias -Name GS-GetMinuteUsage -Value Get-GSMinuteUsage
@@ -11421,11 +11445,13 @@ Set-Alias -Name List-GSSatellites -Value Get-GSSatelliteList
 Set-Alias -Name List-GSSatelliteList -Value Get-GSSatelliteList
 Set-Alias -Name GS-ListSatellites -Value Get-GSSatelliteList
 Set-Alias -Name GS-ListTagsForResource -Value Get-GSResourceTag
+Set-Alias -Name GS-RegisterAgent -Value Register-GSAgent
 Set-Alias -Name Reserve-GSContact -Value Add-GSReservedContact
 Set-Alias -Name Reserve-GSReservedContact -Value Add-GSReservedContact
 Set-Alias -Name GS-ReserveContact -Value Add-GSReservedContact
 Set-Alias -Name GS-TagResource -Value Add-GSResourceTag
 Set-Alias -Name GS-UntagResource -Value Remove-GSResourceTag
+Set-Alias -Name GS-UpdateAgentStatus -Value Update-GSAgentStatus
 Set-Alias -Name GS-UpdateConfig -Value Update-GSConfig
 Set-Alias -Name GS-UpdateEphemeris -Value Update-GSEphemeris
 Set-Alias -Name GS-UpdateMissionProfile -Value Update-GSMissionProfile

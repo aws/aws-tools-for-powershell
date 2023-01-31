@@ -88,6 +88,26 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public System.String[][] DataflowEdge { get; set; }
         #endregion
         
+        #region Parameter StreamsKmsKey_KmsAliasArn
+        /// <summary>
+        /// <para>
+        /// <para>KMS Alias Arn.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamsKmsKey_KmsAliasArn { get; set; }
+        #endregion
+        
+        #region Parameter StreamsKmsKey_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>KMS Key Arn.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamsKmsKey_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MinimumViableContactDurationSecond
         /// <summary>
         /// <para>
@@ -121,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter StreamsKmsRole
+        /// <summary>
+        /// <para>
+        /// <para>Role to use for encrypting streams with KMS key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StreamsKmsRole { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -243,6 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StreamsKmsKey_KmsAliasArn = this.StreamsKmsKey_KmsAliasArn;
+            context.StreamsKmsKey_KmsKeyArn = this.StreamsKmsKey_KmsKeyArn;
+            context.StreamsKmsRole = this.StreamsKmsRole;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -293,6 +326,39 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate StreamsKmsKey
+            var requestStreamsKmsKeyIsNull = true;
+            request.StreamsKmsKey = new Amazon.GroundStation.Model.KmsKey();
+            System.String requestStreamsKmsKey_streamsKmsKey_KmsAliasArn = null;
+            if (cmdletContext.StreamsKmsKey_KmsAliasArn != null)
+            {
+                requestStreamsKmsKey_streamsKmsKey_KmsAliasArn = cmdletContext.StreamsKmsKey_KmsAliasArn;
+            }
+            if (requestStreamsKmsKey_streamsKmsKey_KmsAliasArn != null)
+            {
+                request.StreamsKmsKey.KmsAliasArn = requestStreamsKmsKey_streamsKmsKey_KmsAliasArn;
+                requestStreamsKmsKeyIsNull = false;
+            }
+            System.String requestStreamsKmsKey_streamsKmsKey_KmsKeyArn = null;
+            if (cmdletContext.StreamsKmsKey_KmsKeyArn != null)
+            {
+                requestStreamsKmsKey_streamsKmsKey_KmsKeyArn = cmdletContext.StreamsKmsKey_KmsKeyArn;
+            }
+            if (requestStreamsKmsKey_streamsKmsKey_KmsKeyArn != null)
+            {
+                request.StreamsKmsKey.KmsKeyArn = requestStreamsKmsKey_streamsKmsKey_KmsKeyArn;
+                requestStreamsKmsKeyIsNull = false;
+            }
+             // determine if request.StreamsKmsKey should be set to null
+            if (requestStreamsKmsKeyIsNull)
+            {
+                request.StreamsKmsKey = null;
+            }
+            if (cmdletContext.StreamsKmsRole != null)
+            {
+                request.StreamsKmsRole = cmdletContext.StreamsKmsRole;
             }
             if (cmdletContext.Tag != null)
             {
@@ -368,6 +434,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
             public List<List<System.String>> DataflowEdge { get; set; }
             public System.Int32? MinimumViableContactDurationSecond { get; set; }
             public System.String Name { get; set; }
+            public System.String StreamsKmsKey_KmsAliasArn { get; set; }
+            public System.String StreamsKmsKey_KmsKeyArn { get; set; }
+            public System.String StreamsKmsRole { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TrackingConfigArn { get; set; }
             public System.Func<Amazon.GroundStation.Model.CreateMissionProfileResponse, NewGSMissionProfileCmdlet, object> Select { get; set; } =

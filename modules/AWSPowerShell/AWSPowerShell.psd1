@@ -112,6 +112,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CloudSearch.dll',
         'AWSSDK.CloudSearchDomain.dll',
         'AWSSDK.CloudTrail.dll',
+        'AWSSDK.CloudTrailData.dll',
         'AWSSDK.CloudWatch.dll',
         'AWSSDK.CloudWatchEvents.dll',
         'AWSSDK.CloudWatchEvidently.dll',

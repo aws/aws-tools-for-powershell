@@ -42,9 +42,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         #region Parameter AdvancedEventSelector
         /// <summary>
         /// <para>
-        /// <para>The advanced event selectors to use to select the events for the data store. For more
-        /// information about how to use advanced event selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">Log
-        /// events by using advanced event selectors</a> in the CloudTrail User Guide.</para>
+        /// <para>The advanced event selectors to use to select the events for the data store. You can
+        /// configure up to five advanced event selectors for each event data store.</para><para> For more information about how to use advanced event selectors to log CloudTrail
+        /// events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">Log
+        /// events by using advanced event selectors</a> in the CloudTrail User Guide.</para><para>For more information about how to use advanced event selectors to include Config configuration
+        /// items in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-eds-config">Create
+        /// an event data store for Config configuration items</a> in the CloudTrail User Guide.</para><para>For more information about how to use advanced event selectors to include non-Amazon
+        /// Web Services events in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-lake-cli.html#lake-cli-create-integration">Create
+        /// an integration to log events from outside Amazon Web Services</a> in the CloudTrail
+        /// User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

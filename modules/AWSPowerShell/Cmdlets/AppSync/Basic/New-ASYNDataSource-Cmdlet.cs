@@ -131,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String OpenSearchServiceConfig_Endpoint { get; set; }
         #endregion
         
+        #region Parameter EventBridgeConfig_EventBusArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the event bus. For more information about event buses, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html">Amazon
+        /// EventBridge event buses</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventBridgeConfig_EventBusArn { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig
         /// <summary>
         /// <para>
@@ -280,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.Description = this.Description;
             context.DynamodbConfig = this.DynamodbConfig;
             context.ElasticsearchConfig = this.ElasticsearchConfig;
+            context.EventBridgeConfig_EventBusArn = this.EventBridgeConfig_EventBusArn;
             context.HttpConfig_AuthorizationConfig = this.HttpConfig_AuthorizationConfig;
             context.HttpConfig_Endpoint = this.HttpConfig_Endpoint;
             context.LambdaConfig = this.LambdaConfig;
@@ -333,6 +345,25 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ElasticsearchConfig != null)
             {
                 request.ElasticsearchConfig = cmdletContext.ElasticsearchConfig;
+            }
+            
+             // populate EventBridgeConfig
+            var requestEventBridgeConfigIsNull = true;
+            request.EventBridgeConfig = new Amazon.AppSync.Model.EventBridgeDataSourceConfig();
+            System.String requestEventBridgeConfig_eventBridgeConfig_EventBusArn = null;
+            if (cmdletContext.EventBridgeConfig_EventBusArn != null)
+            {
+                requestEventBridgeConfig_eventBridgeConfig_EventBusArn = cmdletContext.EventBridgeConfig_EventBusArn;
+            }
+            if (requestEventBridgeConfig_eventBridgeConfig_EventBusArn != null)
+            {
+                request.EventBridgeConfig.EventBusArn = requestEventBridgeConfig_eventBridgeConfig_EventBusArn;
+                requestEventBridgeConfigIsNull = false;
+            }
+             // determine if request.EventBridgeConfig should be set to null
+            if (requestEventBridgeConfigIsNull)
+            {
+                request.EventBridgeConfig = null;
             }
             
              // populate HttpConfig
@@ -502,6 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String Description { get; set; }
             public Amazon.AppSync.Model.DynamodbDataSourceConfig DynamodbConfig { get; set; }
             public Amazon.AppSync.Model.ElasticsearchDataSourceConfig ElasticsearchConfig { get; set; }
+            public System.String EventBridgeConfig_EventBusArn { get; set; }
             public Amazon.AppSync.Model.AuthorizationConfig HttpConfig_AuthorizationConfig { get; set; }
             public System.String HttpConfig_Endpoint { get; set; }
             public Amazon.AppSync.Model.LambdaDataSourceConfig LambdaConfig { get; set; }

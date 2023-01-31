@@ -112,6 +112,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CARepository', 
         'Remove-CADomain', 
         'Remove-CADomainPermissionsPolicy', 
+        'Remove-CAPackage', 
         'Remove-CAPackageVersion', 
         'Remove-CARepository', 
         'Remove-CARepositoryPermissionsPolicy', 

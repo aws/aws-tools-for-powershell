@@ -91,10 +91,49 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PrivateIpAddress { get; set; }
         #endregion
         
+        #region Parameter SecondaryAllocationId
+        /// <summary>
+        /// <para>
+        /// <para>Secondary EIP allocation IDs. For more information about secondary addresses, see
+        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecondaryAllocationIds")]
+        public System.String[] SecondaryAllocationId { get; set; }
+        #endregion
+        
+        #region Parameter SecondaryPrivateIpAddressCount
+        /// <summary>
+        /// <para>
+        /// <para>[Private NAT gateway only] The number of secondary private IPv4 addresses you want
+        /// to assign to the NAT gateway. For more information about secondary addresses, see
+        /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SecondaryPrivateIpAddressCount { get; set; }
+        #endregion
+        
+        #region Parameter SecondaryPrivateIpAddress
+        /// <summary>
+        /// <para>
+        /// <para>Secondary private IPv4 addresses. For more information about secondary addresses,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating">Create
+        /// a NAT gateway</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecondaryPrivateIpAddresses")]
+        public System.String[] SecondaryPrivateIpAddress { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnet in which to create the NAT gateway.</para>
+        /// <para>The ID of the subnet in which to create the NAT gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,6 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             context.ConnectivityType = this.ConnectivityType;
             context.PrivateIpAddress = this.PrivateIpAddress;
+            if (this.SecondaryAllocationId != null)
+            {
+                context.SecondaryAllocationId = new List<System.String>(this.SecondaryAllocationId);
+            }
+            context.SecondaryPrivateIpAddressCount = this.SecondaryPrivateIpAddressCount;
+            if (this.SecondaryPrivateIpAddress != null)
+            {
+                context.SecondaryPrivateIpAddress = new List<System.String>(this.SecondaryPrivateIpAddress);
+            }
             context.SubnetId = this.SubnetId;
             #if MODULAR
             if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
@@ -239,6 +287,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PrivateIpAddress != null)
             {
                 request.PrivateIpAddress = cmdletContext.PrivateIpAddress;
+            }
+            if (cmdletContext.SecondaryAllocationId != null)
+            {
+                request.SecondaryAllocationIds = cmdletContext.SecondaryAllocationId;
+            }
+            if (cmdletContext.SecondaryPrivateIpAddressCount != null)
+            {
+                request.SecondaryPrivateIpAddressCount = cmdletContext.SecondaryPrivateIpAddressCount.Value;
+            }
+            if (cmdletContext.SecondaryPrivateIpAddress != null)
+            {
+                request.SecondaryPrivateIpAddresses = cmdletContext.SecondaryPrivateIpAddress;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -313,6 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public Amazon.EC2.ConnectivityType ConnectivityType { get; set; }
             public System.String PrivateIpAddress { get; set; }
+            public List<System.String> SecondaryAllocationId { get; set; }
+            public System.Int32? SecondaryPrivateIpAddressCount { get; set; }
+            public List<System.String> SecondaryPrivateIpAddress { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNatGatewayResponse, NewEC2NatGatewayCmdlet, object> Select { get; set; } =

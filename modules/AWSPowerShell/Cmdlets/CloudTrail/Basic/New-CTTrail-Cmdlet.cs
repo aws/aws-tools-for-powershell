@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier
-        /// that represents the log group to which CloudTrail logs will be delivered. Not required
-        /// unless you specify <code>CloudWatchLogsRoleArn</code>.</para>
+        /// that represents the log group to which CloudTrail logs will be delivered. You must
+        /// use a log group that exists in your account.</para><para>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
-        /// log group.</para>
+        /// log group. You must use a role that exists in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <para>Specifies whether the trail is created for all accounts in an organization in Organizations,
         /// or only for the current Amazon Web Services account. The default is false, and cannot
         /// be true unless the call is made on behalf of an Amazon Web Services account that is
-        /// the management account for an organization in Organizations.</para>
+        /// the management account or delegated administrator account for an organization in Organizations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

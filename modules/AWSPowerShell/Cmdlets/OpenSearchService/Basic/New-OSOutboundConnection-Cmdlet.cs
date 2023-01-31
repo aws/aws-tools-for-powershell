@@ -58,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String ConnectionAlias { get; set; }
         #endregion
         
+        #region Parameter ConnectionMode
+        /// <summary>
+        /// <para>
+        /// <para>The connection mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.ConnectionMode")]
+        public Amazon.OpenSearchService.ConnectionMode ConnectionMode { get; set; }
+        #endregion
+        
         #region Parameter LocalDomainInfo_AWSDomainInformation_DomainName
         /// <summary>
         /// <para>
@@ -187,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 WriteWarning("You are passing $null as a value for parameter ConnectionAlias which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ConnectionMode = this.ConnectionMode;
             context.LocalDomainInfo_AWSDomainInformation_DomainName = this.LocalDomainInfo_AWSDomainInformation_DomainName;
             context.LocalDomainInfo_AWSDomainInformation_OwnerId = this.LocalDomainInfo_AWSDomainInformation_OwnerId;
             context.LocalDomainInfo_AWSDomainInformation_Region = this.LocalDomainInfo_AWSDomainInformation_Region;
@@ -212,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.ConnectionAlias != null)
             {
                 request.ConnectionAlias = cmdletContext.ConnectionAlias;
+            }
+            if (cmdletContext.ConnectionMode != null)
+            {
+                request.ConnectionMode = cmdletContext.ConnectionMode;
             }
             
              // populate LocalDomainInfo
@@ -383,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectionAlias { get; set; }
+            public Amazon.OpenSearchService.ConnectionMode ConnectionMode { get; set; }
             public System.String LocalDomainInfo_AWSDomainInformation_DomainName { get; set; }
             public System.String LocalDomainInfo_AWSDomainInformation_OwnerId { get; set; }
             public System.String LocalDomainInfo_AWSDomainInformation_Region { get; set; }

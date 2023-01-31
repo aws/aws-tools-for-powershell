@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
     /// Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionSummary.html">PackageVersionSummary</a>
-    /// objects for package versions in a repository that match the request parameters.
+    /// objects for package versions in a repository that match the request parameters. Package
+    /// versions of all statuses will be returned by default when calling <code>list-package-versions</code>
+    /// with no <code>--status</code> parameter.
     /// </summary>
     [Cmdlet("Get", "CAPackageVersionList")]
     [OutputType("Amazon.CodeArtifact.Model.ListPackageVersionsResponse")]

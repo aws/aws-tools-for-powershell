@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-GSReservedContact', 
         'Add-GSResourceTag', 
+        'Get-GSAgentConfiguration', 
         'Get-GSConfig', 
         'Get-GSConfigList', 
         'Get-GSContact', 
@@ -107,12 +108,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-GSDataflowEndpointGroup', 
         'New-GSEphemeris', 
         'New-GSMissionProfile', 
+        'Register-GSAgent', 
         'Remove-GSConfig', 
         'Remove-GSDataflowEndpointGroup', 
         'Remove-GSEphemeris', 
         'Remove-GSMissionProfile', 
         'Remove-GSResourceTag', 
         'Stop-GSContact', 
+        'Update-GSAgentStatus', 
         'Update-GSConfig', 
         'Update-GSEphemeris', 
         'Update-GSMissionProfile')

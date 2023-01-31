@@ -32,9 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// ARN or the ID portion of the ARN. Other parameters are optional, but at least one
     /// optional parameter must be specified, or CloudTrail throws an error. <code>RetentionPeriod</code>
     /// is in days, and valid values are integers between 90 and 2557. By default, <code>TerminationProtection</code>
-    /// is enabled. <code>AdvancedEventSelectors</code> includes or excludes management and
-    /// data events in your event data store; for more information about <code>AdvancedEventSelectors</code>,
-    /// see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.
+    /// is enabled.
+    /// 
+    ///  
+    /// <para>
+    /// For event data stores for CloudTrail events, <code>AdvancedEventSelectors</code> includes
+    /// or excludes management and data events in your event data store. For more information
+    /// about <code>AdvancedEventSelectors</code>, see <a>PutEventSelectorsRequest$AdvancedEventSelectors</a>.
+    /// 
+    /// </para><para>
+    ///  For event data stores for Config configuration items, Audit Manager evidence, or
+    /// non-Amazon Web Services events, <code>AdvancedEventSelectors</code> includes events
+    /// of that type in your event data store.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "CTEventDataStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.UpdateEventDataStoreResponse")]

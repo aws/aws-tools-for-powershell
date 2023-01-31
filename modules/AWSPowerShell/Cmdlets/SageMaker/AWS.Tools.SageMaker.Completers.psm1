@@ -302,6 +302,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.CompleteOnConvergence
+        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.CompressionType
         "New-SMTransformJob/TransformInput_CompressionType"
         {
@@ -1347,6 +1354,7 @@ $SM_map = @{
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")

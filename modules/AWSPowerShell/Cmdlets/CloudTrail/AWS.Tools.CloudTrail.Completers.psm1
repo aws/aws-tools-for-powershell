@@ -167,9 +167,12 @@ $CT_SelectCompleters = {
 $CT_SelectMap = @{
     "Select"=@("Add-CTResourceTag",
                "Stop-CTQuery",
+               "New-CTChannel",
                "New-CTEventDataStore",
                "New-CTTrail",
+               "Remove-CTChannel",
                "Remove-CTEventDataStore",
+               "Remove-CTResourcePolicy",
                "Remove-CTTrail",
                "Unregister-CTOrganizationDelegatedAdmin",
                "Get-CTQuery",
@@ -180,6 +183,7 @@ $CT_SelectMap = @{
                "Get-CTImport",
                "Get-CTInsightSelector",
                "Get-CTQueryResult",
+               "Get-CTResourcePolicy",
                "Get-CTTrailByName",
                "Get-CTTrailStatus",
                "Get-CTChannelSummary",
@@ -193,6 +197,7 @@ $CT_SelectMap = @{
                "Find-CTEvent",
                "Write-CTEventSelector",
                "Write-CTInsightSelector",
+               "Write-CTResourcePolicy",
                "Register-CTOrganizationDelegatedAdmin",
                "Remove-CTResourceTag",
                "Restore-CTEventDataStore",
@@ -201,6 +206,7 @@ $CT_SelectMap = @{
                "Start-CTQuery",
                "Stop-CTImport",
                "Stop-CTLogging",
+               "Update-CTChannel",
                "Update-CTEventDataStore",
                "Update-CTTrail")
 }

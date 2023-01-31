@@ -87,6 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String TopicRulePayload_AwsIotSqlVersion { get; set; }
         #endregion
         
+        #region Parameter CloudwatchLogs_BatchMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether batches of log records will be extracted and uploaded into CloudWatch.
+        /// Values include <code>true</code> or <code>false</code><i>(default)</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_CloudwatchLogs_BatchMode")]
+        public System.Boolean? CloudwatchLogs_BatchMode { get; set; }
+        #endregion
+        
         #region Parameter Firehose_BatchMode
         /// <summary>
         /// <para>
@@ -1384,6 +1396,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.CloudwatchAlarm_RoleArn = this.CloudwatchAlarm_RoleArn;
             context.CloudwatchAlarm_StateReason = this.CloudwatchAlarm_StateReason;
             context.CloudwatchAlarm_StateValue = this.CloudwatchAlarm_StateValue;
+            context.CloudwatchLogs_BatchMode = this.CloudwatchLogs_BatchMode;
             context.CloudwatchLogs_LogGroupName = this.CloudwatchLogs_LogGroupName;
             context.CloudwatchLogs_RoleArn = this.CloudwatchLogs_RoleArn;
             context.CloudwatchMetric_MetricName = this.CloudwatchMetric_MetricName;
@@ -1611,41 +1624,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Lambda = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Lambda;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
-            Amazon.IoT.Model.CloudwatchLogsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs = null;
-            
-             // populate CloudwatchLogs
-            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = true;
-            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs = new Amazon.IoT.Model.CloudwatchLogsAction();
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName = null;
-            if (cmdletContext.CloudwatchLogs_LogGroupName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName = cmdletContext.CloudwatchLogs_LogGroupName;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs.LogGroupName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = false;
-            }
-            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn = null;
-            if (cmdletContext.CloudwatchLogs_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn = cmdletContext.CloudwatchLogs_RoleArn;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn;
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = false;
-            }
-             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs should be set to null
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs = null;
-            }
-            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs != null)
-            {
-                requestTopicRulePayload_topicRulePayload_ErrorAction.CloudwatchLogs = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs;
-                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
-            }
             Amazon.IoT.Model.DynamoDBv2Action requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_DynamoDBv2 = null;
             
              // populate DynamoDBv2
@@ -1764,6 +1742,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Salesforce != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Salesforce = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Salesforce;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.CloudwatchLogsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs = null;
+            
+             // populate CloudwatchLogs
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs = new Amazon.IoT.Model.CloudwatchLogsAction();
+            System.Boolean? requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_BatchMode = null;
+            if (cmdletContext.CloudwatchLogs_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_BatchMode = cmdletContext.CloudwatchLogs_BatchMode.Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_BatchMode != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs.BatchMode = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_BatchMode.Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName = null;
+            if (cmdletContext.CloudwatchLogs_LogGroupName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName = cmdletContext.CloudwatchLogs_LogGroupName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs.LogGroupName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_LogGroupName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn = null;
+            if (cmdletContext.CloudwatchLogs_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn = cmdletContext.CloudwatchLogs_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs_cloudwatchLogs_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogsIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.CloudwatchLogs = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchLogs;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.KinesisAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kinesis = null;
@@ -3105,6 +3128,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String CloudwatchAlarm_RoleArn { get; set; }
             public System.String CloudwatchAlarm_StateReason { get; set; }
             public System.String CloudwatchAlarm_StateValue { get; set; }
+            public System.Boolean? CloudwatchLogs_BatchMode { get; set; }
             public System.String CloudwatchLogs_LogGroupName { get; set; }
             public System.String CloudwatchLogs_RoleArn { get; set; }
             public System.String CloudwatchMetric_MetricName { get; set; }

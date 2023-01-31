@@ -112,6 +112,7 @@ $CA_Completers = {
             ($_ -eq "Get-CAPackageVersionList/Format") -Or
             ($_ -eq "Get-CAPackageVersionReadme/Format") -Or
             ($_ -eq "Get-CARepositoryEndpoint/Format") -Or
+            ($_ -eq "Remove-CAPackage/Format") -Or
             ($_ -eq "Remove-CAPackageVersion/Format") -Or
             ($_ -eq "Unpublish-CAPackageVersion/Format") -Or
             ($_ -eq "Update-CAPackageVersionsStatus/Format") -Or
@@ -159,7 +160,7 @@ $CA_Completers = {
 
 $CA_map = @{
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
-    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
     "OriginType"=@("Get-CAPackageVersionList")
     "Publish"=@("Get-CAPackageList")
     "Restrictions_Publish"=@("Write-CAPackageOriginConfiguration")
@@ -226,6 +227,7 @@ $CA_SelectMap = @{
                "New-CARepository",
                "Remove-CADomain",
                "Remove-CADomainPermissionsPolicy",
+               "Remove-CAPackage",
                "Remove-CAPackageVersion",
                "Remove-CARepository",
                "Remove-CARepositoryPermissionsPolicy",

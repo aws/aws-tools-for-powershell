@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannel" OutputProperty="*" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEventDataStore" OutputProperty="*" Verb="New" Noun="EventDataStore" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,7 +47,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannel" Verb="Remove" Noun="Channel" ShouldProcessTarget="Channel" PipelineParameter="Channel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventDataStore" Verb="Remove" Noun="EventDataStore" ShouldProcessTarget="EventDataStore" PipelineParameter="EventDataStore" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,6 +98,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -141,6 +157,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="*" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterOrganizationDelegatedAdmin" Verb="Register" Noun="OrganizationDelegatedAdmin" ShouldProcessTarget="MemberAccountId" PipelineParameter="MemberAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -170,6 +190,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopLogging" Verb="Stop" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" OutputProperty="*" Verb="Update" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

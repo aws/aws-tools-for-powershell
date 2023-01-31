@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentConfiguration" OutputProperty="*" Verb="Get" Noun="AgentConfiguration" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConfig" OutputProperty="*" Verb="Get" Noun="Config" PipelineParameter="ConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -122,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAgent" OutputProperty="AgentId" Verb="Register" Noun="Agent" ShouldProcessTarget="AgentDetails_InstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ReserveContact" OutputProperty="ContactId" Verb="Add" Noun="ReservedContact" ShouldProcessTarget="MissionProfileArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +139,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAgentStatus" OutputProperty="AgentId" Verb="Update" Noun="AgentStatus" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

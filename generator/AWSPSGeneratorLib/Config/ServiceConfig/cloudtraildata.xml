@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudtraildata</C2jFilename>
+    <AssemblyName>CloudTrailData</AssemblyName>
+    <ServiceNounPrefix>CTD</ServiceNounPrefix>
+    <ServiceName>AWS CloudTrail Data Service</ServiceName>
+    <ServiceClientInterface>IAmazonCloudTrailData</ServiceClientInterface>
+    <ServiceClient>AmazonCloudTrailDataClient</ServiceClient>
+    <ServiceModuleGuid>d97dca35-df41-4eaa-9b8e-e9ff6d69fc9a</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="PutAuditEvents" OutputProperty="*" Verb="Write" Noun="AuditEvent" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

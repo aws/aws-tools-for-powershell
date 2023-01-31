@@ -1,0 +1,3 @@
+﻿# CloudTrailData
+
+Export-ModuleMember -Alias *

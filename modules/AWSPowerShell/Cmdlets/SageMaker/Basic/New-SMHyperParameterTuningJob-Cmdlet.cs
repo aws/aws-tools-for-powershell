@@ -106,6 +106,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.CategoricalParameterRange[] HyperParameterRanges_CategoricalParameterRange { get; set; }
         #endregion
         
+        #region Parameter ConvergenceDetected_CompleteOnConvergence
+        /// <summary>
+        /// <para>
+        /// <para>A flag to stop a tuning job once AMT has detected that the job has converged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence")]
+        [AWSConstantClassSource("Amazon.SageMaker.CompleteOnConvergence")]
+        public Amazon.SageMaker.CompleteOnConvergence ConvergenceDetected_CompleteOnConvergence { get; set; }
+        #endregion
+        
         #region Parameter ParameterRanges_ContinuousParameterRange
         /// <summary>
         /// <para>
@@ -331,6 +343,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? ResourceLimits_MaxNumberOfTrainingJob { get; set; }
         #endregion
         
+        #region Parameter BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving
+        /// <summary>
+        /// <para>
+        /// <para>The number of training jobs that have failed to improve model performance by 1% or
+        /// greater over prior training jobs as evaluated against an objective function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving")]
+        public System.Int32? BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving { get; set; }
+        #endregion
+        
         #region Parameter ResourceLimits_MaxParallelTrainingJob
         /// <summary>
         /// <para>
@@ -370,6 +394,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HyperParameterTuningJobConfig_StrategyConfig_HyperbandStrategyConfig_MaxResource")]
         public System.Int32? HyperbandStrategyConfig_MaxResource { get; set; }
+        #endregion
+        
+        #region Parameter ResourceLimits_MaxRuntimeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum time in seconds that a training job launched by a hyperparameter tuning
+        /// job can run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HyperParameterTuningJobConfig_ResourceLimits_MaxRuntimeInSeconds")]
+        public System.Int32? ResourceLimits_MaxRuntimeInSecond { get; set; }
         #endregion
         
         #region Parameter StoppingCondition_MaxRuntimeInSecond
@@ -843,6 +879,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ResourceLimits_MaxParallelTrainingJob which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceLimits_MaxRuntimeInSecond = this.ResourceLimits_MaxRuntimeInSecond;
             context.HyperParameterTuningJobConfig_Strategy = this.HyperParameterTuningJobConfig_Strategy;
             #if MODULAR
             if (this.HyperParameterTuningJobConfig_Strategy == null && ParameterWasBound(nameof(this.HyperParameterTuningJobConfig_Strategy)))
@@ -853,6 +890,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.HyperbandStrategyConfig_MaxResource = this.HyperbandStrategyConfig_MaxResource;
             context.HyperbandStrategyConfig_MinResource = this.HyperbandStrategyConfig_MinResource;
             context.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType = this.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
+            context.BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving = this.BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving;
+            context.ConvergenceDetected_CompleteOnConvergence = this.ConvergenceDetected_CompleteOnConvergence;
             context.TuningJobCompletionCriteria_TargetObjectiveMetricValue = this.TuningJobCompletionCriteria_TargetObjectiveMetricValue;
             context.HyperParameterTuningJobName = this.HyperParameterTuningJobName;
             #if MODULAR
@@ -1044,31 +1083,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.HyperParameterTuningJobConfig.StrategyConfig = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_StrategyConfig;
                 requestHyperParameterTuningJobConfigIsNull = false;
             }
-            Amazon.SageMaker.Model.TuningJobCompletionCriteria requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
-            
-             // populate TuningJobCompletionCriteria
-            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = true;
-            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = new Amazon.SageMaker.Model.TuningJobCompletionCriteria();
-            System.Single? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue = null;
-            if (cmdletContext.TuningJobCompletionCriteria_TargetObjectiveMetricValue != null)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue = cmdletContext.TuningJobCompletionCriteria_TargetObjectiveMetricValue.Value;
-            }
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue != null)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria.TargetObjectiveMetricValue = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue.Value;
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = false;
-            }
-             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria should be set to null
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
-            }
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria != null)
-            {
-                request.HyperParameterTuningJobConfig.TuningJobCompletionCriteria = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria;
-                requestHyperParameterTuningJobConfigIsNull = false;
-            }
             Amazon.SageMaker.Model.HyperParameterTuningJobObjective requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_HyperParameterTuningJobObjective = null;
             
              // populate HyperParameterTuningJobObjective
@@ -1102,41 +1116,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_HyperParameterTuningJobObjective != null)
             {
                 request.HyperParameterTuningJobConfig.HyperParameterTuningJobObjective = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_HyperParameterTuningJobObjective;
-                requestHyperParameterTuningJobConfigIsNull = false;
-            }
-            Amazon.SageMaker.Model.ResourceLimits requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits = null;
-            
-             // populate ResourceLimits
-            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = true;
-            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits = new Amazon.SageMaker.Model.ResourceLimits();
-            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob = null;
-            if (cmdletContext.ResourceLimits_MaxNumberOfTrainingJob != null)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob = cmdletContext.ResourceLimits_MaxNumberOfTrainingJob.Value;
-            }
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob != null)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits.MaxNumberOfTrainingJobs = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob.Value;
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = false;
-            }
-            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob = null;
-            if (cmdletContext.ResourceLimits_MaxParallelTrainingJob != null)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob = cmdletContext.ResourceLimits_MaxParallelTrainingJob.Value;
-            }
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob != null)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits.MaxParallelTrainingJobs = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob.Value;
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = false;
-            }
-             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits should be set to null
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull)
-            {
-                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits = null;
-            }
-            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits != null)
-            {
-                request.HyperParameterTuningJobConfig.ResourceLimits = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits;
                 requestHyperParameterTuningJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.ParameterRanges requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ParameterRanges = null;
@@ -1182,6 +1161,126 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ParameterRanges != null)
             {
                 request.HyperParameterTuningJobConfig.ParameterRanges = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ParameterRanges;
+                requestHyperParameterTuningJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.ResourceLimits requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits = null;
+            
+             // populate ResourceLimits
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits = new Amazon.SageMaker.Model.ResourceLimits();
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob = null;
+            if (cmdletContext.ResourceLimits_MaxNumberOfTrainingJob != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob = cmdletContext.ResourceLimits_MaxNumberOfTrainingJob.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits.MaxNumberOfTrainingJobs = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxNumberOfTrainingJob.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = false;
+            }
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob = null;
+            if (cmdletContext.ResourceLimits_MaxParallelTrainingJob != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob = cmdletContext.ResourceLimits_MaxParallelTrainingJob.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits.MaxParallelTrainingJobs = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxParallelTrainingJob.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = false;
+            }
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxRuntimeInSecond = null;
+            if (cmdletContext.ResourceLimits_MaxRuntimeInSecond != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxRuntimeInSecond = cmdletContext.ResourceLimits_MaxRuntimeInSecond.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxRuntimeInSecond != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits.MaxRuntimeInSeconds = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits_resourceLimits_MaxRuntimeInSecond.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimitsIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits != null)
+            {
+                request.HyperParameterTuningJobConfig.ResourceLimits = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_ResourceLimits;
+                requestHyperParameterTuningJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.TuningJobCompletionCriteria requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
+            
+             // populate TuningJobCompletionCriteria
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = new Amazon.SageMaker.Model.TuningJobCompletionCriteria();
+            System.Single? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue = null;
+            if (cmdletContext.TuningJobCompletionCriteria_TargetObjectiveMetricValue != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue = cmdletContext.TuningJobCompletionCriteria_TargetObjectiveMetricValue.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria.TargetObjectiveMetricValue = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = false;
+            }
+            Amazon.SageMaker.Model.BestObjectiveNotImproving requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving = null;
+            
+             // populate BestObjectiveNotImproving
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImprovingIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving = new Amazon.SageMaker.Model.BestObjectiveNotImproving();
+            System.Int32? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving_bestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving = null;
+            if (cmdletContext.BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving_bestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving = cmdletContext.BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving_bestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving.MaxNumberOfTrainingJobsNotImproving = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving_bestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImprovingIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImprovingIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria.BestObjectiveNotImproving = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_BestObjectiveNotImproving;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = false;
+            }
+            Amazon.SageMaker.Model.ConvergenceDetected requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected = null;
+            
+             // populate ConvergenceDetected
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetectedIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected = new Amazon.SageMaker.Model.ConvergenceDetected();
+            Amazon.SageMaker.CompleteOnConvergence requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_convergenceDetected_CompleteOnConvergence = null;
+            if (cmdletContext.ConvergenceDetected_CompleteOnConvergence != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_convergenceDetected_CompleteOnConvergence = cmdletContext.ConvergenceDetected_CompleteOnConvergence;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_convergenceDetected_CompleteOnConvergence != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected.CompleteOnConvergence = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_convergenceDetected_CompleteOnConvergence;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetectedIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetectedIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria.ConvergenceDetected = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria != null)
+            {
+                request.HyperParameterTuningJobConfig.TuningJobCompletionCriteria = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria;
                 requestHyperParameterTuningJobConfigIsNull = false;
             }
              // determine if request.HyperParameterTuningJobConfig should be set to null
@@ -1748,10 +1847,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? HyperParameterTuningJobConfig_RandomSeed { get; set; }
             public System.Int32? ResourceLimits_MaxNumberOfTrainingJob { get; set; }
             public System.Int32? ResourceLimits_MaxParallelTrainingJob { get; set; }
+            public System.Int32? ResourceLimits_MaxRuntimeInSecond { get; set; }
             public Amazon.SageMaker.HyperParameterTuningJobStrategyType HyperParameterTuningJobConfig_Strategy { get; set; }
             public System.Int32? HyperbandStrategyConfig_MaxResource { get; set; }
             public System.Int32? HyperbandStrategyConfig_MinResource { get; set; }
             public Amazon.SageMaker.TrainingJobEarlyStoppingType HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType { get; set; }
+            public System.Int32? BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving { get; set; }
+            public Amazon.SageMaker.CompleteOnConvergence ConvergenceDetected_CompleteOnConvergence { get; set; }
             public System.Single? TuningJobCompletionCriteria_TargetObjectiveMetricValue { get; set; }
             public System.String HyperParameterTuningJobName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }

@@ -28,10 +28,7 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Lists the channels in the current account, and their source names. Amazon Web Services
-    /// services create service-linked channels get information about CloudTrail events on
-    /// your behalf. For more information about service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing
-    /// service-linked channels for CloudTrail by using the CLI</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the channels in the current account, and their source names.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CTChannelSummary")]
     [OutputType("Amazon.CloudTrail.Model.Channel")]

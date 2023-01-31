@@ -80,6 +80,13 @@ $GS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GroundStation.AgentStatus
+        "Update-GSAgentStatus/AggregateStatus_Status"
+        {
+            $v = "ACTIVE","FAILED","INACTIVE","SUCCESS"
+            break
+        }
+
         # Amazon.GroundStation.ConfigCapabilityType
         {
             ($_ -eq "Get-GSConfig/ConfigType") -Or
@@ -100,6 +107,7 @@ $GS_Completers = {
 }
 
 $GS_map = @{
+    "AggregateStatus_Status"=@("Update-GSAgentStatus")
     "ConfigType"=@("Get-GSConfig","Remove-GSConfig","Update-GSConfig")
 }
 
@@ -164,6 +172,7 @@ $GS_SelectMap = @{
                "Remove-GSMissionProfile",
                "Get-GSContact",
                "Get-GSEphemeris",
+               "Get-GSAgentConfiguration",
                "Get-GSConfig",
                "Get-GSDataflowEndpointGroup",
                "Get-GSMinuteUsage",
@@ -177,9 +186,11 @@ $GS_SelectMap = @{
                "Get-GSMissionProfileList",
                "Get-GSSatelliteList",
                "Get-GSResourceTag",
+               "Register-GSAgent",
                "Add-GSReservedContact",
                "Add-GSResourceTag",
                "Remove-GSResourceTag",
+               "Update-GSAgentStatus",
                "Update-GSConfig",
                "Update-GSEphemeris",
                "Update-GSMissionProfile")

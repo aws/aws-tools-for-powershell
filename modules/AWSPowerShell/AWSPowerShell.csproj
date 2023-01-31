@@ -232,6 +232,9 @@
     <Reference Include="AWSSDK.CloudTrail">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudTrail.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudTrailData">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudTrailData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudWatch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
@@ -1226,6 +1229,9 @@
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudTrail.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudTrailData">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudTrailData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatch.dll</HintPath>

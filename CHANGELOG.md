@@ -1,4 +1,39 @@
-﻿### 4.1.260 (2023-01-30 22:10Z)
+﻿### 4.1.261 (2023-01-31 22:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.472.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppSync
+    * Modified cmdlet New-ASYNDataSource: added parameter EventBridgeConfig_EventBusArn.
+    * Modified cmdlet Update-ASYNDataSource: added parameter EventBridgeConfig_EventBusArn.
+  * Amazon CloudTrail
+    * Added cmdlet Get-CTResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet New-CTChannel leveraging the CreateChannel service API.
+    * Added cmdlet Remove-CTChannel leveraging the DeleteChannel service API.
+    * Added cmdlet Remove-CTResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Update-CTChannel leveraging the UpdateChannel service API.
+    * Added cmdlet Write-CTResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon CloudTrail Data Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CTD and can be listed using the command 'Get-AWSCmdletName -Service CTD'.
+  * Amazon CodeArtifact
+    * Added cmdlet Remove-CAPackage leveraging the DeletePackage service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Register-EC2NatGatewayAddress leveraging the AssociateNatGatewayAddress service API.
+    * Added cmdlet Register-EC2PrivateNatGatewayAddress leveraging the AssignPrivateNatGatewayAddress service API.
+    * Added cmdlet Unregister-EC2NatGatewayAddress leveraging the DisassociateNatGatewayAddress service API.
+    * Added cmdlet Unregister-EC2PrivateNatGatewayAddress leveraging the UnassignPrivateNatGatewayAddress service API.
+    * Modified cmdlet New-EC2NatGateway: added parameters SecondaryAllocationId, SecondaryPrivateIpAddress and SecondaryPrivateIpAddressCount.
+  * Amazon Ground Station
+    * Added cmdlet Get-GSAgentConfiguration leveraging the GetAgentConfiguration service API.
+    * Added cmdlet Register-GSAgent leveraging the RegisterAgent service API.
+    * Added cmdlet Update-GSAgentStatus leveraging the UpdateAgentStatus service API.
+    * Modified cmdlet New-GSMissionProfile: added parameters StreamsKmsKey_KmsAliasArn, StreamsKmsKey_KmsKeyArn and StreamsKmsRole.
+    * Modified cmdlet Update-GSMissionProfile: added parameters StreamsKmsKey_KmsAliasArn, StreamsKmsKey_KmsKeyArn and StreamsKmsRole.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameter CloudwatchLogs_BatchMode.
+    * Modified cmdlet Set-IOTTopicRule: added parameter CloudwatchLogs_BatchMode.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSOutboundConnection: added parameter ConnectionMode.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameters BestObjectiveNotImproving_MaxNumberOfTrainingJobsNotImproving, ConvergenceDetected_CompleteOnConvergence and ResourceLimits_MaxRuntimeInSecond.
+
+### 4.1.260 (2023-01-30 22:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.471.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2LocalGatewayRoute: added parameter DestinationPrefixListId.

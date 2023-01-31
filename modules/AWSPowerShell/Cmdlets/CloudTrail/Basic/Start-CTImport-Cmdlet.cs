@@ -46,7 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// ownership of objects and disabling ACLs for your bucket</a>. 
     /// </para><para>
     ///  When you retry an import, the <code>ImportID</code> parameter is required. 
-    /// </para>
+    /// </para><note><para>
+    ///  If the destination event data store is for an organization, you must use the management
+    /// account to import trail events. You cannot use the delegated administrator account
+    /// for the organization. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CTImport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.StartImportResponse")]

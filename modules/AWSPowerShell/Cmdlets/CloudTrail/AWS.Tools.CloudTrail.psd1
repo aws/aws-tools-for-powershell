@@ -101,15 +101,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CTQuery', 
         'Get-CTQueryResult', 
         'Get-CTQuerySummary', 
+        'Get-CTResourcePolicy', 
         'Get-CTResourceTag', 
         'Get-CTTrail', 
         'Get-CTTrailByName', 
         'Get-CTTrailStatus', 
         'Get-CTTrailSummary', 
+        'New-CTChannel', 
         'New-CTEventDataStore', 
         'New-CTTrail', 
         'Register-CTOrganizationDelegatedAdmin', 
+        'Remove-CTChannel', 
         'Remove-CTEventDataStore', 
+        'Remove-CTResourcePolicy', 
         'Remove-CTResourceTag', 
         'Remove-CTTrail', 
         'Restore-CTEventDataStore', 
@@ -120,10 +124,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-CTLogging', 
         'Stop-CTQuery', 
         'Unregister-CTOrganizationDelegatedAdmin', 
+        'Update-CTChannel', 
         'Update-CTEventDataStore', 
         'Update-CTTrail', 
         'Write-CTEventSelector', 
-        'Write-CTInsightSelector')
+        'Write-CTInsightSelector', 
+        'Write-CTResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

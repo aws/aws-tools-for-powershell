@@ -90,6 +90,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.ConnectionMode
+        "New-OSOutboundConnection/ConnectionMode"
+        {
+            $v = "DIRECT","VPC_ENDPOINT"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
@@ -175,6 +182,7 @@ $OS_map = @{
     "ClusterConfig_DedicatedMasterType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_InstanceType"=@("New-OSDomain","Update-OSDomainConfig")
     "ClusterConfig_WarmType"=@("New-OSDomain","Update-OSDomainConfig")
+    "ConnectionMode"=@("New-OSOutboundConnection")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("New-OSDomain","Update-OSDomainConfig")
     "DryRunMode"=@("Update-OSDomainConfig")
     "EBSOptions_VolumeType"=@("New-OSDomain","Update-OSDomainConfig")

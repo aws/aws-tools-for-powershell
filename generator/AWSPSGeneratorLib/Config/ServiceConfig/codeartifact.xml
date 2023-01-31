@@ -42,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackage" OutputProperty="DeletedPackage" Verb="Remove" Noun="Package" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePackageVersions" OutputProperty="*" Verb="Remove" Noun="PackageVersion" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
