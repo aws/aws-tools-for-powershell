@@ -39,10 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// For example, imagine you are a clothing retailer who is considering an end of season
     /// sale to clear space for new styles. After creating a baseline forecast, you can use
     /// a what-if analysis to investigate how different sales tactics might affect your goals.
-    /// You could create a scenario where everything is given a 25% markdown and another where
-    /// everything is given a fixed dollar markdown. You can create a scenario where the sale
-    /// lasts for 1 week and another where the sale lasts for 1 month. Your what-if analysis
-    /// enables you to compare many different scenarios against each other.
+    /// </para><para>
+    /// You could create a scenario where everything is given a 25% markdown, and another
+    /// where everything is given a fixed dollar markdown. You could create a scenario where
+    /// the sale lasts for one week and another where the sale lasts for one month. With a
+    /// what-if analysis, you can compare many different scenarios against each other.
     /// </para><para>
     /// Note that a what-if analysis is meant to display what the forecasting model has learned
     /// and how it will behave in the scenarios that you are evaluating. Do not blindly use
@@ -106,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,10 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
-        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
-        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
-        /// your account, you get an <code>InvalidInputException</code> error.</para>
+        /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
+        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

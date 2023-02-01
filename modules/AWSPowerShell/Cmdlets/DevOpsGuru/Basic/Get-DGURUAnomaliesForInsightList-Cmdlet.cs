@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         public System.String InsightId { get; set; }
         #endregion
         
+        #region Parameter ServiceCollection_ServiceName
+        /// <summary>
+        /// <para>
+        /// <para>An array of strings that each specifies the name of an Amazon Web Services service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_ServiceCollection_ServiceNames")]
+        public System.String[] ServiceCollection_ServiceName { get; set; }
+        #endregion
+        
         #region Parameter StartTimeRange
         /// <summary>
         /// <para>
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountId = this.AccountId;
+            if (this.ServiceCollection_ServiceName != null)
+            {
+                context.ServiceCollection_ServiceName = new List<System.String>(this.ServiceCollection_ServiceName);
+            }
             context.InsightId = this.InsightId;
             #if MODULAR
             if (this.InsightId == null && ParameterWasBound(nameof(this.InsightId)))
@@ -195,6 +210,40 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
+            }
+            
+             // populate Filters
+            var requestFiltersIsNull = true;
+            request.Filters = new Amazon.DevOpsGuru.Model.ListAnomaliesForInsightFilters();
+            Amazon.DevOpsGuru.Model.ServiceCollection requestFilters_filters_ServiceCollection = null;
+            
+             // populate ServiceCollection
+            var requestFilters_filters_ServiceCollectionIsNull = true;
+            requestFilters_filters_ServiceCollection = new Amazon.DevOpsGuru.Model.ServiceCollection();
+            List<System.String> requestFilters_filters_ServiceCollection_serviceCollection_ServiceName = null;
+            if (cmdletContext.ServiceCollection_ServiceName != null)
+            {
+                requestFilters_filters_ServiceCollection_serviceCollection_ServiceName = cmdletContext.ServiceCollection_ServiceName;
+            }
+            if (requestFilters_filters_ServiceCollection_serviceCollection_ServiceName != null)
+            {
+                requestFilters_filters_ServiceCollection.ServiceNames = requestFilters_filters_ServiceCollection_serviceCollection_ServiceName;
+                requestFilters_filters_ServiceCollectionIsNull = false;
+            }
+             // determine if requestFilters_filters_ServiceCollection should be set to null
+            if (requestFilters_filters_ServiceCollectionIsNull)
+            {
+                requestFilters_filters_ServiceCollection = null;
+            }
+            if (requestFilters_filters_ServiceCollection != null)
+            {
+                request.Filters.ServiceCollection = requestFilters_filters_ServiceCollection;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             if (cmdletContext.InsightId != null)
             {
@@ -294,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
+            public List<System.String> ServiceCollection_ServiceName { get; set; }
             public System.String InsightId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

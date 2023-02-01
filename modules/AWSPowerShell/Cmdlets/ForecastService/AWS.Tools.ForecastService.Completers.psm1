@@ -111,6 +111,13 @@ $FRC_Completers = {
             break
         }
 
+        # Amazon.ForecastService.ImportMode
+        "New-FRCDatasetImportJob/ImportMode"
+        {
+            $v = "FULL","INCREMENTAL"
+            break
+        }
+
         # Amazon.ForecastService.Month
         "New-FRCAutoPredictor/TimeAlignmentBoundary_Month"
         {
@@ -156,6 +163,7 @@ $FRC_map = @{
     "Domain"=@("New-FRCDataset","New-FRCDatasetGroup")
     "ExplainabilityConfig_TimePointGranularity"=@("New-FRCExplainability")
     "ExplainabilityConfig_TimeSeriesGranularity"=@("New-FRCExplainability")
+    "ImportMode"=@("New-FRCDatasetImportJob")
     "OptimizationMetric"=@("New-FRCAutoPredictor","New-FRCPredictor")
     "TimeAlignmentBoundary_DayOfWeek"=@("New-FRCAutoPredictor")
     "TimeAlignmentBoundary_Month"=@("New-FRCAutoPredictor")

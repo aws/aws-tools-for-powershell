@@ -106,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter EnableVisualization
         /// <summary>
         /// <para>
-        /// <para>Create an Explainability visualization that is viewable within the AWS console.</para>
+        /// <para>Create an Explainability visualization that is viewable within the Amazon Web Services
+        /// console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,10 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
-        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
-        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
-        /// your account, you get an <code>InvalidInputException</code> error.</para>
+        /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
+        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

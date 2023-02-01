@@ -225,6 +225,7 @@ $EMT_SelectMap = @{
                "Remove-EMTResourceTag",
                "Update-EMTChannel",
                "Update-EMTLiveSource",
+               "Update-EMTProgram",
                "Update-EMTSourceLocation",
                "Update-EMTVodSource")
 }

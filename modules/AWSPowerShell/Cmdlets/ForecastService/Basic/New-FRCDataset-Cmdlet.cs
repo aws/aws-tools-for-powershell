@@ -83,9 +83,13 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
-        /// datasets.</para><para>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-        /// 15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For
-        /// example, "D" indicates every day and "15min" indicates every 15 minutes.</para>
+        /// datasets.</para><para>Valid intervals are an integer followed by Y (Year), M (Month), W (Week), D (Day),
+        /// H (Hour), and min (Minute). For example, "1D" indicates every day and "15min" indicates
+        /// every 15 minutes. You cannot specify a value that would overlap with the next larger
+        /// frequency. That means, for example, you cannot specify a frequency of 60 minutes,
+        /// because that is equivalent to 1 hour. The valid values for each frequency are the
+        /// following:</para><ul><li><para>Minute - 1-59</para></li><li><para>Hour - 1-23</para></li><li><para>Day - 1-6</para></li><li><para>Week - 1-4</para></li><li><para>Month - 1-11</para></li><li><para>Year - 1</para></li></ul><para>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly
+        /// forecasts, you specify "3M".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter EncryptionConfig_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
-        /// your account, you get an <code>InvalidInputException</code> error.</para>
+        /// <para>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
+        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,11 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete
-        /// tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code>
-        /// as its prefix but the key does not, then Forecast considers it to be a user tag and
-        /// will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
-        /// do not count against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
+        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
+        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
+        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
+        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

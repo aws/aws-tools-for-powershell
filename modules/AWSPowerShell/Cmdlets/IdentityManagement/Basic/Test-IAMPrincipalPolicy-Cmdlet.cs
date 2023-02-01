@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// as strings, use <a>SimulateCustomPolicy</a> instead.
     /// </para><para>
     /// You can also optionally include one resource-based policy to be evaluated with each
-    /// of the resources included in the simulation.
+    /// of the resources included in the simulation for IAM users only.
     /// </para><para>
     /// The simulation does not perform the API operations; it only checks the authorization
     /// to determine if the simulated policies allow or deny the operations.
@@ -56,10 +56,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
     /// parameters to paginate the results.
-    /// </para><para>
-    /// For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
+    /// </para><note><para>
+    /// The IAM policy simulator evaluates statements in the identity-based policy and the
+    /// inputs that you provide during simulation. The policy simulator results can differ
+    /// from your live Amazon Web Services environment. We recommend that you check your policies
+    /// against your live Amazon Web Services environment after testing using the policy simulator
+    /// to confirm that you have the desired results. For more information about using the
+    /// policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing
     /// IAM policies with the IAM policy simulator </a>in the <i>IAM User Guide</i>.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Test", "IAMPrincipalPolicy")]
     [OutputType("Amazon.IdentityManagement.Model.EvaluationResult")]
@@ -202,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// exist in your account.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
         /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</para><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
         /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
         /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
-        /// and carriage return (<code>\u000D</code>)</para></li></ul>
+        /// and carriage return (<code>\u000D</code>)</para></li></ul><note><para>Simulation of resource-based policies isn't supported for IAM roles.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

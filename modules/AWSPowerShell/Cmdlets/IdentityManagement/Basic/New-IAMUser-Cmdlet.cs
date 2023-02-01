@@ -64,7 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PermissionsBoundary
         /// <summary>
         /// <para>
-        /// <para>The ARN of the policy that is used to set the permissions boundary for the user.</para>
+        /// <para>The ARN of the managed policy that is used to set the permissions boundary for the
+        /// user.</para><para>A permissions boundary policy defines the maximum permissions that identity-based
+        /// policies can grant to an entity, but does not grant permissions. Permissions boundaries
+        /// do not define the maximum permissions that a resource-based policy can grant to an
+        /// entity. To learn more, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+        /// boundaries for IAM entities</a> in the <i>IAM User Guide</i>.</para><para>For more information about policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policy-types">Policy
+        /// types </a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

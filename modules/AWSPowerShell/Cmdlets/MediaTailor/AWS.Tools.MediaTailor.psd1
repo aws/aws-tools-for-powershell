@@ -126,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-EMTChannel', 
         'Update-EMTChannel', 
         'Update-EMTLiveSource', 
+        'Update-EMTProgram', 
         'Update-EMTSourceLocation', 
         'Update-EMTVodSource', 
         'Write-EMTChannelPolicy')

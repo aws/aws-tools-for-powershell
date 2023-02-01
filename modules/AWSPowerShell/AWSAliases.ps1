@@ -15911,6 +15911,7 @@ Set-Alias -Name EMT-TagResource -Value Add-EMTResourceTag
 Set-Alias -Name EMT-UntagResource -Value Remove-EMTResourceTag
 Set-Alias -Name EMT-UpdateChannel -Value Update-EMTChannel
 Set-Alias -Name EMT-UpdateLiveSource -Value Update-EMTLiveSource
+Set-Alias -Name EMT-UpdateProgram -Value Update-EMTProgram
 Set-Alias -Name EMT-UpdateSourceLocation -Value Update-EMTSourceLocation
 Set-Alias -Name EMT-UpdateVodSource -Value Update-EMTVodSource
 Set-Alias -Name Batch-MDBUpdateCluster -Value Update-MDBUpdateClusterBatch

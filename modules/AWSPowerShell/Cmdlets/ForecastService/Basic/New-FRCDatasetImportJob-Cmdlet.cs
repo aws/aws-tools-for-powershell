@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     ///  
     /// <para>
     /// You must specify a <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html">DataSource</a>
-    /// object that includes an AWS Identity and Access Management (IAM) role that Amazon
-    /// Forecast can assume to access the data, as Amazon Forecast makes a copy of your data
-    /// and processes it in an internal AWS system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set
+    /// object that includes an Identity and Access Management (IAM) role that Amazon Forecast
+    /// can assume to access the data, as Amazon Forecast makes a copy of your data and processes
+    /// it in an internal Amazon Web Services system. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html">Set
     /// up permissions</a>.
     /// </para><para>
     /// The training data must be in CSV or Parquet format. The delimiter must be a comma
@@ -126,10 +126,24 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public System.String GeolocationFormat { get; set; }
         #endregion
         
+        #region Parameter ImportMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code>
+        /// import. A <code>FULL</code> dataset import replaces all of the existing data with
+        /// the newly imported data. An <code>INCREMENTAL</code> import appends the imported data
+        /// to the existing data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ForecastService.ImportMode")]
+        public Amazon.ForecastService.ImportMode ImportMode { get; set; }
+        #endregion
+        
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,10 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
-        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
-        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
-        /// your account, you get an <code>InvalidInputException</code> error.</para>
+        /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
+        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -187,11 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete
-        /// tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code>
-        /// as its prefix but the key does not, then Forecast considers it to be a user tag and
-        /// will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
-        /// do not count against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
+        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
+        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
+        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
+        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             #endif
             context.Format = this.Format;
             context.GeolocationFormat = this.GeolocationFormat;
+            context.ImportMode = this.ImportMode;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
@@ -424,6 +439,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             {
                 request.GeolocationFormat = cmdletContext.GeolocationFormat;
             }
+            if (cmdletContext.ImportMode != null)
+            {
+                request.ImportMode = cmdletContext.ImportMode;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -508,6 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String S3Config_RoleArn { get; set; }
             public System.String Format { get; set; }
             public System.String GeolocationFormat { get; set; }
+            public Amazon.ForecastService.ImportMode ImportMode { get; set; }
             public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.String TimestampFormat { get; set; }
             public System.String TimeZone { get; set; }

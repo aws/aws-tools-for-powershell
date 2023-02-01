@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,10 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter S3Config_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
-        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
-        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
-        /// your account, you get an <code>InvalidInputException</code> error.</para>
+        /// <para>The ARN of the Identity and Access Management (IAM) role that Amazon Forecast can
+        /// assume to access the Amazon S3 bucket or files. If you provide a value for the <code>KMSKeyArn</code>
+        /// key, the role must allow access to the key.</para><para>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role
+        /// that isn't in your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -188,11 +188,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// other services may have restrictions on allowed characters. Generally allowed characters
         /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
         /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
-        /// of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete
-        /// tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code>
-        /// as its prefix but the key does not, then Forecast considers it to be a user tag and
-        /// will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
-        /// do not count against your tags per resource limit.</para></li></ul>
+        /// of such as a prefix for keys as it is reserved for Amazon Web Services use. You cannot
+        /// edit or delete tag keys with this prefix. Values can have this prefix. If a tag value
+        /// has <code>aws</code> as its prefix but the key does not, then Forecast considers it
+        /// to be a user tag and will count against the limit of 50 tags. Tags with only the key
+        /// prefix of <code>aws</code> do not count against your tags per resource limit.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

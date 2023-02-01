@@ -1,4 +1,14 @@
-﻿### 4.1.261 (2023-01-31 22:23Z)
+﻿### 4.1.262 (2023-02-01 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.473.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DevOps Guru
+    * Modified cmdlet Get-DGURUAnomaliesForInsightList: added parameter ServiceCollection_ServiceName.
+  * Amazon Elemental MediaTailor
+    * Added cmdlet Update-EMTProgram leveraging the UpdateProgram service API.
+    * Modified cmdlet New-EMTProgram: added parameter ClipRange_EndOffsetMilli.
+  * Amazon Forecast Service
+    * Modified cmdlet New-FRCDatasetImportJob: added parameter ImportMode.
+
+### 4.1.261 (2023-01-31 22:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.472.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppSync
     * Modified cmdlet New-ASYNDataSource: added parameter EventBridgeConfig_EventBusArn.

@@ -183,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProgram" OutputProperty="*" Verb="Update" Noun="Program" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateSourceLocation" OutputProperty="*" Verb="Update" Noun="SourceLocation" ShouldProcessTarget="SourceLocationName" PipelineParameter="SourceLocationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
