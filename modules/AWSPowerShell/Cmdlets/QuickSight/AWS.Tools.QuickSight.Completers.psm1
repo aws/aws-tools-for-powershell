@@ -102,8 +102,22 @@ $QS_Completers = {
         {
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualMenuOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualMenuOption_AvailabilityStatus") -Or
             ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus") -Or
             ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus")
         }
@@ -308,8 +322,15 @@ $QS_map = @{
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
     "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")

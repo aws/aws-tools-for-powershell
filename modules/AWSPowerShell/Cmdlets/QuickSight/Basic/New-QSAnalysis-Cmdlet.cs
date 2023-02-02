@@ -28,7 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates an analysis in Amazon QuickSight.
+    /// Creates an analysis in Amazon QuickSight. Analyses can be created either from a template
+    /// or from an <code>AnalysisDefinition</code>.
     /// </summary>
     [Cmdlet("New", "QSAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateAnalysisResponse")]

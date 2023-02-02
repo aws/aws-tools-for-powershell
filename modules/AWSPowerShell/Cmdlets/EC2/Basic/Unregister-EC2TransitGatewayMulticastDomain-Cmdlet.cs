@@ -46,7 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IDs of the subnets;</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SubnetIds")]
         public System.String[] SubnetId { get; set; }
         #endregion
@@ -57,7 +64,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the attachment.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TransitGatewayAttachmentId { get; set; }
         #endregion
         
@@ -67,7 +81,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the transit gateway multicast domain.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TransitGatewayMulticastDomainId { get; set; }
         #endregion
         
@@ -137,8 +158,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
+            #if MODULAR
+            if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.TransitGatewayAttachmentId = this.TransitGatewayAttachmentId;
+            #if MODULAR
+            if (this.TransitGatewayAttachmentId == null && ParameterWasBound(nameof(this.TransitGatewayAttachmentId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TransitGatewayAttachmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.TransitGatewayMulticastDomainId = this.TransitGatewayMulticastDomainId;
+            #if MODULAR
+            if (this.TransitGatewayMulticastDomainId == null && ParameterWasBound(nameof(this.TransitGatewayMulticastDomainId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TransitGatewayMulticastDomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

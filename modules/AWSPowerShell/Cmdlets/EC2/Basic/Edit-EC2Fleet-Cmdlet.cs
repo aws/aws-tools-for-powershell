@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether running instances should be terminated if the total target capacity
-        /// of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</para>
+        /// of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</para><para>Supported only for fleets of type <code>maintain</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

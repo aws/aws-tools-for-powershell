@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Associates an IPAM resource discovery with an Amazon VPC IPAM. A resource discovery
-    /// is an IPAM component that enables IPAM Service to manage and monitor resources that
-    /// belong to the owning account.
+    /// is an IPAM component that enables IPAM to manage and monitor resources that belong
+    /// to the owning account.
     /// </summary>
     [Cmdlet("Register", "EC2IpamResourceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamResourceDiscoveryAssociation")]

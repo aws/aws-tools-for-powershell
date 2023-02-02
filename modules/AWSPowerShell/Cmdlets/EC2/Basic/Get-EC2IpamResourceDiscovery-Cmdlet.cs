@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes IPAM resource discoveries. A resource discovery is an IPAM component that
-    /// enables IPAM Service to manage and monitor resources that belong to the owning account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// enables IPAM to manage and monitor resources that belong to the owning account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2IpamResourceDiscovery")]
     [OutputType("Amazon.EC2.Model.IpamResourceDiscovery")]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Disassociates a resource discovery from an Amazon VPC IPAM. A resource discovery is
-    /// an IPAM component that enables IPAM Service to manage and monitor resources that belong
-    /// to the owning account.
+    /// an IPAM component that enables IPAM to manage and monitor resources that belong to
+    /// the owning account.
     /// </summary>
     [Cmdlet("Unregister", "EC2IpamResourceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IpamResourceDiscoveryAssociation")]

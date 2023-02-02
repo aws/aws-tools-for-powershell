@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Deletes an IPAM resource discovery. A resource discovery is an IPAM component that
-    /// enables IPAM Service to manage and monitor resources that belong to the owning account.
+    /// enables IPAM to manage and monitor resources that belong to the owning account.
     /// </summary>
     [Cmdlet("Remove", "EC2IpamResourceDiscovery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.IpamResourceDiscovery")]

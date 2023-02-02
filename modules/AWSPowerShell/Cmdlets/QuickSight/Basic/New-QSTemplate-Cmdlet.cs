@@ -28,8 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates a template from an existing Amazon QuickSight analysis or template. You can
-    /// use the resulting template to create a dashboard.
+    /// Creates a template either from a <code>TemplateDefinition</code> or from an existing
+    /// Amazon QuickSight analysis or template. You can use the resulting template to create
+    /// additional dashboards, templates, or analyses.
     /// 
     ///  
     /// <para>

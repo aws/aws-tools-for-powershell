@@ -68,6 +68,42 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.DashboardBehavior AdHocFilteringOption_AvailabilityStatus { get; set; }
         #endregion
         
+        #region Parameter DataPointDrillUpDownOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the drill down options of data points.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior DataPointDrillUpDownOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter DataPointMenuLabelOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the data point menu options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior DataPointMenuLabelOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter DataPointTooltipOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the data point tool tip options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior DataPointTooltipOption_AvailabilityStatus { get; set; }
+        #endregion
+        
         #region Parameter ExportToCSVOption_AvailabilityStatus
         /// <summary>
         /// <para>
@@ -80,10 +116,58 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
         #endregion
         
+        #region Parameter ExportWithHiddenFieldsOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the export with hidden fields options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior ExportWithHiddenFieldsOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter SheetLayoutElementMaximizationOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the sheet layout maximization options of a dashbaord.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior SheetLayoutElementMaximizationOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter VisualAxisSortOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The availaiblity status of a visual's axis sort options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior VisualAxisSortOption_AvailabilityStatus { get; set; }
+        #endregion
+        
+        #region Parameter VisualMenuOption_AvailabilityStatus
+        /// <summary>
+        /// <para>
+        /// <para>The availaiblity status of a visual's menu options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashboardPublishOptions_VisualMenuOption_AvailabilityStatus")]
+        [AWSConstantClassSource("Amazon.QuickSight.DashboardBehavior")]
+        public Amazon.QuickSight.DashboardBehavior VisualMenuOption_AvailabilityStatus { get; set; }
+        #endregion
+        
         #region Parameter ExportHiddenFieldsOption_AvailabilityStatus
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The status of the export hidden fields options of a dashbaord.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -499,8 +583,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.AdHocFilteringOption_AvailabilityStatus = this.AdHocFilteringOption_AvailabilityStatus;
+            context.DataPointDrillUpDownOption_AvailabilityStatus = this.DataPointDrillUpDownOption_AvailabilityStatus;
+            context.DataPointMenuLabelOption_AvailabilityStatus = this.DataPointMenuLabelOption_AvailabilityStatus;
+            context.DataPointTooltipOption_AvailabilityStatus = this.DataPointTooltipOption_AvailabilityStatus;
             context.ExportToCSVOption_AvailabilityStatus = this.ExportToCSVOption_AvailabilityStatus;
+            context.ExportWithHiddenFieldsOption_AvailabilityStatus = this.ExportWithHiddenFieldsOption_AvailabilityStatus;
             context.SheetControlsOption_VisibilityState = this.SheetControlsOption_VisibilityState;
+            context.SheetLayoutElementMaximizationOption_AvailabilityStatus = this.SheetLayoutElementMaximizationOption_AvailabilityStatus;
+            context.VisualAxisSortOption_AvailabilityStatus = this.VisualAxisSortOption_AvailabilityStatus;
+            context.VisualMenuOption_AvailabilityStatus = this.VisualMenuOption_AvailabilityStatus;
             context.ExportHiddenFieldsOption_AvailabilityStatus = this.ExportHiddenFieldsOption_AvailabilityStatus;
             context.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = this.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
             context.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth = this.Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth;
@@ -619,6 +710,81 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DashboardPublishOptions.AdHocFilteringOption = requestDashboardPublishOptions_dashboardPublishOptions_AdHocFilteringOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
+            Amazon.QuickSight.Model.DataPointDrillUpDownOption requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption = null;
+            
+             // populate DataPointDrillUpDownOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption = new Amazon.QuickSight.Model.DataPointDrillUpDownOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption_dataPointDrillUpDownOption_AvailabilityStatus = null;
+            if (cmdletContext.DataPointDrillUpDownOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption_dataPointDrillUpDownOption_AvailabilityStatus = cmdletContext.DataPointDrillUpDownOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption_dataPointDrillUpDownOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption_dataPointDrillUpDownOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption != null)
+            {
+                request.DashboardPublishOptions.DataPointDrillUpDownOption = requestDashboardPublishOptions_dashboardPublishOptions_DataPointDrillUpDownOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.DataPointMenuLabelOption requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption = null;
+            
+             // populate DataPointMenuLabelOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption = new Amazon.QuickSight.Model.DataPointMenuLabelOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption_dataPointMenuLabelOption_AvailabilityStatus = null;
+            if (cmdletContext.DataPointMenuLabelOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption_dataPointMenuLabelOption_AvailabilityStatus = cmdletContext.DataPointMenuLabelOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption_dataPointMenuLabelOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption_dataPointMenuLabelOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption != null)
+            {
+                request.DashboardPublishOptions.DataPointMenuLabelOption = requestDashboardPublishOptions_dashboardPublishOptions_DataPointMenuLabelOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.DataPointTooltipOption requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption = null;
+            
+             // populate DataPointTooltipOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption = new Amazon.QuickSight.Model.DataPointTooltipOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption_dataPointTooltipOption_AvailabilityStatus = null;
+            if (cmdletContext.DataPointTooltipOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption_dataPointTooltipOption_AvailabilityStatus = cmdletContext.DataPointTooltipOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption_dataPointTooltipOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption_dataPointTooltipOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption != null)
+            {
+                request.DashboardPublishOptions.DataPointTooltipOption = requestDashboardPublishOptions_dashboardPublishOptions_DataPointTooltipOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
             Amazon.QuickSight.Model.ExportToCSVOption requestDashboardPublishOptions_dashboardPublishOptions_ExportToCSVOption = null;
             
              // populate ExportToCSVOption
@@ -642,6 +808,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDashboardPublishOptions_dashboardPublishOptions_ExportToCSVOption != null)
             {
                 request.DashboardPublishOptions.ExportToCSVOption = requestDashboardPublishOptions_dashboardPublishOptions_ExportToCSVOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.ExportWithHiddenFieldsOption requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption = null;
+            
+             // populate ExportWithHiddenFieldsOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption = new Amazon.QuickSight.Model.ExportWithHiddenFieldsOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption_exportWithHiddenFieldsOption_AvailabilityStatus = null;
+            if (cmdletContext.ExportWithHiddenFieldsOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption_exportWithHiddenFieldsOption_AvailabilityStatus = cmdletContext.ExportWithHiddenFieldsOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption_exportWithHiddenFieldsOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption_exportWithHiddenFieldsOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption != null)
+            {
+                request.DashboardPublishOptions.ExportWithHiddenFieldsOption = requestDashboardPublishOptions_dashboardPublishOptions_ExportWithHiddenFieldsOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
             Amazon.QuickSight.Model.SheetControlsOption requestDashboardPublishOptions_dashboardPublishOptions_SheetControlsOption = null;
@@ -669,6 +860,82 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DashboardPublishOptions.SheetControlsOption = requestDashboardPublishOptions_dashboardPublishOptions_SheetControlsOption;
                 requestDashboardPublishOptionsIsNull = false;
             }
+            Amazon.QuickSight.Model.SheetLayoutElementMaximizationOption requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption = null;
+            
+             // populate SheetLayoutElementMaximizationOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption = new Amazon.QuickSight.Model.SheetLayoutElementMaximizationOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption_sheetLayoutElementMaximizationOption_AvailabilityStatus = null;
+            if (cmdletContext.SheetLayoutElementMaximizationOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption_sheetLayoutElementMaximizationOption_AvailabilityStatus = cmdletContext.SheetLayoutElementMaximizationOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption_sheetLayoutElementMaximizationOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption_sheetLayoutElementMaximizationOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption != null)
+            {
+                request.DashboardPublishOptions.SheetLayoutElementMaximizationOption = requestDashboardPublishOptions_dashboardPublishOptions_SheetLayoutElementMaximizationOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.VisualAxisSortOption requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption = null;
+            
+             // populate VisualAxisSortOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption = new Amazon.QuickSight.Model.VisualAxisSortOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption_visualAxisSortOption_AvailabilityStatus = null;
+            if (cmdletContext.VisualAxisSortOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption_visualAxisSortOption_AvailabilityStatus = cmdletContext.VisualAxisSortOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption_visualAxisSortOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption_visualAxisSortOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption != null)
+            {
+                request.DashboardPublishOptions.VisualAxisSortOption = requestDashboardPublishOptions_dashboardPublishOptions_VisualAxisSortOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            Amazon.QuickSight.Model.VisualMenuOption requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption = null;
+            
+             // populate VisualMenuOption
+            var requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOptionIsNull = true;
+            requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption = new Amazon.QuickSight.Model.VisualMenuOption();
+            Amazon.QuickSight.DashboardBehavior requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption_visualMenuOption_AvailabilityStatus = null;
+            if (cmdletContext.VisualMenuOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption_visualMenuOption_AvailabilityStatus = cmdletContext.VisualMenuOption_AvailabilityStatus;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption_visualMenuOption_AvailabilityStatus != null)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption.AvailabilityStatus = requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption_visualMenuOption_AvailabilityStatus;
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOptionIsNull = false;
+            }
+             // determine if requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption should be set to null
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOptionIsNull)
+            {
+                requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption = null;
+            }
+            if (requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption != null)
+            {
+                request.DashboardPublishOptions.VisualMenuOption = requestDashboardPublishOptions_dashboardPublishOptions_VisualMenuOption;
+                requestDashboardPublishOptionsIsNull = false;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.QuickSight.Model.DashboardVisualPublishOptions requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions = null;
             
              // populate VisualPublishOptions
@@ -709,6 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DashboardPublishOptions.VisualPublishOptions = requestDashboardPublishOptions_dashboardPublishOptions_VisualPublishOptions;
                 requestDashboardPublishOptionsIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.DashboardPublishOptions should be set to null
             if (requestDashboardPublishOptionsIsNull)
             {
@@ -1262,8 +1530,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsAccountId { get; set; }
             public System.String DashboardId { get; set; }
             public Amazon.QuickSight.DashboardBehavior AdHocFilteringOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior DataPointDrillUpDownOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior DataPointMenuLabelOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior DataPointTooltipOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportToCSVOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior ExportWithHiddenFieldsOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardUIState SheetControlsOption_VisibilityState { get; set; }
+            public Amazon.QuickSight.DashboardBehavior SheetLayoutElementMaximizationOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior VisualAxisSortOption_AvailabilityStatus { get; set; }
+            public Amazon.QuickSight.DashboardBehavior VisualMenuOption_AvailabilityStatus { get; set; }
             public Amazon.QuickSight.DashboardBehavior ExportHiddenFieldsOption_AvailabilityStatus { get; set; }
             public System.String Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth { get; set; }
             public System.String Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth { get; set; }

@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
-        /// <para>Indicates whether running Spot Instances should be terminated if you decrease the
-        /// target capacity of the Spot Fleet request below the current size of the Spot Fleet.</para>
+        /// <para>Indicates whether running instances should be terminated if you decrease the target
+        /// capacity of the Spot Fleet request below the current size of the Spot Fleet.</para><para>Supported only for fleets of type <code>maintain</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

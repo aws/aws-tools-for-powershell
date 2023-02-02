@@ -29,13 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Creates a configuration profile, which is information that enables AppConfig to access
-    /// the configuration source. Valid configuration sources include the AppConfig hosted
-    /// configuration store, Amazon Web Services Systems Manager (SSM) documents, SSM Parameter
-    /// Store parameters, Amazon S3 objects, or any <a href="http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source">integration
-    /// source action</a> supported by CodePipeline. A configuration profile includes the
-    /// following information:
+    /// the configuration source. Valid configuration sources include the following:
     /// 
     ///  <ul><li><para>
+    /// Configuration data in YAML, JSON, and other formats stored in the AppConfig hosted
+    /// configuration store
+    /// </para></li><li><para>
+    /// Configuration data stored as objects in an Amazon Simple Storage Service (Amazon S3)
+    /// bucket
+    /// </para></li><li><para>
+    /// Pipelines stored in CodePipeline
+    /// </para></li><li><para>
+    /// Secrets stored in Secrets Manager
+    /// </para></li><li><para>
+    /// Standard and secure string parameters stored in Amazon Web Services Systems Manager
+    /// Parameter Store
+    /// </para></li><li><para>
+    /// Configuration data in SSM documents stored in the Systems Manager document store
+    /// </para></li></ul><para>
+    /// A configuration profile includes the following information:
+    /// </para><ul><li><para>
     /// The URI location of the configuration data.
     /// </para></li><li><para>
     /// The Identity and Access Management (IAM) role that provides access to the configuration
@@ -87,14 +100,12 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter LocationUri
         /// <summary>
         /// <para>
-        /// <para>A URI to locate the configuration. You can specify the AppConfig hosted configuration
-        /// store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon
-        /// S3 object. For the hosted configuration store and for feature flags, specify <code>hosted</code>.
-        /// For an SSM document, specify either the document name in the format <code>ssm-document://&lt;Document_name&gt;</code>
-        /// or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name
-        /// in the format <code>ssm-parameter://&lt;Parameter_name&gt;</code> or the ARN. For
-        /// an Amazon S3 object, specify the URI in the following format: <code>s3://&lt;bucket&gt;/&lt;objectKey&gt;
-        /// </code>. Here is an example: <code>s3://my-bucket/my-app/us-east-1/my-config.json</code></para>
+        /// <para>A URI to locate the configuration. You can specify the following:</para><ul><li><para>For the AppConfig hosted configuration store and for feature flags, specify <code>hosted</code>.</para></li><li><para>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either
+        /// the parameter name in the format <code>ssm-parameter://&lt;parameter name&gt;</code>
+        /// or the ARN.</para></li><li><para>For an Secrets Manager secret, specify the URI in the following format: <code>secrets-manager</code>://&lt;secret
+        /// name&gt;.</para></li><li><para>For an Amazon S3 object, specify the URI in the following format: <code>s3://&lt;bucket&gt;/&lt;objectKey&gt;
+        /// </code>. Here is an example: <code>s3://my-bucket/my-app/us-east-1/my-config.json</code></para></li><li><para>For an SSM document, specify either the document name in the format <code>ssm-document://&lt;document
+        /// name&gt;</code> or the Amazon Resource Name (ARN).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

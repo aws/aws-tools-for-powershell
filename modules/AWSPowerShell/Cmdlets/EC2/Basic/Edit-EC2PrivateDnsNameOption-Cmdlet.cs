@@ -66,7 +66,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the instance.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
         #endregion
         
@@ -149,6 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.EnableResourceNameDnsAAAARecord = this.EnableResourceNameDnsAAAARecord;
             context.EnableResourceNameDnsARecord = this.EnableResourceNameDnsARecord;
             context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.PrivateDnsHostnameType = this.PrivateDnsHostnameType;
             
             // allow further manipulation of loaded context prior to processing

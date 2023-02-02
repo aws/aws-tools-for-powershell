@@ -134,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String EnvironmentId { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to
+        /// encrypt the configuration data using a customer managed key. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -244,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -291,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             if (cmdletContext.Tag != null)
             {
@@ -363,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String DeploymentStrategyId { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.AppConfig.Model.StartDeploymentResponse, StartAPPCDeploymentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

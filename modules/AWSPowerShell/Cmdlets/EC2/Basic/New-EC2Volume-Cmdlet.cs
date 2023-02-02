@@ -195,7 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>The volume type. This parameter can be one of the following values:</para><ul><li><para>General Purpose SSD: <code>gp2</code> | <code>gp3</code></para></li><li><para>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></para></li><li><para>Throughput Optimized HDD: <code>st1</code></para></li><li><para>Cold HDD: <code>sc1</code></para></li><li><para>Magnetic: <code>standard</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// <para>The volume type. This parameter can be one of the following values:</para><ul><li><para>General Purpose SSD: <code>gp2</code> | <code>gp3</code></para></li><li><para>Provisioned IOPS SSD: <code>io1</code> | <code>io2</code></para></li><li><para>Throughput Optimized HDD: <code>st1</code></para></li><li><para>Cold HDD: <code>sc1</code></para></li><li><para>Magnetic: <code>standard</code></para></li></ul><important><para>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes
+        /// can't be used as boot volumes.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
         /// EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: <code>gp2</code></para>
         /// </para>
         /// </summary>
