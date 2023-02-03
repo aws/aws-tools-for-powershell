@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter LogExport
         /// <summary>
         /// <para>
-        /// <para>The collection of exported log types. Log types include the connection log, user log
-        /// and user activity log.</para>
+        /// <para>The collection of exported log types. Possible values are <code>connectionlog</code>,
+        /// <code>useractivitylog</code>, and <code>userlog</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

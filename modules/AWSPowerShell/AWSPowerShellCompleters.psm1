@@ -43326,6 +43326,7 @@ $PRO_SelectMap = @{
                "Get-PROEnvironmentTemplateVersion",
                "Get-PRORepository",
                "Get-PRORepositorySyncStatus",
+               "Get-PROResourcesSummary",
                "Get-PROService",
                "Get-PROServiceInstance",
                "Get-PROServiceTemplate",

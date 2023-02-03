@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of a cluster security group for which you are requesting details. You can
+        /// <para>The name of a cluster security group for which you are requesting details. You must
         /// specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter,
         /// but not both. </para><para> Example: <code>securitygroup1</code></para>
         /// </para>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value
         /// in the <code>Marker</code> field of the response. You can retrieve the next set of
         /// response records by providing the returned marker value in the <code>Marker</code>
-        /// parameter and retrying the request. </para><para>Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter
+        /// parameter and retrying the request. </para><para>Constraints: You must specify either the <b>ClusterSecurityGroupName</b> parameter
         /// or the <b>Marker</b> parameter, but not both. </para>
         /// </para>
         /// <para>

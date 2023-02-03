@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The AAmazon Web Services account ID of either the cluster owner (grantor) or grantee.
+        /// <para>The Amazon Web Services account ID of either the cluster owner (grantor) or grantee.
         /// If <code>Grantee</code> parameter is true, then the <code>Account</code> value is
         /// of the grantor.</para>
         /// </para>

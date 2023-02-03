@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PRORepositoryList', 
         'Get-PRORepositorySyncDefinitionList', 
         'Get-PRORepositorySyncStatus', 
+        'Get-PROResourcesSummary', 
         'Get-PROResourceTag', 
         'Get-PROService', 
         'Get-PROServiceInstance', 

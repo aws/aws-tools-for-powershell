@@ -1,4 +1,9 @@
-﻿### 4.1.263 (2023-02-02 22:16Z)
+﻿### 4.1.264 (2023-02-03 22:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.476.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Proton
+    * Added cmdlet Get-PROResourcesSummary leveraging the GetResourcesSummary service API.
+
+### 4.1.263 (2023-02-02 22:16Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.475.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppConfig
     * Modified cmdlet Start-APPCDeployment: added parameter KmsKeyIdentifier.

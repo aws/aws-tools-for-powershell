@@ -386,7 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the snapshot associated with the message to restore
-        /// from a cluster. You can specify this parameter or <code>snapshotIdentifier</code>,
+        /// from a cluster. You must specify this parameter or <code>snapshotIdentifier</code>,
         /// but not both.</para>
         /// </para>
         /// </summary>
@@ -410,7 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the snapshot from which to create the new cluster. This parameter isn't
-        /// case sensitive. You can specify this parameter or <code>snapshotArn</code>, but not
+        /// case sensitive. You must specify this parameter or <code>snapshotArn</code>, but not
         /// both.</para><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>

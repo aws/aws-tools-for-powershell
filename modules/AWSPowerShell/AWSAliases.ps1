@@ -18526,6 +18526,7 @@ Set-Alias -Name PRO-GetEnvironmentTemplate -Value Get-PROEnvironmentTemplate
 Set-Alias -Name PRO-GetEnvironmentTemplateVersion -Value Get-PROEnvironmentTemplateVersion
 Set-Alias -Name PRO-GetRepository -Value Get-PRORepository
 Set-Alias -Name PRO-GetRepositorySyncStatus -Value Get-PRORepositorySyncStatus
+Set-Alias -Name PRO-GetResourcesSummary -Value Get-PROResourcesSummary
 Set-Alias -Name PRO-GetService -Value Get-PROService
 Set-Alias -Name PRO-GetServiceInstance -Value Get-PROServiceInstance
 Set-Alias -Name PRO-GetServiceTemplate -Value Get-PROServiceTemplate
