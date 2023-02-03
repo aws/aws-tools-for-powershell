@@ -643,7 +643,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 var transferUtilityConfig = new TransferUtilityConfig();
                 if (cmdletContext.ConcurrentServiceRequests.HasValue)
                     transferUtilityConfig.ConcurrentServiceRequests = cmdletContext.ConcurrentServiceRequests.Value;
-                if (cmdletContext.ConcurrentServiceRequests.HasValue)
+                if (cmdletContext.PartSize.HasValue)
                     transferUtilityConfig.MinSizeBeforePartUpload = cmdletContext.PartSize.Value;
 
                 AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
