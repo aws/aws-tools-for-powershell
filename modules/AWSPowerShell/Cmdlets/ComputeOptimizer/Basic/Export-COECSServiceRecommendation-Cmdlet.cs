@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para> The Amazon Web Services account IDs for the export ECS service recommendations. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// <para> The Amazon Web Services account IDs for the export Amazon ECS service recommendations.
+        /// </para><para>If your account is the management account or the delegated administrator of an organization,
         /// use this parameter to specify the member account you want to export recommendations
         /// to.</para><para>This parameter can't be specified together with the include member accounts parameter.
         /// The parameters are mutually exclusive.</para><para>If this parameter or the include member accounts parameter is omitted, the recommendations
@@ -101,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> An array of objects to specify a filter that exports a more specific set of ECS service
-        /// recommendations. </para>
+        /// <para> An array of objects to specify a filter that exports a more specific set of Amazon
+        /// ECS service recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

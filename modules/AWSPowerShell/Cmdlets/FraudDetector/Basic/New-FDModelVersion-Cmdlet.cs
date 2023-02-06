@@ -183,7 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter LabelSchema_UnlabeledEventsTreatment
         /// <summary>
         /// <para>
-        /// <para>The action to take for unlabeled events.</para>
+        /// <para>The action to take for unlabeled events.</para><ul><li><para>Use <code>IGNORE</code> if you want the unlabeled events to be ignored. This is recommended
+        /// when the majority of the events in the dataset are labeled.</para></li><li><para>Use <code>FRAUD</code> if you want to categorize all unlabeled events as “Fraud”.
+        /// This is recommended when most of the events in your dataset are fraudulent.</para></li><li><para>Use <code>LEGIT</code> f you want to categorize all unlabeled events as “Legit”. This
+        /// is recommended when most of the events in your dataset are legitimate.</para></li><li><para>Use <code>AUTO</code> if you want Amazon Fraud Detector to decide how to use the unlabeled
+        /// data. This is recommended when there is significant unlabeled events in the dataset.</para></li></ul><para>By default, Amazon Fraud Detector ignores the unlabeled data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -191,7 +191,7 @@ $FD_Completers = {
         # Amazon.FraudDetector.UnlabeledEventsTreatment
         "New-FDModelVersion/TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"
         {
-            $v = "FRAUD","IGNORE","LEGIT"
+            $v = "AUTO","FRAUD","IGNORE","LEGIT"
             break
         }
 

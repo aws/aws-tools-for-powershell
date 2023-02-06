@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para> Return the ECS service recommendations to the specified Amazon Web Services account
-        /// IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
-        /// use this parameter to return the ECS service recommendations to specific member accounts.</para><para>You can only specify one account ID per request.</para>
+        /// <para> Return the Amazon ECS service recommendations to the specified Amazon Web Services
+        /// account IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// use this parameter to return the Amazon ECS service recommendations to specific member
+        /// accounts.</para><para>You can only specify one account ID per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> An array of objects to specify a filter that returns a more specific list of ECS
-        /// service recommendations. </para>
+        /// <para> An array of objects to specify a filter that returns a more specific list of Amazon
+        /// ECS service recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter ServiceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN that identifies the ECS service. </para><para> The following is the format of the ARN: </para><para><code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code></para>
+        /// <para> The ARN that identifies the Amazon ECS service. </para><para> The following is the format of the ARN: </para><para><code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of ECS service recommendations to return with a single request.
-        /// </para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
+        /// <para> The maximum number of Amazon ECS service recommendations to return with a single
+        /// request. </para><para>To retrieve the remaining results, make another request with the returned <code>nextToken</code>
         /// value.</para>
         /// </para>
         /// </summary>
@@ -98,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The token to advance to the next page of ECS service recommendations. </para>
+        /// <para> The token to advance to the next page of Amazon ECS service recommendations. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
