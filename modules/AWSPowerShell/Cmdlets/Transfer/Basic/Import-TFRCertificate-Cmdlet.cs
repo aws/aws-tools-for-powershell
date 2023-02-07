@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The file that contains the certificate to import.</para>
+        /// <ul><li><para>For the CLI, provide a file path for a certificate in URI format. For example, <code>--certificate
+        /// file://encryption-cert.pem</code>. Alternatively, you can provide the raw content.</para></li><li><para>For the SDK, specify the raw content of a certificate file. For example, <code>--certificate
+        /// "`cat encryption-cert.pem`"</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter PrivateKey
         /// <summary>
         /// <para>
-        /// <para>The file that contains the private key for the certificate that's being imported.</para>
+        /// <ul><li><para>For the CLI, provide a file path for a private key in URI format.For example, <code>--private-key
+        /// file://encryption-key.pem</code>. Alternatively, you can provide the raw content of
+        /// the private key file.</para></li><li><para>For the SDK, specify the raw content of a private key file. For example, <code>--private-key
+        /// "`cat encryption-key.pem`"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

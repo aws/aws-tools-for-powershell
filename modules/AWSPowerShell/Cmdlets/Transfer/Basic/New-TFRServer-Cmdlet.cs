@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// key by using 3072 or 4096.</para><para>Use the following command to generate an ECDSA 256 bit key with no passphrase:</para><para><code>ssh-keygen -t ecdsa -b 256 -N "" -m PEM -f my-new-server-key</code>.</para><para>Valid values for the <code>-b</code> option for ECDSA are 256, 384, and 521.</para><para>Use the following command to generate an ED25519 key with no passphrase:</para><para><code>ssh-keygen -t ed25519 -N "" -f my-new-server-key</code>.</para><para>For all of these commands, you can replace <i>my-new-server-key</i> with a string
         /// of your choice.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
         /// to a new server, don't update the host key. Accidentally changing a server's host
-        /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Update
+        /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Manage
         /// host keys for your SFTP-enabled server</a> in the <i>Transfer Family User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -285,10 +285,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// Manager (ACM) which is used to identify your server when clients connect to it over
         /// FTPS.</para></li><li><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
-        /// must be <code>AWS_DIRECTORY_SERVICE</code> or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
+        /// must be either <code>AWS_DIRECTORY_SERVICE</code>, <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.</para></li><li><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
         /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
-        /// set to <code>SERVICE_MANAGED</code>.</para></li><li><para>If <code>Protocol</code> includes <code>AS2</code>, then the <code>EndpointType</code>
+        /// set any of the supported identity types: <code>SERVICE_MANAGED</code>, <code>AWS_DIRECTORY_SERVICE</code>,
+        /// <code>AWS_LAMBDA</code>, or <code>API_GATEWAY</code>.</para></li><li><para>If <code>Protocol</code> includes <code>AS2</code>, then the <code>EndpointType</code>
         /// must be <code>VPC</code>, and domain must be Amazon S3.</para></li></ul></note>
         /// </para>
         /// </summary>

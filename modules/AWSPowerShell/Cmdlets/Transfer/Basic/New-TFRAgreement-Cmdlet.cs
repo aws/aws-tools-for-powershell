@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter BaseDirectory
         /// <summary>
         /// <para>
-        /// <para>The landing directory (folder) for files transferred by using the AS2 protocol.</para><para>A <code>BaseDirectory</code> example is <i>DOC-EXAMPLE-BUCKET</i>/<i>home</i>/<i>mydirectory</i>.</para>
+        /// <para>The landing directory (folder) for files transferred by using the AS2 protocol.</para><para>A <code>BaseDirectory</code> example is <code>/DOC-EXAMPLE-BUCKET/home/mydirectory</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

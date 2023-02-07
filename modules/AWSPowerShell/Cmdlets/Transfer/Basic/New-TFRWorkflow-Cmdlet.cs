@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the details for the steps that are in the specified workflow.</para><para> The <code>TYPE</code> specifies which of the following actions is being taken for
-        /// this step. </para><ul><li><para><i>COPY</i>: Copy the file to another location.</para></li><li><para><i>CUSTOM</i>: Perform a custom step with an Lambda function target.</para></li><li><para><i>DELETE</i>: Delete the file.</para></li><li><para><i>TAG</i>: Add a tag to the file.</para></li></ul><note><para> Currently, copying and tagging are supported only on S3. </para></note><para> For file location, you specify either the S3 bucket and key, or the EFS file system
-        /// ID and path. </para>
+        /// this step. </para><ul><li><para><b><code>COPY</code></b> - Copy the file to another location.</para></li><li><para><b><code>CUSTOM</code></b> - Perform a custom step with an Lambda function target.</para></li><li><para><b><code>DECRYPT</code></b> - Decrypt a file that was encrypted before it was uploaded.</para></li><li><para><b><code>DELETE</code></b> - Delete the file.</para></li><li><para><b><code>TAG</code></b> - Add a tag to the file.</para></li></ul><note><para> Currently, copying and tagging are supported only on S3. </para></note><para> For file location, you specify either the Amazon S3 bucket and key, or the Amazon
+        /// EFS file system ID and path. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
