@@ -98,8 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter OriginAccessControlConfig_OriginAccessControlOriginType
         /// <summary>
         /// <para>
-        /// <para>The type of origin that this origin access control is for. The only valid value is
-        /// <code>s3</code>.</para>
+        /// <para>The type of origin that this origin access control is for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

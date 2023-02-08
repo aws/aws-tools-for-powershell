@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// 
     ///  
     /// <para>
-    /// For an Amazon S3 origin, this makes it possible to block public access to the Amazon
-    /// S3 bucket so that viewers (users) can access the content in the bucket only through
-    /// CloudFront.
+    /// This makes it possible to block public access to the origin, allowing viewers (users)
+    /// to access the origin's content only through CloudFront.
     /// </para><para>
-    /// For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restricting
-    /// access to an Amazon S3 origin</a> in the <i>Amazon CloudFront Developer Guide</i>.
+    /// For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html">Restricting
+    /// access to an Amazon Web Services origin</a> in the <i>Amazon CloudFront Developer
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CFOriginAccessControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter OriginAccessControlConfig_OriginAccessControlOriginType
         /// <summary>
         /// <para>
-        /// <para>The type of origin that this origin access control is for. The only valid value is
-        /// <code>s3</code>.</para>
+        /// <para>The type of origin that this origin access control is for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
