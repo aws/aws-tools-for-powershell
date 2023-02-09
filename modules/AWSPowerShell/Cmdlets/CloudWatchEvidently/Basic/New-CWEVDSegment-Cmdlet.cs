@@ -38,12 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// Using a segment in an experiment limits that experiment to evaluate only the users
     /// who match the segment criteria. Using one or more segments in a launch allows you
     /// to define different traffic splits for the different audience segments.
-    /// </para><pre><code> &lt;p&gt;For more information about segment pattern syntax, see &lt;a
-    /// href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html"&gt;
-    /// Segment rule pattern syntax&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;The pattern that you define
-    /// for a segment is matched against the value of &lt;code&gt;evaluationContext&lt;/code&gt;,
-    /// which is passed into Evidently in the &lt;a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html"&gt;EvaluateFeature&lt;/a&gt;
-    /// operation, when Evidently assigns a feature variation to a user.&lt;/p&gt; </code></pre>
+    /// </para><para>
+    /// For more information about segment pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html">
+    /// Segment rule pattern syntax</a>.
+    /// </para><para>
+    /// The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>,
+    /// which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a>
+    /// operation, when Evidently assigns a feature variation to a user.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CWEVDSegment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvidently.Model.Segment")]
@@ -107,9 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>Assigns one or more tags (key-value pairs) to the segment.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
         /// with certain tag values.</para><para>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
-        /// as strings of characters.</para><pre><code> &lt;p&gt;You can associate as many as 50 tags with a segment.&lt;/p&gt;
-        /// &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"&gt;Tagging
-        /// Amazon Web Services resources&lt;/a&gt;.&lt;/p&gt; </code></pre>
+        /// as strings of characters.</para><para>You can associate as many as 50 tags with a segment.</para><para>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

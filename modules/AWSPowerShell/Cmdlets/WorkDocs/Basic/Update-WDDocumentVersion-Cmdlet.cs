@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials
-        /// to access the API.</para>
+        /// <para>Amazon WorkDocs authentication token. Not required when using Amazon Web Services
+        /// administrator credentials to access the API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37496,7 +37496,7 @@ $MHRS_Completers = {
         # Amazon.MigrationHubRefactorSpaces.NetworkFabricType
         "New-MHRSEnvironment/NetworkFabricType"
         {
-            $v = "TRANSIT_GATEWAY"
+            $v = "NONE","TRANSIT_GATEWAY"
             break
         }
 
@@ -37957,6 +37957,16 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.BotType
+        {
+            ($_ -eq "New-LMBV2Bot/BotType") -Or
+            ($_ -eq "Update-LMBV2Bot/BotType")
+        }
+        {
+            $v = "Bot","BotNetwork"
+            break
+        }
+
         # Amazon.LexModelsV2.BotVersionSortAttribute
         "Get-LMBV2BotVersionList/SortBy_Attribute"
         {
@@ -38221,6 +38231,7 @@ $LMBV2_Completers = {
 
 $LMBV2_map = @{
     "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
+    "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")

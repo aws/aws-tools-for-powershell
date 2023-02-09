@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
         /// based on the <code>responseContentType</code> value.</para><ul><li><para>If the value is <code>text/plain;charset=utf-8</code>, Amazon Lex V2 returns text
         /// in the response.</para></li><li><para>If the value begins with <code>audio/</code>, Amazon Lex V2 returns speech in the
         /// response. Amazon Lex V2 uses Amazon Polly to generate the speech using the configuration
-        /// that you specified in the <code>requestContentType</code> parameter. For example,
+        /// that you specified in the <code>responseContentType</code> parameter. For example,
         /// if you specify <code>audio/mpeg</code> as the value, Amazon Lex V2 returns speech
         /// in the MPEG format.</para></li><li><para>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code>
         /// at 16 KHz in 16-bit, little-endian format.</para></li><li><para>The following are the accepted values:</para><ul><li><para>audio/mpeg</para></li><li><para>audio/ogg</para></li><li><para>audio/pcm (16 KHz)</para></li><li><para>audio/* (defaults to mpeg)</para></li><li><para>text/plain; charset=utf-8</para></li></ul></li></ul>

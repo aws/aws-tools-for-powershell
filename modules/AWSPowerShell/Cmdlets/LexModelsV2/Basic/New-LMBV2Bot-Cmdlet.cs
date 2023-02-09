@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2BotCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter BotMember
+        /// <summary>
+        /// <para>
+        /// <para>The list of bot members in a network to be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BotMembers")]
+        public Amazon.LexModelsV2.Model.BotMember[] BotMember { get; set; }
+        #endregion
+        
         #region Parameter BotName
         /// <summary>
         /// <para>
@@ -67,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("BotTags")]
         public System.Collections.Hashtable BotTag { get; set; }
+        #endregion
+        
+        #region Parameter BotType
+        /// <summary>
+        /// <para>
+        /// <para>The type of a bot to create.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.BotType")]
+        public Amazon.LexModelsV2.BotType BotType { get; set; }
         #endregion
         
         #region Parameter DataPrivacy_ChildDirected
@@ -227,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.Select = (response, cmdlet) => this.BotName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BotMember != null)
+            {
+                context.BotMember = new List<Amazon.LexModelsV2.Model.BotMember>(this.BotMember);
+            }
             context.BotName = this.BotName;
             #if MODULAR
             if (this.BotName == null && ParameterWasBound(nameof(this.BotName)))
@@ -242,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                     context.BotTag.Add((String)hashKey, (String)(this.BotTag[hashKey]));
                 }
             }
+            context.BotType = this.BotType;
             context.DataPrivacy_ChildDirected = this.DataPrivacy_ChildDirected;
             #if MODULAR
             if (this.DataPrivacy_ChildDirected == null && ParameterWasBound(nameof(this.DataPrivacy_ChildDirected)))
@@ -288,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             // create request
             var request = new Amazon.LexModelsV2.Model.CreateBotRequest();
             
+            if (cmdletContext.BotMember != null)
+            {
+                request.BotMembers = cmdletContext.BotMember;
+            }
             if (cmdletContext.BotName != null)
             {
                 request.BotName = cmdletContext.BotName;
@@ -295,6 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (cmdletContext.BotTag != null)
             {
                 request.BotTags = cmdletContext.BotTag;
+            }
+            if (cmdletContext.BotType != null)
+            {
+                request.BotType = cmdletContext.BotType;
             }
             
              // populate DataPrivacy
@@ -392,8 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.LexModelsV2.Model.BotMember> BotMember { get; set; }
             public System.String BotName { get; set; }
             public Dictionary<System.String, System.String> BotTag { get; set; }
+            public Amazon.LexModelsV2.BotType BotType { get; set; }
             public System.Boolean? DataPrivacy_ChildDirected { get; set; }
             public System.String Description { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }

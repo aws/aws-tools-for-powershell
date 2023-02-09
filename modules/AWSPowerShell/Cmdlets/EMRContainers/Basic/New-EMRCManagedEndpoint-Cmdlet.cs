@@ -28,8 +28,9 @@ using Amazon.EMRContainers.Model;
 namespace Amazon.PowerShell.Cmdlets.EMRC
 {
     /// <summary>
-    /// Creates a managed endpoint. A managed endpoint is a gateway that connects EMR Studio
-    /// to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.
+    /// Creates a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR
+    /// Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
+    /// cluster.
     /// </summary>
     [Cmdlet("New", "EMRCManagedEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EMRContainers.Model.CreateManagedEndpointResponse")]

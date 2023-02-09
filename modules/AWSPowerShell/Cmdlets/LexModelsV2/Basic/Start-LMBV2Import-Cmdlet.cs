@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter ImportId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the import. It is included in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateUploadUrl.html">CreateUploadUrl</a>
+        /// <para>The unique identifier for the import. It is included in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateUploadUrl.html">CreateUploadUrl</a>
         /// operation.</para>
         /// </para>
         /// </summary>

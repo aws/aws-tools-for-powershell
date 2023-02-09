@@ -147,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String S3MonitoringConfiguration_LogUri { get; set; }
         #endregion
         
+        #region Parameter RetryPolicyConfiguration_MaxAttempt
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of attempts on the job's driver.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetryPolicyConfiguration_MaxAttempts")]
+        public System.Int32? RetryPolicyConfiguration_MaxAttempt { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -330,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             }
             context.Name = this.Name;
             context.ReleaseLabel = this.ReleaseLabel;
+            context.RetryPolicyConfiguration_MaxAttempt = this.RetryPolicyConfiguration_MaxAttempt;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -578,6 +590,25 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             {
                 request.ReleaseLabel = cmdletContext.ReleaseLabel;
             }
+            
+             // populate RetryPolicyConfiguration
+            var requestRetryPolicyConfigurationIsNull = true;
+            request.RetryPolicyConfiguration = new Amazon.EMRContainers.Model.RetryPolicyConfiguration();
+            System.Int32? requestRetryPolicyConfiguration_retryPolicyConfiguration_MaxAttempt = null;
+            if (cmdletContext.RetryPolicyConfiguration_MaxAttempt != null)
+            {
+                requestRetryPolicyConfiguration_retryPolicyConfiguration_MaxAttempt = cmdletContext.RetryPolicyConfiguration_MaxAttempt.Value;
+            }
+            if (requestRetryPolicyConfiguration_retryPolicyConfiguration_MaxAttempt != null)
+            {
+                request.RetryPolicyConfiguration.MaxAttempts = requestRetryPolicyConfiguration_retryPolicyConfiguration_MaxAttempt.Value;
+                requestRetryPolicyConfigurationIsNull = false;
+            }
+             // determine if request.RetryPolicyConfiguration should be set to null
+            if (requestRetryPolicyConfigurationIsNull)
+            {
+                request.RetryPolicyConfiguration = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -663,6 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public Dictionary<System.String, System.String> JobTemplateParameter { get; set; }
             public System.String Name { get; set; }
             public System.String ReleaseLabel { get; set; }
+            public System.Int32? RetryPolicyConfiguration_MaxAttempt { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VirtualClusterId { get; set; }
             public System.Func<Amazon.EMRContainers.Model.StartJobRunResponse, StartEMRCJobRunCmdlet, object> Select { get; set; } =

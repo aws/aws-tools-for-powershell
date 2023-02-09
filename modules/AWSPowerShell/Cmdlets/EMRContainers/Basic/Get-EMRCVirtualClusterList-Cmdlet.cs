@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter ContainerProviderType
         /// <summary>
         /// <para>
-        /// <para>The container provider type of the virtual cluster. EKS is the only supported type
-        /// as of now.</para>
+        /// <para>The container provider type of the virtual cluster. Amazon EKS is the only supported
+        /// type as of now.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

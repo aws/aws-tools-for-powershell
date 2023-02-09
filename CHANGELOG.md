@@ -1,4 +1,12 @@
-﻿### 4.1.267 (2023-02-08 22:05Z)
+﻿### 4.1.268 (2023-02-09 22:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.479.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EMR Containers
+    * Modified cmdlet Start-EMRCJobRun: added parameter RetryPolicyConfiguration_MaxAttempt.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Bot: added parameters BotMember and BotType.
+    * Modified cmdlet Update-LMBV2Bot: added parameters BotMember and BotType.
+
+### 4.1.267 (2023-02-08 22:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.478.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.266 (2023-02-07 21:57Z)

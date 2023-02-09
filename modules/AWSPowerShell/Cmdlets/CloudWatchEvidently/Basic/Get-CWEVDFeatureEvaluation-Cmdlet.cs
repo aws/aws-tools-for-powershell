@@ -36,25 +36,32 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
     /// <para>
     /// The first rules that are evaluated are the override rules. If the user's <code>entityID</code>
     /// matches an override rule, the user is served the variation specified by that rule.
-    /// </para><pre><code> &lt;p&gt;If there is a current launch with this feature that uses segment
-    /// overrides, and if the user session's &lt;code&gt;evaluationContext&lt;/code&gt; matches
-    /// a segment rule defined in a segment override, the configuration in the segment overrides
-    /// is used. For more information about segments, see &lt;a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html"&gt;CreateSegment&lt;/a&gt;
-    /// and &lt;a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html"&gt;Use
-    /// segments to focus your audience&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;If there is a launch
-    /// with no segment overrides, the user might be assigned to a variation in the launch.
-    /// The chance of this depends on the percentage of users that are allocated to that launch.
-    /// If the user is enrolled in the launch, the variation they are served depends on the
-    /// allocation of the various feature variations used for the launch.&lt;/p&gt; &lt;p&gt;If
-    /// the user is not assigned to a launch, and there is an ongoing experiment for this
+    /// </para><para>
+    /// If there is a current launch with this feature that uses segment overrides, and if
+    /// the user session's <code>evaluationContext</code> matches a segment rule defined in
+    /// a segment override, the configuration in the segment overrides is used. For more information
+    /// about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a>
+    /// and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use
+    /// segments to focus your audience</a>.
+    /// </para><para>
+    /// If there is a launch with no segment overrides, the user might be assigned to a variation
+    /// in the launch. The chance of this depends on the percentage of users that are allocated
+    /// to that launch. If the user is enrolled in the launch, the variation they are served
+    /// depends on the allocation of the various feature variations used for the launch.
+    /// </para><para>
+    /// If the user is not assigned to a launch, and there is an ongoing experiment for this
     /// feature, the user might be assigned to a variation in the experiment. The chance of
-    /// this depends on the percentage of users that are allocated to that experiment.&lt;/p&gt;
-    /// &lt;p&gt;If the experiment uses a segment, then only user sessions with &lt;code&gt;evaluationContext&lt;/code&gt;
-    /// values that match the segment rule are used in the experiment.&lt;/p&gt; &lt;p&gt;If
-    /// the user is enrolled in the experiment, the variation they are served depends on the
-    /// allocation of the various feature variations used for the experiment. &lt;/p&gt; &lt;p&gt;If
-    /// the user is not assigned to a launch or experiment, they are served the default variation.&lt;/p&gt;
-    /// </code></pre>
+    /// this depends on the percentage of users that are allocated to that experiment.
+    /// </para><para>
+    /// If the experiment uses a segment, then only user sessions with <code>evaluationContext</code>
+    /// values that match the segment rule are used in the experiment.
+    /// </para><para>
+    /// If the user is enrolled in the experiment, the variation they are served depends on
+    /// the allocation of the various feature variations used for the experiment. 
+    /// </para><para>
+    /// If the user is not assigned to a launch or experiment, they are served the default
+    /// variation.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWEVDFeatureEvaluation")]
     [OutputType("Amazon.CloudWatchEvidently.Model.EvaluateFeatureResponse")]
@@ -89,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>A JSON object of attributes that you can optionally pass in as part of the evaluation
         /// event sent to Evidently from the user session. Evidently can use this value to match
         /// user sessions with defined audience segments. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use
-        /// segments to focus your audience</a>.</para><pre><code> &lt;p&gt;If you include this parameter, the value must be a JSON object.
-        /// A JSON array is not supported.&lt;/p&gt; </code></pre>
+        /// segments to focus your audience</a>.</para><para>If you include this parameter, the value must be a JSON object. A JSON array is not
+        /// supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

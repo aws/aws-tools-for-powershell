@@ -133,9 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
         /// <para>Assigns one or more tags (key-value pairs) to the project.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions by granting a user permission to access or change only resources
         /// with certain tag values.</para><para>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly
-        /// as strings of characters.</para><pre><code> &lt;p&gt;You can associate as many as 50 tags with a project.&lt;/p&gt;
-        /// &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"&gt;Tagging
-        /// Amazon Web Services resources&lt;/a&gt;.&lt;/p&gt; </code></pre>
+        /// as strings of characters.</para><para>You can associate as many as 50 tags with a project.</para><para>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web Services resources</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

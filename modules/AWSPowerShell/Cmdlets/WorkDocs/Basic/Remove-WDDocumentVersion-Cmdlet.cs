@@ -28,8 +28,7 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Deletes a version of an Amazon WorkDocs document. Use the <code>DeletePriorVersions</code>
-    /// parameter to delete prior versions.
+    /// Deletes a specific version of a document.
     /// </summary>
     [Cmdlet("Remove", "WDDocumentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials
-        /// to access the API.</para>
+        /// <para>Amazon WorkDocs authentication token. Not required when using Amazon Web Services
+        /// administrator credentials to access the API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter DeletePriorVersion
         /// <summary>
         /// <para>
-        /// <para>When set to <code>TRUE</code>, deletes the specified version and <i>all prior versions</i>
-        /// of a document.</para>
+        /// <para>Deletes all versions of a document prior to the current version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter DocumentId
         /// <summary>
         /// <para>
-        /// <para>The ID of a document.</para>
+        /// <para>The ID of the document associated with the version being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The version ID of a document.</para>
+        /// <para>The ID of the version being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

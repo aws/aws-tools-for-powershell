@@ -90,7 +90,7 @@ $MHRS_Completers = {
         # Amazon.MigrationHubRefactorSpaces.NetworkFabricType
         "New-MHRSEnvironment/NetworkFabricType"
         {
-            $v = "TRANSIT_GATEWAY"
+            $v = "NONE","TRANSIT_GATEWAY"
             break
         }
 

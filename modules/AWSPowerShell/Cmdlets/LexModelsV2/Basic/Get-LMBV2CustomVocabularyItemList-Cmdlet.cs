@@ -28,7 +28,7 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// List custom vocabulary items for the specified locale in the specified bot.
+    /// Paginated list of custom vocabulary items for a given bot locale's custom vocabulary.
     /// </summary>
     [Cmdlet("Get", "LMBV2CustomVocabularyItemList")]
     [OutputType("Amazon.LexModelsV2.Model.ListCustomVocabularyItemsResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the bot to the list custom vocabulary request.</para>
+        /// <para>The identifier of the version of the bot associated with this custom vocabulary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter LocaleId
         /// <summary>
         /// <para>
-        /// <para>The locale identifier of the bot to the list custom vocabulary request.</para>
+        /// <para>The identifier of the language and locale where this custom vocabulary is used. The
+        /// string must match one of the supported locales. For more information, see Supported
+        /// languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum results to the list custom vocabulary request.</para>
+        /// <para>The maximum number of items returned by the list operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

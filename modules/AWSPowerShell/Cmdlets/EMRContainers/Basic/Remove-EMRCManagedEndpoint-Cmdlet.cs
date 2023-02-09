@@ -28,8 +28,9 @@ using Amazon.EMRContainers.Model;
 namespace Amazon.PowerShell.Cmdlets.EMRC
 {
     /// <summary>
-    /// Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio
-    /// to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.
+    /// Deletes a managed endpoint. A managed endpoint is a gateway that connects Amazon EMR
+    /// Studio to Amazon EMR on EKS so that Amazon EMR Studio can communicate with your virtual
+    /// cluster.
     /// </summary>
     [Cmdlet("Remove", "EMRCManagedEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EMRContainers.Model.DeleteManagedEndpointResponse")]

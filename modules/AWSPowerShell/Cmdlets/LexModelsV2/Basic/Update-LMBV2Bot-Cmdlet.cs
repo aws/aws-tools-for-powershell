@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the bot to update. This identifier is returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBot.html">CreateBot</a>
+        /// <para>The unique identifier of the bot to update. This identifier is returned by the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html">CreateBot</a>
         /// operation.</para>
         /// </para>
         /// </summary>
@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BotId { get; set; }
+        #endregion
+        
+        #region Parameter BotMember
+        /// <summary>
+        /// <para>
+        /// <para>The list of bot members in the network associated with the update action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BotMembers")]
+        public Amazon.LexModelsV2.Model.BotMember[] BotMember { get; set; }
         #endregion
         
         #region Parameter BotName
@@ -72,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String BotName { get; set; }
+        #endregion
+        
+        #region Parameter BotType
+        /// <summary>
+        /// <para>
+        /// <para>The type of the bot to be updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.BotType")]
+        public Amazon.LexModelsV2.BotType BotType { get; set; }
         #endregion
         
         #region Parameter DataPrivacy_ChildDirected
@@ -226,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter BotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.BotMember != null)
+            {
+                context.BotMember = new List<Amazon.LexModelsV2.Model.BotMember>(this.BotMember);
+            }
             context.BotName = this.BotName;
             #if MODULAR
             if (this.BotName == null && ParameterWasBound(nameof(this.BotName)))
@@ -233,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 WriteWarning("You are passing $null as a value for parameter BotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BotType = this.BotType;
             context.DataPrivacy_ChildDirected = this.DataPrivacy_ChildDirected;
             #if MODULAR
             if (this.DataPrivacy_ChildDirected == null && ParameterWasBound(nameof(this.DataPrivacy_ChildDirected)))
@@ -275,9 +302,17 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             {
                 request.BotId = cmdletContext.BotId;
             }
+            if (cmdletContext.BotMember != null)
+            {
+                request.BotMembers = cmdletContext.BotMember;
+            }
             if (cmdletContext.BotName != null)
             {
                 request.BotName = cmdletContext.BotName;
+            }
+            if (cmdletContext.BotType != null)
+            {
+                request.BotType = cmdletContext.BotType;
             }
             
              // populate DataPrivacy
@@ -372,7 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BotId { get; set; }
+            public List<Amazon.LexModelsV2.Model.BotMember> BotMember { get; set; }
             public System.String BotName { get; set; }
+            public Amazon.LexModelsV2.BotType BotType { get; set; }
             public System.Boolean? DataPrivacy_ChildDirected { get; set; }
             public System.String Description { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }

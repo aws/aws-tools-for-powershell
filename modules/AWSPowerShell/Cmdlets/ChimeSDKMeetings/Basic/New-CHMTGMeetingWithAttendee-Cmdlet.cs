@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter ExternalMeetingId
         /// <summary>
         /// <para>
-        /// <para>The external meeting ID.</para>
+        /// <para>The external meeting ID.</para><para>Pattern: <code>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code></para><para>Values that begin with <code>aws:</code> are reserved. You can't configure a value
+        /// that uses this prefix. Case insensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

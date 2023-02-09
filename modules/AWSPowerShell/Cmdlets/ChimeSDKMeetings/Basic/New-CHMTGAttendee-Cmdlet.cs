@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// <summary>
         /// <para>
         /// <para>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to
-        /// an identity managed by a builder application.</para>
+        /// an identity managed by a builder application.</para><para>Pattern: <code>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code></para><para>Values that begin with <code>aws:</code> are reserved. You can't configure a value
+        /// that uses this prefix.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

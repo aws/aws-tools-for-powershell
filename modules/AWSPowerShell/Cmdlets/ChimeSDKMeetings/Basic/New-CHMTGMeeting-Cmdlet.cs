@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         #region Parameter ExternalMeetingId
         /// <summary>
         /// <para>
-        /// <para>The external meeting ID.</para>
+        /// <para>The external meeting ID.</para><para>Pattern: <code>[-_&amp;@+=,(){}\[\]\/«».:|'"#a-zA-Z0-9À-ÿ\s]*</code></para><para>Values that begin with <code>aws:</code> are reserved. You can't configure a value
+        /// that uses this prefix. Case insensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
         /// the resource belongs to as well as permissions for adding tags. For more information,
         /// see the documentation for each service.</para></li></ul><important><para>Do not store personally identifiable information (PII) or other confidential or sensitive
         /// information in tags. We use tags to provide you with billing and administration services.
-        /// Tags are not intended to be used for private or sensitive data.</para></important><para><b>Minimum permissions</b></para><para> In addition to the <code>tag:TagResources </code>permission required by this operation,
+        /// Tags are not intended to be used for private or sensitive data.</para></important><para><b>Minimum permissions</b></para><para>In addition to the <code>tag:TagResources</code> permission required by this operation,
         /// you must also have the tagging permission defined by the service that created the
         /// resource. For example, to tag a <code>ChimeSDKMeetings</code> instance using the <code>TagResources</code>
         /// operation, you must have both of the following permissions:</para><para><code>tag:TagResources</code></para><para><code>ChimeSDKMeetings:CreateTags</code></para><note><para>Some services might have specific requirements for tagging some resources. For example,

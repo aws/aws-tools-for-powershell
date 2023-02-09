@@ -71,8 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter SkipResourceInUseCheck
         /// <summary>
         /// <para>
-        /// <para>When <code>true</code>, Amazon Lex doesn't check to see if another resource, such
-        /// as an alias, is using the bot before it is deleted.</para>
+        /// <para>By default, Amazon Lex checks if any other resource, such as an alias or bot network,
+        /// is using the bot version before it is deleted and throws a <code>ResourceInUseException</code>
+        /// exception if the bot is being used by another resource. Set this parameter to <code>true</code>
+        /// to skip this check and remove the bot even if it is being used by another resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

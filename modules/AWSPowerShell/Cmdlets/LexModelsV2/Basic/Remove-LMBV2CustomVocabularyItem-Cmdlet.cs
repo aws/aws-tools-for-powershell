@@ -28,7 +28,7 @@ using Amazon.LexModelsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.LMBV2
 {
     /// <summary>
-    /// Batch delete custom vocabulary item for the specified locale in the specified bot.
+    /// Delete a batch of custom vocabulary items for a given bot locale's custom vocabulary.
     /// </summary>
     [Cmdlet("Remove", "LMBV2CustomVocabularyItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.LexModelsV2.Model.BatchDeleteCustomVocabularyItemResponse")]
@@ -42,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the bot to batch delete request for the custom vocabulary
-        /// item.</para>
+        /// <para>The identifier of the bot associated with this custom vocabulary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter BotVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the bot to batch delete request for the custom vocabulary item.</para>
+        /// <para>The identifier of the version of the bot associated with this custom vocabulary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter CustomVocabularyItemList
         /// <summary>
         /// <para>
-        /// <para>The custom vocabulary list to batch delete request for the custom vocabulary item.</para>
+        /// <para>A list of custom vocabulary items requested to be deleted. Each entry must contain
+        /// the unique custom vocabulary entry identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,8 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #region Parameter LocaleId
         /// <summary>
         /// <para>
-        /// <para>The locale identifier of the bot to batch delete request for the custom vocabulary
-        /// item.</para>
+        /// <para>The identifier of the language and locale where this custom vocabulary is used. The
+        /// string must match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">
+        /// Supported Languages </a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Creates a Standby WorkSpace in a secondary region.
+    /// Creates a standby WorkSpace in a secondary Region.
     /// </summary>
     [Cmdlet("New", "WKSStandbyWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkSpaces.Model.CreateStandbyWorkspacesResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter StandbyWorkspace
         /// <summary>
         /// <para>
-        /// <para>Information about the Standby WorkSpace to be created.</para>
+        /// <para>Information about the standby WorkSpace to be created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

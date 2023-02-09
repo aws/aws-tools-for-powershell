@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
     /// Deletes the specified user from a Simple AD or Microsoft AD directory.
+    /// 
+    ///  <important><para>
+    /// Deleting a user immediately and permanently deletes all content in that user's folder
+    /// structure. Site retention policies do NOT apply to this type of deletion.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "WDUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <summary>
         /// <para>
         /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
-        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// API actions, as in accessing the API using Amazon Web Services credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter EksInfo_Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespaces of the EKS cluster.</para>
+        /// <para>The namespaces of the Amazon EKS cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         #region Parameter ContainerProvider_Type
         /// <summary>
         /// <para>
-        /// <para>The type of the container provider. EKS is the only supported type as of now.</para>
+        /// <para>The type of the container provider. Amazon EKS is the only supported type as of now.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
