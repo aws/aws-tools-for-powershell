@@ -129,6 +129,20 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.ScaleInProtectedInstances
+        "Start-ASInstanceRefresh/Preferences_ScaleInProtectedInstances"
+        {
+            $v = "Ignore","Refresh","Wait"
+            break
+        }
+
+        # Amazon.AutoScaling.StandbyInstances
+        "Start-ASInstanceRefresh/Preferences_StandbyInstances"
+        {
+            $v = "Ignore","Terminate","Wait"
+            break
+        }
+
         # Amazon.AutoScaling.WarmPoolState
         "Write-ASWarmPool/PoolState"
         {
@@ -150,6 +164,8 @@ $AS_map = @{
     "PoolState"=@("Write-ASWarmPool")
     "PredictiveScalingConfiguration_MaxCapacityBreachBehavior"=@("Write-ASScalingPolicy")
     "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
+    "Preferences_ScaleInProtectedInstances"=@("Start-ASInstanceRefresh")
+    "Preferences_StandbyInstances"=@("Start-ASInstanceRefresh")
     "Strategy"=@("Start-ASInstanceRefresh")
     "TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-ASScalingPolicy")
@@ -262,6 +278,7 @@ $AS_SelectMap = @{
                "Write-ASWarmPool",
                "Write-ASLifecycleActionHeartbeat",
                "Resume-ASProcess",
+               "Undo-ASInstanceRefresh",
                "Set-ASDesiredCapacity",
                "Set-ASInstanceHealth",
                "Set-ASInstanceProtection",

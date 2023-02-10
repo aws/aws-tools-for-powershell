@@ -280,6 +280,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RollbackInstanceRefresh" OutputProperty="InstanceRefreshId" Verb="Undo" Noun="InstanceRefresh" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetDesiredCapacity" Verb="Set" Noun="DesiredCapacity" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="DesiredCapacity;HonorCooldown" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

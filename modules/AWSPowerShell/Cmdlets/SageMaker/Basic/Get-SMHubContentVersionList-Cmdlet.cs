@@ -28,7 +28,11 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// List hub content versions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List hub content versions.
+    /// 
+    ///  <note><para>
+    /// Hub APIs are only callable through SageMaker Studio.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMHubContentVersionList")]
     [OutputType("Amazon.SageMaker.Model.HubContentInfo")]

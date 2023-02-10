@@ -28,9 +28,10 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Cancels an instance refresh or rollback that is in progress. If an instance refresh
-    /// or rollback is not in progress, an <code>ActiveInstanceRefreshNotFound</code> error
-    /// occurs.
+    /// Cancels an instance refresh that is in progress and rolls back any changes that it
+    /// made. Amazon EC2 Auto Scaling replaces any instances that were replaced during the
+    /// instance refresh. This restores your Auto Scaling group to the configuration that
+    /// it was using before the start of the instance refresh. 
     /// 
     ///  
     /// <para>
@@ -38,18 +39,29 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
     /// your Auto Scaling group after you make configuration changes.
     /// </para><para>
-    /// When you cancel an instance refresh, this does not roll back any changes that it made.
-    /// Use the <a>RollbackInstanceRefresh</a> API to roll back instead.
+    /// A rollback is not supported in the following situations: 
+    /// </para><ul><li><para>
+    /// There is no desired configuration specified for the instance refresh.
+    /// </para></li><li><para>
+    /// The Auto Scaling group has a launch template that uses an Amazon Web Services Systems
+    /// Manager parameter instead of an AMI ID for the <code>ImageId</code> property.
+    /// </para></li><li><para>
+    /// The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code>
+    /// version.
+    /// </para></li></ul><para>
+    /// When you receive a successful response from this operation, Amazon EC2 Auto Scaling
+    /// immediately begins replacing instances. You can check the status of this operation
+    /// through the <a>DescribeInstanceRefreshes</a> API operation. 
     /// </para>
     /// </summary>
-    [Cmdlet("Stop", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Undo", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Auto Scaling CancelInstanceRefresh API operation.", Operation = new[] {"CancelInstanceRefresh"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.CancelInstanceRefreshResponse))]
-    [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.CancelInstanceRefreshResponse",
+    [AWSCmdlet("Calls the AWS Auto Scaling RollbackInstanceRefresh API operation.", Operation = new[] {"RollbackInstanceRefresh"}, SelectReturnType = typeof(Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse))]
+    [AWSCmdletOutput("System.String or Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.AutoScaling.Model.CancelInstanceRefreshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
+    public partial class UndoASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter AutoScalingGroupName
@@ -58,22 +70,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AutoScalingGroupName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'InstanceRefreshId'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.CancelInstanceRefreshResponse).
-        /// Specifying the name of a property of type Amazon.AutoScaling.Model.CancelInstanceRefreshResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse).
+        /// Specifying the name of a property of type Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AutoScalingGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-ASInstanceRefresh (CancelInstanceRefresh)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Undo-ASInstanceRefresh (RollbackInstanceRefresh)"))
             {
                 return;
             }
@@ -119,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.CancelInstanceRefreshResponse, StopASInstanceRefreshCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse, UndoASInstanceRefreshCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,12 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoScalingGroupName = this.AutoScalingGroupName;
-            #if MODULAR
-            if (this.AutoScalingGroupName == null && ParameterWasBound(nameof(this.AutoScalingGroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AutoScalingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AutoScaling.Model.CancelInstanceRefreshRequest();
+            var request = new Amazon.AutoScaling.Model.RollbackInstanceRefreshRequest();
             
             if (cmdletContext.AutoScalingGroupName != null)
             {
@@ -191,15 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #region AWS Service Operation Call
         
-        private Amazon.AutoScaling.Model.CancelInstanceRefreshResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.CancelInstanceRefreshRequest request)
+        private Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.RollbackInstanceRefreshRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "CancelInstanceRefresh");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling", "RollbackInstanceRefresh");
             try
             {
                 #if DESKTOP
-                return client.CancelInstanceRefresh(request);
+                return client.RollbackInstanceRefresh(request);
                 #elif CORECLR
-                return client.CancelInstanceRefreshAsync(request).GetAwaiter().GetResult();
+                return client.RollbackInstanceRefreshAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutoScalingGroupName { get; set; }
-            public System.Func<Amazon.AutoScaling.Model.CancelInstanceRefreshResponse, StopASInstanceRefreshCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.AutoScaling.Model.RollbackInstanceRefreshResponse, UndoASInstanceRefreshCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceRefreshId;
         }
         

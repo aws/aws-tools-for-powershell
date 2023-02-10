@@ -1793,6 +1793,8 @@ Set-Alias -Name Record-ASLifecycleActionHeartbeat -Value Write-ASLifecycleAction
 Set-Alias -Name AS-RecordLifecycleActionHeartbeat -Value Write-ASLifecycleActionHeartbeat
 Set-Alias -Name Resume-ASProcesses -Value Resume-ASProcess
 Set-Alias -Name AS-ResumeProcesses -Value Resume-ASProcess
+Set-Alias -Name Rollback-ASInstanceRefresh -Value Undo-ASInstanceRefresh
+Set-Alias -Name AS-RollbackInstanceRefresh -Value Undo-ASInstanceRefresh
 Set-Alias -Name AS-SetDesiredCapacity -Value Set-ASDesiredCapacity
 Set-Alias -Name AS-SetInstanceHealth -Value Set-ASInstanceHealth
 Set-Alias -Name AS-SetInstanceProtection -Value Set-ASInstanceProtection

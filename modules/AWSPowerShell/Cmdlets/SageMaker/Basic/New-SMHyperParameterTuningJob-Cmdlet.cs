@@ -481,7 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The minimum number of resources (such as epochs) that can be used by a training job
         /// launched by a hyperparameter tuning job. If the value for <code>MinResource</code>
-        /// has not been reached, the training job will not be stopped by <code>Hyperband</code>.</para>
+        /// has not been reached, the training job is not stopped by <code>Hyperband</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

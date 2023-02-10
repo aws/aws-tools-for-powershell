@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// Allows the specified Amazon Connect instance to access the specified Amazon Lex bot.
+    /// Allows the specified Amazon Connect instance to access the specified Amazon Lex V1
+    /// bot. This API only supports the association of Amazon Lex V1 bots.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "CONNLexBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

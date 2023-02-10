@@ -28,8 +28,8 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Starts a new instance refresh operation. An instance refresh performs a rolling replacement
-    /// of all or some instances in an Auto Scaling group. Each instance is terminated first
+    /// Starts an instance refresh. During an instance refresh, Amazon EC2 Auto Scaling performs
+    /// a rolling update of instances in an Auto Scaling group. Instances are terminated first
     /// and then replaced, which temporarily reduces the capacity available within your Auto
     /// Scaling group.
     /// 
@@ -42,11 +42,23 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// specifies the new AMI or user data script. Then start an instance refresh to immediately
     /// begin the process of updating instances in the group. 
     /// </para><para>
-    /// If the call succeeds, it creates a new instance refresh request with a unique ID that
-    /// you can use to track its progress. To query its status, call the <a>DescribeInstanceRefreshes</a>
+    /// If successful, the request's response contains a unique ID that you can use to track
+    /// the progress of the instance refresh. To query its status, call the <a>DescribeInstanceRefreshes</a>
     /// API. To describe the instance refreshes that have already run, call the <a>DescribeInstanceRefreshes</a>
-    /// API. To cancel an instance refresh operation in progress, use the <a>CancelInstanceRefresh</a>
+    /// API. To cancel an instance refresh that is in progress, use the <a>CancelInstanceRefresh</a>
     /// API. 
+    /// </para><para>
+    /// An instance refresh might fail for several reasons, such as EC2 launch failures, misconfigured
+    /// health checks, or not ignoring or allowing the termination of instances that are in
+    /// <code>Standby</code> state or protected from scale in. You can monitor for failed
+    /// EC2 launches using the scaling activities. To find the scaling activities, call the
+    /// <a>DescribeScalingActivities</a> API.
+    /// </para><para>
+    /// If you enable auto rollback, your Auto Scaling group will be rolled back automatically
+    /// when the instance refresh fails. You can enable this feature before starting an instance
+    /// refresh by specifying the <code>AutoRollback</code> property in the instance refresh
+    /// preferences. Otherwise, to roll back an instance refresh before it finishes, use the
+    /// <a>RollbackInstanceRefresh</a> API. 
     /// </para>
     /// </summary>
     [Cmdlet("Start", "ASInstanceRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,6 +70,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
     )]
     public partial class StartASInstanceRefreshCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
+        
+        #region Parameter Preferences_AutoRollback
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) Indicates whether to roll back the Auto Scaling group to its previous configuration
+        /// if the instance refresh fails. The default is <code>false</code>.</para><para>A rollback is not supported in the following situations: </para><ul><li><para>There is no desired configuration specified for the instance refresh.</para></li><li><para>The Auto Scaling group has a launch template that uses an Amazon Web Services Systems
+        /// Manager parameter instead of an AMI ID for the <code>ImageId</code> property.</para></li><li><para>The Auto Scaling group uses the launch template's <code>$Latest</code> or <code>$Default</code>
+        /// version.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Preferences_AutoRollback { get; set; }
+        #endregion
         
         #region Parameter AutoScalingGroupName
         /// <summary>
@@ -79,9 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_CheckpointDelay
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, to wait after a checkpoint before continuing. This
-        /// property is optional, but if you specify a value for it, you must also specify a value
-        /// for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code>
+        /// <para>(Optional) The amount of time, in seconds, to wait after a checkpoint before continuing.
+        /// This property is optional, but if you specify a value for it, you must also specify
+        /// a value for <code>CheckpointPercentages</code>. If you specify a value for <code>CheckpointPercentages</code>
         /// and not for <code>CheckpointDelay</code>, the <code>CheckpointDelay</code> defaults
         /// to <code>3600</code> (1 hour). </para>
         /// </para>
@@ -93,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_CheckpointPercentage
         /// <summary>
         /// <para>
-        /// <para>Threshold values for each checkpoint in ascending order. Each number must be unique.
-        /// To replace all instances in the Auto Scaling group, the last number in the array must
-        /// be <code>100</code>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
+        /// <para>(Optional) Threshold values for each checkpoint in ascending order. Each number must
+        /// be unique. To replace all instances in the Auto Scaling group, the last number in
+        /// the array must be <code>100</code>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
         /// checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -107,9 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Preferences_InstanceWarmup
         /// <summary>
         /// <para>
-        /// <para><i>Not needed if the default instance warmup is defined for the group.</i></para><para>The duration of the instance warmup, in seconds.</para><note><para>The default is to use the value for the default instance warmup defined for the group.
-        /// If default instance warmup is null, then <code>InstanceWarmup</code> falls back to
-        /// the value of the health check grace period.</para></note>
+        /// <para>A time period, in seconds, during which an instance refresh waits before moving on
+        /// to replacing the next instance after a new instance enters the <code>InService</code>
+        /// state.</para><para>This property is not required for normal usage. Instead, use the <code>DefaultInstanceWarmup</code>
+        /// property of the Auto Scaling group. The <code>InstanceWarmup</code> and <code>DefaultInstanceWarmup</code>
+        /// properties work the same way. Only specify this property if you must override the
+        /// <code>DefaultInstanceWarmup</code> property. </para><para> If you do not specify this property, the instance warmup by default is the value
+        /// of the <code>DefaultInstanceWarmup</code> property, if defined (which is recommended
+        /// in all cases), or the <code>HealthCheckGracePeriod</code> property otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,26 +197,56 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public Amazon.AutoScaling.Model.MixedInstancesPolicy DesiredConfiguration_MixedInstancesPolicy { get; set; }
         #endregion
         
+        #region Parameter Preferences_ScaleInProtectedInstance
+        /// <summary>
+        /// <para>
+        /// <para>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances protected
+        /// from scale in are found. </para><para>The following lists the valid values:</para><dl><dt>Refresh</dt><dd><para>Amazon EC2 Auto Scaling replaces instances that are protected from scale in.</para></dd><dt>Ignore</dt><dd><para>Amazon EC2 Auto Scaling ignores instances that are protected from scale in and continues
+        /// to replace instances that are not protected.</para></dd><dt>Wait (default)</dt><dd><para>Amazon EC2 Auto Scaling waits one hour for you to remove scale-in protection. Otherwise,
+        /// the instance refresh will fail.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Preferences_ScaleInProtectedInstances")]
+        [AWSConstantClassSource("Amazon.AutoScaling.ScaleInProtectedInstances")]
+        public Amazon.AutoScaling.ScaleInProtectedInstances Preferences_ScaleInProtectedInstance { get; set; }
+        #endregion
+        
         #region Parameter Preferences_SkipMatching
         /// <summary>
         /// <para>
-        /// <para>A boolean value that indicates whether skip matching is enabled. If true, then Amazon
-        /// EC2 Auto Scaling skips replacing instances that match the desired configuration. If
-        /// no desired configuration is specified, then it skips replacing instances that have
-        /// the same configuration that is already set on the group. The default is <code>false</code>.</para>
+        /// <para>(Optional) Indicates whether skip matching is enabled. If enabled (<code>true</code>),
+        /// then Amazon EC2 Auto Scaling skips replacing instances that match the desired configuration.
+        /// If no desired configuration is specified, then it skips replacing instances that have
+        /// the same launch template and instance types that the Auto Scaling group was using
+        /// before the start of the instance refresh. The default is <code>false</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh-skip-matching.html">Use
+        /// an instance refresh with skip matching</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Preferences_SkipMatching { get; set; }
         #endregion
         
+        #region Parameter Preferences_StandbyInstance
+        /// <summary>
+        /// <para>
+        /// <para>Choose the behavior that you want Amazon EC2 Auto Scaling to use if instances in <code>Standby</code>
+        /// state are found.</para><para>The following lists the valid values:</para><dl><dt>Terminate</dt><dd><para>Amazon EC2 Auto Scaling terminates instances that are in <code>Standby</code>.</para></dd><dt>Ignore</dt><dd><para>Amazon EC2 Auto Scaling ignores instances that are in <code>Standby</code> and continues
+        /// to replace instances that are in the <code>InService</code> state.</para></dd><dt>Wait (default)</dt><dd><para>Amazon EC2 Auto Scaling waits one hour for you to return the instances to service.
+        /// Otherwise, the instance refresh will fail.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Preferences_StandbyInstances")]
+        [AWSConstantClassSource("Amazon.AutoScaling.StandbyInstances")]
+        public Amazon.AutoScaling.StandbyInstances Preferences_StandbyInstance { get; set; }
+        #endregion
+        
         #region Parameter Strategy
         /// <summary>
         /// <para>
-        /// <para>The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.</para><para>A rolling update helps you update your instances gradually. A rolling update can fail
-        /// due to failed health checks or if instances are on standby or are protected from scale
-        /// in. If the rolling update process fails, any instances that are replaced are not rolled
-        /// back to their previous configuration. </para>
+        /// <para>The strategy to use for the instance refresh. The only valid value is <code>Rolling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             context.DesiredConfiguration_MixedInstancesPolicy = this.DesiredConfiguration_MixedInstancesPolicy;
+            context.Preferences_AutoRollback = this.Preferences_AutoRollback;
             context.Preferences_CheckpointDelay = this.Preferences_CheckpointDelay;
             if (this.Preferences_CheckpointPercentage != null)
             {
@@ -291,7 +352,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             context.Preferences_InstanceWarmup = this.Preferences_InstanceWarmup;
             context.Preferences_MinHealthyPercentage = this.Preferences_MinHealthyPercentage;
+            context.Preferences_ScaleInProtectedInstance = this.Preferences_ScaleInProtectedInstance;
             context.Preferences_SkipMatching = this.Preferences_SkipMatching;
+            context.Preferences_StandbyInstance = this.Preferences_StandbyInstance;
             context.Strategy = this.Strategy;
             
             // allow further manipulation of loaded context prior to processing
@@ -381,6 +444,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
              // populate Preferences
             var requestPreferencesIsNull = true;
             request.Preferences = new Amazon.AutoScaling.Model.RefreshPreferences();
+            System.Boolean? requestPreferences_preferences_AutoRollback = null;
+            if (cmdletContext.Preferences_AutoRollback != null)
+            {
+                requestPreferences_preferences_AutoRollback = cmdletContext.Preferences_AutoRollback.Value;
+            }
+            if (requestPreferences_preferences_AutoRollback != null)
+            {
+                request.Preferences.AutoRollback = requestPreferences_preferences_AutoRollback.Value;
+                requestPreferencesIsNull = false;
+            }
             System.Int32? requestPreferences_preferences_CheckpointDelay = null;
             if (cmdletContext.Preferences_CheckpointDelay != null)
             {
@@ -421,6 +494,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 request.Preferences.MinHealthyPercentage = requestPreferences_preferences_MinHealthyPercentage.Value;
                 requestPreferencesIsNull = false;
             }
+            Amazon.AutoScaling.ScaleInProtectedInstances requestPreferences_preferences_ScaleInProtectedInstance = null;
+            if (cmdletContext.Preferences_ScaleInProtectedInstance != null)
+            {
+                requestPreferences_preferences_ScaleInProtectedInstance = cmdletContext.Preferences_ScaleInProtectedInstance;
+            }
+            if (requestPreferences_preferences_ScaleInProtectedInstance != null)
+            {
+                request.Preferences.ScaleInProtectedInstances = requestPreferences_preferences_ScaleInProtectedInstance;
+                requestPreferencesIsNull = false;
+            }
             System.Boolean? requestPreferences_preferences_SkipMatching = null;
             if (cmdletContext.Preferences_SkipMatching != null)
             {
@@ -429,6 +512,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestPreferences_preferences_SkipMatching != null)
             {
                 request.Preferences.SkipMatching = requestPreferences_preferences_SkipMatching.Value;
+                requestPreferencesIsNull = false;
+            }
+            Amazon.AutoScaling.StandbyInstances requestPreferences_preferences_StandbyInstance = null;
+            if (cmdletContext.Preferences_StandbyInstance != null)
+            {
+                requestPreferences_preferences_StandbyInstance = cmdletContext.Preferences_StandbyInstance;
+            }
+            if (requestPreferences_preferences_StandbyInstance != null)
+            {
+                request.Preferences.StandbyInstances = requestPreferences_preferences_StandbyInstance;
                 requestPreferencesIsNull = false;
             }
              // determine if request.Preferences should be set to null
@@ -506,11 +599,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String LaunchTemplate_LaunchTemplateName { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
             public Amazon.AutoScaling.Model.MixedInstancesPolicy DesiredConfiguration_MixedInstancesPolicy { get; set; }
+            public System.Boolean? Preferences_AutoRollback { get; set; }
             public System.Int32? Preferences_CheckpointDelay { get; set; }
             public List<System.Int32> Preferences_CheckpointPercentage { get; set; }
             public System.Int32? Preferences_InstanceWarmup { get; set; }
             public System.Int32? Preferences_MinHealthyPercentage { get; set; }
+            public Amazon.AutoScaling.ScaleInProtectedInstances Preferences_ScaleInProtectedInstance { get; set; }
             public System.Boolean? Preferences_SkipMatching { get; set; }
+            public Amazon.AutoScaling.StandbyInstances Preferences_StandbyInstance { get; set; }
             public Amazon.AutoScaling.RefreshStrategy Strategy { get; set; }
             public System.Func<Amazon.AutoScaling.Model.StartInstanceRefreshResponse, StartASInstanceRefreshCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceRefreshId;

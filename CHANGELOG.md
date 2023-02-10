@@ -1,4 +1,12 @@
-﻿### 4.1.268 (2023-02-09 22:07Z)
+﻿### 4.1.269 (2023-02-10 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.481.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Auto Scaling
+    * Added cmdlet Undo-ASInstanceRefresh leveraging the RollbackInstanceRefresh service API.
+    * Modified cmdlet Start-ASInstanceRefresh: added parameters Preferences_AutoRollback, Preferences_ScaleInProtectedInstance and Preferences_StandbyInstance.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJob: added parameter CandidateGenerationConfig_AlgorithmsConfig.
+
+### 4.1.268 (2023-02-09 22:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.479.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon EMR Containers
     * Modified cmdlet Start-EMRCJobRun: added parameter RetryPolicyConfiguration_MaxAttempt.

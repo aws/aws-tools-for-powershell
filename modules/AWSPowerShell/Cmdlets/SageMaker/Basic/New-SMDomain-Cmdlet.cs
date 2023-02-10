@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of
     /// an associated Amazon Elastic File System (EFS) volume, a list of authorized users,
     /// and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC)
-    /// configurations. An Amazon Web Services account is limited to one domain per region.
-    /// Users within a domain can share notebook files and other artifacts with each other.
+    /// configurations. Users within a domain can share notebook files and other artifacts
+    /// with each other.
     /// 
     ///  
     /// <para><b>EFS storage</b></para><para>

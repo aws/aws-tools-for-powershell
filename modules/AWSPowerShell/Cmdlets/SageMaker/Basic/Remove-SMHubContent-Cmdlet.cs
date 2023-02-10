@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Delete the contents of a hub.
+    /// 
+    ///  <note><para>
+    /// Hub APIs are only callable through SageMaker Studio.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SMHubContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

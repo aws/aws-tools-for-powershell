@@ -4442,6 +4442,20 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.ScaleInProtectedInstances
+        "Start-ASInstanceRefresh/Preferences_ScaleInProtectedInstances"
+        {
+            $v = "Ignore","Refresh","Wait"
+            break
+        }
+
+        # Amazon.AutoScaling.StandbyInstances
+        "Start-ASInstanceRefresh/Preferences_StandbyInstances"
+        {
+            $v = "Ignore","Terminate","Wait"
+            break
+        }
+
         # Amazon.AutoScaling.WarmPoolState
         "Write-ASWarmPool/PoolState"
         {
@@ -4463,6 +4477,8 @@ $AS_map = @{
     "PoolState"=@("Write-ASWarmPool")
     "PredictiveScalingConfiguration_MaxCapacityBreachBehavior"=@("Write-ASScalingPolicy")
     "PredictiveScalingConfiguration_Mode"=@("Write-ASScalingPolicy")
+    "Preferences_ScaleInProtectedInstances"=@("Start-ASInstanceRefresh")
+    "Preferences_StandbyInstances"=@("Start-ASInstanceRefresh")
     "Strategy"=@("Start-ASInstanceRefresh")
     "TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-ASScalingPolicy")
@@ -4575,6 +4591,7 @@ $AS_SelectMap = @{
                "Write-ASWarmPool",
                "Write-ASLifecycleActionHeartbeat",
                "Resume-ASProcess",
+               "Undo-ASInstanceRefresh",
                "Set-ASDesiredCapacity",
                "Set-ASInstanceHealth",
                "Set-ASInstanceProtection",
@@ -42776,7 +42793,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Stephen","Suvi","Takumi","Tatyana","Thiago","Vicki","Vitoria","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zeina","Zhiyu"
             break
         }
 

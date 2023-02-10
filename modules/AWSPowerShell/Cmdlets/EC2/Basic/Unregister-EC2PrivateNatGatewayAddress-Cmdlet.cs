@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Unassigns secondary private NAT gateway IPv4 addresses from a private NAT gateway.
-    /// You cannot unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
+    /// Unassigns secondary private IPv4 addresses from a private NAT gateway. You cannot
+    /// unassign your primary private IP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit
     /// secondary IP address associations</a> in the <i>Amazon Virtual Private Cloud User
     /// Guide</i>.
     /// 

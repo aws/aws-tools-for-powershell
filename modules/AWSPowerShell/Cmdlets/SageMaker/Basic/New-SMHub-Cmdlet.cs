@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Create a hub.
+    /// 
+    ///  <note><para>
+    /// Hub APIs are only callable through SageMaker Studio.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SMHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -98,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3StorageConfig_S3OutputPath
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 output path for the hub.</para>
+        /// <para>The Amazon S3 bucket prefix for hosting hub content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

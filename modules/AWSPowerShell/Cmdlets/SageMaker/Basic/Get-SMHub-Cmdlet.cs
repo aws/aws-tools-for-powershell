@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Describe a hub.
+    /// 
+    ///  <note><para>
+    /// Hub APIs are only callable through SageMaker Studio.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SMHub")]
     [OutputType("Amazon.SageMaker.Model.DescribeHubResponse")]

@@ -48,6 +48,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMAutoMLJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter CandidateGenerationConfig_AlgorithmsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Stores the configuration information for the selection of algorithms used to train
+        /// the model candidates.</para><para>The list of available algorithms to choose from depends on the training mode set in
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html"><code>AutoMLJobConfig.Mode</code></a>.</para><ul><li><para><code>AlgorithmsConfig</code> should not be set in <code>AUTO</code> training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is provided, one <code>AutoMLAlgorithms</code>
+        /// attribute must be set and one only.</para><para>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
+        /// empty, <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms
+        /// for the given training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is not provided, <code>AutoMLCandidateGenerationConfig</code>
+        /// uses the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per training mode, see .</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
+        /// support</a> section in Autopilot developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLJobConfig_CandidateGenerationConfig_AlgorithmsConfig")]
+        public Amazon.SageMaker.Model.AutoMLAlgorithmConfig[] CandidateGenerationConfig_AlgorithmsConfig { get; set; }
+        #endregion
+        
         #region Parameter ModelDeployConfig_AutoGenerateEndpointName
         /// <summary>
         /// <para>
@@ -64,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AutoMLJobName
         /// <summary>
         /// <para>
-        /// <para>Identifies an Autopilot job. The name must be unique to your account and is case-insensitive.</para>
+        /// <para>Identifies an Autopilot job. The name must be unique to your account and is case insensitive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,16 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A URL to the Amazon S3 data source containing selected features from the input data
         /// source to run an Autopilot job. You can input <code>FeatureAttributeNames</code> (optional)
-        /// in JSON format as shown below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code></para><note><para>These column keys may not include the target column.</para></note><para>In ensembling mode, Autopilot will only support the following data types: <code>numeric</code>,
-        /// <code>categorical</code>, <code>text</code> and <code>datetime</code>. In HPO mode,
+        /// in JSON format as shown below: </para><para><code>{ "FeatureAttributeNames":["col1", "col2", ...] }</code>.</para><para>You can also specify the data type of the feature (optional) in the format shown below:</para><para><code>{ "FeatureDataTypes":{"col1":"numeric", "col2":"categorical" ... } }</code></para><note><para>These column keys may not include the target column.</para></note><para>In ensembling mode, Autopilot only supports the following data types: <code>numeric</code>,
+        /// <code>categorical</code>, <code>text</code>, and <code>datetime</code>. In HPO mode,
         /// Autopilot can support <code>numeric</code>, <code>categorical</code>, <code>text</code>,
-        /// <code>datetime</code> and <code>sequence</code>.</para><para>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
+        /// <code>datetime</code>, and <code>sequence</code>.</para><para>If only <code>FeatureDataTypes</code> is provided, the column keys (<code>col1</code>,
         /// <code>col2</code>,..) should be a subset of the column names in the input data. </para><para>If both <code>FeatureDataTypes</code> and <code>FeatureAttributeNames</code> are provided,
         /// then the column keys should be a subset of the column names provided in <code>FeatureAttributeNames</code>.
         /// </para><para>The key name <code>FeatureAttributeNames</code> is fixed. The values listed in <code>["col1",
-        /// "col2", ...]</code> is case sensitive and should be a list of strings containing unique
-        /// values that are a subset of the column names in the input data. The list of columns
-        /// provided must not include the target column.</para>
+        /// "col2", ...]</code> are case sensitive and should be a list of strings containing
+        /// unique values that are a subset of the column names in the input data. The list of
+        /// columns provided must not include the target column.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum runtime, in seconds, an AutoML job has to complete.</para><para>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and
         /// its processing is ended gracefully. The AutoML job identifies the best model whose
         /// training was completed and marks it as the best-performing model. Any unfinished steps
-        /// of the job, such as automatic one-click Autopilot model deployment, will not be completed.
+        /// of the job, such as automatic one-click Autopilot model deployment, are not completed.
         /// </para>
         /// </para>
         /// </summary>
@@ -208,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The name of the objective metric used to measure the predictive quality of a machine
         /// learning system. This metric is optimized during training to provide the best estimate
-        /// for model parameter values from data.</para><para>Here are the options:</para><dl><dt>Accuracy</dt><dd><para> The ratio of the number of correctly classified items to the total number of (correctly
+        /// for model parameter values from data.</para><para>Here are the options:</para><dl><dt>Accuracy</dt><dd><para>The ratio of the number of correctly classified items to the total number of (correctly
         /// and incorrectly) classified items. It is used for both binary and multiclass classification.
         /// Accuracy measures how close the predicted class values are to the actual values. Values
         /// for accuracy metrics vary between zero (0) and one (1). A value of 1 indicates perfect
@@ -273,13 +291,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// predict true positives (TP) in the data, and is used in binary classification. </para><para>Recall is important when testing for cancer because it's used to find all of the true
         /// positives. A false positive (FP) reflects a positive prediction that is actually negative
         /// in the data. It is often insufficient to measure only recall, because predicting every
-        /// output as a true positive will yield a perfect recall score.</para></dd><dt>RecallMacro</dt><dd><para>The RecallMacro computes recall for multiclass classification problems by calculating
+        /// output as a true positive yield a perfect recall score.</para></dd><dt>RecallMacro</dt><dd><para>The RecallMacro computes recall for multiclass classification problems by calculating
         /// recall for each class and averaging scores to obtain recall for several classes. RecallMacro
         /// scores range from 0 to 1. Higher scores reflect the model's ability to predict true
         /// positives (TP) in a dataset. Whereas, a true positive reflects a positive prediction
         /// that is also an actual positive value in the data. It is often insufficient to measure
-        /// only recall, because predicting every output as a true positive will yield a perfect
-        /// recall score.</para></dd><dt>RMSE</dt><dd><para>Root mean squared error (RMSE) measures the square root of the squared difference
+        /// only recall, because predicting every output as a true positive yields a perfect recall
+        /// score.</para></dd><dt>RMSE</dt><dd><para>Root mean squared error (RMSE) measures the square root of the squared difference
         /// between predicted and actual values, and it's averaged over all values. It is used
         /// in regression analysis to understand model prediction error. It's an important metric
         /// to indicate the presence of large model errors and outliers. Values range from zero
@@ -307,8 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// capabilities of multiple models. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot
         /// algorithm support</a> for a list of algorithms supported by <code>ENSEMBLING</code>
         /// mode.</para><para>The <code>HYPERPARAMETER_TUNING</code> (HPO) mode uses the best hyperparameters to
-        /// train the best version of a model. HPO will automatically select an algorithm for
-        /// the type of problem you want to solve. Then HPO finds the best hyperparameters according
+        /// train the best version of a model. HPO automatically selects an algorithm for the
+        /// type of problem you want to solve. Then HPO finds the best hyperparameters according
         /// to your objective metric. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt">Autopilot
         /// algorithm support</a> for a list of algorithms supported by <code>HYPERPARAMETER_TUNING</code>
         /// mode.</para>
@@ -488,6 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.AutoMLJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                context.CandidateGenerationConfig_AlgorithmsConfig = new List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig>(this.CandidateGenerationConfig_AlgorithmsConfig);
+            }
             context.CandidateGenerationConfig_FeatureSpecificationS3Uri = this.CandidateGenerationConfig_FeatureSpecificationS3Uri;
             context.CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.CompletionCriteria_MaxCandidate = this.CompletionCriteria_MaxCandidate;
@@ -575,31 +597,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.AutoMLJobConfig.Mode = requestAutoMLJobConfig_autoMLJobConfig_Mode;
                 requestAutoMLJobConfigIsNull = false;
             }
-            Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
-            
-             // populate CandidateGenerationConfig
-            var requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = true;
-            requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig();
-            System.String requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri = null;
-            if (cmdletContext.CandidateGenerationConfig_FeatureSpecificationS3Uri != null)
-            {
-                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri = cmdletContext.CandidateGenerationConfig_FeatureSpecificationS3Uri;
-            }
-            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri != null)
-            {
-                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig.FeatureSpecificationS3Uri = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri;
-                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = false;
-            }
-             // determine if requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig should be set to null
-            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull)
-            {
-                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
-            }
-            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig != null)
-            {
-                request.AutoMLJobConfig.CandidateGenerationConfig = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig;
-                requestAutoMLJobConfigIsNull = false;
-            }
             Amazon.SageMaker.Model.AutoMLDataSplitConfig requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig = null;
             
              // populate DataSplitConfig
@@ -623,6 +620,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig != null)
             {
                 request.AutoMLJobConfig.DataSplitConfig = requestAutoMLJobConfig_autoMLJobConfig_DataSplitConfig;
+                requestAutoMLJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
+            
+             // populate CandidateGenerationConfig
+            var requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = true;
+            requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.AutoMLCandidateGenerationConfig();
+            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = null;
+            if (cmdletContext.CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = cmdletContext.CandidateGenerationConfig_AlgorithmsConfig;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig;
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = false;
+            }
+            System.String requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri = null;
+            if (cmdletContext.CandidateGenerationConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri = cmdletContext.CandidateGenerationConfig_FeatureSpecificationS3Uri;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri != null)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig.FeatureSpecificationS3Uri = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig_candidateGenerationConfig_FeatureSpecificationS3Uri;
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull = false;
+            }
+             // determine if requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig should be set to null
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfigIsNull)
+            {
+                requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig = null;
+            }
+            if (requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig != null)
+            {
+                request.AutoMLJobConfig.CandidateGenerationConfig = requestAutoMLJobConfig_autoMLJobConfig_CandidateGenerationConfig;
                 requestAutoMLJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.AutoMLJobCompletionCriteria requestAutoMLJobConfig_autoMLJobConfig_CompletionCriteria = null;
@@ -907,6 +939,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> CandidateGenerationConfig_AlgorithmsConfig { get; set; }
             public System.String CandidateGenerationConfig_FeatureSpecificationS3Uri { get; set; }
             public System.Int32? CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? CompletionCriteria_MaxCandidate { get; set; }

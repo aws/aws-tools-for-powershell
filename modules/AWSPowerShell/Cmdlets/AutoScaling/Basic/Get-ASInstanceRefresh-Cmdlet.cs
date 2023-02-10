@@ -36,22 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// refresh feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in
     /// your Auto Scaling group after you make configuration changes.
     /// </para><para>
-    /// To help you determine the status of an instance refresh, this operation returns information
-    /// about the instance refreshes you previously initiated, including their status, end
-    /// time, the percentage of the instance refresh that is complete, and the number of instances
-    /// remaining to update before the instance refresh is complete.
-    /// </para><para>
-    /// The following are the possible statuses: 
-    /// </para><ul><li><para><code>Pending</code> - The request was created, but the operation has not started.
-    /// </para></li><li><para><code>InProgress</code> - The operation is in progress.
-    /// </para></li><li><para><code>Successful</code> - The operation completed successfully.
-    /// </para></li><li><para><code>Failed</code> - The operation failed to complete. You can troubleshoot using
-    /// the status reason and the scaling activities. 
-    /// </para></li><li><para><code>Cancelling</code> - An ongoing operation is being cancelled. Cancellation does
-    /// not roll back any replacements that have already been completed, but it prevents new
-    /// replacements from being started. 
-    /// </para></li><li><para><code>Cancelled</code> - The operation is cancelled. 
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// To help you determine the status of an instance refresh, Amazon EC2 Auto Scaling returns
+    /// information about the instance refreshes you previously initiated, including their
+    /// status, start time, end time, the percentage of the instance refresh that is complete,
+    /// and the number of instances remaining to update before the instance refresh is complete.
+    /// If a rollback is initiated while an instance refresh is in progress, Amazon EC2 Auto
+    /// Scaling also returns information about the rollback of the instance refresh.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASInstanceRefresh")]
     [OutputType("Amazon.AutoScaling.Model.InstanceRefresh")]

@@ -143,6 +143,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-ASInstanceInAutoScalingGroup', 
         'Stop-ASInstanceRefresh', 
         'Suspend-ASProcess', 
+        'Undo-ASInstanceRefresh', 
         'Update-ASAutoScalingGroup', 
         'Write-ASLifecycleActionHeartbeat', 
         'Write-ASLifecycleHook', 
