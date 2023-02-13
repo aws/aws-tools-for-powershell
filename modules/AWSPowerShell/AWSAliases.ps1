@@ -52,8 +52,14 @@ Set-Alias -Name Validate-IAMAAPolicyValidation -Value Use-IAMAAPolicyValidation
 Set-Alias -Name IAMAA-ValidatePolicy -Value Use-IAMAAPolicyValidation
 Set-Alias -Name Delete-ACCTAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DeleteAlternateContact -Value Remove-ACCTAlternateContact
+Set-Alias -Name ACCT-DisableRegion -Value Disable-ACCTRegion
+Set-Alias -Name ACCT-EnableRegion -Value Enable-ACCTRegion
 Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
 Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
+Set-Alias -Name ACCT-GetRegionOptStatus -Value Get-ACCTRegionOptStatus
+Set-Alias -Name List-ACCTRegions -Value Get-ACCTRegionList
+Set-Alias -Name List-ACCTRegionList -Value Get-ACCTRegionList
+Set-Alias -Name ACCT-ListRegions -Value Get-ACCTRegionList
 Set-Alias -Name Put-ACCTAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name ACCT-PutAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name Put-ACCTContactInformation -Value Write-ACCTContactInformation
@@ -22434,6 +22440,9 @@ Set-Alias -Name List-SNOWJobList -Value Get-SNOWJobList
 Set-Alias -Name SNOW-ListJobs -Value Get-SNOWJobList
 Set-Alias -Name List-SNOWLongTermPricing -Value Get-SNOWLongTermPricing
 Set-Alias -Name SNOW-ListLongTermPricing -Value Get-SNOWLongTermPricing
+Set-Alias -Name List-SNOWServiceVersions -Value Get-SNOWServiceVersion
+Set-Alias -Name List-SNOWServiceVersion -Value Get-SNOWServiceVersion
+Set-Alias -Name SNOW-ListServiceVersions -Value Get-SNOWServiceVersion
 Set-Alias -Name SNOW-UpdateCluster -Value Update-SNOWCluster
 Set-Alias -Name SNOW-UpdateJob -Value Update-SNOWJob
 Set-Alias -Name SNOW-UpdateJobShipmentState -Value Update-SNOWJobShipmentState

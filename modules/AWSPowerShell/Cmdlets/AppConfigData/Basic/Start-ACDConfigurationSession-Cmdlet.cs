@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     /// <summary>
     /// Starts a configuration session used to retrieve a deployed configuration. For more
     /// information about this API action and to view example CLI commands that show how to
-    /// use it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving
+    /// use it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving
     /// the configuration</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
     [Cmdlet("Start", "ACDConfigurationSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
         /// <para>
         /// <para>Sets a constraint on a session. If you specify a value of, for example, 60 seconds,
         /// then the client that established the session can't call <a>GetLatestConfiguration</a>
-        /// more frequently then every 60 seconds.</para>
+        /// more frequently than every 60 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public Amazon.Snowball.Model.Ec2AmiResource[] Resources_Ec2AmiResource { get; set; }
         #endregion
         
+        #region Parameter EKSOnDeviceService_EKSAnywhereVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of EKS Anywhere on the Snow Family device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_EKSOnDeviceService_EKSAnywhereVersion")]
+        public System.String EKSOnDeviceService_EKSAnywhereVersion { get; set; }
+        #endregion
+        
         #region Parameter ForwardingAddressId
         /// <summary>
         /// <para>
@@ -148,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyARN { get; set; }
+        #endregion
+        
+        #region Parameter EKSOnDeviceService_KubernetesVersion
+        /// <summary>
+        /// <para>
+        /// <para>The Kubernetes version for EKS Anywhere on the Snow Family device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_EKSOnDeviceService_KubernetesVersion")]
+        public System.String EKSOnDeviceService_KubernetesVersion { get; set; }
         #endregion
         
         #region Parameter Resources_LambdaResource
@@ -402,6 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             }
             context.Notification_NotifyAll = this.Notification_NotifyAll;
             context.Notification_SnsTopicARN = this.Notification_SnsTopicARN;
+            context.EKSOnDeviceService_EKSAnywhereVersion = this.EKSOnDeviceService_EKSAnywhereVersion;
+            context.EKSOnDeviceService_KubernetesVersion = this.EKSOnDeviceService_KubernetesVersion;
             context.NFSOnDeviceService_StorageLimit = this.NFSOnDeviceService_StorageLimit;
             context.NFSOnDeviceService_StorageUnit = this.NFSOnDeviceService_StorageUnit;
             context.TGWOnDeviceService_StorageLimit = this.TGWOnDeviceService_StorageLimit;
@@ -560,6 +584,41 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
              // populate OnDeviceServiceConfiguration
             var requestOnDeviceServiceConfigurationIsNull = true;
             request.OnDeviceServiceConfiguration = new Amazon.Snowball.Model.OnDeviceServiceConfiguration();
+            Amazon.Snowball.Model.EKSOnDeviceServiceConfiguration requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService = null;
+            
+             // populate EKSOnDeviceService
+            var requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceServiceIsNull = true;
+            requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService = new Amazon.Snowball.Model.EKSOnDeviceServiceConfiguration();
+            System.String requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_EKSAnywhereVersion = null;
+            if (cmdletContext.EKSOnDeviceService_EKSAnywhereVersion != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_EKSAnywhereVersion = cmdletContext.EKSOnDeviceService_EKSAnywhereVersion;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_EKSAnywhereVersion != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService.EKSAnywhereVersion = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_EKSAnywhereVersion;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceServiceIsNull = false;
+            }
+            System.String requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_KubernetesVersion = null;
+            if (cmdletContext.EKSOnDeviceService_KubernetesVersion != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_KubernetesVersion = cmdletContext.EKSOnDeviceService_KubernetesVersion;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_KubernetesVersion != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService.KubernetesVersion = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService_eKSOnDeviceService_KubernetesVersion;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceServiceIsNull = false;
+            }
+             // determine if requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService should be set to null
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceServiceIsNull)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService = null;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService != null)
+            {
+                request.OnDeviceServiceConfiguration.EKSOnDeviceService = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_EKSOnDeviceService;
+                requestOnDeviceServiceConfigurationIsNull = false;
+            }
             Amazon.Snowball.Model.NFSOnDeviceServiceConfiguration requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_NFSOnDeviceService = null;
             
              // populate NFSOnDeviceService
@@ -800,6 +859,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public List<System.String> Notification_JobStatesToNotify { get; set; }
             public System.Boolean? Notification_NotifyAll { get; set; }
             public System.String Notification_SnsTopicARN { get; set; }
+            public System.String EKSOnDeviceService_EKSAnywhereVersion { get; set; }
+            public System.String EKSOnDeviceService_KubernetesVersion { get; set; }
             public System.Int32? NFSOnDeviceService_StorageLimit { get; set; }
             public Amazon.Snowball.StorageUnit NFSOnDeviceService_StorageUnit { get; set; }
             public System.Int32? TGWOnDeviceService_StorageLimit { get; set; }

@@ -1,4 +1,18 @@
-﻿### 4.1.269 (2023-02-10 21:59Z)
+﻿### 4.1.270 (2023-02-13 21:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.482.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Account
+    * Added cmdlet Disable-ACCTRegion leveraging the DisableRegion service API.
+    * Added cmdlet Enable-ACCTRegion leveraging the EnableRegion service API.
+    * Added cmdlet Get-ACCTRegionList leveraging the ListRegions service API.
+    * Added cmdlet Get-ACCTRegionOptStatus leveraging the GetRegionOptStatus service API.
+  * Amazon Import/Export Snowball
+    * Added cmdlet Get-SNOWServiceVersion leveraging the ListServiceVersions service API.
+    * Modified cmdlet New-SNOWCluster: added parameters EKSOnDeviceService_EKSAnywhereVersion and EKSOnDeviceService_KubernetesVersion.
+    * Modified cmdlet New-SNOWJob: added parameters EKSOnDeviceService_EKSAnywhereVersion and EKSOnDeviceService_KubernetesVersion.
+    * Modified cmdlet Update-SNOWCluster: added parameters EKSOnDeviceService_EKSAnywhereVersion and EKSOnDeviceService_KubernetesVersion.
+    * Modified cmdlet Update-SNOWJob: added parameters EKSOnDeviceService_EKSAnywhereVersion and EKSOnDeviceService_KubernetesVersion.
+
+### 4.1.269 (2023-02-10 21:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.481.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Auto Scaling
     * Added cmdlet Undo-ASInstanceRefresh leveraging the RollbackInstanceRefresh service API.

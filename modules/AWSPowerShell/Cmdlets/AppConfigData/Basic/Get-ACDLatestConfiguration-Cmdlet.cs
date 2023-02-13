@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     /// Retrieves the latest deployed configuration. This API may return empty configuration
     /// data if the client already has the latest version. For more information about this
     /// API action and to view example CLI commands that show how to use it with the <a>StartConfigurationSession</a>
-    /// API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving
+    /// API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Retrieving
     /// the configuration</a> in the <i>AppConfig User Guide</i>. 
     /// 
     ///  <important><para>
@@ -59,8 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.ACD
         /// <para>Token describing the current state of the configuration session. To obtain a token,
         /// first call the <a>StartConfigurationSession</a> API. Note that every call to <code>GetLatestConfiguration</code>
         /// will return a new <code>ConfigurationToken</code> (<code>NextPollConfigurationToken</code>
-        /// in the response) and MUST be provided to subsequent <code>GetLatestConfiguration</code>
-        /// API calls.</para>
+        /// in the response) and <i>must</i> be provided to subsequent <code>GetLatestConfiguration</code>
+        /// API calls.</para><important><para>This token should only be used once. To support long poll use cases, the token is
+        /// valid for up to 24 hours. If a <code>GetLatestConfiguration</code> call uses an expired
+        /// token, the system returns <code>BadRequestException</code>.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

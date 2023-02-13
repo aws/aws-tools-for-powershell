@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SNOWJobUnlockCode', 
         'Get-SNOWLongTermPricing', 
         'Get-SNOWReturnShippingLabel', 
+        'Get-SNOWServiceVersion', 
         'Get-SNOWSnowballUsage', 
         'Get-SNOWSoftwareUpdate', 
         'New-SNOWAddress', 

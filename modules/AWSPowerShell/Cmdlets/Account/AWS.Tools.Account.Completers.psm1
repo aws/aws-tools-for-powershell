@@ -154,8 +154,12 @@ $ACCT_SelectCompleters = {
 
 $ACCT_SelectMap = @{
     "Select"=@("Remove-ACCTAlternateContact",
+               "Disable-ACCTRegion",
+               "Enable-ACCTRegion",
                "Get-ACCTAlternateContact",
                "Get-ACCTContactInformation",
+               "Get-ACCTRegionOptStatus",
+               "Get-ACCTRegionList",
                "Write-ACCTAlternateContact",
                "Write-ACCTContactInformation")
 }

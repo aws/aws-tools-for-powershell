@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter IsLongTermPricingAutoRenew
         /// <summary>
         /// <para>
-        /// <para>snowballty</para><para>Specifies whether the current long-term pricing type for the device should be renewed.</para>
+        /// <para>Specifies whether the current long-term pricing type for the device should be renewed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

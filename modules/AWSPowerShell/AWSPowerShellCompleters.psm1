@@ -313,8 +313,12 @@ $ACCT_SelectCompleters = {
 
 $ACCT_SelectMap = @{
     "Select"=@("Remove-ACCTAlternateContact",
+               "Disable-ACCTRegion",
+               "Enable-ACCTRegion",
                "Get-ACCTAlternateContact",
                "Get-ACCTContactInformation",
+               "Get-ACCTRegionOptStatus",
+               "Get-ACCTRegionList",
                "Write-ACCTAlternateContact",
                "Write-ACCTContactInformation")
 }
@@ -52524,6 +52528,13 @@ $SNOW_Completers = {
             break
         }
 
+        # Amazon.Snowball.ServiceName
+        "Get-SNOWServiceVersion/ServiceName"
+        {
+            $v = "EKS_ANYWHERE","KUBERNETES"
+            break
+        }
+
         # Amazon.Snowball.ShipmentState
         "Update-SNOWJobShipmentState/ShipmentState"
         {
@@ -52595,6 +52606,7 @@ $SNOW_map = @{
     "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "RemoteManagement"=@("New-SNOWCluster","New-SNOWJob")
+    "ServiceName"=@("Get-SNOWServiceVersion")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
@@ -52672,6 +52684,7 @@ $SNOW_SelectMap = @{
                "Get-SNOWCompatibleImageList",
                "Get-SNOWJobList",
                "Get-SNOWLongTermPricing",
+               "Get-SNOWServiceVersion",
                "Update-SNOWCluster",
                "Update-SNOWJob",
                "Update-SNOWJobShipmentState",
