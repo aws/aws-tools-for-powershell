@@ -132,6 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.Int32? LatestVersionNumber { get; set; }
         #endregion
         
+        #region Parameter VersionLabel
+        /// <summary>
+        /// <para>
+        /// <para>An optional, user-defined label for the AppConfig hosted configuration version. This
+        /// value must contain at least one non-numeric character. For example, "v2.2.0".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionLabel { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -224,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #endif
             context.Description = this.Description;
             context.LatestVersionNumber = this.LatestVersionNumber;
+            context.VersionLabel = this.VersionLabel;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -268,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 if (cmdletContext.LatestVersionNumber != null)
                 {
                     request.LatestVersionNumber = cmdletContext.LatestVersionNumber.Value;
+                }
+                if (cmdletContext.VersionLabel != null)
+                {
+                    request.VersionLabel = cmdletContext.VersionLabel;
                 }
                 
                 CmdletOutput output;
@@ -344,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String ContentType { get; set; }
             public System.String Description { get; set; }
             public System.Int32? LatestVersionNumber { get; set; }
+            public System.String VersionLabel { get; set; }
             public System.Func<Amazon.AppConfig.Model.CreateHostedConfigurationVersionResponse, NewAPPCHostedConfigurationVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

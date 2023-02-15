@@ -28,19 +28,20 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns a list of agents owned by an Amazon Web Services account in the Amazon Web
-    /// Services Region specified in the request. The returned list is ordered by agent Amazon
-    /// Resource Name (ARN).
+    /// Returns a list of DataSync agents that belong to an Amazon Web Services account in
+    /// the Amazon Web Services Region specified in the request.
     /// 
     ///  
     /// <para>
-    /// By default, this operation returns a maximum of 100 agents. This operation supports
-    /// pagination that enables you to optionally reduce the number of agents returned in
-    /// a response.
-    /// </para><para>
-    /// If you have more agents than are returned in a response (that is, the response returns
-    /// only a truncated list of your agents), the response contains a marker that you can
-    /// specify in your next request to fetch the next page of agents.
+    /// With pagination, you can reduce the number of agents returned in a response. If you
+    /// get a truncated list of agents in a response, the response contains a marker that
+    /// you can specify in your next request to fetch the next page of agents.
+    /// </para><para><code>ListAgents</code> is eventually consistent. This means the result of running
+    /// the operation might not reflect that you just created or deleted an agent. For example,
+    /// if you create an agent with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html">CreateAgent</a>
+    /// and then immediately run <code>ListAgents</code>, that agent might not show up in
+    /// the list right away. In situations like this, you can always confirm whether an agent
+    /// has been created (or deleted) by using <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html">DescribeAgent</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DSYNAgentList")]
@@ -56,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of agents to list.</para>
+        /// <para>Specifies the maximum number of DataSync agents to list in a response. By default,
+        /// a response shows a maximum of 100 agents.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -73,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An opaque string that indicates the position at which to begin the next list of agents.</para>
+        /// <para>Specifies an opaque string that indicates the position to begin the next list of results
+        /// in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

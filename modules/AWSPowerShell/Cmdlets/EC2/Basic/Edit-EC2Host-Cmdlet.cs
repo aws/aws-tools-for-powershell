@@ -79,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] HostId { get; set; }
         #endregion
         
+        #region Parameter HostMaintenance
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">
+        /// Host maintenance</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.HostMaintenance")]
+        public Amazon.EC2.HostMaintenance HostMaintenance { get; set; }
+        #endregion
+        
         #region Parameter HostRecovery
         /// <summary>
         /// <para>
@@ -192,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter HostId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HostMaintenance = this.HostMaintenance;
             context.HostRecovery = this.HostRecovery;
             context.InstanceFamily = this.InstanceFamily;
             context.InstanceType = this.InstanceType;
@@ -218,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.HostId != null)
             {
                 request.HostIds = cmdletContext.HostId;
+            }
+            if (cmdletContext.HostMaintenance != null)
+            {
+                request.HostMaintenance = cmdletContext.HostMaintenance;
             }
             if (cmdletContext.HostRecovery != null)
             {
@@ -294,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
             public List<System.String> HostId { get; set; }
+            public Amazon.EC2.HostMaintenance HostMaintenance { get; set; }
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }
             public System.String InstanceFamily { get; set; }
             public System.String InstanceType { get; set; }

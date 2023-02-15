@@ -1,4 +1,13 @@
-﻿### 4.1.270 (2023-02-13 21:54Z)
+﻿### 4.1.271 (2023-02-14 23:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.483.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppConfig
+    * Modified cmdlet Get-APPCHostedConfigurationVersionList: added parameter VersionLabel.
+    * Modified cmdlet New-APPCHostedConfigurationVersion: added parameter VersionLabel.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2Host: added parameter HostMaintenance.
+    * Modified cmdlet New-EC2Host: added parameter HostMaintenance.
+
+### 4.1.270 (2023-02-13 21:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.482.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Account
     * Added cmdlet Disable-ACCTRegion leveraging the DisableRegion service API.

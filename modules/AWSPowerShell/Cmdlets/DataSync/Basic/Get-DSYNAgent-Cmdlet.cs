@@ -28,9 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata such as the name, the network interfaces, and the status (that is,
-    /// whether the agent is running or not) for an agent. To specify which agent to describe,
-    /// use the Amazon Resource Name (ARN) of the agent in your request.
+    /// Returns metadata about an DataSync agent, such as its name, endpoint type, and status.
     /// </summary>
     [Cmdlet("Get", "DSYNAgent")]
     [OutputType("Amazon.DataSync.Model.DescribeAgentResponse")]
@@ -44,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the agent to describe.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the DataSync agent to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -154,7 +154,7 @@ $DSYN_Completers = {
             ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
         }
         {
-            $v = "AUTOMATIC","SMB2","SMB3"
+            $v = "AUTOMATIC","SMB1","SMB2","SMB2_0","SMB3"
             break
         }
 

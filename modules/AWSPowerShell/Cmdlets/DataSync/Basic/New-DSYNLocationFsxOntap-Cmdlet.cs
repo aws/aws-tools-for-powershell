@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter StorageVirtualMachineArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the storage virtual machine (SVM) on your file system where you're
-        /// copying data to or from.</para>
+        /// <para>Specifies the ARN of the storage virtual machine (SVM) in your file system where you
+        /// want to copy data to or from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,8 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>Specifies the junction path (also known as a mount point) in the SVM volume where
-        /// you're copying data to or from (for example, <code>/vol1</code>).</para><note><para>Don't specify a junction path in the SVM's root volume. For more information, see
+        /// <para>Specifies a path to the file share in the SVM where you'll copy your data.</para><para>You can specify a junction path (also known as a mount point), qtree path (for NFS
+        /// file shares), or share name (for SMB file shares). For example, your mount path might
+        /// be <code>/vol1</code>, <code>/vol1/tree1</code>, or <code>/share1</code>.</para><note><para>Don't specify a junction path in the SVM's root volume. For more information, see
         /// <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing
         /// FSx for ONTAP storage virtual machines</a> in the <i>Amazon FSx for NetApp ONTAP User
         /// Guide</i>.</para></note>
@@ -169,9 +170,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Protocol_SMB_MountOptions_Version
         /// <summary>
         /// <para>
-        /// <para>Specifies the SMB version that you want DataSync to use when mounting your SMB share.
-        /// If you don't specify a version, DataSync defaults to <code>AUTOMATIC</code> and chooses
-        /// a version based on negotiation with the SMB server.</para>
+        /// <para>By default, DataSync automatically chooses an SMB protocol version based on negotiation
+        /// with your SMB file server. You also can configure DataSync to use a specific SMB version,
+        /// but we recommend doing this only if DataSync has trouble negotiating with the SMB
+        /// file server automatically.</para><para>These are the following options for configuring the SMB version:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync and the SMB file server negotiate a protocol
+        /// version that they mutually support. (DataSync supports SMB versions 1.0 and later.)</para><para>This is the recommended option. If you instead choose a specific version that your
+        /// file server doesn't support, you may get an <code>Operation Not Supported</code> error.</para></li><li><para><code>SMB3</code>: Restricts the protocol negotiation to only SMB version 3.0.2.</para></li><li><para><code>SMB2</code>: Restricts the protocol negotiation to only SMB version 2.1.</para></li><li><para><code>SMB2_0</code>: Restricts the protocol negotiation to only SMB version 2.0.</para></li><li><para><code>SMB1</code>: Restricts the protocol negotiation to only SMB version 1.0.</para><note><para>The <code>SMB1</code> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating
+        /// an Amazon FSx for NetApp ONTAP location</a>.</para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

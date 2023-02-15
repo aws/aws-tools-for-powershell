@@ -28,8 +28,9 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Defines a file system on a Server Message Block (SMB) server that can be read from
-    /// or written to.
+    /// Creates an endpoint for a Server Message Block (SMB) file server that DataSync can
+    /// access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Creating
+    /// an SMB location</a>.
     /// </summary>
     [Cmdlet("New", "DSYNLocationSmb", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB)
-        /// location. </para>
+        /// <para>Specifies the DataSync agent (or agents) which you want to connect to your SMB file
+        /// server. You specify an agent by using its Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The name of the Windows domain that the SMB server belongs to.</para>
+        /// <para>Specifies the Windows domain name that your SMB file server belongs to. </para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
+        /// permissions</a> for SMB locations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,8 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password of the user who can mount the share, has the permissions to access files
-        /// and folders in the SMB share.</para>
+        /// <para>Specifies the password of the user who can mount your SMB file server and has permission
+        /// to access the files and folders involved in your transfer.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
+        /// permissions</a> for SMB locations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,9 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerHostname
         /// <summary>
         /// <para>
-        /// <para>The name of the SMB server. This value is the IP address or Domain Name Service (DNS)
-        /// name of the SMB server. An agent that is installed on-premises uses this hostname
-        /// to mount the SMB server in a network.</para><note><para>This name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</para></note>
+        /// <para>Specifies the Domain Name Service (DNS) name or IP address of the SMB file server
+        /// that your DataSync agent will mount.</para><note><para>You can't specify an IP version 6 (IPv6) address.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,16 +112,12 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>The subdirectory in the SMB file system that is used to read data from the SMB source
-        /// location or write data to the SMB destination. The SMB path should be a path that's
-        /// exported by the SMB server, or a subdirectory of that path. The path should be such
-        /// that it can be mounted by other SMB clients in your network.</para><note><para><code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</para></note><para>To transfer all the data in the folder you specified, DataSync needs to have permissions
-        /// to mount the SMB share, as well as to access all the data in that share. To ensure
-        /// this, either ensure that the user/password specified belongs to the user who can mount
-        /// the share, and who has the appropriate permissions for all of the files and directories
-        /// that you want DataSync to access, or use credentials of a member of the Backup Operators
-        /// group to mount the share. Doing either enables the agent to access the data. For the
-        /// agent to access directories, you must additionally enable all execute access.</para>
+        /// <para>Specifies the name of the share exported by your SMB file server where DataSync will
+        /// read or write data. You can include a subdirectory in the share path (for example,
+        /// <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network
+        /// can also mount this path.</para><para>To copy all data in the specified subdirectory, DataSync must be able to mount the
+        /// SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
+        /// permissions</a> for SMB locations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents the tag that you want to add to the location. The
-        /// value can be an empty string. We recommend using tags to name your resources.</para>
+        /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
+        /// Services resources. We recommend creating at least a name tag for your location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,10 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter User
         /// <summary>
         /// <para>
-        /// <para>The user who can mount the share, has the permissions to access files and folders
-        /// in the SMB share.</para><para>For information about choosing a user name that ensures sufficient permissions to
-        /// files, folders, and metadata, see the <a href="create-smb-location.html#SMBuser">User
-        /// setting</a> for SMB locations.</para>
+        /// <para>Specifies the user name that can mount your SMB file server and has permission to
+        /// access the files and folders involved in your transfer.</para><para>For information about choosing a user with the right level of access for your transfer,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
+        /// permissions</a> for SMB locations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -168,9 +166,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter MountOptions_Version
         /// <summary>
         /// <para>
-        /// <para>Specifies the SMB version that you want DataSync to use when mounting your SMB share.
-        /// If you don't specify a version, DataSync defaults to <code>AUTOMATIC</code> and chooses
-        /// a version based on negotiation with the SMB server.</para>
+        /// <para>By default, DataSync automatically chooses an SMB protocol version based on negotiation
+        /// with your SMB file server. You also can configure DataSync to use a specific SMB version,
+        /// but we recommend doing this only if DataSync has trouble negotiating with the SMB
+        /// file server automatically.</para><para>These are the following options for configuring the SMB version:</para><ul><li><para><code>AUTOMATIC</code> (default): DataSync and the SMB file server negotiate a protocol
+        /// version that they mutually support. (DataSync supports SMB versions 1.0 and later.)</para><para>This is the recommended option. If you instead choose a specific version that your
+        /// file server doesn't support, you may get an <code>Operation Not Supported</code> error.</para></li><li><para><code>SMB3</code>: Restricts the protocol negotiation to only SMB version 3.0.2.</para></li><li><para><code>SMB2</code>: Restricts the protocol negotiation to only SMB version 2.1.</para></li><li><para><code>SMB2_0</code>: Restricts the protocol negotiation to only SMB version 2.0.</para></li><li><para><code>SMB1</code>: Restricts the protocol negotiation to only SMB version 1.0.</para><note><para>The <code>SMB1</code> option isn't available when <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationFsxOntap.html">creating
+        /// an Amazon FSx for NetApp ONTAP location</a>.</para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.482.0",
+    "ProductVersion" : "3.7.483.0",
     "CoreVersion"    : "3.7.105.2",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.122.1",
+            "Version" : "3.7.123.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.2"
@@ -1250,7 +1250,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.102.34",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.2"
@@ -1618,7 +1618,7 @@
             "InPreview"               : false
         },
         "AppConfig"                       : {
-            "Version" : "3.7.101.7",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.2"

@@ -73,6 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter HostMaintenance
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable or disable host maintenance for the Dedicated Host. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">
+        /// Host maintenance</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Default: <code>on</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.HostMaintenance")]
+        public Amazon.EC2.HostMaintenance HostMaintenance { get; set; }
+        #endregion
+        
         #region Parameter HostRecovery
         /// <summary>
         /// <para>
@@ -235,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.HostMaintenance = this.HostMaintenance;
             context.HostRecovery = this.HostRecovery;
             context.InstanceFamily = this.InstanceFamily;
             context.InstanceType = this.InstanceType;
@@ -277,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.HostMaintenance != null)
+            {
+                request.HostMaintenance = cmdletContext.HostMaintenance;
             }
             if (cmdletContext.HostRecovery != null)
             {
@@ -366,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.EC2.HostMaintenance HostMaintenance { get; set; }
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }
             public System.String InstanceFamily { get; set; }
             public System.String InstanceType { get; set; }

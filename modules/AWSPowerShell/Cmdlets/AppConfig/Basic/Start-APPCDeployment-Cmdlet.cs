@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter ConfigurationVersion
         /// <summary>
         /// <para>
-        /// <para>The configuration version to deploy.</para>
+        /// <para>The configuration version to deploy. If deploying an AppConfig hosted configuration
+        /// version, you can specify either the version number or version label.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

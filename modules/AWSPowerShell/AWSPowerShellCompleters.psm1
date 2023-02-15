@@ -15034,7 +15034,7 @@ $DSYN_Completers = {
             ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_SMB_MountOptions_Version")
         }
         {
-            $v = "AUTOMATIC","SMB2","SMB3"
+            $v = "AUTOMATIC","SMB1","SMB2","SMB2_0","SMB3"
             break
         }
 
@@ -18123,6 +18123,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.HostMaintenance
+        {
+            ($_ -eq "Edit-EC2Host/HostMaintenance") -Or
+            ($_ -eq "New-EC2Host/HostMaintenance")
+        }
+        {
+            $v = "off","on"
+            break
+        }
+
         # Amazon.EC2.HostnameType
         {
             ($_ -eq "Edit-EC2PrivateDnsNameOption/PrivateDnsHostnameType") -Or
@@ -18793,6 +18803,7 @@ $EC2_map = @{
     "ExcessCapacityTerminationPolicy"=@("Edit-EC2Fleet","Edit-EC2SpotFleetRequest","New-EC2Fleet")
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
+    "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")

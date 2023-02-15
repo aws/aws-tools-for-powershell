@@ -29,12 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
     /// Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.
-    /// 
-    ///  
-    /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create
-    /// an Amazon S3 location</a> in the <i>DataSync User Guide</i>.
-    /// </para>
+    /// an Amazon S3 location</a>.
     /// </summary>
     [Cmdlet("New", "DSYNLocationS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -74,6 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String ConfigurationProfileId { get; set; }
         #endregion
         
+        #region Parameter VersionLabel
+        /// <summary>
+        /// <para>
+        /// <para>An optional filter that can be used to specify the version label of an AppConfig hosted
+        /// configuration version. This parameter supports filtering by prefix using a wildcard,
+        /// for example "v2*". If you don't specify an asterisk at the end of the value, only
+        /// an exact match is returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VersionLabel { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -172,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.VersionLabel = this.VersionLabel;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -203,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.VersionLabel != null)
+            {
+                request.VersionLabel = cmdletContext.VersionLabel;
             }
             
             // Initialize loop variant and commence piping
@@ -293,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String ConfigurationProfileId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String VersionLabel { get; set; }
             public System.Func<Amazon.AppConfig.Model.ListHostedConfigurationVersionsResponse, GetAPPCHostedConfigurationVersionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }
