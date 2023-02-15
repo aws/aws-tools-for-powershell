@@ -94,6 +94,13 @@ $PV5G_Completers = {
             break
         }
 
+        # Amazon.Private5G.UpdateType
+        "Start-PV5GNetworkResourceUpdate/UpdateType"
+        {
+            $v = "REPLACE","RETURN"
+            break
+        }
+
 
     }
 
@@ -105,6 +112,7 @@ $PV5G_Completers = {
 $PV5G_map = @{
     "Position_ElevationReference"=@("Set-PV5GAccessPoint")
     "Position_ElevationUnit"=@("Set-PV5GAccessPoint")
+    "UpdateType"=@("Start-PV5GNetworkResourceUpdate")
 }
 
 _awsArgumentCompleterRegistration $PV5G_Completers $PV5G_map
@@ -178,6 +186,7 @@ $PV5G_SelectMap = @{
                "Get-PV5GOrderList",
                "Get-PV5GResourceTag",
                "Ping-PV5GPing",
+               "Start-PV5GNetworkResourceUpdate",
                "Add-PV5GResourceTag",
                "Remove-PV5GResourceTag",
                "Update-PV5GNetworkSite",

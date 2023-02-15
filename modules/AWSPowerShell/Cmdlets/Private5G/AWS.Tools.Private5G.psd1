@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PV5GNetworkSite', 
         'Remove-PV5GResourceTag', 
         'Set-PV5GAccessPoint', 
+        'Start-PV5GNetworkResourceUpdate', 
         'Update-PV5GNetworkSite', 
         'Update-PV5GNetworkSitePlan')
 

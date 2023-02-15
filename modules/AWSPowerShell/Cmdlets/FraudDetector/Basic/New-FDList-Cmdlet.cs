@@ -22,38 +22,57 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.FraudDetector;
+using Amazon.FraudDetector.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Deletes a specified DB cluster parameter group. The DB cluster parameter group to
-    /// be deleted can't be associated with any DB clusters.
+    /// Creates a list. 
     /// 
     ///  
     /// <para>
-    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
-    /// </para><para>
-    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-    /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.
+    /// List is a set of input data for a variable in your event dataset. You use the input
+    /// data in a rule that's associated with your detector. For more information, see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/lists.html">Lists</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("New", "FDList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBClusterParameterGroup API operation.", Operation = new[] {"DeleteDBClusterParameterGroup"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse",
+    [AWSCmdlet("Calls the Amazon Fraud Detector CreateList API operation.", Operation = new[] {"CreateList"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.CreateListResponse))]
+    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.CreateListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.CreateListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRDSDBClusterParameterGroupCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class NewFDListCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
-        #region Parameter DBClusterParameterGroupName
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB cluster parameter group.</para></li><li><para>You can't delete a default DB cluster parameter group.</para></li><li><para>Can't be associated with any DB clusters.</para></li></ul>
+        /// <para> The description of the list. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Element
+        /// <summary>
+        /// <para>
+        /// <para> The names of the elements, if providing. You can also create an empty list and add
+        /// elements later using the <a href="https://docs.aws.amazon.com/frauddetector/latest/api/API_Updatelist.html">UpdateList</a>
+        /// API. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Elements")]
+        public System.String[] Element { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para> The name of the list. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +83,36 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DBClusterParameterGroupName { get; set; }
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> A collection of the key and value pairs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter VariableType
+        /// <summary>
+        /// <para>
+        /// <para> The variable type of the list. You can only assign the variable type with String
+        /// data type. For more information, see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable
+        /// types</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VariableType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.CreateListResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,10 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DBClusterParameterGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DBClusterParameterGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DBClusterParameterGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -102,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DBClusterParameterGroupName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSDBClusterParameterGroup (DeleteDBClusterParameterGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-FDList (CreateList)"))
             {
                 return;
             }
@@ -116,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse, RemoveRDSDBClusterParameterGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.CreateListResponse, NewFDListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,16 +167,26 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DBClusterParameterGroupName;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
-            #if MODULAR
-            if (this.DBClusterParameterGroupName == null && ParameterWasBound(nameof(this.DBClusterParameterGroupName)))
+            context.Description = this.Description;
+            if (this.Element != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DBClusterParameterGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Element = new List<System.String>(this.Element);
+            }
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
+            }
+            context.VariableType = this.VariableType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,11 +201,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.DeleteDBClusterParameterGroupRequest();
+            var request = new Amazon.FraudDetector.Model.CreateListRequest();
             
-            if (cmdletContext.DBClusterParameterGroupName != null)
+            if (cmdletContext.Description != null)
             {
-                request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Element != null)
+            {
+                request.Elements = cmdletContext.Element;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.VariableType != null)
+            {
+                request.VariableType = cmdletContext.VariableType;
             }
             
             CmdletOutput output;
@@ -188,15 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteDBClusterParameterGroupRequest request)
+        private Amazon.FraudDetector.Model.CreateListResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.CreateListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteDBClusterParameterGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "CreateList");
             try
             {
                 #if DESKTOP
-                return client.DeleteDBClusterParameterGroup(request);
+                return client.CreateList(request);
                 #elif CORECLR
-                return client.DeleteDBClusterParameterGroupAsync(request).GetAwaiter().GetResult();
+                return client.CreateListAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,8 +284,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBClusterParameterGroupName { get; set; }
-            public System.Func<Amazon.RDS.Model.DeleteDBClusterParameterGroupResponse, RemoveRDSDBClusterParameterGroupCmdlet, object> Select { get; set; } =
+            public System.String Description { get; set; }
+            public List<System.String> Element { get; set; }
+            public System.String Name { get; set; }
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
+            public System.String VariableType { get; set; }
+            public System.Func<Amazon.FraudDetector.Model.CreateListResponse, NewFDListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

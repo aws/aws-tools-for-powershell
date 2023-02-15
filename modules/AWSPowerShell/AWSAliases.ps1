@@ -10185,6 +10185,8 @@ Set-Alias -Name Create-FDBatchPredictionJob -Value New-FDBatchPredictionJob
 Set-Alias -Name FD-CreateBatchPredictionJob -Value New-FDBatchPredictionJob
 Set-Alias -Name Create-FDDetectorVersion -Value New-FDDetectorVersion
 Set-Alias -Name FD-CreateDetectorVersion -Value New-FDDetectorVersion
+Set-Alias -Name Create-FDList -Value New-FDList
+Set-Alias -Name FD-CreateList -Value New-FDList
 Set-Alias -Name Create-FDModel -Value New-FDModel
 Set-Alias -Name FD-CreateModel -Value New-FDModel
 Set-Alias -Name Create-FDModelVersion -Value New-FDModelVersion
@@ -10213,6 +10215,8 @@ Set-Alias -Name Delete-FDExternalModel -Value Remove-FDExternalModel
 Set-Alias -Name FD-DeleteExternalModel -Value Remove-FDExternalModel
 Set-Alias -Name Delete-FDLabel -Value Remove-FDLabel
 Set-Alias -Name FD-DeleteLabel -Value Remove-FDLabel
+Set-Alias -Name Delete-FDList -Value Remove-FDList
+Set-Alias -Name FD-DeleteList -Value Remove-FDList
 Set-Alias -Name Delete-FDModel -Value Remove-FDModel
 Set-Alias -Name FD-DeleteModel -Value Remove-FDModel
 Set-Alias -Name Delete-FDModelVersion -Value Remove-FDModelVersion
@@ -10249,6 +10253,9 @@ Set-Alias -Name FD-GetExternalModels -Value Get-FDExternalModel
 Set-Alias -Name FD-GetKMSEncryptionKey -Value Get-FDKMSEncryptionKey
 Set-Alias -Name Get-FDLabels -Value Get-FDLabel
 Set-Alias -Name FD-GetLabels -Value Get-FDLabel
+Set-Alias -Name Get-FDListElements -Value Get-FDListElement
+Set-Alias -Name FD-GetListElements -Value Get-FDListElement
+Set-Alias -Name FD-GetListsMetadata -Value Get-FDListsMetadata
 Set-Alias -Name Get-FDModels -Value Get-FDModel
 Set-Alias -Name FD-GetModels -Value Get-FDModel
 Set-Alias -Name FD-GetModelVersion -Value Get-FDModelVersion
@@ -10283,6 +10290,7 @@ Set-Alias -Name FD-UpdateDetectorVersion -Value Update-FDDetectorVersion
 Set-Alias -Name FD-UpdateDetectorVersionMetadata -Value Update-FDDetectorVersionMetadata
 Set-Alias -Name FD-UpdateDetectorVersionStatus -Value Update-FDDetectorVersionStatus
 Set-Alias -Name FD-UpdateEventLabel -Value Update-FDEventLabel
+Set-Alias -Name FD-UpdateList -Value Update-FDList
 Set-Alias -Name FD-UpdateModel -Value Update-FDModel
 Set-Alias -Name FD-UpdateModelVersion -Value Update-FDModelVersion
 Set-Alias -Name FD-UpdateModelVersionStatus -Value Update-FDModelVersionStatus
@@ -18471,6 +18479,7 @@ Set-Alias -Name PV5G-ListOrders -Value Get-PV5GOrderList
 Set-Alias -Name PV5G-ListTagsForResource -Value Get-PV5GResourceTag
 Set-Alias -Name Ping-PV5G -Value Ping-PV5GPing
 Set-Alias -Name PV5G-Ping -Value Ping-PV5GPing
+Set-Alias -Name PV5G-StartNetworkResourceUpdate -Value Start-PV5GNetworkResourceUpdate
 Set-Alias -Name PV5G-TagResource -Value Add-PV5GResourceTag
 Set-Alias -Name PV5G-UntagResource -Value Remove-PV5GResourceTag
 Set-Alias -Name PV5G-UpdateNetworkSite -Value Update-PV5GNetworkSite

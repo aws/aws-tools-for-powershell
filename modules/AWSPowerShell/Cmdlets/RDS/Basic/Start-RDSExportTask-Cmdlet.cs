@@ -28,12 +28,21 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Starts an export of a snapshot to Amazon S3. The provided IAM role must have access
-    /// to the S3 bucket.
+    /// Starts an export of DB snapshot or DB cluster data to Amazon S3. The provided IAM
+    /// role must have access to the S3 bucket.
     /// 
     ///  
     /// <para>
-    /// This command doesn't apply to RDS Custom.
+    /// You can't export snapshot data from RDS Custom DB instances.
+    /// </para><para>
+    /// You can't export cluster data from Multi-AZ DB clusters.
+    /// </para><para>
+    /// For more information on exporting DB snapshot data, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting
+    /// DB snapshot data to Amazon S3</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/aurora-export-snapshot.html">Exporting
+    /// DB cluster snapshot data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para><para>
+    /// For more information on exporting DB cluster data, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/export-cluster-data.html">Exporting
+    /// DB cluster data to Amazon S3</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "RDSExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,10 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ExportOnly
         /// <summary>
         /// <para>
-        /// <para>The data to be exported from the snapshot. If this parameter is not provided, all
-        /// the snapshot data is exported. Valid values are the following:</para><ul><li><para><code>database</code> - Export all the data from a specified database.</para></li><li><para><code>database.table</code><i>table-name</i> - Export a table of the snapshot. This
-        /// format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</para></li><li><para><code>database.schema</code><i>schema-name</i> - Export a database schema of the
-        /// snapshot. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><code>database.schema.table</code><i>table-name</i> - Export a table of the database
+        /// <para>The data to be exported from the snapshot or cluster. If this parameter is not provided,
+        /// all of the data is exported. Valid values are the following:</para><ul><li><para><code>database</code> - Export all the data from a specified database.</para></li><li><para><code>database.table</code><i>table-name</i> - Export a table of the snapshot or
+        /// cluster. This format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora
+        /// MySQL.</para></li><li><para><code>database.schema</code><i>schema-name</i> - Export a database schema of the
+        /// snapshot or cluster. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><code>database.schema.table</code><i>table-name</i> - Export a table of the database
         /// schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li></ul>
         /// </para>
         /// </summary>
@@ -62,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ExportTaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the snapshot export task. This ID isn't an identifier for
-        /// the Amazon S3 bucket where the snapshot is to be exported to.</para>
+        /// <para>A unique identifier for the export task. This ID isn't an identifier for the Amazon
+        /// S3 bucket where the data is to be exported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the IAM role to use for writing to the Amazon S3 bucket when exporting
-        /// a snapshot.</para>
+        /// a snapshot or cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,10 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services KMS key to use to encrypt the snapshot exported
-        /// to Amazon S3. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-        /// ARN, or alias name for the KMS key. The caller of this operation must be authorized
-        /// to run the following operations. These can be set in the Amazon Web Services KMS key
+        /// <para>The ID of the Amazon Web Services KMS key to use to encrypt the data exported to Amazon
+        /// S3. The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN,
+        /// or alias name for the KMS key. The caller of this operation must be authorized to
+        /// run the following operations. These can be set in the Amazon Web Services KMS key
         /// policy:</para><ul><li><para>kms:Encrypt</para></li><li><para>kms:Decrypt</para></li><li><para>kms:GenerateDataKey</para></li><li><para>kms:GenerateDataKeyWithoutPlaintext</para></li><li><para>kms:ReEncryptFrom</para></li><li><para>kms:ReEncryptTo</para></li><li><para>kms:CreateGrant</para></li><li><para>kms:DescribeKey</para></li><li><para>kms:RetireGrant</para></li></ul>
         /// </para>
         /// </summary>
@@ -119,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket to export the snapshot to.</para>
+        /// <para>The name of the Amazon S3 bucket to export the snapshot or cluster data to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -136,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter S3Prefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.</para>
+        /// <para>The Amazon S3 bucket prefix to use as the file name and path of the exported data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the snapshot to export to Amazon S3.</para>
+        /// <para>The Amazon Resource Name (ARN) of the snapshot or cluster to export to Amazon S3.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

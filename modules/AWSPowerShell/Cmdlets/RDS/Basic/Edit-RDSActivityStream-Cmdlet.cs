@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// This operation is supported for RDS for Oracle only.
+    /// This operation is supported for RDS for Oracle and Microsoft SQL Server.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSActivityStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the RDS for Oracle DB instance, for example, <code>arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL Server DB instance.
+        /// For example, <code>arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

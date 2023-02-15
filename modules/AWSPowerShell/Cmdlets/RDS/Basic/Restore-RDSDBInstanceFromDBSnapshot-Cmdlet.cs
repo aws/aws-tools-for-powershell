@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage (in gibibytes) to allocate initially for the DB instance. Follow
-        /// the allocation rules specified in CreateDBInstance.</para><note><para>Be sure to allocate enough memory for your new DB instance so that the restore operation
-        /// can succeed. You can also allocate additional memory for future growth.</para></note>
+        /// the allocation rules specified in CreateDBInstance.</para><note><para>Be sure to allocate enough storage for your new DB instance so that the restore operation
+        /// can succeed. You can also allocate additional storage for future growth.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.</para><para>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-        /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-        /// User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing Multi-AZ DB cluster snapshot.</para></li><li><para>Can't be specified when <code>DBSnapshotIdentifier</code> is specified.</para></li><li><para>Must be specified when <code>DBSnapshotIdentifier</code> isn't specified.</para></li><li><para>If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the <code>DBClusterSnapshotIdentifier</code>
+        /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing Multi-AZ DB cluster snapshot.</para></li><li><para>Can't be specified when <code>DBSnapshotIdentifier</code> is specified.</para></li><li><para>Must be specified when <code>DBSnapshotIdentifier</code> isn't specified.</para></li><li><para>If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the <code>DBClusterSnapshotIdentifier</code>
         /// must be the ARN of the shared snapshot.</para></li><li><para>Can't be the identifier of an Aurora DB cluster snapshot.</para></li><li><para>Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.</para></li></ul>
         /// </para>
         /// </summary>

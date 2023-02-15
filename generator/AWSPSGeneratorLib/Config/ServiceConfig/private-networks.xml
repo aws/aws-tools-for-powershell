@@ -102,6 +102,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartNetworkResourceUpdate" OutputProperty="NetworkResource" Verb="Start" Noun="NetworkResourceUpdate" ShouldProcessTarget="NetworkResourceArn" PipelineParameter="NetworkResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

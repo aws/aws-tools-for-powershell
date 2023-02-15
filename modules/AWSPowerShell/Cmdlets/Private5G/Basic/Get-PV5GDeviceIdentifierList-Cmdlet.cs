@@ -28,7 +28,15 @@ using Amazon.Private5G.Model;
 namespace Amazon.PowerShell.Cmdlets.PV5G
 {
     /// <summary>
-    /// Amazon.Private5G.IAmazonPrivate5G.ListDeviceIdentifiers
+    /// Lists device identifiers. Add filters to your request to return a more specific list
+    /// of results. Use filters to match the Amazon Resource Name (ARN) of an order, the status
+    /// of device identifiers, or the ARN of the traffic group.
+    /// 
+    ///  
+    /// <para>
+    /// If you specify multiple filters, filters are joined with an OR, and the request returns
+    /// results that match all of the specified filters.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "PV5GDeviceIdentifierList")]
     [OutputType("Amazon.Private5G.Model.DeviceIdentifier")]

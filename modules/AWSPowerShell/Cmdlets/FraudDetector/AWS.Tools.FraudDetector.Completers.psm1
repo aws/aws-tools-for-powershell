@@ -118,6 +118,13 @@ $FD_Completers = {
             break
         }
 
+        # Amazon.FraudDetector.ListUpdateMode
+        "Update-FDList/UpdateMode"
+        {
+            $v = "APPEND","REMOVE","REPLACE"
+            break
+        }
+
         # Amazon.FraudDetector.ModelEndpointStatus
         "Write-FDExternalModel/ModelEndpointStatus"
         {
@@ -217,6 +224,7 @@ $FD_map = @{
     "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersionStatus")
     "TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"=@("New-FDModelVersion")
     "TrainingDataSource"=@("New-FDModelVersion")
+    "UpdateMode"=@("Update-FDList")
 }
 
 _awsArgumentCompleterRegistration $FD_Completers $FD_map
@@ -276,6 +284,7 @@ $FD_SelectMap = @{
                "New-FDBatchImportJob",
                "New-FDBatchPredictionJob",
                "New-FDDetectorVersion",
+               "New-FDList",
                "New-FDModel",
                "New-FDModelVersion",
                "New-FDRule",
@@ -290,6 +299,7 @@ $FD_SelectMap = @{
                "Remove-FDEventType",
                "Remove-FDExternalModel",
                "Remove-FDLabel",
+               "Remove-FDList",
                "Remove-FDModel",
                "Remove-FDModelVersion",
                "Remove-FDOutcome",
@@ -310,6 +320,8 @@ $FD_SelectMap = @{
                "Get-FDExternalModel",
                "Get-FDKMSEncryptionKey",
                "Get-FDLabel",
+               "Get-FDListElement",
+               "Get-FDListsMetadata",
                "Get-FDModel",
                "Get-FDModelVersion",
                "Get-FDOutcome",
@@ -331,6 +343,7 @@ $FD_SelectMap = @{
                "Update-FDDetectorVersionMetadata",
                "Update-FDDetectorVersionStatus",
                "Update-FDEventLabel",
+               "Update-FDList",
                "Update-FDModel",
                "Update-FDModelVersion",
                "Update-FDModelVersionStatus",

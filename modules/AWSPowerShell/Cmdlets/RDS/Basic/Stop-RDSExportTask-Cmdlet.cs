@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Cancels an export task in progress that is exporting a snapshot to Amazon S3. Any
-    /// data that has already been written to the S3 bucket isn't removed.
+    /// Cancels an export task in progress that is exporting a snapshot or cluster to Amazon
+    /// S3. Any data that has already been written to the S3 bucket isn't removed.
     /// </summary>
     [Cmdlet("Stop", "RDSExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.CancelExportTaskResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ExportTaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the snapshot export task to cancel.</para>
+        /// <para>The identifier of the snapshot or cluster export task to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

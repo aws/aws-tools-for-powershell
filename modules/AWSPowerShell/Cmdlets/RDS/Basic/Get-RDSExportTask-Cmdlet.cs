@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about a snapshot export to Amazon S3. This API operation supports
-    /// pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about a snapshot or cluster export to Amazon S3. This API operation
+    /// supports pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSExportTask")]
     [OutputType("Amazon.RDS.Model.ExportTask")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ExportTaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the snapshot export task to be described.</para>
+        /// <para>The identifier of the snapshot or cluster export task to be described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,10 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters specify one or more snapshot exports to describe. The filters are specified
-        /// as name-value pairs that define what to include in the output. Filter names and values
-        /// are case-sensitive.</para><para>Supported filters include the following:</para><ul><li><para><code>export-task-identifier</code> - An identifier for the snapshot export task.</para></li><li><para><code>s3-bucket</code> - The Amazon S3 bucket the snapshot is exported to.</para></li><li><para><code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot exported
-        /// to Amazon S3</para></li><li><para><code>status</code> - The status of the export task. Must be lowercase. Valid statuses
+        /// <para>Filters specify one or more snapshot or cluster exports to describe. The filters are
+        /// specified as name-value pairs that define what to include in the output. Filter names
+        /// and values are case-sensitive.</para><para>Supported filters include the following:</para><ul><li><para><code>export-task-identifier</code> - An identifier for the snapshot or cluster export
+        /// task.</para></li><li><para><code>s3-bucket</code> - The Amazon S3 bucket the data is exported to.</para></li><li><para><code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot or cluster
+        /// exported to Amazon S3.</para></li><li><para><code>status</code> - The status of the export task. Must be lowercase. Valid statuses
         /// are the following:</para><ul><li><para><code>canceled</code></para></li><li><para><code>canceling</code></para></li><li><para><code>complete</code></para></li><li><para><code>failed</code></para></li><li><para><code>in_progress</code></para></li><li><para><code>starting</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -69,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</para>
+        /// <para>The Amazon Resource Name (ARN) of the snapshot or cluster exported to Amazon S3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -23671,6 +23671,13 @@ $FD_Completers = {
             break
         }
 
+        # Amazon.FraudDetector.ListUpdateMode
+        "Update-FDList/UpdateMode"
+        {
+            $v = "APPEND","REMOVE","REPLACE"
+            break
+        }
+
         # Amazon.FraudDetector.ModelEndpointStatus
         "Write-FDExternalModel/ModelEndpointStatus"
         {
@@ -23770,6 +23777,7 @@ $FD_map = @{
     "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersionStatus")
     "TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"=@("New-FDModelVersion")
     "TrainingDataSource"=@("New-FDModelVersion")
+    "UpdateMode"=@("Update-FDList")
 }
 
 _awsArgumentCompleterRegistration $FD_Completers $FD_map
@@ -23829,6 +23837,7 @@ $FD_SelectMap = @{
                "New-FDBatchImportJob",
                "New-FDBatchPredictionJob",
                "New-FDDetectorVersion",
+               "New-FDList",
                "New-FDModel",
                "New-FDModelVersion",
                "New-FDRule",
@@ -23843,6 +23852,7 @@ $FD_SelectMap = @{
                "Remove-FDEventType",
                "Remove-FDExternalModel",
                "Remove-FDLabel",
+               "Remove-FDList",
                "Remove-FDModel",
                "Remove-FDModelVersion",
                "Remove-FDOutcome",
@@ -23863,6 +23873,8 @@ $FD_SelectMap = @{
                "Get-FDExternalModel",
                "Get-FDKMSEncryptionKey",
                "Get-FDLabel",
+               "Get-FDListElement",
+               "Get-FDListsMetadata",
                "Get-FDModel",
                "Get-FDModelVersion",
                "Get-FDOutcome",
@@ -23884,6 +23896,7 @@ $FD_SelectMap = @{
                "Update-FDDetectorVersionMetadata",
                "Update-FDDetectorVersionStatus",
                "Update-FDEventLabel",
+               "Update-FDList",
                "Update-FDModel",
                "Update-FDModelVersion",
                "Update-FDModelVersionStatus",
@@ -43056,6 +43069,13 @@ $PV5G_Completers = {
             break
         }
 
+        # Amazon.Private5G.UpdateType
+        "Start-PV5GNetworkResourceUpdate/UpdateType"
+        {
+            $v = "REPLACE","RETURN"
+            break
+        }
+
 
     }
 
@@ -43067,6 +43087,7 @@ $PV5G_Completers = {
 $PV5G_map = @{
     "Position_ElevationReference"=@("Set-PV5GAccessPoint")
     "Position_ElevationUnit"=@("Set-PV5GAccessPoint")
+    "UpdateType"=@("Start-PV5GNetworkResourceUpdate")
 }
 
 _awsArgumentCompleterRegistration $PV5G_Completers $PV5G_map
@@ -43140,6 +43161,7 @@ $PV5G_SelectMap = @{
                "Get-PV5GOrderList",
                "Get-PV5GResourceTag",
                "Ping-PV5GPing",
+               "Start-PV5GNetworkResourceUpdate",
                "Add-PV5GResourceTag",
                "Remove-PV5GResourceTag",
                "Update-PV5GNetworkSite",

@@ -22,40 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.FraudDetector;
+using Amazon.FraudDetector.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// You might need to reboot your DB cluster, usually for maintenance reasons. For example,
-    /// if you make certain modifications, or if you change the DB cluster parameter group
-    /// associated with the DB cluster, reboot the DB cluster for the changes to take effect.
+    /// Deletes the list, provided it is not used in a rule. 
     /// 
     ///  
     /// <para>
-    /// Rebooting a DB cluster restarts the database engine service. Rebooting a DB cluster
-    /// results in a momentary outage, during which the DB cluster status is set to rebooting.
-    /// </para><para>
-    /// Use this operation only for a non-Aurora Multi-AZ DB cluster.
-    /// </para><para>
-    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-    /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i></para>
+    ///  When you delete a list, Amazon Fraud Detector permanently deletes that list and the
+    /// elements in the list.
+    /// </para>
     /// </summary>
-    [Cmdlet("Restart", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RDS.Model.DBCluster")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service RebootDBCluster API operation.", Operation = new[] {"RebootDBCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.RebootDBClusterResponse))]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBCluster or Amazon.RDS.Model.RebootDBClusterResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DBCluster object.",
-        "The service call response (type Amazon.RDS.Model.RebootDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "FDList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Fraud Detector DeleteList API operation.", Operation = new[] {"DeleteList"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.DeleteListResponse))]
+    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.DeleteListResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.FraudDetector.Model.DeleteListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestartRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RemoveFDListCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
-        #region Parameter DBClusterIdentifier
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul>
+        /// <para> The name of the list to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +60,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DBClusterIdentifier { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DBCluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.RebootDBClusterResponse).
-        /// Specifying the name of a property of type Amazon.RDS.Model.RebootDBClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.DeleteListResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DBCluster";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DBClusterIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DBClusterIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DBClusterIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -105,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DBClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-RDSDBCluster (RebootDBCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FDList (DeleteList)"))
             {
                 return;
             }
@@ -119,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.RebootDBClusterResponse, RestartRDSDBClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.DeleteListResponse, RemoveFDListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,14 +121,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DBClusterIdentifier;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.RebootDBClusterRequest();
+            var request = new Amazon.FraudDetector.Model.DeleteListRequest();
             
-            if (cmdletContext.DBClusterIdentifier != null)
+            if (cmdletContext.Name != null)
             {
-                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -191,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.RebootDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RebootDBClusterRequest request)
+        private Amazon.FraudDetector.Model.DeleteListResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.DeleteListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RebootDBCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "DeleteList");
             try
             {
                 #if DESKTOP
-                return client.RebootDBCluster(request);
+                return client.DeleteList(request);
                 #elif CORECLR
-                return client.RebootDBClusterAsync(request).GetAwaiter().GetResult();
+                return client.DeleteListAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -219,9 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBClusterIdentifier { get; set; }
-            public System.Func<Amazon.RDS.Model.RebootDBClusterResponse, RestartRDSDBClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DBCluster;
+            public System.String Name { get; set; }
+            public System.Func<Amazon.FraudDetector.Model.DeleteListResponse, RemoveFDListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

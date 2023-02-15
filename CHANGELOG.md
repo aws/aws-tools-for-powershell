@@ -1,4 +1,15 @@
-﻿### 4.1.271 (2023-02-14 23:51Z)
+﻿### 4.1.272 (2023-02-15 22:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.484.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Fraud Detector
+    * Added cmdlet Get-FDListElement leveraging the GetListElements service API.
+    * Added cmdlet Get-FDListsMetadata leveraging the GetListsMetadata service API.
+    * Added cmdlet New-FDList leveraging the CreateList service API.
+    * Added cmdlet Remove-FDList leveraging the DeleteList service API.
+    * Added cmdlet Update-FDList leveraging the UpdateList service API.
+  * Amazon Private 5G
+    * Added cmdlet Start-PV5GNetworkResourceUpdate leveraging the StartNetworkResourceUpdate service API.
+
+### 4.1.271 (2023-02-14 23:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.483.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppConfig
     * Modified cmdlet Get-APPCHostedConfigurationVersionList: added parameter VersionLabel.

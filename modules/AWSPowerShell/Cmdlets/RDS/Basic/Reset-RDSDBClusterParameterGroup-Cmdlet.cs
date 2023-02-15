@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><para>
     /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide.</i></para>
+    /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
     [Cmdlet("Reset", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

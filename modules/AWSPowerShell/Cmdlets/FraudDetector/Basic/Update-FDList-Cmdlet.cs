@@ -22,37 +22,51 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.FraudDetector;
+using Amazon.FraudDetector.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Removes the asssociation of an Amazon Web Services Identity and Access Management
-    /// (IAM) role from a DB cluster.
-    /// 
-    ///  
-    /// <para>
-    /// For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
-    /// </para><para>
-    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-    /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// Updates a list.
     /// </summary>
-    [Cmdlet("Remove", "RDSRoleFromDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Update", "FDList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service RemoveRoleFromDBCluster API operation.", Operation = new[] {"RemoveRoleFromDBCluster"}, SelectReturnType = typeof(Amazon.RDS.Model.RemoveRoleFromDBClusterResponse))]
-    [AWSCmdletOutput("None or Amazon.RDS.Model.RemoveRoleFromDBClusterResponse",
+    [AWSCmdlet("Calls the Amazon Fraud Detector UpdateList API operation.", Operation = new[] {"UpdateList"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.UpdateListResponse))]
+    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.UpdateListResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.RemoveRoleFromDBClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.FraudDetector.Model.UpdateListResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRDSRoleFromDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class UpdateFDListCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
-        #region Parameter DBClusterIdentifier
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster to disassociate the IAM role from.</para>
+        /// <para> The new description. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Element
+        /// <summary>
+        /// <para>
+        /// <para> One or more list elements to add or replace. If you are providing the elements, make
+        /// sure to specify the <code>updateMode</code> to use. </para><para>If you are deleting all elements from the list, use <code>REPLACE</code> for the <code>updateMode</code>
+        /// and provide an empty list (0 elements).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Elements")]
+        public System.String[] Element { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para> The name of the list to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,42 +77,36 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DBClusterIdentifier { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter FeatureName
+        #region Parameter UpdateMode
         /// <summary>
         /// <para>
-        /// <para>The name of the feature for the DB cluster that the IAM role is to be disassociated
-        /// from. For information about supported feature names, see <a>DBEngineVersion</a>.</para>
+        /// <para> The update mode (type). </para><ul><li><para>Use <code>APPEND</code> if you are adding elements to the list.</para></li><li><para>Use <code>REPLACE</code> if you replacing existing elements in the list.</para></li><li><para>Use <code>REMOVE</code> if you are removing elements from the list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String FeatureName { get; set; }
+        [AWSConstantClassSource("Amazon.FraudDetector.ListUpdateMode")]
+        public Amazon.FraudDetector.ListUpdateMode UpdateMode { get; set; }
         #endregion
         
-        #region Parameter RoleArn
+        #region Parameter VariableType
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB
-        /// cluster, for example <code>arn:aws:iam::123456789012:role/AuroraAccessRole</code>.</para>
+        /// <para> The variable type you want to assign to the list. </para><note><para>You cannot update a variable type of a list that already has a variable type assigned
+        /// to it. You can assign a variable type to a list only if the list does not already
+        /// have a variable type.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RoleArn { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VariableType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.RemoveRoleFromDBClusterResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.UpdateListResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,10 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DBClusterIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DBClusterIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DBClusterIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DBClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSRoleFromDBCluster (RemoveRoleFromDBCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-FDList (UpdateList)"))
             {
                 return;
             }
@@ -144,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.RemoveRoleFromDBClusterResponse, RemoveRDSRoleFromDBClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.UpdateListResponse, UpdateFDListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,24 +161,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DBClusterIdentifier;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DBClusterIdentifier = this.DBClusterIdentifier;
-            #if MODULAR
-            if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
+            context.Description = this.Description;
+            if (this.Element != null)
             {
-                WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Element = new List<System.String>(this.Element);
+            }
+            context.Name = this.Name;
+            #if MODULAR
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.FeatureName = this.FeatureName;
-            context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.UpdateMode = this.UpdateMode;
+            context.VariableType = this.VariableType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,19 +192,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.RemoveRoleFromDBClusterRequest();
+            var request = new Amazon.FraudDetector.Model.UpdateListRequest();
             
-            if (cmdletContext.DBClusterIdentifier != null)
+            if (cmdletContext.Description != null)
             {
-                request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.FeatureName != null)
+            if (cmdletContext.Element != null)
             {
-                request.FeatureName = cmdletContext.FeatureName;
+                request.Elements = cmdletContext.Element;
             }
-            if (cmdletContext.RoleArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.RoleArn = cmdletContext.RoleArn;
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.UpdateMode != null)
+            {
+                request.UpdateMode = cmdletContext.UpdateMode;
+            }
+            if (cmdletContext.VariableType != null)
+            {
+                request.VariableType = cmdletContext.VariableType;
             }
             
             CmdletOutput output;
@@ -232,15 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.RemoveRoleFromDBClusterResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveRoleFromDBClusterRequest request)
+        private Amazon.FraudDetector.Model.UpdateListResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.UpdateListRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RemoveRoleFromDBCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "UpdateList");
             try
             {
                 #if DESKTOP
-                return client.RemoveRoleFromDBCluster(request);
+                return client.UpdateList(request);
                 #elif CORECLR
-                return client.RemoveRoleFromDBClusterAsync(request).GetAwaiter().GetResult();
+                return client.UpdateListAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,10 +275,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBClusterIdentifier { get; set; }
-            public System.String FeatureName { get; set; }
-            public System.String RoleArn { get; set; }
-            public System.Func<Amazon.RDS.Model.RemoveRoleFromDBClusterResponse, RemoveRDSRoleFromDBClusterCmdlet, object> Select { get; set; } =
+            public System.String Description { get; set; }
+            public List<System.String> Element { get; set; }
+            public System.String Name { get; set; }
+            public Amazon.FraudDetector.ListUpdateMode UpdateMode { get; set; }
+            public System.String VariableType { get; set; }
+            public System.Func<Amazon.FraudDetector.Model.UpdateListResponse, UpdateFDListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

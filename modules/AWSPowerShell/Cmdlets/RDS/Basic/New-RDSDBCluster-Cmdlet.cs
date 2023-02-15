@@ -34,14 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
     /// Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL
-    /// DB instance.
+    /// DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What
+    /// is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><para>
-    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
-    /// </para><para>
-    /// For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
-    /// Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS
-    /// User Guide</i>.
+    /// You can also use the <code>ReplicationSourceIdentifier</code> parameter to create
+    /// a Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the source.
+    /// For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ
+    /// DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -709,7 +708,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
-        /// cluster is created as a read replica.</para><para>Valid for: Aurora DB clusters only</para>
+        /// cluster is created as a read replica.</para><para>Valid for: Aurora DB clusters and RDS for PostgreSQL Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
