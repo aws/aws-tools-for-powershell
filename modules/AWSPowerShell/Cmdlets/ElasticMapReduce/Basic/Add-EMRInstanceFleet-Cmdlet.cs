@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_TimeoutDurationMinute
         /// <summary>
         /// <para>
-        /// <para>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
+        /// <para>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned
         /// within this time period, the <code>TimeOutAction</code> is taken. Minimum value is
         /// 5 and maximum value is 1440. The timeout applies only during initial provisioning,
         /// when the cluster is first created.</para>
@@ -246,6 +246,39 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutDurationMinutes")]
         public System.Int32? SpotSpecification_TimeoutDurationMinute { get; set; }
+        #endregion
+        
+        #region Parameter OnDemandResizeSpecification_TimeoutDurationMinute
+        /// <summary>
+        /// <para>
+        /// <para>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within
+        /// this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum
+        /// value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the
+        /// Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by
+        /// the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon
+        /// EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_TimeoutDurationMinutes")]
+        public System.Int32? OnDemandResizeSpecification_TimeoutDurationMinute { get; set; }
+        #endregion
+        
+        #region Parameter SpotResizeSpecification_TimeoutDurationMinute
+        /// <summary>
+        /// <para>
+        /// <para>Spot resize timeout in minutes. If Spot Instances are not provisioned within this
+        /// time, the resize workflow will stop provisioning of Spot instances. Minimum value
+        /// is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to
+        /// all resize workflows on the Instance Fleet. The resize could be triggered by Amazon
+        /// EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet
+        /// or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot
+        /// Reclamation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceFleet_ResizeSpecifications_SpotResizeSpecification_TimeoutDurationMinutes")]
+        public System.Int32? SpotResizeSpecification_TimeoutDurationMinute { get; set; }
         #endregion
         
         #region Parameter CapacityReservationOptions_UsageStrategy
@@ -355,6 +388,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.SpotSpecification_TimeoutAction = this.SpotSpecification_TimeoutAction;
             context.SpotSpecification_TimeoutDurationMinute = this.SpotSpecification_TimeoutDurationMinute;
             context.InstanceFleet_Name = this.InstanceFleet_Name;
+            context.OnDemandResizeSpecification_TimeoutDurationMinute = this.OnDemandResizeSpecification_TimeoutDurationMinute;
+            context.SpotResizeSpecification_TimeoutDurationMinute = this.SpotResizeSpecification_TimeoutDurationMinute;
             context.InstanceFleet_TargetOnDemandCapacity = this.InstanceFleet_TargetOnDemandCapacity;
             context.InstanceFleet_TargetSpotCapacity = this.InstanceFleet_TargetSpotCapacity;
             
@@ -571,6 +606,71 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 request.InstanceFleet.LaunchSpecifications = requestInstanceFleet_instanceFleet_LaunchSpecifications;
                 requestInstanceFleetIsNull = false;
             }
+            Amazon.ElasticMapReduce.Model.InstanceFleetResizingSpecifications requestInstanceFleet_instanceFleet_ResizeSpecifications = null;
+            
+             // populate ResizeSpecifications
+            var requestInstanceFleet_instanceFleet_ResizeSpecificationsIsNull = true;
+            requestInstanceFleet_instanceFleet_ResizeSpecifications = new Amazon.ElasticMapReduce.Model.InstanceFleetResizingSpecifications();
+            Amazon.ElasticMapReduce.Model.OnDemandResizingSpecification requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification = null;
+            
+             // populate OnDemandResizeSpecification
+            var requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecificationIsNull = true;
+            requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification = new Amazon.ElasticMapReduce.Model.OnDemandResizingSpecification();
+            System.Int32? requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification_onDemandResizeSpecification_TimeoutDurationMinute = null;
+            if (cmdletContext.OnDemandResizeSpecification_TimeoutDurationMinute != null)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification_onDemandResizeSpecification_TimeoutDurationMinute = cmdletContext.OnDemandResizeSpecification_TimeoutDurationMinute.Value;
+            }
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification_onDemandResizeSpecification_TimeoutDurationMinute != null)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification.TimeoutDurationMinutes = requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification_onDemandResizeSpecification_TimeoutDurationMinute.Value;
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecificationIsNull = false;
+            }
+             // determine if requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification should be set to null
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecificationIsNull)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification = null;
+            }
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification != null)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications.OnDemandResizeSpecification = requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_OnDemandResizeSpecification;
+                requestInstanceFleet_instanceFleet_ResizeSpecificationsIsNull = false;
+            }
+            Amazon.ElasticMapReduce.Model.SpotResizingSpecification requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification = null;
+            
+             // populate SpotResizeSpecification
+            var requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecificationIsNull = true;
+            requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification = new Amazon.ElasticMapReduce.Model.SpotResizingSpecification();
+            System.Int32? requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification_spotResizeSpecification_TimeoutDurationMinute = null;
+            if (cmdletContext.SpotResizeSpecification_TimeoutDurationMinute != null)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification_spotResizeSpecification_TimeoutDurationMinute = cmdletContext.SpotResizeSpecification_TimeoutDurationMinute.Value;
+            }
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification_spotResizeSpecification_TimeoutDurationMinute != null)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification.TimeoutDurationMinutes = requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification_spotResizeSpecification_TimeoutDurationMinute.Value;
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecificationIsNull = false;
+            }
+             // determine if requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification should be set to null
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecificationIsNull)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification = null;
+            }
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification != null)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications.SpotResizeSpecification = requestInstanceFleet_instanceFleet_ResizeSpecifications_instanceFleet_ResizeSpecifications_SpotResizeSpecification;
+                requestInstanceFleet_instanceFleet_ResizeSpecificationsIsNull = false;
+            }
+             // determine if requestInstanceFleet_instanceFleet_ResizeSpecifications should be set to null
+            if (requestInstanceFleet_instanceFleet_ResizeSpecificationsIsNull)
+            {
+                requestInstanceFleet_instanceFleet_ResizeSpecifications = null;
+            }
+            if (requestInstanceFleet_instanceFleet_ResizeSpecifications != null)
+            {
+                request.InstanceFleet.ResizeSpecifications = requestInstanceFleet_instanceFleet_ResizeSpecifications;
+                requestInstanceFleetIsNull = false;
+            }
              // determine if request.InstanceFleet should be set to null
             if (requestInstanceFleetIsNull)
             {
@@ -649,6 +749,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public Amazon.ElasticMapReduce.SpotProvisioningTimeoutAction SpotSpecification_TimeoutAction { get; set; }
             public System.Int32? SpotSpecification_TimeoutDurationMinute { get; set; }
             public System.String InstanceFleet_Name { get; set; }
+            public System.Int32? OnDemandResizeSpecification_TimeoutDurationMinute { get; set; }
+            public System.Int32? SpotResizeSpecification_TimeoutDurationMinute { get; set; }
             public System.Int32? InstanceFleet_TargetOnDemandCapacity { get; set; }
             public System.Int32? InstanceFleet_TargetSpotCapacity { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.AddInstanceFleetResponse, AddEMRInstanceFleetCmdlet, object> Select { get; set; } =

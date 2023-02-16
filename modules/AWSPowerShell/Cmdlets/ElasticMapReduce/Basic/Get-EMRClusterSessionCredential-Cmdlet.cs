@@ -28,10 +28,10 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides Temporary, basic HTTP credentials that are associated with a given runtime
+    /// Provides temporary, HTTP basic credentials that are associated with a given runtime
     /// IAM role and used by a cluster with fine-grained access control activated. You can
-    /// use these credentials to connect to cluster endpoints that support username-based
-    /// and password-based authentication.
+    /// use these credentials to connect to cluster endpoints that support username and password
+    /// authentication.
     /// </summary>
     [Cmdlet("Get", "EMRClusterSessionCredential")]
     [OutputType("Amazon.ElasticMapReduce.Model.GetClusterSessionCredentialsResponse")]

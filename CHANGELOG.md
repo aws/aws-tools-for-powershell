@@ -1,4 +1,13 @@
-﻿### 4.1.272 (2023-02-15 22:54Z)
+﻿### 4.1.273 (2023-02-16 23:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Add-EMRInstanceFleet: added parameters OnDemandResizeSpecification_TimeoutDurationMinute and SpotResizeSpecification_TimeoutDurationMinute.
+    * Modified cmdlet Edit-EMRInstanceFleet: added parameters OnDemandResizeSpecification_TimeoutDurationMinute and SpotResizeSpecification_TimeoutDurationMinute.
+  * Amazon Managed Grafana
+    * Modified cmdlet New-MGRFWorkspace: added parameters NetworkAccessControl_PrefixListId and NetworkAccessControl_VpceId.
+    * Modified cmdlet Update-MGRFWorkspace: added parameters NetworkAccessControl_PrefixListId, NetworkAccessControl_VpceId and RemoveNetworkAccessConfiguration.
+
+### 4.1.272 (2023-02-15 22:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.484.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Fraud Detector
     * Added cmdlet Get-FDListElement leveraging the GetListElements service API.

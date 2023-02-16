@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         #region Parameter PermissionType
         /// <summary>
         /// <para>
-        /// <para>If you specify <code>Service Managed</code>, Amazon Managed Grafana automatically
+        /// <para>If you specify <code>SERVICE_MANAGED</code>, Amazon Managed Grafana automatically
         /// creates the IAM roles and provisions the permissions that the workspace needs to use
         /// Amazon Web Services data sources and notification channels.</para><para>If you specify <code>CUSTOMER_MANAGED</code>, you will manage those roles and permissions
         /// yourself. If you are creating this workspace in a member account of an organization
@@ -92,6 +92,35 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ManagedGrafana.PermissionType")]
         public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
+        #endregion
+        
+        #region Parameter NetworkAccessControl_PrefixListId
+        /// <summary>
+        /// <para>
+        /// <para>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses.
+        /// The IP addresses specified are allowed to access your workspace. If the list is not
+        /// included in the configuration then no IP addresses will be allowed to access the workspace.
+        /// You create a prefix list using the Amazon VPC console.</para><para>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i></code>.</para><para>For more information about prefix lists, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html">Group
+        /// CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkAccessControl_PrefixListIds")]
+        public System.String[] NetworkAccessControl_PrefixListId { get; set; }
+        #endregion
+        
+        #region Parameter RemoveNetworkAccessConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Whether to remove the network access configuration from the workspace.</para><para>Setting this to <code>true</code> and providing a <code>networkAccessControl</code>
+        /// to set will return an error.</para><para>If you remove this configuration by setting this to <code>true</code>, then all IP
+        /// addresses and VPC endpoints will be allowed. Standard Grafana authentication and authorization
+        /// will still be required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemoveNetworkAccessConfiguration { get; set; }
         #endregion
         
         #region Parameter RemoveVpcConfiguration
@@ -109,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana
-        /// workspace to connect.</para>
+        /// workspace to connect. Duplicates not allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,12 +161,29 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace
-        /// to connect.</para>
+        /// to connect. Duplicates not allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfiguration_SubnetIds")]
         public System.String[] VpcConfiguration_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter NetworkAccessControl_VpceId
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon VPC endpoint IDs for the workspace. You can create VPC endpoints
+        /// to your Amazon Managed Grafana workspace for access from within a VPC. If a <code>NetworkAccessConfiguration</code>
+        /// is specified then only VPC endpoints specified here will be allowed to access the
+        /// workspace.</para><para>VPC endpoint IDs have the format <code>vpce-<i>1a2b3c4d</i></code>.</para><para>For more information about creating an interface VPC endpoint, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/VPC-endpoints">Interface
+        /// VPC endpoints</a> in the <i>Amazon Managed Grafana User Guide</i>.</para><note><para>The only VPC endpoints that can be specified here are interface VPC endpoints for
+        /// Grafana workspaces (using the <code>com.amazonaws.[region].grafana-workspace</code>
+        /// service endpoint). Other VPC endpoints will be ignored.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NetworkAccessControl_VpceIds")]
+        public System.String[] NetworkAccessControl_VpceId { get; set; }
         #endregion
         
         #region Parameter WorkspaceDataSource
@@ -295,8 +341,17 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountAccessType = this.AccountAccessType;
+            if (this.NetworkAccessControl_PrefixListId != null)
+            {
+                context.NetworkAccessControl_PrefixListId = new List<System.String>(this.NetworkAccessControl_PrefixListId);
+            }
+            if (this.NetworkAccessControl_VpceId != null)
+            {
+                context.NetworkAccessControl_VpceId = new List<System.String>(this.NetworkAccessControl_VpceId);
+            }
             context.OrganizationRoleName = this.OrganizationRoleName;
             context.PermissionType = this.PermissionType;
+            context.RemoveNetworkAccessConfiguration = this.RemoveNetworkAccessConfiguration;
             context.RemoveVpcConfiguration = this.RemoveVpcConfiguration;
             context.StackSetName = this.StackSetName;
             if (this.VpcConfiguration_SecurityGroupId != null)
@@ -349,6 +404,35 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             {
                 request.AccountAccessType = cmdletContext.AccountAccessType;
             }
+            
+             // populate NetworkAccessControl
+            var requestNetworkAccessControlIsNull = true;
+            request.NetworkAccessControl = new Amazon.ManagedGrafana.Model.NetworkAccessConfiguration();
+            List<System.String> requestNetworkAccessControl_networkAccessControl_PrefixListId = null;
+            if (cmdletContext.NetworkAccessControl_PrefixListId != null)
+            {
+                requestNetworkAccessControl_networkAccessControl_PrefixListId = cmdletContext.NetworkAccessControl_PrefixListId;
+            }
+            if (requestNetworkAccessControl_networkAccessControl_PrefixListId != null)
+            {
+                request.NetworkAccessControl.PrefixListIds = requestNetworkAccessControl_networkAccessControl_PrefixListId;
+                requestNetworkAccessControlIsNull = false;
+            }
+            List<System.String> requestNetworkAccessControl_networkAccessControl_VpceId = null;
+            if (cmdletContext.NetworkAccessControl_VpceId != null)
+            {
+                requestNetworkAccessControl_networkAccessControl_VpceId = cmdletContext.NetworkAccessControl_VpceId;
+            }
+            if (requestNetworkAccessControl_networkAccessControl_VpceId != null)
+            {
+                request.NetworkAccessControl.VpceIds = requestNetworkAccessControl_networkAccessControl_VpceId;
+                requestNetworkAccessControlIsNull = false;
+            }
+             // determine if request.NetworkAccessControl should be set to null
+            if (requestNetworkAccessControlIsNull)
+            {
+                request.NetworkAccessControl = null;
+            }
             if (cmdletContext.OrganizationRoleName != null)
             {
                 request.OrganizationRoleName = cmdletContext.OrganizationRoleName;
@@ -356,6 +440,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             if (cmdletContext.PermissionType != null)
             {
                 request.PermissionType = cmdletContext.PermissionType;
+            }
+            if (cmdletContext.RemoveNetworkAccessConfiguration != null)
+            {
+                request.RemoveNetworkAccessConfiguration = cmdletContext.RemoveNetworkAccessConfiguration.Value;
             }
             if (cmdletContext.RemoveVpcConfiguration != null)
             {
@@ -484,8 +572,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ManagedGrafana.AccountAccessType AccountAccessType { get; set; }
+            public List<System.String> NetworkAccessControl_PrefixListId { get; set; }
+            public List<System.String> NetworkAccessControl_VpceId { get; set; }
             public System.String OrganizationRoleName { get; set; }
             public Amazon.ManagedGrafana.PermissionType PermissionType { get; set; }
+            public System.Boolean? RemoveNetworkAccessConfiguration { get; set; }
             public System.Boolean? RemoveVpcConfiguration { get; set; }
             public System.String StackSetName { get; set; }
             public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
