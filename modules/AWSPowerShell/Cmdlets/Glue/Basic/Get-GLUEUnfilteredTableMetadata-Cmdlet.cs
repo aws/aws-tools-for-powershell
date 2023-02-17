@@ -28,7 +28,12 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    
+    /// Retrieves table metadata from the Data Catalog that contains unfiltered metadata.
+    /// 
+    ///  
+    /// <para>
+    /// For IAM authorization, the public IAM action associated with this API is <code>glue:GetTable</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GLUEUnfilteredTableMetadata")]
     [OutputType("Amazon.Glue.Model.GetUnfilteredTableMetadataResponse")]
@@ -62,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The catalog ID where the table resides.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) Specifies the name of a database that contains the table.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) Specifies the name of a table for which you are requesting metadata.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SupportedPermissionType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) A list of supported permission types. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

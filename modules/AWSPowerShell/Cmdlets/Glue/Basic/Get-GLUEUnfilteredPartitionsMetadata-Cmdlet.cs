@@ -28,7 +28,12 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// <br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves partition metadata from the Data Catalog that contains unfiltered metadata.
+    /// 
+    ///  
+    /// <para>
+    /// For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartitions</code>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GLUEUnfilteredPartitionsMetadata")]
     [OutputType("Amazon.Glue.Model.UnfilteredPartition")]
@@ -63,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the Data Catalog where the partitions in question reside. If none is provided,
+        /// the AWS account ID is used by default. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the catalog database where the partitions reside.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Expression
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An expression that filters the partitions to be returned.</para><para>The expression uses SQL syntax similar to the SQL <code>WHERE</code> filter clause.
+        /// The SQL statement parser <a href="http://jsqlparser.sourceforge.net/home.php">JSQLParser</a>
+        /// parses the expression. </para><para><i>Operators</i>: The following are the operators that you can use in the <code>Expression</code>
+        /// API call:</para><dl><dt>=</dt><dd><para>Checks whether the values of the two operands are equal; if yes, then the condition
+        /// becomes true.</para><para>Example: Assume 'variable a' holds 10 and 'variable b' holds 20. </para><para>(a = b) is not true.</para></dd><dt>&lt; &gt;</dt><dd><para>Checks whether the values of two operands are equal; if the values are not equal,
+        /// then the condition becomes true.</para><para>Example: (a &lt; &gt; b) is true.</para></dd><dt>&gt;</dt><dd><para>Checks whether the value of the left operand is greater than the value of the right
+        /// operand; if yes, then the condition becomes true.</para><para>Example: (a &gt; b) is not true.</para></dd><dt>&lt;</dt><dd><para>Checks whether the value of the left operand is less than the value of the right operand;
+        /// if yes, then the condition becomes true.</para><para>Example: (a &lt; b) is true.</para></dd><dt>&gt;=</dt><dd><para>Checks whether the value of the left operand is greater than or equal to the value
+        /// of the right operand; if yes, then the condition becomes true.</para><para>Example: (a &gt;= b) is not true.</para></dd><dt>&lt;=</dt><dd><para>Checks whether the value of the left operand is less than or equal to the value of
+        /// the right operand; if yes, then the condition becomes true.</para><para>Example: (a &lt;= b) is true.</para></dd><dt>AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL</dt><dd><para>Logical operators.</para></dd></dl><para><i>Supported Partition Key Types</i>: The following are the supported partition keys.</para><ul><li><para><code>string</code></para></li><li><para><code>date</code></para></li><li><para><code>timestamp</code></para></li><li><para><code>int</code></para></li><li><para><code>bigint</code></para></li><li><para><code>long</code></para></li><li><para><code>tinyint</code></para></li><li><para><code>smallint</code></para></li><li><para><code>decimal</code></para></li></ul><para>If an type is encountered that is not valid, an exception is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Segment
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The segment of the table's partitions to scan in this request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SupportedPermissionType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of supported permission types. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the table that contains the partition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -163,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of partitions to return in a single response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A continuation token, if this is not the first call to retrieve these partitions.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

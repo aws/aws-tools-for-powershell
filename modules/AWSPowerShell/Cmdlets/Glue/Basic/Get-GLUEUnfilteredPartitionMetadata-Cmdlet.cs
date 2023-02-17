@@ -28,7 +28,12 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    
+    /// Retrieves partition metadata from the Data Catalog that contains unfiltered metadata.
+    /// 
+    ///  
+    /// <para>
+    /// For IAM authorization, the public IAM action associated with this API is <code>glue:GetPartition</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GLUEUnfilteredPartitionMetadata")]
     [OutputType("Amazon.Glue.Model.GetUnfilteredPartitionMetadataResponse")]
@@ -62,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The catalog ID where the partition resides.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) Specifies the name of a database that contains the partition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PartitionValue
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) A list of partition key values.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter SupportedPermissionType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) A list of supported permission types. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Required) Specifies the name of a table that contains the partition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
