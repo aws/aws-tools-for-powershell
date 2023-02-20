@@ -28,9 +28,10 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Describes the specified user account. You can find the instance ID in the console
-    /// (it’s the final part of the ARN). The console does not display the user IDs. Instead,
-    /// list the users and note the IDs provided in the output.
+    /// Describes the specified user account. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+    /// the instance ID in the Amazon Connect console</a> (it’s the final part of the ARN).
+    /// The console does not display the user IDs. Instead, list the users and note the IDs
+    /// provided in the output.
     /// </summary>
     [Cmdlet("Get", "CONNUser")]
     [OutputType("Amazon.Connect.Model.User")]
@@ -45,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
-        /// ARN of the instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

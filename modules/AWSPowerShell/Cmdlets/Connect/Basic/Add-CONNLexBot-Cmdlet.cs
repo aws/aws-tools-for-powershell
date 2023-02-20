@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can find the instanceId in the
-        /// ARN of the instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The Amazon Web Services Region where the Amazon Lex bot was created.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LexBot_LexRegion { get; set; }
         #endregion
         
@@ -80,7 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The name of the Amazon Lex bot.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String LexBot_Name { get; set; }
         #endregion
         
@@ -153,7 +167,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             #endif
             context.LexBot_LexRegion = this.LexBot_LexRegion;
+            #if MODULAR
+            if (this.LexBot_LexRegion == null && ParameterWasBound(nameof(this.LexBot_LexRegion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LexBot_LexRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.LexBot_Name = this.LexBot_Name;
+            #if MODULAR
+            if (this.LexBot_Name == null && ParameterWasBound(nameof(this.LexBot_Name)))
+            {
+                WriteWarning("You are passing $null as a value for parameter LexBot_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

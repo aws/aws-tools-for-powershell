@@ -28,7 +28,7 @@ using Amazon.AuditManager.Model;
 namespace Amazon.PowerShell.Cmdlets.AUDM
 {
     /// <summary>
-    /// Updates Audit Manager settings for the current user account.
+    /// Updates Audit Manager settings for the current account.
     /// </summary>
     [Cmdlet("Edit", "AUDMSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AuditManager.Model.Settings")]
