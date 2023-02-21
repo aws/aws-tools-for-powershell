@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The keys of the tags to remove.</para>
+        /// <para>The keys of the tags you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

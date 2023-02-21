@@ -370,6 +370,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Textract.dll',
         'AWSSDK.TimestreamQuery.dll',
         'AWSSDK.TimestreamWrite.dll',
+        'AWSSDK.Tnb.dll',
         'AWSSDK.TranscribeService.dll',
         'AWSSDK.Transfer.dll',
         'AWSSDK.Translate.dll',

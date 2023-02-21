@@ -688,6 +688,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AthenaParameters_RoleArn { get; set; }
         #endregion
         
+        #region Parameter S3Parameters_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Use the <code>RoleArn</code> structure to override an account-wide role for a specific
+        /// S3 data source. For example, say an account administrator has turned off all S3 access
+        /// with an account-wide role. The administrator can then use <code>RoleArn</code> to
+        /// bypass the account-wide role and allow S3 access for the single S3 data source that
+        /// is specified in the structure, even if the account-wide role forbidding S3 access
+        /// is still active.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceParameters_S3Parameters_RoleArn")]
+        public System.String S3Parameters_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Credentials_SecretArn
         /// <summary>
         /// <para>
@@ -899,6 +915,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.RedshiftParameters_Port = this.RedshiftParameters_Port;
             context.ManifestFileLocation_Bucket = this.ManifestFileLocation_Bucket;
             context.ManifestFileLocation_Key = this.ManifestFileLocation_Key;
+            context.S3Parameters_RoleArn = this.S3Parameters_RoleArn;
             context.ServiceNowParameters_SiteBaseUrl = this.ServiceNowParameters_SiteBaseUrl;
             context.SnowflakeParameters_Database = this.SnowflakeParameters_Database;
             context.SnowflakeParameters_Host = this.SnowflakeParameters_Host;
@@ -1124,56 +1141,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.DataSourceParameters.JiraParameters = requestDataSourceParameters_dataSourceParameters_JiraParameters;
                 requestDataSourceParametersIsNull = false;
             }
-            Amazon.QuickSight.Model.S3Parameters requestDataSourceParameters_dataSourceParameters_S3Parameters = null;
-            
-             // populate S3Parameters
-            var requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_S3Parameters = new Amazon.QuickSight.Model.S3Parameters();
-            Amazon.QuickSight.Model.ManifestFileLocation requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation = null;
-            
-             // populate ManifestFileLocation
-            var requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull = true;
-            requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation = new Amazon.QuickSight.Model.ManifestFileLocation();
-            System.String requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket = null;
-            if (cmdletContext.ManifestFileLocation_Bucket != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket = cmdletContext.ManifestFileLocation_Bucket;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation.Bucket = requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket;
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull = false;
-            }
-            System.String requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key = null;
-            if (cmdletContext.ManifestFileLocation_Key != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key = cmdletContext.ManifestFileLocation_Key;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation.Key = requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key;
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation != null)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters.ManifestFileLocation = requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation;
-                requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull = false;
-            }
-             // determine if requestDataSourceParameters_dataSourceParameters_S3Parameters should be set to null
-            if (requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull)
-            {
-                requestDataSourceParameters_dataSourceParameters_S3Parameters = null;
-            }
-            if (requestDataSourceParameters_dataSourceParameters_S3Parameters != null)
-            {
-                request.DataSourceParameters.S3Parameters = requestDataSourceParameters_dataSourceParameters_S3Parameters;
-                requestDataSourceParametersIsNull = false;
-            }
             Amazon.QuickSight.Model.ServiceNowParameters requestDataSourceParameters_dataSourceParameters_ServiceNowParameters = null;
             
              // populate ServiceNowParameters
@@ -1302,6 +1269,66 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestDataSourceParameters_dataSourceParameters_RdsParameters != null)
             {
                 request.DataSourceParameters.RdsParameters = requestDataSourceParameters_dataSourceParameters_RdsParameters;
+                requestDataSourceParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.S3Parameters requestDataSourceParameters_dataSourceParameters_S3Parameters = null;
+            
+             // populate S3Parameters
+            var requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_S3Parameters = new Amazon.QuickSight.Model.S3Parameters();
+            System.String requestDataSourceParameters_dataSourceParameters_S3Parameters_s3Parameters_RoleArn = null;
+            if (cmdletContext.S3Parameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_s3Parameters_RoleArn = cmdletContext.S3Parameters_RoleArn;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_s3Parameters_RoleArn != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters.RoleArn = requestDataSourceParameters_dataSourceParameters_S3Parameters_s3Parameters_RoleArn;
+                requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull = false;
+            }
+            Amazon.QuickSight.Model.ManifestFileLocation requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation = null;
+            
+             // populate ManifestFileLocation
+            var requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull = true;
+            requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation = new Amazon.QuickSight.Model.ManifestFileLocation();
+            System.String requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket = null;
+            if (cmdletContext.ManifestFileLocation_Bucket != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket = cmdletContext.ManifestFileLocation_Bucket;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation.Bucket = requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Bucket;
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull = false;
+            }
+            System.String requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key = null;
+            if (cmdletContext.ManifestFileLocation_Key != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key = cmdletContext.ManifestFileLocation_Key;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation.Key = requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation_manifestFileLocation_Key;
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocationIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation != null)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters.ManifestFileLocation = requestDataSourceParameters_dataSourceParameters_S3Parameters_dataSourceParameters_S3Parameters_ManifestFileLocation;
+                requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull = false;
+            }
+             // determine if requestDataSourceParameters_dataSourceParameters_S3Parameters should be set to null
+            if (requestDataSourceParameters_dataSourceParameters_S3ParametersIsNull)
+            {
+                requestDataSourceParameters_dataSourceParameters_S3Parameters = null;
+            }
+            if (requestDataSourceParameters_dataSourceParameters_S3Parameters != null)
+            {
+                request.DataSourceParameters.S3Parameters = requestDataSourceParameters_dataSourceParameters_S3Parameters;
                 requestDataSourceParametersIsNull = false;
             }
             Amazon.QuickSight.Model.SparkParameters requestDataSourceParameters_dataSourceParameters_SparkParameters = null;
@@ -2079,6 +2106,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.Int32? RedshiftParameters_Port { get; set; }
             public System.String ManifestFileLocation_Bucket { get; set; }
             public System.String ManifestFileLocation_Key { get; set; }
+            public System.String S3Parameters_RoleArn { get; set; }
             public System.String ServiceNowParameters_SiteBaseUrl { get; set; }
             public System.String SnowflakeParameters_Database { get; set; }
             public System.String SnowflakeParameters_Host { get; set; }

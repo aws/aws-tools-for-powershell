@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>tnb</C2jFilename>
+    <AssemblyName>Tnb</AssemblyName>
+    <ServiceNounPrefix>TNB</ServiceNounPrefix>
+    <ServiceName>AWS Telco Network Builder</ServiceName>
+    <ServiceClientInterface>IAmazonTnb</ServiceClientInterface>
+    <ServiceClient>AmazonTnbClient</ServiceClient>
+    <ServiceModuleGuid>877fb49e-c3c9-4f43-ac43-706127fd63e2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings>
+        <Map From="Instantiate" To="Start" />
+        <Map From="Terminate" To="Stop" />
+        <Map From="Validate" To="Test" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelSolNetworkOperation" Verb="Stop" Noun="SolNetworkOperation" ShouldProcessTarget="NsLcmOpOccId" PipelineParameter="NsLcmOpOccId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSolFunctionPackage" OutputProperty="*" Verb="New" Noun="SolFunctionPackage" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSolNetworkInstance" OutputProperty="*" Verb="New" Noun="SolNetworkInstance" IgnoreSupportsShouldProcess="true" PipelineParameter="NsdInfoId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSolNetworkPackage" OutputProperty="*" Verb="New" Noun="SolNetworkPackage" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSolFunctionPackage" Verb="Remove" Noun="SolFunctionPackage" ShouldProcessTarget="VnfPkgId" PipelineParameter="VnfPkgId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSolNetworkInstance" Verb="Remove" Noun="SolNetworkInstance" ShouldProcessTarget="NsInstanceId" PipelineParameter="NsInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSolNetworkPackage" Verb="Remove" Noun="SolNetworkPackage" ShouldProcessTarget="NsdInfoId" PipelineParameter="NsdInfoId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolFunctionInstance" OutputProperty="*" Verb="Get" Noun="SolFunctionInstance" PipelineParameter="VnfInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolFunctionPackage" OutputProperty="*" Verb="Get" Noun="SolFunctionPackage" PipelineParameter="VnfPkgId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolFunctionPackageContent" OutputProperty="*" Verb="Get" Noun="SolFunctionPackageContent" PipelineParameter="VnfPkgId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolFunctionPackageDescriptor" OutputProperty="*" Verb="Get" Noun="SolFunctionPackageDescriptor" PipelineParameter="VnfPkgId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolNetworkInstance" OutputProperty="*" Verb="Get" Noun="SolNetworkInstance" PipelineParameter="NsInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolNetworkOperation" OutputProperty="*" Verb="Get" Noun="SolNetworkOperation" PipelineParameter="NsLcmOpOccId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolNetworkPackage" OutputProperty="*" Verb="Get" Noun="SolNetworkPackage" PipelineParameter="NsdInfoId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolNetworkPackageContent" OutputProperty="*" Verb="Get" Noun="SolNetworkPackageContent" PipelineParameter="NsdInfoId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSolNetworkPackageDescriptor" OutputProperty="*" Verb="Get" Noun="SolNetworkPackageDescriptor" PipelineParameter="NsdInfoId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InstantiateSolNetworkInstance" OutputProperty="NsLcmOpOccId" Verb="Start" Noun="SolNetworkInstance" ShouldProcessTarget="NsInstanceId" PipelineParameter="NsInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSolFunctionInstances" OutputProperty="FunctionInstances" Verb="Get" Noun="SolFunctionInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSolFunctionPackages" OutputProperty="FunctionPackages" Verb="Get" Noun="SolFunctionPackageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSolNetworkInstances" OutputProperty="NetworkInstances" Verb="Get" Noun="SolNetworkInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSolNetworkOperations" OutputProperty="NetworkOperations" Verb="Get" Noun="SolNetworkOperationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSolNetworkPackages" OutputProperty="NetworkPackages" Verb="Get" Noun="SolNetworkPackageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSolFunctionPackageContent" OutputProperty="*" Verb="Write" Noun="SolFunctionPackageContent" ShouldProcessTarget="VnfPkgId" PipelineParameter="File" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSolNetworkPackageContent" OutputProperty="*" Verb="Write" Noun="SolNetworkPackageContent" ShouldProcessTarget="NsdInfoId" PipelineParameter="File" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateSolNetworkInstance" OutputProperty="NsLcmOpOccId" Verb="Stop" Noun="SolNetworkInstance" ShouldProcessTarget="NsInstanceId" PipelineParameter="NsInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSolFunctionPackage" OutputProperty="OperationalState" Verb="Update" Noun="SolFunctionPackage" ShouldProcessTarget="VnfPkgId" PipelineParameter="VnfPkgId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSolNetworkInstance" OutputProperty="NsLcmOpOccId" Verb="Update" Noun="SolNetworkInstance" ShouldProcessTarget="NsInstanceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSolNetworkPackage" OutputProperty="NsdOperationalState" Verb="Update" Noun="SolNetworkPackage" ShouldProcessTarget="NsdInfoId" PipelineParameter="NsdInfoId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateSolFunctionPackageContent" OutputProperty="*" Verb="Test" Noun="SolFunctionPackageContent" IgnoreSupportsShouldProcess="true" PipelineParameter="File" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateSolNetworkPackageContent" OutputProperty="*" Verb="Test" Noun="SolNetworkPackageContent" IgnoreSupportsShouldProcess="true" PipelineParameter="File" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

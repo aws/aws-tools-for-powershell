@@ -1,4 +1,26 @@
-﻿### 4.1.275 (2023-02-20 21:43Z)
+﻿### 4.1.276 (2023-02-21 22:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.488.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSDataSource: added parameter S3Parameters_RoleArn.
+    * Modified cmdlet Update-QSDataSource: added parameter S3Parameters_RoleArn.
+  * Amazon Resilience Hub
+    * Added cmdlet Get-RESHAppInputSourceList leveraging the ListAppInputSources service API.
+    * Added cmdlet Get-RESHAppVersion leveraging the DescribeAppVersion service API.
+    * Added cmdlet Get-RESHAppVersionAppComponent leveraging the DescribeAppVersionAppComponent service API.
+    * Added cmdlet Get-RESHAppVersionAppComponentList leveraging the ListAppVersionAppComponents service API.
+    * Added cmdlet Get-RESHAppVersionResource leveraging the DescribeAppVersionResource service API.
+    * Added cmdlet New-RESHAppVersionAppComponent leveraging the CreateAppVersionAppComponent service API.
+    * Added cmdlet New-RESHAppVersionResource leveraging the CreateAppVersionResource service API.
+    * Added cmdlet Remove-RESHAppInputSource leveraging the DeleteAppInputSource service API.
+    * Added cmdlet Remove-RESHAppVersionAppComponent leveraging the DeleteAppVersionAppComponent service API.
+    * Added cmdlet Remove-RESHAppVersionResource leveraging the DeleteAppVersionResource service API.
+    * Added cmdlet Update-RESHAppVersion leveraging the UpdateAppVersion service API.
+    * Added cmdlet Update-RESHAppVersionAppComponent leveraging the UpdateAppVersionAppComponent service API.
+    * Added cmdlet Update-RESHAppVersionResource leveraging the UpdateAppVersionResource service API.
+    * Modified cmdlet Import-RESHResourcesToDraftAppVersion: added parameter ImportStrategy.
+  * Amazon Telco Network Builder. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TNB and can be listed using the command 'Get-AWSCmdletName -Service TNB'.
+
+### 4.1.275 (2023-02-20 21:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.487.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.274 (2023-02-17 21:53Z)

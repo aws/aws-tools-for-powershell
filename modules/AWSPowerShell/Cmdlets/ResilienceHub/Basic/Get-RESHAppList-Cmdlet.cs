@@ -28,7 +28,14 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists your Resilience Hub applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists your AWS Resilience Hub applications.
+    /// 
+    ///  <note><para>
+    /// You can filter applications using only one filter at a time or without using any filter.
+    /// If you try to filter applications using multiple filters, you will get the following
+    /// error:
+    /// </para><para><code>An error occurred (ValidationException) when calling the ListApps operation:
+    /// Only one filter is supported for this operation.</code></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHAppList")]
     [OutputType("Amazon.ResilienceHub.Model.AppSummary")]
@@ -43,9 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format for
+        /// this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

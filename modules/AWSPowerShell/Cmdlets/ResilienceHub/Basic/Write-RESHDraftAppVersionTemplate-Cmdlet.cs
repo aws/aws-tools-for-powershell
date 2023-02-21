@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Adds or updates the app template for a draft version of a Resilience Hub app.
+    /// Adds or updates the app template for an AWS Resilience Hub application draft version.
     /// </summary>
     [Cmdlet("Write", "RESHDraftAppVersionTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.PutDraftAppVersionTemplateResponse")]
@@ -42,9 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format for
+        /// this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppTemplateBody
         /// <summary>
         /// <para>
-        /// <para>A JSON string that contains the body of the app template.</para>
+        /// <para>A JSON string that provides information about your application structure. To learn
+        /// more about the <code>appTemplateBody</code> template, see the sample template provided
+        /// in the <i>Examples</i> section.</para><para>The <code>appTemplateBody</code> JSON string has the following structure:</para><ul><li><para><b><code>resources</code></b></para><para>The list of logical resources that needs to be included in the application.</para><para>Type: Array</para><note><para>Don't add the resources that you want to exclude.</para></note><para>Each <code>resources</code> array item includes the following fields:</para><ul><li><para><i><code>logicalResourceId</code></i></para><para>The logical identifier of the resource.</para><para>Type: Object</para><para>Each <code>logicalResourceId</code> object includes the following fields:</para><ul><li><para><code>identifier</code></para><para>The identifier of the resource.</para><para>Type: String</para></li><li><para><code>logicalStackName</code></para><para>The name of the CloudFormation stack this resource belongs to.</para><para>Type: String</para></li><li><para><code>resourceGroupName</code></para><para>The name of the resource group this resource belongs to.</para><para>Type: String</para></li><li><para><code>terraformSourceName</code></para><para>The name of the Terraform S3 state file this resource belongs to.</para><para>Type: String</para></li></ul></li><li><para><i><code>type</code></i></para><para>The type of resource.</para><para>Type: string</para></li><li><para><i><code>name</code></i></para><para>The name of the resource.</para><para>Type: String</para></li></ul></li><li><para><b><code>appComponents</code></b></para><para>The list of Application Components that this resource belongs to. If an Application
+        /// Component is not part of the AWS Resilience Hub application, it will be added.</para><para>Type: Array</para><para>Each <code>appComponents</code> array item includes the following fields:</para><ul><li><para><code>name</code></para><para>The name of the Application Component.</para><para>Type: String</para></li><li><para><code>type</code></para><para>The type of Application Component. For more information about the types of Application
+        /// Component, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/AppComponent.grouping.html">Grouping
+        /// resources in an AppComponent</a>.</para><para>Type: String</para></li><li><para><code>resourceNames</code></para><para>The list of included resources that are assigned to the Application Component.</para><para>Type: Array of strings</para></li><li><para><code>additionalInfo</code></para><para>Additional configuration parameters for an AWS Resilience Hub application.</para><note><para>Currently, this parameter accepts a key-value mapping (in a string format) of only
+        /// one failover region and one associated account.</para><para>Key: <code>"failover-regions"</code></para><para>Value: <code>"[{"region":"&lt;REGION&gt;", "accounts":[{"id":"&lt;ACCOUNT_ID&gt;"}]}]"</code></para></note></li></ul></li><li><para><b><code>excludedResources</code></b></para><para>The list of logical resource identifiers to be excluded from the application.</para><para>Type: Array</para><note><para>Don't add the resources that you want to include.</para></note><para>Each <code>excludedResources</code> array item includes the following fields:</para><ul><li><para><i><code>logicalResourceIds</code></i></para><para>The logical identifier of the resource.</para><para>Type: Object</para><note><para>You can configure only one of the following fields:</para><ul><li><para><code>logicalStackName</code></para></li><li><para><code>resourceGroupName</code></para></li><li><para><code>terraformSourceName</code></para></li></ul></note><para>Each <code>logicalResourceIds</code> object includes the following fields:</para><ul><li><para><code>identifier</code></para><para>The identifier of the resource.</para><para>Type: String</para></li><li><para><code>logicalStackName</code></para><para>The name of the CloudFormation stack this resource belongs to.</para><para>Type: String</para></li><li><para><code>resourceGroupName</code></para><para>The name of the resource group this resource belongs to.</para><para>Type: String</para></li><li><para><code>terraformSourceName</code></para><para>The name of the Terraform S3 state file this resource belongs to.</para><para>Type: String</para></li></ul></li></ul></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists all the resources in an application version.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the resources in an AWS Resilience Hub application.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHAppVersionResourceList")]
     [OutputType("Amazon.ResilienceHub.Model.ListAppVersionResourcesResponse")]
@@ -42,9 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format for
+        /// this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

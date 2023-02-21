@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppVersionAppComponent" OutputProperty="*" Verb="New" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppVersionResource" OutputProperty="*" Verb="New" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRecommendationTemplate" OutputProperty="RecommendationTemplate" Verb="New" Noun="RecommendationTemplate" ShouldProcessTarget="AssessmentArn" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +51,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInputSource" OutputProperty="*" Verb="Remove" Noun="AppInputSource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppVersionAppComponent" OutputProperty="*" Verb="Remove" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppVersionResource" OutputProperty="*" Verb="Remove" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecommendationTemplate" OutputProperty="*" Verb="Remove" Noun="RecommendationTemplate" ShouldProcessTarget="RecommendationTemplateArn" PipelineParameter="RecommendationTemplateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +76,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAppAssessment" OutputProperty="Assessment" Verb="Get" Noun="AppAssessment" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppVersion" OutputProperty="*" Verb="Get" Noun="AppVersion" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppVersionAppComponent" OutputProperty="*" Verb="Get" Noun="AppVersionAppComponent" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppVersionResource" OutputProperty="*" Verb="Get" Noun="AppVersionResource" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +127,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInputSources" OutputProperty="AppInputSources" Verb="Get" Noun="AppInputSourceList" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListApps" OutputProperty="AppSummaries" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppVersionAppComponents" OutputProperty="*" Verb="Get" Noun="AppVersionAppComponentList" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,6 +208,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateApp" OutputProperty="App" Verb="Update" Noun="App" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppVersion" OutputProperty="*" Verb="Update" Noun="AppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppVersionAppComponent" OutputProperty="*" Verb="Update" Noun="AppVersionAppComponent" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppVersionResource" OutputProperty="*" Verb="Update" Noun="AppVersionResource" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

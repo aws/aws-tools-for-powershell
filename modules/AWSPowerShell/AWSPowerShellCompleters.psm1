@@ -45521,6 +45521,13 @@ $RESH_Completers = {
             break
         }
 
+        # Amazon.ResilienceHub.ResourceImportStrategyType
+        "Import-RESHResourcesToDraftAppVersion/ImportStrategy"
+        {
+            $v = "AddOnly","ReplaceAll"
+            break
+        }
+
         # Amazon.ResilienceHub.TemplateFormat
         "New-RESHRecommendationTemplate/Format"
         {
@@ -45541,6 +45548,7 @@ $RESH_map = @{
     "ComplianceStatus"=@("Get-RESHAppAssessmentList")
     "DataLocationConstraint"=@("New-RESHResiliencyPolicy","Update-RESHResiliencyPolicy")
     "Format"=@("New-RESHRecommendationTemplate")
+    "ImportStrategy"=@("Import-RESHResourcesToDraftAppVersion")
     "Invoker"=@("Get-RESHAppAssessmentList")
     "Tier"=@("New-RESHResiliencyPolicy","Update-RESHResiliencyPolicy")
 }
@@ -45597,14 +45605,22 @@ $RESH_SelectCompleters = {
 $RESH_SelectMap = @{
     "Select"=@("Add-RESHDraftAppVersionResourceMapping",
                "New-RESHApp",
+               "New-RESHAppVersionAppComponent",
+               "New-RESHAppVersionResource",
                "New-RESHRecommendationTemplate",
                "New-RESHResiliencyPolicy",
                "Remove-RESHApp",
                "Remove-RESHAppAssessment",
+               "Remove-RESHAppInputSource",
+               "Remove-RESHAppVersionAppComponent",
+               "Remove-RESHAppVersionResource",
                "Remove-RESHRecommendationTemplate",
                "Remove-RESHResiliencyPolicy",
                "Get-RESHApp",
                "Get-RESHAppAssessment",
+               "Get-RESHAppVersion",
+               "Get-RESHAppVersionAppComponent",
+               "Get-RESHAppVersionResource",
                "Get-RESHAppVersionResourcesResolutionStatus",
                "Get-RESHAppVersionTemplate",
                "Get-RESHDraftAppVersionResourcesImportStatus",
@@ -45614,7 +45630,9 @@ $RESH_SelectMap = @{
                "Get-RESHAppAssessmentList",
                "Get-RESHAppComponentComplianceList",
                "Get-RESHAppComponentRecommendationList",
+               "Get-RESHAppInputSourceList",
                "Get-RESHAppList",
+               "Get-RESHAppVersionAppComponentList",
                "Get-RESHAppVersionResourceMappingList",
                "Get-RESHAppVersionResourceList",
                "Get-RESHAppVersionList",
@@ -45633,6 +45651,9 @@ $RESH_SelectMap = @{
                "Add-RESHResourceTag",
                "Remove-RESHResourceTag",
                "Update-RESHApp",
+               "Update-RESHAppVersion",
+               "Update-RESHAppVersionAppComponent",
+               "Update-RESHAppVersionResource",
                "Update-RESHResiliencyPolicy")
 }
 
@@ -55257,6 +55278,158 @@ $TSW_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $TSW_SelectCompleters $TSW_SelectMap
+# Argument completions for service AWS Telco Network Builder
+
+
+$TNB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Tnb.DescriptorContentType
+        "Get-TNBSolFunctionPackageDescriptor/Accept"
+        {
+            $v = "text/plain"
+            break
+        }
+
+        # Amazon.Tnb.NsdOperationalState
+        "Update-TNBSolNetworkPackage/NsdOperationalState"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Tnb.OperationalState
+        "Update-TNBSolFunctionPackage/OperationalState"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.Tnb.PackageContentType
+        {
+            ($_ -eq "Get-TNBSolFunctionPackageContent/Accept") -Or
+            ($_ -eq "Get-TNBSolNetworkPackageContent/Accept") -Or
+            ($_ -eq "Test-TNBSolFunctionPackageContent/ContentType") -Or
+            ($_ -eq "Test-TNBSolNetworkPackageContent/ContentType") -Or
+            ($_ -eq "Write-TNBSolFunctionPackageContent/ContentType") -Or
+            ($_ -eq "Write-TNBSolNetworkPackageContent/ContentType")
+        }
+        {
+            $v = "application/zip"
+            break
+        }
+
+        # Amazon.Tnb.UpdateSolNetworkType
+        "Update-TNBSolNetworkInstance/UpdateType"
+        {
+            $v = "MODIFY_VNF_INFORMATION"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TNB_map = @{
+    "Accept"=@("Get-TNBSolFunctionPackageContent","Get-TNBSolFunctionPackageDescriptor","Get-TNBSolNetworkPackageContent")
+    "ContentType"=@("Test-TNBSolFunctionPackageContent","Test-TNBSolNetworkPackageContent","Write-TNBSolFunctionPackageContent","Write-TNBSolNetworkPackageContent")
+    "NsdOperationalState"=@("Update-TNBSolNetworkPackage")
+    "OperationalState"=@("Update-TNBSolFunctionPackage")
+    "UpdateType"=@("Update-TNBSolNetworkInstance")
+}
+
+_awsArgumentCompleterRegistration $TNB_Completers $TNB_map
+
+$TNB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.TNB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TNB_SelectMap = @{
+    "Select"=@("Stop-TNBSolNetworkOperation",
+               "New-TNBSolFunctionPackage",
+               "New-TNBSolNetworkInstance",
+               "New-TNBSolNetworkPackage",
+               "Remove-TNBSolFunctionPackage",
+               "Remove-TNBSolNetworkInstance",
+               "Remove-TNBSolNetworkPackage",
+               "Get-TNBSolFunctionInstance",
+               "Get-TNBSolFunctionPackage",
+               "Get-TNBSolFunctionPackageContent",
+               "Get-TNBSolFunctionPackageDescriptor",
+               "Get-TNBSolNetworkInstance",
+               "Get-TNBSolNetworkOperation",
+               "Get-TNBSolNetworkPackage",
+               "Get-TNBSolNetworkPackageContent",
+               "Get-TNBSolNetworkPackageDescriptor",
+               "Start-TNBSolNetworkInstance",
+               "Get-TNBSolFunctionInstanceList",
+               "Get-TNBSolFunctionPackageList",
+               "Get-TNBSolNetworkInstanceList",
+               "Get-TNBSolNetworkOperationList",
+               "Get-TNBSolNetworkPackageList",
+               "Get-TNBResourceTag",
+               "Write-TNBSolFunctionPackageContent",
+               "Write-TNBSolNetworkPackageContent",
+               "Add-TNBResourceTag",
+               "Stop-TNBSolNetworkInstance",
+               "Remove-TNBResourceTag",
+               "Update-TNBSolFunctionPackage",
+               "Update-TNBSolNetworkInstance",
+               "Update-TNBSolNetworkPackage",
+               "Test-TNBSolFunctionPackageContent",
+               "Test-TNBSolNetworkPackageContent")
+}
+
+_awsArgumentCompleterRegistration $TNB_SelectCompleters $TNB_SelectMap
 # Argument completions for service Amazon Transcribe Service
 
 

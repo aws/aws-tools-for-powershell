@@ -37,16 +37,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// to gather findings from other services that are integrated with Security Hub.
     /// </para><para>
     /// When you use the <code>EnableSecurityHub</code> operation to enable Security Hub,
-    /// you also automatically enable the following standards.
+    /// you also automatically enable the following standards:
     /// </para><ul><li><para>
-    /// CIS Amazon Web Services Foundations
+    /// Center for Internet Security (CIS) Amazon Web Services Foundations Benchmark v1.2.0
     /// </para></li><li><para>
     /// Amazon Web Services Foundational Security Best Practices
     /// </para></li></ul><para>
-    /// You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard.
-    /// 
+    /// Other standards are not automatically enabled. 
     /// </para><para>
-    /// To not enable the automatically enabled standards, set <code>EnableDefaultStandards</code>
+    /// To opt out of automatically enabled standards, set <code>EnableDefaultStandards</code>
     /// to <code>false</code>.
     /// </para><para>
     /// After you enable Security Hub, to enable a standard, use the <code>BatchEnableStandards</code>

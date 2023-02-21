@@ -28,8 +28,10 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Imports resources from sources such as a CloudFormation stack, resource-groups, or
-    /// application registry app to a draft application version.
+    /// Imports resources to AWS Resilience Hub application draft version from different input
+    /// sources. For more information about the input sources supported by AWS Resilience
+    /// Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+    /// the structure and describe your Resilience Hub application</a>.
     /// </summary>
     [Cmdlet("Import", "RESHResourcesToDraftAppVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.ImportResourcesToDraftAppVersionResponse")]
@@ -43,9 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format for
+        /// this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AppArn { get; set; }
+        #endregion
+        
+        #region Parameter ImportStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The import strategy you would like to set to import resources into AWS Resilience
+        /// Hub application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ResilienceHub.ResourceImportStrategyType")]
+        public Amazon.ResilienceHub.ResourceImportStrategyType ImportStrategy { get; set; }
         #endregion
         
         #region Parameter SourceArn
@@ -150,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImportStrategy = this.ImportStrategy;
             if (this.SourceArn != null)
             {
                 context.SourceArn = new List<System.String>(this.SourceArn);
@@ -177,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.ImportStrategy != null)
+            {
+                request.ImportStrategy = cmdletContext.ImportStrategy;
             }
             if (cmdletContext.SourceArn != null)
             {
@@ -248,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public Amazon.ResilienceHub.ResourceImportStrategyType ImportStrategy { get; set; }
             public List<System.String> SourceArn { get; set; }
             public List<Amazon.ResilienceHub.Model.TerraformSource> TerraformSource { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.ImportResourcesToDraftAppVersionResponse, ImportRESHResourcesToDraftAppVersionCmdlet, object> Select { get; set; } =

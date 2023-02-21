@@ -124,6 +124,13 @@ $RESH_Completers = {
             break
         }
 
+        # Amazon.ResilienceHub.ResourceImportStrategyType
+        "Import-RESHResourcesToDraftAppVersion/ImportStrategy"
+        {
+            $v = "AddOnly","ReplaceAll"
+            break
+        }
+
         # Amazon.ResilienceHub.TemplateFormat
         "New-RESHRecommendationTemplate/Format"
         {
@@ -144,6 +151,7 @@ $RESH_map = @{
     "ComplianceStatus"=@("Get-RESHAppAssessmentList")
     "DataLocationConstraint"=@("New-RESHResiliencyPolicy","Update-RESHResiliencyPolicy")
     "Format"=@("New-RESHRecommendationTemplate")
+    "ImportStrategy"=@("Import-RESHResourcesToDraftAppVersion")
     "Invoker"=@("Get-RESHAppAssessmentList")
     "Tier"=@("New-RESHResiliencyPolicy","Update-RESHResiliencyPolicy")
 }
@@ -200,14 +208,22 @@ $RESH_SelectCompleters = {
 $RESH_SelectMap = @{
     "Select"=@("Add-RESHDraftAppVersionResourceMapping",
                "New-RESHApp",
+               "New-RESHAppVersionAppComponent",
+               "New-RESHAppVersionResource",
                "New-RESHRecommendationTemplate",
                "New-RESHResiliencyPolicy",
                "Remove-RESHApp",
                "Remove-RESHAppAssessment",
+               "Remove-RESHAppInputSource",
+               "Remove-RESHAppVersionAppComponent",
+               "Remove-RESHAppVersionResource",
                "Remove-RESHRecommendationTemplate",
                "Remove-RESHResiliencyPolicy",
                "Get-RESHApp",
                "Get-RESHAppAssessment",
+               "Get-RESHAppVersion",
+               "Get-RESHAppVersionAppComponent",
+               "Get-RESHAppVersionResource",
                "Get-RESHAppVersionResourcesResolutionStatus",
                "Get-RESHAppVersionTemplate",
                "Get-RESHDraftAppVersionResourcesImportStatus",
@@ -217,7 +233,9 @@ $RESH_SelectMap = @{
                "Get-RESHAppAssessmentList",
                "Get-RESHAppComponentComplianceList",
                "Get-RESHAppComponentRecommendationList",
+               "Get-RESHAppInputSourceList",
                "Get-RESHAppList",
+               "Get-RESHAppVersionAppComponentList",
                "Get-RESHAppVersionResourceMappingList",
                "Get-RESHAppVersionResourceList",
                "Get-RESHAppVersionList",
@@ -236,6 +254,9 @@ $RESH_SelectMap = @{
                "Add-RESHResourceTag",
                "Remove-RESHResourceTag",
                "Update-RESHApp",
+               "Update-RESHAppVersion",
+               "Update-RESHAppVersionAppComponent",
+               "Update-RESHAppVersionResource",
                "Update-RESHResiliencyPolicy")
 }
 

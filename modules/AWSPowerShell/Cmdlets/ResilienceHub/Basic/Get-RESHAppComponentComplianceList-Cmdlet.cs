@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists the compliances for an AWS Resilience Hub component.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the compliances for an AWS Resilience Hub Application Component.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHAppComponentComplianceList")]
     [OutputType("Amazon.ResilienceHub.Model.AppComponentCompliance")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
-        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</para>
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1006,6 +1006,9 @@
     <Reference Include="AWSSDK.TimestreamWrite">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamWrite.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Tnb">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Tnb.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.TranscribeService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TranscribeService.dll</HintPath>
     </Reference>
@@ -2003,6 +2006,9 @@
     </Reference>
     <Reference Include="AWSSDK.TimestreamWrite">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TimestreamWrite.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Tnb">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Tnb.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TranscribeService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TranscribeService.dll</HintPath>
