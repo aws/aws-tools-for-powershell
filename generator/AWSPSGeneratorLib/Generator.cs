@@ -132,6 +132,10 @@ namespace AWSPowerShellGenerator
 
                 var cmdletDocumentation = new XmlDocument();
                 cmdletDocumentation.Load(awsPsXmlPath);
+
+                // For modular versions of AWS Tools module, load additional help for common parameters defined in AWS.Tools.Common.
+                LoadCommonParameterHelpForModularVersion(options, basePath, cmdletDocumentation);
+
                 var pshelpGenerator = new PsHelpGenerator
                 {
                     CmdletAssembly = awsPowerShellAssembly,
@@ -166,6 +170,37 @@ namespace AWSPowerShellGenerator
                     Options = options
                 };
                 webhelpGenerator.Generate();
+            }
+        }
+
+        private static void LoadCommonParameterHelpForModularVersion(GeneratorOptions options, string basePath, XmlDocument cmdletDocumentation)
+        {
+            if (options.AssemblyName.StartsWith("AWS.Tools", StringComparison.OrdinalIgnoreCase))
+            {
+                string membersXpath = "doc/members";
+
+                // Include help for parameters defined in AWS.Tools.Common.
+                string awsToolsCommonHelpXmlPath = Path.Combine(basePath, "AWS.Tools.Common.XML");
+
+                if (!File.Exists(awsToolsCommonHelpXmlPath))
+                {
+                    Console.WriteLine(string.Format("WARNING: Unable to find file {0} to load help for common parameters.", awsToolsCommonHelpXmlPath));
+                    return;
+                }
+
+                var awsToolsCommonDocumentation = new XmlDocument();
+                awsToolsCommonDocumentation.Load(awsToolsCommonHelpXmlPath);
+                var awsToolsCommonDocMembersNode = awsToolsCommonDocumentation.SelectSingleNode(membersXpath);
+
+                if (awsToolsCommonDocMembersNode?.ChildNodes.Count > 0)
+                {
+                    var cmdletDocMembersNode = cmdletDocumentation.SelectSingleNode(membersXpath);
+                    foreach (XmlNode commonChildMemberNode in awsToolsCommonDocMembersNode.ChildNodes)
+                    {
+                        XmlNode importedNode = cmdletDocMembersNode.OwnerDocument.ImportNode(commonChildMemberNode, true);
+                        cmdletDocMembersNode.AppendChild(importedNode);
+                    }
+                }
             }
         }
     }
