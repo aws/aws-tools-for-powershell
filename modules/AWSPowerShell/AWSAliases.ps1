@@ -17322,6 +17322,9 @@ Set-Alias -Name OS-ListInstanceTypeDetails -Value Get-OSInstanceTypeDetailList
 Set-Alias -Name List-OSPackagesForDomain -Value Get-OSPackagesForDomainList
 Set-Alias -Name List-OSPackagesForDomainList -Value Get-OSPackagesForDomainList
 Set-Alias -Name OS-ListPackagesForDomain -Value Get-OSPackagesForDomainList
+Set-Alias -Name List-OSScheduledActions -Value Get-OSScheduledActionList
+Set-Alias -Name List-OSScheduledActionList -Value Get-OSScheduledActionList
+Set-Alias -Name OS-ListScheduledActions -Value Get-OSScheduledActionList
 Set-Alias -Name Get-OSTag -Value Get-OSResourceTag
 Set-Alias -Name OS-ListTags -Value Get-OSResourceTag
 Set-Alias -Name List-OSVersions -Value Get-OSVersionList
@@ -17346,6 +17349,7 @@ Set-Alias -Name OS-RevokeVpcEndpointAccess -Value Revoke-OSVpcEndpointAccess
 Set-Alias -Name OS-StartServiceSoftwareUpdate -Value Start-OSServiceSoftwareUpdate
 Set-Alias -Name OS-UpdateDomainConfig -Value Update-OSDomainConfig
 Set-Alias -Name OS-UpdatePackage -Value Update-OSPackage
+Set-Alias -Name OS-UpdateScheduledAction -Value Update-OSScheduledAction
 Set-Alias -Name OS-UpdateVpcEndpoint -Value Update-OSVpcEndpoint
 Set-Alias -Name Upgrade-OSDomain -Value Update-OSDomain
 Set-Alias -Name OS-UpgradeDomain -Value Update-OSDomain

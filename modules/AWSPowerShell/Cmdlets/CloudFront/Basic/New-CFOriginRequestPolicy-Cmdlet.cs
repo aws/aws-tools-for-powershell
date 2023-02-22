@@ -78,12 +78,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Determines whether cookies in viewer requests are included in requests that CloudFront
-        /// sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – Cookies in viewer requests are not included in requests that
-        /// CloudFront sends to the origin. Even when this field is set to <code>none</code>,
-        /// any cookies that are listed in a <code>CachePolicy</code><i>are</i> included in origin
-        /// requests.</para></li><li><para><code>whitelist</code> – The cookies in viewer requests that are listed in the <code>CookieNames</code>
-        /// type are included in requests that CloudFront sends to the origin.</para></li><li><para><code>all</code> – All cookies in viewer requests are included in requests that CloudFront
-        /// sends to the origin.</para></li></ul>
+        /// sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – No cookies in viewer requests are included in requests that CloudFront
+        /// sends to the origin. Even when this field is set to <code>none</code>, any cookies
+        /// that are listed in a <code>CachePolicy</code><i>are</i> included in origin requests.</para></li><li><para><code>whitelist</code> – Only the cookies in viewer requests that are listed in the
+        /// <code>CookieNames</code> type are included in requests that CloudFront sends to the
+        /// origin.</para></li><li><para><code>all</code> – All cookies in viewer requests are included in requests that CloudFront
+        /// sends to the origin.</para></li><li><para><code>allExcept</code> – All cookies in viewer requests are included in requests
+        /// that CloudFront sends to the origin, <i><b>except</b></i> for those listed in the
+        /// <code>CookieNames</code> type, which are not included.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,14 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Determines whether any HTTP headers are included in requests that CloudFront sends
-        /// to the origin. Valid values are:</para><ul><li><para><code>none</code> – HTTP headers are not included in requests that CloudFront sends
-        /// to the origin. Even when this field is set to <code>none</code>, any headers that
-        /// are listed in a <code>CachePolicy</code><i>are</i> included in origin requests.</para></li><li><para><code>whitelist</code> – The HTTP headers that are listed in the <code>Headers</code>
+        /// to the origin. Valid values are:</para><ul><li><para><code>none</code> – No HTTP headers in viewer requests are included in requests that
+        /// CloudFront sends to the origin. Even when this field is set to <code>none</code>,
+        /// any headers that are listed in a <code>CachePolicy</code><i>are</i> included in origin
+        /// requests.</para></li><li><para><code>whitelist</code> – Only the HTTP headers that are listed in the <code>Headers</code>
         /// type are included in requests that CloudFront sends to the origin.</para></li><li><para><code>allViewer</code> – All HTTP headers in viewer requests are included in requests
         /// that CloudFront sends to the origin.</para></li><li><para><code>allViewerAndWhitelistCloudFront</code> – All HTTP headers in viewer requests
         /// and the additional CloudFront headers that are listed in the <code>Headers</code>
         /// type are included in requests that CloudFront sends to the origin. The additional
-        /// headers are added by CloudFront.</para></li></ul>
+        /// headers are added by CloudFront.</para></li><li><para><code>allExcept</code> – All HTTP headers in viewer requests are included in requests
+        /// that CloudFront sends to the origin, <i><b>except</b></i> for those listed in the
+        /// <code>Headers</code> type, which are not included.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -211,13 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Determines whether any URL query strings in viewer requests are included in requests
-        /// that CloudFront sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – Query strings in viewer requests are not included in requests
+        /// that CloudFront sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – No query strings in viewer requests are included in requests
         /// that CloudFront sends to the origin. Even when this field is set to <code>none</code>,
         /// any query strings that are listed in a <code>CachePolicy</code><i>are</i> included
-        /// in origin requests.</para></li><li><para><code>whitelist</code> – The query strings in viewer requests that are listed in
-        /// the <code>QueryStringNames</code> type are included in requests that CloudFront sends
-        /// to the origin.</para></li><li><para><code>all</code> – All query strings in viewer requests are included in requests
-        /// that CloudFront sends to the origin.</para></li></ul>
+        /// in origin requests.</para></li><li><para><code>whitelist</code> – Only the query strings in viewer requests that are listed
+        /// in the <code>QueryStringNames</code> type are included in requests that CloudFront
+        /// sends to the origin.</para></li><li><para><code>all</code> – All query strings in viewer requests are included in requests
+        /// that CloudFront sends to the origin.</para></li><li><para><code>allExcept</code> – All query strings in viewer requests are included in requests
+        /// that CloudFront sends to the origin, <i><b>except</b></i> for those listed in the
+        /// <code>QueryStringNames</code> type, which are not included.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

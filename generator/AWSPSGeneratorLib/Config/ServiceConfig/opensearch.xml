@@ -170,6 +170,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledActionList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag">
             <Params />
             <TypesNotToFlatten />
@@ -215,6 +219,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePackage" OutputProperty="PackageDetails" Verb="Update" Noun="Package" ShouldProcessTarget="PackageSource_S3BucketName" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScheduledAction" OutputProperty="ScheduledAction" Verb="Update" Noun="ScheduledAction" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

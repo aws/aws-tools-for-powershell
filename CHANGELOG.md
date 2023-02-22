@@ -1,4 +1,17 @@
-﻿### 4.1.276 (2023-02-21 22:59Z)
+﻿### 4.1.277 (2023-02-22 21:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.489.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Voice
+    * Modified cmdlet Write-CHMVOVoiceConnectorLoggingConfiguration: added parameter LoggingConfiguration_EnableMediaMetricLog.
+  * Amazon CloudWatch RUM
+    * Modified cmdlet Update-CWRUMRumMetricDefinition: added parameter MetricDefinition_Namespace.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSScheduledActionList leveraging the ListScheduledActions service API.
+    * Added cmdlet Update-OSScheduledAction leveraging the UpdateScheduledAction service API.
+    * Modified cmdlet New-OSDomain: added parameters AutoTuneOptions_UseOffPeakWindow, OffPeakWindowOptions_Enabled, SoftwareUpdateOptions_AutoSoftwareUpdateEnabled, WindowStartTime_Hour and WindowStartTime_Minute.
+    * Modified cmdlet Start-OSServiceSoftwareUpdate: added parameters DesiredStartTime and ScheduleAt.
+    * Modified cmdlet Update-OSDomainConfig: added parameters AutoTuneOptions_UseOffPeakWindow, OffPeakWindowOptions_Enabled, SoftwareUpdateOptions_AutoSoftwareUpdateEnabled, WindowStartTime_Hour and WindowStartTime_Minute.
+
+### 4.1.276 (2023-02-21 22:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.488.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon QuickSight
     * Modified cmdlet New-QSDataSource: added parameter S3Parameters_RoleArn.

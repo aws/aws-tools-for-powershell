@@ -140,9 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AlarmConfiguration_IgnorePollAlarmFailure
         /// <summary>
         /// <para>
-        /// <para>If you specify <code>true</code> for this value, your automation or command continue
-        /// to run even if we can't gather information about the state of your CloudWatch alarm.
-        /// The default value is <code>false</code>.</para>
+        /// <para>When this value is <i>true</i>, your automation or command continues to run in cases
+        /// where we can’t retrieve alarm status information from CloudWatch. In cases where we
+        /// successfully retrieve an alarm status of OK or INSUFFICIENT_DATA, the automation or
+        /// command continues to run, regardless of this value. Default is <i>false</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The name of the SSM Command document or Automation runbook that contains the configuration
         /// information for the managed node.</para><para>You can specify Amazon Web Services-predefined documents, documents you created, or
-        /// a document that is shared with you from another account.</para><para>For Systems Manager documents (SSM documents) that are shared with you from other
+        /// a document that is shared with you from another Amazon Web Services account.</para><para>For Systems Manager documents (SSM documents) that are shared with you from other
         /// Amazon Web Services accounts, you must specify the complete SSM document ARN, in the
         /// following format:</para><para><code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i></code></para><para>For example:</para><para><code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code></para><para>For Amazon Web Services-predefined documents and SSM documents you created in your
         /// account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code>

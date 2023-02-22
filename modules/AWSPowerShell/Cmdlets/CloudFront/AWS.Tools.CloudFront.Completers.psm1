@@ -250,7 +250,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_CookiesConfig_CookieBehavior")
         }
         {
-            $v = "all","none","whitelist"
+            $v = "all","allExcept","none","whitelist"
             break
         }
 
@@ -260,7 +260,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior")
         }
         {
-            $v = "allViewer","allViewerAndWhitelistCloudFront","none","whitelist"
+            $v = "allExcept","allViewer","allViewerAndWhitelistCloudFront","none","whitelist"
             break
         }
 
@@ -270,7 +270,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior")
         }
         {
-            $v = "all","none","whitelist"
+            $v = "all","allExcept","none","whitelist"
             break
         }
 

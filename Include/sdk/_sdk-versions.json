@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.488.0",
+    "ProductVersion" : "3.7.489.0",
     "CoreVersion"    : "3.7.105.7",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -38,7 +38,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.104.8",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.105.7"
@@ -370,7 +370,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.103.30",
+            "Version" : "3.7.103.31",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.7"
@@ -1250,7 +1250,7 @@
             "InPreview"               : false
         },
         "DataSync"                        : {
-            "Version" : "3.7.103.5",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.7"
@@ -2226,7 +2226,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.103.15",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.7"
@@ -2354,7 +2354,7 @@
             "InPreview"               : false
         },
         "CloudWatchRUM"                       : {
-            "Version" : "3.7.101.58",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.7"
@@ -2570,7 +2570,7 @@
             "InPreview"               : false
         },
         "ChimeSDKVoice"                       : {
-            "Version" : "3.7.100.57",
+            "Version" : "3.7.101.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.7"

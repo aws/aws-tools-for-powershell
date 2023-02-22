@@ -40,12 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  
     /// <para>
-    /// In order to call this API operation, your Identity and Access Management (IAM) user
-    /// account, group, or role must be configured with permission to call the <a>DescribeAssociation</a>
-    /// API operation. If you don't have permission to call <code>DescribeAssociation</code>,
-    /// then you receive the following error: <code>An error occurred (AccessDeniedException)
-    /// when calling the UpdateAssociation operation: User: &lt;user_arn&gt; isn't authorized
-    /// to perform: ssm:DescribeAssociation on resource: &lt;resource_arn&gt;</code></para><important><para>
+    /// In order to call this API operation, a user, group, or role must be granted permission
+    /// to call the <a>DescribeAssociation</a> API operation. If you don't have permission
+    /// to call <code>DescribeAssociation</code>, then you receive the following error: <code>An
+    /// error occurred (AccessDeniedException) when calling the UpdateAssociation operation:
+    /// User: &lt;user_arn&gt; isn't authorized to perform: ssm:DescribeAssociation on resource:
+    /// &lt;resource_arn&gt;</code></para><important><para>
     /// When you update an association, the association immediately runs against the specified
     /// targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the
     /// association during the next schedule run.
@@ -189,9 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AlarmConfiguration_IgnorePollAlarmFailure
         /// <summary>
         /// <para>
-        /// <para>If you specify <code>true</code> for this value, your automation or command continue
-        /// to run even if we can't gather information about the state of your CloudWatch alarm.
-        /// The default value is <code>false</code>.</para>
+        /// <para>When this value is <i>true</i>, your automation or command continues to run in cases
+        /// where we can’t retrieve alarm status information from CloudWatch. In cases where we
+        /// successfully retrieve an alarm status of OK or INSUFFICIENT_DATA, the automation or
+        /// command continues to run, regardless of this value. Default is <i>false</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

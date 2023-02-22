@@ -95,8 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>Use this field only if you are sending the metric to CloudWatch.</para><para>This field is a map of field paths to dimension names. It defines the dimensions to
-        /// associate with this metric in CloudWatch. Valid values for the entries in this field
-        /// are the following:</para><ul><li><para><code>"metadata.pageId": "PageId"</code></para></li><li><para><code>"metadata.browserName": "BrowserName"</code></para></li><li><para><code>"metadata.deviceType": "DeviceType"</code></para></li><li><para><code>"metadata.osName": "OSName"</code></para></li><li><para><code>"metadata.countryCode": "CountryCode"</code></para></li><li><para><code>"event_details.fileType": "FileType"</code></para></li></ul><para> All dimensions listed in this field must also be included in <code>EventPattern</code>.</para>
+        /// associate with this metric in CloudWatch. For extended metrics, valid values for the
+        /// entries in this field are the following:</para><ul><li><para><code>"metadata.pageId": "PageId"</code></para></li><li><para><code>"metadata.browserName": "BrowserName"</code></para></li><li><para><code>"metadata.deviceType": "DeviceType"</code></para></li><li><para><code>"metadata.osName": "OSName"</code></para></li><li><para><code>"metadata.countryCode": "CountryCode"</code></para></li><li><para><code>"event_details.fileType": "FileType"</code></para></li></ul><para> For both extended metrics and custom metrics, all dimensions listed in this field
+        /// must also be included in <code>EventPattern</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #region Parameter MetricDefinition_Name
         /// <summary>
         /// <para>
-        /// <para>The name for the metric that is defined in this structure. Valid values are the following:</para><ul><li><para><code>PerformanceNavigationDuration</code></para></li><li><para><code>PerformanceResourceDuration </code></para></li><li><para><code>NavigationSatisfiedTransaction</code></para></li><li><para><code>NavigationToleratedTransaction</code></para></li><li><para><code>NavigationFrustratedTransaction</code></para></li><li><para><code>WebVitalsCumulativeLayoutShift</code></para></li><li><para><code>WebVitalsFirstInputDelay</code></para></li><li><para><code>WebVitalsLargestContentfulPaint</code></para></li><li><para><code>JsErrorCount</code></para></li><li><para><code>HttpErrorCount</code></para></li><li><para><code>SessionCount</code></para></li></ul>
+        /// <para>The name for the metric that is defined in this structure. For custom metrics, you
+        /// can specify any name that you like. For extended metrics, valid values are the following:</para><ul><li><para><code>PerformanceNavigationDuration</code></para></li><li><para><code>PerformanceResourceDuration </code></para></li><li><para><code>NavigationSatisfiedTransaction</code></para></li><li><para><code>NavigationToleratedTransaction</code></para></li><li><para><code>NavigationFrustratedTransaction</code></para></li><li><para><code>WebVitalsCumulativeLayoutShift</code></para></li><li><para><code>WebVitalsFirstInputDelay</code></para></li><li><para><code>WebVitalsLargestContentfulPaint</code></para></li><li><para><code>JsErrorCount</code></para></li><li><para><code>HttpErrorCount</code></para></li><li><para><code>SessionCount</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,6 +158,18 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MetricDefinition_Name { get; set; }
+        #endregion
+        
+        #region Parameter MetricDefinition_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>If this structure is for a custom metric instead of an extended metrics, use this
+        /// parameter to define the metric namespace for that custom metric. Do not specify this
+        /// parameter if this structure is for an extended metric.</para><para>You cannot use any string that starts with <code>AWS/</code> for your namespace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MetricDefinition_Namespace { get; set; }
         #endregion
         
         #region Parameter MetricDefinition_UnitLabel
@@ -274,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
                 WriteWarning("You are passing $null as a value for parameter MetricDefinition_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MetricDefinition_Namespace = this.MetricDefinition_Namespace;
             context.MetricDefinition_UnitLabel = this.MetricDefinition_UnitLabel;
             context.MetricDefinition_ValueKey = this.MetricDefinition_ValueKey;
             context.MetricDefinitionId = this.MetricDefinitionId;
@@ -343,6 +358,16 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             if (requestMetricDefinition_metricDefinition_Name != null)
             {
                 request.MetricDefinition.Name = requestMetricDefinition_metricDefinition_Name;
+                requestMetricDefinitionIsNull = false;
+            }
+            System.String requestMetricDefinition_metricDefinition_Namespace = null;
+            if (cmdletContext.MetricDefinition_Namespace != null)
+            {
+                requestMetricDefinition_metricDefinition_Namespace = cmdletContext.MetricDefinition_Namespace;
+            }
+            if (requestMetricDefinition_metricDefinition_Namespace != null)
+            {
+                request.MetricDefinition.Namespace = requestMetricDefinition_metricDefinition_Namespace;
                 requestMetricDefinitionIsNull = false;
             }
             System.String requestMetricDefinition_metricDefinition_UnitLabel = null;
@@ -441,6 +466,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             public Dictionary<System.String, System.String> MetricDefinition_DimensionKey { get; set; }
             public System.String MetricDefinition_EventPattern { get; set; }
             public System.String MetricDefinition_Name { get; set; }
+            public System.String MetricDefinition_Namespace { get; set; }
             public System.String MetricDefinition_UnitLabel { get; set; }
             public System.String MetricDefinition_ValueKey { get; set; }
             public System.String MetricDefinitionId { get; set; }

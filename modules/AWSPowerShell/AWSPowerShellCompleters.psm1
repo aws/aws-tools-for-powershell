@@ -8774,7 +8774,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_CookiesConfig_CookieBehavior")
         }
         {
-            $v = "all","none","whitelist"
+            $v = "all","allExcept","none","whitelist"
             break
         }
 
@@ -8784,7 +8784,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior")
         }
         {
-            $v = "allViewer","allViewerAndWhitelistCloudFront","none","whitelist"
+            $v = "allExcept","allViewer","allViewerAndWhitelistCloudFront","none","whitelist"
             break
         }
 
@@ -8794,7 +8794,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior")
         }
         {
-            $v = "all","none","whitelist"
+            $v = "all","allExcept","none","whitelist"
             break
         }
 
@@ -40158,6 +40158,13 @@ $OS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.OpenSearchService.ActionType
+        "Update-OSScheduledAction/ActionType"
+        {
+            $v = "JVM_HEAP_SIZE_TUNING","JVM_YOUNG_GEN_TUNING","SERVICE_SOFTWARE_UPDATE"
+            break
+        }
+
         # Amazon.OpenSearchService.AutoTuneDesiredState
         {
             ($_ -eq "New-OSDomain/AutoTuneOptions_DesiredState") -Or
@@ -40226,6 +40233,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.ScheduleAt
+        {
+            ($_ -eq "Start-OSServiceSoftwareUpdate/ScheduleAt") -Or
+            ($_ -eq "Update-OSScheduledAction/ScheduleAt")
+        }
+        {
+            $v = "NOW","OFF_PEAK_WINDOW","TIMESTAMP"
+            break
+        }
+
         # Amazon.OpenSearchService.TLSSecurityPolicy
         {
             ($_ -eq "New-OSDomain/DomainEndpointOptions_TLSSecurityPolicy") -Or
@@ -40255,6 +40272,7 @@ $OS_Completers = {
 }
 
 $OS_map = @{
+    "ActionType"=@("Update-OSScheduledAction")
     "AutoTuneOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
     "AutoTuneOptions_RollbackOnDisable"=@("Update-OSDomainConfig")
     "ClusterConfig_DedicatedMasterType"=@("New-OSDomain","Update-OSDomainConfig")
@@ -40267,6 +40285,7 @@ $OS_map = @{
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "PackageType"=@("New-OSPackage")
+    "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
 }
 
 _awsArgumentCompleterRegistration $OS_Completers $OS_map
@@ -40355,6 +40374,7 @@ $OS_SelectMap = @{
                "Get-OSDomainsForPackageList",
                "Get-OSInstanceTypeDetailList",
                "Get-OSPackagesForDomainList",
+               "Get-OSScheduledActionList",
                "Get-OSResourceTag",
                "Get-OSVersionList",
                "Get-OSVpcEndpointAccessList",
@@ -40367,6 +40387,7 @@ $OS_SelectMap = @{
                "Start-OSServiceSoftwareUpdate",
                "Update-OSDomainConfig",
                "Update-OSPackage",
+               "Update-OSScheduledAction",
                "Update-OSVpcEndpoint",
                "Update-OSDomain")
 }

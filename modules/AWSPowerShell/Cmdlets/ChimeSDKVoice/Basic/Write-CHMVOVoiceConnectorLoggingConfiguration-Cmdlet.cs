@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class WriteCHMVOVoiceConnectorLoggingConfigurationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        #region Parameter LoggingConfiguration_EnableMediaMetricLog
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfiguration_EnableMediaMetricLogs")]
+        public System.Boolean? LoggingConfiguration_EnableMediaMetricLog { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfiguration_EnableSIPLog
         /// <summary>
         /// <para>
@@ -130,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 context.Select = (response, cmdlet) => this.VoiceConnectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LoggingConfiguration_EnableMediaMetricLog = this.LoggingConfiguration_EnableMediaMetricLog;
             context.LoggingConfiguration_EnableSIPLog = this.LoggingConfiguration_EnableSIPLog;
             context.VoiceConnectorId = this.VoiceConnectorId;
             #if MODULAR
@@ -158,6 +170,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
              // populate LoggingConfiguration
             var requestLoggingConfigurationIsNull = true;
             request.LoggingConfiguration = new Amazon.ChimeSDKVoice.Model.LoggingConfiguration();
+            System.Boolean? requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog = null;
+            if (cmdletContext.LoggingConfiguration_EnableMediaMetricLog != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog = cmdletContext.LoggingConfiguration_EnableMediaMetricLog.Value;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog != null)
+            {
+                request.LoggingConfiguration.EnableMediaMetricLogs = requestLoggingConfiguration_loggingConfiguration_EnableMediaMetricLog.Value;
+                requestLoggingConfigurationIsNull = false;
+            }
             System.Boolean? requestLoggingConfiguration_loggingConfiguration_EnableSIPLog = null;
             if (cmdletContext.LoggingConfiguration_EnableSIPLog != null)
             {
@@ -238,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? LoggingConfiguration_EnableMediaMetricLog { get; set; }
             public System.Boolean? LoggingConfiguration_EnableSIPLog { get; set; }
             public System.String VoiceConnectorId { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.PutVoiceConnectorLoggingConfigurationResponse, WriteCHMVOVoiceConnectorLoggingConfigurationCmdlet, object> Select { get; set; } =

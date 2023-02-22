@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// The default, minimum, and maximum time to live (TTL) values that you want objects
     /// to stay in the CloudFront cache.
     /// </para></li></ul><para>
-    /// The headers, cookies, and query strings that are included in the cache key are automatically
+    /// The headers, cookies, and query strings that are included in the cache key are also
     /// included in requests that CloudFront sends to the origin. CloudFront sends a request
     /// when it can't find an object in its cache that matches the request's cache key. If
     /// you want to send values to the origin but <i>not</i> include them in the cache key,
@@ -75,16 +75,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Determines whether any cookies in viewer requests are included in the cache key and
-        /// automatically included in requests that CloudFront sends to the origin. Valid values
-        /// are:</para><ul><li><para><code>none</code> – Cookies in viewer requests are not included in the cache key
-        /// and are not automatically included in requests that CloudFront sends to the origin.
-        /// Even when this field is set to <code>none</code>, any cookies that are listed in an
-        /// <code>OriginRequestPolicy</code><i>are</i> included in origin requests.</para></li><li><para><code>whitelist</code> – The cookies in viewer requests that are listed in the <code>CookieNames</code>
-        /// type are included in the cache key and automatically included in requests that CloudFront
-        /// sends to the origin.</para></li><li><para><code>allExcept</code> – All cookies in viewer requests that are <i><b>not</b></i>
-        /// listed in the <code>CookieNames</code> type are included in the cache key and automatically
-        /// included in requests that CloudFront sends to the origin.</para></li><li><para><code>all</code> – All cookies in viewer requests are included in the cache key and
-        /// are automatically included in requests that CloudFront sends to the origin.</para></li></ul>
+        /// in requests that CloudFront sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – No cookies in viewer requests are included in the cache key or
+        /// in requests that CloudFront sends to the origin. Even when this field is set to <code>none</code>,
+        /// any cookies that are listed in an <code>OriginRequestPolicy</code><i>are</i> included
+        /// in origin requests.</para></li><li><para><code>whitelist</code> – Only the cookies in viewer requests that are listed in the
+        /// <code>CookieNames</code> type are included in the cache key and in requests that CloudFront
+        /// sends to the origin.</para></li><li><para><code>allExcept</code> – All cookies in viewer requests are included in the cache
+        /// key and in requests that CloudFront sends to the origin, <i><b>except</b></i> for
+        /// those that are listed in the <code>CookieNames</code> type, which are not included.</para></li><li><para><code>all</code> – All cookies in viewer requests are included in the cache key and
+        /// in requests that CloudFront sends to the origin.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,12 +159,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter HeadersConfig_HeaderBehavior
         /// <summary>
         /// <para>
-        /// <para>Determines whether any HTTP headers are included in the cache key and automatically
-        /// included in requests that CloudFront sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – HTTP headers are not included in the cache key and are not automatically
-        /// included in requests that CloudFront sends to the origin. Even when this field is
-        /// set to <code>none</code>, any headers that are listed in an <code>OriginRequestPolicy</code><i>are</i> included in origin requests.</para></li><li><para><code>whitelist</code> – The HTTP headers that are listed in the <code>Headers</code>
-        /// type are included in the cache key and are automatically included in requests that
-        /// CloudFront sends to the origin.</para></li></ul>
+        /// <para>Determines whether any HTTP headers are included in the cache key and in requests
+        /// that CloudFront sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – No HTTP headers are included in the cache key or in requests
+        /// that CloudFront sends to the origin. Even when this field is set to <code>none</code>,
+        /// any headers that are listed in an <code>OriginRequestPolicy</code><i>are</i> included
+        /// in origin requests.</para></li><li><para><code>whitelist</code> – Only the HTTP headers that are listed in the <code>Headers</code>
+        /// type are included in the cache key and in requests that CloudFront sends to the origin.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,15 +297,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Determines whether any URL query strings in viewer requests are included in the cache
-        /// key and automatically included in requests that CloudFront sends to the origin. Valid
-        /// values are:</para><ul><li><para><code>none</code> – Query strings in viewer requests are not included in the cache
-        /// key and are not automatically included in requests that CloudFront sends to the origin.
-        /// Even when this field is set to <code>none</code>, any query strings that are listed
-        /// in an <code>OriginRequestPolicy</code><i>are</i> included in origin requests.</para></li><li><para><code>whitelist</code> – The query strings in viewer requests that are listed in
-        /// the <code>QueryStringNames</code> type are included in the cache key and automatically
-        /// included in requests that CloudFront sends to the origin.</para></li><li><para><code>allExcept</code> – All query strings in viewer requests that are <i><b>not</b></i> listed in the <code>QueryStringNames</code> type are included in the cache key
-        /// and automatically included in requests that CloudFront sends to the origin.</para></li><li><para><code>all</code> – All query strings in viewer requests are included in the cache
-        /// key and are automatically included in requests that CloudFront sends to the origin.</para></li></ul>
+        /// key and in requests that CloudFront sends to the origin. Valid values are:</para><ul><li><para><code>none</code> – No query strings in viewer requests are included in the cache
+        /// key or in requests that CloudFront sends to the origin. Even when this field is set
+        /// to <code>none</code>, any query strings that are listed in an <code>OriginRequestPolicy</code><i>are</i> included in origin requests.</para></li><li><para><code>whitelist</code> – Only the query strings in viewer requests that are listed
+        /// in the <code>QueryStringNames</code> type are included in the cache key and in requests
+        /// that CloudFront sends to the origin.</para></li><li><para><code>allExcept</code> – All query strings in viewer requests are included in the
+        /// cache key and in requests that CloudFront sends to the origin, <i><b>except</b></i>
+        /// those that are listed in the <code>QueryStringNames</code> type, which are not included.</para></li><li><para><code>all</code> – All query strings in viewer requests are included in the cache
+        /// key and in requests that CloudFront sends to the origin.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

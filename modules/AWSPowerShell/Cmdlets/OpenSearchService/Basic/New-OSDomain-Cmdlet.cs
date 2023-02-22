@@ -101,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
         #endregion
         
+        #region Parameter SoftwareUpdateOptions_AutoSoftwareUpdateEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether automatic service software updates are enabled for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SoftwareUpdateOptions_AutoSoftwareUpdateEnabled { get; set; }
+        #endregion
+        
         #region Parameter ZoneAwarenessConfig_AvailabilityZoneCount
         /// <summary>
         /// <para>
@@ -281,6 +291,19 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter OffPeakWindowOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable an off-peak window.</para><para>This option is only available when modifying a domain created prior to February 13,
+        /// 2023, not when creating a new domain. All domains created after this date have the
+        /// off-peak window enabled by default. You can't disable the off-peak window after it's
+        /// enabled for a domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OffPeakWindowOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter DomainEndpointOptions_EnforceHTTPS
         /// <summary>
         /// <para>
@@ -313,6 +336,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_Idp_EntityId")]
         public System.String Idp_EntityId { get; set; }
+        #endregion
+        
+        #region Parameter WindowStartTime_Hour
+        /// <summary>
+        /// <para>
+        /// <para>The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time.
+        /// For example, <code>17</code> refers to 5:00 P.M. UTC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Hours")]
+        public System.Int64? WindowStartTime_Hour { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_IdentityPoolId
@@ -394,10 +429,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>A list of maintenance schedules during which Auto-Tune can deploy changes. Maintenance
-        /// schedules are overwrite, not append. If your request includes no schedules, the request
-        /// deletes all existing schedules. To preserve existing schedules, make a call to <code>DescribeDomainConfig</code>
-        /// first and use the <code>MaintenanceSchedules</code> portion of the response as the
-        /// basis for this section.</para>
+        /// windows are deprecated and have been replaced with <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html">off-peak
+        /// windows</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -472,6 +505,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_Idp_MetadataContent")]
         public System.String Idp_MetadataContent { get; set; }
+        #endregion
+        
+        #region Parameter WindowStartTime_Minute
+        /// <summary>
+        /// <para>
+        /// <para>The start minute of the window, in UTC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Minutes")]
+        public System.Int64? WindowStartTime_Minute { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_RoleArn
@@ -577,6 +621,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.OpenSearchService.TLSSecurityPolicy")]
         public Amazon.OpenSearchService.TLSSecurityPolicy DomainEndpointOptions_TLSSecurityPolicy { get; set; }
+        #endregion
+        
+        #region Parameter AutoTuneOptions_UseOffPeakWindow
+        /// <summary>
+        /// <para>
+        /// <para>Whether to schedule Auto-Tune optimizations that require blue/green deployments during
+        /// the domain's configured daily off-peak window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoTuneOptions_UseOffPeakWindow { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_UserPoolId
@@ -724,6 +779,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 context.AutoTuneOptions_MaintenanceSchedule = new List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule>(this.AutoTuneOptions_MaintenanceSchedule);
             }
+            context.AutoTuneOptions_UseOffPeakWindow = this.AutoTuneOptions_UseOffPeakWindow;
             context.ColdStorageOptions_Enabled = this.ColdStorageOptions_Enabled;
             context.ClusterConfig_DedicatedMasterCount = this.ClusterConfig_DedicatedMasterCount;
             context.ClusterConfig_DedicatedMasterEnabled = this.ClusterConfig_DedicatedMasterEnabled;
@@ -768,7 +824,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 }
             }
             context.NodeToNodeEncryptionOptions_Enabled = this.NodeToNodeEncryptionOptions_Enabled;
+            context.OffPeakWindowOptions_Enabled = this.OffPeakWindowOptions_Enabled;
+            context.WindowStartTime_Hour = this.WindowStartTime_Hour;
+            context.WindowStartTime_Minute = this.WindowStartTime_Minute;
             context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
+            context.SoftwareUpdateOptions_AutoSoftwareUpdateEnabled = this.SoftwareUpdateOptions_AutoSoftwareUpdateEnabled;
             if (this.TagList != null)
             {
                 context.TagList = new List<Amazon.OpenSearchService.Model.Tag>(this.TagList);
@@ -1021,6 +1081,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule != null)
             {
                 request.AutoTuneOptions.MaintenanceSchedules = requestAutoTuneOptions_autoTuneOptions_MaintenanceSchedule;
+                requestAutoTuneOptionsIsNull = false;
+            }
+            System.Boolean? requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow = null;
+            if (cmdletContext.AutoTuneOptions_UseOffPeakWindow != null)
+            {
+                requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow = cmdletContext.AutoTuneOptions_UseOffPeakWindow.Value;
+            }
+            if (requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow != null)
+            {
+                request.AutoTuneOptions.UseOffPeakWindow = requestAutoTuneOptions_autoTuneOptions_UseOffPeakWindow.Value;
                 requestAutoTuneOptionsIsNull = false;
             }
              // determine if request.AutoTuneOptions should be set to null
@@ -1405,6 +1475,75 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 request.NodeToNodeEncryptionOptions = null;
             }
             
+             // populate OffPeakWindowOptions
+            var requestOffPeakWindowOptionsIsNull = true;
+            request.OffPeakWindowOptions = new Amazon.OpenSearchService.Model.OffPeakWindowOptions();
+            System.Boolean? requestOffPeakWindowOptions_offPeakWindowOptions_Enabled = null;
+            if (cmdletContext.OffPeakWindowOptions_Enabled != null)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_Enabled = cmdletContext.OffPeakWindowOptions_Enabled.Value;
+            }
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_Enabled != null)
+            {
+                request.OffPeakWindowOptions.Enabled = requestOffPeakWindowOptions_offPeakWindowOptions_Enabled.Value;
+                requestOffPeakWindowOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.OffPeakWindow requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow = null;
+            
+             // populate OffPeakWindow
+            var requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindowIsNull = true;
+            requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow = new Amazon.OpenSearchService.Model.OffPeakWindow();
+            Amazon.OpenSearchService.Model.WindowStartTime requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime = null;
+            
+             // populate WindowStartTime
+            var requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTimeIsNull = true;
+            requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime = new Amazon.OpenSearchService.Model.WindowStartTime();
+            System.Int64? requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Hour = null;
+            if (cmdletContext.WindowStartTime_Hour != null)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Hour = cmdletContext.WindowStartTime_Hour.Value;
+            }
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Hour != null)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime.Hours = requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Hour.Value;
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTimeIsNull = false;
+            }
+            System.Int64? requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Minute = null;
+            if (cmdletContext.WindowStartTime_Minute != null)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Minute = cmdletContext.WindowStartTime_Minute.Value;
+            }
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Minute != null)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime.Minutes = requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime_windowStartTime_Minute.Value;
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTimeIsNull = false;
+            }
+             // determine if requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime should be set to null
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTimeIsNull)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime = null;
+            }
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime != null)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow.WindowStartTime = requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow_offPeakWindowOptions_OffPeakWindow_WindowStartTime;
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindowIsNull = false;
+            }
+             // determine if requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow should be set to null
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindowIsNull)
+            {
+                requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow = null;
+            }
+            if (requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow != null)
+            {
+                request.OffPeakWindowOptions.OffPeakWindow = requestOffPeakWindowOptions_offPeakWindowOptions_OffPeakWindow;
+                requestOffPeakWindowOptionsIsNull = false;
+            }
+             // determine if request.OffPeakWindowOptions should be set to null
+            if (requestOffPeakWindowOptionsIsNull)
+            {
+                request.OffPeakWindowOptions = null;
+            }
+            
              // populate SnapshotOptions
             var requestSnapshotOptionsIsNull = true;
             request.SnapshotOptions = new Amazon.OpenSearchService.Model.SnapshotOptions();
@@ -1422,6 +1561,25 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestSnapshotOptionsIsNull)
             {
                 request.SnapshotOptions = null;
+            }
+            
+             // populate SoftwareUpdateOptions
+            var requestSoftwareUpdateOptionsIsNull = true;
+            request.SoftwareUpdateOptions = new Amazon.OpenSearchService.Model.SoftwareUpdateOptions();
+            System.Boolean? requestSoftwareUpdateOptions_softwareUpdateOptions_AutoSoftwareUpdateEnabled = null;
+            if (cmdletContext.SoftwareUpdateOptions_AutoSoftwareUpdateEnabled != null)
+            {
+                requestSoftwareUpdateOptions_softwareUpdateOptions_AutoSoftwareUpdateEnabled = cmdletContext.SoftwareUpdateOptions_AutoSoftwareUpdateEnabled.Value;
+            }
+            if (requestSoftwareUpdateOptions_softwareUpdateOptions_AutoSoftwareUpdateEnabled != null)
+            {
+                request.SoftwareUpdateOptions.AutoSoftwareUpdateEnabled = requestSoftwareUpdateOptions_softwareUpdateOptions_AutoSoftwareUpdateEnabled.Value;
+                requestSoftwareUpdateOptionsIsNull = false;
+            }
+             // determine if request.SoftwareUpdateOptions should be set to null
+            if (requestSoftwareUpdateOptionsIsNull)
+            {
+                request.SoftwareUpdateOptions = null;
             }
             if (cmdletContext.TagList != null)
             {
@@ -1535,6 +1693,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String SAMLOptions_SubjectKey { get; set; }
             public Amazon.OpenSearchService.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
+            public System.Boolean? AutoTuneOptions_UseOffPeakWindow { get; set; }
             public System.Boolean? ColdStorageOptions_Enabled { get; set; }
             public System.Int32? ClusterConfig_DedicatedMasterCount { get; set; }
             public System.Boolean? ClusterConfig_DedicatedMasterEnabled { get; set; }
@@ -1566,7 +1725,11 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String EngineVersion { get; set; }
             public Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption> LogPublishingOption { get; set; }
             public System.Boolean? NodeToNodeEncryptionOptions_Enabled { get; set; }
+            public System.Boolean? OffPeakWindowOptions_Enabled { get; set; }
+            public System.Int64? WindowStartTime_Hour { get; set; }
+            public System.Int64? WindowStartTime_Minute { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+            public System.Boolean? SoftwareUpdateOptions_AutoSoftwareUpdateEnabled { get; set; }
             public List<Amazon.OpenSearchService.Model.Tag> TagList { get; set; }
             public List<System.String> VPCOptions_SecurityGroupId { get; set; }
             public List<System.String> VPCOptions_SubnetId { get; set; }

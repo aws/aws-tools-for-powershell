@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSReservedInstanceList', 
         'Get-OSReservedInstanceOfferingList', 
         'Get-OSResourceTag', 
+        'Get-OSScheduledActionList', 
         'Get-OSUpgradeHistory', 
         'Get-OSUpgradeStatus', 
         'Get-OSVersionList', 
@@ -135,6 +136,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-OSDomain', 
         'Update-OSDomainConfig', 
         'Update-OSPackage', 
+        'Update-OSScheduledAction', 
         'Update-OSVpcEndpoint')
 
     # Variables to export from this module

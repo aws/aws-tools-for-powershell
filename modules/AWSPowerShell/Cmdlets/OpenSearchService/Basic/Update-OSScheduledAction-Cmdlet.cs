@@ -28,25 +28,64 @@ using Amazon.OpenSearchService.Model;
 namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Schedules a service software update for an Amazon OpenSearch Service domain. For more
-    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">Service
-    /// software updates in Amazon OpenSearch Service</a>.
+    /// Reschedules a planned domain configuration change for a later time. This change can
+    /// be a scheduled <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html">service
+    /// software update</a> or a <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html#auto-tune-types">blue/green
+    /// Auto-Tune enhancement</a>.
     /// </summary>
-    [Cmdlet("Start", "OSServiceSoftwareUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.OpenSearchService.Model.ServiceSoftwareOptions")]
-    [AWSCmdlet("Calls the Amazon OpenSearch Service StartServiceSoftwareUpdate API operation.", Operation = new[] {"StartServiceSoftwareUpdate"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse))]
-    [AWSCmdletOutput("Amazon.OpenSearchService.Model.ServiceSoftwareOptions or Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse",
-        "This cmdlet returns an Amazon.OpenSearchService.Model.ServiceSoftwareOptions object.",
-        "The service call response (type Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "OSScheduledAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.OpenSearchService.Model.ScheduledAction")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Service UpdateScheduledAction API operation.", Operation = new[] {"UpdateScheduledAction"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.UpdateScheduledActionResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchService.Model.ScheduledAction or Amazon.OpenSearchService.Model.UpdateScheduledActionResponse",
+        "This cmdlet returns an Amazon.OpenSearchService.Model.ScheduledAction object.",
+        "The service call response (type Amazon.OpenSearchService.Model.UpdateScheduledActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartOSServiceSoftwareUpdateCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
+    public partial class UpdateOSScheduledActionCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter ActionID
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the action to reschedule. To retrieve this ID, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a>
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ActionID { get; set; }
+        #endregion
+        
+        #region Parameter ActionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
+        /// <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve
+        /// this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a>
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.OpenSearchService.ActionType")]
+        public Amazon.OpenSearchService.ActionType ActionType { get; set; }
+        #endregion
         
         #region Parameter DesiredStartTime
         /// <summary>
         /// <para>
-        /// <para>The Epoch timestamp when you want the service software update to start. You only need
-        /// to specify this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</para>
+        /// <para>The time to implement the change, in Coordinated Universal Time (UTC). Only specify
+        /// this parameter if you set <code>ScheduleAt</code> to <code>TIMESTAMP</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain that you want to update to the latest service software.</para>
+        /// <para>The name of the domain to reschedule an action for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,28 +112,33 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ScheduleAt
         /// <summary>
         /// <para>
-        /// <para>When to start the service software update.</para><ul><li><para><code>NOW</code> - Immediately schedules the update to happen in the current hour
+        /// <para>When to schedule the action.</para><ul><li><para><code>NOW</code> - Immediately schedules the update to happen in the current hour
         /// if there's capacity available.</para></li><li><para><code>TIMESTAMP</code> - Lets you specify a custom date and time to apply the update.
-        /// If you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</para></li><li><para><code>OFF_PEAK_WINDOW</code> - Marks the update to be picked up during an upcoming
-        /// off-peak window. There's no guarantee that the update will happen during the next
-        /// immediate window. Depending on capacity, it might happen in subsequent days.</para></li></ul><para>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>,
-        /// and <code>TIMESTAMP</code> if you do.</para>
+        /// If you specify this value, you must also provide a value for <code>DesiredStartTime</code>.</para></li><li><para><code>OFF_PEAK_WINDOW</code> - Marks the action to be picked up during an upcoming
+        /// off-peak window. There's no guarantee that the change will be implemented during the
+        /// next immediate window. Depending on capacity, it might happen in subsequent days.</para></li></ul>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.OpenSearchService.ScheduleAt")]
         public Amazon.OpenSearchService.ScheduleAt ScheduleAt { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceSoftwareOptions'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse).
-        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ScheduledAction'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.UpdateScheduledActionResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.UpdateScheduledActionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ServiceSoftwareOptions";
+        public string Select { get; set; } = "ScheduledAction";
         #endregion
         
         #region Parameter PassThru
@@ -123,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-OSServiceSoftwareUpdate (StartServiceSoftwareUpdate)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-OSScheduledAction (UpdateScheduledAction)"))
             {
                 return;
             }
@@ -136,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse, StartOSServiceSoftwareUpdateCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.UpdateScheduledActionResponse, UpdateOSScheduledActionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,6 +192,20 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ActionID = this.ActionID;
+            #if MODULAR
+            if (this.ActionID == null && ParameterWasBound(nameof(this.ActionID)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ActionID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ActionType = this.ActionType;
+            #if MODULAR
+            if (this.ActionType == null && ParameterWasBound(nameof(this.ActionType)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ActionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DesiredStartTime = this.DesiredStartTime;
             context.DomainName = this.DomainName;
             #if MODULAR
@@ -157,6 +215,12 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #endif
             context.ScheduleAt = this.ScheduleAt;
+            #if MODULAR
+            if (this.ScheduleAt == null && ParameterWasBound(nameof(this.ScheduleAt)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ScheduleAt which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,8 +235,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateRequest();
+            var request = new Amazon.OpenSearchService.Model.UpdateScheduledActionRequest();
             
+            if (cmdletContext.ActionID != null)
+            {
+                request.ActionID = cmdletContext.ActionID;
+            }
+            if (cmdletContext.ActionType != null)
+            {
+                request.ActionType = cmdletContext.ActionType;
+            }
             if (cmdletContext.DesiredStartTime != null)
             {
                 request.DesiredStartTime = cmdletContext.DesiredStartTime.Value;
@@ -218,15 +290,15 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateRequest request)
+        private Amazon.OpenSearchService.Model.UpdateScheduledActionResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.UpdateScheduledActionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "StartServiceSoftwareUpdate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "UpdateScheduledAction");
             try
             {
                 #if DESKTOP
-                return client.StartServiceSoftwareUpdate(request);
+                return client.UpdateScheduledAction(request);
                 #elif CORECLR
-                return client.StartServiceSoftwareUpdateAsync(request).GetAwaiter().GetResult();
+                return client.UpdateScheduledActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,11 +318,13 @@ namespace Amazon.PowerShell.Cmdlets.OS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ActionID { get; set; }
+            public Amazon.OpenSearchService.ActionType ActionType { get; set; }
             public System.Int64? DesiredStartTime { get; set; }
             public System.String DomainName { get; set; }
             public Amazon.OpenSearchService.ScheduleAt ScheduleAt { get; set; }
-            public System.Func<Amazon.OpenSearchService.Model.StartServiceSoftwareUpdateResponse, StartOSServiceSoftwareUpdateCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ServiceSoftwareOptions;
+            public System.Func<Amazon.OpenSearchService.Model.UpdateScheduledActionResponse, UpdateOSScheduledActionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ScheduledAction;
         }
         
     }
