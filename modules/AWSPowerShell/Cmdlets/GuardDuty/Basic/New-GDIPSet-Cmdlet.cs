@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The user-friendly name to identify the IPSet.</para><para> Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).</para>
+        /// <para>The user-friendly name to identify the IPSet.</para><para> Allowed characters are alphanumeric, whitespace, dash (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

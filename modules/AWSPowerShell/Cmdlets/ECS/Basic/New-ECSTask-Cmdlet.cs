@@ -168,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// <para>The Amazon Resource Name (ARN) of the task execution role override for the task. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
         /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -369,9 +369,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
         /// full ARN of the task definition to run. If a <code>revision</code> isn't specified,
-        /// the latest <code>ACTIVE</code> revision is used.</para><para>When you create an IAM policy for run-task, you can set the resource to be the latest
-        /// task definition revision, or a specific revision.</para><para>The full ARN value must match the value that you specified as the <code>Resource</code>
-        /// of the IAM principal's permissions policy.</para><para>When you specify the policy resource as the latest task definition version (by setting
+        /// the latest <code>ACTIVE</code> revision is used.</para><para>When you create a policy for run-task, you can set the resource to be the latest task
+        /// definition revision, or a specific revision.</para><para>The full ARN value must match the value that you specified as the <code>Resource</code>
+        /// of the principal's permissions policy.</para><para>When you specify the policy resource as the latest task definition version (by setting
         /// the <code>Resource</code> in the policy to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>),
         /// then set this value to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>.</para><para>When you specify the policy resource as a specific task definition version (by setting
         /// the <code>Resource</code> in the policy to <code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</code>
@@ -394,7 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_TaskRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
+        /// <para>The Amazon Resource Name (ARN) of the role that containers in this task can assume.
         /// All containers in this task are granted the permissions that are specified in this
         /// role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
         /// Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>

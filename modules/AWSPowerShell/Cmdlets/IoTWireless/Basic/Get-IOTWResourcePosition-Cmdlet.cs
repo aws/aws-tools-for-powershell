@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// Get the position information for a given wireless device or a wireless gateway resource.
-    /// The postion information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
+    /// The position information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
     /// World Geodetic System (WGS84)</a>.
     /// </summary>
     [Cmdlet("Get", "IOTWResourcePosition")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>The identifier of the resource for which position information is retrieved. It can
-        /// be the wireless device ID or the wireless gateway ID depending on the resource type.</para>
+        /// be the wireless device ID or the wireless gateway ID, depending on the resource type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     /// A PlaceId is valid only if all of the following are the same in the original search
     /// request and the call to <code>GetPlace</code>.
     /// </para><ul><li><para>
-    /// Customer AWS account
+    /// Customer Amazon Web Services account
     /// </para></li><li><para>
-    /// AWS Region
+    /// Amazon Web Services Region
     /// </para></li><li><para>
     /// Data provider specified in the place index resource
     /// </para></li></ul></note>

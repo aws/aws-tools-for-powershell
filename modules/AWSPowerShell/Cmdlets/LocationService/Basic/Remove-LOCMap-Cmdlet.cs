@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Deletes a map resource from your AWS account.
+    /// Deletes a map resource from your Amazon Web Services account.
     /// 
     ///  <note><para>
     /// This operation deletes the resource permanently. If the map is being used in an application,

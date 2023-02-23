@@ -28,39 +28,27 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Retrieves the map style descriptor from a map resource. 
+    /// Retrieves the API key resource details.
     /// 
-    ///  
-    /// <para>
-    /// The style descriptor contains speciﬁcations on how features render on a map. For example,
-    /// what data to display, what order to display the data in, and the style for the data.
-    /// Style descriptors follow the Mapbox Style Specification.
-    /// </para>
+    ///  <important><para>
+    /// The API keys feature is in preview. We may add, change, or remove features before
+    /// announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using
+    /// API keys</a>.
+    /// </para></important>
     /// </summary>
-    [Cmdlet("Get", "LOCMapStyleDescriptor")]
-    [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]
-    [AWSCmdlet("Calls the Amazon Location Service GetMapStyleDescriptor API operation.", Operation = new[] {"GetMapStyleDescriptor"}, SelectReturnType = typeof(Amazon.LocationService.Model.GetMapStyleDescriptorResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.GetMapStyleDescriptorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.GetMapStyleDescriptorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LOCKey")]
+    [OutputType("Amazon.LocationService.Model.DescribeKeyResponse")]
+    [AWSCmdlet("Calls the Amazon Location Service DescribeKey API operation.", Operation = new[] {"DescribeKey"}, SelectReturnType = typeof(Amazon.LocationService.Model.DescribeKeyResponse))]
+    [AWSCmdletOutput("Amazon.LocationService.Model.DescribeKeyResponse",
+        "This cmdlet returns an Amazon.LocationService.Model.DescribeKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLOCMapStyleDescriptorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class GetLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter Key
+        #region Parameter KeyName
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
-        /// key</a> to authorize the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Key { get; set; }
-        #endregion
-        
-        #region Parameter MapName
-        /// <summary>
-        /// <para>
-        /// <para>The map resource to retrieve the style descriptor from.</para>
+        /// <para>The name of the API key resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,14 +59,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MapName { get; set; }
+        public System.String KeyName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.GetMapStyleDescriptorResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.GetMapStyleDescriptorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.DescribeKeyResponse).
+        /// Specifying the name of a property of type Amazon.LocationService.Model.DescribeKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MapName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MapName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the KeyName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MapName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -108,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.DescribeKeyResponse, GetLOCKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,15 +105,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MapName;
+                context.Select = (response, cmdlet) => this.KeyName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Key = this.Key;
-            context.MapName = this.MapName;
+            context.KeyName = this.KeyName;
             #if MODULAR
-            if (this.MapName == null && ParameterWasBound(nameof(this.MapName)))
+            if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
             {
-                WriteWarning("You are passing $null as a value for parameter MapName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,15 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.GetMapStyleDescriptorRequest();
+            var request = new Amazon.LocationService.Model.DescribeKeyRequest();
             
-            if (cmdletContext.Key != null)
+            if (cmdletContext.KeyName != null)
             {
-                request.Key = cmdletContext.Key;
-            }
-            if (cmdletContext.MapName != null)
-            {
-                request.MapName = cmdletContext.MapName;
+                request.KeyName = cmdletContext.KeyName;
             }
             
             CmdletOutput output;
@@ -185,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.GetMapStyleDescriptorResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.GetMapStyleDescriptorRequest request)
+        private Amazon.LocationService.Model.DescribeKeyResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.DescribeKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "GetMapStyleDescriptor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "DescribeKey");
             try
             {
                 #if DESKTOP
-                return client.GetMapStyleDescriptor(request);
+                return client.DescribeKey(request);
                 #elif CORECLR
-                return client.GetMapStyleDescriptorAsync(request).GetAwaiter().GetResult();
+                return client.DescribeKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,9 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Key { get; set; }
-            public System.String MapName { get; set; }
-            public System.Func<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet, object> Select { get; set; } =
+            public System.String KeyName { get; set; }
+            public System.Func<Amazon.LocationService.Model.DescribeKeyResponse, GetLOCKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

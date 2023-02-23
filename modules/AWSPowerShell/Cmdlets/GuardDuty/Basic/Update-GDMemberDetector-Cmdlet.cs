@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Contains information on member accounts to be updated.
+    /// 
+    ///  
+    /// <para>
+    /// There might be regional differences because some data sources might not be available
+    /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+    /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+    /// and endpoints</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "GDMemberDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

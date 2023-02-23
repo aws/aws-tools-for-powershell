@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Determines whether to use encryption on the CloudWatch logs. If not specified, encryption
-        /// will be disabled.</para>
+        /// will be off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

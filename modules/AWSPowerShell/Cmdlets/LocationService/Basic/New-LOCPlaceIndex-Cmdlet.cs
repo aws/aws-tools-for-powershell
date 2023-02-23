@@ -28,8 +28,8 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a place index resource in your AWS account. Use a place index resource to
-    /// geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
+    /// Creates a place index resource in your Amazon Web Services account. Use a place index
+    /// resource to geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code>
     /// operation, and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code>
     /// operation, and enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code>
     /// operation.
@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     ///  <note><para>
     /// If your application is tracking or routing assets you use in your business, such as
     /// delivery vehicles or employees, you must not use Esri as your geolocation provider.
-    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS service terms</a>
-    /// for more details.
+    /// See section 82 of the <a href="http://aws.amazon.com/service-terms">Amazon Web Services
+    /// service terms</a> for more details.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "LOCPlaceIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE
         /// details on goecoding coverage</a>.</para><important><para>If you specify HERE Technologies (<code>Here</code>) as the data provider, you may
         /// not <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store
-        /// results</a> for locations in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS
-        /// Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
+        /// results</a> for locations in Japan. For more information, see the <a href="http://aws.amazon.com/service-terms/">Amazon
+        /// Web Services Service Terms</a> for Amazon Location Service.</para></important></li></ul><para>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
         /// providers</a> on the <i>Amazon Location Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

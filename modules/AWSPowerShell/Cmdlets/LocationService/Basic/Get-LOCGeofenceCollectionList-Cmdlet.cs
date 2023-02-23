@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Lists geofence collections in your AWS account.
+    /// Lists geofence collections in your Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "LOCGeofenceCollectionList")]
     [OutputType("Amazon.LocationService.Model.ListGeofenceCollectionsResponseEntry")]

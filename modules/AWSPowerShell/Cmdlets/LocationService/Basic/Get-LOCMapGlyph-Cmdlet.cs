@@ -96,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String FontUnicodeRange { get; set; }
         #endregion
         
+        #region Parameter Key
+        /// <summary>
+        /// <para>
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// key</a> to authorize the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Key { get; set; }
+        #endregion
+        
         #region Parameter MapName
         /// <summary>
         /// <para>
@@ -173,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 WriteWarning("You are passing $null as a value for parameter FontUnicodeRange which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Key = this.Key;
             context.MapName = this.MapName;
             #if MODULAR
             if (this.MapName == null && ParameterWasBound(nameof(this.MapName)))
@@ -203,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             if (cmdletContext.FontUnicodeRange != null)
             {
                 request.FontUnicodeRange = cmdletContext.FontUnicodeRange;
+            }
+            if (cmdletContext.Key != null)
+            {
+                request.Key = cmdletContext.Key;
             }
             if (cmdletContext.MapName != null)
             {
@@ -271,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             public System.String FontStack { get; set; }
             public System.String FontUnicodeRange { get; set; }
+            public System.String Key { get; set; }
             public System.String MapName { get; set; }
             public System.Func<Amazon.LocationService.Model.GetMapGlyphsResponse, GetLOCMapGlyphCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

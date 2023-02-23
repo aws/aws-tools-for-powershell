@@ -28,8 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Disables an account setting for a specified IAM user, IAM role, or the root user for
-    /// an account.
+    /// Disables an account setting for a specified user, role, or the root user for an account.
     /// </summary>
     [Cmdlet("Remove", "ECSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.Setting")]
@@ -66,11 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PrincipalArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the principal. It can be an IAM user, IAM role,
-        /// or the root user. If you specify the root user, it disables the account setting for
-        /// all IAM users, IAM roles, and the root user of the account unless an IAM user or role
-        /// explicitly overrides these settings. If this field is omitted, the setting is changed
-        /// only for the authenticated user.</para>
+        /// <para>The Amazon Resource Name (ARN) of the principal. It can be an user, role, or the root
+        /// user. If you specify the root user, it disables the account setting for all users,
+        /// roles, and the root user of the account unless a user or role explicitly overrides
+        /// these settings. If this field is omitted, the setting is changed only for the authenticated
+        /// user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -8460,6 +8460,9 @@ Set-Alias -Name Delete-ECSCluster -Value Remove-ECSCluster
 Set-Alias -Name ECS-DeleteCluster -Value Remove-ECSCluster
 Set-Alias -Name Delete-ECSService -Value Remove-ECSService
 Set-Alias -Name ECS-DeleteService -Value Remove-ECSService
+Set-Alias -Name Delete-ECSTaskDefinitions -Value Remove-ECSTaskDefinition
+Set-Alias -Name Delete-ECSTaskDefinition -Value Remove-ECSTaskDefinition
+Set-Alias -Name ECS-DeleteTaskDefinitions -Value Remove-ECSTaskDefinition
 Set-Alias -Name Delete-ECSTaskSet -Value Remove-ECSTaskSet
 Set-Alias -Name ECS-DeleteTaskSet -Value Remove-ECSTaskSet
 Set-Alias -Name Deregister-ECSContainerInstance -Value Unregister-ECSContainerInstance
@@ -14807,6 +14810,8 @@ Set-Alias -Name Calculate-LOCRouteMatrix -Value Get-LOCRouteMatrix
 Set-Alias -Name LOC-CalculateRouteMatrix -Value Get-LOCRouteMatrix
 Set-Alias -Name Create-LOCGeofenceCollection -Value New-LOCGeofenceCollection
 Set-Alias -Name LOC-CreateGeofenceCollection -Value New-LOCGeofenceCollection
+Set-Alias -Name Create-LOCKey -Value New-LOCKey
+Set-Alias -Name LOC-CreateKey -Value New-LOCKey
 Set-Alias -Name Create-LOCMap -Value New-LOCMap
 Set-Alias -Name LOC-CreateMap -Value New-LOCMap
 Set-Alias -Name Create-LOCPlaceIndex -Value New-LOCPlaceIndex
@@ -14817,6 +14822,8 @@ Set-Alias -Name Create-LOCTracker -Value New-LOCTracker
 Set-Alias -Name LOC-CreateTracker -Value New-LOCTracker
 Set-Alias -Name Delete-LOCGeofenceCollection -Value Remove-LOCGeofenceCollection
 Set-Alias -Name LOC-DeleteGeofenceCollection -Value Remove-LOCGeofenceCollection
+Set-Alias -Name Delete-LOCKey -Value Remove-LOCKey
+Set-Alias -Name LOC-DeleteKey -Value Remove-LOCKey
 Set-Alias -Name Delete-LOCMap -Value Remove-LOCMap
 Set-Alias -Name LOC-DeleteMap -Value Remove-LOCMap
 Set-Alias -Name Delete-LOCPlaceIndex -Value Remove-LOCPlaceIndex
@@ -14827,6 +14834,8 @@ Set-Alias -Name Delete-LOCTracker -Value Remove-LOCTracker
 Set-Alias -Name LOC-DeleteTracker -Value Remove-LOCTracker
 Set-Alias -Name Describe-LOCGeofenceCollection -Value Get-LOCGeofenceCollection
 Set-Alias -Name LOC-DescribeGeofenceCollection -Value Get-LOCGeofenceCollection
+Set-Alias -Name Describe-LOCKey -Value Get-LOCKey
+Set-Alias -Name LOC-DescribeKey -Value Get-LOCKey
 Set-Alias -Name Describe-LOCMap -Value Get-LOCMap
 Set-Alias -Name LOC-DescribeMap -Value Get-LOCMap
 Set-Alias -Name Describe-LOCPlaceIndex -Value Get-LOCPlaceIndex
@@ -14856,6 +14865,9 @@ Set-Alias -Name LOC-ListGeofenceCollections -Value Get-LOCGeofenceCollectionList
 Set-Alias -Name List-LOCGeofences -Value Get-LOCGeofenceList
 Set-Alias -Name List-LOCGeofenceList -Value Get-LOCGeofenceList
 Set-Alias -Name LOC-ListGeofences -Value Get-LOCGeofenceList
+Set-Alias -Name List-LOCKeys -Value Get-LOCKeyList
+Set-Alias -Name List-LOCKeyList -Value Get-LOCKeyList
+Set-Alias -Name LOC-ListKeys -Value Get-LOCKeyList
 Set-Alias -Name List-LOCMaps -Value Get-LOCMapList
 Set-Alias -Name List-LOCMapList -Value Get-LOCMapList
 Set-Alias -Name LOC-ListMaps -Value Get-LOCMapList
@@ -14885,6 +14897,7 @@ Set-Alias -Name Remove-LOCResourceTag -Value Remove-LOCResourceTagSet
 Set-Alias -Name LOC-UntagResource -Value Remove-LOCResourceTagSet
 Set-Alias -Name Update-LOCGeofenceCollection -Value Edit-LOCGeofenceCollection
 Set-Alias -Name LOC-UpdateGeofenceCollection -Value Edit-LOCGeofenceCollection
+Set-Alias -Name LOC-UpdateKey -Value Update-LOCKey
 Set-Alias -Name Update-LOCMap -Value Edit-LOCMap
 Set-Alias -Name LOC-UpdateMap -Value Edit-LOCMap
 Set-Alias -Name Update-LOCPlaceIndex -Value Edit-LOCPlaceIndex

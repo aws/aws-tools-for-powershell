@@ -48,6 +48,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCMapTileCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter Key
+        /// <summary>
+        /// <para>
+        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
+        /// key</a> to authorize the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Key { get; set; }
+        #endregion
+        
         #region Parameter MapName
         /// <summary>
         /// <para>
@@ -162,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Select = (response, cmdlet) => this.MapName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Key = this.Key;
             context.MapName = this.MapName;
             #if MODULAR
             if (this.MapName == null && ParameterWasBound(nameof(this.MapName)))
@@ -206,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // create request
             var request = new Amazon.LocationService.Model.GetMapTileRequest();
             
+            if (cmdletContext.Key != null)
+            {
+                request.Key = cmdletContext.Key;
+            }
             if (cmdletContext.MapName != null)
             {
                 request.MapName = cmdletContext.MapName;
@@ -283,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Key { get; set; }
             public System.String MapName { get; set; }
             public System.String X { get; set; }
             public System.String Y { get; set; }

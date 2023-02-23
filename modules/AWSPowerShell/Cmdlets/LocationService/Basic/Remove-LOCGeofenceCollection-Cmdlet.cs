@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Deletes a geofence collection from your AWS account.
+    /// Deletes a geofence collection from your Amazon Web Services account.
     /// 
     ///  <note><para>
     /// This operation deletes the resource permanently. If the geofence collection is the

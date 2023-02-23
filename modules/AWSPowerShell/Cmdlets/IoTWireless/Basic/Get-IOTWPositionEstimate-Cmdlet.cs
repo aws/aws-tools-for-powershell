@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Optional assistance position information, specified using latitude and longitude values
-        /// in degrees. The co-ordinates are inside the WGS84 reference frame.</para>
+        /// in degrees. The coordinates are inside the WGS84 reference frame.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>Optional information that specifies the time when the position information will be
-        /// resolved. It uses the UNIX timestamp format. If not specified, the time at which the
+        /// resolved. It uses the Unix timestamp format. If not specified, the time at which the
         /// request was received will be used.</para>
         /// </para>
         /// </summary>

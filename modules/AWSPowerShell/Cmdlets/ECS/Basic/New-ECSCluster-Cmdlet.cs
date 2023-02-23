@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to create
     /// the Amazon ECS service-linked role for your account. This is so that it can manage
     /// required resources in other Amazon Web Services services on your behalf. However,
-    /// if the IAM user that makes the call doesn't have permissions to create the service-linked
+    /// if the user that makes the call doesn't have permissions to create the service-linked
     /// role, it isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
     /// service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
     /// Developer Guide</i>.
@@ -58,12 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The short name of one or more capacity providers to associate with the cluster. A
         /// capacity provider must be associated with a cluster before it can be included as part
         /// of the default capacity provider strategy of the cluster or used in a capacity provider
-        /// strategy when calling the <a>CreateService</a> or <a>RunTask</a> actions.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// strategy when calling the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a>
+        /// actions.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
         /// must be created but not associated with another cluster. New Auto Scaling group capacity
-        /// providers can be created with the <a>CreateCapacityProvider</a> API operation.</para><para>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or <code>FARGATE_SPOT</code>
+        /// providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a>
+        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <code>FARGATE</code> or <code>FARGATE_SPOT</code>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
-        /// only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
-        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// only need to be associated with a cluster to be used.</para><para>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html">PutCapacityProvider</a>
+        /// API operation is used to update the list of available capacity providers for a cluster
+        /// after the cluster is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Determines whether to use encryption on the CloudWatch logs. If not specified, encryption
-        /// will be disabled.</para>
+        /// will be off.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,9 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The capacity provider strategy to set as the default for the cluster. After a default
-        /// capacity provider strategy is set for a cluster, when you call the <a>RunTask</a>
-        /// or <a>CreateService</a> APIs with no capacity provider strategy or launch type specified,
-        /// the default capacity provider strategy for the cluster is used.</para><para>If a default capacity provider strategy isn't defined for a cluster when it was created,
+        /// capacity provider strategy is set for a cluster, when you call the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a>
+        /// APIs with no capacity provider strategy or launch type specified, the default capacity
+        /// provider strategy for the cluster is used.</para><para>If a default capacity provider strategy isn't defined for a cluster when it was created,
         /// it can be defined later with the <a>PutClusterCapacityProviders</a> API operation.</para>
         /// </para>
         /// </summary>

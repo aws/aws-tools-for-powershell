@@ -118,6 +118,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ECSCluster', 
         'Remove-ECSResourceTag', 
         'Remove-ECSService', 
+        'Remove-ECSTaskDefinition', 
         'Remove-ECSTaskSet', 
         'Start-ECSTask', 
         'Stop-ECSTask', 

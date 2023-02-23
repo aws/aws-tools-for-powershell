@@ -28,8 +28,8 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Modifies an account setting for all IAM users on an account for whom no individual
-    /// account setting has been specified. Account settings are set on a per-Region basis.
+    /// Modifies an account setting for all users on an account for whom no individual account
+    /// setting has been specified. Account settings are set on a per-Region basis.
     /// </summary>
     [Cmdlet("Write", "ECSAccountSettingDefault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Setting")]

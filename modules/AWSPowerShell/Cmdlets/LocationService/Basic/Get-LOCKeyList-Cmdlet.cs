@@ -28,17 +28,34 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Lists tracker resources in your Amazon Web Services account.
+    /// Lists API key resources in your Amazon Web Services account.
+    /// 
+    ///  <important><para>
+    /// The API keys feature is in preview. We may add, change, or remove features before
+    /// announcing general availability. For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">Using
+    /// API keys</a>.
+    /// </para></important>
     /// </summary>
-    [Cmdlet("Get", "LOCTrackerList")]
-    [OutputType("Amazon.LocationService.Model.ListTrackersResponseEntry")]
-    [AWSCmdlet("Calls the Amazon Location Service ListTrackers API operation.", Operation = new[] {"ListTrackers"}, SelectReturnType = typeof(Amazon.LocationService.Model.ListTrackersResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.ListTrackersResponseEntry or Amazon.LocationService.Model.ListTrackersResponse",
-        "This cmdlet returns a collection of Amazon.LocationService.Model.ListTrackersResponseEntry objects.",
-        "The service call response (type Amazon.LocationService.Model.ListTrackersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LOCKeyList")]
+    [OutputType("Amazon.LocationService.Model.ListKeysResponseEntry")]
+    [AWSCmdlet("Calls the Amazon Location Service ListKeys API operation.", Operation = new[] {"ListKeys"}, SelectReturnType = typeof(Amazon.LocationService.Model.ListKeysResponse))]
+    [AWSCmdletOutput("Amazon.LocationService.Model.ListKeysResponseEntry or Amazon.LocationService.Model.ListKeysResponse",
+        "This cmdlet returns a collection of Amazon.LocationService.Model.ListKeysResponseEntry objects.",
+        "The service call response (type Amazon.LocationService.Model.ListKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLOCTrackerListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class GetLOCKeyListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter_KeyStatus
+        /// <summary>
+        /// <para>
+        /// <para>Filter on <code>Active</code> or <code>Expired</code> API keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.LocationService.Status")]
+        public Amazon.LocationService.Status Filter_KeyStatus { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -65,12 +82,22 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Entries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.ListTrackersResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.ListTrackersResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.ListKeysResponse).
+        /// Specifying the name of a property of type Amazon.LocationService.Model.ListKeysResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Entries";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Filter_KeyStatus parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Filter_KeyStatus' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Filter_KeyStatus' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -83,11 +110,22 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.ListTrackersResponse, GetLOCTrackerListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.ListKeysResponse, GetLOCKeyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Filter_KeyStatus;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Filter_KeyStatus = this.Filter_KeyStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -104,8 +142,27 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.ListTrackersRequest();
+            var request = new Amazon.LocationService.Model.ListKeysRequest();
             
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.LocationService.Model.ApiKeyFilter();
+            Amazon.LocationService.Status requestFilter_filter_KeyStatus = null;
+            if (cmdletContext.Filter_KeyStatus != null)
+            {
+                requestFilter_filter_KeyStatus = cmdletContext.Filter_KeyStatus;
+            }
+            if (requestFilter_filter_KeyStatus != null)
+            {
+                request.Filter.KeyStatus = requestFilter_filter_KeyStatus;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -147,15 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.ListTrackersResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.ListTrackersRequest request)
+        private Amazon.LocationService.Model.ListKeysResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.ListKeysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "ListTrackers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "ListKeys");
             try
             {
                 #if DESKTOP
-                return client.ListTrackers(request);
+                return client.ListKeys(request);
                 #elif CORECLR
-                return client.ListTrackersAsync(request).GetAwaiter().GetResult();
+                return client.ListKeysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -175,9 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.LocationService.Status Filter_KeyStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.LocationService.Model.ListTrackersResponse, GetLOCTrackerListCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LocationService.Model.ListKeysResponse, GetLOCKeyListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Entries;
         }
         

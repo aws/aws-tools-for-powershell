@@ -70,6 +70,27 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String FirmwareUpdateRole { get; set; }
         #endregion
         
+        #region Parameter FragmentIntervalMS
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FragmentIntervalMS { get; set; }
+        #endregion
+        
+        #region Parameter FragmentSizeByte
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FragmentSizeBytes")]
+        public System.Int32? FragmentSizeByte { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -95,6 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RedundancyPercent
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RedundancyPercent { get; set; }
         #endregion
         
         #region Parameter LoRaWAN_RfRegion
@@ -172,6 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.Description = this.Description;
             context.FirmwareUpdateImage = this.FirmwareUpdateImage;
             context.FirmwareUpdateRole = this.FirmwareUpdateRole;
+            context.FragmentIntervalMS = this.FragmentIntervalMS;
+            context.FragmentSizeByte = this.FragmentSizeByte;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -181,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #endif
             context.LoRaWAN_RfRegion = this.LoRaWAN_RfRegion;
             context.Name = this.Name;
+            context.RedundancyPercent = this.RedundancyPercent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.FirmwareUpdateRole = cmdletContext.FirmwareUpdateRole;
             }
+            if (cmdletContext.FragmentIntervalMS != null)
+            {
+                request.FragmentIntervalMS = cmdletContext.FragmentIntervalMS.Value;
+            }
+            if (cmdletContext.FragmentSizeByte != null)
+            {
+                request.FragmentSizeBytes = cmdletContext.FragmentSizeByte.Value;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
@@ -235,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RedundancyPercent != null)
+            {
+                request.RedundancyPercent = cmdletContext.RedundancyPercent.Value;
             }
             
             CmdletOutput output;
@@ -300,9 +346,12 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String Description { get; set; }
             public System.String FirmwareUpdateImage { get; set; }
             public System.String FirmwareUpdateRole { get; set; }
+            public System.Int32? FragmentIntervalMS { get; set; }
+            public System.Int32? FragmentSizeByte { get; set; }
             public System.String Id { get; set; }
             public Amazon.IoTWireless.SupportedRfRegion LoRaWAN_RfRegion { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? RedundancyPercent { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateFuotaTaskResponse, UpdateIOTWFuotaTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

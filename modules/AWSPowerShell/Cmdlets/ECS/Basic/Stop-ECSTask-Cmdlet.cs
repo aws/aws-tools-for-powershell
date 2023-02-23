@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Task
         /// <summary>
         /// <para>
-        /// <para>The task ID or full Amazon Resource Name (ARN) of the task to stop.</para>
+        /// <para>The task ID of the task to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

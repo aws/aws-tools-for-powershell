@@ -138,6 +138,13 @@ $LOC_Completers = {
             break
         }
 
+        # Amazon.LocationService.Status
+        "Get-LOCKeyList/Filter_KeyStatus"
+        {
+            $v = "Active","Expired"
+            break
+        }
+
         # Amazon.LocationService.TravelMode
         {
             ($_ -eq "Get-LOCRoute/TravelMode") -Or
@@ -169,6 +176,7 @@ $LOC_Completers = {
 $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
+    "Filter_KeyStatus"=@("Get-LOCKeyList")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "TravelMode"=@("Get-LOCRoute","Get-LOCRouteMatrix")
@@ -236,16 +244,19 @@ $LOC_SelectMap = @{
                "Get-LOCRoute",
                "Get-LOCRouteMatrix",
                "New-LOCGeofenceCollection",
+               "New-LOCKey",
                "New-LOCMap",
                "New-LOCPlaceIndex",
                "New-LOCRouteCalculator",
                "New-LOCTracker",
                "Remove-LOCGeofenceCollection",
+               "Remove-LOCKey",
                "Remove-LOCMap",
                "Remove-LOCPlaceIndex",
                "Remove-LOCRouteCalculator",
                "Remove-LOCTracker",
                "Get-LOCGeofenceCollection",
+               "Get-LOCKey",
                "Get-LOCMap",
                "Get-LOCPlaceIndex",
                "Get-LOCRouteCalculator",
@@ -262,6 +273,7 @@ $LOC_SelectMap = @{
                "Get-LOCDevicePositionList",
                "Get-LOCGeofenceCollectionList",
                "Get-LOCGeofenceList",
+               "Get-LOCKeyList",
                "Get-LOCMapList",
                "Get-LOCPlaceIndexList",
                "Get-LOCRouteCalculatorList",
@@ -275,6 +287,7 @@ $LOC_SelectMap = @{
                "Add-LOCResourceTagSet",
                "Remove-LOCResourceTagSet",
                "Edit-LOCGeofenceCollection",
+               "Update-LOCKey",
                "Edit-LOCMap",
                "Edit-LOCPlaceIndex",
                "Edit-LOCRouteCalculator",

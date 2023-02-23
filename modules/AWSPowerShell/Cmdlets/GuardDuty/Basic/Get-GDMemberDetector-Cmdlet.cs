@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Describes which data sources are enabled for the member account's detector.
+    /// 
+    ///  
+    /// <para>
+    /// There might be regional differences because some data sources might not be available
+    /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
+    /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+    /// and endpoints</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GDMemberDetector")]
     [OutputType("Amazon.GuardDuty.Model.GetMemberDetectorsResponse")]

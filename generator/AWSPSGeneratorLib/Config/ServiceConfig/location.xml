@@ -58,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateKey" OutputProperty="*" Verb="New" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMap" OutputProperty="*" Verb="New" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -78,6 +82,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKey" Verb="Remove" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMap" Verb="Remove" Noun="Map" ShouldProcessTarget="MapName" PipelineParameter="MapName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -95,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeGeofenceCollection" OutputProperty="*" Verb="Get" Noun="GeofenceCollection" PipelineParameter="CollectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKey" OutputProperty="*" Verb="Get" Noun="Key" PipelineParameter="KeyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -162,6 +174,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListKeys" OutputProperty="Entries" Verb="Get" Noun="KeyList" PipelineParameter="Filter_KeyStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMaps" OutputProperty="Entries" Verb="Get" Noun="MapList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -211,6 +227,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateGeofenceCollection" OutputProperty="*" Verb="Edit" Noun="GeofenceCollection" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKey" OutputProperty="*" Verb="Update" Noun="Key" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

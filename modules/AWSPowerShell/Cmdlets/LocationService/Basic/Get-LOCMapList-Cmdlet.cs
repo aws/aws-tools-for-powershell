@@ -28,7 +28,7 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Lists map resources in your AWS account.
+    /// Lists map resources in your Amazon Web Services account.
     /// </summary>
     [Cmdlet("Get", "LOCMapList")]
     [OutputType("Amazon.LocationService.Model.ListMapsResponseEntry")]

@@ -139,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// <para>The Amazon Resource Name (ARN) of the task execution role override for the task. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
         /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_TaskRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume.
+        /// <para>The Amazon Resource Name (ARN) of the role that containers in this task can assume.
         /// All containers in this task are granted the permissions that are specified in this
         /// role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
         /// Role for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>

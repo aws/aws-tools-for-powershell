@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// Update the position information of a given wireless device or a wireless gateway resource.
-    /// The postion coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
+    /// The position coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
     /// World Geodetic System (WGS84)</a>.
     /// </summary>
     [Cmdlet("Update", "IOTWResourcePosition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         /// <summary>
         /// <para>
         /// <para>The identifier of the resource for which position information is updated. It can be
-        /// the wireless device ID or the wireless gateway ID depending on the resource type.</para>
+        /// the wireless device ID or the wireless gateway ID, depending on the resource type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

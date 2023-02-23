@@ -1,4 +1,22 @@
-﻿### 4.1.277 (2023-02-22 21:50Z)
+﻿### 4.1.278 (2023-02-23 22:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.490.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EC2 Container Service
+    * Added cmdlet Remove-ECSTaskDefinition leveraging the DeleteTaskDefinitions service API.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWFuotaTask: added parameters FragmentIntervalMS, FragmentSizeByte and RedundancyPercent.
+    * Modified cmdlet Update-IOTWFuotaTask: added parameters FragmentIntervalMS, FragmentSizeByte and RedundancyPercent.
+  * Amazon Location Service
+    * Added cmdlet Get-LOCKey leveraging the DescribeKey service API.
+    * Added cmdlet Get-LOCKeyList leveraging the ListKeys service API.
+    * Added cmdlet New-LOCKey leveraging the CreateKey service API.
+    * Added cmdlet Remove-LOCKey leveraging the DeleteKey service API.
+    * Added cmdlet Update-LOCKey leveraging the UpdateKey service API.
+    * Modified cmdlet Get-LOCMapGlyph: added parameter Key.
+    * Modified cmdlet Get-LOCMapSprite: added parameter Key.
+    * Modified cmdlet Get-LOCMapStyleDescriptor: added parameter Key.
+    * Modified cmdlet Get-LOCMapTile: added parameter Key.
+
+### 4.1.277 (2023-02-22 21:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.489.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet Write-CHMVOVoiceConnectorLoggingConfiguration: added parameter LoggingConfiguration_EnableMediaMetricLog.

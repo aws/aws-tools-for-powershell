@@ -61,6 +61,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTaskDefinitions" OutputProperty="*" Verb="Remove" Noun="TaskDefinition" ShouldProcessTarget="TaskDefinitions" PipelineParameter="TaskDefinitions" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTaskSet" OutputProperty="TaskSet" Verb="Remove" Noun="TaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />

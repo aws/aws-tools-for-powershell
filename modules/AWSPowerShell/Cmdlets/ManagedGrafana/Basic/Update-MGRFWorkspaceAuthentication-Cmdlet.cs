@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     /// users from, using SAML. You can also map SAML assertion attributes to workspace user
     /// information and define which groups in the assertion attribute are to have the <code>Admin</code>
     /// and <code>Editor</code> roles in the workspace.
+    /// 
+    ///  <note><para>
+    /// Changes to the authentication method for a workspace may take a few minutes to take
+    /// effect.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "MGRFWorkspaceAuthentication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ManagedGrafana.Model.AuthenticationDescription")]

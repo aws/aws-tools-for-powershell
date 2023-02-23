@@ -22,63 +22,68 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.LocationService;
-using Amazon.LocationService.Model;
+using Amazon.ECS;
+using Amazon.ECS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LOC
+namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Retrieves the map style descriptor from a map resource. 
+    /// Deletes one or more task definitions.
     /// 
     ///  
     /// <para>
-    /// The style descriptor contains speciﬁcations on how features render on a map. For example,
-    /// what data to display, what order to display the data in, and the style for the data.
-    /// Style descriptors follow the Mapbox Style Specification.
+    /// You must deregister a task definition revision before you delete it. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html">DeregisterTaskDefinition</a>.
+    /// </para><para>
+    /// When you delete a task definition revision, it is immediately transitions from the
+    /// <code>INACTIVE</code> to <code>DELETE_IN_PROGRESS</code>. Existing tasks and services
+    /// that reference a <code>DELETE_IN_PROGRESS</code> task definition revision continue
+    /// to run without disruption. Existing services that reference a <code>DELETE_IN_PROGRESS</code>
+    /// task definition revision can still scale up or down by modifying the service's desired
+    /// count.
+    /// </para><para>
+    /// You can't use a <code>DELETE_IN_PROGRESS</code> task definition revision to run new
+    /// tasks or create new services. You also can't update an existing service to reference
+    /// a <code>DELETE_IN_PROGRESS</code> task definition revision.
+    /// </para><para>
+    ///  A task definition revision will stay in <code>DELETE_IN_PROGRESS</code> status until
+    /// all the associated tasks and services have been terminated.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "LOCMapStyleDescriptor")]
-    [OutputType("Amazon.LocationService.Model.GetMapStyleDescriptorResponse")]
-    [AWSCmdlet("Calls the Amazon Location Service GetMapStyleDescriptor API operation.", Operation = new[] {"GetMapStyleDescriptor"}, SelectReturnType = typeof(Amazon.LocationService.Model.GetMapStyleDescriptorResponse))]
-    [AWSCmdletOutput("Amazon.LocationService.Model.GetMapStyleDescriptorResponse",
-        "This cmdlet returns an Amazon.LocationService.Model.GetMapStyleDescriptorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.ECS.Model.DeleteTaskDefinitionsResponse")]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DeleteTaskDefinitions API operation.", Operation = new[] {"DeleteTaskDefinitions"}, SelectReturnType = typeof(Amazon.ECS.Model.DeleteTaskDefinitionsResponse))]
+    [AWSCmdletOutput("Amazon.ECS.Model.DeleteTaskDefinitionsResponse",
+        "This cmdlet returns an Amazon.ECS.Model.DeleteTaskDefinitionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetLOCMapStyleDescriptorCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
+    public partial class RemoveECSTaskDefinitionCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
-        #region Parameter Key
+        #region Parameter TaskDefinition
         /// <summary>
         /// <para>
-        /// <para>The optional <a href="https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html">API
-        /// key</a> to authorize the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Key { get; set; }
-        #endregion
-        
-        #region Parameter MapName
-        /// <summary>
-        /// <para>
-        /// <para>The map resource to retrieve the style descriptor from.</para>
+        /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
+        /// full Amazon Resource Name (ARN) of the task definition to delete. You must specify
+        /// a <code>revision</code>.</para><para>You can specify up to 10 task definitions as a comma separated list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MapName { get; set; }
+        [Alias("TaskDefinitions")]
+        public System.String[] TaskDefinition { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LocationService.Model.GetMapStyleDescriptorResponse).
-        /// Specifying the name of a property of type Amazon.LocationService.Model.GetMapStyleDescriptorResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECS.Model.DeleteTaskDefinitionsResponse).
+        /// Specifying the name of a property of type Amazon.ECS.Model.DeleteTaskDefinitionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,18 +92,34 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MapName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MapName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TaskDefinition parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TaskDefinition' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MapName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TaskDefinition' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaskDefinition), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ECSTaskDefinition (DeleteTaskDefinitions)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -108,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ECS.Model.DeleteTaskDefinitionsResponse, RemoveECSTaskDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,15 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MapName;
+                context.Select = (response, cmdlet) => this.TaskDefinition;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Key = this.Key;
-            context.MapName = this.MapName;
-            #if MODULAR
-            if (this.MapName == null && ParameterWasBound(nameof(this.MapName)))
+            if (this.TaskDefinition != null)
             {
-                WriteWarning("You are passing $null as a value for parameter MapName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TaskDefinition = new List<System.String>(this.TaskDefinition);
+            }
+            #if MODULAR
+            if (this.TaskDefinition == null && ParameterWasBound(nameof(this.TaskDefinition)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TaskDefinition which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -142,15 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LocationService.Model.GetMapStyleDescriptorRequest();
+            var request = new Amazon.ECS.Model.DeleteTaskDefinitionsRequest();
             
-            if (cmdletContext.Key != null)
+            if (cmdletContext.TaskDefinition != null)
             {
-                request.Key = cmdletContext.Key;
-            }
-            if (cmdletContext.MapName != null)
-            {
-                request.MapName = cmdletContext.MapName;
+                request.TaskDefinitions = cmdletContext.TaskDefinition;
             }
             
             CmdletOutput output;
@@ -185,15 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         #region AWS Service Operation Call
         
-        private Amazon.LocationService.Model.GetMapStyleDescriptorResponse CallAWSServiceOperation(IAmazonLocationService client, Amazon.LocationService.Model.GetMapStyleDescriptorRequest request)
+        private Amazon.ECS.Model.DeleteTaskDefinitionsResponse CallAWSServiceOperation(IAmazonECS client, Amazon.ECS.Model.DeleteTaskDefinitionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Location Service", "GetMapStyleDescriptor");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Service", "DeleteTaskDefinitions");
             try
             {
                 #if DESKTOP
-                return client.GetMapStyleDescriptor(request);
+                return client.DeleteTaskDefinitions(request);
                 #elif CORECLR
-                return client.GetMapStyleDescriptorAsync(request).GetAwaiter().GetResult();
+                return client.DeleteTaskDefinitionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,9 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Key { get; set; }
-            public System.String MapName { get; set; }
-            public System.Func<Amazon.LocationService.Model.GetMapStyleDescriptorResponse, GetLOCMapStyleDescriptorCmdlet, object> Select { get; set; } =
+            public List<System.String> TaskDefinition { get; set; }
+            public System.Func<Amazon.ECS.Model.DeleteTaskDefinitionsResponse, RemoveECSTaskDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

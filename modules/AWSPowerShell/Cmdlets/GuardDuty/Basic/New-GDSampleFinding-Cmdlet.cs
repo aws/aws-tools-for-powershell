@@ -28,9 +28,9 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Generates example findings of types specified by the list of finding types. If 'NULL'
-    /// is specified for <code>findingTypes</code>, the API generates example findings of
-    /// all supported finding types.
+    /// Generates sample findings of types specified by the list of finding types. If 'NULL'
+    /// is specified for <code>findingTypes</code>, the API generates sample findings of all
+    /// supported finding types.
     /// </summary>
     [Cmdlet("New", "GDSampleFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

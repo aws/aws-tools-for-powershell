@@ -100,6 +100,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LOCGeofenceCollection', 
         'Get-LOCGeofenceCollectionList', 
         'Get-LOCGeofenceList', 
+        'Get-LOCKey', 
+        'Get-LOCKeyList', 
         'Get-LOCMap', 
         'Get-LOCMapGlyph', 
         'Get-LOCMapList', 
@@ -118,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LOCTrackerConsumerList', 
         'Get-LOCTrackerList', 
         'New-LOCGeofenceCollection', 
+        'New-LOCKey', 
         'New-LOCMap', 
         'New-LOCPlaceIndex', 
         'New-LOCRouteCalculator', 
@@ -126,6 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LOCDevicePositionHistoryBatch', 
         'Remove-LOCGeofenceBatch', 
         'Remove-LOCGeofenceCollection', 
+        'Remove-LOCKey', 
         'Remove-LOCMap', 
         'Remove-LOCPlaceIndex', 
         'Remove-LOCResourceTagSet', 
@@ -138,7 +142,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Set-LOCGeofence', 
         'Set-LOCGeofenceBatch', 
         'Submit-LOCGeofenceEvaluationBatch', 
-        'Unregister-LOCTrackerConsumer')
+        'Unregister-LOCTrackerConsumer', 
+        'Update-LOCKey')
 
     # Variables to export from this module
     VariablesToExport = '*'

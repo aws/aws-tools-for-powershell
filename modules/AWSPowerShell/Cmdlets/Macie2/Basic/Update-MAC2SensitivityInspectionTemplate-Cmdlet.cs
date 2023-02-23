@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A custom description of the template.</para>
+        /// <para>A custom description of the template. The description can contain as many as 200 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

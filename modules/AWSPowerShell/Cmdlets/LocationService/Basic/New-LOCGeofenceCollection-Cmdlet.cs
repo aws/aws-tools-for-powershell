@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS
-        /// KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN. </para>
+        /// <para>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or
+        /// alias ARN. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

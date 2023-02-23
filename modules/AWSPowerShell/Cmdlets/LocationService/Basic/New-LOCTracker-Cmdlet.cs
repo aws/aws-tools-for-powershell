@@ -28,8 +28,8 @@ using Amazon.LocationService.Model;
 namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
-    /// Creates a tracker resource in your AWS account, which lets you retrieve current and
-    /// historical location of devices.
+    /// Creates a tracker resource in your Amazon Web Services account, which lets you retrieve
+    /// current and historical location of devices.
     /// </summary>
     [Cmdlet("New", "LOCTracker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LocationService.Model.CreateTrackerResponse")]
@@ -53,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS
-        /// KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.</para>
+        /// <para>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon
+        /// Web Services KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or
+        /// alias ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

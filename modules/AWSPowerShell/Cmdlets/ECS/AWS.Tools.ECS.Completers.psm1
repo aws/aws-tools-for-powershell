@@ -280,7 +280,7 @@ $ECS_Completers = {
         # Amazon.ECS.TaskDefinitionStatus
         "Get-ECSTaskDefinitionList/Status"
         {
-            $v = "ACTIVE","INACTIVE"
+            $v = "ACTIVE","DELETE_IN_PROGRESS","INACTIVE"
             break
         }
 
@@ -375,6 +375,7 @@ $ECS_SelectMap = @{
                "Remove-ECSCapacityProvider",
                "Remove-ECSCluster",
                "Remove-ECSService",
+               "Remove-ECSTaskDefinition",
                "Remove-ECSTaskSet",
                "Unregister-ECSContainerInstance",
                "Unregister-ECSTaskDefinition",

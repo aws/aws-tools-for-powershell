@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
-    /// When you specify an IAM role for a task, its containers can then use the latest versions
+    /// You can specify a role for your task with the <code>taskRoleArn</code> parameter.
+    /// When you specify a role for a task, its containers can then use the latest versions
     /// of the CLI or SDKs to make API requests to the Amazon Web Services services that are
-    /// specified in the IAM policy that's associated with the role. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+    /// specified in the policy that's associated with the role. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
     /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// You can specify a Docker networking mode for the containers in your task definition
