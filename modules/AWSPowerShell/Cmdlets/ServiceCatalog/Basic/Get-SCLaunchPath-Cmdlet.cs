@@ -28,9 +28,16 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists the paths to the specified product. A path is how the user has access to a specified
-    /// product, and is necessary when provisioning a product. A path also determines the
-    /// constraints put on the product.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the paths to the specified product. A path describes how the user gets access
+    /// to a specified product and is necessary when provisioning a product. A path also determines
+    /// the constraints that are put on a product. A path is dependent on a specific product,
+    /// porfolio, and principal. 
+    /// 
+    ///  <note><para>
+    ///  When provisioning a product that's been added to a portfolio, you must grant your
+    /// user, group, or role access to the portfolio. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting
+    /// users access</a> in the <i>Service Catalog User Guide</i>. 
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCLaunchPath")]
     [OutputType("Amazon.ServiceCatalog.Model.LaunchPathSummary")]

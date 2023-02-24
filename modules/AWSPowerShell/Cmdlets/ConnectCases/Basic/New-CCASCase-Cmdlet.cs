@@ -28,11 +28,7 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Creates a case in the specified Cases domain. Case system and custom fields are taken
-    /// as an array id/value pairs with a declared data types.
-    /// 
-    ///  <note><para><code>customer_id</code> is a required field when creating a case.
-    /// </para></note>
+    /// Amazon.ConnectCases.IAmazonConnectCases.CreateCase
     /// </summary>
     [Cmdlet("New", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectCases.Model.CreateCaseResponse")]

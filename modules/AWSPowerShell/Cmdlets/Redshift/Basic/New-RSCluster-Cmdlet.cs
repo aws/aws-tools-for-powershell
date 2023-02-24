@@ -345,8 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The user name associated with the admin user account for the cluster that is being
-        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
+        /// <para>The user name associated with the admin user for the cluster that is being created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters or hyphens. The user name can't be <code>PUBLIC</code>.</para></li><li><para>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot),
         /// at symbol (@), or hyphen.</para></li><li><para>The first character must be a letter.</para></li><li><para>Must not contain a colon (:) or a slash (/).</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
@@ -365,8 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password associated with the admin user account for the cluster that is being
-        /// created.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code> (single
+        /// <para>The password associated with the admin user for the cluster that is being created.</para><para>Constraints:</para><ul><li><para>Must be between 8 and 64 characters in length.</para></li><li><para>Must contain at least one uppercase letter.</para></li><li><para>Must contain at least one lowercase letter.</para></li><li><para>Must contain one number.</para></li><li><para>Can be any printable ASCII character (ASCII code 33-126) except <code>'</code> (single
         /// quote), <code>"</code> (double quote), <code>\</code>, <code>/</code>, or <code>@</code>.</para></li></ul>
         /// </para>
         /// </summary>

@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.490.0",
+    "ProductVersion" : "3.7.491.0",
     "CoreVersion"    : "3.7.105.8",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -290,7 +290,7 @@
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "3.7.101.13",
+            "Version" : "3.7.101.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.8"
@@ -562,7 +562,7 @@
             "InPreview"               : false
         },
         "ServiceCatalog"                  : {
-            "Version" : "3.7.101.58",
+            "Version" : "3.7.101.59",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.8"
@@ -1058,7 +1058,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.116.2",
+            "Version" : "3.7.117.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.8"
@@ -1306,7 +1306,7 @@
             "InPreview"               : false
         },
         "SecurityHub"                     : {
-            "Version" : "3.7.104.16",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.8"
@@ -2546,7 +2546,7 @@
             "InPreview"               : false
         },
         "ConnectCases"                        : {
-            "Version" : "3.7.101.65",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.8"

@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the cluster the snapshot was created from. This parameter
-        /// is required if your IAM user has a policy containing a snapshot resource element that
-        /// specifies anything other than * for the cluster name.</para><para>Constraints: Must be the name of valid cluster.</para>
+        /// is required if your IAM user or role has a policy containing a snapshot resource element
+        /// that specifies anything other than * for the cluster name.</para><para>Constraints: Must be the name of valid cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

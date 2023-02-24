@@ -53,6 +53,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         public System.Boolean? AutoEnableControl { get; set; }
         #endregion
         
+        #region Parameter ControlFindingGenerator
+        /// <summary>
+        /// <para>
+        /// <para>Updates whether the calling account has consolidated control findings turned on. If
+        /// the value for this field is set to <code>SECURITY_CONTROL</code>, Security Hub generates
+        /// a single finding for a control check even when the check applies to multiple enabled
+        /// standards.</para><para>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub
+        /// generates separate findings for a control check when the check applies to multiple
+        /// enabled standards.</para><para>For accounts that are part of an organization, this value can only be updated in the
+        /// administrator account.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.ControlFindingGenerator")]
+        public Amazon.SecurityHub.ControlFindingGenerator ControlFindingGenerator { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -115,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoEnableControl = this.AutoEnableControl;
+            context.ControlFindingGenerator = this.ControlFindingGenerator;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             if (cmdletContext.AutoEnableControl != null)
             {
                 request.AutoEnableControls = cmdletContext.AutoEnableControl.Value;
+            }
+            if (cmdletContext.ControlFindingGenerator != null)
+            {
+                request.ControlFindingGenerator = cmdletContext.ControlFindingGenerator;
             }
             
             CmdletOutput output;
@@ -197,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AutoEnableControl { get; set; }
+            public Amazon.SecurityHub.ControlFindingGenerator ControlFindingGenerator { get; set; }
             public System.Func<Amazon.SecurityHub.Model.UpdateSecurityHubConfigurationResponse, UpdateSHUBSecurityHubConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

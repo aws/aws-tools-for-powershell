@@ -28,24 +28,28 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Requests the import of a resource as an Service Catalog provisioned product that is
-    /// associated to an Service Catalog product and provisioning artifact. Once imported,
-    /// all supported Service Catalog governance actions are supported on the provisioned
-    /// product.
+    /// Requests the import of a resource as an Service Catalog provisioned product that
+    /// is associated to an Service Catalog product and provisioning artifact. Once imported,
+    /// all supported governance actions are supported on the provisioned product. 
     /// 
     ///  
     /// <para>
-    /// Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets
-    /// and non-root nested stacks are not supported.
+    ///  Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets,
+    /// and non-root nested stacks are not supported. 
     /// </para><para>
-    /// The CloudFormation stack must have one of the following statuses to be imported: <code>CREATE_COMPLETE</code>,
-    /// <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,
-    /// <code>IMPORT_ROLLBACK_COMPLETE</code>.
+    ///  The CloudFormation stack must have one of the following statuses to be imported:
+    /// <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>,
+    /// <code>IMPORT_COMPLETE</code>, and <code>IMPORT_ROLLBACK_COMPLETE</code>. 
     /// </para><para>
-    /// Import of the resource requires that the CloudFormation stack template matches the
+    ///  Import of the resource requires that the CloudFormation stack template matches the
     /// associated Service Catalog product provisioning artifact. 
-    /// </para><para>
-    /// The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
+    /// </para><note><para>
+    ///  When you import an existing CloudFormation stack into a portfolio, constraints that
+    /// are associated with the product aren't applied during the import process. The constraints
+    /// are applied after you call <code>UpdateProvisionedProduct</code> for the provisioned
+    /// product. 
+    /// </para></note><para>
+    ///  The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
     /// and <code>cloudformation:DescribeStacks</code> IAM policy permissions. 
     /// </para>
     /// </summary>

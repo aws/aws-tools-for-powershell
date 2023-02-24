@@ -65,6 +65,25 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class EnableSHUBSecurityHubCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        #region Parameter ControlFindingGenerator
+        /// <summary>
+        /// <para>
+        /// <para>This field, used when enabling Security Hub, specifies whether the calling account
+        /// has consolidated control findings turned on. If the value for this field is set to
+        /// <code>SECURITY_CONTROL</code>, Security Hub generates a single finding for a control
+        /// check even when the check applies to multiple enabled standards.</para><para>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub
+        /// generates separate findings for a control check when the check applies to multiple
+        /// enabled standards.</para><para>The value for this field in a member account matches the value in the administrator
+        /// account. For accounts that aren't part of an organization, the default value of this
+        /// field is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February
+        /// 9, 2023.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SecurityHub.ControlFindingGenerator")]
+        public Amazon.SecurityHub.ControlFindingGenerator ControlFindingGenerator { get; set; }
+        #endregion
+        
         #region Parameter EnableDefaultStandard
         /// <summary>
         /// <para>
@@ -131,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.EnableSecurityHubResponse, EnableSHUBSecurityHubCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ControlFindingGenerator = this.ControlFindingGenerator;
             context.EnableDefaultStandard = this.EnableDefaultStandard;
             if (this.Tag != null)
             {
@@ -156,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             // create request
             var request = new Amazon.SecurityHub.Model.EnableSecurityHubRequest();
             
+            if (cmdletContext.ControlFindingGenerator != null)
+            {
+                request.ControlFindingGenerator = cmdletContext.ControlFindingGenerator;
+            }
             if (cmdletContext.EnableDefaultStandard != null)
             {
                 request.EnableDefaultStandards = cmdletContext.EnableDefaultStandard.Value;
@@ -225,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SecurityHub.ControlFindingGenerator ControlFindingGenerator { get; set; }
             public System.Boolean? EnableDefaultStandard { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SecurityHub.Model.EnableSecurityHubResponse, EnableSHUBSecurityHubCmdlet, object> Select { get; set; } =

@@ -28,60 +28,46 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes a custom action target from Security Hub.
-    /// 
-    ///  
-    /// <para>
-    /// Deleting a custom action target does not affect any findings or insights that were
-    /// already sent to Amazon CloudWatch Events using the custom action.
-    /// </para>
+    /// For a batch of security controls and standards, this operation updates the enablement
+    /// status of a control in a standard.
     /// </summary>
-    [Cmdlet("Remove", "SHUBActionTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Security Hub DeleteActionTarget API operation.", Operation = new[] {"DeleteActionTarget"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.DeleteActionTargetResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SecurityHub.Model.DeleteActionTargetResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SecurityHub.Model.DeleteActionTargetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "SHUBUpdateStandardsControlAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SecurityHub.Model.UnprocessedStandardsControlAssociationUpdate")]
+    [AWSCmdlet("Calls the AWS Security Hub BatchUpdateStandardsControlAssociations API operation.", Operation = new[] {"BatchUpdateStandardsControlAssociations"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.SecurityHub.Model.UnprocessedStandardsControlAssociationUpdate or Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.SecurityHub.Model.UnprocessedStandardsControlAssociationUpdate objects.",
+        "The service call response (type Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSHUBActionTargetCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
+    public partial class EditSHUBUpdateStandardsControlAssociationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
-        #region Parameter ActionTargetArn
+        #region Parameter StandardsControlAssociationUpdate
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the custom action target to delete.</para>
+        /// <para> Updates the enablement status of a security control in a specified standard. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ActionTargetArn { get; set; }
+        [Alias("StandardsControlAssociationUpdates")]
+        public Amazon.SecurityHub.Model.StandardsControlAssociationUpdate[] StandardsControlAssociationUpdate { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ActionTargetArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.DeleteActionTargetResponse).
-        /// Specifying the name of a property of type Amazon.SecurityHub.Model.DeleteActionTargetResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UnprocessedAssociationUpdates'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ActionTargetArn";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ActionTargetArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ActionTargetArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ActionTargetArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "UnprocessedAssociationUpdates";
         #endregion
         
         #region Parameter Force
@@ -99,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActionTargetArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SHUBActionTarget (DeleteActionTarget)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StandardsControlAssociationUpdate), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-SHUBUpdateStandardsControlAssociation (BatchUpdateStandardsControlAssociations)"))
             {
                 return;
             }
@@ -110,26 +96,19 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.DeleteActionTargetResponse, RemoveSHUBActionTargetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse, EditSHUBUpdateStandardsControlAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.StandardsControlAssociationUpdate != null)
             {
-                context.Select = (response, cmdlet) => this.ActionTargetArn;
+                context.StandardsControlAssociationUpdate = new List<Amazon.SecurityHub.Model.StandardsControlAssociationUpdate>(this.StandardsControlAssociationUpdate);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ActionTargetArn = this.ActionTargetArn;
             #if MODULAR
-            if (this.ActionTargetArn == null && ParameterWasBound(nameof(this.ActionTargetArn)))
+            if (this.StandardsControlAssociationUpdate == null && ParameterWasBound(nameof(this.StandardsControlAssociationUpdate)))
             {
-                WriteWarning("You are passing $null as a value for parameter ActionTargetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter StandardsControlAssociationUpdate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -146,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityHub.Model.DeleteActionTargetRequest();
+            var request = new Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsRequest();
             
-            if (cmdletContext.ActionTargetArn != null)
+            if (cmdletContext.StandardsControlAssociationUpdate != null)
             {
-                request.ActionTargetArn = cmdletContext.ActionTargetArn;
+                request.StandardsControlAssociationUpdates = cmdletContext.StandardsControlAssociationUpdate;
             }
             
             CmdletOutput output;
@@ -185,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityHub.Model.DeleteActionTargetResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.DeleteActionTargetRequest request)
+        private Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "DeleteActionTarget");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "BatchUpdateStandardsControlAssociations");
             try
             {
                 #if DESKTOP
-                return client.DeleteActionTarget(request);
+                return client.BatchUpdateStandardsControlAssociations(request);
                 #elif CORECLR
-                return client.DeleteActionTargetAsync(request).GetAwaiter().GetResult();
+                return client.BatchUpdateStandardsControlAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ActionTargetArn { get; set; }
-            public System.Func<Amazon.SecurityHub.Model.DeleteActionTargetResponse, RemoveSHUBActionTargetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ActionTargetArn;
+            public List<Amazon.SecurityHub.Model.StandardsControlAssociationUpdate> StandardsControlAssociationUpdate { get; set; }
+            public System.Func<Amazon.SecurityHub.Model.BatchUpdateStandardsControlAssociationsResponse, EditSHUBUpdateStandardsControlAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UnprocessedAssociationUpdates;
         }
         
     }

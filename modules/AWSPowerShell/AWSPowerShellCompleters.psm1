@@ -13925,6 +13925,7 @@ $CCAS_SelectMap = @{
                "New-CCASLayout",
                "New-CCASRelatedItem",
                "New-CCASTemplate",
+               "Remove-CCASDomain",
                "Get-CCASCase",
                "Get-CCASCaseEventConfiguration",
                "Get-CCASDomain",
@@ -50923,6 +50924,16 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.ControlFindingGenerator
+        {
+            ($_ -eq "Enable-SHUBSecurityHub/ControlFindingGenerator") -Or
+            ($_ -eq "Update-SHUBSecurityHubConfiguration/ControlFindingGenerator")
+        }
+        {
+            $v = "SECURITY_CONTROL","STANDARD_CONTROL"
+            break
+        }
+
         # Amazon.SecurityHub.ControlStatus
         "Update-SHUBStandardsControl/ControlStatus"
         {
@@ -50968,6 +50979,7 @@ $SHUB_Completers = {
 
 $SHUB_map = @{
     "AutoEnableStandards"=@("Update-SHUBOrganizationConfiguration")
+    "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
     "RecordState"=@("Update-SHUBFinding")
     "Severity_Label"=@("Update-SHUBFindingsBatch")
@@ -51029,8 +51041,11 @@ $SHUB_SelectMap = @{
                "Confirm-SHUBInvitation",
                "Disable-SHUBStandardsBatch",
                "Enable-SHUBStandardsBatch",
+               "Get-SHUBGetSecurityControl",
+               "Get-SHUBGetStandardsControlAssociation",
                "Import-SHUBFindingsBatch",
                "Update-SHUBFindingsBatch",
+               "Edit-SHUBUpdateStandardsControlAssociation",
                "New-SHUBActionTarget",
                "New-SHUBFindingAggregator",
                "New-SHUBInsight",
@@ -51071,6 +51086,8 @@ $SHUB_SelectMap = @{
                "Get-SHUBInvitationList",
                "Get-SHUBMemberList",
                "Get-SHUBOrganizationAdminAccountList",
+               "Get-SHUBSecurityControlDefinitionList",
+               "Get-SHUBStandardsControlAssociationList",
                "Get-SHUBResourceTag",
                "Add-SHUBResourceTag",
                "Remove-SHUBResourceTag",

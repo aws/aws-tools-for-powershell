@@ -183,6 +183,7 @@ $CCAS_SelectMap = @{
                "New-CCASLayout",
                "New-CCASRelatedItem",
                "New-CCASTemplate",
+               "Remove-CCASDomain",
                "Get-CCASCase",
                "Get-CCASCaseEventConfiguration",
                "Get-CCASDomain",

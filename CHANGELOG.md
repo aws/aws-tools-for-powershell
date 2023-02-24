@@ -1,4 +1,19 @@
-﻿### 4.1.278 (2023-02-23 22:12Z)
+﻿### 4.1.279 (2023-02-24 21:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.491.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Cases
+    * Added cmdlet Remove-CCASDomain leveraging the DeleteDomain service API.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNTaskContact: added parameter RelatedContactId.
+  * Amazon Security Hub
+    * Added cmdlet Edit-SHUBUpdateStandardsControlAssociation leveraging the BatchUpdateStandardsControlAssociations service API.
+    * Added cmdlet Get-SHUBGetSecurityControl leveraging the BatchGetSecurityControls service API.
+    * Added cmdlet Get-SHUBGetStandardsControlAssociation leveraging the BatchGetStandardsControlAssociations service API.
+    * Added cmdlet Get-SHUBSecurityControlDefinitionList leveraging the ListSecurityControlDefinitions service API.
+    * Added cmdlet Get-SHUBStandardsControlAssociationList leveraging the ListStandardsControlAssociations service API.
+    * Modified cmdlet Enable-SHUBSecurityHub: added parameter ControlFindingGenerator.
+    * Modified cmdlet Update-SHUBSecurityHubConfiguration: added parameter ControlFindingGenerator.
+
+### 4.1.278 (2023-02-23 22:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.490.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon EC2 Container Service
     * Added cmdlet Remove-ECSTaskDefinition leveraging the DeleteTaskDefinitions service API.

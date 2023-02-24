@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable Reference { get; set; }
         #endregion
         
+        #region Parameter RelatedContactId
+        /// <summary>
+        /// <para>
+        /// <para>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a>
+        /// to this contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedContactId { get; set; }
+        #endregion
+        
         #region Parameter ScheduledTime
         /// <summary>
         /// <para>
@@ -275,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                     context.Reference.Add((String)hashKey, (Reference)(this.Reference[hashKey]));
                 }
             }
+            context.RelatedContactId = this.RelatedContactId;
             context.ScheduledTime = this.ScheduledTime;
             context.TaskTemplateId = this.TaskTemplateId;
             
@@ -328,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Reference != null)
             {
                 request.References = cmdletContext.Reference;
+            }
+            if (cmdletContext.RelatedContactId != null)
+            {
+                request.RelatedContactId = cmdletContext.RelatedContactId;
             }
             if (cmdletContext.ScheduledTime != null)
             {
@@ -407,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String PreviousContactId { get; set; }
             public System.String QuickConnectId { get; set; }
             public Dictionary<System.String, Amazon.Connect.Model.Reference> Reference { get; set; }
+            public System.String RelatedContactId { get; set; }
             public System.DateTime? ScheduledTime { get; set; }
             public System.String TaskTemplateId { get; set; }
             public System.Func<Amazon.Connect.Model.StartTaskContactResponse, StartCONNTaskContactCmdlet, object> Select { get; set; } =

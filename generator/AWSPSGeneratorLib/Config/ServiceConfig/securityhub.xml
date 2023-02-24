@@ -35,11 +35,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetSecurityControls" OutputProperty="*" Verb="Get" Noun="GetSecurityControl" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetStandardsControlAssociations" OutputProperty="*" Verb="Get" Noun="GetStandardsControlAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchImportFindings" OutputProperty="*" Verb="Import" Noun="FindingsBatch" ShouldProcessTarget="Findings" PipelineParameter="Findings" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdateFindings" OutputProperty="*" Verb="Update" Noun="FindingsBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateStandardsControlAssociations" OutputProperty="UnprocessedAssociationUpdates" Verb="Edit" Noun="UpdateStandardsControlAssociation" ShouldProcessTarget="StandardsControlAssociationUpdates" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +216,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListOrganizationAdminAccounts" OutputProperty="AdminAccounts" Verb="Get" Noun="OrganizationAdminAccountList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityControlDefinitions" OutputProperty="SecurityControlDefinitions" Verb="Get" Noun="SecurityControlDefinitionList" PipelineParameter="StandardsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStandardsControlAssociations" OutputProperty="StandardsControlAssociationSummaries" Verb="Get" Noun="StandardsControlAssociationList" PipelineParameter="SecurityControlId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,23 +28,16 @@ using Amazon.ConnectCases.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAS
 {
     /// <summary>
-    /// Searches for cases within their associated Cases domain. Search results are returned
-    /// as a paginated list of abridged case documents.
-    /// 
-    ///  <note><para>
-    /// For <code>customer_id</code> you must provide the full customer profile ARN in this
-    /// format: <code> arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles
-    /// domain name/profiles/profile ID</code>. 
-    /// </para></note>
+    /// Deletes a domain.
     /// </summary>
-    [Cmdlet("Search", "CCASCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ConnectCases.Model.SearchCasesResponseItem")]
-    [AWSCmdlet("Calls the Amazon Connect Cases SearchCases API operation.", Operation = new[] {"SearchCases"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.SearchCasesResponse))]
-    [AWSCmdletOutput("Amazon.ConnectCases.Model.SearchCasesResponseItem or Amazon.ConnectCases.Model.SearchCasesResponse",
-        "This cmdlet returns a collection of Amazon.ConnectCases.Model.SearchCasesResponseItem objects.",
-        "The service call response (type Amazon.ConnectCases.Model.SearchCasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CCASDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Connect Cases DeleteDomain API operation.", Operation = new[] {"DeleteDomain"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteDomainResponse))]
+    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteDomainResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ConnectCases.Model.DeleteDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SearchCCASCaseCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class RemoveCCASDomainCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
     {
         
         #region Parameter DomainId
@@ -64,81 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
-        #region Parameter Field
-        /// <summary>
-        /// <para>
-        /// <para>The list of field identifiers to be returned as part of the response.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Fields")]
-        public Amazon.ConnectCases.Model.FieldIdentifier[] Field { get; set; }
-        #endregion
-        
-        #region Parameter Filter
-        /// <summary>
-        /// <para>
-        /// <para>A list of filter objects.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.ConnectCases.Model.CaseFilter Filter { get; set; }
-        #endregion
-        
-        #region Parameter SearchTerm
-        /// <summary>
-        /// <para>
-        /// <para>A word or phrase used to perform a quick search.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SearchTerm { get; set; }
-        #endregion
-        
-        #region Parameter Sort
-        /// <summary>
-        /// <para>
-        /// <para>A list of sorts where each sort specifies a field and their sort order to be applied
-        /// to the results. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Sorts")]
-        public Amazon.ConnectCases.Model.Sort[] Sort { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of cases to return. The current maximum supported value is 25.
-        /// This is also the default value when no other value is provided.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cases'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.SearchCasesResponse).
-        /// Specifying the name of a property of type Amazon.ConnectCases.Model.SearchCasesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.DeleteDomainResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Cases";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -167,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Search-CCASCase (SearchCases)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCASDomain (DeleteDomain)"))
             {
                 return;
             }
@@ -180,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.SearchCasesResponse, SearchCCASCaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.DeleteDomainResponse, RemoveCCASDomainCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -199,18 +125,6 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Field != null)
-            {
-                context.Field = new List<Amazon.ConnectCases.Model.FieldIdentifier>(this.Field);
-            }
-            context.Filter = this.Filter;
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SearchTerm = this.SearchTerm;
-            if (this.Sort != null)
-            {
-                context.Sort = new List<Amazon.ConnectCases.Model.Sort>(this.Sort);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -225,35 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.SearchCasesRequest();
+            var request = new Amazon.ConnectCases.Model.DeleteDomainRequest();
             
             if (cmdletContext.DomainId != null)
             {
                 request.DomainId = cmdletContext.DomainId;
-            }
-            if (cmdletContext.Field != null)
-            {
-                request.Fields = cmdletContext.Field;
-            }
-            if (cmdletContext.Filter != null)
-            {
-                request.Filter = cmdletContext.Filter;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SearchTerm != null)
-            {
-                request.SearchTerm = cmdletContext.SearchTerm;
-            }
-            if (cmdletContext.Sort != null)
-            {
-                request.Sorts = cmdletContext.Sort;
             }
             
             CmdletOutput output;
@@ -288,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.SearchCasesResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.SearchCasesRequest request)
+        private Amazon.ConnectCases.Model.DeleteDomainResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.DeleteDomainRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "SearchCases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "DeleteDomain");
             try
             {
                 #if DESKTOP
-                return client.SearchCases(request);
+                return client.DeleteDomain(request);
                 #elif CORECLR
-                return client.SearchCasesAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDomainAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -317,14 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainId { get; set; }
-            public List<Amazon.ConnectCases.Model.FieldIdentifier> Field { get; set; }
-            public Amazon.ConnectCases.Model.CaseFilter Filter { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SearchTerm { get; set; }
-            public List<Amazon.ConnectCases.Model.Sort> Sort { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.SearchCasesResponse, SearchCCASCaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Cases;
+            public System.Func<Amazon.ConnectCases.Model.DeleteDomainResponse, RemoveCCASDomainCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

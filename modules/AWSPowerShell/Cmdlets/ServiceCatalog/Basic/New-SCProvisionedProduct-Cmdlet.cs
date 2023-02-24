@@ -28,18 +28,24 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provisions the specified product.
+    /// Provisions the specified product. 
     /// 
     ///  
     /// <para>
-    /// A provisioned product is a resourced instance of a product. For example, provisioning
-    /// a product based on a CloudFormation template launches a CloudFormation stack and its
-    /// underlying resources. You can check the status of this request using <a>DescribeRecord</a>.
+    ///  A provisioned product is a resourced instance of a product. For example, provisioning
+    /// a product that's based on an CloudFormation template launches an CloudFormation stack
+    /// and its underlying resources. You can check the status of this request using <a>DescribeRecord</a>.
+    /// 
     /// </para><para>
-    /// If the request contains a tag key with an empty list of values, there is a tag conflict
-    /// for that key. Do not include conflicted keys as tags, or this causes the error "Parameter
-    /// validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
-    /// </para>
+    ///  If the request contains a tag key with an empty list of values, there's a tag conflict
+    /// for that key. Don't include conflicted keys as tags, or this will cause the error
+    /// "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
+    /// 
+    /// </para><note><para>
+    ///  When provisioning a product that's been added to a portfolio, you must grant your
+    /// user, group, or role access to the portfolio. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/catalogs_portfolios_users.html">Granting
+    /// users access</a> in the <i>Service Catalog User Guide</i>. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
