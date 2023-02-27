@@ -520,6 +520,9 @@
     <Reference Include="AWSSDK.Inspector2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Inspector2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.InternetMonitor">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.InternetMonitor.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IoT.dll</HintPath>
     </Reference>
@@ -1520,6 +1523,9 @@
     </Reference>
     <Reference Include="AWSSDK.Inspector2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Inspector2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.InternetMonitor">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.InternetMonitor.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoT.dll</HintPath>

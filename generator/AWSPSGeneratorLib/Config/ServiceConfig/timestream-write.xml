@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateBatchLoadTask" OutputProperty="TaskId" Verb="New" Noun="BatchLoadTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDatabase" OutputProperty="Database" Verb="New" Noun="Database" ShouldProcessTarget="DatabaseName" PipelineParameter="DatabaseName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -35,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBatchLoadTask" OutputProperty="BatchLoadTaskDescription" Verb="Get" Noun="BatchLoadTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="DatabaseName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +55,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBatchLoadTasks" OutputProperty="BatchLoadTasks" Verb="Get" Noun="BatchLoadTaskList" PipelineParameter="TaskStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDatabases" OutputProperty="Databases" Verb="Get" Noun="DatabaseList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +68,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeBatchLoadTask" Verb="Resume" Noun="BatchLoadTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

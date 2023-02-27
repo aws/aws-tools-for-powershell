@@ -72,53 +72,25 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Timestream Write
+# Argument completions for service Amazon CloudWatch Internet Monitor
 
 
-$TSW_Completers = {
+$CWIM_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.TimestreamWrite.BatchLoadDataFormat
-        "New-TSWBatchLoadTask/DataSourceConfiguration_DataFormat"
+        # Amazon.InternetMonitor.HealthEventStatus
+        "Get-CWIMHealthEventList/EventStatus"
         {
-            $v = "CSV"
+            $v = "ACTIVE","RESOLVED"
             break
         }
 
-        # Amazon.TimestreamWrite.BatchLoadStatus
-        "Get-TSWBatchLoadTaskList/TaskStatus"
+        # Amazon.InternetMonitor.MonitorConfigState
+        "Update-CWIMMonitor/Status"
         {
-            $v = "CREATED","FAILED","IN_PROGRESS","PENDING_RESUME","PROGRESS_STOPPED","SUCCEEDED"
-            break
-        }
-
-        # Amazon.TimestreamWrite.MeasureValueType
-        "Write-TSWRecord/CommonAttributes_MeasureValueType"
-        {
-            $v = "BIGINT","BOOLEAN","DOUBLE","MULTI","TIMESTAMP","VARCHAR"
-            break
-        }
-
-        # Amazon.TimestreamWrite.S3EncryptionOption
-        {
-            ($_ -eq "New-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
-            ($_ -eq "Update-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
-            ($_ -eq "New-TSWBatchLoadTask/ReportConfiguration_ReportS3Configuration_EncryptionOption")
-        }
-        {
-            $v = "SSE_KMS","SSE_S3"
-            break
-        }
-
-        # Amazon.TimestreamWrite.TimeUnit
-        {
-            ($_ -eq "Write-TSWRecord/CommonAttributes_TimeUnit") -Or
-            ($_ -eq "New-TSWBatchLoadTask/DataModelConfiguration_DataModel_TimeUnit")
-        }
-        {
-            $v = "MICROSECONDS","MILLISECONDS","NANOSECONDS","SECONDS"
+            $v = "ACTIVE","ERROR","INACTIVE","PENDING"
             break
         }
 
@@ -130,22 +102,17 @@ $TSW_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$TSW_map = @{
-    "CommonAttributes_MeasureValueType"=@("Write-TSWRecord")
-    "CommonAttributes_TimeUnit"=@("Write-TSWRecord")
-    "DataModelConfiguration_DataModel_TimeUnit"=@("New-TSWBatchLoadTask")
-    "DataSourceConfiguration_DataFormat"=@("New-TSWBatchLoadTask")
-    "MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption"=@("New-TSWTable","Update-TSWTable")
-    "ReportConfiguration_ReportS3Configuration_EncryptionOption"=@("New-TSWBatchLoadTask")
-    "TaskStatus"=@("Get-TSWBatchLoadTaskList")
+$CWIM_map = @{
+    "EventStatus"=@("Get-CWIMHealthEventList")
+    "Status"=@("Update-CWIMMonitor")
 }
 
-_awsArgumentCompleterRegistration $TSW_Completers $TSW_map
+_awsArgumentCompleterRegistration $CWIM_Completers $CWIM_map
 
-$TSW_SelectCompleters = {
+$CWIM_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.TSW.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWIM.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -189,27 +156,18 @@ $TSW_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$TSW_SelectMap = @{
-    "Select"=@("New-TSWBatchLoadTask",
-               "New-TSWDatabase",
-               "New-TSWTable",
-               "Remove-TSWDatabase",
-               "Remove-TSWTable",
-               "Get-TSWBatchLoadTask",
-               "Get-TSWDatabase",
-               "Get-TSWEndpointList",
-               "Get-TSWTable",
-               "Get-TSWBatchLoadTaskList",
-               "Get-TSWDatabaseList",
-               "Get-TSWTableList",
-               "Get-TSWResourceTagList",
-               "Resume-TSWBatchLoadTask",
-               "Add-TSWResourceTag",
-               "Remove-TSWResourceTag",
-               "Update-TSWDatabase",
-               "Update-TSWTable",
-               "Write-TSWRecord")
+$CWIM_SelectMap = @{
+    "Select"=@("New-CWIMMonitor",
+               "Remove-CWIMMonitor",
+               "Get-CWIMHealthEvent",
+               "Get-CWIMMonitor",
+               "Get-CWIMHealthEventList",
+               "Get-CWIMMonitorList",
+               "Get-CWIMResourceTag",
+               "Add-CWIMResourceTag",
+               "Remove-CWIMResourceTag",
+               "Update-CWIMMonitor")
 }
 
-_awsArgumentCompleterRegistration $TSW_SelectCompleters $TSW_SelectMap
+_awsArgumentCompleterRegistration $CWIM_SelectCompleters $CWIM_SelectMap
 

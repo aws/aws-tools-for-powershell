@@ -27770,6 +27770,104 @@ $INS2_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $INS2_SelectCompleters $INS2_SelectMap
+# Argument completions for service Amazon CloudWatch Internet Monitor
+
+
+$CWIM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.InternetMonitor.HealthEventStatus
+        "Get-CWIMHealthEventList/EventStatus"
+        {
+            $v = "ACTIVE","RESOLVED"
+            break
+        }
+
+        # Amazon.InternetMonitor.MonitorConfigState
+        "Update-CWIMMonitor/Status"
+        {
+            $v = "ACTIVE","ERROR","INACTIVE","PENDING"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWIM_map = @{
+    "EventStatus"=@("Get-CWIMHealthEventList")
+    "Status"=@("Update-CWIMMonitor")
+}
+
+_awsArgumentCompleterRegistration $CWIM_Completers $CWIM_map
+
+$CWIM_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWIM.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWIM_SelectMap = @{
+    "Select"=@("New-CWIMMonitor",
+               "Remove-CWIMMonitor",
+               "Get-CWIMHealthEvent",
+               "Get-CWIMMonitor",
+               "Get-CWIMHealthEventList",
+               "Get-CWIMMonitorList",
+               "Get-CWIMResourceTag",
+               "Add-CWIMResourceTag",
+               "Remove-CWIMResourceTag",
+               "Update-CWIMMonitor")
+}
+
+_awsArgumentCompleterRegistration $CWIM_SelectCompleters $CWIM_SelectMap
 # Argument completions for service AWS IoT
 
 
@@ -32487,6 +32585,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.FullDocument
+        {
+            ($_ -eq "New-LMEventSourceMapping/DocumentDBEventSourceConfig_FullDocument") -Or
+            ($_ -eq "Update-LMEventSourceMapping/DocumentDBEventSourceConfig_FullDocument")
+        }
+        {
+            $v = "Default","UpdateLookup"
+            break
+        }
+
         # Amazon.Lambda.FunctionUrlAuthType
         {
             ($_ -eq "New-LMFunctionUrlConfig/AuthType") -Or
@@ -32578,6 +32686,7 @@ $LM_map = @{
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
+    "DocumentDBEventSourceConfig_FullDocument"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction")
@@ -55224,6 +55333,20 @@ $TSW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamWrite.BatchLoadDataFormat
+        "New-TSWBatchLoadTask/DataSourceConfiguration_DataFormat"
+        {
+            $v = "CSV"
+            break
+        }
+
+        # Amazon.TimestreamWrite.BatchLoadStatus
+        "Get-TSWBatchLoadTaskList/TaskStatus"
+        {
+            $v = "CREATED","FAILED","IN_PROGRESS","PENDING_RESUME","PROGRESS_STOPPED","SUCCEEDED"
+            break
+        }
+
         # Amazon.TimestreamWrite.MeasureValueType
         "Write-TSWRecord/CommonAttributes_MeasureValueType"
         {
@@ -55234,7 +55357,8 @@ $TSW_Completers = {
         # Amazon.TimestreamWrite.S3EncryptionOption
         {
             ($_ -eq "New-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
-            ($_ -eq "Update-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption")
+            ($_ -eq "Update-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
+            ($_ -eq "New-TSWBatchLoadTask/ReportConfiguration_ReportS3Configuration_EncryptionOption")
         }
         {
             $v = "SSE_KMS","SSE_S3"
@@ -55242,7 +55366,10 @@ $TSW_Completers = {
         }
 
         # Amazon.TimestreamWrite.TimeUnit
-        "Write-TSWRecord/CommonAttributes_TimeUnit"
+        {
+            ($_ -eq "Write-TSWRecord/CommonAttributes_TimeUnit") -Or
+            ($_ -eq "New-TSWBatchLoadTask/DataModelConfiguration_DataModel_TimeUnit")
+        }
         {
             $v = "MICROSECONDS","MILLISECONDS","NANOSECONDS","SECONDS"
             break
@@ -55259,7 +55386,11 @@ $TSW_Completers = {
 $TSW_map = @{
     "CommonAttributes_MeasureValueType"=@("Write-TSWRecord")
     "CommonAttributes_TimeUnit"=@("Write-TSWRecord")
+    "DataModelConfiguration_DataModel_TimeUnit"=@("New-TSWBatchLoadTask")
+    "DataSourceConfiguration_DataFormat"=@("New-TSWBatchLoadTask")
     "MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption"=@("New-TSWTable","Update-TSWTable")
+    "ReportConfiguration_ReportS3Configuration_EncryptionOption"=@("New-TSWBatchLoadTask")
+    "TaskStatus"=@("Get-TSWBatchLoadTaskList")
 }
 
 _awsArgumentCompleterRegistration $TSW_Completers $TSW_map
@@ -55312,16 +55443,20 @@ $TSW_SelectCompleters = {
 }
 
 $TSW_SelectMap = @{
-    "Select"=@("New-TSWDatabase",
+    "Select"=@("New-TSWBatchLoadTask",
+               "New-TSWDatabase",
                "New-TSWTable",
                "Remove-TSWDatabase",
                "Remove-TSWTable",
+               "Get-TSWBatchLoadTask",
                "Get-TSWDatabase",
                "Get-TSWEndpointList",
                "Get-TSWTable",
+               "Get-TSWBatchLoadTaskList",
                "Get-TSWDatabaseList",
                "Get-TSWTableList",
                "Get-TSWResourceTagList",
+               "Resume-TSWBatchLoadTask",
                "Add-TSWResourceTag",
                "Remove-TSWResourceTag",
                "Update-TSWDatabase",

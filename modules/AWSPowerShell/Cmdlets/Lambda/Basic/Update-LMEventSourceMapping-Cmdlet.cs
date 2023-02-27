@@ -97,6 +97,27 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.Boolean? BisectBatchOnFunctionError { get; set; }
         #endregion
         
+        #region Parameter DocumentDBEventSourceConfig_CollectionName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the collection to consume within the database. If you do not specify
+        /// a collection, Lambda consumes all collections. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocumentDBEventSourceConfig_CollectionName { get; set; }
+        #endregion
+        
+        #region Parameter DocumentDBEventSourceConfig_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the database to consume within the DocumentDB cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DocumentDBEventSourceConfig_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter OnFailure_Destination
         /// <summary>
         /// <para>
@@ -139,6 +160,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("FilterCriteria_Filters")]
         public Amazon.Lambda.Model.Filter[] FilterCriteria_Filter { get; set; }
+        #endregion
+        
+        #region Parameter DocumentDBEventSourceConfig_FullDocument
+        /// <summary>
+        /// <para>
+        /// <para> Determines what DocumentDB sends to your event stream during document update operations.
+        /// If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with
+        /// a copy of the entire document. Otherwise, DocumentDB sends only a partial document
+        /// that contains the changes. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lambda.FullDocument")]
+        public Amazon.Lambda.FullDocument DocumentDBEventSourceConfig_FullDocument { get; set; }
         #endregion
         
         #region Parameter FunctionName
@@ -335,6 +370,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.BisectBatchOnFunctionError = this.BisectBatchOnFunctionError;
             context.OnFailure_Destination = this.OnFailure_Destination;
             context.OnSuccess_Destination = this.OnSuccess_Destination;
+            context.DocumentDBEventSourceConfig_CollectionName = this.DocumentDBEventSourceConfig_CollectionName;
+            context.DocumentDBEventSourceConfig_DatabaseName = this.DocumentDBEventSourceConfig_DatabaseName;
+            context.DocumentDBEventSourceConfig_FullDocument = this.DocumentDBEventSourceConfig_FullDocument;
             context.Enabled = this.Enabled;
             if (this.FilterCriteria_Filter != null)
             {
@@ -444,6 +482,45 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (requestDestinationConfigIsNull)
             {
                 request.DestinationConfig = null;
+            }
+            
+             // populate DocumentDBEventSourceConfig
+            var requestDocumentDBEventSourceConfigIsNull = true;
+            request.DocumentDBEventSourceConfig = new Amazon.Lambda.Model.DocumentDBEventSourceConfig();
+            System.String requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_CollectionName = null;
+            if (cmdletContext.DocumentDBEventSourceConfig_CollectionName != null)
+            {
+                requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_CollectionName = cmdletContext.DocumentDBEventSourceConfig_CollectionName;
+            }
+            if (requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_CollectionName != null)
+            {
+                request.DocumentDBEventSourceConfig.CollectionName = requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_CollectionName;
+                requestDocumentDBEventSourceConfigIsNull = false;
+            }
+            System.String requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_DatabaseName = null;
+            if (cmdletContext.DocumentDBEventSourceConfig_DatabaseName != null)
+            {
+                requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_DatabaseName = cmdletContext.DocumentDBEventSourceConfig_DatabaseName;
+            }
+            if (requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_DatabaseName != null)
+            {
+                request.DocumentDBEventSourceConfig.DatabaseName = requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_DatabaseName;
+                requestDocumentDBEventSourceConfigIsNull = false;
+            }
+            Amazon.Lambda.FullDocument requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_FullDocument = null;
+            if (cmdletContext.DocumentDBEventSourceConfig_FullDocument != null)
+            {
+                requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_FullDocument = cmdletContext.DocumentDBEventSourceConfig_FullDocument;
+            }
+            if (requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_FullDocument != null)
+            {
+                request.DocumentDBEventSourceConfig.FullDocument = requestDocumentDBEventSourceConfig_documentDBEventSourceConfig_FullDocument;
+                requestDocumentDBEventSourceConfigIsNull = false;
+            }
+             // determine if request.DocumentDBEventSourceConfig should be set to null
+            if (requestDocumentDBEventSourceConfigIsNull)
+            {
+                request.DocumentDBEventSourceConfig = null;
             }
             if (cmdletContext.Enabled != null)
             {
@@ -588,6 +665,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Boolean? BisectBatchOnFunctionError { get; set; }
             public System.String OnFailure_Destination { get; set; }
             public System.String OnSuccess_Destination { get; set; }
+            public System.String DocumentDBEventSourceConfig_CollectionName { get; set; }
+            public System.String DocumentDBEventSourceConfig_DatabaseName { get; set; }
+            public Amazon.Lambda.FullDocument DocumentDBEventSourceConfig_FullDocument { get; set; }
             public System.Boolean? Enabled { get; set; }
             public List<Amazon.Lambda.Model.Filter> FilterCriteria_Filter { get; set; }
             public System.String FunctionName { get; set; }

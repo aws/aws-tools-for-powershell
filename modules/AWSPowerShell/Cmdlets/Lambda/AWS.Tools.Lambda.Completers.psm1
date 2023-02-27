@@ -107,6 +107,16 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.FullDocument
+        {
+            ($_ -eq "New-LMEventSourceMapping/DocumentDBEventSourceConfig_FullDocument") -Or
+            ($_ -eq "Update-LMEventSourceMapping/DocumentDBEventSourceConfig_FullDocument")
+        }
+        {
+            $v = "Default","UpdateLookup"
+            break
+        }
+
         # Amazon.Lambda.FunctionUrlAuthType
         {
             ($_ -eq "New-LMFunctionUrlConfig/AuthType") -Or
@@ -198,6 +208,7 @@ $LM_map = @{
     "CodeSigningPolicies_UntrustedArtifactOnDeployment"=@("New-LMCodeSigningConfig","Update-LMCodeSigningConfig")
     "CompatibleArchitecture"=@("Get-LMLayerList","Get-LMLayerVersionList")
     "CompatibleRuntime"=@("Get-LMLayerList","Get-LMLayerVersionList")
+    "DocumentDBEventSourceConfig_FullDocument"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction")

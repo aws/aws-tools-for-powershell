@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.TimestreamWrite'
+# Module manifest for module 'AWS.Tools.InternetMonitor'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.TimestreamWrite.dll'
+    RootModule = 'AWS.Tools.InternetMonitor.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = 'd5cf3f60-7864-4f05-bf98-13046df7e59c'
+    GUID = '4b918d8a-18e2-48c7-99ab-ebd9c31e1023'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2023 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The TimestreamWrite module of AWS Tools for PowerShell lets developers and administrators manage Amazon Timestream Write from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The InternetMonitor module of AWS Tools for PowerShell lets developers and administrators manage Amazon CloudWatch Internet Monitor from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.TimestreamWrite.dll'
+        'AWSSDK.InternetMonitor.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.TimestreamWrite.Format.ps1xml'
+        'AWS.Tools.InternetMonitor.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.TimestreamWrite.Completers.psm1',
-        'AWS.Tools.TimestreamWrite.Aliases.psm1'
+        'AWS.Tools.InternetMonitor.Completers.psm1',
+        'AWS.Tools.InternetMonitor.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,25 +86,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-TSWResourceTag', 
-        'Get-TSWBatchLoadTask', 
-        'Get-TSWBatchLoadTaskList', 
-        'Get-TSWDatabase', 
-        'Get-TSWDatabaseList', 
-        'Get-TSWEndpointList', 
-        'Get-TSWResourceTagList', 
-        'Get-TSWTable', 
-        'Get-TSWTableList', 
-        'New-TSWBatchLoadTask', 
-        'New-TSWDatabase', 
-        'New-TSWTable', 
-        'Remove-TSWDatabase', 
-        'Remove-TSWResourceTag', 
-        'Remove-TSWTable', 
-        'Resume-TSWBatchLoadTask', 
-        'Update-TSWDatabase', 
-        'Update-TSWTable', 
-        'Write-TSWRecord')
+        'Add-CWIMResourceTag', 
+        'Get-CWIMHealthEvent', 
+        'Get-CWIMHealthEventList', 
+        'Get-CWIMMonitor', 
+        'Get-CWIMMonitorList', 
+        'Get-CWIMResourceTag', 
+        'New-CWIMMonitor', 
+        'Remove-CWIMMonitor', 
+        'Remove-CWIMResourceTag', 
+        'Update-CWIMMonitor')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -117,7 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.TimestreamWrite.dll-Help.xml'
+        'AWS.Tools.InternetMonitor.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

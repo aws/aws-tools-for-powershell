@@ -28,28 +28,29 @@ using Amazon.TimestreamWrite.Model;
 namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
-    /// Provides a list of tables, along with the name, status, and retention properties of
-    /// each table. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code
+    /// Provides a list of batch load tasks, along with the name, status, when the task is
+    /// resumable until, and other details. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-batch-load-tasks.html">code
     /// sample</a> for details.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "TSWTableList")]
-    [OutputType("Amazon.TimestreamWrite.Model.Table")]
-    [AWSCmdlet("Calls the Amazon Timestream Write ListTables API operation.", Operation = new[] {"ListTables"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.ListTablesResponse))]
-    [AWSCmdletOutput("Amazon.TimestreamWrite.Model.Table or Amazon.TimestreamWrite.Model.ListTablesResponse",
-        "This cmdlet returns a collection of Amazon.TimestreamWrite.Model.Table objects.",
-        "The service call response (type Amazon.TimestreamWrite.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "TSWBatchLoadTaskList")]
+    [OutputType("Amazon.TimestreamWrite.Model.BatchLoadTask")]
+    [AWSCmdlet("Calls the Amazon Timestream Write ListBatchLoadTasks API operation.", Operation = new[] {"ListBatchLoadTasks"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamWrite.Model.BatchLoadTask or Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse",
+        "This cmdlet returns a collection of Amazon.TimestreamWrite.Model.BatchLoadTask objects.",
+        "The service call response (type Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetTSWTableListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
+    public partial class GetTSWBatchLoadTaskListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
-        #region Parameter DatabaseName
+        #region Parameter TaskStatus
         /// <summary>
         /// <para>
-        /// <para>The name of the Timestream database.</para>
+        /// <para>Status of the batch load task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DatabaseName { get; set; }
+        [AWSConstantClassSource("Amazon.TimestreamWrite.BatchLoadStatus")]
+        public Amazon.TimestreamWrite.BatchLoadStatus TaskStatus { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -68,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token. To resume pagination, provide the NextToken value as argument
-        /// of a subsequent API invocation.</para>
+        /// <para>A token to specify where to start paginating. This is the NextToken from a previously
+        /// truncated response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -82,21 +83,21 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tables'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamWrite.Model.ListTablesResponse).
-        /// Specifying the name of a property of type Amazon.TimestreamWrite.Model.ListTablesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BatchLoadTasks'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tables";
+        public string Select { get; set; } = "BatchLoadTasks";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatabaseName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatabaseName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TaskStatus parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TaskStatus' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatabaseName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TaskStatus' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TimestreamWrite.Model.ListTablesResponse, GetTSWTableListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse, GetTSWBatchLoadTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -133,12 +134,12 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatabaseName;
+                context.Select = (response, cmdlet) => this.TaskStatus;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatabaseName = this.DatabaseName;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.TaskStatus = this.TaskStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,15 +158,15 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.TimestreamWrite.Model.ListTablesRequest();
+            var request = new Amazon.TimestreamWrite.Model.ListBatchLoadTasksRequest();
             
-            if (cmdletContext.DatabaseName != null)
-            {
-                request.DatabaseName = cmdletContext.DatabaseName;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.TaskStatus != null)
+            {
+                request.TaskStatus = cmdletContext.TaskStatus;
             }
             
             // Initialize loop variant and commence piping
@@ -224,15 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region AWS Service Operation Call
         
-        private Amazon.TimestreamWrite.Model.ListTablesResponse CallAWSServiceOperation(IAmazonTimestreamWrite client, Amazon.TimestreamWrite.Model.ListTablesRequest request)
+        private Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse CallAWSServiceOperation(IAmazonTimestreamWrite client, Amazon.TimestreamWrite.Model.ListBatchLoadTasksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream Write", "ListTables");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream Write", "ListBatchLoadTasks");
             try
             {
                 #if DESKTOP
-                return client.ListTables(request);
+                return client.ListBatchLoadTasks(request);
                 #elif CORECLR
-                return client.ListTablesAsync(request).GetAwaiter().GetResult();
+                return client.ListBatchLoadTasksAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +253,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatabaseName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.TimestreamWrite.Model.ListTablesResponse, GetTSWTableListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tables;
+            public Amazon.TimestreamWrite.BatchLoadStatus TaskStatus { get; set; }
+            public System.Func<Amazon.TimestreamWrite.Model.ListBatchLoadTasksResponse, GetTSWBatchLoadTaskListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BatchLoadTasks;
         }
         
     }

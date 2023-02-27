@@ -28,48 +28,51 @@ using Amazon.TimestreamWrite.Model;
 namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
-    /// The WriteRecords operation enables you to write your time series data into Timestream.
-    /// You can specify a single data point or a batch of data points to be inserted into
-    /// the system. Timestream offers you with a flexible schema that auto detects the column
-    /// names and data types for your Timestream tables based on the dimension names and data
-    /// types of the data points you specify when invoking writes into the database. Timestream
-    /// support eventual consistency read semantics. This means that when you query data immediately
-    /// after writing a batch of data into Timestream, the query results might not reflect
-    /// the results of a recently completed write operation. The results may also include
-    /// some stale data. If you repeat the query request after a short time, the results should
-    /// return the latest data. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
-    /// quotas apply</a>. 
+    /// Enables you to write your time-series data into Timestream. You can specify a single
+    /// data point or a batch of data points to be inserted into the system. Timestream offers
+    /// you a flexible schema that auto detects the column names and data types for your Timestream
+    /// tables based on the dimension names and data types of the data points you specify
+    /// when invoking writes into the database. 
     /// 
     ///  
     /// <para>
+    /// Timestream supports eventual consistency read semantics. This means that when you
+    /// query data immediately after writing a batch of data into Timestream, the query results
+    /// might not reflect the results of a recently completed write operation. The results
+    /// may also include some stale data. If you repeat the query request after a short time,
+    /// the results should return the latest data. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
+    /// quotas apply</a>. 
+    /// </para><para>
     /// See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.write.html">code
     /// sample</a> for details.
     /// </para><para><b>Upserts</b></para><para>
     /// You can use the <code>Version</code> parameter in a <code>WriteRecords</code> request
     /// to update data points. Timestream tracks a version number with each record. <code>Version</code>
-    /// defaults to <code>1</code> when not specified for the record in the request. Timestream
-    /// will update an existing record’s measure value along with its <code>Version</code>
-    /// upon receiving a write request with a higher <code>Version</code> number for that
-    /// record. Upon receiving an update request where the measure value is the same as that
-    /// of the existing record, Timestream still updates <code>Version</code>, if it is greater
-    /// than the existing value of <code>Version</code>. You can update a data point as many
-    /// times as desired, as long as the value of <code>Version</code> continuously increases.
-    /// 
+    /// defaults to <code>1</code> when it's not specified for the record in the request.
+    /// Timestream updates an existing record’s measure value along with its <code>Version</code>
+    /// when it receives a write request with a higher <code>Version</code> number for that
+    /// record. When it receives an update request where the measure value is the same as
+    /// that of the existing record, Timestream still updates <code>Version</code>, if it
+    /// is greater than the existing value of <code>Version</code>. You can update a data
+    /// point as many times as desired, as long as the value of <code>Version</code> continuously
+    /// increases. 
     /// </para><para>
     ///  For example, suppose you write a new record without indicating <code>Version</code>
-    /// in the request. Timestream will store this record, and set <code>Version</code> to
-    /// <code>1</code>. Now, suppose you try to update this record with a <code>WriteRecords</code>
-    /// request of the same record with a different measure value but, like before, do not
-    /// provide <code>Version</code>. In this case, Timestream will reject this update with
-    /// a <code>RejectedRecordsException</code> since the updated record’s version is not
-    /// greater than the existing value of Version. However, if you were to resend the update
-    /// request with <code>Version</code> set to <code>2</code>, Timestream would then succeed
-    /// in updating the record’s value, and the <code>Version</code> would be set to <code>2</code>.
-    /// Next, suppose you sent a <code>WriteRecords</code> request with this same record and
-    /// an identical measure value, but with <code>Version</code> set to <code>3</code>. In
-    /// this case, Timestream would only update <code>Version</code> to <code>3</code>. Any
-    /// further updates would need to send a version number greater than <code>3</code>, or
-    /// the update requests would receive a <code>RejectedRecordsException</code>. 
+    /// in the request. Timestream stores this record, and set <code>Version</code> to <code>1</code>.
+    /// Now, suppose you try to update this record with a <code>WriteRecords</code> request
+    /// of the same record with a different measure value but, like before, do not provide
+    /// <code>Version</code>. In this case, Timestream will reject this update with a <code>RejectedRecordsException</code>
+    /// since the updated record’s version is not greater than the existing value of Version.
+    /// 
+    /// </para><para>
+    /// However, if you were to resend the update request with <code>Version</code> set to
+    /// <code>2</code>, Timestream would then succeed in updating the record’s value, and
+    /// the <code>Version</code> would be set to <code>2</code>. Next, suppose you sent a
+    /// <code>WriteRecords</code> request with this same record and an identical measure value,
+    /// but with <code>Version</code> set to <code>3</code>. In this case, Timestream would
+    /// only update <code>Version</code> to <code>3</code>. Any further updates would need
+    /// to send a version number greater than <code>3</code>, or the update requests would
+    /// receive a <code>RejectedRecordsException</code>. 
     /// </para>
     /// </summary>
     [Cmdlet("Write", "TSWRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -101,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter CommonAttributes_Dimension
         /// <summary>
         /// <para>
-        /// <para>Contains the list of dimensions for time series data points.</para>
+        /// <para>Contains the list of dimensions for time-series data points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter CommonAttributes_MeasureValue
         /// <summary>
         /// <para>
-        /// <para> Contains the measure value for the time series data point. </para>
+        /// <para> Contains the measure value for the time-series data point. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter CommonAttributes_MeasureValueList
         /// <summary>
         /// <para>
-        /// <para> Contains the list of MeasureValue for time series data points. </para><para> This is only allowed for type <code>MULTI</code>. For scalar values, use <code>MeasureValue</code>
-        /// attribute of the Record directly. </para>
+        /// <para> Contains the list of MeasureValue for time-series data points. </para><para> This is only allowed for type <code>MULTI</code>. For scalar values, use <code>MeasureValue</code>
+        /// attribute of the record directly. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter CommonAttributes_MeasureValueType
         /// <summary>
         /// <para>
-        /// <para> Contains the data type of the measure value for the time series data point. Default
+        /// <para> Contains the data type of the measure value for the time-series data point. Default
         /// type is <code>DOUBLE</code>. </para>
         /// </para>
         /// </summary>
@@ -156,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter Record
         /// <summary>
         /// <para>
-        /// <para>An array of records containing the unique measure, dimension, time, and version attributes
-        /// for each time series data point. </para>
+        /// <para>An array of records that contain the unique measure, dimension, time, and version
+        /// attributes for each time-series data point. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -206,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para> The granularity of the timestamp unit. It indicates if the time value is in seconds,
-        /// milliseconds, nanoseconds or other supported values. Default is <code>MILLISECONDS</code>.
+        /// milliseconds, nanoseconds, or other supported values. Default is <code>MILLISECONDS</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -220,8 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <para>
         /// <para>64-bit attribute used for record updates. Write requests for duplicate data with a
         /// higher version number will update the existing measure value and version. In cases
-        /// where the measure value is the same, <code>Version</code> will still be updated .
-        /// Default value is <code>1</code>.</para><note><para><code>Version</code> must be <code>1</code> or greater, or you will receive a <code>ValidationException</code>
+        /// where the measure value is the same, <code>Version</code> will still be updated. Default
+        /// value is <code>1</code>.</para><note><para><code>Version</code> must be <code>1</code> or greater, or you will receive a <code>ValidationException</code>
         /// error.</para></note>
         /// </para>
         /// </summary>

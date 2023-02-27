@@ -29,10 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
     /// Creates a new Timestream database. If the KMS key is not specified, the database will
-    /// be encrypted with a Timestream managed KMS key located in your account. Refer to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
-    /// Web Services managed KMS keys</a> for more info. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
-    /// quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code
-    /// sample</a> for details.
+    /// be encrypted with a Timestream managed KMS key located in your account. For more information,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// Web Services managed keys</a>. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
+    /// quotas apply</a>. For details, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html">code
+    /// sample</a>.
     /// </summary>
     [Cmdlet("New", "TSWDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TimestreamWrite.Model.Database")]
@@ -65,8 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         /// <summary>
         /// <para>
         /// <para>The KMS key for the database. If the KMS key is not specified, the database will be
-        /// encrypted with a Timestream managed KMS key located in your account. Refer to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
-        /// Web Services managed KMS keys</a> for more info.</para>
+        /// encrypted with a Timestream managed KMS key located in your account. For more information,
+        /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+        /// Web Services managed keys</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

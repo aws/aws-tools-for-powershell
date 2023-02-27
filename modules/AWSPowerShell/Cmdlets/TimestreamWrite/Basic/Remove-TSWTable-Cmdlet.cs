@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
     /// Deletes a given Timestream table. This is an irreversible operation. After a Timestream
-    /// database table is deleted, the time series data stored in the table cannot be recovered.
+    /// database table is deleted, the time-series data stored in the table cannot be recovered.
     /// 
     /// 
     ///  <note><para>

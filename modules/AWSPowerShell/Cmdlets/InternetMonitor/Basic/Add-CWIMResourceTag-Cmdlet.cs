@@ -22,31 +22,36 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
+using Amazon.InternetMonitor;
+using Amazon.InternetMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TSW
+namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
-    /// Associates a set of tags with a Timestream resource. You can then activate these
-    /// user-defined tags so that they appear on the Billing and Cost Management console for
-    /// cost allocation tracking.
+    /// Adds a tag to a resource. Tags are supported only for monitors in Amazon CloudWatch
+    /// Internet Monitor. You can add a maximum of 50 tags in Internet Monitor.
+    /// 
+    ///  
+    /// <para>
+    /// A minimum of one tag is required for this call. It returns an error if you use the
+    /// <code>TagResource</code> request with 0 tags.
+    /// </para>
     /// </summary>
-    [Cmdlet("Add", "TSWResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "CWIMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Timestream Write TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.TimestreamWrite.Model.TagResourceResponse",
+    [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.InternetMonitor.Model.TagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamWrite.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.InternetMonitor.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddTSWResourceTagCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
+    public partial class AddCWIMResourceTagCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceARN
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> Identifies the Timestream resource to which tags should be added. This value is an
-        /// Amazon Resource Name (ARN). </para>
+        /// <para>The Amazon Resource Name (ARN) for a tag that you add to a resource. Tags are supported
+        /// only for monitors in Amazon CloudWatch Internet Monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,13 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags to be assigned to the Timestream resource. </para>
+        /// <para>Tags that you add to a resource. You can add a maximum of 50 tags in Internet Monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,13 +80,13 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Tags")]
-        public Amazon.TimestreamWrite.Model.Tag[] Tag { get; set; }
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamWrite.Model.TagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.InternetMonitor.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,10 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -113,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-TSWResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CWIMResourceTag (TagResource)"))
             {
                 return;
             }
@@ -127,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TimestreamWrite.Model.TagResourceResponse, AddTSWResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.InternetMonitor.Model.TagResourceResponse, AddCWIMResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,19 +141,23 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
             {
-                context.Tag = new List<Amazon.TimestreamWrite.Model.Tag>(this.Tag);
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             #if MODULAR
             if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
@@ -170,11 +179,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.TimestreamWrite.Model.TagResourceRequest();
+            var request = new Amazon.InternetMonitor.Model.TagResourceRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -213,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region AWS Service Operation Call
         
-        private Amazon.TimestreamWrite.Model.TagResourceResponse CallAWSServiceOperation(IAmazonTimestreamWrite client, Amazon.TimestreamWrite.Model.TagResourceRequest request)
+        private Amazon.InternetMonitor.Model.TagResourceResponse CallAWSServiceOperation(IAmazonInternetMonitor client, Amazon.InternetMonitor.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream Write", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Internet Monitor", "TagResource");
             try
             {
                 #if DESKTOP
@@ -241,9 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public List<Amazon.TimestreamWrite.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.TimestreamWrite.Model.TagResourceResponse, AddTSWResourceTagCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.InternetMonitor.Model.TagResourceResponse, AddCWIMResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

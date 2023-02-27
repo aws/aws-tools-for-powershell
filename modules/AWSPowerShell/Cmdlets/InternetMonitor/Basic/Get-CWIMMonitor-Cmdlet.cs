@@ -22,38 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
+using Amazon.InternetMonitor;
+using Amazon.InternetMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TSW
+namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
-    /// Deletes a given Timestream database. <i>This is an irreversible operation. After a
-    /// database is deleted, the time-series data from its tables cannot be recovered.</i><note><para>
-    /// All tables in the database must be deleted first, or a ValidationException error will
-    /// be thrown. 
-    /// </para><para>
-    /// Due to the nature of distributed retries, the operation can return either success
-    /// or a ResourceNotFoundException. Clients should consider them equivalent.
-    /// </para></note><para>
-    /// See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.delete-db.html">code
-    /// sample</a> for details.
-    /// </para>
+    /// Gets information about a monitor in Amazon CloudWatch Internet Monitor based on a
+    /// monitor name. The information returned includes the Amazon Resource Name (ARN), create
+    /// time, modified time, resources included in the monitor, and status information.
     /// </summary>
-    [Cmdlet("Remove", "TSWDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Timestream Write DeleteDatabase API operation.", Operation = new[] {"DeleteDatabase"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.DeleteDatabaseResponse))]
-    [AWSCmdletOutput("None or Amazon.TimestreamWrite.Model.DeleteDatabaseResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.TimestreamWrite.Model.DeleteDatabaseResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWIMMonitor")]
+    [OutputType("Amazon.InternetMonitor.Model.GetMonitorResponse")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor GetMonitor API operation.", Operation = new[] {"GetMonitor"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.GetMonitorResponse))]
+    [AWSCmdletOutput("Amazon.InternetMonitor.Model.GetMonitorResponse",
+        "This cmdlet returns an Amazon.InternetMonitor.Model.GetMonitorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveTSWDatabaseCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
+    public partial class GetCWIMMonitorCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
-        #region Parameter DatabaseName
+        #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the Timestream database to be deleted.</para>
+        /// <para>The name of the monitor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatabaseName { get; set; }
+        public System.String MonitorName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamWrite.Model.DeleteDatabaseResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.InternetMonitor.Model.GetMonitorResponse).
+        /// Specifying the name of a property of type Amazon.InternetMonitor.Model.GetMonitorResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,34 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatabaseName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatabaseName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatabaseName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatabaseName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TSWDatabase (DeleteDatabase)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -116,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TimestreamWrite.Model.DeleteDatabaseResponse, RemoveTSWDatabaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.InternetMonitor.Model.GetMonitorResponse, GetCWIMMonitorCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatabaseName;
+                context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatabaseName = this.DatabaseName;
+            context.MonitorName = this.MonitorName;
             #if MODULAR
-            if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
+            if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MonitorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.TimestreamWrite.Model.DeleteDatabaseRequest();
+            var request = new Amazon.InternetMonitor.Model.GetMonitorRequest();
             
-            if (cmdletContext.DatabaseName != null)
+            if (cmdletContext.MonitorName != null)
             {
-                request.DatabaseName = cmdletContext.DatabaseName;
+                request.MonitorName = cmdletContext.MonitorName;
             }
             
             CmdletOutput output;
@@ -188,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region AWS Service Operation Call
         
-        private Amazon.TimestreamWrite.Model.DeleteDatabaseResponse CallAWSServiceOperation(IAmazonTimestreamWrite client, Amazon.TimestreamWrite.Model.DeleteDatabaseRequest request)
+        private Amazon.InternetMonitor.Model.GetMonitorResponse CallAWSServiceOperation(IAmazonInternetMonitor client, Amazon.InternetMonitor.Model.GetMonitorRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream Write", "DeleteDatabase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Internet Monitor", "GetMonitor");
             try
             {
                 #if DESKTOP
-                return client.DeleteDatabase(request);
+                return client.GetMonitor(request);
                 #elif CORECLR
-                return client.DeleteDatabaseAsync(request).GetAwaiter().GetResult();
+                return client.GetMonitorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatabaseName { get; set; }
-            public System.Func<Amazon.TimestreamWrite.Model.DeleteDatabaseResponse, RemoveTSWDatabaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String MonitorName { get; set; }
+            public System.Func<Amazon.InternetMonitor.Model.GetMonitorResponse, GetCWIMMonitorCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

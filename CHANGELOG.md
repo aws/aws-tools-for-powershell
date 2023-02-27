@@ -1,4 +1,16 @@
-﻿### 4.1.279 (2023-02-24 21:50Z)
+﻿### 4.1.280 (2023-02-27 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.492.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Internet Monitor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWIM and can be listed using the command 'Get-AWSCmdletName -Service CWIM'.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameters DocumentDBEventSourceConfig_CollectionName, DocumentDBEventSourceConfig_DatabaseName and DocumentDBEventSourceConfig_FullDocument.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameters DocumentDBEventSourceConfig_CollectionName, DocumentDBEventSourceConfig_DatabaseName and DocumentDBEventSourceConfig_FullDocument.
+  * Amazon Timestream Write
+    * Added cmdlet Get-TSWBatchLoadTask leveraging the DescribeBatchLoadTask service API.
+    * Added cmdlet Get-TSWBatchLoadTaskList leveraging the ListBatchLoadTasks service API.
+    * Added cmdlet New-TSWBatchLoadTask leveraging the CreateBatchLoadTask service API.
+    * Added cmdlet Resume-TSWBatchLoadTask leveraging the ResumeBatchLoadTask service API.
+
+### 4.1.279 (2023-02-24 21:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.491.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Connect Cases
     * Added cmdlet Remove-CCASDomain leveraging the DeleteDomain service API.

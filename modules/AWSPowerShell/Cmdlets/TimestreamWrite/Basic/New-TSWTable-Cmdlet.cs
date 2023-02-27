@@ -28,11 +28,11 @@ using Amazon.TimestreamWrite.Model;
 namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
-    /// The CreateTable operation adds a new table to an existing database in your account.
-    /// In an Amazon Web Services account, table names must be at least unique within each
-    /// Region if they are in the same database. You may have identical table names in the
-    /// same Region if the tables are in separate databases. While creating the table, you
-    /// must specify the table name, database name, and the retention properties. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
+    /// Adds a new table to an existing database in your account. In an Amazon Web Services
+    /// account, table names must be at least unique within each Region if they are in the
+    /// same database. You might have identical table names in the same Region if the tables
+    /// are in separate databases. While creating the table, you must specify the table name,
+    /// database name, and the retention properties. <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Service
     /// quotas apply</a>. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html">code
     /// sample</a> for details.
     /// </summary>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter S3Configuration_BucketName
         /// <summary>
         /// <para>
-        /// <para>&gt;Bucket name of the customer S3 bucket.</para>
+        /// <para>The bucket name of the customer S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter S3Configuration_EncryptionOption
         /// <summary>
         /// <para>
-        /// <para>Encryption option for the customer s3 location. Options are S3 server side encryption
-        /// with an S3-managed key or KMS managed key.</para>
+        /// <para>The encryption option for the customer S3 location. Options are S3 server-side encryption
+        /// with an S3 managed key or Amazon Web Services managed key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter S3Configuration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>KMS key id for the customer s3 location when encrypting with a KMS managed key.</para>
+        /// <para>The KMS key ID for the customer S3 location when encrypting with an Amazon Web Services
+        /// managed key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter S3Configuration_ObjectKeyPrefix
         /// <summary>
         /// <para>
-        /// <para>Object key preview for the customer S3 location.</para>
+        /// <para>The object key preview for the customer S3 location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

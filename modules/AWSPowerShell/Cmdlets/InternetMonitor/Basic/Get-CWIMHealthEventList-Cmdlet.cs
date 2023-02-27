@@ -22,42 +22,85 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.TimestreamWrite;
-using Amazon.TimestreamWrite.Model;
+using Amazon.InternetMonitor;
+using Amazon.InternetMonitor.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TSW
+namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
-    /// Provides a list of tables, along with the name, status, and retention properties of
-    /// each table. See <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html">code
-    /// sample</a> for details.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns
+    /// all information for health events including the client location information the network
+    /// cause and status, event start and end time, percentage of total traffic impacted,
+    /// and status.
+    /// 
+    ///  <note><para>
+    /// Health events that have start times during the time frame that is requested are not
+    /// included in the list of health events.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "TSWTableList")]
-    [OutputType("Amazon.TimestreamWrite.Model.Table")]
-    [AWSCmdlet("Calls the Amazon Timestream Write ListTables API operation.", Operation = new[] {"ListTables"}, SelectReturnType = typeof(Amazon.TimestreamWrite.Model.ListTablesResponse))]
-    [AWSCmdletOutput("Amazon.TimestreamWrite.Model.Table or Amazon.TimestreamWrite.Model.ListTablesResponse",
-        "This cmdlet returns a collection of Amazon.TimestreamWrite.Model.Table objects.",
-        "The service call response (type Amazon.TimestreamWrite.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWIMHealthEventList")]
+    [OutputType("Amazon.InternetMonitor.Model.HealthEvent")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor ListHealthEvents API operation.", Operation = new[] {"ListHealthEvents"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.ListHealthEventsResponse))]
+    [AWSCmdletOutput("Amazon.InternetMonitor.Model.HealthEvent or Amazon.InternetMonitor.Model.ListHealthEventsResponse",
+        "This cmdlet returns a collection of Amazon.InternetMonitor.Model.HealthEvent objects.",
+        "The service call response (type Amazon.InternetMonitor.Model.ListHealthEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetTSWTableListCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
+    public partial class GetCWIMHealthEventListCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
-        #region Parameter DatabaseName
+        #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The name of the Timestream database.</para>
+        /// <para>The time when a health event ended. If the health event is still ongoing, then the
+        /// end time is not set.</para>
         /// </para>
         /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? EndTime { get; set; }
+        #endregion
+        
+        #region Parameter EventStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of a health event.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.InternetMonitor.HealthEventStatus")]
+        public Amazon.InternetMonitor.HealthEventStatus EventStatus { get; set; }
+        #endregion
+        
+        #region Parameter MonitorName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the monitor.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DatabaseName { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MonitorName { get; set; }
+        #endregion
+        
+        #region Parameter StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The time when a health event started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of items to return in the output. If the total number of items available
-        /// is more than the value specified, a NextToken is provided in the output. To resume
-        /// pagination, provide the NextToken value as argument of a subsequent API invocation.</para>
+        /// <para>The number of health event objects that you want to return with this call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token. To resume pagination, provide the NextToken value as argument
-        /// of a subsequent API invocation.</para>
+        /// <para>The token for the next set of results. You receive this token from a previous call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -82,21 +124,21 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tables'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamWrite.Model.ListTablesResponse).
-        /// Specifying the name of a property of type Amazon.TimestreamWrite.Model.ListTablesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'HealthEvents'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.InternetMonitor.Model.ListHealthEventsResponse).
+        /// Specifying the name of a property of type Amazon.InternetMonitor.Model.ListHealthEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tables";
+        public string Select { get; set; } = "HealthEvents";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DatabaseName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DatabaseName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MonitorName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatabaseName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -124,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TimestreamWrite.Model.ListTablesResponse, GetTSWTableListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.InternetMonitor.Model.ListHealthEventsResponse, GetCWIMHealthEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -133,12 +175,21 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DatabaseName;
+                context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatabaseName = this.DatabaseName;
+            context.EndTime = this.EndTime;
+            context.EventStatus = this.EventStatus;
             context.MaxResult = this.MaxResult;
+            context.MonitorName = this.MonitorName;
+            #if MODULAR
+            if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MonitorName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.NextToken = this.NextToken;
+            context.StartTime = this.StartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,15 +208,27 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.TimestreamWrite.Model.ListTablesRequest();
+            var request = new Amazon.InternetMonitor.Model.ListHealthEventsRequest();
             
-            if (cmdletContext.DatabaseName != null)
+            if (cmdletContext.EndTime != null)
             {
-                request.DatabaseName = cmdletContext.DatabaseName;
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.EventStatus != null)
+            {
+                request.EventStatus = cmdletContext.EventStatus;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.MonitorName != null)
+            {
+                request.MonitorName = cmdletContext.MonitorName;
+            }
+            if (cmdletContext.StartTime != null)
+            {
+                request.StartTime = cmdletContext.StartTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -224,15 +287,15 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         #region AWS Service Operation Call
         
-        private Amazon.TimestreamWrite.Model.ListTablesResponse CallAWSServiceOperation(IAmazonTimestreamWrite client, Amazon.TimestreamWrite.Model.ListTablesRequest request)
+        private Amazon.InternetMonitor.Model.ListHealthEventsResponse CallAWSServiceOperation(IAmazonInternetMonitor client, Amazon.InternetMonitor.Model.ListHealthEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream Write", "ListTables");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Internet Monitor", "ListHealthEvents");
             try
             {
                 #if DESKTOP
-                return client.ListTables(request);
+                return client.ListHealthEvents(request);
                 #elif CORECLR
-                return client.ListTablesAsync(request).GetAwaiter().GetResult();
+                return client.ListHealthEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -252,11 +315,14 @@ namespace Amazon.PowerShell.Cmdlets.TSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatabaseName { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public Amazon.InternetMonitor.HealthEventStatus EventStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String MonitorName { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.TimestreamWrite.Model.ListTablesResponse, GetTSWTableListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tables;
+            public System.DateTime? StartTime { get; set; }
+            public System.Func<Amazon.InternetMonitor.Model.ListHealthEventsResponse, GetCWIMHealthEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.HealthEvents;
         }
         
     }

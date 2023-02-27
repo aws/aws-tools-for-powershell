@@ -286,8 +286,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Key Management Service (KMS) key that's used to encrypt your function's
-        /// environment variables. If it's not provided, Lambda uses a default service key.</para>
+        /// <para>The ARN of the Key Management Service (KMS) customer managed key that's used to encrypt
+        /// your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption">environment
+        /// variables</a>. When <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html">Lambda
+        /// SnapStart</a> is activated, this key is also used to encrypt your function's snapshot.
+        /// If you don't provide a customer managed key, Lambda uses a default service key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,7 +370,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.
-        /// Runtime is required if the deployment package is a .zip file archive. </para>
+        /// Runtime is required if the deployment package is a .zip file archive.</para><para>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime
+        /// deprecation policy</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

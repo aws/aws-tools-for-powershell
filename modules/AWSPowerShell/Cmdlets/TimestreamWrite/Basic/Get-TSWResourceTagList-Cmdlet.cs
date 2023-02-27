@@ -28,7 +28,7 @@ using Amazon.TimestreamWrite.Model;
 namespace Amazon.PowerShell.Cmdlets.TSW
 {
     /// <summary>
-    /// List all tags on a Timestream resource.
+    /// Lists all tags on a Timestream resource.
     /// </summary>
     [Cmdlet("Get", "TSWResourceTagList")]
     [OutputType("Amazon.TimestreamWrite.Model.Tag")]
