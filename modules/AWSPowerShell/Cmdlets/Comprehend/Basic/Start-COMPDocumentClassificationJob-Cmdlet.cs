@@ -28,8 +28,8 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// Starts an asynchronous document classification job. Use the operation to track the
-    /// progress of the job.
+    /// Starts an asynchronous document classification job. Use the <code>DescribeDocumentClassificationJob</code>
+    /// operation to track the progress of the job.
     /// </summary>
     [Cmdlet("Start", "COMPDocumentClassificationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Comprehend.Model.StartDocumentClassificationJobResponse")]
@@ -75,15 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>The Amazon Resource Name (ARN) of the document classifier to use to process the job.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DocumentClassifierArn { get; set; }
+        #endregion
+        
+        #region Parameter FlywheelArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Number (ARN) of the flywheel associated with the model to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlywheelArn { get; set; }
         #endregion
         
         #region Parameter InputDataConfig
@@ -162,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the document classification job. A tag is a key-value pair
+        /// <para>Tags to associate with the document classification job. A tag is a key-value pair
         /// that adds metadata to a resource used by Amazon Comprehend. For example, a tag with
         /// "Sales" as the key might be added to a resource to indicate its use by the sales department.</para>
         /// </para>
@@ -255,12 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #endif
             context.DocumentClassifierArn = this.DocumentClassifierArn;
-            #if MODULAR
-            if (this.DocumentClassifierArn == null && ParameterWasBound(nameof(this.DocumentClassifierArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DocumentClassifierArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.FlywheelArn = this.FlywheelArn;
             context.InputDataConfig = this.InputDataConfig;
             #if MODULAR
             if (this.InputDataConfig == null && ParameterWasBound(nameof(this.InputDataConfig)))
@@ -316,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.DocumentClassifierArn != null)
             {
                 request.DocumentClassifierArn = cmdletContext.DocumentClassifierArn;
+            }
+            if (cmdletContext.FlywheelArn != null)
+            {
+                request.FlywheelArn = cmdletContext.FlywheelArn;
             }
             if (cmdletContext.InputDataConfig != null)
             {
@@ -430,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String ClientRequestToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String DocumentClassifierArn { get; set; }
+            public System.String FlywheelArn { get; set; }
             public Amazon.Comprehend.Model.InputDataConfig InputDataConfig { get; set; }
             public System.String JobName { get; set; }
             public Amazon.Comprehend.Model.OutputDataConfig OutputDataConfig { get; set; }

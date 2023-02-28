@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentClassifierArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that identifies the document classifier. The operation
-        /// returns this identifier in its response.</para>
+        /// <para>The Amazon Resource Name (ARN) that identifies the document classifier. The <code>CreateDocumentClassifier</code>
+        /// operation returns this identifier in its response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -90,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String EntityRecognizerArn { get; set; }
         #endregion
         
+        #region Parameter FlywheelArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Number (ARN) of the flywheel associated with the model to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlywheelArn { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig
         /// <summary>
         /// <para>
@@ -186,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the entities detection job. A tag is a key-value pair that
+        /// <para>Tags to associate with the entities detection job. A tag is a key-value pair that
         /// adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales"
         /// as the key might be added to a resource to indicate its use by the sales department.</para>
         /// </para>
@@ -279,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #endif
             context.EntityRecognizerArn = this.EntityRecognizerArn;
+            context.FlywheelArn = this.FlywheelArn;
             context.InputDataConfig = this.InputDataConfig;
             #if MODULAR
             if (this.InputDataConfig == null && ParameterWasBound(nameof(this.InputDataConfig)))
@@ -341,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.EntityRecognizerArn != null)
             {
                 request.EntityRecognizerArn = cmdletContext.EntityRecognizerArn;
+            }
+            if (cmdletContext.FlywheelArn != null)
+            {
+                request.FlywheelArn = cmdletContext.FlywheelArn;
             }
             if (cmdletContext.InputDataConfig != null)
             {
@@ -459,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String ClientRequestToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String EntityRecognizerArn { get; set; }
+            public System.String FlywheelArn { get; set; }
             public Amazon.Comprehend.Model.InputDataConfig InputDataConfig { get; set; }
             public System.String JobName { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }

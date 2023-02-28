@@ -88,8 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxParallelLaunch
         /// <summary>
         /// <para>
-        /// <para>The maximum number of parallel instances to launch for creating resources. Value must
-        /// be <code>6</code> or greater. </para>
+        /// <para>The maximum number of instances that Amazon EC2 can launch at the same time to create
+        /// pre-provisioned snapshots for Windows faster launching. Value must be <code>6</code>
+        /// or greater.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,7 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The CIDR you want to deprovision from the pool.</para>
+        /// <para>The CIDR you want to deprovision from the pool. Enter the CIDR you want to deprovision
+        /// with a netmask of <code>/32</code>. You must rerun this command for each IP address
+        /// in the CIDR range. If your CIDR is a <code>/24</code>, you will have to run this command
+        /// to deprovision each of the 256 IP addresses in the <code>/24</code> CIDR.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

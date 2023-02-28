@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxDuration
         /// <summary>
         /// <para>
-        /// <para>A max duration for the group.</para>
+        /// <para>A maximum run time for the group in minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>A request ID for the group.</para>
+        /// <para>To ensure that requests don't run multiple times, specify a unique ID for each request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

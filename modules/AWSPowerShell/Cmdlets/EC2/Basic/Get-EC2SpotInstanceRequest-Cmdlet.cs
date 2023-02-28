@@ -39,11 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// with a filter to look for instances where the instance lifecycle is <code>spot</code>.
     /// </para><para>
     /// We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
-    /// limit the number of results returned. This paginates the output, which makes the list
-    /// more manageable and returns the results faster. If the list of results exceeds your
-    /// <code>MaxResults</code> value, then that number of results is returned along with
-    /// a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code>
-    /// request to retrieve the remaining results.
+    /// limit the number of items returned. This paginates the output, which makes the list
+    /// more manageable and returns the items faster. If the list of items exceeds your <code>MaxResults</code>
+    /// value, then that number of items is returned along with a <code>NextToken</code> value
+    /// that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request
+    /// to retrieve the remaining items.
     /// </para><para>
     /// Spot Instance requests are deleted four hours after they are canceled and their instances
     /// are terminated.
@@ -111,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. Specify a value between
-        /// 5 and 1000. To retrieve the remaining results, make another call with the returned
-        /// <code>NextToken</code> value.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to request the next set of results. This value is <code>null</code> when
-        /// there are no more results to return.</para>
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
+        /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -115,10 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter BypassPolicyLockoutSafetyCheck
         /// <summary>
         /// <para>
-        /// <para>A flag to indicate whether to bypass the key policy lockout safety check.</para><important><para>Setting this value to true increases the risk that the KMS key becomes unmanageable.
-        /// Do not set this value to true indiscriminately.</para><para>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
-        /// Key Policy</a> section in the <i>Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you intend to prevent the principal that is making the
-        /// request from making a subsequent <code>PutKeyPolicy</code> request on the KMS key.</para><para>The default value is false.</para>
+        /// <para>Skips ("bypasses") the key policy lockout safety check. The default value is false.</para><important><para>Setting this value to true increases the risk that the KMS key becomes unmanageable.
+        /// Do not set this value to true indiscriminately.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you intend to prevent the principal that is making the
+        /// request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,17 +163,17 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// provide a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">default
         /// key policy</a> to the KMS key.</para><para>The key policy is not a shared property of multi-Region keys. You can specify the
         /// same key policy or a different key policy for each key in a set of related multi-Region
-        /// keys. KMS does not synchronize this property.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-        /// must give the caller <code>kms:PutKeyPolicy</code> permission on the replica key.
-        /// This reduces the risk that the KMS key becomes unmanageable. For more information,
-        /// refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
-        /// Key Policy</a> section of the <i><i>Key Management Service Developer Guide</i></i>.</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
+        /// keys. KMS does not synchronize this property.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code>
+        /// request on the KMS key. This reduces the risk that the KMS key becomes unmanageable.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this
+        /// condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
         /// in the key policy must exist and be visible to KMS. When you create a new Amazon Web
-        /// Services principal (for example, an IAM user or role), you might need to enforce a
-        /// delay before including the new principal in a key policy because the new principal
-        /// might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
-        /// that I make are not always immediately visible</a> in the <i><i>Identity and Access
-        /// Management User Guide</i></i>.</para></li></ul><para>A key policy document can include only the following characters:</para><ul><li><para>Printable ASCII characters from the space character (<code>\u0020</code>) through
+        /// Services principal, you might need to enforce a delay before including the new principal
+        /// in a key policy because the new principal might not be immediately visible to KMS.
+        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
+        /// that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity
+        /// and Access Management User Guide</i>.</para></li></ul><para>A key policy document can include only the following characters:</para><ul><li><para>Printable ASCII characters from the space character (<code>\u0020</code>) through
         /// the end of the ASCII character range.</para></li><li><para>Printable characters in the Basic Latin and Latin-1 Supplement character set (through
         /// <code>\u00FF</code>).</para></li><li><para>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return
         /// (<code>\u000D</code>) special characters</para></li></ul><para>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code>
-    /// request is submitted, you can check job status using the API.
+    /// request is submitted, you can check job status using the <code>DescribeEntityRecognizer</code>
+    /// API.
     /// </summary>
     [Cmdlet("New", "COMPEntityRecognizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -68,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that
-        /// grants Amazon Comprehend read access to your input data.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+        /// that grants Amazon Comprehend read access to your input data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
-        /// trained custom models. The ModelKmsKeyId can be either of the following formats</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// trained custom models. The ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,10 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the entity recognizer being created. A tag is a key-value
-        /// pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
-        /// a tag with "Sales" as the key might be added to a resource to indicate its use by
-        /// the sales department. </para>
+        /// <para>Tags to associate with the entity recognizer. A tag is a key-value pair that adds
+        /// as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales"
+        /// as the key might be added to a resource to indicate its use by the sales department.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

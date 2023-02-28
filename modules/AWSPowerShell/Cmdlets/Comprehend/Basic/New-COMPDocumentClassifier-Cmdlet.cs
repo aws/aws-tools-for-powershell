@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that
-        /// grants Amazon Comprehend read access to your input data.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+        /// that grants Amazon Comprehend read access to your input data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String DocumentClassifierName { get; set; }
         #endregion
         
+        #region Parameter OutputDataConfig_FlywheelStatsS3Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 prefix for the data lake location of the flywheel statistics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputDataConfig_FlywheelStatsS3Prefix { get; set; }
+        #endregion
+        
         #region Parameter OutputDataConfig_KmsKeyId
         /// <summary>
         /// <para>
@@ -150,9 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language of the input documents. You can specify any of the following languages
-        /// supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French
-        /// ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</para>
+        /// <para>The language of the input documents. You can specify any of the languages supported
+        /// by Amazon Comprehend. All documents must be in the same language.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -271,10 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the document classifier being created. A tag is a key-value
-        /// pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
-        /// a tag with "Sales" as the key might be added to a resource to indicate its use by
-        /// the sales department. </para>
+        /// <para>Tags to associate with the document classifier. A tag is a key-value pair that adds
+        /// as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales"
+        /// as the key might be added to a resource to indicate its use by the sales department.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -414,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             context.Mode = this.Mode;
             context.ModelKmsKeyId = this.ModelKmsKeyId;
             context.ModelPolicy = this.ModelPolicy;
+            context.OutputDataConfig_FlywheelStatsS3Prefix = this.OutputDataConfig_FlywheelStatsS3Prefix;
             context.OutputDataConfig_KmsKeyId = this.OutputDataConfig_KmsKeyId;
             context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
             if (this.Tag != null)
@@ -537,6 +547,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate OutputDataConfig
             var requestOutputDataConfigIsNull = true;
             request.OutputDataConfig = new Amazon.Comprehend.Model.DocumentClassifierOutputDataConfig();
+            System.String requestOutputDataConfig_outputDataConfig_FlywheelStatsS3Prefix = null;
+            if (cmdletContext.OutputDataConfig_FlywheelStatsS3Prefix != null)
+            {
+                requestOutputDataConfig_outputDataConfig_FlywheelStatsS3Prefix = cmdletContext.OutputDataConfig_FlywheelStatsS3Prefix;
+            }
+            if (requestOutputDataConfig_outputDataConfig_FlywheelStatsS3Prefix != null)
+            {
+                request.OutputDataConfig.FlywheelStatsS3Prefix = requestOutputDataConfig_outputDataConfig_FlywheelStatsS3Prefix;
+                requestOutputDataConfigIsNull = false;
+            }
             System.String requestOutputDataConfig_outputDataConfig_KmsKeyId = null;
             if (cmdletContext.OutputDataConfig_KmsKeyId != null)
             {
@@ -676,6 +696,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
             public System.String ModelKmsKeyId { get; set; }
             public System.String ModelPolicy { get; set; }
+            public System.String OutputDataConfig_FlywheelStatsS3Prefix { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }

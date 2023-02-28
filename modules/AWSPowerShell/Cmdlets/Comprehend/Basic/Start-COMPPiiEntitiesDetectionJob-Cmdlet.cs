@@ -182,9 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the PII entities detection job. A tag is a key-value pair
-        /// that adds metadata to a resource used by Amazon Comprehend. For example, a tag with
-        /// "Sales" as the key might be added to a resource to indicate its use by the sales department.</para>
+        /// <para>Tags to associate with the PII entities detection job. A tag is a key-value pair that
+        /// adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales"
+        /// as the key might be added to a resource to indicate its use by the sales department.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

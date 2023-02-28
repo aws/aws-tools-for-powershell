@@ -131,8 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To
-        /// sign a larger message, provide the message digest.</para><para>If you provide a message, KMS generates a hash digest of the message and then signs
-        /// it.</para>
+        /// sign a larger message, provide a message digest.</para><para>If you provide a message digest, use the <code>DIGEST</code> value of <code>MessageType</code>
+        /// to prevent the digest from being hashed again while signing.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -150,9 +150,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter MessageType
         /// <summary>
         /// <para>
-        /// <para>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-        /// message digest. The default value, RAW, indicates a message. To indicate a message
-        /// digest, enter <code>DIGEST</code>.</para>
+        /// <para>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
+        /// as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
+        /// <code>DIGEST</code> for message digests, which are already hashed.</para><para>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
+        /// signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
+        /// KMS skips the hashing step in the signing algorithm.</para><important><para>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
+        /// parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
+        /// message, the security of the signing operation can be compromised.</para></important><para>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
+        /// <code>Message</code> value must match the length of hashed messages for the specified
+        /// signing algorithm.</para><para>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code>
+        /// so the digest is hashed again while signing. However, this can cause verification
+        /// failures when verifying with a system that assumes a single hash.</para><para>The hashing algorithm in that <code>Sign</code> uses is based on the <code>SigningAlgorithm</code>
+        /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+        /// verification with SM2 key pairs</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the signing algorithm to use when signing the message. </para><para>Choose an algorithm that is compatible with the type and size of the specified asymmetric
-        /// KMS key.</para>
+        /// KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We
+        /// include RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

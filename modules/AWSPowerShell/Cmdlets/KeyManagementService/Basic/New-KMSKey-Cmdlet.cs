@@ -193,11 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter BypassPolicyLockoutSafetyCheck
         /// <summary>
         /// <para>
-        /// <para>A flag to indicate whether to bypass the key policy lockout safety check.</para><important><para>Setting this value to true increases the risk that the KMS key becomes unmanageable.
-        /// Do not set this value to true indiscriminately.</para><para>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
-        /// Key Policy</a> section in the <i><i>Key Management Service Developer Guide</i></i>.</para></important><para>Use this parameter only when you include a policy in the request and you intend to
-        /// prevent the principal that is making the request from making a subsequent <a>PutKeyPolicy</a>
-        /// request on the KMS key.</para><para>The default value is false.</para>
+        /// <para>Skips ("bypasses") the key policy lockout safety check. The default value is false.</para><important><para>Setting this value to true increases the risk that the KMS key becomes unmanageable.
+        /// Do not set this value to true indiscriminately.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>.</para></important><para>Use this parameter only when you intend to prevent the principal that is making the
+        /// request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,20 +324,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The key policy to attach to the KMS key.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-        /// must allow the principal that is making the <code>CreateKey</code> request to make
-        /// a subsequent <a>PutKeyPolicy</a> request on the KMS key. This reduces the risk that
-        /// the KMS key becomes unmanageable. For more information, refer to the scenario in the
-        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
-        /// Key Policy</a> section of the <i><i>Key Management Service Developer Guide</i></i>.</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
+        /// <para>The key policy to attach to the KMS key.</para><para>If you provide a key policy, it must meet the following criteria:</para><ul><li><para>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code>
+        /// request on the KMS key. This reduces the risk that the KMS key becomes unmanageable.
+        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this
+        /// condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</para></li><li><para>Each statement in the key policy must contain one or more principals. The principals
         /// in the key policy must exist and be visible to KMS. When you create a new Amazon Web
-        /// Services principal (for example, an IAM user or role), you might need to enforce a
-        /// delay before including the new principal in a key policy because the new principal
-        /// might not be immediately visible to KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
+        /// Services principal, you might need to enforce a delay before including the new principal
+        /// in a key policy because the new principal might not be immediately visible to KMS.
+        /// For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity
         /// and Access Management User Guide</i>.</para></li></ul><para>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
         /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
-        /// Key Policy</a> in the <i>Key Management Service Developer Guide</i>. </para><para>The key policy size quota is 32 kilobytes (32768 bytes).</para><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+        /// key policy</a> in the <i>Key Management Service Developer Guide</i>. </para><para>The key policy size quota is 32 kilobytes (32768 bytes).</para><para>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
         /// JSON Policy Reference</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
         /// </para>
         /// </summary>

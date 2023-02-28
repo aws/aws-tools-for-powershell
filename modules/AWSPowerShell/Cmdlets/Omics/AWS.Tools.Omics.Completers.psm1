@@ -105,7 +105,7 @@ $OMICS_Completers = {
             ($_ -eq "Get-OMICSVariantImportJobList/Filter_Status")
         }
         {
-            $v = "CANCELLED","COMPLETED","FAILED","IN_PROGRESS","SUBMITTED"
+            $v = "CANCELLED","COMPLETED","COMPLETED_WITH_FAILURES","FAILED","IN_PROGRESS","SUBMITTED"
             break
         }
 
@@ -203,7 +203,7 @@ $OMICS_Completers = {
             ($_ -eq "Start-OMICSRun/WorkflowType")
         }
         {
-            $v = "PRIVATE"
+            $v = "PRIVATE","SERVICE"
             break
         }
 

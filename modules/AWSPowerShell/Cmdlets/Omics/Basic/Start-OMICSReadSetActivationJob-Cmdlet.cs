@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a read set activation job.
+    /// Activates an archived read set. To reduce storage charges, Amazon Omics archives unused
+    /// read sets after 30 days.
     /// </summary>
     [Cmdlet("Start", "OMICSReadSetActivationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.StartReadSetActivationJobResponse")]
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The job's sources.</para>
+        /// <para>The job's source files.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

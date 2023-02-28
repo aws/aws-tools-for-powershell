@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
         /// that grants Amazon Comprehend read access to trained custom models encrypted with
         /// a customer managed key (ModelKmsKeyId).</para>
         /// </para>
@@ -102,29 +102,32 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter FlywheelArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Number (ARN) of the flywheel to which the endpoint will be attached.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlywheelArn { get; set; }
+        #endregion
+        
         #region Parameter ModelArn
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ModelArn { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags associated with the endpoint being created. A tag is a key-value pair that adds
-        /// metadata to the endpoint. For example, a tag with "Sales" as the key might be added
-        /// to an endpoint to indicate its use by the sales department. </para>
+        /// <para>Tags to associate with the endpoint. A tag is a key-value pair that adds metadata
+        /// to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint
+        /// to indicate its use by the sales department. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,13 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FlywheelArn = this.FlywheelArn;
             context.ModelArn = this.ModelArn;
-            #if MODULAR
-            if (this.ModelArn == null && ParameterWasBound(nameof(this.ModelArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ModelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
@@ -252,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.EndpointName != null)
             {
                 request.EndpointName = cmdletContext.EndpointName;
+            }
+            if (cmdletContext.FlywheelArn != null)
+            {
+                request.FlywheelArn = cmdletContext.FlywheelArn;
             }
             if (cmdletContext.ModelArn != null)
             {
@@ -326,6 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String DataAccessRoleArn { get; set; }
             public System.Int32? DesiredInferenceUnit { get; set; }
             public System.String EndpointName { get; set; }
+            public System.String FlywheelArn { get; set; }
             public System.String ModelArn { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Comprehend.Model.CreateEndpointResponse, NewCOMPEndpointCmdlet, object> Select { get; set; } =

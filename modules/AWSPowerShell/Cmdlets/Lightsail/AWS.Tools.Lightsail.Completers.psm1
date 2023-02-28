@@ -93,7 +93,7 @@ $LS_Completers = {
             ($_ -eq "Disable-LSAddOn/AddOnType")
         }
         {
-            $v = "AutoSnapshot"
+            $v = "AutoSnapshot","StopInstanceOnIdle"
             break
         }
 
@@ -101,6 +101,16 @@ $LS_Completers = {
         "Test-LSAlarm/State"
         {
             $v = "ALARM","INSUFFICIENT_DATA","OK"
+            break
+        }
+
+        # Amazon.Lightsail.AppCategory
+        {
+            ($_ -eq "Get-LSBlueprintList/AppCategory") -Or
+            ($_ -eq "Get-LSBundleList/AppCategory")
+        }
+        {
+            $v = "LfR"
             break
         }
 
@@ -342,6 +352,7 @@ $LS_map = @{
     "AccessRules_GetObject"=@("Update-LSBucket")
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
+    "AppCategory"=@("Get-LSBlueprintList","Get-LSBundleList")
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
     "CacheBehaviorSettings_ForwardedCookies_Option"=@("New-LSDistribution","Update-LSDistribution")
     "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
@@ -437,6 +448,7 @@ $LS_SelectMap = @{
                "New-LSDistribution",
                "New-LSDomain",
                "New-LSDomainEntry",
+               "New-LSGUISessionAccessDetail",
                "New-LSInstance",
                "New-LSInstancesFromSnapshot",
                "New-LSInstanceSnapshot",
@@ -494,6 +506,7 @@ $LS_SelectMap = @{
                "Get-LSContainerServiceMetricData",
                "Get-LSContainerServicePower",
                "Get-LSContainerService",
+               "Get-LSCostEstimate",
                "Get-LSDisk",
                "Get-LSDiskList",
                "Get-LSDiskSnapshot",
@@ -552,8 +565,10 @@ $LS_SelectMap = @{
                "Send-LSContactMethodVerification",
                "Set-LSIpAddressType",
                "Set-LSResourceAccessForBucket",
+               "Start-LSGUISession",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
+               "Stop-LSGUISession",
                "Stop-LSInstance",
                "Stop-LSRelationalDatabase",
                "Add-LSResourceTag",

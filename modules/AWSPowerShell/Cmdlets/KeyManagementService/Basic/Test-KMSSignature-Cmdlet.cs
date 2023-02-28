@@ -43,9 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
     /// KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
-    /// To verify a digital signature, you can use the <code>Verify</code> operation. Specify
-    /// the same asymmetric KMS key, message, and signing algorithm that were used to produce
-    /// the signature.
+    /// To use the <code>Verify</code> operation, specify the same asymmetric KMS key, message,
+    /// and signing algorithm that were used to produce the signature. The message type does
+    /// not need to be the same as the one used for signing, but it must indicate whether
+    /// the value of the <code>Message</code> parameter should be hashed as part of the verification
+    /// process.
     /// </para><para>
     /// You can also verify the digital signature by using the public key of the KMS key outside
     /// of KMS. Use the <a>GetPublicKey</a> operation to download the public key in the asymmetric
@@ -140,11 +142,20 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter MessageType
         /// <summary>
         /// <para>
-        /// <para>Tells KMS whether the value of the <code>Message</code> parameter is a message or
-        /// message digest. The default value, RAW, indicates a message. To indicate a message
-        /// digest, enter <code>DIGEST</code>.</para><important><para>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-        /// parameter is a message digest. If you use the <code>DIGEST</code> value with a raw
-        /// message, the security of the verification operation can be compromised.</para></important>
+        /// <para>Tells KMS whether the value of the <code>Message</code> parameter should be hashed
+        /// as part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
+        /// <code>DIGEST</code> for message digests, which are already hashed.</para><para>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
+        /// signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
+        /// KMS skips the hashing step in the signing algorithm.</para><important><para>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
+        /// parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
+        /// message, the security of the verification operation can be compromised.</para></important><para>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
+        /// <code>Message</code> value must match the length of hashed messages for the specified
+        /// signing algorithm.</para><para>You can submit a message digest and omit the <code>MessageType</code> or specify <code>RAW</code>
+        /// so the digest is hashed again while signing. However, if the signed message is hashed
+        /// once while signing, but twice while verifying, verification fails, even when the message
+        /// hasn't changed.</para><para>The hashing algorithm in that <code>Verify</code> uses is based on the <code>SigningAlgorithm</code>
+        /// value.</para><ul><li><para>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</para></li><li><para>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</para></li><li><para>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+        /// verification with SM2 key pairs</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

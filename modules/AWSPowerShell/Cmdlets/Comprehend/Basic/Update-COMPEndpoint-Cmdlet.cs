@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// endpoints</a>.
     /// </summary>
     [Cmdlet("Update", "COMPEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.Comprehend.Model.UpdateEndpointResponse")]
     [AWSCmdlet("Calls the Amazon Comprehend UpdateEndpoint API operation.", Operation = new[] {"UpdateEndpoint"}, SelectReturnType = typeof(Amazon.Comprehend.Model.UpdateEndpointResponse))]
-    [AWSCmdletOutput("None or Amazon.Comprehend.Model.UpdateEndpointResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Comprehend.Model.UpdateEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Comprehend.Model.UpdateEndpointResponse",
+        "This cmdlet returns an Amazon.Comprehend.Model.UpdateEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateCOMPEndpointCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
@@ -91,10 +90,21 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String EndpointArn { get; set; }
         #endregion
         
+        #region Parameter FlywheelArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Number (ARN) of the flywheel</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlywheelArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Comprehend.Model.UpdateEndpointResponse).
+        /// Specifying the name of a property of type Amazon.Comprehend.Model.UpdateEndpointResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter EndpointArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FlywheelArn = this.FlywheelArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.EndpointArn != null)
             {
                 request.EndpointArn = cmdletContext.EndpointArn;
+            }
+            if (cmdletContext.FlywheelArn != null)
+            {
+                request.FlywheelArn = cmdletContext.FlywheelArn;
             }
             
             CmdletOutput output;
@@ -259,8 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.Int32? DesiredInferenceUnit { get; set; }
             public System.String DesiredModelArn { get; set; }
             public System.String EndpointArn { get; set; }
+            public System.String FlywheelArn { get; set; }
             public System.Func<Amazon.Comprehend.Model.UpdateEndpointResponse, UpdateCOMPEndpointCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

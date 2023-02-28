@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Starts a read set export job.
+    /// Exports a read set to Amazon S3.
     /// </summary>
     [Cmdlet("Start", "OMICSReadSetExportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.StartReadSetExportJobResponse")]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Sources for the job.</para>
+        /// <para>The job's source files.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

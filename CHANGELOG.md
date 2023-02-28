@@ -1,4 +1,37 @@
-﻿### 4.1.280 (2023-02-27 22:01Z)
+﻿### 4.1.281 (2023-02-28 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.493.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Comprehend
+    * Added cmdlet Get-COMPDataset leveraging the DescribeDataset service API.
+    * Added cmdlet Get-COMPDatasetList leveraging the ListDatasets service API.
+    * Added cmdlet Get-COMPFlywheel leveraging the DescribeFlywheel service API.
+    * Added cmdlet Get-COMPFlywheelIteration leveraging the DescribeFlywheelIteration service API.
+    * Added cmdlet Get-COMPFlywheelIterationHistoryList leveraging the ListFlywheelIterationHistory service API.
+    * Added cmdlet Get-COMPFlywheelList leveraging the ListFlywheels service API.
+    * Added cmdlet New-COMPDataset leveraging the CreateDataset service API.
+    * Added cmdlet New-COMPFlywheel leveraging the CreateFlywheel service API.
+    * Added cmdlet Remove-COMPFlywheel leveraging the DeleteFlywheel service API.
+    * Added cmdlet Start-COMPFlywheelIteration leveraging the StartFlywheelIteration service API.
+    * Added cmdlet Update-COMPFlywheel leveraging the UpdateFlywheel service API.
+    * Modified cmdlet New-COMPDocumentClassifier: added parameter OutputDataConfig_FlywheelStatsS3Prefix.
+    * Modified cmdlet New-COMPEndpoint: added parameter FlywheelArn.
+    * Modified cmdlet Start-COMPDocumentClassificationJob: added parameter FlywheelArn.
+    * Modified cmdlet Start-COMPEntitiesDetectionJob: added parameter FlywheelArn.
+    * Modified cmdlet Update-COMPEndpoint: added parameter FlywheelArn.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2ImageAttribute: added parameter ImdsSupport.
+  * Amazon Lightsail
+    * Added cmdlet Get-LSCostEstimate leveraging the GetCostEstimate service API.
+    * Added cmdlet New-LSGUISessionAccessDetail leveraging the CreateGUISessionAccessDetails service API.
+    * Added cmdlet Start-LSGUISession leveraging the StartGUISession service API.
+    * Added cmdlet Stop-LSGUISession leveraging the StopGUISession service API.
+    * Modified cmdlet Add-LSDisk: added parameter AutoMounting.
+    * Modified cmdlet Enable-LSAddOn: added parameters StopInstanceOnIdleRequest_Duration and StopInstanceOnIdleRequest_Threshold.
+    * Modified cmdlet Get-LSBlueprintList: added parameter AppCategory.
+    * Modified cmdlet Get-LSBundleList: added parameter AppCategory.
+  * Amazon Managed Blockchain
+    * Modified cmdlet New-MBCAccessor: added parameter Tag.
+
+### 4.1.280 (2023-02-27 22:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.492.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch Internet Monitor. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWIM and can be listed using the command 'Get-AWSCmdletName -Service CWIM'.
   * Amazon Lambda

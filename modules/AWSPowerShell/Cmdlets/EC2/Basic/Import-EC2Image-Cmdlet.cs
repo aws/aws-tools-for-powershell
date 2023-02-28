@@ -28,10 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <note><para>
+    /// To import your virtual machines (VMs) with a console-based experience, you can use
+    /// the <i>Import virtual machine images to Amazon Web Services</i> template in the <a href="https://console.aws.amazon.com/migrationhub/orchestrator">Migration Hub Orchestrator
+    /// console</a>. For more information, see the <a href="https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html"><i>Migration Hub Orchestrator User Guide</i></a>.
+    /// </para></note><para>
     /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
     /// Image (AMI).
-    /// 
-    ///  <important><para>
+    /// </para><important><para>
     /// Amazon Web Services VM Import/Export strongly recommends specifying a value for either
     /// the <code>--license-type</code> or <code>--usage-operation</code> parameter when you
     /// create a new VM Import task. This ensures your operating system is licensed appropriately

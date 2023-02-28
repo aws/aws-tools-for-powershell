@@ -90,9 +90,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter WrappingAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt
-        /// the Key Material</a> in the <i>Key Management Service Developer Guide</i>.</para>
+        /// <para>The algorithm you will use to encrypt the key material before using the <a>ImportKeyMaterial</a>
+        /// operation to import it. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt
+        /// the key material</a> in the <i>Key Management Service Developer Guide</i>.</para><important><para>The <code>RSAES_PKCS1_V1_5</code> wrapping algorithm is deprecated. We recommend that
+        /// you begin using a different wrapping algorithm immediately. KMS will end support for
+        /// <code>RSAES_PKCS1_V1_5</code> by October 1, 2023 pursuant to <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf">cryptographic
+        /// key management guidance</a> from the National Institute of Standards and Technology
+        /// (NIST).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

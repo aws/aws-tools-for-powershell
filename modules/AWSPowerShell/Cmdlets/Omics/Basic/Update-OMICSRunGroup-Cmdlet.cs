@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxDuration
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of time to run.</para>
+        /// <para>A maximum run time for the group in minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

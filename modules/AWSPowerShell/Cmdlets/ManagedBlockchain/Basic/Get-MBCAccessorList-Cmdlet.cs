@@ -28,14 +28,8 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// <important><para>
-    /// The token based access feature is in preview release for Ethereum on Amazon Managed
-    /// Blockchain and is subject to change. We recommend that you use this feature only with
-    /// test scenarios, and not in production environments.
-    /// </para></important><para>
     /// Returns a list of the accessors and their properties. Accessor objects are containers
-    /// that have the information required for token based access to your Ethereum nodes.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// that have the information required for token based access to your Ethereum nodes.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MBCAccessorList")]
     [OutputType("Amazon.ManagedBlockchain.Model.AccessorSummary")]

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The identifier that Amazon Comprehend generated for the job. The operation returns
-        /// this identifier in its response.</para>
+        /// <para>The identifier that Amazon Comprehend generated for the job. The <code>StartTargetedSentimentDetectionJob</code>
+        /// operation returns this identifier in its response.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

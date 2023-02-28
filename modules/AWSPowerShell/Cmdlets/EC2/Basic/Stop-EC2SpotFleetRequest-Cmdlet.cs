@@ -32,9 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
-    /// You must specify whether the Spot Fleet should also terminate its Spot Instances.
-    /// If you terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code>
+    /// After you cancel a Spot Fleet request, the Spot Fleet launches no new instances.
+    /// </para><para>
+    /// You must also specify whether a canceled Spot Fleet request should terminate its instances.
+    /// If you choose to terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code>
     /// state. Otherwise, the Spot Fleet request enters the <code>cancelled_running</code>
     /// state and the instances continue to run until they are interrupted or you terminate
     /// them manually.
@@ -70,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TerminateInstance
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to terminate instances for a Spot Fleet request if it is canceled
-        /// successfully.</para>
+        /// <para>Indicates whether to terminate the associated instances when the Spot Fleet request
+        /// is canceled. The default is to terminate the instances.</para><para>To let the instances continue to run after the Spot Fleet request is canceled, specify
+        /// <code>no-terminate-instances</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

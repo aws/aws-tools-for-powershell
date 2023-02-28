@@ -79,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. Specify a value between
-        /// 1 and 1000. The default value is 1000. To retrieve the remaining results, make another
-        /// call with the returned <code>NextToken</code> value.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results.</para>
+        /// <para>The token to include in another request to get the next page of items. This value
+        /// is <code>null</code> when there are no more items to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.EC2 module, this parameter is only used if you are manually controlling output pagination of the service API call.

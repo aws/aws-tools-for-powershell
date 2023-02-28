@@ -55,12 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// ensures that you use the KMS key that you intend.
     /// </para><para>
     /// Whenever possible, use key policies to give users permission to call the <code>Decrypt</code>
-    /// operation on a particular KMS key, instead of using IAM policies. Otherwise, you might
-    /// create an IAM user policy that gives the user <code>Decrypt</code> permission on all
-    /// KMS keys. This user could decrypt ciphertext that was encrypted by KMS keys in other
-    /// accounts if the key policy for the cross-account KMS key permits it. If you must use
-    /// an IAM policy for <code>Decrypt</code> permissions, limit the user to particular KMS
-    /// keys or particular trusted accounts. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices">Best
+    /// operation on a particular KMS key, instead of using &amp;IAM; policies. Otherwise,
+    /// you might create an &amp;IAM; policy that gives the user <code>Decrypt</code> permission
+    /// on all KMS keys. This user could decrypt ciphertext that was encrypted by KMS keys
+    /// in other accounts if the key policy for the cross-account KMS key permits it. If you
+    /// must use an IAM policy for <code>Decrypt</code> permissions, limit the user to particular
+    /// KMS keys or particular trusted accounts. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices">Best
     /// practices for IAM policies</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para>
     /// Applications in Amazon Web Services Nitro Enclaves can call this operation by using
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para><b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different
-    /// Amazon Web Services account, specify the key ARN or alias ARN in the value of the
-    /// <code>KeyId</code> parameter. 
+    /// </para><para><b>Cross-account use</b>: Yes. If you use the <code>KeyId</code> parameter to identify
+    /// a KMS key in a different Amazon Web Services account, specify the key ARN or the alias
+    /// ARN of the KMS key.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Decrypt</a>
     /// (key policy)
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>Encrypt</a></para></li><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyPair</a></para></li><li><para><a>ReEncrypt</a></para></li></ul>

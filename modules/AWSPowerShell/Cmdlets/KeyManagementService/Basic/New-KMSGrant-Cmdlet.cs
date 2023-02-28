@@ -109,13 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter GranteePrincipal
         /// <summary>
         /// <para>
-        /// <para>The identity that gets the permissions specified in the grant.</para><para>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an Amazon Web Services principal. Valid Amazon Web Services
-        /// principals include Amazon Web Services accounts (root), IAM users, IAM roles, federated
-        /// users, and assumed role users. For examples of the ARN syntax to use for specifying
-        /// a principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon
-        /// Web Services Identity and Access Management (IAM)</a> in the Example ARNs section
-        /// of the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>The identity that gets the permissions specified in the grant.</para><para>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon
+        /// Web Services principal. Valid principals include Amazon Web Services accounts, IAM
+        /// users, IAM roles, federated users, and assumed role users. For help with the ARN syntax
+        /// for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,12 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>The principal that has permission to use the <a>RetireGrant</a> operation to retire
         /// the grant. </para><para>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an Amazon Web Services principal. Valid Amazon Web Services
-        /// principals include Amazon Web Services accounts (root), IAM users, federated users,
-        /// and assumed role users. For examples of the ARN syntax to use for specifying a principal,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon
-        /// Web Services Identity and Access Management (IAM)</a> in the Example ARNs section
-        /// of the <i>Amazon Web Services General Reference</i>.</para><para>The grant determines the retiring principal. Other principals might have permission
+        /// Resource Name (ARN)</a> of an Amazon Web Services principal. Valid principals include
+        /// Amazon Web Services accounts, IAM users, IAM roles, federated users, and assumed role
+        /// users. For help with the ARN syntax for a principal, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// ARNs</a> in the <i><i>Identity and Access Management User Guide</i></i>.</para><para>The grant determines the retiring principal. Other principals might have permission
         /// to retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring
         /// and revoking grants</a> in the <i>Key Management Service Developer Guide</i>. </para>
         /// </para>

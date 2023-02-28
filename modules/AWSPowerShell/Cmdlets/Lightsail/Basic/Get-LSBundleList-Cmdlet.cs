@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSBundleListCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        #region Parameter AppCategory
+        /// <summary>
+        /// <para>
+        /// <para>Returns a list of bundles that are specific to Lightsail for Research.</para><important><para>You must use this parameter to view Lightsail for Research bundles.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.AppCategory")]
+        public Amazon.Lightsail.AppCategory AppCategory { get; set; }
+        #endregion
+        
         #region Parameter IncludeInactive
         /// <summary>
         /// <para>
@@ -134,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = (response, cmdlet) => this.IncludeInactive;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AppCategory = this.AppCategory;
             context.IncludeInactive = this.IncludeInactive;
             context.PageToken = this.PageToken;
             
@@ -156,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request and set iteration invariants
             var request = new Amazon.Lightsail.Model.GetBundlesRequest();
             
+            if (cmdletContext.AppCategory != null)
+            {
+                request.AppCategory = cmdletContext.AppCategory;
+            }
             if (cmdletContext.IncludeInactive != null)
             {
                 request.IncludeInactive = cmdletContext.IncludeInactive.Value;
@@ -245,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Lightsail.AppCategory AppCategory { get; set; }
             public System.Boolean? IncludeInactive { get; set; }
             public System.String PageToken { get; set; }
             public System.Func<Amazon.Lightsail.Model.GetBundlesResponse, GetLSBundleListCmdlet, object> Select { get; set; } =

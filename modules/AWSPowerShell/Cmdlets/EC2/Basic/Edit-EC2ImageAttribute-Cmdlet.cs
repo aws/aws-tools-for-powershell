@@ -29,11 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
-    /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
-    /// or one of the following parameters: <code>Description</code> or <code>LaunchPermission</code>.
+    /// at a time.
     /// 
     ///  
     /// <para>
+    /// To specify the attribute, you can use the <code>Attribute</code> parameter, or one
+    /// of the following parameters: <code>Description</code>, <code>ImdsSupport</code>, or
+    /// <code>LaunchPermission</code>.
+    /// </para><para>
     /// Images with an Amazon Web Services Marketplace product code cannot be made public.
     /// </para><para>
     /// To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport
@@ -64,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify.</para><para>Valid values: <code>description</code> | <code>launchPermission</code></para>
+        /// <para>The name of the attribute to modify.</para><para>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,6 +99,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImageId { get; set; }
+        #endregion
+        
+        #region Parameter ImdsSupport
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
+        /// launched from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code>
+        /// so that, by default, the instance requires that IMDSv2 is used when requesting instance
+        /// metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+        /// the AMI</a> in the <i>Amazon EC2 User Guide</i>.</para><important><para>Do not use this parameter unless your AMI software supports IMDSv2. After you set
+        /// the value to <code>v2.0</code>, you can't undo it. The only way to “reset” your AMI
+        /// is to create a new AMI from the underlying snapshot.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImdsSupport { get; set; }
         #endregion
         
         #region Parameter OperationType
@@ -184,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The value of the attribute being modified. This parameter can be used only when the
-        /// <code>Attribute</code> parameter is <code>description</code>.</para>
+        /// <code>Attribute</code> parameter is <code>description</code> or <code>imdsSupport</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ImageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImdsSupport = this.ImdsSupport;
             if (this.LaunchPermission_Add != null)
             {
                 context.LaunchPermission_Add = new List<Amazon.EC2.Model.LaunchPermission>(this.LaunchPermission_Add);
@@ -318,6 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ImageId != null)
             {
                 request.ImageId = cmdletContext.ImageId;
+            }
+            if (cmdletContext.ImdsSupport != null)
+            {
+                request.ImdsSupport = cmdletContext.ImdsSupport;
             }
             
              // populate LaunchPermission
@@ -440,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Attribute { get; set; }
             public System.String Description { get; set; }
             public System.String ImageId { get; set; }
+            public System.String ImdsSupport { get; set; }
             public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Add { get; set; }
             public List<Amazon.EC2.Model.LaunchPermission> LaunchPermission_Remove { get; set; }
             public Amazon.EC2.OperationType OperationType { get; set; }

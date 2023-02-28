@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class AddLSDiskCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        #region Parameter AutoMounting
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value used to determine the automatic mounting of a storage volume to a
+        /// virtual computer. The default value is <code>False</code>.</para><important><para>This value only applies to Lightsail for Research resources.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoMounting { get; set; }
+        #endregion
+        
         #region Parameter DiskName
         /// <summary>
         /// <para>
@@ -162,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = (response, cmdlet) => this.InstanceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoMounting = this.AutoMounting;
             context.DiskName = this.DiskName;
             #if MODULAR
             if (this.DiskName == null && ParameterWasBound(nameof(this.DiskName)))
@@ -199,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.AttachDiskRequest();
             
+            if (cmdletContext.AutoMounting != null)
+            {
+                request.AutoMounting = cmdletContext.AutoMounting.Value;
+            }
             if (cmdletContext.DiskName != null)
             {
                 request.DiskName = cmdletContext.DiskName;
@@ -272,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AutoMounting { get; set; }
             public System.String DiskName { get; set; }
             public System.String DiskPath { get; set; }
             public System.String InstanceName { get; set; }

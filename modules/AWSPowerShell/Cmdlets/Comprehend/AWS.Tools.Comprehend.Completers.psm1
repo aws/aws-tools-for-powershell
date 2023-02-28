@@ -80,6 +80,30 @@ $COMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Comprehend.DatasetDataFormat
+        "New-COMPDataset/InputDataConfig_DataFormat"
+        {
+            $v = "AUGMENTED_MANIFEST","COMPREHEND_CSV"
+            break
+        }
+
+        # Amazon.Comprehend.DatasetStatus
+        "Get-COMPDatasetList/Filter_Status"
+        {
+            $v = "COMPLETED","CREATING","FAILED"
+            break
+        }
+
+        # Amazon.Comprehend.DatasetType
+        {
+            ($_ -eq "New-COMPDataset/DatasetType") -Or
+            ($_ -eq "Get-COMPDatasetList/Filter_DatasetType")
+        }
+        {
+            $v = "TEST","TRAIN"
+            break
+        }
+
         # Amazon.Comprehend.DocumentClassifierDataFormat
         "New-COMPDocumentClassifier/InputDataConfig_DataFormat"
         {
@@ -88,7 +112,10 @@ $COMP_Completers = {
         }
 
         # Amazon.Comprehend.DocumentClassifierMode
-        "New-COMPDocumentClassifier/Mode"
+        {
+            ($_ -eq "New-COMPDocumentClassifier/Mode") -Or
+            ($_ -eq "New-COMPFlywheel/TaskConfig_DocumentClassificationConfig_Mode")
+        }
         {
             $v = "MULTI_CLASS","MULTI_LABEL"
             break
@@ -128,8 +155,18 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.FlywheelStatus
+        "Get-COMPFlywheelList/Filter_Status"
+        {
+            $v = "ACTIVE","CREATING","DELETING","FAILED","UPDATING"
+            break
+        }
+
         # Amazon.Comprehend.InputFormat
-        "New-COMPEntityRecognizer/InputDataConfig_Documents_InputFormat"
+        {
+            ($_ -eq "New-COMPEntityRecognizer/InputDataConfig_Documents_InputFormat") -Or
+            ($_ -eq "New-COMPDataset/InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat")
+        }
         {
             $v = "ONE_DOC_PER_FILE","ONE_DOC_PER_LINE"
             break
@@ -165,7 +202,8 @@ $COMP_Completers = {
             ($_ -eq "Start-COMPKeyPhrasesDetectionJob/LanguageCode") -Or
             ($_ -eq "Start-COMPPiiEntitiesDetectionJob/LanguageCode") -Or
             ($_ -eq "Start-COMPSentimentDetectionJob/LanguageCode") -Or
-            ($_ -eq "Start-COMPTargetedSentimentDetectionJob/LanguageCode")
+            ($_ -eq "Start-COMPTargetedSentimentDetectionJob/LanguageCode") -Or
+            ($_ -eq "New-COMPFlywheel/TaskConfig_LanguageCode")
         }
         {
             $v = "ar","de","en","es","fr","hi","it","ja","ko","pt","zh","zh-TW"
@@ -179,6 +217,13 @@ $COMP_Completers = {
         }
         {
             $v = "DELETING","IN_ERROR","STOPPED","STOP_REQUESTED","SUBMITTED","TRAINED","TRAINING"
+            break
+        }
+
+        # Amazon.Comprehend.ModelType
+        "New-COMPFlywheel/ModelType"
+        {
+            $v = "DOCUMENT_CLASSIFIER","ENTITY_RECOGNIZER"
             break
         }
 
@@ -215,15 +260,21 @@ $COMP_Completers = {
 }
 
 $COMP_map = @{
+    "DatasetType"=@("New-COMPDataset")
     "DocumentReaderConfig_DocumentReadAction"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
     "DocumentReaderConfig_DocumentReadMode"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
+    "Filter_DatasetType"=@("Get-COMPDatasetList")
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
-    "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
-    "InputDataConfig_DataFormat"=@("New-COMPDocumentClassifier","New-COMPEntityRecognizer")
+    "Filter_Status"=@("Get-COMPDatasetList","Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList","Get-COMPFlywheelList")
+    "InputDataConfig_DataFormat"=@("New-COMPDataset","New-COMPDocumentClassifier","New-COMPEntityRecognizer")
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
+    "InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat"=@("New-COMPDataset")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
+    "ModelType"=@("New-COMPFlywheel")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
+    "TaskConfig_DocumentClassificationConfig_Mode"=@("New-COMPFlywheel")
+    "TaskConfig_LanguageCode"=@("New-COMPFlywheel")
 }
 
 _awsArgumentCompleterRegistration $COMP_Completers $COMP_map
@@ -284,13 +335,17 @@ $COMP_SelectMap = @{
                "Find-COMPTargetedSentimentBatch",
                "Invoke-COMPDocumentClassification",
                "Find-COMPPiiEntityType",
+               "New-COMPDataset",
                "New-COMPDocumentClassifier",
                "New-COMPEndpoint",
                "New-COMPEntityRecognizer",
+               "New-COMPFlywheel",
                "Remove-COMPDocumentClassifier",
                "Remove-COMPEndpoint",
                "Remove-COMPEntityRecognizer",
+               "Remove-COMPFlywheel",
                "Remove-COMPResourcePolicy",
+               "Get-COMPDataset",
                "Get-COMPDocumentClassificationJob",
                "Get-COMPDocumentClassifier",
                "Get-COMPDominantLanguageDetectionJob",
@@ -298,6 +353,8 @@ $COMP_SelectMap = @{
                "Get-COMPEntitiesDetectionJob",
                "Get-COMPEntityRecognizer",
                "Get-COMPEventsDetectionJob",
+               "Get-COMPFlywheel",
+               "Get-COMPFlywheelIteration",
                "Get-COMPKeyPhrasesDetectionJob",
                "Get-COMPPiiEntitiesDetectionJob",
                "Get-COMPResourcePolicy",
@@ -312,6 +369,7 @@ $COMP_SelectMap = @{
                "Find-COMPSyntax",
                "Find-COMPTargetedSentiment",
                "Import-COMPModel",
+               "Get-COMPDatasetList",
                "Get-COMPDocumentClassificationJobList",
                "Get-COMPDocumentClassifierList",
                "Get-COMPDocumentClassifierSummaryList",
@@ -321,6 +379,8 @@ $COMP_SelectMap = @{
                "Get-COMPEntityRecognizerList",
                "Get-COMPEntityRecognizerSummaryList",
                "Get-COMPEventsDetectionJobList",
+               "Get-COMPFlywheelIterationHistoryList",
+               "Get-COMPFlywheelList",
                "Get-COMPKeyPhrasesDetectionJobList",
                "Get-COMPPiiEntitiesDetectionJobList",
                "Get-COMPSentimentDetectionJobList",
@@ -332,6 +392,7 @@ $COMP_SelectMap = @{
                "Start-COMPDominantLanguageDetectionJob",
                "Start-COMPEntitiesDetectionJob",
                "Start-COMPEventsDetectionJob",
+               "Start-COMPFlywheelIteration",
                "Start-COMPKeyPhrasesDetectionJob",
                "Start-COMPPiiEntitiesDetectionJob",
                "Start-COMPSentimentDetectionJob",
@@ -348,7 +409,8 @@ $COMP_SelectMap = @{
                "Stop-COMPTrainingEntityRecognizer",
                "Add-COMPResourceTag",
                "Remove-COMPResourceTag",
-               "Update-COMPEndpoint")
+               "Update-COMPEndpoint",
+               "Update-COMPFlywheel")
 }
 
 _awsArgumentCompleterRegistration $COMP_SelectCompleters $COMP_SelectMap

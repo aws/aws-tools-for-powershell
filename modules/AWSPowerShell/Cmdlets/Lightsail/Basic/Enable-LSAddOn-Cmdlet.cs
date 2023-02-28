@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public Amazon.Lightsail.AddOnType AddOnRequest_AddOnType { get; set; }
         #endregion
         
+        #region Parameter StopInstanceOnIdleRequest_Duration
+        /// <summary>
+        /// <para>
+        /// <para>The amount of idle time in minutes after which your virtual computer will automatically
+        /// stop.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddOnRequest_StopInstanceOnIdleRequest_Duration")]
+        public System.String StopInstanceOnIdleRequest_Duration { get; set; }
+        #endregion
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>
@@ -86,6 +98,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AddOnRequest_AutoSnapshotAddOnRequest_SnapshotTimeOfDay")]
         public System.String AutoSnapshotAddOnRequest_SnapshotTimeOfDay { get; set; }
+        #endregion
+        
+        #region Parameter StopInstanceOnIdleRequest_Threshold
+        /// <summary>
+        /// <para>
+        /// <para>The value to compare with the duration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AddOnRequest_StopInstanceOnIdleRequest_Threshold")]
+        public System.String StopInstanceOnIdleRequest_Threshold { get; set; }
         #endregion
         
         #region Parameter Select
@@ -158,6 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             #endif
             context.AutoSnapshotAddOnRequest_SnapshotTimeOfDay = this.AutoSnapshotAddOnRequest_SnapshotTimeOfDay;
+            context.StopInstanceOnIdleRequest_Duration = this.StopInstanceOnIdleRequest_Duration;
+            context.StopInstanceOnIdleRequest_Threshold = this.StopInstanceOnIdleRequest_Threshold;
             context.ResourceName = this.ResourceName;
             #if MODULAR
             if (this.ResourceName == null && ParameterWasBound(nameof(this.ResourceName)))
@@ -218,6 +243,41 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestAddOnRequest_addOnRequest_AutoSnapshotAddOnRequest != null)
             {
                 request.AddOnRequest.AutoSnapshotAddOnRequest = requestAddOnRequest_addOnRequest_AutoSnapshotAddOnRequest;
+                requestAddOnRequestIsNull = false;
+            }
+            Amazon.Lightsail.Model.StopInstanceOnIdleRequest requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest = null;
+            
+             // populate StopInstanceOnIdleRequest
+            var requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequestIsNull = true;
+            requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest = new Amazon.Lightsail.Model.StopInstanceOnIdleRequest();
+            System.String requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Duration = null;
+            if (cmdletContext.StopInstanceOnIdleRequest_Duration != null)
+            {
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Duration = cmdletContext.StopInstanceOnIdleRequest_Duration;
+            }
+            if (requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Duration != null)
+            {
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest.Duration = requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Duration;
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequestIsNull = false;
+            }
+            System.String requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Threshold = null;
+            if (cmdletContext.StopInstanceOnIdleRequest_Threshold != null)
+            {
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Threshold = cmdletContext.StopInstanceOnIdleRequest_Threshold;
+            }
+            if (requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Threshold != null)
+            {
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest.Threshold = requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest_stopInstanceOnIdleRequest_Threshold;
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequestIsNull = false;
+            }
+             // determine if requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest should be set to null
+            if (requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequestIsNull)
+            {
+                requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest = null;
+            }
+            if (requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest != null)
+            {
+                request.AddOnRequest.StopInstanceOnIdleRequest = requestAddOnRequest_addOnRequest_StopInstanceOnIdleRequest;
                 requestAddOnRequestIsNull = false;
             }
              // determine if request.AddOnRequest should be set to null
@@ -292,6 +352,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public Amazon.Lightsail.AddOnType AddOnRequest_AddOnType { get; set; }
             public System.String AutoSnapshotAddOnRequest_SnapshotTimeOfDay { get; set; }
+            public System.String StopInstanceOnIdleRequest_Duration { get; set; }
+            public System.String StopInstanceOnIdleRequest_Threshold { get; set; }
             public System.String ResourceName { get; set; }
             public System.Func<Amazon.Lightsail.Model.EnableAddOnResponse, EnableLSAddOnCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operations;

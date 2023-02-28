@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>Sources for the job.</para>
+        /// <para>The job's source files.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

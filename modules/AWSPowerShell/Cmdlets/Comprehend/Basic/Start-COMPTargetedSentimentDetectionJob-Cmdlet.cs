@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Starts an asynchronous targeted sentiment detection job for a collection of documents.
-    /// Use the operation to track the status of a job.
+    /// Use the <code>DescribeTargetedSentimentDetectionJob</code> operation to track the
+    /// status of a job.
     /// </summary>
     [Cmdlet("Start", "COMPTargetedSentimentDetectionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Comprehend.Model.StartTargetedSentimentDetectionJobResponse")]
@@ -164,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the targeted sentiment detection job. A tag is a key-value
+        /// <para>Tags to associate with the targeted sentiment detection job. A tag is a key-value
         /// pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag
         /// with "Sales" as the key might be added to a resource to indicate its use by the sales
         /// department.</para>

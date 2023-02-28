@@ -109,6 +109,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGUISessionAccessDetails" OutputProperty="*" Verb="New" Noun="GUISessionAccessDetail" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInstances" OutputProperty="Operations" Verb="New" Noun="Instance" ShouldProcessTarget="InstanceNames" PipelineParameter="InstanceNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -336,6 +340,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetContainerServices" OutputProperty="ContainerServices" Verb="Get" Noun="ContainerService" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCostEstimate" OutputProperty="ResourcesBudgetEstimate" Verb="Get" Noun="CostEstimate" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -571,11 +579,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartGUISession" OutputProperty="Operations" Verb="Start" Noun="GUISession" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartInstance" OutputProperty="Operations" Verb="Start" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartRelationalDatabase" OutputProperty="Operations" Verb="Start" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopGUISession" OutputProperty="Operations" Verb="Stop" Noun="GUISession" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

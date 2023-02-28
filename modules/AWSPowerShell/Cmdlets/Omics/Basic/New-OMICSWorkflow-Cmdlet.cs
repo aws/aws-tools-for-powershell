@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter RequestId
         /// <summary>
         /// <para>
-        /// <para>A request ID for the workflow.</para>
+        /// <para>To ensure that requests don't run multiple times, specify a unique ID for each request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>A storage capacity for the workflow.</para>
+        /// <para>A storage capacity for the workflow in gigabytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

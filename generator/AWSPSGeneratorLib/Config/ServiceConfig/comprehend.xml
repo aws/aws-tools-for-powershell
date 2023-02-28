@@ -51,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" AnonymousShouldProcessTarget="true" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDocumentClassifier" OutputProperty="DocumentClassifierArn" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEntityRecognizer" OutputProperty="EntityRecognizerArn" Verb="New" Noun="EntityRecognizer" ShouldProcessTarget="RecognizerName" PipelineParameter="RecognizerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFlywheel" OutputProperty="*" Verb="New" Noun="Flywheel" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,7 +83,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFlywheel" Verb="Remove" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="DatasetProperties" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -104,6 +120,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEventsDetectionJob" OutputProperty="EventsDetectionJobProperties" Verb="Get" Noun="EventsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlywheel" OutputProperty="FlywheelProperties" Verb="Get" Noun="Flywheel" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlywheelIteration" OutputProperty="FlywheelIterationProperties" Verb="Get" Noun="FlywheelIteration" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -163,6 +187,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="DatasetPropertiesList" Verb="Get" Noun="DatasetList" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -196,6 +224,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEventsDetectionJobs" OutputProperty="EventsDetectionJobPropertiesList" Verb="Get" Noun="EventsDetectionJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlywheelIterationHistory" OutputProperty="FlywheelIterationPropertiesList" Verb="Get" Noun="FlywheelIterationHistoryList" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlywheels" OutputProperty="FlywheelSummaryList" Verb="Get" Noun="FlywheelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -240,6 +276,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartEventsDetectionJob" OutputProperty="*" Verb="Start" Noun="EventsDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFlywheelIteration" OutputProperty="*" Verb="Start" Noun="FlywheelIteration" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -307,7 +347,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpoint" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="*" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFlywheel" OutputProperty="FlywheelProperties" Verb="Update" Noun="Flywheel" ShouldProcessTarget="FlywheelArn" PipelineParameter="FlywheelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

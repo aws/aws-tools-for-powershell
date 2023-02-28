@@ -361,7 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchSpecification_UserData
         /// <summary>
         /// <para>
-        /// <para>The Base64-encoded user data for the instance.</para>
+        /// <para>The base64-encoded user data that instances use when starting up. User data is limited
+        /// to 16 KB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

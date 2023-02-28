@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to assign to the node. Each tag consists of a key and optional value.</para><para>When specifying tags during creation, you can specify multiple key-value pairs in
-        /// a single request, with an overall maximum of 50 tags added to each resource.</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// <para>Tags to assign to the node.</para><para> Each tag consists of a key and an optional value. You can specify multiple key-value
+        /// pairs in a single request with an overall maximum of 50 tags allowed per resource.</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
         /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
         /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
         /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para>

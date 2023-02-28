@@ -28,15 +28,8 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// <important><para>
-    /// The token based access feature is in preview release for Ethereum on Amazon Managed
-    /// Blockchain and is subject to change. We recommend that you use this feature only with
-    /// test scenarios, and not in production environments.
-    /// </para></important><para>
     /// Creates a new accessor for use with Managed Blockchain Ethereum nodes. An accessor
-    /// object is a container that has the information required for token based access to
-    /// your Ethereum nodes.
-    /// </para>
+    /// contains information required for token based access to your Ethereum nodes.
     /// </summary>
     [Cmdlet("New", "MBCAccessor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ManagedBlockchain.Model.CreateAccessorResponse")]
@@ -76,6 +69,21 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to the Accessor.</para><para> Each tag consists of a key and an optional value. You can specify multiple key-value
+        /// pairs in a single request with an overall maximum of 50 tags allowed per resource.</para><para>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or
+        /// <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging
+        /// Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -148,6 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -235,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         {
             public Amazon.ManagedBlockchain.AccessorType AccessorType { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.CreateAccessorResponse, NewMBCAccessorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

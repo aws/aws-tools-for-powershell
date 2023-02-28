@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that
-        /// allows Amazon Comprehend to use Amazon Key Management Service (KMS) to encrypt or
-        /// decrypt the custom model.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
+        /// that grants Amazon Comprehend permission to use Amazon Key Management Service (KMS)
+        /// to encrypt or decrypt the custom model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be associated with the custom model that is created by this import. A tag
-        /// is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend.
-        /// For example, a tag with "Sales" as the key might be added to a resource to indicate
-        /// its use by the sales department.</para>
+        /// <para>Tags to associate with the custom model that is created by this import. A tag is a
+        /// key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For
+        /// example, a tag with "Sales" as the key might be added to a resource to indicate its
+        /// use by the sales department.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
