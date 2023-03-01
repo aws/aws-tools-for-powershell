@@ -10473,6 +10473,7 @@ $CCAT_SelectMap = @{
                "Start-CCATDevEnvironment",
                "Start-CCATDevEnvironmentSession",
                "Stop-CCATDevEnvironment",
+               "Stop-CCATDevEnvironmentSession",
                "Update-CCATDevEnvironment",
                "Confirm-CCATSession")
 }
@@ -43179,7 +43180,9 @@ $PLS_SelectCompleters = {
 $PLS_SelectMap = @{
     "Select"=@("Get-PLSService",
                "Get-PLSAttributeValue",
-               "Get-PLSProduct")
+               "Get-PLSPriceListFileUrl",
+               "Get-PLSProduct",
+               "Get-PLSPriceListList")
 }
 
 _awsArgumentCompleterRegistration $PLS_SelectCompleters $PLS_SelectMap
@@ -48486,6 +48489,7 @@ $S3O_SelectMap = @{
     "Select"=@("New-S3OEndpoint",
                "Remove-S3OEndpoint",
                "Get-S3OEndpointList",
+               "Get-S3OOutpostsWithS3List",
                "Get-S3OSharedEndpointList")
 }
 

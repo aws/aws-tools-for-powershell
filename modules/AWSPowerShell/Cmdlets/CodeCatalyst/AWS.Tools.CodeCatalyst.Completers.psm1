@@ -183,6 +183,7 @@ $CCAT_SelectMap = @{
                "Start-CCATDevEnvironment",
                "Start-CCATDevEnvironmentSession",
                "Stop-CCATDevEnvironment",
+               "Stop-CCATDevEnvironmentSession",
                "Update-CCATDevEnvironment",
                "Confirm-CCATSession")
 }

@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-CCATDevEnvironment', 
         'Start-CCATDevEnvironmentSession', 
         'Stop-CCATDevEnvironment', 
+        'Stop-CCATDevEnvironmentSession', 
         'Update-CCATDevEnvironment')
 
     # Variables to export from this module

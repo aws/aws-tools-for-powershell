@@ -152,6 +152,7 @@ $S3O_SelectMap = @{
     "Select"=@("New-S3OEndpoint",
                "Remove-S3OEndpoint",
                "Get-S3OEndpointList",
+               "Get-S3OOutpostsWithS3List",
                "Get-S3OSharedEndpointList")
 }
 

@@ -106,6 +106,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopDevEnvironmentSession" OutputProperty="*" Verb="Stop" Noun="DevEnvironmentSession" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevEnvironment" OutputProperty="*" Verb="Update" Noun="DevEnvironment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

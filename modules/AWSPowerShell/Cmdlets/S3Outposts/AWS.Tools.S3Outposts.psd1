@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Get-S3OEndpointList', 
+        'Get-S3OOutpostsWithS3List', 
         'Get-S3OSharedEndpointList', 
         'New-S3OEndpoint', 
         'Remove-S3OEndpoint')

@@ -4034,6 +4034,7 @@ Set-Alias -Name CCAT-ListSpaces -Value Get-CCATSpaceList
 Set-Alias -Name CCAT-StartDevEnvironment -Value Start-CCATDevEnvironment
 Set-Alias -Name CCAT-StartDevEnvironmentSession -Value Start-CCATDevEnvironmentSession
 Set-Alias -Name CCAT-StopDevEnvironment -Value Stop-CCATDevEnvironment
+Set-Alias -Name CCAT-StopDevEnvironmentSession -Value Stop-CCATDevEnvironmentSession
 Set-Alias -Name CCAT-UpdateDevEnvironment -Value Update-CCATDevEnvironment
 Set-Alias -Name Verify-CCATSession -Value Confirm-CCATSession
 Set-Alias -Name CCAT-VerifySession -Value Confirm-CCATSession
@@ -18443,8 +18444,12 @@ Set-Alias -Name Describe-PLSService -Value Get-PLSService
 Set-Alias -Name PLS-DescribeServices -Value Get-PLSService
 Set-Alias -Name Get-PLSAttributeValues -Value Get-PLSAttributeValue
 Set-Alias -Name PLS-GetAttributeValues -Value Get-PLSAttributeValue
+Set-Alias -Name PLS-GetPriceListFileUrl -Value Get-PLSPriceListFileUrl
 Set-Alias -Name Get-PLSProducts -Value Get-PLSProduct
 Set-Alias -Name PLS-GetProducts -Value Get-PLSProduct
+Set-Alias -Name List-PLSPriceLists -Value Get-PLSPriceListList
+Set-Alias -Name List-PLSPriceListList -Value Get-PLSPriceListList
+Set-Alias -Name PLS-ListPriceLists -Value Get-PLSPriceListList
 Set-Alias -Name Create-PDCell -Value New-PDCell
 Set-Alias -Name PD-CreateCell -Value New-PDCell
 Set-Alias -Name Create-PDCrossAccountAuthorization -Value New-PDCrossAccountAuthorization
@@ -20861,6 +20866,9 @@ Set-Alias -Name S3O-DeleteEndpoint -Value Remove-S3OEndpoint
 Set-Alias -Name List-S3OEndpoints -Value Get-S3OEndpointList
 Set-Alias -Name List-S3OEndpointList -Value Get-S3OEndpointList
 Set-Alias -Name S3O-ListEndpoints -Value Get-S3OEndpointList
+Set-Alias -Name List-S3OOutpostsWithS3 -Value Get-S3OOutpostsWithS3List
+Set-Alias -Name List-S3OOutpostsWithS3List -Value Get-S3OOutpostsWithS3List
+Set-Alias -Name S3O-ListOutpostsWithS3 -Value Get-S3OOutpostsWithS3List
 Set-Alias -Name List-S3OSharedEndpoints -Value Get-S3OSharedEndpointList
 Set-Alias -Name List-S3OSharedEndpointList -Value Get-S3OSharedEndpointList
 Set-Alias -Name S3O-ListSharedEndpoints -Value Get-S3OSharedEndpointList

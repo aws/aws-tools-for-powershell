@@ -1,4 +1,14 @@
-﻿### 4.1.281 (2023-02-28 21:59Z)
+﻿### 4.1.282 (2023-03-01 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.494.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CodeCatalyst
+    * Added cmdlet Stop-CCATDevEnvironmentSession leveraging the StopDevEnvironmentSession service API.
+  * Amazon Price List Service
+    * Added cmdlet Get-PLSPriceListFileUrl leveraging the GetPriceListFileUrl service API.
+    * Added cmdlet Get-PLSPriceListList leveraging the ListPriceLists service API.
+  * Amazon S3 Outposts
+    * Added cmdlet Get-S3OOutpostsWithS3List leveraging the ListOutpostsWithS3 service API.
+
+### 4.1.281 (2023-02-28 21:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.493.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Comprehend
     * Added cmdlet Get-COMPDataset leveraging the DescribeDataset service API.

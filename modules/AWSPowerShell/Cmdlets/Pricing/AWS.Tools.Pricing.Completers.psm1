@@ -125,7 +125,9 @@ $PLS_SelectCompleters = {
 $PLS_SelectMap = @{
     "Select"=@("Get-PLSService",
                "Get-PLSAttributeValue",
-               "Get-PLSProduct")
+               "Get-PLSPriceListFileUrl",
+               "Get-PLSProduct",
+               "Get-PLSPriceListList")
 }
 
 _awsArgumentCompleterRegistration $PLS_SelectCompleters $PLS_SelectMap
