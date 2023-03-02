@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor
-    /// the data captured for an Amazon SageMaker Endoint.
+    /// the data captured for an Amazon SageMaker Endpoint.
     /// </summary>
     [Cmdlet("New", "SMMonitoringSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

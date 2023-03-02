@@ -1,4 +1,12 @@
-﻿### 4.1.282 (2023-03-01 21:55Z)
+﻿### 4.1.283 (2023-03-02 22:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.495.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT
+    * Modified cmdlet New-IOTJob: added parameter SchedulingConfig_MaintenanceWindow.
+    * Modified cmdlet New-IOTJobTemplate: added parameter MaintenanceWindow.
+  * Amazon Performance Insights
+    * Modified cmdlet Get-PIResourceMetric: added parameter PeriodAlignment.
+
+### 4.1.282 (2023-03-01 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.494.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CodeCatalyst
     * Added cmdlet Stop-CCATDevEnvironmentSession leveraging the StopDevEnvironmentSession service API.

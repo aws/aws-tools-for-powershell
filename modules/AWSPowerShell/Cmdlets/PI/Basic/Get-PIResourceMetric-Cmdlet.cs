@@ -104,6 +104,18 @@ namespace Amazon.PowerShell.Cmdlets.PI
         public Amazon.PI.Model.MetricQuery[] MetricQuery { get; set; }
         #endregion
         
+        #region Parameter PeriodAlignment
+        /// <summary>
+        /// <para>
+        /// <para>The returned timestamp which is the start or end time of the time periods. The default
+        /// value is <code>END_TIME</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PI.PeriodAlignment")]
+        public Amazon.PI.PeriodAlignment PeriodAlignment { get; set; }
+        #endregion
+        
         #region Parameter PeriodInSecond
         /// <summary>
         /// <para>
@@ -234,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PeriodAlignment = this.PeriodAlignment;
             context.PeriodInSecond = this.PeriodInSecond;
             context.ServiceType = this.ServiceType;
             #if MODULAR
@@ -284,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.PeriodAlignment != null)
+            {
+                request.PeriodAlignment = cmdletContext.PeriodAlignment;
             }
             if (cmdletContext.PeriodInSecond != null)
             {
@@ -363,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
             public System.Int32? MaxResult { get; set; }
             public List<Amazon.PI.Model.MetricQuery> MetricQuery { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.PI.PeriodAlignment PeriodAlignment { get; set; }
             public System.Int32? PeriodInSecond { get; set; }
             public Amazon.PI.ServiceType ServiceType { get; set; }
             public System.DateTime? StartTime { get; set; }

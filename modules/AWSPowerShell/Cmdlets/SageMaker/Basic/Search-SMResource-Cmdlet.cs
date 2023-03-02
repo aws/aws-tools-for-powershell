@@ -28,14 +28,18 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Finds Amazon SageMaker resources that match a search query. Matching resources are
-    /// returned as a list of <code>SearchRecord</code> objects in the response. You can sort
-    /// the search results by any resource property in a ascending or descending order.
+    /// Finds SageMaker resources that match a search query. Matching resources are returned
+    /// as a list of <code>SearchRecord</code> objects in the response. You can sort the search
+    /// results by any resource property in a ascending or descending order.
     /// 
     ///  
     /// <para>
     /// You can query against the following value types: numeric, text, Boolean, and timestamp.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// The Search API may provide access to otherwise restricted data. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon
+    /// SageMaker API Permissions: Actions, Permissions, and Resources Reference</a> for more
+    /// information.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "SMResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMaker.Model.SearchRecord")]
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker resource to search for.</para>
+        /// <para>The name of the SageMaker resource to search for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

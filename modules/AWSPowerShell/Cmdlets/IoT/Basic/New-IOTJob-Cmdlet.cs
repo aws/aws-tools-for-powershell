@@ -133,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// from the current time and be scheduled a minimum of thirty minutes from the current
         /// time. The minimum duration between <code>startTime</code> and <code>endTime</code>
         /// is thirty minutes. The maximum duration between <code>startTime</code> and <code>endTime</code>
-        /// is two years. </para>
+        /// is two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD
+        /// for the date and HH:MM for the time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,6 +208,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String JobTemplateArn { get; set; }
         #endregion
         
+        #region Parameter SchedulingConfig_MaintenanceWindow
+        /// <summary>
+        /// <para>
+        /// <para>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring
+        /// maintenance window with a predetermined start time and duration for the rollout of
+        /// a job document to all devices in a target group for a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SchedulingConfig_MaintenanceWindows")]
+        public Amazon.IoT.Model.MaintenanceWindow[] SchedulingConfig_MaintenanceWindow { get; set; }
+        #endregion
+        
         #region Parameter JobExecutionsRolloutConfig_MaximumPerMinute
         /// <summary>
         /// <para>
@@ -247,7 +261,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The time a job will begin rollout of the job document to all devices in the target
         /// group for a job. The <code>startTime</code> can be scheduled up to a year in advance
-        /// and must be scheduled a minimum of thirty minutes from the current time.</para>
+        /// and must be scheduled a minimum of thirty minutes from the current time. The date
+        /// and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM
+        /// for the time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -396,6 +412,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.PresignedUrlConfig_RoleArn = this.PresignedUrlConfig_RoleArn;
             context.SchedulingConfig_EndBehavior = this.SchedulingConfig_EndBehavior;
             context.SchedulingConfig_EndTime = this.SchedulingConfig_EndTime;
+            if (this.SchedulingConfig_MaintenanceWindow != null)
+            {
+                context.SchedulingConfig_MaintenanceWindow = new List<Amazon.IoT.Model.MaintenanceWindow>(this.SchedulingConfig_MaintenanceWindow);
+            }
             context.SchedulingConfig_StartTime = this.SchedulingConfig_StartTime;
             if (this.Tag != null)
             {
@@ -577,6 +597,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.SchedulingConfig.EndTime = requestSchedulingConfig_schedulingConfig_EndTime;
                 requestSchedulingConfigIsNull = false;
             }
+            List<Amazon.IoT.Model.MaintenanceWindow> requestSchedulingConfig_schedulingConfig_MaintenanceWindow = null;
+            if (cmdletContext.SchedulingConfig_MaintenanceWindow != null)
+            {
+                requestSchedulingConfig_schedulingConfig_MaintenanceWindow = cmdletContext.SchedulingConfig_MaintenanceWindow;
+            }
+            if (requestSchedulingConfig_schedulingConfig_MaintenanceWindow != null)
+            {
+                request.SchedulingConfig.MaintenanceWindows = requestSchedulingConfig_schedulingConfig_MaintenanceWindow;
+                requestSchedulingConfigIsNull = false;
+            }
             System.String requestSchedulingConfig_schedulingConfig_StartTime = null;
             if (cmdletContext.SchedulingConfig_StartTime != null)
             {
@@ -699,6 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String PresignedUrlConfig_RoleArn { get; set; }
             public Amazon.IoT.JobEndBehavior SchedulingConfig_EndBehavior { get; set; }
             public System.String SchedulingConfig_EndTime { get; set; }
+            public List<Amazon.IoT.Model.MaintenanceWindow> SchedulingConfig_MaintenanceWindow { get; set; }
             public System.String SchedulingConfig_StartTime { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public List<System.String> Target { get; set; }

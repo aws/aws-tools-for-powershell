@@ -111,7 +111,7 @@ $MHS_Completers = {
         # Amazon.MigrationHubStrategyRecommendations.DataSourceType
         "Start-MHSImportFileTask/DataSourceType"
         {
-            $v = "ApplicationDiscoveryService","MPA"
+            $v = "ApplicationDiscoveryService","Import","MPA"
             break
         }
 

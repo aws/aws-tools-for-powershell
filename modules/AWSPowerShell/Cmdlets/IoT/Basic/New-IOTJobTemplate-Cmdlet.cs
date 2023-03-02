@@ -173,6 +173,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String JobTemplateId { get; set; }
         #endregion
         
+        #region Parameter MaintenanceWindow
+        /// <summary>
+        /// <para>
+        /// <para>Allows you to configure an optional maintenance window for the rollout of a job document
+        /// to all devices in the target group for a job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaintenanceWindows")]
+        public Amazon.IoT.Model.MaintenanceWindow[] MaintenanceWindow { get; set; }
+        #endregion
+        
         #region Parameter JobExecutionsRolloutConfig_MaximumPerMinute
         /// <summary>
         /// <para>
@@ -297,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter JobTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.MaintenanceWindow != null)
+            {
+                context.MaintenanceWindow = new List<Amazon.IoT.Model.MaintenanceWindow>(this.MaintenanceWindow);
+            }
             context.PresignedUrlConfig_ExpiresInSec = this.PresignedUrlConfig_ExpiresInSec;
             context.PresignedUrlConfig_RoleArn = this.PresignedUrlConfig_RoleArn;
             if (this.Tag != null)
@@ -406,6 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.JobTemplateId != null)
             {
                 request.JobTemplateId = cmdletContext.JobTemplateId;
+            }
+            if (cmdletContext.MaintenanceWindow != null)
+            {
+                request.MaintenanceWindows = cmdletContext.MaintenanceWindow;
             }
             
              // populate PresignedUrlConfig
@@ -529,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String JobTemplateId { get; set; }
+            public List<Amazon.IoT.Model.MaintenanceWindow> MaintenanceWindow { get; set; }
             public System.Int64? PresignedUrlConfig_ExpiresInSec { get; set; }
             public System.String PresignedUrlConfig_RoleArn { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }

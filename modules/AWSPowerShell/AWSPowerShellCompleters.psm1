@@ -37914,7 +37914,7 @@ $MHS_Completers = {
         # Amazon.MigrationHubStrategyRecommendations.DataSourceType
         "Start-MHSImportFileTask/DataSourceType"
         {
-            $v = "ApplicationDiscoveryService","MPA"
+            $v = "ApplicationDiscoveryService","Import","MPA"
             break
         }
 
@@ -41994,6 +41994,13 @@ $PI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.PI.PeriodAlignment
+        "Get-PIResourceMetric/PeriodAlignment"
+        {
+            $v = "END_TIME","START_TIME"
+            break
+        }
+
         # Amazon.PI.ServiceType
         {
             ($_ -eq "Get-PIAvailableResourceDimensionList/ServiceType") -Or
@@ -42017,6 +42024,7 @@ $PI_Completers = {
 }
 
 $PI_map = @{
+    "PeriodAlignment"=@("Get-PIResourceMetric")
     "ServiceType"=@("Get-PIAvailableResourceDimensionList","Get-PIAvailableResourceMetricList","Get-PIDimensionKey","Get-PIDimensionKeyDetail","Get-PIResourceMetadata","Get-PIResourceMetric")
 }
 

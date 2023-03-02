@@ -399,8 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ResourceLimits_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time in seconds that a training job launched by a hyperparameter tuning
-        /// job can run.</para>
+        /// <para>The maximum time in seconds that a hyperparameter tuning job can run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

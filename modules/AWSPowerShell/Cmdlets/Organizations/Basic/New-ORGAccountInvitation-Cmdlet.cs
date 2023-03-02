@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// when the request is made. The request is rejected if the tags in the request don't
         /// match the requirements of the policy at that time. Tag policy compliance is <i><b>not</b></i> checked again when the invitation is accepted and the tags are actually attached
         /// to the account. That means that if the tag policy changes between the invitation and
-        /// the acceptance, then that tags could potentially be non-compliant.</para></important><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// the acceptance, then that tags could potentially be non-compliant.</para></important><note><para>If any one of the tags is not valid or if you exceed the allowed number of tags for
         /// an account, then the entire request fails and invitations are not sent.</para></note>
         /// </para>
         /// </summary>

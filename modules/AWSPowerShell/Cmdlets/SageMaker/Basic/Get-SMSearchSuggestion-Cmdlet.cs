@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// An auto-complete API for the search functionality in the Amazon SageMaker console.
-    /// It returns suggestions of possible matches for the property name to use in <code>Search</code>
+    /// An auto-complete API for the search functionality in the SageMaker console. It returns
+    /// suggestions of possible matches for the property name to use in <code>Search</code>
     /// queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>,
     /// and <code>Metrics</code>.
     /// </summary>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker resource to search for.</para>
+        /// <para>The name of the SageMaker resource to search for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
