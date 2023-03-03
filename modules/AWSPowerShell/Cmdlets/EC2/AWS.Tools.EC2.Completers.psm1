@@ -171,7 +171,7 @@ $EC2_Completers = {
             ($_ -eq "Register-EC2Image/BootMode")
         }
         {
-            $v = "legacy-bios","uefi"
+            $v = "legacy-bios","uefi","uefi-preferred"
             break
         }
 

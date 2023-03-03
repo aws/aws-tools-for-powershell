@@ -31,8 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
     /// Streams settings for a given table.
     /// 
-    ///  
-    /// <para>
+    ///  <important><para>
+    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+    /// 2019.11.21 (Current)</a> of global tables. 
+    /// </para></important><para>
     /// You can only perform one of the following operations at once:
     /// </para><ul><li><para>
     /// Modify the provisioned throughput settings of the table.
@@ -149,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>A list of replica update actions (create, delete, or update) for the table.</para><note><para>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-        /// 2019.11.21</a> of global tables.</para></note>
+        /// 2019.11.21 (Current)</a> of global tables. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

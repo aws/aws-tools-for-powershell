@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// idempotent, meaning that multiple identical calls have the same effect as one single
         /// call.</para><para>Although multiple identical calls using the same client request token produce the
         /// same result on the server (no side effects), the responses to the calls might not
-        /// be the same. If the <code>ReturnConsumedCapacity&gt;</code> parameter is set, then
-        /// the initial <code>TransactWriteItems</code> call returns the amount of write capacity
+        /// be the same. If the <code>ReturnConsumedCapacity</code> parameter is set, then the
+        /// initial <code>TransactWriteItems</code> call returns the amount of write capacity
         /// units consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls
         /// with the same client token return the number of read capacity units consumed in reading
         /// the item.</para><para>A client request token is valid for 10 minutes after the first request that uses it

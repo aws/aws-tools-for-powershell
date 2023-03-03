@@ -30,12 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// Returns information about the specified global table.
     /// 
-    ///  <note><para>
+    ///  <important><para>
     /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
-    /// 2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a>
-    /// instead.
-    /// </para></note>
+    /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+    /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+    /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+    /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+    /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+    /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+    /// Updating global tables</a>. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "DDBGlobalTable")]
     [OutputType("Amazon.DynamoDBv2.Model.GlobalTableDescription")]

@@ -65,13 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>For devices that support BGP, the customer gateway's BGP ASN.</para><para>Default: 65000</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? BgpAsn { get; set; }
         #endregion
         
@@ -208,12 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BgpAsn = this.BgpAsn;
-            #if MODULAR
-            if (this.BgpAsn == null && ParameterWasBound(nameof(this.BgpAsn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BgpAsn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.CertificateArn = this.CertificateArn;
             context.DeviceName = this.DeviceName;
             context.IpAddress = this.IpAddress;

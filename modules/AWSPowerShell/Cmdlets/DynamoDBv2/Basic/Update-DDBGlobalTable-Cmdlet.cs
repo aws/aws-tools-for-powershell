@@ -33,10 +33,24 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// the same name as the global table, have the same key schema, have DynamoDB Streams
     /// enabled, and have the same provisioned and maximum write capacity units.
     /// 
-    ///  <note><para>
-    /// Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas
+    ///  <important><para>
+    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+    /// 2017.11.29 (Legacy)</a> of global tables. We recommend using <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+    /// 2019.11.21 (Current)</a> when creating new global tables, as it provides greater flexibility,
+    /// higher efficiency and consumes less write capacity than 2017.11.29 (Legacy). To determine
+    /// which version you are using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining
+    /// the version</a>. To update existing global tables from version 2017.11.29 (Legacy)
+    /// to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
+    /// Updating global tables</a>. 
+    /// </para></important><note><para>
+    ///  This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+    /// 2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+    /// 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a>
+    /// instead. 
+    /// </para><para>
+    ///  Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas
     /// in a single request, for simplicity we recommend that you issue separate requests
-    /// for adding or removing replicas.
+    /// for adding or removing replicas. 
     /// </para></note><para>
     ///  If global secondary indexes are specified, then the following conditions must also
     /// be met: 

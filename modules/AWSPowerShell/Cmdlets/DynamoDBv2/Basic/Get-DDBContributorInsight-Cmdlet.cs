@@ -28,7 +28,7 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Returns information about contributor insights, for a given table or global secondary
+    /// Returns information about contributor insights for a given table or global secondary
     /// index.
     /// </summary>
     [Cmdlet("Get", "DDBContributorInsight")]

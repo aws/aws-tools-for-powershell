@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
         /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
         /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
-        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the user making the request must have permission to use the specified KMS
+        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the role making the request must have permission to use the specified KMS
         /// key.</para>
         /// </para>
         /// </summary>

@@ -41,6 +41,21 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class UpdateTRSVocabularyFilterCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter DataAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon
+        /// S3 bucket that contains your input files (in this case, your custom vocabulary filter).
+        /// If the role that you specify doesn’t have the appropriate permissions to access the
+        /// specified Amazon S3 location, your request fails.</para><para>IAM role ARNs have the format <code>arn:partition:iam::account:role/role-name-with-path</code>.
+        /// For example: <code>arn:aws:iam::111122223333:role/Admin</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM
+        /// ARNs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter VocabularyFilterFileUri
         /// <summary>
         /// <para>
@@ -153,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.Select = (response, cmdlet) => this.VocabularyFilterName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DataAccessRoleArn = this.DataAccessRoleArn;
             context.VocabularyFilterFileUri = this.VocabularyFilterFileUri;
             context.VocabularyFilterName = this.VocabularyFilterName;
             #if MODULAR
@@ -181,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             // create request
             var request = new Amazon.TranscribeService.Model.UpdateVocabularyFilterRequest();
             
+            if (cmdletContext.DataAccessRoleArn != null)
+            {
+                request.DataAccessRoleArn = cmdletContext.DataAccessRoleArn;
+            }
             if (cmdletContext.VocabularyFilterFileUri != null)
             {
                 request.VocabularyFilterFileUri = cmdletContext.VocabularyFilterFileUri;
@@ -254,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DataAccessRoleArn { get; set; }
             public System.String VocabularyFilterFileUri { get; set; }
             public System.String VocabularyFilterName { get; set; }
             public List<System.String> Word { get; set; }

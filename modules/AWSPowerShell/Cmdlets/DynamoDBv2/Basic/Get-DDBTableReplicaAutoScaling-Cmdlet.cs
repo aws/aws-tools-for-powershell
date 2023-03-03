@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// <summary>
     /// Describes auto scaling settings across replicas of the global table at once.
     /// 
-    ///  <note><para>
+    ///  <important><para>
     /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21</a> of global tables.
-    /// </para></note>
+    /// 2019.11.21 (Current)</a> of global tables.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "DDBTableReplicaAutoScaling")]
     [OutputType("Amazon.DynamoDBv2.Model.TableAutoScalingDescription")]

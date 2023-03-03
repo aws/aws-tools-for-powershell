@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </para></li><li><para>
     /// There is a user error, such as an invalid data format.
     /// </para></li><li><para>
-    /// The aggregate size of the items in the transaction cannot exceed 4 MB.
+    /// The aggregate size of the items in the transaction exceeded 4 MB.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "DDBItemTransactionally")]

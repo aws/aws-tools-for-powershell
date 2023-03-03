@@ -44,12 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// submitting your job request. Categories cannot be retroactively applied to a job.
     /// To create a new category, use the operation. To learn more about Call Analytics categories,
     /// see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating
-    /// categories for batch transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating
-    /// categories for streaming transcriptions</a>.
+    /// categories for post-call transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating
+    /// categories for real-time transcriptions</a>.
     /// </para><para>
     /// To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
     /// file into an Amazon S3 bucket; you can then specify the Amazon S3 location of the
     /// file using the <code>Media</code> parameter.
+    /// </para><para>
+    /// Note that job queuing is enabled by default for Call Analytics jobs.
     /// </para><para>
     /// You must include the following parameters in your <code>StartCallAnalyticsJob</code>
     /// request:
@@ -204,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// specify your KMS key in one of four ways:</para><ol><li><para>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</para></li><li><para>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If using a key located in a <b>different</b> Amazon Web Services account than the
         /// current Amazon Web Services account, you can specify your KMS key in one of two ways:</para><ol><li><para>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</para></li></ol><para>If you don't specify an encryption key, your output is encrypted with the default
         /// Amazon S3 key (SSE-S3).</para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
-        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the user making the request must have permission to use the specified KMS
+        /// using the <code>OutputLocation</code> parameter.</para><para>Note that the role making the request must have permission to use the specified KMS
         /// key.</para>
         /// </para>
         /// </summary>

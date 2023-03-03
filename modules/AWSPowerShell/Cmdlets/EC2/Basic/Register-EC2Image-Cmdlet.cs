@@ -134,7 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BootMode
         /// <summary>
         /// <para>
-        /// <para>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
+        /// <para>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the
+        /// AMI supports both UEFI and Legacy BIOS.</para><note><para>The operating system contained in the AMI must be configured to support the specified
+        /// boot mode.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot
         /// modes</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>

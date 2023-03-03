@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// table does not exist, DynamoDB returns a <code>ResourceNotFoundException</code>. If
     /// table is already in the <code>DELETING</code> state, no error is returned. 
     /// 
-    ///  <note><para>
+    ///  <important><para>
+    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+    /// 2019.11.21 (Current)</a> of global tables. 
+    /// </para></important><note><para>
     /// DynamoDB might continue to accept data read and write operations, such as <code>GetItem</code>
     /// and <code>PutItem</code>, on a table in the <code>DELETING</code> state until the
     /// table deletion is complete.

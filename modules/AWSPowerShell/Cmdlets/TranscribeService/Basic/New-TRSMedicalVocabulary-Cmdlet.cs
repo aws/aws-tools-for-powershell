@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     ///  
     /// <para>
     /// Before creating a new custom medical vocabulary, you must first upload a text file
-    /// that contains your new entries, phrases, and terms into an Amazon S3 bucket. Note
-    /// that this differs from , where you can include a list of terms within your request
-    /// using the <code>Phrases</code> flag; <code>CreateMedicalVocabulary</code> does not
-    /// support the <code>Phrases</code> flag.
+    /// that contains your vocabulary table into an Amazon S3 bucket. Note that this differs
+    /// from , where you can include a list of terms within your request using the <code>Phrases</code>
+    /// flag; <code>CreateMedicalVocabulary</code> does not support the <code>Phrases</code>
+    /// flag and only accepts vocabularies in table format.
     /// </para><para>
     /// Each language has a character set that contains all allowed characters for that specific
     /// language. If you use unsupported characters, your custom vocabulary request fails.
