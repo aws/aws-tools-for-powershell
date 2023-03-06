@@ -66,11 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// <summary>
         /// <para>
         /// <para>Specifies the Region-code for a given Region name (for example, <code>af-south-1</code>).
-        /// When you enable a Region, AWS performs actions to prepare your account in that Region,
-        /// such as distributing your IAM resources to the Region. This process takes a few minutes
-        /// for most accounts, but it can take several hours. You cannot use the Region until
-        /// this process is complete. Furthermore, you cannot disable the Region until the enabling
-        /// process is fully completed.</para>
+        /// When you enable a Region, Amazon Web Services performs actions to prepare your account
+        /// in that Region, such as distributing your IAM resources to the Region. This process
+        /// takes a few minutes for most accounts, but it can take several hours. You cannot use
+        /// the Region until this process is complete. Furthermore, you cannot disable the Region
+        /// until the enabling process is fully completed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

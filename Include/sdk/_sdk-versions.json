@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.496.0",
+    "ProductVersion" : "3.7.497.0",
     "CoreVersion"    : "3.7.105.13",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1802,7 +1802,7 @@
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "3.7.101.26",
+            "Version" : "3.7.101.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.13"
@@ -2258,7 +2258,7 @@
             "InPreview"               : false
         },
         "Account"                         : {
-            "Version" : "3.7.101.11",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.105.13"

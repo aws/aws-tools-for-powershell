@@ -1,4 +1,7 @@
-﻿### 4.1.284 (2023-03-03 22:05Z)
+﻿### 4.1.285 (2023-03-06 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.497.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.284 (2023-03-03 22:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.496.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Transcribe Service
     * Modified cmdlet New-TRSVocabulary: added parameter DataAccessRoleArn.
