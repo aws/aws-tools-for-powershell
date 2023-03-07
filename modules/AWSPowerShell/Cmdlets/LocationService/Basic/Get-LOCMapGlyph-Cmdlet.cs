@@ -57,13 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// JP Regular</code></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps</a>
         /// styles:</para><ul><li><para>VectorGrabStandardLight, VectorGrabStandardDark – <code>Noto Sans Regular</code> |
         /// <code>Noto Sans Medium</code> | <code>Noto Sans Bold</code></para></li></ul><para>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/open-data.html">Open
-        /// Data (Preview)</a> styles:</para><ul><li><para>VectorOpenDataStandardLight – <code>Amazon Ember Regular,Noto Sans Regular</code>
+        /// Data</a> styles:</para><ul><li><para>VectorOpenDataStandardLight, VectorOpenDataStandardDark, VectorOpenDataVisualizationLight,
+        /// VectorOpenDataVisualizationDark – <code>Amazon Ember Regular,Noto Sans Regular</code>
         /// | <code>Amazon Ember Bold,Noto Sans Bold</code> | <code>Amazon Ember Medium,Noto Sans
         /// Medium</code> | <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | <code>Amazon
         /// Ember Condensed RC Regular,Noto Sans Regular</code> | <code>Amazon Ember Condensed
-        /// RC Bold,Noto Sans Bold</code></para></li></ul><note><para>The fonts used by <code>VectorOpenDataStandardLight</code> are combined fonts that
-        /// use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs
-        /// unsupported by <code>Amazon Ember</code>.</para></note>
+        /// RC Bold,Noto Sans Bold</code></para></li></ul><note><para>The fonts used by the Open Data map styles are combined fonts that use <code>Amazon
+        /// Ember</code> for most glyphs but <code>Noto Sans</code> for glyphs unsupported by
+        /// <code>Amazon Ember</code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

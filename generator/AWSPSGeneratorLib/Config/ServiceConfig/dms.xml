@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchStartRecommendations" OutputProperty="ErrorEntries" Verb="Start" Noun="BatchRecommendation" ShouldProcessTarget="Data" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelReplicationTaskAssessmentRun" OutputProperty="ReplicationTaskAssessmentRun" Verb="Stop" Noun="ReplicationTaskAssessmentRun" ShouldProcessTarget="ReplicationTaskAssessmentRunArn" PipelineParameter="ReplicationTaskAssessmentRunArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -165,6 +169,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecommendationLimitations" OutputProperty="Limitations" Verb="Get" Noun="RecommendationLimitation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecommendations" OutputProperty="Recommendations" Verb="Get" Noun="Recommendation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRefreshSchemasStatus" OutputProperty="RefreshSchemasStatus" Verb="Get" Noun="RefreshSchemasStatus" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -254,6 +266,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RunFleetAdvisorLsaAnalysis" OutputProperty="LsaAnalysisId" Verb="Start" Noun="FleetAdvisorLsaAnalysis" PipelineParameter="LsaAnalysisId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRecommendations" Verb="Start" Noun="Recommendation" ShouldProcessTarget="DatabaseId" PipelineParameter="DatabaseId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

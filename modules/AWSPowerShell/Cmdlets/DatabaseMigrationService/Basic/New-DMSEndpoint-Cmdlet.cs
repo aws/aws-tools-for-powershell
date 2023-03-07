@@ -578,10 +578,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter GcpMySQLSettings_CleanSourceMetadataOnMismatch
         /// <summary>
         /// <para>
-        /// <para>Adjusts the behavior of DMS when migrating from an SQL Server source database that
-        /// is hosted as part of an Always On availability group cluster. If you need DMS to poll
-        /// all the nodes in the Always On cluster for transaction backups, set this attribute
-        /// to <code>false</code>. </para>
+        /// <para>Cleans and recreates table metadata information on the replication instance when a
+        /// mismatch occurs. For example, in a situation where running an alter DDL on the table
+        /// could result in different information about the table cached in the replication instance.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -591,10 +591,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MySQLSettings_CleanSourceMetadataOnMismatch
         /// <summary>
         /// <para>
-        /// <para>Adjusts the behavior of DMS when migrating from an SQL Server source database that
-        /// is hosted as part of an Always On availability group cluster. If you need DMS to poll
-        /// all the nodes in the Always On cluster for transaction backups, set this attribute
-        /// to <code>false</code>.</para>
+        /// <para>Cleans and recreates table metadata information on the replication instance when a
+        /// mismatch occurs. For example, in a situation where running an alter DDL on the table
+        /// could result in different information about the table cached in the replication instance.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2058,7 +2058,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter GcpMySQLSettings_Port
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Endpoint TCP port.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2820,7 +2820,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter GcpMySQLSettings_ServerName
         /// <summary>
         /// <para>
-        /// <para>Endpoint TCP port.</para>
+        /// <para>The MySQL host name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2840,7 +2840,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MicrosoftSQLServerSettings_ServerName
         /// <summary>
         /// <para>
-        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// <para>Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance,
+        /// this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2860,7 +2863,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MySQLSettings_ServerName
         /// <summary>
         /// <para>
-        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// <para>The host name of the endpoint database. </para><para>For an Amazon RDS MySQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// field.</para><para>For an Aurora MySQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html">DescribeDBClusters</a>,
+        /// in the <code>Endpoint</code> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2870,7 +2876,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter OracleSettings_ServerName
         /// <summary>
         /// <para>
-        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// <para>Fully qualified domain name of the endpoint.</para><para>For an Amazon RDS Oracle instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -2880,7 +2888,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter PostgreSQLSettings_ServerName
         /// <summary>
         /// <para>
-        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// <para>The host name of the endpoint database. </para><para>For an Amazon RDS PostgreSQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html">DescribeDBInstances</a>,
+        /// in the <code><a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code>
+        /// field.</para><para>For an Aurora PostgreSQL instance, this is the output of <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html">DescribeDBClusters</a>,
+        /// in the <code>Endpoint</code> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -6497,6 +6497,9 @@ Set-Alias -Name Add-DMSResourceTag -Value Set-DMSResourceTag
 Set-Alias -Name DMS-AddTagsToResource -Value Set-DMSResourceTag
 Set-Alias -Name Apply-DMSPendingMaintenanceAction -Value Complete-DMSPendingMaintenanceAction
 Set-Alias -Name DMS-ApplyPendingMaintenanceAction -Value Complete-DMSPendingMaintenanceAction
+Set-Alias -Name Batch-DMSStartRecommendations -Value Start-DMSBatchRecommendation
+Set-Alias -Name Batch-DMSBatchRecommendation -Value Start-DMSBatchRecommendation
+Set-Alias -Name DMS-BatchStartRecommendations -Value Start-DMSBatchRecommendation
 Set-Alias -Name Cancel-DMSReplicationTaskAssessmentRun -Value Stop-DMSReplicationTaskAssessmentRun
 Set-Alias -Name DMS-CancelReplicationTaskAssessmentRun -Value Stop-DMSReplicationTaskAssessmentRun
 Set-Alias -Name Create-DMSEndpoint -Value New-DMSEndpoint
@@ -6581,6 +6584,12 @@ Set-Alias -Name DMS-DescribeOrderableReplicationInstances -Value Get-DMSOrderabl
 Set-Alias -Name Describe-DMSPendingMaintenanceActions -Value Get-DMSPendingMaintenanceAction
 Set-Alias -Name Describe-DMSPendingMaintenanceAction -Value Get-DMSPendingMaintenanceAction
 Set-Alias -Name DMS-DescribePendingMaintenanceActions -Value Get-DMSPendingMaintenanceAction
+Set-Alias -Name Describe-DMSRecommendationLimitations -Value Get-DMSRecommendationLimitation
+Set-Alias -Name Describe-DMSRecommendationLimitation -Value Get-DMSRecommendationLimitation
+Set-Alias -Name DMS-DescribeRecommendationLimitations -Value Get-DMSRecommendationLimitation
+Set-Alias -Name Describe-DMSRecommendations -Value Get-DMSRecommendation
+Set-Alias -Name Describe-DMSRecommendation -Value Get-DMSRecommendation
+Set-Alias -Name DMS-DescribeRecommendations -Value Get-DMSRecommendation
 Set-Alias -Name Describe-DMSRefreshSchemasStatus -Value Get-DMSRefreshSchemasStatus
 Set-Alias -Name DMS-DescribeRefreshSchemasStatus -Value Get-DMSRefreshSchemasStatus
 Set-Alias -Name Describe-DMSReplicationInstances -Value Get-DMSReplicationInstance
@@ -6635,6 +6644,8 @@ Set-Alias -Name Remove-DMSTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name Run-DMSFleetAdvisorLsaAnalysis -Value Start-DMSFleetAdvisorLsaAnalysis
 Set-Alias -Name DMS-RunFleetAdvisorLsaAnalysis -Value Start-DMSFleetAdvisorLsaAnalysis
+Set-Alias -Name Start-DMSRecommendations -Value Start-DMSRecommendation
+Set-Alias -Name DMS-StartRecommendations -Value Start-DMSRecommendation
 Set-Alias -Name DMS-StartReplicationTaskAssessment -Value Start-DMSReplicationTaskAssessment
 Set-Alias -Name DMS-StartReplicationTaskAssessmentRun -Value Start-DMSReplicationTaskAssessmentRun
 Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask

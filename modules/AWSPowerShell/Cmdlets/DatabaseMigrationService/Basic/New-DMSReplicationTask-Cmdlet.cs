@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Indicates when you want a change data capture (CDC) operation to stop. The value can
-        /// be either server time or commit time.</para><para>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</para><para>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</para>
+        /// be either server time or commit time.</para><para>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</para><para>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

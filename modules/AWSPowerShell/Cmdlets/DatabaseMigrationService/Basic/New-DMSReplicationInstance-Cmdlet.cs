@@ -66,7 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that indicates whether minor engine upgrades are applied automatically to
         /// the replication instance during the maintenance window. This parameter defaults to
-        /// <code>true</code>.</para><para>Default: <code>true</code></para>
+        /// <code>true</code>.</para><para>Default: <code>true</code></para><para>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default
+        /// engine version when you create a replication instance. For example, if you set <code>EngineVersion</code>
+        /// to a lower version number than the current default version, DMS uses the default version.</para><para>If <code>AutoMinorVersionUpgrade</code><i>isn’t</i> enabled when you create a replication
+        /// instance, DMS uses the engine version specified by the <code>EngineVersion</code>
+        /// parameter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

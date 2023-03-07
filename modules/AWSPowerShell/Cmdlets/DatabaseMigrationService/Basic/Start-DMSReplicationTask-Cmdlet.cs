@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Indicates when you want a change data capture (CDC) operation to stop. The value can
-        /// be either server time or commit time.</para><para>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</para><para>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “</para>
+        /// be either server time or commit time.</para><para>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</para><para>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,11 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>The type of replication task to start.</para><para>When the migration type is <code>full-load</code> or <code>full-load-and-cdc</code>,
         /// the only valid value for the first run of the task is <code>start-replication</code>.
-        /// You use <code>reload-target</code> to restart the task and <code>resume-processing</code>
-        /// to resume the task.</para><para>When the migration type is <code>cdc</code>, you use <code>start-replication</code>
-        /// to start or restart the task, and <code>resume-processing</code> to resume the task.
-        /// <code>reload-target</code> is not a valid value for a task with migration type of
-        /// <code>cdc</code>.</para>
+        /// This option will start the migration.</para><para>You can also use <a>ReloadTables</a> to reload specific tables that failed during
+        /// migration instead of restarting the task.</para><para>The <code>resume-processing</code> option isn't applicable for a full-load task, because
+        /// you can't resume partially loaded tables during the full load phase.</para><para>For a <code>full-load-and-cdc</code> task, DMS migrates table data, and then applies
+        /// data changes that occur on the source. To load all the tables again, and start capturing
+        /// source changes, use <code>reload-target</code>. Otherwise use <code>resume-processing</code>,
+        /// to replicate the changes from the last stop position.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
