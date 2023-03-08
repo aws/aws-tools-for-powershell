@@ -28,17 +28,16 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// Creates a data cell filter to allow one to grant access to certain columns on certain
-    /// rows.
+    /// Updates a data cell filter.
     /// </summary>
-    [Cmdlet("New", "LKFDataCellsFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "LKFDataCellsFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Lake Formation CreateDataCellsFilter API operation.", Operation = new[] {"CreateDataCellsFilter"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.CreateDataCellsFilterResponse))]
-    [AWSCmdletOutput("None or Amazon.LakeFormation.Model.CreateDataCellsFilterResponse",
+    [AWSCmdlet("Calls the AWS Lake Formation UpdateDataCellsFilter API operation.", Operation = new[] {"UpdateDataCellsFilter"}, SelectReturnType = typeof(Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse))]
+    [AWSCmdletOutput("None or Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.LakeFormation.Model.CreateDataCellsFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewLKFDataCellsFilterCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
+    public partial class UpdateLKFDataCellsFilterCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
         #region Parameter RowFilter_AllRowsWildcard
@@ -166,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LakeFormation.Model.CreateDataCellsFilterResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TableData_TableName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-LKFDataCellsFilter (CreateDataCellsFilter)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-LKFDataCellsFilter (UpdateDataCellsFilter)"))
             {
                 return;
             }
@@ -201,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.CreateDataCellsFilterResponse, NewLKFDataCellsFilterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse, UpdateLKFDataCellsFilterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             if (this.TableData_ColumnName != null)
@@ -257,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.LakeFormation.Model.CreateDataCellsFilterRequest();
+            var request = new Amazon.LakeFormation.Model.UpdateDataCellsFilterRequest();
             
             
              // populate TableData
@@ -421,15 +420,15 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         
         #region AWS Service Operation Call
         
-        private Amazon.LakeFormation.Model.CreateDataCellsFilterResponse CallAWSServiceOperation(IAmazonLakeFormation client, Amazon.LakeFormation.Model.CreateDataCellsFilterRequest request)
+        private Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse CallAWSServiceOperation(IAmazonLakeFormation client, Amazon.LakeFormation.Model.UpdateDataCellsFilterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "CreateDataCellsFilter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lake Formation", "UpdateDataCellsFilter");
             try
             {
                 #if DESKTOP
-                return client.CreateDataCellsFilter(request);
+                return client.UpdateDataCellsFilter(request);
                 #elif CORECLR
-                return client.CreateDataCellsFilterAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDataCellsFilterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -458,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String TableData_TableCatalogId { get; set; }
             public System.String TableData_TableName { get; set; }
             public System.String TableData_VersionId { get; set; }
-            public System.Func<Amazon.LakeFormation.Model.CreateDataCellsFilterResponse, NewLKFDataCellsFilterCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.LakeFormation.Model.UpdateDataCellsFilterResponse, UpdateLKFDataCellsFilterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

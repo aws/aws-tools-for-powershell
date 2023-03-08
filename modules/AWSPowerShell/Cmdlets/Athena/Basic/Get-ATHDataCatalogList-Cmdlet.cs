@@ -28,7 +28,12 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Lists the data catalogs in the current Amazon Web Services account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the data catalogs in the current Amazon Web Services account.
+    /// 
+    ///  <note><para>
+    /// In the Athena console, data catalogs are listed as "data sources" on the <b>Data sources</b>
+    /// page under the <b>Data source name</b> column.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ATHDataCatalogList")]
     [OutputType("Amazon.Athena.Model.DataCatalogSummary")]

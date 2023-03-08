@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses
+    /// Retrieves the Resolver configurations that you have defined. Route 53 Resolver uses
     /// the configurations to manage DNS resolution behavior for your VPCs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverConfigList")]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// on the worker portal.
     /// </para><para>
     /// To restrict access to all the workers in public internet, add the <code>SourceIpConfig</code>
-    /// CIDR value as "0.0.0.0/0".
+    /// CIDR value as "10.0.0.0/16".
     /// </para><important><para>
     /// Amazon SageMaker does not support Source Ip restriction for worker portals in VPC.
     /// </para></important><para>

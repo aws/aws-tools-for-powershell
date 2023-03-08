@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// 
     ///  
     /// <para>
-    /// For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
+    /// For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
     /// and Access Control to Metadata and Data</a>.
     /// </para>
     /// </summary>

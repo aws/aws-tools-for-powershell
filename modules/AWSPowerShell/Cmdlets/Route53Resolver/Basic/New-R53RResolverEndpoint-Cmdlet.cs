@@ -118,6 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ResolverEndpointType
+        /// <summary>
+        /// <para>
+        /// <para> For the endpoint type you can choose either IPv4, IPv6. or dual-stack. A dual-stack
+        /// endpoint means that it will resolve via both IPv4 and IPv6. This endpoint type is
+        /// applied to all IP addresses. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Resolver.ResolverEndpointType")]
+        public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -238,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             }
             #endif
             context.Name = this.Name;
+            context.ResolverEndpointType = this.ResolverEndpointType;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -283,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ResolverEndpointType != null)
+            {
+                request.ResolverEndpointType = cmdletContext.ResolverEndpointType;
             }
             if (cmdletContext.SecurityGroupId != null)
             {
@@ -357,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public Amazon.Route53Resolver.ResolverEndpointDirection Direction { get; set; }
             public List<Amazon.Route53Resolver.Model.IpAddressRequest> IpAddress { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public List<Amazon.Route53Resolver.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Route53Resolver.Model.CreateResolverEndpointResponse, NewR53RResolverEndpointCmdlet, object> Select { get; set; } =

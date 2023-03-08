@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataCellsFilter" OutputProperty="DataCellsFilter" Verb="Get" Noun="DataCellsFilter" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataLakeSettings" OutputProperty="DataLakeSettings" Verb="Get" Noun="DataLakeSetting" PipelineParameter="CatalogId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -182,6 +186,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="TransactionType" PipelineParameter="TransactionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataCellsFilter" Verb="Update" Noun="DataCellsFilter" ShouldProcessTarget="TableData_TableName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -94,7 +94,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.AutodefinedReverseFlag
         "Update-R53RResolverConfig/AutodefinedReverseFlag"
         {
-            $v = "DISABLE","ENABLE"
+            $v = "DISABLE","ENABLE","USE_LOCAL_RESOURCE_SETTING"
             break
         }
 
@@ -135,7 +135,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.FirewallFailOpenStatus
         "Edit-R53RFirewallConfig/FirewallFailOpen"
         {
-            $v = "DISABLED","ENABLED"
+            $v = "DISABLED","ENABLED","USE_LOCAL_RESOURCE_SETTING"
             break
         }
 
@@ -163,6 +163,16 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.ResolverEndpointType
+        {
+            ($_ -eq "New-R53RResolverEndpoint/ResolverEndpointType") -Or
+            ($_ -eq "Update-R53RResolverEndpoint/ResolverEndpointType")
+        }
+        {
+            $v = "DUALSTACK","IPV4","IPV6"
+            break
+        }
+
         # Amazon.Route53Resolver.RuleTypeOption
         "New-R53RResolverRule/RuleType"
         {
@@ -183,7 +193,7 @@ $R53R_Completers = {
         # Amazon.Route53Resolver.Validation
         "Update-R53RResolverDnssecConfig/Validation"
         {
-            $v = "DISABLE","ENABLE"
+            $v = "DISABLE","ENABLE","USE_LOCAL_RESOURCE_SETTING"
             break
         }
 
@@ -204,6 +214,7 @@ $R53R_map = @{
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
     "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")
+    "ResolverEndpointType"=@("New-R53RResolverEndpoint","Update-R53RResolverEndpoint")
     "RuleType"=@("New-R53RResolverRule")
     "SortOrder"=@("Get-R53RResolverQueryLogConfigAssociationList","Get-R53RResolverQueryLogConfigList")
     "Status"=@("Get-R53RFirewallRuleGroupAssociationList")

@@ -14190,6 +14190,7 @@ Set-Alias -Name Describe-LKFTransaction -Value Get-LKFTransaction
 Set-Alias -Name LKF-DescribeTransaction -Value Get-LKFTransaction
 Set-Alias -Name Extend-LKFTransaction -Value Invoke-LKFTransaction
 Set-Alias -Name LKF-ExtendTransaction -Value Invoke-LKFTransaction
+Set-Alias -Name LKF-GetDataCellsFilter -Value Get-LKFDataCellsFilter
 Set-Alias -Name Get-LKFDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetEffectivePermissionsForPath -Value Get-LKFEffectivePermissionsForPath
@@ -14242,6 +14243,7 @@ Set-Alias -Name Search-LKFTablesByLFTags -Value Search-LKFTablesByLFTag
 Set-Alias -Name LKF-SearchTablesByLFTags -Value Search-LKFTablesByLFTag
 Set-Alias -Name LKF-StartQueryPlanning -Value Start-LKFQueryPlanning
 Set-Alias -Name LKF-StartTransaction -Value Start-LKFTransaction
+Set-Alias -Name LKF-UpdateDataCellsFilter -Value Update-LKFDataCellsFilter
 Set-Alias -Name LKF-UpdateLFTag -Value Update-LKFLFTag
 Set-Alias -Name LKF-UpdateResource -Value Update-LKFResource
 Set-Alias -Name Update-LKFTableObjects -Value Update-LKFTableObject

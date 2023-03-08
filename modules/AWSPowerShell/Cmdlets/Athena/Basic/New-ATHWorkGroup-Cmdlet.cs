@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The engine version requested by the user. Possible values are determined by the output
-        /// of <code>ListEngineVersions</code>, including Auto. The default is Auto.</para>
+        /// of <code>ListEngineVersions</code>, including AUTO. The default is AUTO.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

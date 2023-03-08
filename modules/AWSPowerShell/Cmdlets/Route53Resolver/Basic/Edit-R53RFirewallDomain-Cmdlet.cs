@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>A list of domains to use in the update operation.</para><para>Each domain specification in your domain list must satisfy the following requirements:
+        /// <para>A list of domains to use in the update operation.</para><important><para>There is a limit of 1000 domains per request.</para></important><para>Each domain specification in your domain list must satisfy the following requirements:
         /// </para><ul><li><para>It can optionally start with <code>*</code> (asterisk).</para></li><li><para>With the exception of the optional starting asterisk, it must only contain the following
         /// characters: <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> (hyphen).</para></li><li><para>It must be from 1-255 characters in length. </para></li></ul>
         /// </para>

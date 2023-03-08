@@ -92,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
         #endregion
         
+        #region Parameter DeletionProtectionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether deletion protection is to be enabled (true) or disabled (false)
+        /// on the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtectionEnabled { get; set; }
+        #endregion
+        
         #region Parameter SSESpecification_Enabled
         /// <summary>
         /// <para>
@@ -307,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.AttributeDefinition = new List<Amazon.DynamoDBv2.Model.AttributeDefinition>(this.AttributeDefinition);
             }
             context.BillingMode = this.BillingMode;
+            context.DeletionProtectionEnabled = this.DeletionProtectionEnabled;
             if (this.GlobalSecondaryIndexUpdate != null)
             {
                 context.GlobalSecondaryIndexUpdate = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
@@ -353,6 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.BillingMode != null)
             {
                 request.BillingMode = cmdletContext.BillingMode;
+            }
+            if (cmdletContext.DeletionProtectionEnabled != null)
+            {
+                request.DeletionProtectionEnabled = cmdletContext.DeletionProtectionEnabled.Value;
             }
             if (cmdletContext.GlobalSecondaryIndexUpdate != null)
             {
@@ -530,6 +546,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             public List<Amazon.DynamoDBv2.Model.AttributeDefinition> AttributeDefinition { get; set; }
             public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
+            public System.Boolean? DeletionProtectionEnabled { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdate { get; set; }
             public System.Int64? ReadCapacity { get; set; }
             public System.Int64? WriteCapacity { get; set; }

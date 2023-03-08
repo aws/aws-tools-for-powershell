@@ -28,7 +28,9 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Updates the name of an inbound or an outbound Resolver endpoint.
+    /// Updates the name, or enpoint type for an inbound or an outbound Resolver endpoint.
+    /// You can only update between IPV4 and DUALSTACK, IPV6 endpoint type can't be updated
+    /// to other type.
     /// </summary>
     [Cmdlet("Update", "R53RResolverEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.ResolverEndpoint")]
@@ -65,6 +67,29 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResolverEndpointId { get; set; }
+        #endregion
+        
+        #region Parameter ResolverEndpointType
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the endpoint type for what type of IP address the endpoint uses to forward
+        /// DNS queries. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Resolver.ResolverEndpointType")]
+        public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
+        #endregion
+        
+        #region Parameter UpdateIpAddress
+        /// <summary>
+        /// <para>
+        /// <para> Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UpdateIpAddresses")]
+        public Amazon.Route53Resolver.Model.UpdateIpAddress[] UpdateIpAddress { get; set; }
         #endregion
         
         #region Parameter Select
@@ -137,6 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter ResolverEndpointId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResolverEndpointType = this.ResolverEndpointType;
+            if (this.UpdateIpAddress != null)
+            {
+                context.UpdateIpAddress = new List<Amazon.Route53Resolver.Model.UpdateIpAddress>(this.UpdateIpAddress);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,6 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.ResolverEndpointId != null)
             {
                 request.ResolverEndpointId = cmdletContext.ResolverEndpointId;
+            }
+            if (cmdletContext.ResolverEndpointType != null)
+            {
+                request.ResolverEndpointType = cmdletContext.ResolverEndpointType;
+            }
+            if (cmdletContext.UpdateIpAddress != null)
+            {
+                request.UpdateIpAddresses = cmdletContext.UpdateIpAddress;
             }
             
             CmdletOutput output;
@@ -224,6 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         {
             public System.String Name { get; set; }
             public System.String ResolverEndpointId { get; set; }
+            public Amazon.Route53Resolver.ResolverEndpointType ResolverEndpointType { get; set; }
+            public List<Amazon.Route53Resolver.Model.UpdateIpAddress> UpdateIpAddress { get; set; }
             public System.Func<Amazon.Route53Resolver.Model.UpdateResolverEndpointResponse, UpdateR53RResolverEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ResolverEndpoint;
         }

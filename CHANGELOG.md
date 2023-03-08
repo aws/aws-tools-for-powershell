@@ -1,4 +1,16 @@
-﻿### 4.1.286 (2023-03-07 22:03Z)
+﻿### 4.1.287 (2023-03-08 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.499.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DynamoDB
+    * Modified cmdlet Update-DDBTable: added parameter DeletionProtectionEnabled.
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFDataCellsFilter leveraging the GetDataCellsFilter service API.
+    * Added cmdlet Update-LKFDataCellsFilter leveraging the UpdateDataCellsFilter service API.
+    * Modified cmdlet New-LKFDataCellsFilter: added parameter TableData_VersionId.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet New-R53RResolverEndpoint: added parameter ResolverEndpointType.
+    * Modified cmdlet Update-R53RResolverEndpoint: added parameters ResolverEndpointType and UpdateIpAddress.
+
+### 4.1.286 (2023-03-07 22:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Database Migration Service
     * Added cmdlet Get-DMSRecommendation leveraging the DescribeRecommendations service API.
