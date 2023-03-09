@@ -163,8 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.RSD
         #region Parameter WorkgroupName
         /// <summary>
         /// <para>
-        /// <para>The serverless workgroup name. This parameter is required when connecting to a serverless
-        /// workgroup and authenticating using either Secrets Manager or temporary credentials.</para>
+        /// <para>The serverless workgroup name or Amazon Resource Name (ARN). This parameter is required
+        /// when connecting to a serverless workgroup and authenticating using either Secrets
+        /// Manager or temporary credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

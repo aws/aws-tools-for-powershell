@@ -78,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <summary>
         /// <para>
         /// <para> A format that specifies the type of the package version with the requested readme
-        /// file. </para><note><para>Although <code>maven</code> is listed as a valid value, CodeArtifact does not support
-        /// displaying readme files for Maven packages.</para></note>
+        /// file. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

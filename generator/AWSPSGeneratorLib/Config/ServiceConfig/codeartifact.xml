@@ -138,6 +138,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PublishPackageVersion" OutputProperty="*" Verb="Publish" Noun="PackageVersion" ShouldProcessTarget="AssetName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutDomainPermissionsPolicy" OutputProperty="Policy" Verb="Write" Noun="DomainPermissionsPolicy" ShouldProcessTarget="Domain" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

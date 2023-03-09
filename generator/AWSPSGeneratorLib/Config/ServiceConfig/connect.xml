@@ -328,6 +328,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricDataV2" OutputProperty="MetricResults" Verb="Get" Noun="MetricDataV2" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTaskTemplate" OutputProperty="*" Verb="Get" Noun="TaskTemplate" PipelineParameter="TaskTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -491,6 +491,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentUserData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNMetricDataV2",
                "Get-CONNTaskTemplate",
                "Get-CONNTrafficDistribution",
                "Get-CONNAgentStatusList",

@@ -125,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CONNLambdaFunctionList', 
         'Get-CONNLexBotList', 
         'Get-CONNMetricData', 
+        'Get-CONNMetricDataV2', 
         'Get-CONNPhoneNumber', 
         'Get-CONNPhoneNumberList', 
         'Get-CONNPhoneNumbersV2List', 

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// in your repository. If you want to remove a package version from your repository and
     /// be able to restore it later, set its status to <code>Archived</code>. Archived packages
     /// cannot be downloaded from a repository and don't show up with list package APIs (for
-    /// example, <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>),
+    /// example, <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>),
     /// but you can restore them using <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageVersionsStatus.html">UpdatePackageVersionsStatus</a>.
     /// </summary>
     [Cmdlet("Remove", "CAPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>The namespace of the package versions to be deleted. The package version component
         /// that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <code>groupId</code>. The namespace
         /// is required when deleting Maven package versions. </para></li><li><para> The namespace of an npm package version is its <code>scope</code>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li></ul>
+        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is it’s <code>namespace</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -9749,6 +9749,7 @@ $CA_Completers = {
             ($_ -eq "Get-CAPackageVersionList/Format") -Or
             ($_ -eq "Get-CAPackageVersionReadme/Format") -Or
             ($_ -eq "Get-CARepositoryEndpoint/Format") -Or
+            ($_ -eq "Publish-CAPackageVersion/Format") -Or
             ($_ -eq "Remove-CAPackage/Format") -Or
             ($_ -eq "Remove-CAPackageVersion/Format") -Or
             ($_ -eq "Unpublish-CAPackageVersion/Format") -Or
@@ -9756,7 +9757,7 @@ $CA_Completers = {
             ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
-            $v = "maven","npm","nuget","pypi"
+            $v = "generic","maven","npm","nuget","pypi"
             break
         }
 
@@ -9797,7 +9798,7 @@ $CA_Completers = {
 
 $CA_map = @{
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
-    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Publish-CAPackageVersion","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
     "OriginType"=@("Get-CAPackageVersionList")
     "Publish"=@("Get-CAPackageList")
     "Restrictions_Publish"=@("Write-CAPackageOriginConfiguration")
@@ -9888,6 +9889,7 @@ $CA_SelectMap = @{
                "Get-CARepositoryList",
                "Get-CARepositoriesInDomainList",
                "Get-CAResourceTag",
+               "Publish-CAPackageVersion",
                "Write-CADomainPermissionsPolicy",
                "Write-CAPackageOriginConfiguration",
                "Write-CARepositoryPermissionsPolicy",
@@ -13671,6 +13673,7 @@ $CONN_SelectMap = @{
                "Get-CONNCurrentUserData",
                "Get-CONNFederationToken",
                "Get-CONNMetricData",
+               "Get-CONNMetricDataV2",
                "Get-CONNTaskTemplate",
                "Get-CONNTrafficDistribution",
                "Get-CONNAgentStatusList",

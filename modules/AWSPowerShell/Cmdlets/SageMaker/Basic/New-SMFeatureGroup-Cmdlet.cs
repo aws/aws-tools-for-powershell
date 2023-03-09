@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter S3StorageConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Key Management Service (KMS) key ID of the key used to encrypt
+        /// <para>The Amazon Web Services Key Management Service (KMS) key ARN of the key used to encrypt
         /// any objects written into the <code>OfflineStore</code> S3 location.</para><para>The IAM <code>roleARN</code> that is passed as a parameter to <code>CreateFeatureGroup</code>
         /// must have below permissions to the <code>KmsKeyId</code>:</para><ul><li><para><code>"kms:GenerateDataKey"</code></para></li></ul>
         /// </para>
@@ -195,9 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SecurityConfig_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS)
-        /// key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using
-        /// Amazon S3 server-side encryption.</para><para>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
+        /// <para>The Amazon Web Services Key Management Service (KMS) key ARN that SageMaker Feature
+        /// Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</para><para>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
         /// below permissions to the <code>OnlineStore</code><code>KmsKeyId</code>:</para><ul><li><para><code>"kms:Encrypt"</code></para></li><li><para><code>"kms:Decrypt"</code></para></li><li><para><code>"kms:DescribeKey"</code></para></li><li><para><code>"kms:CreateGrant"</code></para></li><li><para><code>"kms:RetireGrant"</code></para></li><li><para><code>"kms:ReEncryptFrom"</code></para></li><li><para><code>"kms:ReEncryptTo"</code></para></li><li><para><code>"kms:GenerateDataKey"</code></para></li><li><para><code>"kms:ListAliases"</code></para></li><li><para><code>"kms:ListGrants"</code></para></li><li><para><code>"kms:RevokeGrant"</code></para></li></ul><para>The caller (either user or IAM role) to all DataPlane operations (<code>PutRecord</code>,
         /// <code>GetRecord</code>, <code>DeleteRecord</code>) must have the following permissions
         /// to the <code>KmsKeyId</code>:</para><ul><li><para><code>"kms:Decrypt"</code></para></li></ul>

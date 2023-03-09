@@ -3875,6 +3875,7 @@ Set-Alias -Name List-CARepositoriesInDomain -Value Get-CARepositoriesInDomainLis
 Set-Alias -Name List-CARepositoriesInDomainList -Value Get-CARepositoriesInDomainList
 Set-Alias -Name CA-ListRepositoriesInDomain -Value Get-CARepositoriesInDomainList
 Set-Alias -Name CA-ListTagsForResource -Value Get-CAResourceTag
+Set-Alias -Name CA-PublishPackageVersion -Value Publish-CAPackageVersion
 Set-Alias -Name Put-CADomainPermissionsPolicy -Value Write-CADomainPermissionsPolicy
 Set-Alias -Name CA-PutDomainPermissionsPolicy -Value Write-CADomainPermissionsPolicy
 Set-Alias -Name Put-CAPackageOriginConfiguration -Value Write-CAPackageOriginConfiguration
@@ -5374,6 +5375,7 @@ Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
 Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
+Set-Alias -Name CONN-GetMetricDataV2 -Value Get-CONNMetricDataV2
 Set-Alias -Name CONN-GetTaskTemplate -Value Get-CONNTaskTemplate
 Set-Alias -Name CONN-GetTrafficDistribution -Value Get-CONNTrafficDistribution
 Set-Alias -Name List-CONNAgentStatuses -Value Get-CONNAgentStatusList

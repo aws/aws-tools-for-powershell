@@ -28,9 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes the Amazon QuickSight user that is associated with the identity of the Identity
-    /// and Access Management (IAM) user or role that's making the call. The IAM user isn't
-    /// deleted as a result of this call.
+    /// Deletes the Amazon QuickSight user that is associated with the identity of the IAM
+    /// user or role that's making the call. The IAM user isn't deleted as a result of this
+    /// call.
     /// </summary>
     [Cmdlet("Remove", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteUserResponse")]

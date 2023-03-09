@@ -28,10 +28,12 @@ using Amazon.NetworkManager.Model;
 namespace Amazon.PowerShell.Cmdlets.NMGR
 {
     /// <summary>
-    /// Registers a transit gateway in your global network. The transit gateway can be in
-    /// any Amazon Web Services Region, but it must be owned by the same Amazon Web Services
-    /// account that owns the global network. You cannot register a transit gateway in more
-    /// than one global network.
+    /// Registers a transit gateway in your global network. Not all Regions support transit
+    /// gateways for global networks. For a list of the supported Regions, see <a href="https://docs.aws.amazon.com/network-manager/latest/tgwnm/what-are-global-networks.html#nm-available-regions">Region
+    /// Availability</a> in the <i>Amazon Web Services Transit Gateways for Global Networks
+    /// User Guide</i>. The transit gateway can be in any of the supported Amazon Web Services
+    /// Regions, but it must be owned by the same Amazon Web Services account that owns the
+    /// global network. You cannot register a transit gateway in more than one global network.
     /// </summary>
     [Cmdlet("Register", "NMGRTransitGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkManager.Model.TransitGatewayRegistration")]

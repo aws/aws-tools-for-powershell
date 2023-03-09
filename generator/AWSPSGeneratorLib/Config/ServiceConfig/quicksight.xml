@@ -300,7 +300,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GenerateEmbedUrlForRegisteredUser" OutputProperty="EmbedUrl" Verb="New" Noun="EmbedUrlForRegisteredUser" AnonymousShouldProcessTarget="true" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Bookmarks_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDashboardEmbedUrl" OutputProperty="EmbedUrl" Verb="Get" Noun="DashboardEmbedUrl" PipelineParameter="DashboardId" NoPipelineParameter="false">

@@ -85,10 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace used to filter requested packages. Only packages with the provided namespace
-        /// will be returned. The package component that specifies its namespace depends on its
-        /// type. For example:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
-        /// formats do not have a namespace. </para></li></ul>
+        /// <para>The namespace prefix used to filter requested packages. Only packages with a namespace
+        /// that starts with the provided string value are returned. Note that although this option
+        /// is called <code>--namespace</code> and not <code>--namespace-prefix</code>, it has
+        /// prefix-matching behavior.</para><para>Each package format uses namespace as follows:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
+        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is it’s <code>namespace</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

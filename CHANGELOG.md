@@ -1,4 +1,13 @@
-﻿### 4.1.287 (2023-03-08 22:18Z)
+﻿### 4.1.288 (2023-03-09 22:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.500.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CodeArtifact
+    * Added cmdlet Publish-CAPackageVersion leveraging the PublishPackageVersion service API.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNMetricDataV2 leveraging the GetMetricDataV2 service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameters ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled and ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled.
+
+### 4.1.287 (2023-03-08 22:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.499.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DynamoDB
     * Modified cmdlet Update-DDBTable: added parameter DeletionProtectionEnabled.
