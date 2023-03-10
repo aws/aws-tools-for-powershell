@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     public partial class UpdateSMSAPApplicationSettingCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

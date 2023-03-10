@@ -180,6 +180,27 @@ namespace Amazon.PowerShell.Common
             }
         }
 
+
+
+        bool _includeSensitiveData = false;
+        internal bool IncludeSensitiveData
+        {
+            get
+            {
+                lock (_syncLock)
+                {
+                    return _includeSensitiveData ;
+                }
+            }
+            set
+            {
+                lock (_syncLock)
+                {
+                    _includeSensitiveData  = value;
+                }
+            }
+        }
+
         private bool RecordingEnabled
         {
             get
@@ -357,9 +378,9 @@ namespace Amazon.PowerShell.Common
             this.CmdletEnd = this.CmdletStart = DateTime.Now;
         }
 
-        public void PushServiceRequest(AmazonWebServiceRequest request, InvocationInfo invocationInfo)
+        public void PushServiceRequest(AmazonWebServiceRequest request, InvocationInfo invocationInfo, bool isSensitiveRequest)
         {
-            if (!AWSCmdletHistoryBuffer.Instance.RecordServiceRequests)
+            if (!AWSCmdletHistoryBuffer.Instance.RecordServiceRequests || (isSensitiveRequest && !AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData))
                 return;
 
             var pso = new PSObject(request);
@@ -394,8 +415,11 @@ namespace Amazon.PowerShell.Common
             }
         }
 
-        internal void PushServiceResponse(object responseOrError)
+        internal void PushServiceResponse(object responseOrError, bool isSensitiveResponse)
         {
+            if (isSensitiveResponse && !AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData)
+                return;
+
             this.PushServiceResponse(responseOrError, null);
         }
 

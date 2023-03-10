@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class NewFRCExplainabilityExportCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ExplainabilityArn
         /// <summary>
         /// <para>

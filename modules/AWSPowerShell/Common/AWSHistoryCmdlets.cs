@@ -77,6 +77,12 @@ namespace Amazon.PowerShell.Common
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter RecordServiceRequests { get; set; }
 
+        /// <summary>
+        /// If set, record the service requests and responses that contain sensitive data. Default: Off.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter IncludeSensitiveData { get; set; }
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -104,6 +110,7 @@ namespace Amazon.PowerShell.Common
             }
 
             AWSCmdletHistoryBuffer.Instance.RecordServiceRequests = RecordServiceRequests.IsPresent;
+            AWSCmdletHistoryBuffer.Instance.IncludeSensitiveData = IncludeSensitiveData.IsPresent;
         }
     }
 }

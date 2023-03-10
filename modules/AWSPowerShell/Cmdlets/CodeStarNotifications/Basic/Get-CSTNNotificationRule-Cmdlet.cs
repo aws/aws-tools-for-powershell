@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     public partial class GetCSTNNotificationRuleCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

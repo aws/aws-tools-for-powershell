@@ -102,6 +102,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine($"public partial class {Operation.SelectedVerb}{Operation.SelectedNoun}Cmdlet : {ServiceConfig.GetServiceCmdletClassName(Operation.RequiresAnonymousAuthentication)}Cmdlet, IExecutor");
                 writer.OpenRegion();
                 {
+                    WriteSensitiveDataFlags(writer);
+
                     // create cmdlet parameters
 
                     // we emit the 'real' parameters in alpha order to allow for consistent tabbing
@@ -228,6 +230,49 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.CloseRegion();
             }
             writer.CloseRegion();
+        }
+
+        private void WriteSensitiveDataFlags(IndentedTextWriter writer)
+        {
+            if (ContainsSensitiveData(MethodAnalysis.RequestType))
+            {
+                writer.WriteLine();
+                writer.WriteLine("protected override bool IsSensitiveRequest { get; set; } = true;");
+            }
+            if (ContainsSensitiveData(MethodAnalysis.ResponseType))
+            {
+                writer.WriteLine();
+                writer.WriteLine("protected override bool IsSensitiveResponse { get; set; } = true;");
+            }
+        }
+
+        /// <summary>
+        /// Checks if the type contains any sensitive data by going recursivly over all the internal properties
+        /// </summary>
+        private bool ContainsSensitiveData(Type type, Dictionary<Type, bool> visitedTypes = null)
+        {
+            if (visitedTypes == null) 
+                visitedTypes = new Dictionary<Type, bool>();
+
+            if (visitedTypes.ContainsKey(type)) 
+                return false;
+
+            visitedTypes.Add(type, true);
+
+            foreach (var childProperty in type.GetProperties())
+            {
+                if (IsSensitive(childProperty) || ContainsSensitiveData(childProperty.PropertyType, visitedTypes)) 
+                    return true;
+            }
+            return false;
+        }
+
+        private bool IsSensitive(PropertyInfo propertyInfo)
+        {
+            dynamic awsPropertyAttribute = propertyInfo.GetCustomAttributes()
+                .Where(attribute => attribute.GetType().FullName == "Amazon.Runtime.Internal.AWSPropertyAttribute").SingleOrDefault();
+
+            return awsPropertyAttribute != null && awsPropertyAttribute.Sensitive;
         }
 
         private void WriteConverters(IndentedTextWriter writer, SimplePropertyInfo property, Param paramCustomization)

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class SuspendAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServiceArn
         /// <summary>
         /// <para>

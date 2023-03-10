@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class ConfirmDSSharedDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SharedDirectoryId
         /// <summary>
         /// <para>

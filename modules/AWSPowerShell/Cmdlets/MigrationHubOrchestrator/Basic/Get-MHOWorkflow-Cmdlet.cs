@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MHO
     public partial class GetMHOWorkflowCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

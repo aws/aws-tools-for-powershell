@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AllowUnassociatedTarget
         /// <summary>
         /// <para>

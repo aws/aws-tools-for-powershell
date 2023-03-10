@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMParametersByPathCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ParameterFilter
         /// <summary>
         /// <para>

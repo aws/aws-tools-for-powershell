@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class RemoveRSSNamespaceCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter FinalSnapshotName
         /// <summary>
         /// <para>

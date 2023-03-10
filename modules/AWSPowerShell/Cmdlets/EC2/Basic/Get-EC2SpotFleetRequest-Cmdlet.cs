@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2SpotFleetRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>

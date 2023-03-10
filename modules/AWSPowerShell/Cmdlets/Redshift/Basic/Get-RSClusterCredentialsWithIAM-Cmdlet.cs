@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSClusterCredentialsWithIAMCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>

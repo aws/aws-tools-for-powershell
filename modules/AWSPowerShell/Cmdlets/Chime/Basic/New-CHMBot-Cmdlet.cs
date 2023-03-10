@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class NewCHMBotCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

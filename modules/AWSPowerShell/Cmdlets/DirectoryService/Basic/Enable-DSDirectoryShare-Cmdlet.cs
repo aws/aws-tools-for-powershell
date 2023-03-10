@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class EnableDSDirectoryShareCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>

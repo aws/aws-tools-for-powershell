@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class GetHCTableDataImportJobCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

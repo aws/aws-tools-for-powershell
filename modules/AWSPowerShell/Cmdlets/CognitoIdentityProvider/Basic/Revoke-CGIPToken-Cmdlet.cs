@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class RevokeCGIPTokenCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientId
         /// <summary>
         /// <para>

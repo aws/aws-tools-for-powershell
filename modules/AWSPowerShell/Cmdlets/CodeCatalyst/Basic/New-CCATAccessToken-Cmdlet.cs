@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
     public partial class NewCCATAccessTokenCmdlet : AmazonCodeCatalystClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ExpiresTime
         /// <summary>
         /// <para>

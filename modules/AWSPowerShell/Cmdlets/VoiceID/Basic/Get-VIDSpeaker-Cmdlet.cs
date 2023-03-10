@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
     public partial class GetVIDSpeakerCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DomainId
         /// <summary>
         /// <para>

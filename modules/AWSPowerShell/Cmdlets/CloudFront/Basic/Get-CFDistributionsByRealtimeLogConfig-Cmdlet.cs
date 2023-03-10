@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class GetCFDistributionsByRealtimeLogConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter RealtimeLogConfigArn
         /// <summary>
         /// <para>

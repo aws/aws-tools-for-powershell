@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class GetIAMRAResourceTagCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

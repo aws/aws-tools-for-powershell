@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // try and anticipate all the ways a user might mean 'get everything from root'
         internal static readonly string[] rootIndicators = new string[] { "/", @"\", "*", "/*", @"\*" };
 
+        protected override bool IsSensitiveRequest { get; set; } = true;
+
         #region Bucket Params
 
         #region Parameter BucketName

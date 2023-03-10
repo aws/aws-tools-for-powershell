@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class ImportTFRCertificateCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ActiveDate
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class TestR53DDomainTransferabilityCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuthCode
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class RemovePROEnvironmentTemplateCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class ConnectDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ConnectSettings_CustomerDnsIp
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public partial class GetEMRCJobTemplateListCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CreatedAfter
         /// <summary>
         /// <para>

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSGUISessionAccessDetailCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceName
         /// <summary>
         /// <para>

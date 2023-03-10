@@ -69,6 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class NewGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPEntityRecognizerCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EntityRecognizerArn
         /// <summary>
         /// <para>

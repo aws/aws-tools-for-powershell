@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AlarmConfiguration_Alarm
         /// <summary>
         /// <para>

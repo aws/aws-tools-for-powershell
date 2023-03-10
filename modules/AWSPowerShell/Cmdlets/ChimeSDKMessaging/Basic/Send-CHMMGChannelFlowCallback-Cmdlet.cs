@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class SendCHMMGChannelFlowCallbackCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter PushNotification_Body
         /// <summary>
         /// <para>

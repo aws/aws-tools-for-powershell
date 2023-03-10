@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     public partial class StartSSWSimulationCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SchemaS3Location_BucketName
         /// <summary>
         /// <para>

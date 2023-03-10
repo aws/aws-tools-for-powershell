@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class RegisterR53DDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AdminContact_AddressLine1
         /// <summary>
         /// <para>

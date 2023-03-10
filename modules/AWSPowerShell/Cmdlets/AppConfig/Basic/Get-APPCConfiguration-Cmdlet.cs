@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     public partial class GetAPPCConfigurationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Application
         /// <summary>
         /// <para>

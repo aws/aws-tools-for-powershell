@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class NewLOCKeyCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Restrictions_AllowAction
         /// <summary>
         /// <para>

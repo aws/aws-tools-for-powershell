@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class UpdateCHMUserBatchCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

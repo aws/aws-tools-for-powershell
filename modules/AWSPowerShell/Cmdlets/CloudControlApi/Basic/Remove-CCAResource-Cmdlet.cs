@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     public partial class RemoveCCAResourceCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>

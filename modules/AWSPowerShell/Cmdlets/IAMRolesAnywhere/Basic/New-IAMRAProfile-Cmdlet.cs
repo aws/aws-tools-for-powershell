@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
     public partial class NewIAMRAProfileCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>

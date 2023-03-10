@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class GetCOMPEntityRecognizerListCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter_RecognizerName
         /// <summary>
         /// <para>

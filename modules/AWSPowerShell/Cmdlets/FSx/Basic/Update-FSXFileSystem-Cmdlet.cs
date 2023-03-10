@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class UpdateFSXFileSystemCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter OntapConfiguration_AddRouteTableId
         /// <summary>
         /// <para>

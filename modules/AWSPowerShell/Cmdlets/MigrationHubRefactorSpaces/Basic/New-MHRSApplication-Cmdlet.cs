@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class NewMHRSApplicationCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ApiGatewayProxy_EndpointType
         /// <summary>
         /// <para>

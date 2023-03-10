@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class SearchSMResourceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SearchExpression_Filter
         /// <summary>
         /// <para>

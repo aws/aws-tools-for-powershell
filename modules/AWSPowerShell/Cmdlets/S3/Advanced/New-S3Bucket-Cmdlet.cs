@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ObjectLockEnabledForBucket = cmdletContext.ObjectLockEnabledForBucket.Value;
             }
 
-            ServiceCalls.PushServiceRequest(request, this.MyInvocation);
+            ServiceCalls.PushServiceRequest(request, this.MyInvocation, IsSensitiveRequest);
 
             using (var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint))
             {

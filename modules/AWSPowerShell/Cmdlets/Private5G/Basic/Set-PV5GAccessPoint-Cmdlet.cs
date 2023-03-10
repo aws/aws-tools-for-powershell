@@ -48,6 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class SetPV5GAccessPointCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccessPointArn
         /// <summary>
         /// <para>

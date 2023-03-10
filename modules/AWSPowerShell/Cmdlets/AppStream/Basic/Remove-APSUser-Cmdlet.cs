@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class RemoveAPSUserCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>

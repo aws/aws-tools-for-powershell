@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class NewDSYNLocationSmbCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AgentArn
         /// <summary>
         /// <para>

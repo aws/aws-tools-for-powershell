@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class AddOWCMNodeCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>

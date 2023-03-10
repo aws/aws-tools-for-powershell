@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class UpdateCGIPAuthEventFeedbackCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter EventId
         /// <summary>
         /// <para>

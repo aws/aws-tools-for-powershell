@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRExperienceEntityListCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

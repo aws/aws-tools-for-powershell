@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     public partial class StartCRSProtectedQueryCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter S3_Bucket
         /// <summary>
         /// <para>

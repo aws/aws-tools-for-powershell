@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class GetAPSDirectoryConfigListCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DirectoryName
         /// <summary>
         /// <para>

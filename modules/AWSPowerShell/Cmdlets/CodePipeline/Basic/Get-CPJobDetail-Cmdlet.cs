@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPJobDetailCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter JobId
         /// <summary>
         /// <para>

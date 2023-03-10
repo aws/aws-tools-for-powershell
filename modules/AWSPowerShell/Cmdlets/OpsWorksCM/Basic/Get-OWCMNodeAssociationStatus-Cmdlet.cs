@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class GetOWCMNodeAssociationStatusCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter NodeAssociationStatusToken
         /// <summary>
         /// <para>

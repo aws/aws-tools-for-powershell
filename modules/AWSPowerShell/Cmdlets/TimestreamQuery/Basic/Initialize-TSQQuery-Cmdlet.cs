@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class InitializeTSQQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter QueryString
         /// <summary>
         /// <para>

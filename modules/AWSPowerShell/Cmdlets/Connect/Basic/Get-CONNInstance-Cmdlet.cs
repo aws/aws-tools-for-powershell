@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     public partial class GetCONNInstanceCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>

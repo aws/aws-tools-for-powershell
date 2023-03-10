@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class GetKVEdgeConfigurationCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StreamARN
         /// <summary>
         /// <para>

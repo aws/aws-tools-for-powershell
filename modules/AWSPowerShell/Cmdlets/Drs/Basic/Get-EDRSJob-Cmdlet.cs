@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class GetEDRSJobCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filters_FromDate
         /// <summary>
         /// <para>

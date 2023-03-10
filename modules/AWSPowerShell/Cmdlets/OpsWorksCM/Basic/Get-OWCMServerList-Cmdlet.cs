@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class GetOWCMServerListCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServerName
         /// <summary>
         /// <para>

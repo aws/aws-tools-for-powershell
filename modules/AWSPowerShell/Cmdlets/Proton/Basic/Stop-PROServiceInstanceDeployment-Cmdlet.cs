@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class StopPROServiceInstanceDeploymentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServiceInstanceName
         /// <summary>
         /// <para>

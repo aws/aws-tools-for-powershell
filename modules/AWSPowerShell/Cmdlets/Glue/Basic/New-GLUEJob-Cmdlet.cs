@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEJobCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SourceControlDetails_AuthStrategy
         /// <summary>
         /// <para>

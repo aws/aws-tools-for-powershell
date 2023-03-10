@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class DisconnectMGNFromServiceCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>

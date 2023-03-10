@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class UpdateMGNWaveCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class GetMGNLaunchConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter LaunchConfigurationTemplateIDs
         /// <summary>
         /// <para>

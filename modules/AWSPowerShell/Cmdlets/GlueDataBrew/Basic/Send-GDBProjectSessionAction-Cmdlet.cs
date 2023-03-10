@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class SendGDBProjectSessionActionCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ViewFrame_Analytic
         /// <summary>
         /// <para>

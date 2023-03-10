@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class NewWSWUserSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CopyAllowed
         /// <summary>
         /// <para>

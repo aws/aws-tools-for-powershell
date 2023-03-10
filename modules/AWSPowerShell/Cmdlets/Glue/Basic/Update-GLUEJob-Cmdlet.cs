@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class UpdateGLUEJobCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter JobName
         /// <summary>
         /// <para>

@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class WriteSES2EmailIdentityDkimSigningAttributeCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SigningAttributes_DomainSigningPrivateKey
         /// <summary>
         /// <para>

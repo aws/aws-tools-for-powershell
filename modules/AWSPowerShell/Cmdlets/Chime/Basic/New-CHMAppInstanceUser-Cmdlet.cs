@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class NewCHMAppInstanceUserCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

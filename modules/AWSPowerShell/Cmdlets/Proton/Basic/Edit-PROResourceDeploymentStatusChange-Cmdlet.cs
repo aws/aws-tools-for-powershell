@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class EditPROResourceDeploymentStatusChangeCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DeploymentId
         /// <summary>
         /// <para>

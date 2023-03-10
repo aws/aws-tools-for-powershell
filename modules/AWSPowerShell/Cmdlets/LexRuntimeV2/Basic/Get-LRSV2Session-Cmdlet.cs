@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     public partial class GetLRSV2SessionCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BotAliasId
         /// <summary>
         /// <para>

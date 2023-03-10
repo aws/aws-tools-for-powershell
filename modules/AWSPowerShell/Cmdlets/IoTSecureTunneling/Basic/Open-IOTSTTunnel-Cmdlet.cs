@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTST
     public partial class OpenIOTSTTunnelCmdlet : AmazonIoTSecureTunnelingClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

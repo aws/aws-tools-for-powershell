@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class UpdateCHMRoomMembershipCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

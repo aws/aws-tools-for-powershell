@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class UpdateWMAvailabilityConfigurationCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

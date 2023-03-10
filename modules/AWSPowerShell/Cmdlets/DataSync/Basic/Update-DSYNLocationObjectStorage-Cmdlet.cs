@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class UpdateDSYNLocationObjectStorageCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BucketAccessKey
         /// <summary>
         /// <para>

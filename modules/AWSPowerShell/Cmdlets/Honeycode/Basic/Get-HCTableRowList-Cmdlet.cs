@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class GetHCTableRowListCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter RowId
         /// <summary>
         /// <para>

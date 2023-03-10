@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
     public partial class WritePOLLexiconCmdlet : AmazonPollyClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Content
         /// <summary>
         /// <para>

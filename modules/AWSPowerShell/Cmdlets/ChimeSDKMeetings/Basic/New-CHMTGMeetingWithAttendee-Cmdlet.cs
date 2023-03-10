@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public partial class NewCHMTGMeetingWithAttendeeCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Attendee
         /// <summary>
         /// <para>

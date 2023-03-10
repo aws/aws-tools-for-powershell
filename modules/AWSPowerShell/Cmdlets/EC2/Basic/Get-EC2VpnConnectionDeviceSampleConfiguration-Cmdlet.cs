@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2VpnConnectionDeviceSampleConfigurationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter InternetKeyExchangeVersion
         /// <summary>
         /// <para>

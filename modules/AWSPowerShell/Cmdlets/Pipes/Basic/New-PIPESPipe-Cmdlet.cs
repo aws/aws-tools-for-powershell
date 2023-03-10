@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     public partial class NewPIPESPipeCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SelfManagedKafkaParameters_AdditionalBootstrapServer
         /// <summary>
         /// <para>

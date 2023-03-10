@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
     public partial class UpdateESDomainConfigCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccessPolicy
         /// <summary>
         /// <para>

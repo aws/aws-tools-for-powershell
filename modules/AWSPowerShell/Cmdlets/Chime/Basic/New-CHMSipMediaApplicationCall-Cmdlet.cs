@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class NewCHMSipMediaApplicationCallCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter FromPhoneNumber
         /// <summary>
         /// <para>

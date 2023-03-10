@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class GetFDRuleCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>

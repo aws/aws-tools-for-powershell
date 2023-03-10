@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
     public partial class AddVIDResourceTagCmdlet : AmazonVoiceIDClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

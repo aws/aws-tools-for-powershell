@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.SSO
     public partial class GetSSORoleCredentialCmdlet : AmazonSSOClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccessToken
         /// <summary>
         /// <para>

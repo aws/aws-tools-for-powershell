@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class GetQLDBRevisionCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DocumentId
         /// <summary>
         /// <para>

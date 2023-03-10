@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
     public partial class NewC9EnvironmentEC2Cmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AutomaticStopTimeMinute
         /// <summary>
         /// <para>

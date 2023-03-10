@@ -46,6 +46,12 @@ namespace Amazon.PowerShell.Common
 
         static readonly object[] EmptyObjectArray = new object[0];
 
+        // True if request contain any sensitive data
+        protected virtual bool IsSensitiveRequest { get; set; }
+
+        // True if response contain any sensitive data
+        protected virtual bool IsSensitiveResponse { get; set; }
+
         #region Error calls
 
         /// <summary>
@@ -383,7 +389,7 @@ namespace Amazon.PowerShell.Common
             {
                 var response = wsrea.Response;
                 if (response != null)
-                    ServiceCalls.PushServiceResponse(response);
+                    ServiceCalls.PushServiceResponse(response, IsSensitiveResponse);
             }
         }
         protected void RequestEventHandler(object sender, RequestEventArgs args)
@@ -393,7 +399,7 @@ namespace Amazon.PowerShell.Common
             {
                 var request = wsrea.Request;
                 if (request != null)
-                    ServiceCalls.PushServiceRequest(request, this.MyInvocation);
+                    ServiceCalls.PushServiceRequest(request, this.MyInvocation, IsSensitiveRequest);
             }
         }
 

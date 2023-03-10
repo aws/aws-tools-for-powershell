@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     public partial class WriteEBSSnapshotBlockCmdlet : AmazonEBSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BlockData
         /// <summary>
         /// <para>

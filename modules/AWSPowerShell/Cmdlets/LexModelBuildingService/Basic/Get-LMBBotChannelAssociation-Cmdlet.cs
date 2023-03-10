@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     public partial class GetLMBBotChannelAssociationCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BotAlias
         /// <summary>
         /// <para>

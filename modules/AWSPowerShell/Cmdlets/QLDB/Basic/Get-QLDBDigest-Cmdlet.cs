@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class GetQLDBDigestCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

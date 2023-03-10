@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class EnableAPSUserCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>

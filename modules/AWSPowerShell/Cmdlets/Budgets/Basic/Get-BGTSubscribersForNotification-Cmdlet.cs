@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     public partial class GetBGTSubscribersForNotificationCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

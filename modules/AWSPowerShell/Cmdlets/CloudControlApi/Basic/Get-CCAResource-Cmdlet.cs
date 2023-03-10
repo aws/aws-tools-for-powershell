@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     public partial class GetCCAResourceCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>

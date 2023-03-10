@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class NewPROEnvironmentCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ProvisioningRepository_Branch
         /// <summary>
         /// <para>

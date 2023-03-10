@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class AddMGRFLicenseCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter LicenseType
         /// <summary>
         /// <para>

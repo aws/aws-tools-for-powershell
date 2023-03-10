@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2ScheduledInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter IamInstanceProfile_Arn
         /// <summary>
         /// <para>

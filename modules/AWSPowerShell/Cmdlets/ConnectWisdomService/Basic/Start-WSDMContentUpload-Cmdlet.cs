@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class StartWSDMContentUploadCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ContentType
         /// <summary>
         /// <para>

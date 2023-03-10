@@ -80,6 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class UpdateSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class GetTNBSolNetworkOperationCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter NsLcmOpOccId
         /// <summary>
         /// <para>

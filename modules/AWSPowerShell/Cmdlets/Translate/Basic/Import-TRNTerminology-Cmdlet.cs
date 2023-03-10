@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     public partial class ImportTRNTerminologyCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

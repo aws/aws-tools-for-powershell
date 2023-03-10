@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class AddCHMMGResourceTagCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

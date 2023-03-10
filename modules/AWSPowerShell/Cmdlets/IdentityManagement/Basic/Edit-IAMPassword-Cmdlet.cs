@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class EditIAMPasswordCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter NewPassword
         /// <summary>
         /// <para>

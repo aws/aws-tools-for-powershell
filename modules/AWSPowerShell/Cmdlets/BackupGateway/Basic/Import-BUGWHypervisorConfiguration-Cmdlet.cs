@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
     public partial class ImportBUGWHypervisorConfigurationCmdlet : AmazonBackupGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter HypervisorHost
         /// <summary>
         /// <para>

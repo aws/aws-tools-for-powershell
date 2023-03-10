@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class EnableDSRadiusCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter RadiusSettings_AuthenticationProtocol
         /// <summary>
         /// <para>

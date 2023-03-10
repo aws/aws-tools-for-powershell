@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class UpdateFDRuleVersionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

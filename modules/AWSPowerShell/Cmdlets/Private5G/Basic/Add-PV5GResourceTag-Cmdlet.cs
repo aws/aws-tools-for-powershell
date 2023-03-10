@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class AddPV5GResourceTagCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

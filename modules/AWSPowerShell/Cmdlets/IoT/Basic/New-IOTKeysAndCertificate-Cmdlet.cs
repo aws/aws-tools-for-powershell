@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTKeysAndCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SetAsActive
         /// <summary>
         /// <para>

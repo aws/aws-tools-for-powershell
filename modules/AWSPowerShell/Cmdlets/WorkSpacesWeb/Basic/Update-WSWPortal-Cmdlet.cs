@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class UpdateWSWPortalCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>

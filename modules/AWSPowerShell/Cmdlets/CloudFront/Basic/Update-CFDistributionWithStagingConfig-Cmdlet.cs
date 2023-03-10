@@ -54,6 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class UpdateCFDistributionWithStagingConfigCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class UpdateRSSNamespaceCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AdminUsername
         /// <summary>
         /// <para>

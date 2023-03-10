@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class NewNSStreamingSessionStreamCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ExpirationInSecond
         /// <summary>
         /// <para>

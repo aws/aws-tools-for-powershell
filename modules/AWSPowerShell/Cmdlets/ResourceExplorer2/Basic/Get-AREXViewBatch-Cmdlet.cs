@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     public partial class GetAREXViewBatchCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ViewArn
         /// <summary>
         /// <para>

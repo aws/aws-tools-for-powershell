@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class InvokeHCUpsertTableRowsBatchCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

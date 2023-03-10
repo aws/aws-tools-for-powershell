@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMAssociationStatusCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssociationStatus_AdditionalInfo
         /// <summary>
         /// <para>

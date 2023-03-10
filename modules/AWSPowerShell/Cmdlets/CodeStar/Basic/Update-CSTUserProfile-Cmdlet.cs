@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class UpdateCSTUserProfileCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.TSW
     public partial class NewTSWBatchLoadTaskCmdlet : AmazonTimestreamWriteClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DataModelS3Configuration_BucketName
         /// <summary>
         /// <para>

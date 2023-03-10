@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMDeployablePatchSnapshotForInstanceCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BaselineOverride_ApprovedPatch
         /// <summary>
         /// <para>

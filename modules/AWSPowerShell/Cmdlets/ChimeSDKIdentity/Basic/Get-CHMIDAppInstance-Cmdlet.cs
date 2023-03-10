@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
     public partial class GetCHMIDAppInstanceCmdlet : AmazonChimeSDKIdentityClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

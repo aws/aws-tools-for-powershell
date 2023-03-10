@@ -56,6 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class NewTNBSolNetworkPackageCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Tag
         /// <summary>
         /// <para>

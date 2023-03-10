@@ -48,6 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class EditDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter RedshiftSettings_AcceptAnyDate
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class UpdateHCTableRowsBatchCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

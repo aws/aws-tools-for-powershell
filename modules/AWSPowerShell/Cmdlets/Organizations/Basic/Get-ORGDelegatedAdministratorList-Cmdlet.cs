@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGDelegatedAdministratorListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServicePrincipal
         /// <summary>
         /// <para>

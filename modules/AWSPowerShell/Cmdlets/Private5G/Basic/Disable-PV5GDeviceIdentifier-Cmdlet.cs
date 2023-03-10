@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class DisablePV5GDeviceIdentifierCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DeviceIdentifierArn
         /// <summary>
         /// <para>

@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSClusterCredentialCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AutoCreate
         /// <summary>
         /// <para>

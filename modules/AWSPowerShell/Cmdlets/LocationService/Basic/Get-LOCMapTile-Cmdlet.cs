@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCMapTileCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Key
         /// <summary>
         /// <para>

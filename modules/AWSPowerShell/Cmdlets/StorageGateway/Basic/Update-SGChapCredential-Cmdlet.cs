@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGChapCredentialCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter InitiatorName
         /// <summary>
         /// <para>

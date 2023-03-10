@@ -44,6 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class GetCHMMGChannelModeratorListCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class GetWDDocumentVersionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>

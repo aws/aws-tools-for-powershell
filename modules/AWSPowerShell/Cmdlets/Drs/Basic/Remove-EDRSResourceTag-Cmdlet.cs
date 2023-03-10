@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class RemoveEDRSResourceTagCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

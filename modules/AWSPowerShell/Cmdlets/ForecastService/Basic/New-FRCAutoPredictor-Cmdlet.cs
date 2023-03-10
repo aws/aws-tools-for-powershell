@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class NewFRCAutoPredictorCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DataConfig_AdditionalDataset
         /// <summary>
         /// <para>

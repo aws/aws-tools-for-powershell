@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class NewCSTProjectCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter S3_BucketKey
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRIndexCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

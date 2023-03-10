@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class NewWSWBrowserSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AdditionalEncryptionContext
         /// <summary>
         /// <para>

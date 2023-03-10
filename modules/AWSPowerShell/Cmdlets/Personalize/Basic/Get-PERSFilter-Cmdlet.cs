@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class GetPERSFilterCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter FilterArn
         /// <summary>
         /// <para>

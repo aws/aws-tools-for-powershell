@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class NewMHRSEnvironmentCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

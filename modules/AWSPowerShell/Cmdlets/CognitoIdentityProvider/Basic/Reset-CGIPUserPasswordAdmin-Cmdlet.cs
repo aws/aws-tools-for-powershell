@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class ResetCGIPUserPasswordAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientMetadata
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
     public partial class GetEBSSnapshotBlockListCmdlet : AmazonEBSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SnapshotId
         /// <summary>
         /// <para>

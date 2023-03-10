@@ -83,6 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     public partial class SendLRSV2UtteranceCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BotAliasId
         /// <summary>
         /// <para>

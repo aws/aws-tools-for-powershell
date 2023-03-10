@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGAccountCreationStatusCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CreateAccountRequestId
         /// <summary>
         /// <para>

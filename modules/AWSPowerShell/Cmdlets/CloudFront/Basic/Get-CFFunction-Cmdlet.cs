@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class GetCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class NewFRCForecastExportJobCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ForecastArn
         /// <summary>
         /// <para>

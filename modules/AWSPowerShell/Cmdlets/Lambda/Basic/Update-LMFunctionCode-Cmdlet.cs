@@ -63,6 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Architecture
         /// <summary>
         /// <para>

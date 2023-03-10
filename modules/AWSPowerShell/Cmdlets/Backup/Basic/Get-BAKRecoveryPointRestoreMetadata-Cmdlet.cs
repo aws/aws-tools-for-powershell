@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKRecoveryPointRestoreMetadataCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BackupVaultName
         /// <summary>
         /// <para>

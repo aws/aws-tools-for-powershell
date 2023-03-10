@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class NewABCPricingRuleCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter FreeTier_Activated
         /// <summary>
         /// <para>

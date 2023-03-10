@@ -61,6 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class GetSECSecretValueCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SecretId
         /// <summary>
         /// <para>

@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class WriteCHMVoiceConnectorEmergencyCallingConfigurationCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EmergencyCallingConfiguration_DNIS
         /// <summary>
         /// <para>

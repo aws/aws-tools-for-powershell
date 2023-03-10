@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class GetEMRClusterSessionCredentialCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ClusterId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class ImportCBSourceCredentialCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuthType
         /// <summary>
         /// <para>

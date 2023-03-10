@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
     public partial class NewFINSPEnvironmentCmdlet : AmazonFinspaceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter FederationParameters_ApplicationCallBackURL
         /// <summary>
         /// <para>

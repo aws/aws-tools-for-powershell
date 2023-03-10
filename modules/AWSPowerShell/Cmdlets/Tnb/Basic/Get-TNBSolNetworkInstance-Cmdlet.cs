@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class GetTNBSolNetworkInstanceCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter NsInstanceId
         /// <summary>
         /// <para>

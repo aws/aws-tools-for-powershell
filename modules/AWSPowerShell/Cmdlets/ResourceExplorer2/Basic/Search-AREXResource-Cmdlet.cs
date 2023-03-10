@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     public partial class SearchAREXResourceCmdlet : AmazonResourceExplorer2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter QueryString
         /// <summary>
         /// <para>

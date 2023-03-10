@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class GetABCPricingPlanListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filters_Arn
         /// <summary>
         /// <para>

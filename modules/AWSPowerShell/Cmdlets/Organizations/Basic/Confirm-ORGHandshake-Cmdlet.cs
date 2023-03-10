@@ -66,6 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class ConfirmORGHandshakeCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter HandshakeId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class InstallDFToRemoteAccessSessionCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AppArn
         /// <summary>
         /// <para>

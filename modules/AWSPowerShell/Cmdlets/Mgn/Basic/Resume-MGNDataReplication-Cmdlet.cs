@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class ResumeMGNDataReplicationCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>

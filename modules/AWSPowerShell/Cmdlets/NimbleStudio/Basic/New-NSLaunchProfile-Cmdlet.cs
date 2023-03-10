@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class NewNSLaunchProfileCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StreamConfiguration_AutomaticTerminationMode
         /// <summary>
         /// <para>

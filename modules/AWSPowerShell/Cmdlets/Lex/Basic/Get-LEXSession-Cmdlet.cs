@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     public partial class GetLEXSessionCmdlet : AmazonLexClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BotAlias
         /// <summary>
         /// <para>

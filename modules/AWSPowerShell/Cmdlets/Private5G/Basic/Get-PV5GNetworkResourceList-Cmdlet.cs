@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class GetPV5GNetworkResourceListCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

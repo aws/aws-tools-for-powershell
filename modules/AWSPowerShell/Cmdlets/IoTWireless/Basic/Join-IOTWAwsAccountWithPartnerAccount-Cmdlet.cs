@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class JoinIOTWAwsAccountWithPartnerAccountCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Sidewalk_AmazonId
         /// <summary>
         /// <para>

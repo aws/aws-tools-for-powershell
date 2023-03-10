@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class GetSFNStateMachineCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StateMachineArn
         /// <summary>
         /// <para>

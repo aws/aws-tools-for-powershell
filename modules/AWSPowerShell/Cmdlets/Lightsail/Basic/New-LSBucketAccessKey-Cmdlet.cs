@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSBucketAccessKeyCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BucketName
         /// <summary>
         /// <para>

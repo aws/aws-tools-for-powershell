@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
     public partial class GetSMSAPDatabaseCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ApplicationId
         /// <summary>
         /// <para>

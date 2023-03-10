@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class UpdateIAMLoginProfileCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Password
         /// <summary>
         /// <para>

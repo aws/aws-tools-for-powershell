@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class NewABCCustomLineItemCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Percentage_AssociatedValue
         /// <summary>
         /// <para>

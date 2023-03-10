@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public partial class GetMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

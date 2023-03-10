@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class NewIVSChannelCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Authorized
         /// <summary>
         /// <para>
