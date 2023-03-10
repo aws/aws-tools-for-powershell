@@ -1,4 +1,9 @@
-﻿### 4.1.288 (2023-03-09 22:11Z)
+﻿### 4.1.289 (2023-03-10 22:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.501.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * 
+    * Modified cmdlet Set-AWSHistoryConfiguration: added parameter IncludeSensitiveData.
+
+### 4.1.288 (2023-03-09 22:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.500.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CodeArtifact
     * Added cmdlet Publish-CAPackageVersion leveraging the PublishPackageVersion service API.
