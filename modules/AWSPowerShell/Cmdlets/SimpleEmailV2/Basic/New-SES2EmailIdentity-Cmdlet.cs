@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class NewSES2EmailIdentityCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>

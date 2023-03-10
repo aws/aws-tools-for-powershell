@@ -53,6 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     public partial class GetQLDBBlockCmdlet : AmazonQLDBClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BlockAddress_IonText
         /// <summary>
         /// <para>

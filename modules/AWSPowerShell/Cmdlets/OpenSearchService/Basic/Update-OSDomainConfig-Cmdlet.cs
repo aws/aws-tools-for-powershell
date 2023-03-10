@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
     public partial class UpdateOSDomainConfigCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccessPolicy
         /// <summary>
         /// <para>

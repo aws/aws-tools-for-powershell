@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class RestoreRSSFromRecoveryPointCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter NamespaceName
         /// <summary>
         /// <para>

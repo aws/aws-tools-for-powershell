@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.GDB
     public partial class StartGDBProjectSessionCmdlet : AmazonGlueDataBrewClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssumeControl
         /// <summary>
         /// <para>

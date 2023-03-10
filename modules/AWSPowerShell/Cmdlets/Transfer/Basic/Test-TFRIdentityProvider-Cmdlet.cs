@@ -65,6 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class TestTFRIdentityProviderCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ServerId
         /// <summary>
         /// <para>

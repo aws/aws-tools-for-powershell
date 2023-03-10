@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     public partial class GetSES2AccountCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.

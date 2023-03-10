@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class WriteSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AllowedPattern
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class NewMGRFWorkspaceApiKeyCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter KeyName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class GetFDEventPredictionMetadataCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>

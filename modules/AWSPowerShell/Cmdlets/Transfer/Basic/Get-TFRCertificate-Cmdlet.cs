@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRCertificateCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CertificateId
         /// <summary>
         /// <para>

@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSO
     public partial class GetSSOAccountListCmdlet : AmazonSSOClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccessToken
         /// <summary>
         /// <para>

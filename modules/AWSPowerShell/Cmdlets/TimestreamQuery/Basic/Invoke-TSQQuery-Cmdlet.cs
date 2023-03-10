@@ -64,6 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class InvokeTSQQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter MaxRow
         /// <summary>
         /// <para>

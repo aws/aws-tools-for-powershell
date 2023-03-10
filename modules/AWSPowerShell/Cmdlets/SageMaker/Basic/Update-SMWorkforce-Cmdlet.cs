@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMWorkforceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter OidcConfig_AuthorizationEndpoint
         /// <summary>
         /// <para>

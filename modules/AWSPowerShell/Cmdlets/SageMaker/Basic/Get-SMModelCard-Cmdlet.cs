@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMModelCardCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ModelCardName
         /// <summary>
         /// <para>

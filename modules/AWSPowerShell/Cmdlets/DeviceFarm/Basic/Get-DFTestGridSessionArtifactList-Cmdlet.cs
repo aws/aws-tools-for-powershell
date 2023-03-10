@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class GetDFTestGridSessionArtifactListCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

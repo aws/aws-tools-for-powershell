@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class NewDFTestGridUrlCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ExpiresInSecond
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class NewWSWUserAccessLoggingSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter KinesisStreamArn
         /// <summary>
         /// <para>

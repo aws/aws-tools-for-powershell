@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class NewWMUserCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>

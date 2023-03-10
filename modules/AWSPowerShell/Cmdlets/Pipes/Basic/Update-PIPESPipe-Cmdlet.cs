@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
     public partial class UpdatePIPESPipeCmdlet : AmazonPipesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SourceParameters_DynamoDBStreamParameters_DeadLetterConfig_Arn
         /// <summary>
         /// <para>

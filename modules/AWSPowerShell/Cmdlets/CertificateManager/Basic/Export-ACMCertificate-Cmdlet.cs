@@ -50,6 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     public partial class ExportACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CertificateArn
         /// <summary>
         /// <para>

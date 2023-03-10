@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class GetDSYNLocationFsxOntapCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter LocationArn
         /// <summary>
         /// <para>

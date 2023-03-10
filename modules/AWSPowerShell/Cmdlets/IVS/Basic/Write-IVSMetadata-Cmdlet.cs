@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class WriteIVSMetadataCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AF
     public partial class UpdateAFConnectorProfileCmdlet : AmazonAppflowClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ConnectionMode
         /// <summary>
         /// <para>

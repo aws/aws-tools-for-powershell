@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class GetPROEnvironmentListCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EnvironmentTemplate
         /// <summary>
         /// <para>

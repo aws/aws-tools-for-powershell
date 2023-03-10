@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     public partial class GetBGTBudgetActionsForBudgetCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

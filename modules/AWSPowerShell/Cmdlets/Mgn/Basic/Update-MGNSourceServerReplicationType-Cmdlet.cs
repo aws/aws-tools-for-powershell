@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class UpdateMGNSourceServerReplicationTypeCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ReplicationType
         /// <summary>
         /// <para>

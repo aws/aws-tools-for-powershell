@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class GetALXBContactCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ContactArn
         /// <summary>
         /// <para>

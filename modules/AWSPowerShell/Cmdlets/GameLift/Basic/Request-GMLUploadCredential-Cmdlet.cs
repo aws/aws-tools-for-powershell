@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class RequestGMLUploadCredentialCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BuildId
         /// <summary>
         /// <para>

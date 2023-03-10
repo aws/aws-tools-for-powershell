@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.HC
     public partial class InvokeHCScreenAutomationCmdlet : AmazonHoneycodeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AppId
         /// <summary>
         /// <para>

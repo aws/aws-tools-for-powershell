@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public partial class AssertIDSMemberInGroupCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter GroupId
         /// <summary>
         /// <para>

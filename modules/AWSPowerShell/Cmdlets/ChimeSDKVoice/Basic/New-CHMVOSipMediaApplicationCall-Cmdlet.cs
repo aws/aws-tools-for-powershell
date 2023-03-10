@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class NewCHMVOSipMediaApplicationCallCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ArgumentsMap
         /// <summary>
         /// <para>

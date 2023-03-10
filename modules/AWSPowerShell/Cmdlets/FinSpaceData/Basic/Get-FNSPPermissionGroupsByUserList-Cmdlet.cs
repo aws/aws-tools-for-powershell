@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class GetFNSPPermissionGroupsByUserListCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter UserId
         /// <summary>
         /// <para>

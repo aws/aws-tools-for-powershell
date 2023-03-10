@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class SetSGLocalConsolePasswordCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter GatewayARN
         /// <summary>
         /// <para>

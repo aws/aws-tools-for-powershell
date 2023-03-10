@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class SetCGIPUserMFAPreferenceAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SMSMfaSetting
         /// <summary>
         /// <para>

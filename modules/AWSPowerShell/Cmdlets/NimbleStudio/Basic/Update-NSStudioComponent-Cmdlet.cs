@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class UpdateNSStudioComponentCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ComputeFarmConfiguration_ActiveDirectoryUser
         /// <summary>
         /// <para>

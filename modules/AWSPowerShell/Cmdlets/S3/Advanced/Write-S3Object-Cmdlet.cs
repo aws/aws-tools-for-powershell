@@ -59,6 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         // try and anticipate all the ways a user might mean 'write everything to root'
         readonly string[] rootIndicators = new string[] { "/", @"\" };
 
+        protected override bool IsSensitiveRequest { get; set; } = true;
+
+        protected override bool IsSensitiveResponse { get; set; } = true;
+
         #region Parameter BucketName
         /// <summary>
         /// <para>The name of the bucket that will hold the uploaded content.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 

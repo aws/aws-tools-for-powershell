@@ -53,6 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class UpdateAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AuthenticationConfiguration_AccessRoleArn
         /// <summary>
         /// <para>

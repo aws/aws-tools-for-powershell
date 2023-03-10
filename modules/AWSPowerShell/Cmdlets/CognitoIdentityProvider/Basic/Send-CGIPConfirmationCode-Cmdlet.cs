@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class SendCGIPConfirmationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AnalyticsMetadata_AnalyticsEndpointId
         /// <summary>
         /// <para>

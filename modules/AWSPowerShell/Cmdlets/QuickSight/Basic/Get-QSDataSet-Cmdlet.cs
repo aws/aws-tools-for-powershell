@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class GetQSDataSetCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>

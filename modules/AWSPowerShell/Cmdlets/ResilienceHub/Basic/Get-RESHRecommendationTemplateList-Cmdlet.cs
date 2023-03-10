@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class GetRESHRecommendationTemplateListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssessmentArn
         /// <summary>
         /// <para>

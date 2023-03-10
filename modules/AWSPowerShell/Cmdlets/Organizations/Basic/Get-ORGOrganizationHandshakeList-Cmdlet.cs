@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGOrganizationHandshakeListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter_ActionType
         /// <summary>
         /// <para>

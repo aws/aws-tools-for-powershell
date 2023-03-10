@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class NewWSWNetworkSettingCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>

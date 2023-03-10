@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class FindCOMPDominantLanguageCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Text
         /// <summary>
         /// <para>

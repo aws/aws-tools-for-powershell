@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     public partial class UpdateBGTSubscriberCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

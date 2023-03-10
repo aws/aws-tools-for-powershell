@@ -91,6 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class NewSECSecretCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AddReplicaRegion
         /// <summary>
         /// <para>

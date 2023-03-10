@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class GetRSSNamespaceListCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

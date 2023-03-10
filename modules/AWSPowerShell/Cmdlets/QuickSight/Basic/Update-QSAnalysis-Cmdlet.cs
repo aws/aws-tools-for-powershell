@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class UpdateQSAnalysisCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AnalysisId
         /// <summary>
         /// <para>

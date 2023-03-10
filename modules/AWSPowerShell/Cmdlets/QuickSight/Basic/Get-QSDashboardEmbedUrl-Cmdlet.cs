@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class GetQSDashboardEmbedUrlCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AdditionalDashboardId
         /// <summary>
         /// <para>

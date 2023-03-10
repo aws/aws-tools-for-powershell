@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCGeofenceListCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CollectionName
         /// <summary>
         /// <para>

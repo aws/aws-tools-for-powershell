@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AAR
     public partial class GetAARServiceCmdlet : AmazonAppRunnerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServiceArn
         /// <summary>
         /// <para>

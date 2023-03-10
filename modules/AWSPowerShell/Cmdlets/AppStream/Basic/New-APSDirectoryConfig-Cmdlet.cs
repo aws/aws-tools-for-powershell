@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class NewAPSDirectoryConfigCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServiceAccountCredentials_AccountName
         /// <summary>
         /// <para>

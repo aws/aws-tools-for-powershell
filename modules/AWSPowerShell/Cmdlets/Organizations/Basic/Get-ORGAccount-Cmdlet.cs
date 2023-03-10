@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class GetORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

@@ -98,6 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AdditionalInfo
         /// <summary>
         /// <para>

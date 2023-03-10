@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class RemoveOWCMNodeCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>

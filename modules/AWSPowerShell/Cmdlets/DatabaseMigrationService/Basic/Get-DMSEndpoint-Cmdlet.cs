@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

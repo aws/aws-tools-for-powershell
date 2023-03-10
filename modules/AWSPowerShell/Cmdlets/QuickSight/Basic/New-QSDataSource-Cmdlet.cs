@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class NewQSDataSourceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CredentialPair_AlternateDataSourceParameter
         /// <summary>
         /// <para>

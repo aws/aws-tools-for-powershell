@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
     public partial class GetSMGSEarthObservationJobCmdlet : AmazonSageMakerGeospatialClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class EnableDSSsoCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>

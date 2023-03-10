@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class UpdateCHMProxySessionCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Capability
         /// <summary>
         /// <para>

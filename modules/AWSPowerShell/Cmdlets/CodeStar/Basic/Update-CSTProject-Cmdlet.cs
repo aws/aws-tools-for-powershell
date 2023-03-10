@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class UpdateCSTProjectCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

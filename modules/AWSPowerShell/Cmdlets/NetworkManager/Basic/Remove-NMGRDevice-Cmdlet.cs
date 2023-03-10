@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class RemoveNMGRDeviceCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

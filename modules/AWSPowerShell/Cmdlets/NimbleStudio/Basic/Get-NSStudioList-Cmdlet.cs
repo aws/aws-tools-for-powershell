@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class GetNSStudioListCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>

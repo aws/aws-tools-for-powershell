@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public partial class GetIDSUserIdCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter UniqueAttribute_AttributePath
         /// <summary>
         /// <para>

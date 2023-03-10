@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class NewCHMMGCreateChannelMembershipCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

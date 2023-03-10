@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class GetEDRSExtensibleSourceServerListCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StagingAccountID
         /// <summary>
         /// <para>

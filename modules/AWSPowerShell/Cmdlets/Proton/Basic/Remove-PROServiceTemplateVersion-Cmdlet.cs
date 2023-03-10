@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class RemovePROServiceTemplateVersionCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MajorVersion
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class GetFRCResourceTagCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

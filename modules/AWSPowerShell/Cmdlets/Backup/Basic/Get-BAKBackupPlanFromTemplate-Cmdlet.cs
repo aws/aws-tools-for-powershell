@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKBackupPlanFromTemplateCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BackupPlanTemplateId
         /// <summary>
         /// <para>

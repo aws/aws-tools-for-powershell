@@ -77,6 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class WriteSECSecretValueCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

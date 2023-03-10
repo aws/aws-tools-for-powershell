@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     public partial class GetAMPAppListCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

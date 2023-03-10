@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.PV5G
     public partial class UpdatePV5GNetworkSiteCmdlet : AmazonPrivate5GClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

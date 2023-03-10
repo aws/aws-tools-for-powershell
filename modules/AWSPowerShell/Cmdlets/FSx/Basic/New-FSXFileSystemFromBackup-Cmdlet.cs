@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXFileSystemFromBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter OpenZFSConfiguration_AutomaticBackupRetentionDay
         /// <summary>
         /// <para>

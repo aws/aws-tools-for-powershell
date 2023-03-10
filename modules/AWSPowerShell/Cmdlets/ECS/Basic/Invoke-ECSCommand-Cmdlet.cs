@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class InvokeECSCommandCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>

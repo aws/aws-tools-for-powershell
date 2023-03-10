@@ -64,6 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCRouteCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CarModeOptions_AvoidFerry
         /// <summary>
         /// <para>

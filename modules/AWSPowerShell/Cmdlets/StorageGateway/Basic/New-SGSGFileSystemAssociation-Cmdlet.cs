@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class NewSGSGFileSystemAssociationCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuditDestinationARN
         /// <summary>
         /// <para>

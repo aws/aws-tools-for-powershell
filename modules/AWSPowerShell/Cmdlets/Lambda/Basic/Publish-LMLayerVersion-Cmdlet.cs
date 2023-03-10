@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class PublishLMLayerVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CompatibleArchitecture
         /// <summary>
         /// <para>

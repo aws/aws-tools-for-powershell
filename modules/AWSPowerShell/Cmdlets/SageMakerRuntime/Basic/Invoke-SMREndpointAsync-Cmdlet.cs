@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     public partial class InvokeSMREndpointAsyncCmdlet : AmazonSageMakerRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Accept
         /// <summary>
         /// <para>

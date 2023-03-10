@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMAccountListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

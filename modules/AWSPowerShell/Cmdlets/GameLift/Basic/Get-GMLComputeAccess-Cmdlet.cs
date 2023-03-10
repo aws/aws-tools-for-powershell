@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLComputeAccessCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ComputeName
         /// <summary>
         /// <para>

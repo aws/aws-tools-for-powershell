@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class InvokeCOMPDocumentClassificationCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Byte
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     public partial class WriteLRSV2SessionCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SessionStateValue_ActiveContext
         /// <summary>
         /// <para>

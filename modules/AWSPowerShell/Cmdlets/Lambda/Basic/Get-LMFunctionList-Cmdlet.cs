@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class GetLMFunctionListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>

@@ -109,6 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class UpdateKMSCustomKeyStoreCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter XksProxyAuthenticationCredential_AccessKeyId
         /// <summary>
         /// <para>

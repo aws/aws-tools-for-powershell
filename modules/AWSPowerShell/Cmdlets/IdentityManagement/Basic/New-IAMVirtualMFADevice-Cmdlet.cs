@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class NewIAMVirtualMFADeviceCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Path
         /// <summary>
         /// <para>

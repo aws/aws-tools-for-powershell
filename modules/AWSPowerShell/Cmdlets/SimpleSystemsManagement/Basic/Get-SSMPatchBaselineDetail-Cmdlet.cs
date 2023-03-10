@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMPatchBaselineDetailCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BaselineId
         /// <summary>
         /// <para>

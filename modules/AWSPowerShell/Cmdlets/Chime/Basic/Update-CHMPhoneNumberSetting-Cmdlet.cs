@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class UpdateCHMPhoneNumberSettingCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CallingName
         /// <summary>
         /// <para>

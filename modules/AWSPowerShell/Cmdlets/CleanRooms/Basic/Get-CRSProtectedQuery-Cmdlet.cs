@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
     public partial class GetCRSProtectedQueryCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>

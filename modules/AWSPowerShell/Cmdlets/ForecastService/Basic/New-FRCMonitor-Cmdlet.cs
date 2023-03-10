@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class NewFRCMonitorCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter MonitorName
         /// <summary>
         /// <para>

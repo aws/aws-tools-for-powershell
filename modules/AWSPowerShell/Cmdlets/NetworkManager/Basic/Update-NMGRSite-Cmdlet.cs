@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class UpdateNMGRSiteCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Location_Address
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
     public partial class GetCHMTGAttendeeCmdlet : AmazonChimeSDKMeetingsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AttendeeId
         /// <summary>
         /// <para>

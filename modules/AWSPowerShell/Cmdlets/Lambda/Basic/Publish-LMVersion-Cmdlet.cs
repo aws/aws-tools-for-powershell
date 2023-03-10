@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class PublishLMVersionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter CodeSha256
         /// <summary>
         /// <para>

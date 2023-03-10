@@ -41,6 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class AddWDResourcePermissionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>

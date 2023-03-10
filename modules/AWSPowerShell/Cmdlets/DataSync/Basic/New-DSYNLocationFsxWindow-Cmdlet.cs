@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class NewDSYNLocationFsxWindowCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Domain
         /// <summary>
         /// <para>

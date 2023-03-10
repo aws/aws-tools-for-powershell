@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IDS
     public partial class NewIDSUserCmdlet : AmazonIdentityStoreClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Address
         /// <summary>
         /// <para>

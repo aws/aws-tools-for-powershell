@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class GetCHMVOProxySessionCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ProxySessionId
         /// <summary>
         /// <para>

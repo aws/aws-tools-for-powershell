@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     public partial class NewDFUploadCmdlet : AmazonDeviceFarmClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ContentType
         /// <summary>
         /// <para>

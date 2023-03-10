@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class GroupCHMVOUpdatePhoneNumberCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter UpdatePhoneNumberRequestItem
         /// <summary>
         /// <para>

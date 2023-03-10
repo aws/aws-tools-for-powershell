@@ -62,6 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class SetLOCDevicePositionBatchCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter TrackerName
         /// <summary>
         /// <para>

@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     )]
     public class GetS3PreSignedURLCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+
         #region Parameter BucketName
         /// <summary>
         /// <para>The name of the bucket to create a pre-signed url to, or containing the object.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 

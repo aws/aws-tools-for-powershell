@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMMediaCapturePipelineCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MediaPipelineId
         /// <summary>
         /// <para>

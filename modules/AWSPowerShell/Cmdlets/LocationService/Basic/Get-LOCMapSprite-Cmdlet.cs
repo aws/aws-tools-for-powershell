@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class GetLOCMapSpriteCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter FileName
         /// <summary>
         /// <para>

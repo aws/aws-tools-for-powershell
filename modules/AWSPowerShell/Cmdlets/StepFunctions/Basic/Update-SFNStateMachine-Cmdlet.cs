@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class UpdateSFNStateMachineCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Definition
         /// <summary>
         /// <para>

@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class StartLMBV2BotRecommendationCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EncryptionSetting_AssociatedTranscriptsPassword
         /// <summary>
         /// <para>

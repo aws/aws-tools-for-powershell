@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class GetNSLaunchProfileCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter LaunchProfileId
         /// <summary>
         /// <para>

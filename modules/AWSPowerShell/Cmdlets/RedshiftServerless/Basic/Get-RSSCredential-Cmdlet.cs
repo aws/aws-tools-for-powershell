@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.RSS
     public partial class GetRSSCredentialCmdlet : AmazonRedshiftServerlessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DbName
         /// <summary>
         /// <para>

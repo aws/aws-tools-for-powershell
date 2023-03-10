@@ -63,6 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class NewQSEmbedUrlForAnonymousUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AllowedDomain
         /// <summary>
         /// <para>

@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class NewIVSStreamKeyCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ChannelArn
         /// <summary>
         /// <para>

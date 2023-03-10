@@ -82,6 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class TestKMSSignatureCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter GrantToken
         /// <summary>
         /// <para>

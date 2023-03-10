@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class ConfirmCHMVOE911AddressCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>

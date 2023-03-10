@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
     public partial class RemoveC9ResourceTagCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceARN
         /// <summary>
         /// <para>

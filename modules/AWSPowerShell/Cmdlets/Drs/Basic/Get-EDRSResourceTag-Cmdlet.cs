@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class GetEDRSResourceTagCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

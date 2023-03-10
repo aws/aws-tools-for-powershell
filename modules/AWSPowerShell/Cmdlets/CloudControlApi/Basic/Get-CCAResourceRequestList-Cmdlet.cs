@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CCA
     public partial class GetCCAResourceRequestListCmdlet : AmazonCloudControlApiClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceRequestStatusFilter_Operation
         /// <summary>
         /// <para>

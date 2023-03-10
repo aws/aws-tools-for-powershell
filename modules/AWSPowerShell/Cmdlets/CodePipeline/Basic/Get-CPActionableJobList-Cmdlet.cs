@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPActionableJobListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ActionTypeId_Category
         /// <summary>
         /// <para>

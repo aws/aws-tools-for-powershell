@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class UpdateFNSPUserCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApiAccess
         /// <summary>
         /// <para>

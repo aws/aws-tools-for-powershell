@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class RemoveCGIPUserAttributeAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter UserAttributeName
         /// <summary>
         /// <para>

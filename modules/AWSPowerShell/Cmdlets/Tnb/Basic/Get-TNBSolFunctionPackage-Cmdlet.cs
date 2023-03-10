@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class GetTNBSolFunctionPackageCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter VnfPkgId
         /// <summary>
         /// <para>

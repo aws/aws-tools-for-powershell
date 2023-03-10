@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class RemoveMGNResourceTagCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

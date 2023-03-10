@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMModelCardCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Content
         /// <summary>
         /// <para>

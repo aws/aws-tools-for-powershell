@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class WriteCHMVoiceConnectorTerminationCredentialCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter TerminationCredential
         /// <summary>
         /// <para>

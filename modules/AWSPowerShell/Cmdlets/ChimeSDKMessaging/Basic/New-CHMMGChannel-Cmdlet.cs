@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     public partial class NewCHMMGChannelCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AppInstanceArn
         /// <summary>
         /// <para>

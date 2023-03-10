@@ -72,6 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class NewOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssociatePublicIpAddress
         /// <summary>
         /// <para>

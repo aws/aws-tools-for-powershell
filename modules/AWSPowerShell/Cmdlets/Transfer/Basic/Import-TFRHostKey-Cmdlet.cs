@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class ImportTFRHostKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

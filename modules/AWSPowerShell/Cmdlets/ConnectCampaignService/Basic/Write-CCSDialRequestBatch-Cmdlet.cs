@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CCS
     public partial class WriteCCSDialRequestBatchCmdlet : AmazonConnectCampaignServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DialRequest
         /// <summary>
         /// <para>

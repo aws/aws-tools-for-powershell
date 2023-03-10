@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class StartLMBV2ImportCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BotLocaleImportSpecification_BotId
         /// <summary>
         /// <para>

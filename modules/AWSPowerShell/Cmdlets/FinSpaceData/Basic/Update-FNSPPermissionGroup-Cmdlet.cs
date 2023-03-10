@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class UpdateFNSPPermissionGroupCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApplicationPermission
         /// <summary>
         /// <para>

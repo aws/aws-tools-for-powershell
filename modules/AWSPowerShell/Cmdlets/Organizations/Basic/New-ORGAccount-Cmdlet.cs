@@ -104,6 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     public partial class NewORGAccountCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountName
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     public partial class GetTSQScheduledQueryCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ScheduledQueryArn
         /// <summary>
         /// <para>

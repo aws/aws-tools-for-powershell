@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
     public partial class GetNMGRDeviceCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DeviceId
         /// <summary>
         /// <para>

@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class GetSFNActivityTaskCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ActivityArn
         /// <summary>
         /// <para>

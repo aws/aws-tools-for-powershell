@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class NewWSWTrustStoreCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CertificateList
         /// <summary>
         /// <para>

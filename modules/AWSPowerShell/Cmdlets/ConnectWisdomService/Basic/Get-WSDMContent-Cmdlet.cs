@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class GetWSDMContentCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ContentId
         /// <summary>
         /// <para>

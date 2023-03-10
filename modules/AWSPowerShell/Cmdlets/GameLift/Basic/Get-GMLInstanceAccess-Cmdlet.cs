@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class GetGMLInstanceAccessCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter FleetId
         /// <summary>
         /// <para>

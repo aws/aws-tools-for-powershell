@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class UpdateCFFunctionCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter FunctionConfig_Comment
         /// <summary>
         /// <para>

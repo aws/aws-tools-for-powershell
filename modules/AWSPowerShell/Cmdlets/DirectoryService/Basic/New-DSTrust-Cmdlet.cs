@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class NewDSTrustCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ConditionalForwarderIpAddr
         /// <summary>
         /// <para>

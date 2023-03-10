@@ -95,6 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     public partial class ImportACMCertificateCmdlet : AmazonCertificateManagerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Certificate
         /// <summary>
         /// <para>

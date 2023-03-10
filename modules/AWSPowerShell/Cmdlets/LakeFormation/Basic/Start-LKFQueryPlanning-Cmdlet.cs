@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     public partial class StartLKFQueryPlanningCmdlet : AmazonLakeFormationClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter QueryPlanningContext_CatalogId
         /// <summary>
         /// <para>

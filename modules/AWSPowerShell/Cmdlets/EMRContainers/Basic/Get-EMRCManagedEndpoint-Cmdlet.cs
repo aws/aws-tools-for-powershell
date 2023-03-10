@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
     public partial class GetEMRCManagedEndpointCmdlet : AmazonEMRContainersClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

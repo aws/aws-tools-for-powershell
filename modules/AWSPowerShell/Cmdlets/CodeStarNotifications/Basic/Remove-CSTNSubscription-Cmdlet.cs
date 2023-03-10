@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTN
     public partial class RemoveCSTNSubscriptionCmdlet : AmazonCodeStarNotificationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

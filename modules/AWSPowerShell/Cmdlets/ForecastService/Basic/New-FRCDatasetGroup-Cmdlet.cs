@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     public partial class NewFRCDatasetGroupCmdlet : AmazonForecastServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DatasetArn
         /// <summary>
         /// <para>

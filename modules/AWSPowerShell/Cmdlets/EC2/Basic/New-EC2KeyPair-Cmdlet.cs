@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2KeyPairCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter KeyFormat
         /// <summary>
         /// <para>

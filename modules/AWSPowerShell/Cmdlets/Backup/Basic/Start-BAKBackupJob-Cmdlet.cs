@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class StartBAKBackupJobCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BackupOption
         /// <summary>
         /// <para>

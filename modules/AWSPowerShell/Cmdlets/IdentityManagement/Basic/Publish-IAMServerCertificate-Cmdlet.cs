@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class PublishIAMServerCertificateCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CertificateBody
         /// <summary>
         /// <para>

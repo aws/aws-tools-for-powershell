@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
     public partial class NewDOCEClusterCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AdminUserName
         /// <summary>
         /// <para>

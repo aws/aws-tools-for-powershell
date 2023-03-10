@@ -48,6 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKResourceTagCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

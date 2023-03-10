@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class GetMHRSApplicationListCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EnvironmentIdentifier
         /// <summary>
         /// <para>

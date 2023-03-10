@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSRelationalDatabaseCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>

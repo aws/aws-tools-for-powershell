@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class GetIOTWPartnerAccountCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter PartnerAccountId
         /// <summary>
         /// <para>

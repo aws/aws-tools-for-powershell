@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class GetCHMPhoneNumberListCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter FilterName
         /// <summary>
         /// <para>

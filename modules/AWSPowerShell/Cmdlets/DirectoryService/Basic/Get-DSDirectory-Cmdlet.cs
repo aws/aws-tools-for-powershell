@@ -55,6 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class GetDSDirectoryCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>

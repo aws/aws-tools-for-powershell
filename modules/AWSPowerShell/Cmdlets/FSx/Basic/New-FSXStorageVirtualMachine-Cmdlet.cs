@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     public partial class NewFSXStorageVirtualMachineCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>

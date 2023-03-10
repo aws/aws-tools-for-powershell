@@ -62,6 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
     public partial class UpdatePROServicePipelineCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DeploymentType
         /// <summary>
         /// <para>

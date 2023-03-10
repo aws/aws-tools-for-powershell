@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class StartMGNCutoverCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SourceServerIDs
         /// <summary>
         /// <para>

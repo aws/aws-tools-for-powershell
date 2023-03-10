@@ -89,6 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
     public partial class SendLEXContentCmdlet : AmazonLexClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Accept
         /// <summary>
         /// <para>

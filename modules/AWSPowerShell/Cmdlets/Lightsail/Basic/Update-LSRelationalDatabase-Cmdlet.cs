@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class UpdateLSRelationalDatabaseCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApplyImmediately
         /// <summary>
         /// <para>

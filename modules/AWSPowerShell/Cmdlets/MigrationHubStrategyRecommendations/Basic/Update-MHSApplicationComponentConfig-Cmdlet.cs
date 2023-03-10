@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MHS
     public partial class UpdateMHSApplicationComponentConfigCmdlet : AmazonMigrationHubStrategyRecommendationsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ApplicationComponentId
         /// <summary>
         /// <para>

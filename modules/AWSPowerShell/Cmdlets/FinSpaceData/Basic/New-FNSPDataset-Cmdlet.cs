@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
     public partial class NewFNSPDatasetCmdlet : AmazonFinSpaceDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Alias
         /// <summary>
         /// <para>

@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class UpdateMGNLaunchConfigurationTemplateCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssociatePublicIpAddress
         /// <summary>
         /// <para>

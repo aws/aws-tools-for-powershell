@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     public partial class RestoreCHMPhoneNumberCmdlet : AmazonChimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>

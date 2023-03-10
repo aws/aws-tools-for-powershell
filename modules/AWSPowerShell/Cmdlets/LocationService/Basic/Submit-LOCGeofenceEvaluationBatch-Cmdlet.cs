@@ -59,6 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.LOC
     public partial class SubmitLOCGeofenceEvaluationBatchCmdlet : AmazonLocationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter CollectionName
         /// <summary>
         /// <para>

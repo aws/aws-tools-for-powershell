@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     public partial class RemoveMHRSResourceTagCmdlet : AmazonMigrationHubRefactorSpacesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

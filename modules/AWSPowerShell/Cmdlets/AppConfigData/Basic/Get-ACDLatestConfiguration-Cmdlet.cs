@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ACD
     public partial class GetACDLatestConfigurationCmdlet : AmazonAppConfigDataClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ConfigurationToken
         /// <summary>
         /// <para>

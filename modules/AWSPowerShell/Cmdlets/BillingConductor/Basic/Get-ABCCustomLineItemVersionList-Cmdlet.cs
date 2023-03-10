@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.ABC
     public partial class GetABCCustomLineItemVersionListCmdlet : AmazonBillingConductorClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Arn
         /// <summary>
         /// <para>

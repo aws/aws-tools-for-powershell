@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class AddMGNResourceTagCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

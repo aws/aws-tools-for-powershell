@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
     public partial class GetACCTAlternateContactCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccountId
         /// <summary>
         /// <para>

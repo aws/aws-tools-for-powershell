@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class GetCSTUserProfileCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter UserArn
         /// <summary>
         /// <para>

@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class UpdateOWCMServerCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BackupRetentionCount
         /// <summary>
         /// <para>

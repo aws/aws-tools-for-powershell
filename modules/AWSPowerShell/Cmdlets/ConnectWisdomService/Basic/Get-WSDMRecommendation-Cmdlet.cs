@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
     public partial class GetWSDMRecommendationCmdlet : AmazonConnectWisdomServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AssistantId
         /// <summary>
         /// <para>

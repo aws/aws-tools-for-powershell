@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class GetLMBV2BotRecommendationCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter BotId
         /// <summary>
         /// <para>

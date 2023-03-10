@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
     public partial class StartSSWAppCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

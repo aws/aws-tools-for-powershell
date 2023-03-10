@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class GetLSRelationalDatabaseMasterUserPasswordCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter PasswordVersion
         /// <summary>
         /// <para>

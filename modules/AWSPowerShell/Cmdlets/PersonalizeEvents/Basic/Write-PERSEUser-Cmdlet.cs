@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
     public partial class WritePERSEUserCmdlet : AmazonPersonalizeEventsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter DatasetArn
         /// <summary>
         /// <para>

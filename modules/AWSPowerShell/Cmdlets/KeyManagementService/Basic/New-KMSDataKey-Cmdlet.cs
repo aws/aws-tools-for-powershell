@@ -110,6 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class NewKMSDataKeyCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>

@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class SendSFNTaskSuccessCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Output
         /// <summary>
         /// <para>

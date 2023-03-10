@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class GetCGIPUserListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>

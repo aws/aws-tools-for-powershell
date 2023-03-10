@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
     public partial class NewMWAAEnvironmentCmdlet : AmazonMWAAClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AirflowConfigurationOption
         /// <summary>
         /// <para>

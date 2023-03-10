@@ -52,6 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class GetQSSessionEmbedUrlCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>

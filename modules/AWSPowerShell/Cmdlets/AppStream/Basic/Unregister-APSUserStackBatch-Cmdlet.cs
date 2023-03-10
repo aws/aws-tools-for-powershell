@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class UnregisterAPSUserStackBatchCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter UserStackAssociation
         /// <summary>
         /// <para>

@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class NewCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter TokenValidityUnits_AccessToken
         /// <summary>
         /// <para>

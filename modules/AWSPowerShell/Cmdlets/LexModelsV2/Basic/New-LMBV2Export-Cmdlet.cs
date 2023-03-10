@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     public partial class NewLMBV2ExportCmdlet : AmazonLexModelsV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter BotExportSpecification_BotId
         /// <summary>
         /// <para>

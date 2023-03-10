@@ -55,6 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.KV
     public partial class StartKVEdgeConfigurationUpdateCmdlet : AmazonKinesisVideoClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DeletionConfig_DeleteAfterUpload
         /// <summary>
         /// <para>

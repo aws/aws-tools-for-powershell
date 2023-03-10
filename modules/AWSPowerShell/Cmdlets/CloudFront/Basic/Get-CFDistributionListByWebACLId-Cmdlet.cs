@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
     public partial class GetCFDistributionListByWebACLIdCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter WebACLId
         /// <summary>
         /// <para>

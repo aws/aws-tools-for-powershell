@@ -49,6 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class StartSFNSyncExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Input
         /// <summary>
         /// <para>

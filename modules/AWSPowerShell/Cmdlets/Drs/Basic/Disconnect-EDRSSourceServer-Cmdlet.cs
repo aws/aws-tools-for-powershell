@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     public partial class DisconnectEDRSSourceServerCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SourceServerID
         /// <summary>
         /// <para>

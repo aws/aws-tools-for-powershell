@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class WriteALXBSkillAuthorizationCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AuthorizationResult
         /// <summary>
         /// <para>

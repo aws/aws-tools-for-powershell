@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class RemoveNSStudioComponentCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StudioComponentId
         /// <summary>
         /// <para>

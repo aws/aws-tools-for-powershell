@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class UpdateRESHAppCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AppArn
         /// <summary>
         /// <para>

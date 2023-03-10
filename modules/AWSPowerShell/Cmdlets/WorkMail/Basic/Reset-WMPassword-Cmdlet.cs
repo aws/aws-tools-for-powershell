@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
     public partial class ResetWMPasswordCmdlet : AmazonWorkMailClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter OrganizationId
         /// <summary>
         /// <para>

@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
     public partial class GetMGRFWorkspaceListCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>

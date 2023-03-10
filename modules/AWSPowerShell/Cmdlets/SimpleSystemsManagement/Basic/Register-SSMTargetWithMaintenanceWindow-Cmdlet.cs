@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class RegisterSSMTargetWithMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

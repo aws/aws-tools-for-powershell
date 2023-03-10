@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class ResetIAMServiceSpecificCredentialCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServiceSpecificCredentialId
         /// <summary>
         /// <para>

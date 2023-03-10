@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class GetWSWPortalCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter PortalArn
         /// <summary>
         /// <para>

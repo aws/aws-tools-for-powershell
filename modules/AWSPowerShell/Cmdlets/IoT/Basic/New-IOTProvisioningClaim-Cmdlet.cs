@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTProvisioningClaimCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>

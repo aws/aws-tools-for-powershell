@@ -60,6 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class GetCGIPUserAttributeVerificationCodeCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AccessToken
         /// <summary>
         /// <para>

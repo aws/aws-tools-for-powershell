@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMMaintenanceWindowTaskCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter WindowId
         /// <summary>
         /// <para>

@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
     public partial class GetWSWResourceTagCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

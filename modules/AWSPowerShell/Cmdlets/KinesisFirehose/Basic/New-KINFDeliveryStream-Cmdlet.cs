@@ -106,6 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     public partial class NewKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter HttpEndpointDestinationConfiguration_EndpointConfiguration_AccessKey
         /// <summary>
         /// <para>

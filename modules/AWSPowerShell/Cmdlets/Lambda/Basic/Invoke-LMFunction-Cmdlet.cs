@@ -82,6 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class InvokeLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ClientContext
         /// <summary>
         /// <para>

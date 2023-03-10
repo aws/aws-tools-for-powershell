@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     public partial class GetR53DDomainDetailCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>

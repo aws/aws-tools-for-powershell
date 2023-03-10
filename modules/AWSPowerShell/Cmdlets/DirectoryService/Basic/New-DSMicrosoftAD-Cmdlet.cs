@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
     public partial class NewDSMicrosoftADCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Description
         /// <summary>
         /// <para>

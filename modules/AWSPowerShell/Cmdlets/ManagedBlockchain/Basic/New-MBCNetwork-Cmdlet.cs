@@ -44,6 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.MBC
     public partial class NewMBCNetworkCmdlet : AmazonManagedBlockchainClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Fabric_AdminPassword
         /// <summary>
         /// <para>

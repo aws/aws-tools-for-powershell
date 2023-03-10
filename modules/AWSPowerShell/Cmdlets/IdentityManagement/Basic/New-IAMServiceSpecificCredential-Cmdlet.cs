@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     public partial class NewIAMServiceSpecificCredentialCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ServiceName
         /// <summary>
         /// <para>

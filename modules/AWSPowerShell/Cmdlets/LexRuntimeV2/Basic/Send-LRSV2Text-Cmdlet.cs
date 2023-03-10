@@ -61,6 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
     public partial class SendLRSV2TextCmdlet : AmazonLexRuntimeV2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SessionStateValue_ActiveContext
         /// <summary>
         /// <para>

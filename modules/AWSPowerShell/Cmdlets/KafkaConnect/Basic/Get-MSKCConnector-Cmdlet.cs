@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
     public partial class GetMSKCConnectorCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ConnectorArn
         /// <summary>
         /// <para>

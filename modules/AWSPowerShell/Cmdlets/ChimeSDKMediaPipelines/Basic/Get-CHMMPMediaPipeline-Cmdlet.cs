@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
     public partial class GetCHMMPMediaPipelineCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter MediaPipelineId
         /// <summary>
         /// <para>

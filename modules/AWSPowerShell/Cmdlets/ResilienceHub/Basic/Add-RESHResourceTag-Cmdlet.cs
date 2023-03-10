@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     public partial class AddRESHResourceTagCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>

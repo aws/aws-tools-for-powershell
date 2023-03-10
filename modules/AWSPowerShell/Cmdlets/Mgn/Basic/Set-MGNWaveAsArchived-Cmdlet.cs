@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
     public partial class SetMGNWaveAsArchivedCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter WaveID
         /// <summary>
         /// <para>

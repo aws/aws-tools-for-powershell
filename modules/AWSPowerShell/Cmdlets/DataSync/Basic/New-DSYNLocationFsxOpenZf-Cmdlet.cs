@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class NewDSYNLocationFsxOpenZfCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter SMB_Domain
         /// <summary>
         /// <para>

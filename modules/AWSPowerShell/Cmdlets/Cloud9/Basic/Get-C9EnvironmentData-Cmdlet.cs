@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.C9
     public partial class GetC9EnvironmentDataCmdlet : AmazonCloud9ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>

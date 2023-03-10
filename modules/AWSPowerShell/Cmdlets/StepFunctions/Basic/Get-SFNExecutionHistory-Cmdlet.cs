@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     public partial class GetSFNExecutionHistoryCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter ExecutionArn
         /// <summary>
         /// <para>

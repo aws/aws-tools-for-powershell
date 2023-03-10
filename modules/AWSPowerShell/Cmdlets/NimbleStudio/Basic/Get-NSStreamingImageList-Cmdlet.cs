@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.NS
     public partial class GetNSStreamingImageListCmdlet : AmazonNimbleStudioClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter StudioId
         /// <summary>
         /// <para>

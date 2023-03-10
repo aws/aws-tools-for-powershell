@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class UpdateIOTWPartnerAccountCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter Sidewalk_AppServerPrivateKey
         /// <summary>
         /// <para>

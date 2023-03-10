@@ -40,6 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
     public partial class NewAMPAppCmdlet : AmazonAmplifyClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter AccessToken
         /// <summary>
         /// <para>

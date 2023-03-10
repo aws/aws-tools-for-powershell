@@ -98,6 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter SnapStart_ApplyOn
         /// <summary>
         /// <para>
