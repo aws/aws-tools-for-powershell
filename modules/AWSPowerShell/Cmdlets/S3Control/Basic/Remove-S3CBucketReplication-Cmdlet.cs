@@ -28,46 +28,61 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Returns a list of the access points that are owned by the current account that's associated
-    /// with the specified bucket. You can retrieve up to 1000 access points per call. If
-    /// the specified bucket has more than 1,000 access points (or the number specified in
-    /// <code>maxResults</code>, whichever is less), the response will include a continuation
-    /// token that you can use to list the additional access points.
-    /// 
-    ///   
-    /// <para>
+    /// <note><para>
+    /// This operation deletes an Amazon S3 on Outposts bucket's replication configuration.
+    /// To delete an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a>
+    /// in the <i>Amazon S3 API Reference</i>. 
+    /// </para></note><para>
+    /// Deletes the replication configuration from the specified S3 on Outposts bucket.
+    /// </para><para>
+    /// To use this operation, you must have permissions to perform the <code>s3-outposts:PutReplicationConfiguration</code>
+    /// action. The Outposts bucket owner has this permission by default and can grant it
+    /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsIAM.html">Setting
+    /// up IAM with S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing
+    /// access to S3 on Outposts buckets</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><note><para>
+    /// It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests
+    /// for a replication configuration to all S3 on Outposts systems. Therefore, the replication
+    /// configuration that's returned by a <code>GET</code> request soon after a <code>PUT</code>
+    /// or <code>DELETE</code> request might return a more recent result than what's on the
+    /// Outpost. If an Outpost is offline, the delay in updating the replication configuration
+    /// on that Outpost can be significant.
+    /// </para></note><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional
     /// parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition,
     /// you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>.
     /// For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on
     /// Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by
-    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a>
+    /// using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html#API_control_DeleteBucketReplication_Examples">Examples</a>
     /// section.
     /// </para><para>
-    /// The following actions are related to <code>ListAccessPoints</code>:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html">CreateAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html">DeleteAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html">GetAccessPoint</a></para></li></ul>
+    /// For information about S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating
+    /// objects for Amazon Web Services Outposts</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><para>
+    /// The following operations are related to <code>DeleteBucketReplication</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html">PutBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html">GetBucketReplication</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "S3CAccessPointList")]
-    [OutputType("Amazon.S3Control.Model.AccessPoint")]
-    [AWSCmdlet("Calls the Amazon S3 Control ListAccessPoints API operation.", Operation = new[] {"ListAccessPoints"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListAccessPointsResponse))]
-    [AWSCmdletOutput("Amazon.S3Control.Model.AccessPoint or Amazon.S3Control.Model.ListAccessPointsResponse",
-        "This cmdlet returns a collection of Amazon.S3Control.Model.AccessPoint objects.",
-        "The service call response (type Amazon.S3Control.Model.ListAccessPointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "S3CBucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon S3 Control DeleteBucketReplication API operation.", Operation = new[] {"DeleteBucketReplication"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteBucketReplicationResponse))]
+    [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteBucketReplicationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.S3Control.Model.DeleteBucketReplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetS3CAccessPointListCmdlet : AmazonS3ControlClientCmdlet, IExecutor
+    public partial class RemoveS3CBucketReplicationCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID for the account that owns the specified access
-        /// points.</para>
+        /// <para>The Amazon Web Services account ID of the Outposts bucket to delete the replication
+        /// configuration for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -78,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket whose associated access points you want to list.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
+        /// <para>Specifies the S3 on Outposts bucket to delete the replication configuration for.</para><para>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify
         /// the name and the x-amz-outpost-id as well.</para><para>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and
         /// CLI, you must specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
         /// For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code>
@@ -87,55 +102,35 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// The value must be URL encoded. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Bucket { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of access points that you want to include in the list. If the specified
-        /// bucket has more than this number of access points, then the response will include
-        /// a continuation token in the <code>NextToken</code> field that you can use to retrieve
-        /// the next page of access points.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A continuation token. If a previous call to <code>ListAccessPoints</code> returned
-        /// a continuation token in the <code>NextToken</code> field, then providing that value
-        /// here causes Amazon S3 to retrieve the next page of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessPointList'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.ListAccessPointsResponse).
-        /// Specifying the name of a property of type Amazon.S3Control.Model.ListAccessPointsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.DeleteBucketReplicationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AccessPointList";
+        public string Select { get; set; } = "*";
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Force
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -143,26 +138,22 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             this._AWSSignerType = "s3v4";
             base.ProcessRecord();
             
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3CBucketReplication (DeleteBucketReplication)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.ListAccessPointsResponse, GetS3CAccessPointListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.DeleteBucketReplicationResponse, RemoveS3CBucketReplicationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.AccountId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccountId = this.AccountId;
             #if MODULAR
             if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
@@ -171,8 +162,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             #endif
             context.Bucket = this.Bucket;
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
+            #if MODULAR
+            if (this.Bucket == null && ParameterWasBound(nameof(this.Bucket)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3Control.Model.ListAccessPointsRequest();
+            var request = new Amazon.S3Control.Model.DeleteBucketReplicationRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -196,14 +191,6 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             if (cmdletContext.Bucket != null)
             {
                 request.Bucket = cmdletContext.Bucket;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -238,15 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         #region AWS Service Operation Call
         
-        private Amazon.S3Control.Model.ListAccessPointsResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.ListAccessPointsRequest request)
+        private Amazon.S3Control.Model.DeleteBucketReplicationResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteBucketReplicationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListAccessPoints");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteBucketReplication");
             try
             {
                 #if DESKTOP
-                return client.ListAccessPoints(request);
+                return client.DeleteBucketReplication(request);
                 #elif CORECLR
-                return client.ListAccessPointsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteBucketReplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -268,10 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             public System.String AccountId { get; set; }
             public System.String Bucket { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.S3Control.Model.ListAccessPointsResponse, GetS3CAccessPointListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AccessPointList;
+            public System.Func<Amazon.S3Control.Model.DeleteBucketReplicationResponse, RemoveS3CBucketReplicationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

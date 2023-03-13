@@ -49,6 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class StopTNBSolNetworkInstanceCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter NsInstanceId
         /// <summary>
         /// <para>
@@ -64,6 +68,20 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String NsInstanceId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists
+        /// of a key and an optional value. When you use this API, the tags are transferred to
+        /// the network operation that is created. Use tags to search and filter your resources
+        /// or track your Amazon Web Services costs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -135,6 +153,14 @@ namespace Amazon.PowerShell.Cmdlets.TNB
                 WriteWarning("You are passing $null as a value for parameter NsInstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.TNB
             if (cmdletContext.NsInstanceId != null)
             {
                 request.NsInstanceId = cmdletContext.NsInstanceId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -217,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String NsInstanceId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Tnb.Model.TerminateSolNetworkInstanceResponse, StopTNBSolNetworkInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NsLcmOpOccId;
         }

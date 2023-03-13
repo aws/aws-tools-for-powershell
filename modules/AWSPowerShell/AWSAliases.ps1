@@ -20791,6 +20791,8 @@ Set-Alias -Name Delete-S3CBucketLifecycleConfiguration -Value Remove-S3CBucketLi
 Set-Alias -Name S3C-DeleteBucketLifecycleConfiguration -Value Remove-S3CBucketLifecycleConfiguration
 Set-Alias -Name Delete-S3CBucketPolicy -Value Remove-S3CBucketPolicy
 Set-Alias -Name S3C-DeleteBucketPolicy -Value Remove-S3CBucketPolicy
+Set-Alias -Name Delete-S3CBucketReplication -Value Remove-S3CBucketReplication
+Set-Alias -Name S3C-DeleteBucketReplication -Value Remove-S3CBucketReplication
 Set-Alias -Name Delete-S3CBucketTagging -Value Remove-S3CBucketTagging
 Set-Alias -Name S3C-DeleteBucketTagging -Value Remove-S3CBucketTagging
 Set-Alias -Name Delete-S3CJobTagging -Value Remove-S3CJobTagging
@@ -20817,6 +20819,7 @@ Set-Alias -Name S3C-GetAccessPointPolicyStatusForObjectLambda -Value Get-S3CAcce
 Set-Alias -Name S3C-GetBucket -Value Get-S3CBucket
 Set-Alias -Name S3C-GetBucketLifecycleConfiguration -Value Get-S3CBucketLifecycleConfiguration
 Set-Alias -Name S3C-GetBucketPolicy -Value Get-S3CBucketPolicy
+Set-Alias -Name S3C-GetBucketReplication -Value Get-S3CBucketReplication
 Set-Alias -Name S3C-GetBucketTagging -Value Get-S3CBucketTagging
 Set-Alias -Name S3C-GetBucketVersioning -Value Get-S3CBucketVersioning
 Set-Alias -Name S3C-GetJobTagging -Value Get-S3CJobTagging
@@ -20856,6 +20859,8 @@ Set-Alias -Name Put-S3CBucketLifecycleConfiguration -Value Write-S3CBucketLifecy
 Set-Alias -Name S3C-PutBucketLifecycleConfiguration -Value Write-S3CBucketLifecycleConfiguration
 Set-Alias -Name Put-S3CBucketPolicy -Value Write-S3CBucketPolicy
 Set-Alias -Name S3C-PutBucketPolicy -Value Write-S3CBucketPolicy
+Set-Alias -Name Put-S3CBucketReplication -Value Write-S3CBucketReplication
+Set-Alias -Name S3C-PutBucketReplication -Value Write-S3CBucketReplication
 Set-Alias -Name Put-S3CBucketTagging -Value Write-S3CBucketTagging
 Set-Alias -Name S3C-PutBucketTagging -Value Write-S3CBucketTagging
 Set-Alias -Name Put-S3CBucketVersioning -Value Write-S3CBucketVersioning

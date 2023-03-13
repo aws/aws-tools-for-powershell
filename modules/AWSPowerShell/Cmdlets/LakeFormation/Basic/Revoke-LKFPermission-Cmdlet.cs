@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// <summary>
         /// <para>
         /// <para>The permissions revoked to the principal on the resource. For information about permissions,
-        /// see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
+        /// see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
         /// and Access Control to Metadata and Data</a>.</para>
         /// </para>
         /// </summary>

@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketReplication" Verb="Remove" Noun="BucketReplication" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteBucketTagging" Verb="Remove" Noun="BucketTagging" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +140,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketPolicy" OutputProperty="Policy" Verb="Get" Noun="BucketPolicy" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketReplication" OutputProperty="ReplicationConfiguration" Verb="Get" Noun="BucketReplication" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -220,6 +228,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketPolicy" Verb="Write" Noun="BucketPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBucketReplication" Verb="Write" Noun="BucketReplication" ShouldProcessTarget="AccountId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -56,14 +56,37 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter FileConfiguration_Filter
+        /// <summary>
+        /// <para>
+        /// <para>Restrictions for what files should be pulled from the source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FileConfiguration_Filters")]
+        public System.Collections.Hashtable FileConfiguration_Filter { get; set; }
+        #endregion
+        
         #region Parameter ScheduleConfig_FirstExecutionFrom
         /// <summary>
         /// <para>
-        /// <para>The start date for objects to import in the first flow run.</para>
+        /// <para>The start date for objects to import in the first flow run as an Unix/epoch timestamp
+        /// in milliseconds or in ISO-8601 format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ScheduleConfig_FirstExecutionFrom { get; set; }
+        #endregion
+        
+        #region Parameter FileConfiguration_Folder
+        /// <summary>
+        /// <para>
+        /// <para>Identifiers for the source folders to pull all files from recursively.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FileConfiguration_Folders")]
+        public System.String[] FileConfiguration_Folder { get; set; }
         #endregion
         
         #region Parameter KmsKey
@@ -72,7 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <para>The KMS key for the DataIntegration.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KmsKey { get; set; }
         #endregion
         
@@ -103,13 +133,30 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         public System.String ScheduleConfig_Object { get; set; }
         #endregion
         
+        #region Parameter ObjectConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for what data should be pulled from the source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable ObjectConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ScheduleConfig_ScheduleExpression
         /// <summary>
         /// <para>
         /// <para>How often the data should be pulled from data source.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ScheduleConfig_ScheduleExpression { get; set; }
         #endregion
         
@@ -119,14 +166,22 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <para>The URI of the data source.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceURI { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +266,37 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            if (this.FileConfiguration_Filter != null)
+            {
+                context.FileConfiguration_Filter = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.FileConfiguration_Filter.Keys)
+                {
+                    object hashValue = this.FileConfiguration_Filter[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.FileConfiguration_Filter.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<System.String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((System.String)s);
+                    }
+                    context.FileConfiguration_Filter.Add((String)hashKey, valueSet);
+                }
+            }
+            if (this.FileConfiguration_Folder != null)
+            {
+                context.FileConfiguration_Folder = new List<System.String>(this.FileConfiguration_Folder);
+            }
             context.KmsKey = this.KmsKey;
+            #if MODULAR
+            if (this.KmsKey == null && ParameterWasBound(nameof(this.KmsKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter KmsKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -217,10 +304,30 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ObjectConfiguration != null)
+            {
+                context.ObjectConfiguration = new Dictionary<System.String, Dictionary<System.String, List<System.String>>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ObjectConfiguration.Keys)
+                {
+                    context.ObjectConfiguration.Add((String)hashKey, (Dictionary<String,List<String>>)(this.ObjectConfiguration[hashKey]));
+                }
+            }
             context.ScheduleConfig_FirstExecutionFrom = this.ScheduleConfig_FirstExecutionFrom;
             context.ScheduleConfig_Object = this.ScheduleConfig_Object;
             context.ScheduleConfig_ScheduleExpression = this.ScheduleConfig_ScheduleExpression;
+            #if MODULAR
+            if (this.ScheduleConfig_ScheduleExpression == null && ParameterWasBound(nameof(this.ScheduleConfig_ScheduleExpression)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ScheduleConfig_ScheduleExpression which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.SourceURI = this.SourceURI;
+            #if MODULAR
+            if (this.SourceURI == null && ParameterWasBound(nameof(this.SourceURI)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SourceURI which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -253,6 +360,35 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate FileConfiguration
+            var requestFileConfigurationIsNull = true;
+            request.FileConfiguration = new Amazon.AppIntegrationsService.Model.FileConfiguration();
+            Dictionary<System.String, List<System.String>> requestFileConfiguration_fileConfiguration_Filter = null;
+            if (cmdletContext.FileConfiguration_Filter != null)
+            {
+                requestFileConfiguration_fileConfiguration_Filter = cmdletContext.FileConfiguration_Filter;
+            }
+            if (requestFileConfiguration_fileConfiguration_Filter != null)
+            {
+                request.FileConfiguration.Filters = requestFileConfiguration_fileConfiguration_Filter;
+                requestFileConfigurationIsNull = false;
+            }
+            List<System.String> requestFileConfiguration_fileConfiguration_Folder = null;
+            if (cmdletContext.FileConfiguration_Folder != null)
+            {
+                requestFileConfiguration_fileConfiguration_Folder = cmdletContext.FileConfiguration_Folder;
+            }
+            if (requestFileConfiguration_fileConfiguration_Folder != null)
+            {
+                request.FileConfiguration.Folders = requestFileConfiguration_fileConfiguration_Folder;
+                requestFileConfigurationIsNull = false;
+            }
+             // determine if request.FileConfiguration should be set to null
+            if (requestFileConfigurationIsNull)
+            {
+                request.FileConfiguration = null;
+            }
             if (cmdletContext.KmsKey != null)
             {
                 request.KmsKey = cmdletContext.KmsKey;
@@ -260,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ObjectConfiguration != null)
+            {
+                request.ObjectConfiguration = cmdletContext.ObjectConfiguration;
             }
             
              // populate ScheduleConfig
@@ -371,8 +511,11 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Dictionary<System.String, List<System.String>> FileConfiguration_Filter { get; set; }
+            public List<System.String> FileConfiguration_Folder { get; set; }
             public System.String KmsKey { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, Dictionary<System.String, List<System.String>>> ObjectConfiguration { get; set; }
             public System.String ScheduleConfig_FirstExecutionFrom { get; set; }
             public System.String ScheduleConfig_Object { get; set; }
             public System.String ScheduleConfig_ScheduleExpression { get; set; }

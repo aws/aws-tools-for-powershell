@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
     /// Tag Restrictions</a> in the <i>Billing and Cost Management User Guide</i>.
     /// </para></li></ul></li></ul></note><para>
-    /// To use this action, you must have permission to perform the <code>s3:PutJobTagging</code>
-    /// action.
+    /// To use the <code>PutJobTagging</code> operation, you must have permission to perform
+    /// the <code>s3:PutJobTagging</code> action.
     /// </para><para>
     /// Related actions include:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html">DeleteJobTagging</a></para></li></ul>

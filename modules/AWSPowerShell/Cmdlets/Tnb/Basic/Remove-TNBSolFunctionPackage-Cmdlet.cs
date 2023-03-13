@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     /// run on your network.
     /// </para><para>
     /// To delete a function package, the package must be in a disabled state. To disable
-    /// a function package, see <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_UpdateSolFunctionPackage.html">UpdateSolFunctionPackage</a>.
+    /// a function package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolFunctionPackage.html">UpdateSolFunctionPackage</a>.
     /// 
     /// </para>
     /// </summary>

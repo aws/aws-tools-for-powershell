@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     /// </para><para>
     /// Creating a function package is the first step for creating a network in AWS TNB. This
     /// request creates an empty container with an ID. The next step is to upload the actual
-    /// CSAR zip file into that empty container. To upload function package content, see <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.
+    /// CSAR zip file into that empty container. To upload function package content, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "TNBSolFunctionPackage")]

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     /// instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.
     /// </para><para>
     /// Once you create a network instance, you can instantiate it. To instantiate a network,
-    /// see <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_InstantiateSolNetworkInstance.html">InstantiateSolNetworkInstance</a>.
+    /// see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html">InstantiateSolNetworkInstance</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "TNBSolNetworkInstance")]

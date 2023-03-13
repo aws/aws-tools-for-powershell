@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
 {
     /// <summary>
     /// Validates network package content. This can be used as a dry run before uploading
-    /// network package content with <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.
+    /// network package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.
     /// 
     ///  
     /// <para>

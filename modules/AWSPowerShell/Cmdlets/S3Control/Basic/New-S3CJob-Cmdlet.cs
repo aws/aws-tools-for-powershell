@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_ChecksumAlgorithm
         /// <summary>
         /// <para>
-        /// <para>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more
-        /// information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
+        /// <para>Indicates the algorithm that you want Amazon S3 to use to create the checksum. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
         /// Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -584,9 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Location_ObjectArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for a manifest object.</para><important><para>Replacement must be made for object keys containing special characters (such as carriage
-        /// returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
-        /// XML related object key constraints</a>.</para></important>
+        /// <para>The Amazon Resource Name (ARN) for a manifest object.</para><important><para>When you're using XML requests, you must replace special characters (such as carriage
+        /// returns) in object keys with their equivalent XML entity codes. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+        /// XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -874,9 +875,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_TargetKeyPrefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the folder prefix into which you would like the objects to be copied. For
-        /// example, to copy objects into a folder named <code>Folder1</code> in the destination
-        /// bucket, set the TargetKeyPrefix to <code>Folder1</code>.</para>
+        /// <para>Specifies the folder prefix that you want the objects to be copied into. For example,
+        /// to copy objects into a folder named <code>Folder1</code> in the destination bucket,
+        /// set the <code>TargetKeyPrefix</code> property to <code>Folder1</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -887,9 +888,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_TargetResource
         /// <summary>
         /// <para>
-        /// <para>Specifies the destination bucket ARN for the batch copy operation. For example, to
-        /// copy objects to a bucket named <code>destinationBucket</code>, set the <code>TargetResource</code>
-        /// property to <code>arn:aws:s3:::destinationBucket</code>.</para>
+        /// <para>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.
+        /// For example, to copy objects to a bucket named <code>destinationBucket</code>, set
+        /// the <code>TargetResource</code> property to <code>arn:aws:s3:::destinationBucket</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

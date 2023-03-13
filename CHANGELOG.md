@@ -1,4 +1,17 @@
-﻿### 4.1.289 (2023-03-10 22:05Z)
+﻿### 4.1.290 (2023-03-13 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.502.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppIntegrations Service
+    * Modified cmdlet New-AISDataIntegration: added parameters FileConfiguration_Filter, FileConfiguration_Folder and ObjectConfiguration.
+  * Amazon S3 Control
+    * Added cmdlet Get-S3CBucketReplication leveraging the GetBucketReplication service API.
+    * Added cmdlet Remove-S3CBucketReplication leveraging the DeleteBucketReplication service API.
+    * Added cmdlet Write-S3CBucketReplication leveraging the PutBucketReplication service API.
+  * Amazon Telco Network Builder
+    * Modified cmdlet Start-TNBSolNetworkInstance: added parameter Tag.
+    * Modified cmdlet Stop-TNBSolNetworkInstance: added parameter Tag.
+    * Modified cmdlet Update-TNBSolNetworkInstance: added parameter Tag.
+
+### 4.1.289 (2023-03-10 22:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.501.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * 
     * Modified cmdlet Set-AWSHistoryConfiguration: added parameter IncludeSensitiveData.

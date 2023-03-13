@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para>
+        /// <para>The tags used to organize, track, or control access for this resource. For example,
+        /// { "tags": {"key1":"value1", "key2":"value2"} }.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

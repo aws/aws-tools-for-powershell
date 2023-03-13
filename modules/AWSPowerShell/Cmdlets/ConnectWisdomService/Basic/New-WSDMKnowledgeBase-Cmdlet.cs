@@ -28,7 +28,27 @@ using Amazon.ConnectWisdomService.Model;
 namespace Amazon.PowerShell.Cmdlets.WSDM
 {
     /// <summary>
-    /// Amazon.ConnectWisdomService.IAmazonConnectWisdomService.CreateKnowledgeBase
+    /// Creates a knowledge base.
+    /// 
+    ///  <note><para>
+    /// When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon
+    /// AppIntegrations</a> DataIntegrations with external knowledge bases such as Salesforce
+    /// and ServiceNow. If you do, you'll get an <code>InvalidRequestException</code> error.
+    /// 
+    /// </para><para>
+    /// For example, you're programmatically managing your external knowledge base, and you
+    /// want to add or remove one of the fields that is being ingested from Salesforce. Do
+    /// the following:
+    /// </para><ol><li><para>
+    /// Call <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html">DeleteKnowledgeBase</a>.
+    /// </para></li><li><para>
+    /// Call <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a>.
+    /// </para></li><li><para>
+    /// Call <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a>
+    /// to recreate the DataIntegration or a create different one.
+    /// </para></li><li><para>
+    /// Call CreateKnowledgeBase.
+    /// </para></li></ol></note>
     /// </summary>
     [Cmdlet("New", "WSDMKnowledgeBase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ConnectWisdomService.Model.KnowledgeBaseData")]
@@ -44,7 +64,22 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting
-        /// content.</para>
+        /// content.</para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
+        /// Salesforce</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
+        /// if objectFields is not provided, including at least <code>Id</code>, <code>ArticleNumber</code>,
+        /// <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, and <code>IsDeleted</code>
+        /// as source fields. </para></li><li><para> For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
+        /// ServiceNow</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
+        /// if objectFields is not provided, including at least <code>number</code>, <code>short_description</code>,
+        /// <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code> as
+        /// source fields. </para></li><li><para> For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
+        /// Zendesk</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration
+        /// if <code>objectFields</code> is not provided, including at least <code>id</code>,
+        /// <code>title</code>, <code>updated_at</code>, and <code>draft</code> as source fields.
+        /// </para></li><li><para> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index">
+        /// SharePoint</a>, your AppIntegrations DataIntegration must have a FileConfiguration,
+        /// including only file extensions that are among <code>docx</code>, <code>pdf</code>,
+        /// <code>html</code>, <code>htm</code>, and <code>txt</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,13 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         #region Parameter AppIntegrations_ObjectField
         /// <summary>
         /// <para>
-        /// <para>The fields from the source that are made available to your agents in Wisdom. </para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
+        /// <para>The fields from the source that are made available to your agents in Wisdom. Optional
+        /// if ObjectConfiguration is included in the provided DataIntegration. </para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
         /// Salesforce</a>, you must include at least <code>Id</code>, <code>ArticleNumber</code>,
         /// <code>VersionNumber</code>, <code>Title</code>, <code>PublishStatus</code>, and <code>IsDeleted</code>.
         /// </para></li><li><para>For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
         /// ServiceNow</a>, you must include at least <code>number</code>, <code>short_description</code>,
         /// <code>sys_mod_count</code>, <code>workflow_state</code>, and <code>active</code>.
-        /// </para></li></ul><para>Make sure to include additional fields. These fields are indexed and used to source
+        /// </para></li><li><para>For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
+        /// Zendesk</a>, you must include at least <code>id</code>, <code>title</code>, <code>updated_at</code>,
+        /// and <code>draft</code>. </para></li></ul><para>Make sure to include additional fields. These fields are indexed and used to source
         /// recommendations. </para>
         /// </para>
         /// </summary>
@@ -142,12 +180,12 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// <summary>
         /// <para>
         /// <para>A URI template containing exactly one variable in <code>${variableName} </code>format.
-        /// This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce and
-        /// ServiceNow, the variable must be one of the following:</para><ul><li><para>Salesforce: <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>,
+        /// This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce, ServiceNow,
+        /// and Zendesk, the variable must be one of the following:</para><ul><li><para>Salesforce: <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>,
         /// <code>Title</code>, <code>PublishStatus</code>, or <code>IsDeleted</code></para></li><li><para>ServiceNow: <code>number</code>, <code>short_description</code>, <code>sys_mod_count</code>,
-        /// <code>workflow_state</code>, or <code>active</code></para></li></ul><pre><code> &lt;p&gt;The variable is replaced with the actual value for
-        /// a piece of content when calling &lt;a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html"&gt;GetContent&lt;/a&gt;.
-        /// &lt;/p&gt; </code></pre>
+        /// <code>workflow_state</code>, or <code>active</code></para></li><li><para>Zendesk: <code>id</code>, <code>title</code>, <code>updated_at</code>, or <code>draft</code></para></li></ul><para>The variable is replaced with the actual value for a piece of content when calling
+        /// <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html">GetContent</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.WSDM
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

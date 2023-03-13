@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     /// want to deploy them on.
     /// </para><para>
     /// To delete a network package, the package must be in a disable state. To disable a
-    /// network package, see <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_UpdateSolNetworkPackage.html">UpdateSolNetworkPackage</a>.
+    /// network package, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_UpdateSolNetworkPackage.html">UpdateSolNetworkPackage</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "TNBSolNetworkPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

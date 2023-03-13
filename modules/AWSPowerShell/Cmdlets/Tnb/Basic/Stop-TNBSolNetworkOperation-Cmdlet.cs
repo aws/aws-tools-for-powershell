@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         #region Parameter NsLcmOpOccId
         /// <summary>
         /// <para>
-        /// <para>The ID of a network operation occurrence.</para>
+        /// <para>The identifier of the network operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

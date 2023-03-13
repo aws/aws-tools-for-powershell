@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
 {
     /// <summary>
     /// Validates function package content. This can be used as a dry run before uploading
-    /// function package content with <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.
+    /// function package content with <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolFunctionPackageContent.html">PutSolFunctionPackageContent</a>.
     /// 
     ///  
     /// <para>

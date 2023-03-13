@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     /// to define which network functions should run in certain VPCs, subnets, or EKS clusters.
     /// </para><para>
     /// This request creates an empty network package container with an ID. Once you create
-    /// a network package, you can upload the network package content using <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.
+    /// a network package, you can upload the network package content using <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_PutSolNetworkPackageContent.html">PutSolNetworkPackageContent</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "TNBSolNetworkPackage")]
