@@ -150,7 +150,7 @@
     </Target>
 
     <Target Name="package-webhelp" Condition="Exists('$(InternalBuildTools)/references.targets')">
-        <CreateSitemapTask SourceFolder="$(DocDeployment)/docs" BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/" OutputFile="$(DocDeployment)/docs/sitemap.xml" WaitForDebugger="false" />
+        <CreateSitemapTask SourceFolder="$(DocDeployment)/docs" BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/" OutputFile="$(DocDeployment)/docs/sitemap.xml" />
 
         <ItemGroup>
             <FilesToZip Include="$(DocDeployment)/docs/**" />
