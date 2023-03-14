@@ -166,6 +166,18 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         public System.String CustomizedMetricSpecification_MetricName { get; set; }
         #endregion
         
+        #region Parameter CustomizedMetricSpecification_Metric
+        /// <summary>
+        /// <para>
+        /// <para>The metrics to include in the target tracking scaling policy, as a metric data query.
+        /// This can include both raw metric and metric math expressions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Metrics")]
+        public Amazon.ApplicationAutoScaling.Model.TargetTrackingMetricDataQuery[] CustomizedMetricSpecification_Metric { get; set; }
+        #endregion
+        
         #region Parameter StepScalingPolicyConfiguration_MinAdjustmentMagnitude
         /// <summary>
         /// <para>
@@ -545,6 +557,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                 context.CustomizedMetricSpecification_Dimension = new List<Amazon.ApplicationAutoScaling.Model.MetricDimension>(this.CustomizedMetricSpecification_Dimension);
             }
             context.CustomizedMetricSpecification_MetricName = this.CustomizedMetricSpecification_MetricName;
+            if (this.CustomizedMetricSpecification_Metric != null)
+            {
+                context.CustomizedMetricSpecification_Metric = new List<Amazon.ApplicationAutoScaling.Model.TargetTrackingMetricDataQuery>(this.CustomizedMetricSpecification_Metric);
+            }
             context.CustomizedMetricSpecification_Namespace = this.CustomizedMetricSpecification_Namespace;
             context.CustomizedMetricSpecification_Statistic = this.CustomizedMetricSpecification_Statistic;
             context.CustomizedMetricSpecification_Unit = this.CustomizedMetricSpecification_Unit;
@@ -753,6 +769,16 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                 requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification.MetricName = requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_MetricName;
                 requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecificationIsNull = false;
             }
+            List<Amazon.ApplicationAutoScaling.Model.TargetTrackingMetricDataQuery> requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Metric = null;
+            if (cmdletContext.CustomizedMetricSpecification_Metric != null)
+            {
+                requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Metric = cmdletContext.CustomizedMetricSpecification_Metric;
+            }
+            if (requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Metric != null)
+            {
+                requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification.Metrics = requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Metric;
+                requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
             System.String requestTargetTrackingScalingPolicyConfiguration_targetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Namespace = null;
             if (cmdletContext.CustomizedMetricSpecification_Namespace != null)
             {
@@ -871,6 +897,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             public List<Amazon.ApplicationAutoScaling.Model.StepAdjustment> StepScalingPolicyConfiguration_StepAdjustment { get; set; }
             public List<Amazon.ApplicationAutoScaling.Model.MetricDimension> CustomizedMetricSpecification_Dimension { get; set; }
             public System.String CustomizedMetricSpecification_MetricName { get; set; }
+            public List<Amazon.ApplicationAutoScaling.Model.TargetTrackingMetricDataQuery> CustomizedMetricSpecification_Metric { get; set; }
             public System.String CustomizedMetricSpecification_Namespace { get; set; }
             public Amazon.ApplicationAutoScaling.MetricStatistic CustomizedMetricSpecification_Statistic { get; set; }
             public System.String CustomizedMetricSpecification_Unit { get; set; }

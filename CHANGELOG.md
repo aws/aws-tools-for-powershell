@@ -1,4 +1,17 @@
-﻿### 4.1.290 (2023-03-13 21:04Z)
+﻿### 4.1.291 (2023-03-14 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.503.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Application Auto Scaling
+    * Modified cmdlet Set-AASScalingPolicy: added parameter CustomizedMetricSpecification_Metric.
+  * Amazon Data Exchange
+    * Modified cmdlet New-DTEXJob: added parameter AssetSource_KmsKeysToGrant.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2VpcEndpoint: added parameter DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint.
+    * Modified cmdlet New-EC2VpcEndpoint: added parameter DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint.
+  * Amazon Keyspaces
+    * Modified cmdlet New-KSTable: added parameter ClientSideTimestamps_Status.
+    * Modified cmdlet Update-KSTable: added parameter ClientSideTimestamps_Status.
+
+### 4.1.290 (2023-03-13 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.502.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppIntegrations Service
     * Modified cmdlet New-AISDataIntegration: added parameters FileConfiguration_Filter, FileConfiguration_Folder and ObjectConfiguration.

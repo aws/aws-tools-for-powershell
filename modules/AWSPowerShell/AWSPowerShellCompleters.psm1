@@ -31285,6 +31285,16 @@ $KS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Keyspaces.ClientSideTimestampsStatus
+        {
+            ($_ -eq "New-KSTable/ClientSideTimestamps_Status") -Or
+            ($_ -eq "Update-KSTable/ClientSideTimestamps_Status")
+        }
+        {
+            $v = "ENABLED"
+            break
+        }
+
         # Amazon.Keyspaces.EncryptionType
         {
             ($_ -eq "New-KSTable/EncryptionSpecification_Type") -Or
@@ -31339,6 +31349,7 @@ $KS_Completers = {
 $KS_map = @{
     "CapacitySpecification_ThroughputMode"=@("New-KSTable","Update-KSTable")
     "CapacitySpecificationOverride_ThroughputMode"=@("Restore-KSTable")
+    "ClientSideTimestamps_Status"=@("New-KSTable","Update-KSTable")
     "EncryptionSpecification_Type"=@("New-KSTable","Update-KSTable")
     "EncryptionSpecificationOverride_Type"=@("Restore-KSTable")
     "PointInTimeRecovery_Status"=@("New-KSTable","Update-KSTable")

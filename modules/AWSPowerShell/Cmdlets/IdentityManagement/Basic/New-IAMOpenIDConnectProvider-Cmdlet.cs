@@ -51,6 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// A list of client IDs (also known as audiences) that identify the application or applications
     /// allowed to authenticate using the OIDC provider
     /// </para></li><li><para>
+    /// A list of tags that are attached to the specified IAM OIDC provider
+    /// </para></li><li><para>
     /// A list of thumbprints of one or more server certificates that the IdP uses
     /// </para></li></ul><para>
     /// You get all of this information from the OIDC IdP you want to use to access Amazon
@@ -121,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// stores its keys at https://keys.server.example.com/openid-connect. In that case, the
         /// thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used
         /// by <code>https://keys.server.example.com.</code></para><para>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
-        /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM User Guide</i>.</para>
+        /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

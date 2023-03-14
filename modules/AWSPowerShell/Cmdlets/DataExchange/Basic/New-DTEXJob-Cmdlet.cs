@@ -340,6 +340,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String Details_ExportRevisionsToS3_Encryption_KmsKeyArn { get; set; }
         #endregion
         
+        #region Parameter AssetSource_KmsKeysToGrant
+        /// <summary>
+        /// <para>
+        /// <para>List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
+        /// encrypt S3 objects being shared in this S3 Data Access asset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_CreateS3DataAccessFromS3Bucket_AssetSource_KmsKeysToGrant")]
+        public Amazon.DataExchange.Model.KmsKeyToGrant[] AssetSource_KmsKeysToGrant { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetFromSignedUrl_Md5Hash
         /// <summary>
         /// <para>
@@ -619,6 +631,10 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             {
                 context.AssetSource_Key = new List<System.String>(this.AssetSource_Key);
             }
+            if (this.AssetSource_KmsKeysToGrant != null)
+            {
+                context.AssetSource_KmsKeysToGrant = new List<Amazon.DataExchange.Model.KmsKeyToGrant>(this.AssetSource_KmsKeysToGrant);
+            }
             context.CreateS3DataAccessFromS3Bucket_DataSetId = this.CreateS3DataAccessFromS3Bucket_DataSetId;
             context.CreateS3DataAccessFromS3Bucket_RevisionId = this.CreateS3DataAccessFromS3Bucket_RevisionId;
             if (this.ExportAssetsToS3_AssetDestination != null)
@@ -769,6 +785,16 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Key != null)
             {
                 requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource.Keys = requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_Key;
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull = false;
+            }
+            List<Amazon.DataExchange.Model.KmsKeyToGrant> requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KmsKeysToGrant = null;
+            if (cmdletContext.AssetSource_KmsKeysToGrant != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KmsKeysToGrant = cmdletContext.AssetSource_KmsKeysToGrant;
+            }
+            if (requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KmsKeysToGrant != null)
+            {
+                requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource.KmsKeysToGrant = requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource_assetSource_KmsKeysToGrant;
                 requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSourceIsNull = false;
             }
              // determine if requestDetails_details_CreateS3DataAccessFromS3Bucket_details_CreateS3DataAccessFromS3Bucket_AssetSource should be set to null
@@ -1434,6 +1460,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             public System.String AssetSource_Bucket { get; set; }
             public List<System.String> AssetSource_KeyPrefix { get; set; }
             public List<System.String> AssetSource_Key { get; set; }
+            public List<Amazon.DataExchange.Model.KmsKeyToGrant> AssetSource_KmsKeysToGrant { get; set; }
             public System.String CreateS3DataAccessFromS3Bucket_DataSetId { get; set; }
             public System.String CreateS3DataAccessFromS3Bucket_RevisionId { get; set; }
             public List<Amazon.DataExchange.Model.AssetDestinationEntry> ExportAssetsToS3_AssetDestination { get; set; }

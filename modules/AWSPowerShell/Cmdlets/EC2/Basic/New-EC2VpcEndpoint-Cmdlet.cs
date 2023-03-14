@@ -95,6 +95,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? PrivateDnsEnabled { get; set; }
         #endregion
         
+        #region Parameter DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to enable private DNS only for inbound endpoints. This option is
+        /// available only for services that support both gateway and interface endpoints. It
+        /// routes traffic that originates from the VPC to the gateway endpoint and traffic that
+        /// originates from on-premises to the interface endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
+        #endregion
+        
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
@@ -264,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.DnsOptions_DnsRecordIpType = this.DnsOptions_DnsRecordIpType;
+            context.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint = this.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint;
             context.IpAddressType = this.IpAddressType;
             context.PolicyDocument = this.PolicyDocument;
             context.PrivateDnsEnabled = this.PrivateDnsEnabled;
@@ -330,6 +344,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestDnsOptions_dnsOptions_DnsRecordIpType != null)
             {
                 request.DnsOptions.DnsRecordIpType = requestDnsOptions_dnsOptions_DnsRecordIpType;
+                requestDnsOptionsIsNull = false;
+            }
+            System.Boolean? requestDnsOptions_dnsOptions_PrivateDnsOnlyForInboundResolverEndpoint = null;
+            if (cmdletContext.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint != null)
+            {
+                requestDnsOptions_dnsOptions_PrivateDnsOnlyForInboundResolverEndpoint = cmdletContext.DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint.Value;
+            }
+            if (requestDnsOptions_dnsOptions_PrivateDnsOnlyForInboundResolverEndpoint != null)
+            {
+                request.DnsOptions.PrivateDnsOnlyForInboundResolverEndpoint = requestDnsOptions_dnsOptions_PrivateDnsOnlyForInboundResolverEndpoint.Value;
                 requestDnsOptionsIsNull = false;
             }
              // determine if request.DnsOptions should be set to null
@@ -440,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public Amazon.EC2.DnsRecordIpType DnsOptions_DnsRecordIpType { get; set; }
+            public System.Boolean? DnsOptions_PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
             public Amazon.EC2.IpAddressType IpAddressType { get; set; }
             public System.String PolicyDocument { get; set; }
             public System.Boolean? PrivateDnsEnabled { get; set; }

@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter VirtualMFADeviceName
         /// <summary>
         /// <para>
-        /// <para>The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA
-        /// device.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// <para>The name of the virtual MFA device, which must be unique. Use with path to uniquely
+        /// identify a virtual MFA device.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
         /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>

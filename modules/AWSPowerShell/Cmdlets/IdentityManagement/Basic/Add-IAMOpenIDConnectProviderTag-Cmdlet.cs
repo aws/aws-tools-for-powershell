@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// organization and search. For example, you could search for all resources with the
     /// key name <i>Project</i> and the value <i>MyImportantProject</i>. Or search for all
     /// resources with the key name <i>Cost Center</i> and the value <i>41200</i>. 
-    /// </para></li><li><para><b>Access control</b> - Include tags in IAM user-based and resource-based policies.
+    /// </para></li><li><para><b>Access control</b> - Include tags in IAM identity-based and resource-based policies.
     /// You can use tags to restrict access to only an OIDC provider that has a specified
     /// tag attached. For examples of policies that show how to use tags to control access,
     /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control

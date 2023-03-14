@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter AddColumn
         /// <summary>
         /// <para>
-        /// <para>For each column to be added to the specified table:</para><para>• <code>name</code> - The name of the column.</para><para>• <code>type</code> - An Amazon Keyspaces data type. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types">Data
-        /// types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
+        /// <para>For each column to be added to the specified table:</para><ul><li><para><code>name</code> - The name of the column.</para></li><li><para><code>type</code> - An Amazon Keyspaces data type. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types">Data
+        /// types</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +104,21 @@ namespace Amazon.PowerShell.Cmdlets.KS
         public System.Int64? CapacitySpecification_ReadCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter ClientSideTimestamps_Status
+        /// <summary>
+        /// <para>
+        /// <para>Shows how to enable client-side timestamps settings for the specified table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Keyspaces.ClientSideTimestampsStatus")]
+        public Amazon.Keyspaces.ClientSideTimestampsStatus ClientSideTimestamps_Status { get; set; }
+        #endregion
+        
         #region Parameter PointInTimeRecovery_Status
         /// <summary>
         /// <para>
-        /// <para>The options are:</para><para>• <code>ENABLED</code></para><para>• <code>DISABLED</code></para>
+        /// <para>The options are:</para><ul><li><para><code>status=ENABLED</code></para></li><li><para><code>status=DISABLED</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.KS
         #region Parameter CapacitySpecification_ThroughputMode
         /// <summary>
         /// <para>
-        /// <para>The read/write throughput capacity mode for a table. The options are:</para><para>• <code>throughputMode:PAY_PER_REQUEST</code> and </para><para>• <code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code>
-        /// and <code>writeCapacityUnits</code> as input.</para><para>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
+        /// <para>The read/write throughput capacity mode for a table. The options are:</para><ul><li><para><code>throughputMode:PAY_PER_REQUEST</code> and </para></li><li><para><code>throughputMode:PROVISIONED</code> - Provisioned capacity mode requires <code>readCapacityUnits</code>
+        /// and <code>writeCapacityUnits</code> as input.</para></li></ul><para>The default is <code>throughput_mode:PAY_PER_REQUEST</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html">Read/write
         /// capacity modes</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -160,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.KS
         /// <summary>
         /// <para>
         /// <para>The encryption option specified for the table. You can choose one of the following
-        /// KMS keys (KMS keys):</para><para>• <code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </para><para>• <code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account
-        /// and is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code>
-        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para><para>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
+        /// KMS keys (KMS keys):</para><ul><li><para><code>type:AWS_OWNED_KMS_KEY</code> - This key is owned by Amazon Keyspaces. </para></li><li><para><code>type:CUSTOMER_MANAGED_KMS_KEY</code> - This key is stored in your account and
+        /// is created, owned, and managed by you. This option requires the <code>kms_key_identifier</code>
+        /// of the KMS key in Amazon Resource Name (ARN) format as input. </para></li></ul><para>The default is <code>type:AWS_OWNED_KMS_KEY</code>. </para><para>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html">Encryption
         /// at rest</a> in the <i>Amazon Keyspaces Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -232,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             context.CapacitySpecification_ReadCapacityUnit = this.CapacitySpecification_ReadCapacityUnit;
             context.CapacitySpecification_ThroughputMode = this.CapacitySpecification_ThroughputMode;
             context.CapacitySpecification_WriteCapacityUnit = this.CapacitySpecification_WriteCapacityUnit;
+            context.ClientSideTimestamps_Status = this.ClientSideTimestamps_Status;
             context.DefaultTimeToLive = this.DefaultTimeToLive;
             context.EncryptionSpecification_KmsKeyIdentifier = this.EncryptionSpecification_KmsKeyIdentifier;
             context.EncryptionSpecification_Type = this.EncryptionSpecification_Type;
@@ -309,6 +321,25 @@ namespace Amazon.PowerShell.Cmdlets.KS
             if (requestCapacitySpecificationIsNull)
             {
                 request.CapacitySpecification = null;
+            }
+            
+             // populate ClientSideTimestamps
+            var requestClientSideTimestampsIsNull = true;
+            request.ClientSideTimestamps = new Amazon.Keyspaces.Model.ClientSideTimestamps();
+            Amazon.Keyspaces.ClientSideTimestampsStatus requestClientSideTimestamps_clientSideTimestamps_Status = null;
+            if (cmdletContext.ClientSideTimestamps_Status != null)
+            {
+                requestClientSideTimestamps_clientSideTimestamps_Status = cmdletContext.ClientSideTimestamps_Status;
+            }
+            if (requestClientSideTimestamps_clientSideTimestamps_Status != null)
+            {
+                request.ClientSideTimestamps.Status = requestClientSideTimestamps_clientSideTimestamps_Status;
+                requestClientSideTimestampsIsNull = false;
+            }
+             // determine if request.ClientSideTimestamps should be set to null
+            if (requestClientSideTimestampsIsNull)
+            {
+                request.ClientSideTimestamps = null;
             }
             if (cmdletContext.DefaultTimeToLive != null)
             {
@@ -454,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.KS
             public System.Int64? CapacitySpecification_ReadCapacityUnit { get; set; }
             public Amazon.Keyspaces.ThroughputMode CapacitySpecification_ThroughputMode { get; set; }
             public System.Int64? CapacitySpecification_WriteCapacityUnit { get; set; }
+            public Amazon.Keyspaces.ClientSideTimestampsStatus ClientSideTimestamps_Status { get; set; }
             public System.Int32? DefaultTimeToLive { get; set; }
             public System.String EncryptionSpecification_KmsKeyIdentifier { get; set; }
             public Amazon.Keyspaces.EncryptionType EncryptionSpecification_Type { get; set; }

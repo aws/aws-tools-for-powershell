@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter TestDurationInMinute
         /// <summary>
         /// <para>
-        /// <para>The time in minutes that the virtual interface failover test will last.</para><para>Maximum value: 180 minutes (3 hours).</para><para>Default: 180 minutes (3 hours).</para>
+        /// <para>The time in minutes that the virtual interface failover test will last.</para><para>Maximum value: 4,320 minutes (72 hours).</para><para>Default: 180 minutes (3 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
