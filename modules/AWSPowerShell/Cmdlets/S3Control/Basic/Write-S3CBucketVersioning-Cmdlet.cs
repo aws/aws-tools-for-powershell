@@ -54,11 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Creating and managing a lifecycle configuration for your S3 on Outposts bucket</a>
     /// in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
-    /// If you have an object expiration lifecycle policy in your non-versioned bucket and
-    /// you want to maintain the same permanent delete behavior when you enable versioning,
-    /// you must add a noncurrent expiration policy. The noncurrent expiration lifecycle policy
-    /// will manage the deletions of the noncurrent object versions in the version-enabled
-    /// bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a>
+    /// If you have an object expiration lifecycle configuration in your non-versioned bucket
+    /// and you want to maintain the same permanent delete behavior when you enable versioning,
+    /// you must add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration
+    /// will manage the deletes of the noncurrent object versions in the version-enabled bucket.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a>
     /// in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// All Amazon S3 on Outposts REST API requests for this action require an additional

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
 {
     /// <summary>
     /// Notifies the subscriber when new data is written to the data lake for the sources
-    /// that the subscriber consumes in Security Lake.
+    /// that the subscriber consumes in Security Lake. You can create only one subscriber
+    /// notification per subscriber.
     /// </summary>
     [Cmdlet("New", "SLKSubscriptionNotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -87,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you
-        /// created.</para>
+        /// created. For more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com//security-lake/latest/userguide/subscriber-data-access.html">Managing
+        /// data access</a> and <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/security-iam-awsmanpol.html">Amazon
+        /// Web Services Managed Policies</a> in the Amazon Security Lake User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SubscriptionId
         /// <summary>
         /// <para>
-        /// <para>The subscription ID for the notification subscription/</para>
+        /// <para>The subscription ID for the notification subscription.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

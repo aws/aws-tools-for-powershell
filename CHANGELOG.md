@@ -1,4 +1,7 @@
-﻿### 4.1.291 (2023-03-14 21:12Z)
+﻿### 4.1.292 (2023-03-15 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.504.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.291 (2023-03-14 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.503.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Application Auto Scaling
     * Modified cmdlet Set-AASScalingPolicy: added parameter CustomizedMetricSpecification_Metric.
