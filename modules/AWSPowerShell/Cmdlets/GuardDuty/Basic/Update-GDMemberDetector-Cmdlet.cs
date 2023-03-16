@@ -116,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? S3Logs_Enable { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>A list of features that will be updated for the specified member accounts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public Amazon.GuardDuty.Model.MemberFeaturesConfiguration[] Feature { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'UnprocessedAccounts'.
@@ -198,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Feature != null)
+            {
+                context.Feature = new List<Amazon.GuardDuty.Model.MemberFeaturesConfiguration>(this.Feature);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -336,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 request.DetectorId = cmdletContext.DetectorId;
             }
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
+            }
             
             CmdletOutput output;
             
@@ -402,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             public System.Boolean? ScanEc2InstanceWithFindings_EbsVolume { get; set; }
             public System.Boolean? S3Logs_Enable { get; set; }
             public System.String DetectorId { get; set; }
+            public List<Amazon.GuardDuty.Model.MemberFeaturesConfiguration> Feature { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateMemberDetectorsResponse, UpdateGDMemberDetectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UnprocessedAccounts;
         }

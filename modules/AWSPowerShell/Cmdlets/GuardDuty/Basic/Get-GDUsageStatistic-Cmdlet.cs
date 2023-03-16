@@ -56,24 +56,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String[] UsageCriteria_AccountId { get; set; }
         #endregion
         
-        #region Parameter UsageCriteria_DataSource
-        /// <summary>
-        /// <para>
-        /// <para>The data sources to aggregate usage statistics from.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("UsageCriteria_DataSources")]
-        public System.String[] UsageCriteria_DataSource { get; set; }
-        #endregion
-        
         #region Parameter DetectorId
         /// <summary>
         /// <para>
@@ -90,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DetectorId { get; set; }
+        #endregion
+        
+        #region Parameter UsageCriteria_Feature
+        /// <summary>
+        /// <para>
+        /// <para>The features to aggregate usage statistics from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UsageCriteria_Features")]
+        public System.String[] UsageCriteria_Feature { get; set; }
         #endregion
         
         #region Parameter UsageCriteria_Resource
@@ -129,6 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.GuardDuty.UsageStatisticType")]
         public Amazon.GuardDuty.UsageStatisticType UsageStatisticType { get; set; }
+        #endregion
+        
+        #region Parameter UsageCriteria_DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The data sources to aggregate usage statistics from.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This parameter is deprecated, use Features instead")]
+        [Alias("UsageCriteria_DataSources")]
+        public System.String[] UsageCriteria_DataSource { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -229,16 +235,16 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 context.UsageCriteria_AccountId = new List<System.String>(this.UsageCriteria_AccountId);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.UsageCriteria_DataSource != null)
             {
                 context.UsageCriteria_DataSource = new List<System.String>(this.UsageCriteria_DataSource);
             }
-            #if MODULAR
-            if (this.UsageCriteria_DataSource == null && ParameterWasBound(nameof(this.UsageCriteria_DataSource)))
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.UsageCriteria_Feature != null)
             {
-                WriteWarning("You are passing $null as a value for parameter UsageCriteria_DataSource which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.UsageCriteria_Feature = new List<System.String>(this.UsageCriteria_Feature);
             }
-            #endif
             if (this.UsageCriteria_Resource != null)
             {
                 context.UsageCriteria_Resource = new List<System.String>(this.UsageCriteria_Resource);
@@ -296,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 request.UsageCriteria.AccountIds = requestUsageCriteria_usageCriteria_AccountId;
                 requestUsageCriteriaIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<System.String> requestUsageCriteria_usageCriteria_DataSource = null;
             if (cmdletContext.UsageCriteria_DataSource != null)
             {
@@ -304,6 +311,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (requestUsageCriteria_usageCriteria_DataSource != null)
             {
                 request.UsageCriteria.DataSources = requestUsageCriteria_usageCriteria_DataSource;
+                requestUsageCriteriaIsNull = false;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            List<System.String> requestUsageCriteria_usageCriteria_Feature = null;
+            if (cmdletContext.UsageCriteria_Feature != null)
+            {
+                requestUsageCriteria_usageCriteria_Feature = cmdletContext.UsageCriteria_Feature;
+            }
+            if (requestUsageCriteria_usageCriteria_Feature != null)
+            {
+                request.UsageCriteria.Features = requestUsageCriteria_usageCriteria_Feature;
                 requestUsageCriteriaIsNull = false;
             }
             List<System.String> requestUsageCriteria_usageCriteria_Resource = null;
@@ -415,7 +433,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
             public System.String NextToken { get; set; }
             public System.String Unit { get; set; }
             public List<System.String> UsageCriteria_AccountId { get; set; }
+            [System.ObsoleteAttribute]
             public List<System.String> UsageCriteria_DataSource { get; set; }
+            public List<System.String> UsageCriteria_Feature { get; set; }
             public List<System.String> UsageCriteria_Resource { get; set; }
             public Amazon.GuardDuty.UsageStatisticType UsageStatisticType { get; set; }
             public System.Func<Amazon.GuardDuty.Model.GetUsageStatisticsResponse, GetGDUsageStatisticCmdlet, object> Select { get; set; } =

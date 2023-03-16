@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? Enable { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>A list of features that will be configured for the detector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public Amazon.GuardDuty.Model.DetectorFeatureConfiguration[] Feature { get; set; }
+        #endregion
+        
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
@@ -205,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter Enable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Feature != null)
+            {
+                context.Feature = new List<Amazon.GuardDuty.Model.DetectorFeatureConfiguration>(this.Feature);
+            }
             context.FindingPublishingFrequency = this.FindingPublishingFrequency;
             if (this.Tag != null)
             {
@@ -352,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 request.Enable = cmdletContext.Enable.Value;
             }
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
+            }
             if (cmdletContext.FindingPublishingFrequency != null)
             {
                 request.FindingPublishingFrequency = cmdletContext.FindingPublishingFrequency;
@@ -426,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             public System.Boolean? ScanEc2InstanceWithFindings_EbsVolume { get; set; }
             public System.Boolean? S3Logs_Enable { get; set; }
             public System.Boolean? Enable { get; set; }
+            public List<Amazon.GuardDuty.Model.DetectorFeatureConfiguration> Feature { get; set; }
             public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.GuardDuty.Model.CreateDetectorResponse, NewGDDetectorCmdlet, object> Select { get; set; } =

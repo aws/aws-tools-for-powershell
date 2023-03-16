@@ -28,7 +28,10 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Creates a filter using the specified finding criteria.
+    /// Creates a filter using the specified finding criteria. The maximum number of saved
+    /// filters per Amazon Web Services account per Region is 100. For more information, see
+    /// <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html">Quotas
+    /// for GuardDuty</a>.
     /// </summary>
     [Cmdlet("New", "GDFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -55,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The description of the filter. Valid characters include alphanumeric characters, and
-        /// special characters such as <code>-</code>, <code>.</code>, <code>:</code>, <code>{
-        /// }</code>, <code>[ ]</code>, <code>( )</code>, <code>/</code>, <code>\t</code>, <code>\n</code>,
-        /// <code>\x0B</code>, <code>\f</code>, <code>\r</code>, <code>_</code>, and whitespace.</para>
+        /// special characters such as hyphen, period, colon, underscore, parentheses (<code>{
+        /// }</code>, <code>[ ]</code>, and <code>( )</code>), forward slash, horizontal tab,
+        /// vertical tab, newline, form feed, return, and whitespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

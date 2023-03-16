@@ -1,4 +1,14 @@
-﻿### 4.1.292 (2023-03-15 21:00Z)
+﻿### 4.1.293 (2023-03-16 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.505.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon GuardDuty
+    * Modified cmdlet Get-GDOrganizationConfiguration: added parameters MaxResult, NextToken and NoAutoIteration.
+    * Modified cmdlet Get-GDUsageStatistic: added parameter UsageCriteria_Feature.
+    * Modified cmdlet New-GDDetector: added parameter Feature.
+    * Modified cmdlet Update-GDDetector: added parameter Feature.
+    * Modified cmdlet Update-GDMemberDetector: added parameter Feature.
+    * Modified cmdlet Update-GDOrganizationConfiguration: added parameter Feature.
+
+### 4.1.292 (2023-03-15 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.504.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.291 (2023-03-14 21:12Z)

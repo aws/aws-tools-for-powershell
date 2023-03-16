@@ -116,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>A list of features that will be configured for the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public Amazon.GuardDuty.Model.OrganizationFeatureConfiguration[] Feature { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -194,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Feature != null)
+            {
+                context.Feature = new List<Amazon.GuardDuty.Model.OrganizationFeatureConfiguration>(this.Feature);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -347,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 request.DetectorId = cmdletContext.DetectorId;
             }
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
+            }
             
             CmdletOutput output;
             
@@ -413,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             public System.Boolean? EbsVolumes_AutoEnable { get; set; }
             public System.Boolean? S3Logs_AutoEnable { get; set; }
             public System.String DetectorId { get; set; }
+            public List<Amazon.GuardDuty.Model.OrganizationFeatureConfiguration> Feature { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateOrganizationConfigurationResponse, UpdateGDOrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

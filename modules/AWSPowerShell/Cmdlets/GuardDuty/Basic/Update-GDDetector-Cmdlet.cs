@@ -108,6 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? Enable { get; set; }
         #endregion
         
+        #region Parameter Feature
+        /// <summary>
+        /// <para>
+        /// <para>Provides the features that will be updated for the detector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Features")]
+        public Amazon.GuardDuty.Model.DetectorFeatureConfiguration[] Feature { get; set; }
+        #endregion
+        
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
@@ -192,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             #endif
             context.Enable = this.Enable;
+            if (this.Feature != null)
+            {
+                context.Feature = new List<Amazon.GuardDuty.Model.DetectorFeatureConfiguration>(this.Feature);
+            }
             context.FindingPublishingFrequency = this.FindingPublishingFrequency;
             
             // allow further manipulation of loaded context prior to processing
@@ -331,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
             {
                 request.Enable = cmdletContext.Enable.Value;
             }
+            if (cmdletContext.Feature != null)
+            {
+                request.Features = cmdletContext.Feature;
+            }
             if (cmdletContext.FindingPublishingFrequency != null)
             {
                 request.FindingPublishingFrequency = cmdletContext.FindingPublishingFrequency;
@@ -401,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             public System.Boolean? S3Logs_Enable { get; set; }
             public System.String DetectorId { get; set; }
             public System.Boolean? Enable { get; set; }
+            public List<Amazon.GuardDuty.Model.DetectorFeatureConfiguration> Feature { get; set; }
             public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateDetectorResponse, UpdateGDDetectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
