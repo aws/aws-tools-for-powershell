@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String Filters_AccountId { get; set; }
         #endregion
         
+        #region Parameter Filters_AccountIds
+        /// <summary>
+        /// <para>
+        /// <para> The list of Amazon Web Services IDs to retrieve their associated billing group for
+        /// a given time range. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Filters_AccountIds { get; set; }
+        #endregion
+        
         #region Parameter Filters_Association
         /// <summary>
         /// <para>
@@ -134,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BillingPeriod = this.BillingPeriod;
             context.Filters_AccountId = this.Filters_AccountId;
+            if (this.Filters_AccountIds != null)
+            {
+                context.Filters_AccountIds = new List<System.String>(this.Filters_AccountIds);
+            }
             context.Filters_Association = this.Filters_Association;
             context.NextToken = this.NextToken;
             
@@ -168,6 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (requestFilters_filters_AccountId != null)
             {
                 request.Filters.AccountId = requestFilters_filters_AccountId;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_AccountIds = null;
+            if (cmdletContext.Filters_AccountIds != null)
+            {
+                requestFilters_filters_AccountIds = cmdletContext.Filters_AccountIds;
+            }
+            if (requestFilters_filters_AccountIds != null)
+            {
+                request.Filters.AccountIds = requestFilters_filters_AccountIds;
                 requestFiltersIsNull = false;
             }
             System.String requestFilters_filters_Association = null;
@@ -252,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         {
             public System.String BillingPeriod { get; set; }
             public System.String Filters_AccountId { get; set; }
+            public List<System.String> Filters_AccountIds { get; set; }
             public System.String Filters_Association { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BillingConductor.Model.ListAccountAssociationsResponse, GetABCAccountAssociationListCmdlet, object> Select { get; set; } =

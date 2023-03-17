@@ -74,6 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.ABC
         public System.String Filters_PricingPlan { get; set; }
         #endregion
         
+        #region Parameter Filters_Status
+        /// <summary>
+        /// <para>
+        /// <para> A list of billing groups to retrieve their current status for a specific time range
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_Statuses")]
+        public System.String[] Filters_Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -147,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.ABC
                 context.Filters_Arn = new List<System.String>(this.Filters_Arn);
             }
             context.Filters_PricingPlan = this.Filters_PricingPlan;
+            if (this.Filters_Status != null)
+            {
+                context.Filters_Status = new List<System.String>(this.Filters_Status);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -191,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             if (requestFilters_filters_PricingPlan != null)
             {
                 request.Filters.PricingPlan = requestFilters_filters_PricingPlan;
+                requestFiltersIsNull = false;
+            }
+            List<System.String> requestFilters_filters_Status = null;
+            if (cmdletContext.Filters_Status != null)
+            {
+                requestFilters_filters_Status = cmdletContext.Filters_Status;
+            }
+            if (requestFilters_filters_Status != null)
+            {
+                request.Filters.Statuses = requestFilters_filters_Status;
                 requestFiltersIsNull = false;
             }
              // determine if request.Filters should be set to null
@@ -270,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.ABC
             public System.String BillingPeriod { get; set; }
             public List<System.String> Filters_Arn { get; set; }
             public System.String Filters_PricingPlan { get; set; }
+            public List<System.String> Filters_Status { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.BillingConductor.Model.ListBillingGroupsResponse, GetABCBillingGroupListCmdlet, object> Select { get; set; } =

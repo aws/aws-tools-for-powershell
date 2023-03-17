@@ -47,6 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para><para>
     /// To register a delegated administrator, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli">Register
     /// a Delegated Administrator</a> in the <i>Config developer guide</i>. 
+    /// </para></note><note><para><code>PutConfigurationAggregator</code> is an idempotent API. Subsequent requests
+    /// won’t create a duplicate resource if one was already created. If a following request
+    /// has different <code>tags</code> values, Config will ignore these differences and treat
+    /// it as an idempotent request of the previous. In this case, <code>tags</code> will
+    /// not be updated, even if they are different.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGConfigurationAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

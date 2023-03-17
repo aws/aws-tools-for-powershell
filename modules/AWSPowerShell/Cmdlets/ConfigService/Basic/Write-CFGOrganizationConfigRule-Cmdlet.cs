@@ -49,25 +49,28 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// calling Amazon Web Services Organization <code>register-delegated-administrator</code>
     /// for <code>config-multiaccountsetup.amazonaws.com</code>. 
     /// </para><para>
-    /// There are two types of rules: Config Custom Rules and Config Managed Rules. You can
-    /// use <code>PutOrganizationConfigRule</code> to create both Config custom rules and
-    /// Config managed rules.
+    /// There are two types of rules: <i>Config Managed Rules</i> and <i>Config Custom Rules</i>.
+    /// You can use <code>PutOrganizationConfigRule</code> to create both Config Managed Rules
+    /// and Config Custom Rules.
     /// </para><para>
-    /// Custom rules are rules that you can create using either Guard or Lambda functions.
-    /// Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard
-    /// GitHub Repository</a>) is a policy-as-code language that allows you to write policies
-    /// that are enforced by Config Custom Policy rules. Lambda uses custom code that you
-    /// upload to evaluate a custom rule. If you are adding a new Custom Lambda rule, you
-    /// first need to create an Lambda function in the management account or a delegated administrator
-    /// that the rule invokes to evaluate your resources. You also need to create an IAM role
-    /// in the managed account that can be assumed by the Lambda function. When you use <code>PutOrganizationConfigRule</code>
-    /// to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN)
-    /// that Lambda assigns to the function.
-    /// </para><para>
-    /// Managed rules are predefined, customizable rules created by Config. For a list of
-    /// managed rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List
+    /// Config Managed Rules are predefined, customizable rules created by Config. For a list
+    /// of managed rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List
     /// of Config Managed Rules</a>. If you are adding an Config managed rule, you must specify
     /// the rule's identifier for the <code>RuleIdentifier</code> key.
+    /// </para><para>
+    /// Config Custom Rules are rules that you create from scratch. There are two ways to
+    /// create Config custom rules: with Lambda functions (<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function">
+    /// Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard
+    /// GitHub Repository</a>), a policy-as-code language. Config custom rules created with
+    /// Lambda are called <i>Config Custom Lambda Rules</i> and Config custom rules created
+    /// with Guard are called <i>Config Custom Policy Rules</i>.
+    /// </para><para>
+    /// If you are adding a new Config Custom Lambda rule, you first need to create an Lambda
+    /// function in the management account or a delegated administrator that the rule invokes
+    /// to evaluate your resources. You also need to create an IAM role in the managed account
+    /// that can be assumed by the Lambda function. When you use <code>PutOrganizationConfigRule</code>
+    /// to add a Custom Lambda rule to Config, you must specify the Amazon Resource Name (ARN)
+    /// that Lambda assigns to the function.
     /// </para><note><para>
     /// Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features
     /// in an organization.

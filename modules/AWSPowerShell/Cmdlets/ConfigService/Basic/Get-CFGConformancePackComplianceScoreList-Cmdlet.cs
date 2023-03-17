@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>The <code>nextToken</code> string in a prior request that you can use to get the paginated
-        /// response for next set of conformance pack compliance scores.</para>
+        /// response for the next set of conformance pack compliance scores.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

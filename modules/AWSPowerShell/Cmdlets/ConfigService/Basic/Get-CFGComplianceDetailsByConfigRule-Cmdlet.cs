@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ComplianceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by compliance.</para><para>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code>.</para>
+        /// <para>Filters the results by compliance.</para><para><code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned
+        /// when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot
+        /// be used as a <code>ComplianceType</code> for filtering results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

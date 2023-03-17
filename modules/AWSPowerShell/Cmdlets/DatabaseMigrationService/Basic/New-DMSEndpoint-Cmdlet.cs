@@ -656,6 +656,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MicrosoftSQLServerSettings_ControlTablesFileGroup { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_ConvertTimestampWithZoneToUTC
+        /// <summary>
+        /// <para>
+        /// <para>When true, converts timestamps with the <code>timezone</code> datatype to their UTC
+        /// value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_ConvertTimestampWithZoneToUTC { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_CsvDelimiter
         /// <summary>
         /// <para>
@@ -1357,6 +1368,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? RedshiftSettings_FileTransferUploadStream { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_ForceLobLookup
+        /// <summary>
+        /// <para>
+        /// <para>Forces LOB lookup on inline LOB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MicrosoftSQLServerSettings_ForceLobLookup { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchSettings_FullLoadErrorPercentage
         /// <summary>
         /// <para>
@@ -1369,6 +1390,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ElasticsearchSettings_FullLoadErrorPercentage { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_GlueCatalogGeneration
+        /// <summary>
+        /// <para>
+        /// <para>When true, allows Glue to catalog your S3 bucket. Creating an Glue catalog lets you
+        /// use Athena to query your data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3Settings_GlueCatalogGeneration { get; set; }
         #endregion
         
         #region Parameter PostgreSQLSettings_HeartbeatEnable
@@ -1622,6 +1654,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_MapBooleanAsBoolean
+        /// <summary>
+        /// <para>
+        /// <para>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL
+        /// migrates booleans as <code>varchar(5)</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostgreSQLSettings_MapBooleanAsBoolean { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_MapBooleanAsBoolean
+        /// <summary>
+        /// <para>
+        /// <para>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift
+        /// migrates booleans as <code>varchar(1)</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RedshiftSettings_MapBooleanAsBoolean { get; set; }
         #endregion
         
         #region Parameter GcpMySQLSettings_MaxFileSize
@@ -2385,6 +2439,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.SafeguardPolicy")]
         public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_SaslMechanism
+        /// <summary>
+        /// <para>
+        /// <para>For SASL/SSL authentication, DMS supports the <code>SCRAM-SHA-512</code> mechanism
+        /// by default. DMS versions 3.5.0 and later also support the <code>PLAIN</code> mechanism.
+        /// To use the <code>PLAIN</code> mechanism, set this parameter to <code>PLAIN.</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.KafkaSaslMechanism")]
+        public Amazon.DatabaseMigrationService.KafkaSaslMechanism KafkaSettings_SaslMechanism { get; set; }
         #endregion
         
         #region Parameter KafkaSettings_SaslPassword
@@ -3303,6 +3370,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String S3Settings_TimestampColumnName { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_TlogAccessMode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the mode used to fetch CDC data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.TlogAccessMode")]
+        public Amazon.DatabaseMigrationService.TlogAccessMode MicrosoftSQLServerSettings_TlogAccessMode { get; set; }
+        #endregion
+        
         #region Parameter KafkaSettings_Topic
         /// <summary>
         /// <para>
@@ -3765,6 +3843,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.KafkaSettings_MessageMaxByte = this.KafkaSettings_MessageMaxByte;
             context.KafkaSettings_NoHexPrefix = this.KafkaSettings_NoHexPrefix;
             context.KafkaSettings_PartitionIncludeSchemaTable = this.KafkaSettings_PartitionIncludeSchemaTable;
+            context.KafkaSettings_SaslMechanism = this.KafkaSettings_SaslMechanism;
             context.KafkaSettings_SaslPassword = this.KafkaSettings_SaslPassword;
             context.KafkaSettings_SaslUsername = this.KafkaSettings_SaslUsername;
             context.KafkaSettings_SecurityProtocol = this.KafkaSettings_SecurityProtocol;
@@ -3787,6 +3866,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_BcpPacketSize = this.MicrosoftSQLServerSettings_BcpPacketSize;
             context.MicrosoftSQLServerSettings_ControlTablesFileGroup = this.MicrosoftSQLServerSettings_ControlTablesFileGroup;
             context.MicrosoftSQLServerSettings_DatabaseName = this.MicrosoftSQLServerSettings_DatabaseName;
+            context.MicrosoftSQLServerSettings_ForceLobLookup = this.MicrosoftSQLServerSettings_ForceLobLookup;
             context.MicrosoftSQLServerSettings_Password = this.MicrosoftSQLServerSettings_Password;
             context.MicrosoftSQLServerSettings_Port = this.MicrosoftSQLServerSettings_Port;
             context.MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode = this.MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode;
@@ -3795,6 +3875,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn = this.MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn;
             context.MicrosoftSQLServerSettings_SecretsManagerSecretId = this.MicrosoftSQLServerSettings_SecretsManagerSecretId;
             context.MicrosoftSQLServerSettings_ServerName = this.MicrosoftSQLServerSettings_ServerName;
+            context.MicrosoftSQLServerSettings_TlogAccessMode = this.MicrosoftSQLServerSettings_TlogAccessMode;
             context.MicrosoftSQLServerSettings_TrimSpaceInChar = this.MicrosoftSQLServerSettings_TrimSpaceInChar;
             context.MicrosoftSQLServerSettings_UseBcpFullLoad = this.MicrosoftSQLServerSettings_UseBcpFullLoad;
             context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
@@ -3844,6 +3925,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.OracleSettings_AsmServer = this.OracleSettings_AsmServer;
             context.OracleSettings_AsmUser = this.OracleSettings_AsmUser;
             context.OracleSettings_CharLengthSemantic = this.OracleSettings_CharLengthSemantic;
+            context.OracleSettings_ConvertTimestampWithZoneToUTC = this.OracleSettings_ConvertTimestampWithZoneToUTC;
             context.OracleSettings_DatabaseName = this.OracleSettings_DatabaseName;
             context.OracleSettings_DirectPathNoLog = this.OracleSettings_DirectPathNoLog;
             context.OracleSettings_DirectPathParallelLoad = this.OracleSettings_DirectPathParallelLoad;
@@ -3889,6 +3971,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.PostgreSQLSettings_HeartbeatEnable = this.PostgreSQLSettings_HeartbeatEnable;
             context.PostgreSQLSettings_HeartbeatFrequency = this.PostgreSQLSettings_HeartbeatFrequency;
             context.PostgreSQLSettings_HeartbeatSchema = this.PostgreSQLSettings_HeartbeatSchema;
+            context.PostgreSQLSettings_MapBooleanAsBoolean = this.PostgreSQLSettings_MapBooleanAsBoolean;
             context.PostgreSQLSettings_MaxFileSize = this.PostgreSQLSettings_MaxFileSize;
             context.PostgreSQLSettings_Password = this.PostgreSQLSettings_Password;
             context.PostgreSQLSettings_PluginName = this.PostgreSQLSettings_PluginName;
@@ -3920,6 +4003,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_ExplicitId = this.RedshiftSettings_ExplicitId;
             context.RedshiftSettings_FileTransferUploadStream = this.RedshiftSettings_FileTransferUploadStream;
             context.RedshiftSettings_LoadTimeout = this.RedshiftSettings_LoadTimeout;
+            context.RedshiftSettings_MapBooleanAsBoolean = this.RedshiftSettings_MapBooleanAsBoolean;
             context.RedshiftSettings_MaxFileSize = this.RedshiftSettings_MaxFileSize;
             context.RedshiftSettings_Password = this.RedshiftSettings_Password;
             context.RedshiftSettings_Port = this.RedshiftSettings_Port;
@@ -3964,6 +4048,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_EncryptionMode = this.S3Settings_EncryptionMode;
             context.S3Settings_ExpectedBucketOwner = this.S3Settings_ExpectedBucketOwner;
             context.S3Settings_ExternalTableDefinition = this.S3Settings_ExternalTableDefinition;
+            context.S3Settings_GlueCatalogGeneration = this.S3Settings_GlueCatalogGeneration;
             context.S3Settings_IgnoreHeaderRow = this.S3Settings_IgnoreHeaderRow;
             context.S3Settings_IncludeOpForFullLoad = this.S3Settings_IncludeOpForFullLoad;
             context.S3Settings_MaxFileSize = this.S3Settings_MaxFileSize;
@@ -4624,6 +4709,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.KafkaSettings.PartitionIncludeSchemaTable = requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable.Value;
                 requestKafkaSettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.KafkaSaslMechanism requestKafkaSettings_kafkaSettings_SaslMechanism = null;
+            if (cmdletContext.KafkaSettings_SaslMechanism != null)
+            {
+                requestKafkaSettings_kafkaSettings_SaslMechanism = cmdletContext.KafkaSettings_SaslMechanism;
+            }
+            if (requestKafkaSettings_kafkaSettings_SaslMechanism != null)
+            {
+                request.KafkaSettings.SaslMechanism = requestKafkaSettings_kafkaSettings_SaslMechanism;
+                requestKafkaSettingsIsNull = false;
+            }
             System.String requestKafkaSettings_kafkaSettings_SaslPassword = null;
             if (cmdletContext.KafkaSettings_SaslPassword != null)
             {
@@ -4856,6 +4951,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MicrosoftSQLServerSettings.DatabaseName = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_DatabaseName;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
+            System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ForceLobLookup = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_ForceLobLookup != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ForceLobLookup = cmdletContext.MicrosoftSQLServerSettings_ForceLobLookup.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ForceLobLookup != null)
+            {
+                request.MicrosoftSQLServerSettings.ForceLobLookup = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ForceLobLookup.Value;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
             System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Password = null;
             if (cmdletContext.MicrosoftSQLServerSettings_Password != null)
             {
@@ -4934,6 +5039,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName != null)
             {
                 request.MicrosoftSQLServerSettings.ServerName = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.TlogAccessMode requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TlogAccessMode = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_TlogAccessMode != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TlogAccessMode = cmdletContext.MicrosoftSQLServerSettings_TlogAccessMode;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TlogAccessMode != null)
+            {
+                request.MicrosoftSQLServerSettings.TlogAccessMode = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TlogAccessMode;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
             System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_TrimSpaceInChar = null;
@@ -5462,6 +5577,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.CharLengthSemantics = requestOracleSettings_oracleSettings_CharLengthSemantic;
                 requestOracleSettingsIsNull = false;
             }
+            System.Boolean? requestOracleSettings_oracleSettings_ConvertTimestampWithZoneToUTC = null;
+            if (cmdletContext.OracleSettings_ConvertTimestampWithZoneToUTC != null)
+            {
+                requestOracleSettings_oracleSettings_ConvertTimestampWithZoneToUTC = cmdletContext.OracleSettings_ConvertTimestampWithZoneToUTC.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ConvertTimestampWithZoneToUTC != null)
+            {
+                request.OracleSettings.ConvertTimestampWithZoneToUTC = requestOracleSettings_oracleSettings_ConvertTimestampWithZoneToUTC.Value;
+                requestOracleSettingsIsNull = false;
+            }
             System.String requestOracleSettings_oracleSettings_DatabaseName = null;
             if (cmdletContext.OracleSettings_DatabaseName != null)
             {
@@ -5879,6 +6004,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.PostgreSQLSettings.HeartbeatSchema = requestPostgreSQLSettings_postgreSQLSettings_HeartbeatSchema;
                 requestPostgreSQLSettingsIsNull = false;
             }
+            System.Boolean? requestPostgreSQLSettings_postgreSQLSettings_MapBooleanAsBoolean = null;
+            if (cmdletContext.PostgreSQLSettings_MapBooleanAsBoolean != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_MapBooleanAsBoolean = cmdletContext.PostgreSQLSettings_MapBooleanAsBoolean.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_MapBooleanAsBoolean != null)
+            {
+                request.PostgreSQLSettings.MapBooleanAsBoolean = requestPostgreSQLSettings_postgreSQLSettings_MapBooleanAsBoolean.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
             System.Int32? requestPostgreSQLSettings_postgreSQLSettings_MaxFileSize = null;
             if (cmdletContext.PostgreSQLSettings_MaxFileSize != null)
             {
@@ -6205,6 +6340,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestRedshiftSettings_redshiftSettings_LoadTimeout != null)
             {
                 request.RedshiftSettings.LoadTimeout = requestRedshiftSettings_redshiftSettings_LoadTimeout.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_MapBooleanAsBoolean = null;
+            if (cmdletContext.RedshiftSettings_MapBooleanAsBoolean != null)
+            {
+                requestRedshiftSettings_redshiftSettings_MapBooleanAsBoolean = cmdletContext.RedshiftSettings_MapBooleanAsBoolean.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_MapBooleanAsBoolean != null)
+            {
+                request.RedshiftSettings.MapBooleanAsBoolean = requestRedshiftSettings_redshiftSettings_MapBooleanAsBoolean.Value;
                 requestRedshiftSettingsIsNull = false;
             }
             System.Int32? requestRedshiftSettings_redshiftSettings_MaxFileSize = null;
@@ -6650,6 +6795,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.ExternalTableDefinition = requestS3Settings_s3Settings_ExternalTableDefinition;
                 requestS3SettingsIsNull = false;
             }
+            System.Boolean? requestS3Settings_s3Settings_GlueCatalogGeneration = null;
+            if (cmdletContext.S3Settings_GlueCatalogGeneration != null)
+            {
+                requestS3Settings_s3Settings_GlueCatalogGeneration = cmdletContext.S3Settings_GlueCatalogGeneration.Value;
+            }
+            if (requestS3Settings_s3Settings_GlueCatalogGeneration != null)
+            {
+                request.S3Settings.GlueCatalogGeneration = requestS3Settings_s3Settings_GlueCatalogGeneration.Value;
+                requestS3SettingsIsNull = false;
+            }
             System.Int32? requestS3Settings_s3Settings_IgnoreHeaderRow = null;
             if (cmdletContext.S3Settings_IgnoreHeaderRow != null)
             {
@@ -7005,6 +7160,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? KafkaSettings_MessageMaxByte { get; set; }
             public System.Boolean? KafkaSettings_NoHexPrefix { get; set; }
             public System.Boolean? KafkaSettings_PartitionIncludeSchemaTable { get; set; }
+            public Amazon.DatabaseMigrationService.KafkaSaslMechanism KafkaSettings_SaslMechanism { get; set; }
             public System.String KafkaSettings_SaslPassword { get; set; }
             public System.String KafkaSettings_SaslUsername { get; set; }
             public Amazon.DatabaseMigrationService.KafkaSecurityProtocol KafkaSettings_SecurityProtocol { get; set; }
@@ -7027,6 +7183,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? MicrosoftSQLServerSettings_BcpPacketSize { get; set; }
             public System.String MicrosoftSQLServerSettings_ControlTablesFileGroup { get; set; }
             public System.String MicrosoftSQLServerSettings_DatabaseName { get; set; }
+            public System.Boolean? MicrosoftSQLServerSettings_ForceLobLookup { get; set; }
             public System.String MicrosoftSQLServerSettings_Password { get; set; }
             public System.Int32? MicrosoftSQLServerSettings_Port { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_QuerySingleAlwaysOnNode { get; set; }
@@ -7035,6 +7192,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MicrosoftSQLServerSettings_SecretsManagerAccessRoleArn { get; set; }
             public System.String MicrosoftSQLServerSettings_SecretsManagerSecretId { get; set; }
             public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
+            public Amazon.DatabaseMigrationService.TlogAccessMode MicrosoftSQLServerSettings_TlogAccessMode { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_TrimSpaceInChar { get; set; }
             public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
             public System.String MicrosoftSQLServerSettings_Username { get; set; }
@@ -7084,6 +7242,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String OracleSettings_AsmServer { get; set; }
             public System.String OracleSettings_AsmUser { get; set; }
             public Amazon.DatabaseMigrationService.CharLengthSemantics OracleSettings_CharLengthSemantic { get; set; }
+            public System.Boolean? OracleSettings_ConvertTimestampWithZoneToUTC { get; set; }
             public System.String OracleSettings_DatabaseName { get; set; }
             public System.Boolean? OracleSettings_DirectPathNoLog { get; set; }
             public System.Boolean? OracleSettings_DirectPathParallelLoad { get; set; }
@@ -7126,6 +7285,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? PostgreSQLSettings_HeartbeatEnable { get; set; }
             public System.Int32? PostgreSQLSettings_HeartbeatFrequency { get; set; }
             public System.String PostgreSQLSettings_HeartbeatSchema { get; set; }
+            public System.Boolean? PostgreSQLSettings_MapBooleanAsBoolean { get; set; }
             public System.Int32? PostgreSQLSettings_MaxFileSize { get; set; }
             public System.String PostgreSQLSettings_Password { get; set; }
             public Amazon.DatabaseMigrationService.PluginNameValue PostgreSQLSettings_PluginName { get; set; }
@@ -7157,6 +7317,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? RedshiftSettings_ExplicitId { get; set; }
             public System.Int32? RedshiftSettings_FileTransferUploadStream { get; set; }
             public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
+            public System.Boolean? RedshiftSettings_MapBooleanAsBoolean { get; set; }
             public System.Int32? RedshiftSettings_MaxFileSize { get; set; }
             public System.String RedshiftSettings_Password { get; set; }
             public System.Int32? RedshiftSettings_Port { get; set; }
@@ -7201,6 +7362,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public Amazon.DatabaseMigrationService.EncryptionModeValue S3Settings_EncryptionMode { get; set; }
             public System.String S3Settings_ExpectedBucketOwner { get; set; }
             public System.String S3Settings_ExternalTableDefinition { get; set; }
+            public System.Boolean? S3Settings_GlueCatalogGeneration { get; set; }
             public System.Int32? S3Settings_IgnoreHeaderRow { get; set; }
             public System.Boolean? S3Settings_IncludeOpForFullLoad { get; set; }
             public System.Int32? S3Settings_MaxFileSize { get; set; }

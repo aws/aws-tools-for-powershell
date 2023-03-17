@@ -192,6 +192,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.KafkaSaslMechanism
+        {
+            ($_ -eq "Edit-DMSEndpoint/KafkaSettings_SaslMechanism") -Or
+            ($_ -eq "New-DMSEndpoint/KafkaSettings_SaslMechanism")
+        }
+        {
+            $v = "plain","scram-sha-512"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.KafkaSecurityProtocol
         {
             ($_ -eq "Edit-DMSEndpoint/KafkaSettings_SecurityProtocol") -Or
@@ -330,6 +340,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.TlogAccessMode
+        {
+            ($_ -eq "Edit-DMSEndpoint/MicrosoftSQLServerSettings_TlogAccessMode") -Or
+            ($_ -eq "New-DMSEndpoint/MicrosoftSQLServerSettings_TlogAccessMode")
+        }
+        {
+            $v = "BackupOnly","PreferBackup","PreferTlog","TlogOnly"
+            break
+        }
+
 
     }
 
@@ -343,9 +363,11 @@ $DMS_map = @{
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "GcpMySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "KafkaSettings_SaslMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MicrosoftSQLServerSettings_TlogAccessMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MigrationType"=@("Edit-DMSReplicationTask","Get-DMSApplicableIndividualAssessment","New-DMSReplicationTask")
     "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")

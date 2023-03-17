@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The IDs of only those resources that you want Config to list in the response. If you
         /// do not specify this parameter, Config lists all resources of the specified type that
-        /// it has discovered.</para>
+        /// it has discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

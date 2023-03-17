@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ComplianceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by compliance.</para><para>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</para>
+        /// <para>Filters the results by compliance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

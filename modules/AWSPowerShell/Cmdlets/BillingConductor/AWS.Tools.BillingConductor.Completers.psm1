@@ -104,7 +104,7 @@ $ABC_Completers = {
         # Amazon.BillingConductor.PricingRuleScope
         "New-ABCPricingRule/Scope"
         {
-            $v = "BILLING_ENTITY","GLOBAL","SERVICE"
+            $v = "BILLING_ENTITY","GLOBAL","SERVICE","SKU"
             break
         }
 
