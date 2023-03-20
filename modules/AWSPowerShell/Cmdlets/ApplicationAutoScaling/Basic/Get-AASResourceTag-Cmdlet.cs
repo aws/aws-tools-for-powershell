@@ -22,42 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkDocs;
-using Amazon.WorkDocs.Model;
+using Amazon.ApplicationAutoScaling;
+using Amazon.ApplicationAutoScaling.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WD
+namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Retrieves the metadata of the specified folder.
+    /// Returns all the tags on the specified Application Auto Scaling scalable target.
+    /// 
+    ///  
+    /// <para>
+    /// For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+    /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "WDFolder")]
-    [OutputType("Amazon.WorkDocs.Model.GetFolderResponse")]
-    [AWSCmdlet("Calls the Amazon WorkDocs GetFolder API operation.", Operation = new[] {"GetFolder"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.GetFolderResponse))]
-    [AWSCmdletOutput("Amazon.WorkDocs.Model.GetFolderResponse",
-        "This cmdlet returns an Amazon.WorkDocs.Model.GetFolderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AASResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Application Auto Scaling ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
+    public partial class GetAASResourceTagCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter AuthenticationToken
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. Not required when using Amazon Web Services
-        /// administrator credentials to access the API.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AuthenticationToken { get; set; }
-        #endregion
-        
-        #region Parameter FolderId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the folder.</para>
+        /// <para>Specify the ARN of the scalable target.</para><para>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code></para><para>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,36 +60,26 @@ namespace Amazon.PowerShell.Cmdlets.WD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FolderId { get; set; }
-        #endregion
-        
-        #region Parameter IncludeCustomMetadata
-        /// <summary>
-        /// <para>
-        /// <para>Set to TRUE to include custom metadata in the response.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IncludeCustomMetadata { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkDocs.Model.GetFolderResponse).
-        /// Specifying the name of a property of type Amazon.WorkDocs.Model.GetFolderResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FolderId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FolderId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FolderId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkDocs.Model.GetFolderResponse, GetWDFolderCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse, GetAASResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,18 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.WD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FolderId;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AuthenticationToken = this.AuthenticationToken;
-            context.FolderId = this.FolderId;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.FolderId == null && ParameterWasBound(nameof(this.FolderId)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter FolderId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IncludeCustomMetadata = this.IncludeCustomMetadata;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,19 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkDocs.Model.GetFolderRequest();
+            var request = new Amazon.ApplicationAutoScaling.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.AuthenticationToken != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.AuthenticationToken = cmdletContext.AuthenticationToken;
-            }
-            if (cmdletContext.FolderId != null)
-            {
-                request.FolderId = cmdletContext.FolderId;
-            }
-            if (cmdletContext.IncludeCustomMetadata != null)
-            {
-                request.IncludeCustomMetadata = cmdletContext.IncludeCustomMetadata.Value;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
             
             CmdletOutput output;
@@ -197,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkDocs.Model.GetFolderResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetFolderRequest request)
+        private Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetFolder");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Auto Scaling", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetFolder(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetFolderAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,11 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AuthenticationToken { get; set; }
-            public System.String FolderId { get; set; }
-            public System.Boolean? IncludeCustomMetadata { get; set; }
-            public System.Func<Amazon.WorkDocs.Model.GetFolderResponse, GetWDFolderCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceARN { get; set; }
+            public System.Func<Amazon.ApplicationAutoScaling.Model.ListTagsForResourceResponse, GetAASResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

@@ -111,7 +111,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>The identifier of the DB cluster that the instance will belong to.</para><para>For information on creating a DB cluster, see <a>CreateDBCluster</a>.</para><para>Type: String</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
@@ -601,6 +608,12 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             context.CharacterSetName = this.CharacterSetName;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
+            #if MODULAR
+            if (this.DBClusterIdentifier == null && ParameterWasBound(nameof(this.DBClusterIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.DBInstanceClass = this.DBInstanceClass;
             #if MODULAR
             if (this.DBInstanceClass == null && ParameterWasBound(nameof(this.DBInstanceClass)))

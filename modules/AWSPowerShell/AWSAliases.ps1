@@ -939,12 +939,15 @@ Set-Alias -Name AAS-DescribeScalingPolicies -Value Get-AASScalingPolicy
 Set-Alias -Name Describe-AASScheduledActions -Value Get-AASScheduledAction
 Set-Alias -Name Describe-AASScheduledAction -Value Get-AASScheduledAction
 Set-Alias -Name AAS-DescribeScheduledActions -Value Get-AASScheduledAction
+Set-Alias -Name AAS-ListTagsForResource -Value Get-AASResourceTag
 Set-Alias -Name Put-AASScalingPolicy -Value Set-AASScalingPolicy
 Set-Alias -Name AAS-PutScalingPolicy -Value Set-AASScalingPolicy
 Set-Alias -Name Put-AASScheduledAction -Value Set-AASScheduledAction
 Set-Alias -Name AAS-PutScheduledAction -Value Set-AASScheduledAction
 Set-Alias -Name Register-AASScalableTarget -Value Add-AASScalableTarget
 Set-Alias -Name AAS-RegisterScalableTarget -Value Add-AASScalableTarget
+Set-Alias -Name AAS-TagResource -Value Add-AASResourceTag
+Set-Alias -Name AAS-UntagResource -Value Remove-AASResourceTag
 Set-Alias -Name Delete-ACPReportDefinition -Value Remove-ACPReportDefinition
 Set-Alias -Name ACP-DeleteReportDefinition -Value Remove-ACPReportDefinition
 Set-Alias -Name ACP-GetReportDefinition -Value Get-ACPReportDefinition
@@ -24599,6 +24602,8 @@ Set-Alias -Name WD-InitiateDocumentVersionUpload -Value Start-WDDocumentVersionU
 Set-Alias -Name WD-RemoveResourcePermission -Value Remove-WDResourcePermission
 Set-Alias -Name Restore-WDDocumentVersions -Value Restore-WDDocumentVersion
 Set-Alias -Name WD-RestoreDocumentVersions -Value Restore-WDDocumentVersion
+Set-Alias -Name Search-WDResources -Value Search-WDResource
+Set-Alias -Name WD-SearchResources -Value Search-WDResource
 Set-Alias -Name WD-UpdateDocument -Value Update-WDDocument
 Set-Alias -Name WD-UpdateDocumentVersion -Value Update-WDDocumentVersion
 Set-Alias -Name WD-UpdateFolder -Value Update-WDFolder

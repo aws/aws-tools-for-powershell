@@ -22,42 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkDocs;
-using Amazon.WorkDocs.Model;
+using Amazon.ApplicationAutoScaling;
+using Amazon.ApplicationAutoScaling.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WD
+namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Retrieves the metadata of the specified folder.
+    /// Deletes tags from an Application Auto Scaling scalable target. To delete a tag, specify
+    /// the tag key and the Application Auto Scaling scalable target.
     /// </summary>
-    [Cmdlet("Get", "WDFolder")]
-    [OutputType("Amazon.WorkDocs.Model.GetFolderResponse")]
-    [AWSCmdlet("Calls the Amazon WorkDocs GetFolder API operation.", Operation = new[] {"GetFolder"}, SelectReturnType = typeof(Amazon.WorkDocs.Model.GetFolderResponse))]
-    [AWSCmdletOutput("Amazon.WorkDocs.Model.GetFolderResponse",
-        "This cmdlet returns an Amazon.WorkDocs.Model.GetFolderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "AASResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Application Auto Scaling UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.Model.UntagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ApplicationAutoScaling.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
+    public partial class RemoveAASResourceTagCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter AuthenticationToken
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. Not required when using Amazon Web Services
-        /// administrator credentials to access the API.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AuthenticationToken { get; set; }
-        #endregion
-        
-        #region Parameter FolderId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the folder.</para>
+        /// <para>Identifies the Application Auto Scaling scalable target from which to remove tags.</para><para>For example: <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code></para><para>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,24 +55,31 @@ namespace Amazon.PowerShell.Cmdlets.WD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FolderId { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
-        #region Parameter IncludeCustomMetadata
+        #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Set to TRUE to include custom metadata in the response.</para>
+        /// <para>One or more tag keys. Specify only the tag keys, not the tag values.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IncludeCustomMetadata { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkDocs.Model.GetFolderResponse).
-        /// Specifying the name of a property of type Amazon.WorkDocs.Model.GetFolderResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationAutoScaling.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,18 +88,34 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FolderId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FolderId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FolderId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AASResourceTag (UntagResource)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -115,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkDocs.Model.GetFolderResponse, GetWDFolderCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ApplicationAutoScaling.Model.UntagResourceResponse, RemoveAASResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,18 +134,26 @@ namespace Amazon.PowerShell.Cmdlets.WD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FolderId;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AuthenticationToken = this.AuthenticationToken;
-            context.FolderId = this.FolderId;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.FolderId == null && ParameterWasBound(nameof(this.FolderId)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter FolderId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.IncludeCustomMetadata = this.IncludeCustomMetadata;
+            if (this.TagKey != null)
+            {
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -150,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkDocs.Model.GetFolderRequest();
+            var request = new Amazon.ApplicationAutoScaling.Model.UntagResourceRequest();
             
-            if (cmdletContext.AuthenticationToken != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.FolderId != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.FolderId = cmdletContext.FolderId;
-            }
-            if (cmdletContext.IncludeCustomMetadata != null)
-            {
-                request.IncludeCustomMetadata = cmdletContext.IncludeCustomMetadata.Value;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -197,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkDocs.Model.GetFolderResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetFolderRequest request)
+        private Amazon.ApplicationAutoScaling.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetFolder");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Auto Scaling", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.GetFolder(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.GetFolderAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,11 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AuthenticationToken { get; set; }
-            public System.String FolderId { get; set; }
-            public System.Boolean? IncludeCustomMetadata { get; set; }
-            public System.Func<Amazon.WorkDocs.Model.GetFolderResponse, GetWDFolderCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceARN { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.ApplicationAutoScaling.Model.UntagResourceResponse, RemoveAASResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

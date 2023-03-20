@@ -1,4 +1,14 @@
-﻿### 4.1.294 (2023-03-17 21:00Z)
+﻿### 4.1.295 (2023-03-20 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.508.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Application Auto Scaling
+    * Added cmdlet Add-AASResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-AASResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-AASResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Add-AASScalableTarget: added parameter Tag.
+  * Amazon WorkDocs
+    * Added cmdlet Search-WDResource leveraging the SearchResources service API.
+
+### 4.1.294 (2023-03-17 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.507.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AWSBillingConductor
     * Modified cmdlet Get-ABCAccountAssociationList: added parameter Filters_AccountIds.

@@ -180,6 +180,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchResources" OutputProperty="Items" Verb="Search" Noun="Resource" IgnoreSupportsShouldProcess="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDocument" Verb="Update" Noun="Document" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

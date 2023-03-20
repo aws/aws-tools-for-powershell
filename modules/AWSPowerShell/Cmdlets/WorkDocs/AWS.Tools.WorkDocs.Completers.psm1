@@ -314,6 +314,7 @@ $WD_SelectMap = @{
                "Start-WDDocumentVersionUpload",
                "Remove-WDResourcePermission",
                "Restore-WDDocumentVersion",
+               "Search-WDResource",
                "Update-WDDocument",
                "Update-WDDocumentVersion",
                "Update-WDFolder",

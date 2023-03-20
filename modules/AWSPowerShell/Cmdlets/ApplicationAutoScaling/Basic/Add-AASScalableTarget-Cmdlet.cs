@@ -28,7 +28,7 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Registers or updates a scalable target, the resource that you want to scale.
+    /// Registers or updates a scalable target, which is the resource that you want to scale.
     /// 
     ///  
     /// <para>
@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// operation does not change the resource's current capacity. Otherwise, it changes the
     /// resource's current capacity to a value that is inside of this range.
     /// </para><para>
-    /// If you choose to add a scaling policy, current capacity is adjustable within the specified
-    /// range when scaling starts. Application Auto Scaling scaling policies will not scale
-    /// capacity to values that are outside of the minimum and maximum range.
+    /// If you add a scaling policy, current capacity is adjustable within the specified range
+    /// when scaling starts. Application Auto Scaling scaling policies will not scale capacity
+    /// to values that are outside of the minimum and maximum range.
     /// </para><para>
     /// After you register a scalable target, you do not need to register it again to use
     /// other Application Auto Scaling operations. To see which resources have been registered,
@@ -56,20 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// and namespace. Any parameters that you don't specify are not changed by this update
     /// request. 
     /// </para><note><para>
-    /// If you call the <code>RegisterScalableTarget</code> API to update an existing scalable
-    /// target, Application Auto Scaling retrieves the current capacity of the resource. If
-    /// it is below the minimum capacity or above the maximum capacity, Application Auto Scaling
-    /// adjusts the capacity of the scalable target to place it within these bounds, even
-    /// if you don't include the <code>MinCapacity</code> or <code>MaxCapacity</code> request
-    /// parameters.
+    /// If you call the <code>RegisterScalableTarget</code> API operation to create a scalable
+    /// target, there might be a brief delay until the operation achieves <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
+    /// consistency</a>. You might become aware of this brief delay if you get unexpected
+    /// errors when performing sequential operations. The typical strategy is to retry the
+    /// request, and some Amazon Web Services SDKs include automatic backoff and retry logic.
+    /// </para><para>
+    /// If you call the <code>RegisterScalableTarget</code> API operation to update an existing
+    /// scalable target, Application Auto Scaling retrieves the current capacity of the resource.
+    /// If it's below the minimum capacity or above the maximum capacity, Application Auto
+    /// Scaling adjusts the capacity of the scalable target to place it within these bounds,
+    /// even if you don't include the <code>MinCapacity</code> or <code>MaxCapacity</code>
+    /// request parameters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Add", "AASScalableTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the Application Auto Scaling RegisterScalableTarget API operation.", Operation = new[] {"RegisterScalableTarget"}, SelectReturnType = typeof(Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse))]
-    [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("System.String or Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class AddAASScalableTargetCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
@@ -105,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>The maximum value that you plan to scale out to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale out (expand) as needed to the maximum capacity
         /// limit in response to changing demand. This property is required when registering a
-        /// new scalable target.</para><para>Although you can specify a large maximum capacity, note that service quotas may impose
-        /// lower limits. Each service has its own default quotas for the maximum capacity of
-        /// the resource. If you want to specify a higher limit, you can request an increase.
+        /// new scalable target.</para><para>Although you can specify a large maximum capacity, note that service quotas might
+        /// impose lower limits. Each service has its own default quotas for the maximum capacity
+        /// of the resource. If you want to specify a higher limit, you can request an increase.
         /// For more information, consult the documentation for that service. For information
         /// about the default quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service
         /// endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
@@ -257,14 +263,31 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         public Amazon.ApplicationAutoScaling.ServiceNamespace ServiceNamespace { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Assigns one or more tags to the scalable target. Use this parameter to tag the scalable
+        /// target when it is created. To tag an existing scalable target, use the <a>TagResource</a>
+        /// operation.</para><para>Each tag consists of a tag key and a tag value. Both the tag key and the tag value
+        /// are required. You cannot have more than one tag on a scalable target with the same
+        /// tag key.</para><para>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging
+        /// support for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ScalableTargetARN'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse).
+        /// Specifying the name of a property of type Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "ScalableTargetARN";
         #endregion
         
         #region Parameter PassThru
@@ -345,6 +368,14 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             context.SuspendedState_DynamicScalingInSuspended = this.SuspendedState_DynamicScalingInSuspended;
             context.SuspendedState_DynamicScalingOutSuspended = this.SuspendedState_DynamicScalingOutSuspended;
             context.SuspendedState_ScheduledScalingSuspended = this.SuspendedState_ScheduledScalingSuspended;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -424,6 +455,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             {
                 request.SuspendedState = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -494,8 +529,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             public System.Boolean? SuspendedState_DynamicScalingInSuspended { get; set; }
             public System.Boolean? SuspendedState_DynamicScalingOutSuspended { get; set; }
             public System.Boolean? SuspendedState_ScheduledScalingSuspended { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse, AddAASScalableTargetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.ScalableTargetARN;
         }
         
     }

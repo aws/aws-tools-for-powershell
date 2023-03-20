@@ -226,9 +226,12 @@ $AAS_SelectMap = @{
                "Get-AASScalingActivity",
                "Get-AASScalingPolicy",
                "Get-AASScheduledAction",
+               "Get-AASResourceTag",
                "Set-AASScalingPolicy",
                "Set-AASScheduledAction",
-               "Add-AASScalableTarget")
+               "Add-AASScalableTarget",
+               "Add-AASResourceTag",
+               "Remove-AASResourceTag")
 }
 
 _awsArgumentCompleterRegistration $AAS_SelectCompleters $AAS_SelectMap

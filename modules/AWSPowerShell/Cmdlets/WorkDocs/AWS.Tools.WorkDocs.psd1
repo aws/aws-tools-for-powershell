@@ -122,6 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WDResourcePermission', 
         'Remove-WDUser', 
         'Restore-WDDocumentVersion', 
+        'Search-WDResource', 
         'Start-WDDocumentVersionUpload', 
         'Stop-WDDocumentVersionUpload', 
         'Update-WDDocument', 

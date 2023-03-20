@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// attributes. You cannot create a scheduled action until you have registered the resource
     /// as a scalable target.
     /// </para><para>
-    /// When start and end times are specified with a recurring schedule using a cron expression
+    /// When you specify start and end times with a recurring schedule using a cron expression
     /// or rates, they form the boundaries for when the recurring action starts and stops.
     /// </para><para>
     /// To update a scheduled action, specify the parameters that you want to change. If you

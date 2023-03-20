@@ -86,11 +86,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-AASResourceTag', 
         'Add-AASScalableTarget', 
+        'Get-AASResourceTag', 
         'Get-AASScalableTarget', 
         'Get-AASScalingActivity', 
         'Get-AASScalingPolicy', 
         'Get-AASScheduledAction', 
+        'Remove-AASResourceTag', 
         'Remove-AASScalableTarget', 
         'Remove-AASScalingPolicy', 
         'Remove-AASScheduledAction', 

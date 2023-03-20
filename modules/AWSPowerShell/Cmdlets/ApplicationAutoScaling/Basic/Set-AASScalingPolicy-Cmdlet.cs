@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.
     /// </para><note><para>
     /// If a scalable target is deregistered, the scalable target is no longer available to
-    /// execute scaling policies. Any scaling policies that were specified for the scalable
-    /// target are deleted.
+    /// use scaling policies. Any scaling policies that were specified for the scalable target
+    /// are deleted.
     /// </para></note>
     /// </summary>
     [Cmdlet("Set", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
         /// the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a>
-        /// object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</para>
+        /// object that's returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

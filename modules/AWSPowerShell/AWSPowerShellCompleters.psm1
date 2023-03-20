@@ -2622,9 +2622,12 @@ $AAS_SelectMap = @{
                "Get-AASScalingActivity",
                "Get-AASScalingPolicy",
                "Get-AASScheduledAction",
+               "Get-AASResourceTag",
                "Set-AASScalingPolicy",
                "Set-AASScheduledAction",
-               "Add-AASScalableTarget")
+               "Add-AASScalableTarget",
+               "Add-AASResourceTag",
+               "Remove-AASResourceTag")
 }
 
 _awsArgumentCompleterRegistration $AAS_SelectCompleters $AAS_SelectMap
@@ -57756,6 +57759,7 @@ $WD_SelectMap = @{
                "Start-WDDocumentVersionUpload",
                "Remove-WDResourcePermission",
                "Restore-WDDocumentVersion",
+               "Search-WDResource",
                "Update-WDDocument",
                "Update-WDDocumentVersion",
                "Update-WDFolder",
