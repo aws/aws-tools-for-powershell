@@ -83,6 +83,27 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         public System.Boolean? Active { get; set; }
         #endregion
         
+        #region Parameter Category
+        /// <summary>
+        /// <para>
+        /// <para>Source server post migration custom action category.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Mgn.ActionCategory")]
+        public Amazon.Mgn.ActionCategory Category { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>Source server post migration custom action description.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter DocumentIdentifier
         /// <summary>
         /// <para>
@@ -108,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.MGN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DocumentVersion { get; set; }
+        #endregion
+        
+        #region Parameter ExternalParameter
+        /// <summary>
+        /// <para>
+        /// <para>Source server post migration custom action external parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExternalParameters")]
+        public System.Collections.Hashtable ExternalParameter { get; set; }
         #endregion
         
         #region Parameter MustSucceedForCutover
@@ -252,6 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             #endif
             context.Active = this.Active;
+            context.Category = this.Category;
+            context.Description = this.Description;
             context.DocumentIdentifier = this.DocumentIdentifier;
             #if MODULAR
             if (this.DocumentIdentifier == null && ParameterWasBound(nameof(this.DocumentIdentifier)))
@@ -260,6 +294,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             }
             #endif
             context.DocumentVersion = this.DocumentVersion;
+            if (this.ExternalParameter != null)
+            {
+                context.ExternalParameter = new Dictionary<System.String, Amazon.Mgn.Model.SsmExternalParameter>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ExternalParameter.Keys)
+                {
+                    context.ExternalParameter.Add((String)hashKey, (SsmExternalParameter)(this.ExternalParameter[hashKey]));
+                }
+            }
             context.MustSucceedForCutover = this.MustSucceedForCutover;
             context.Order = this.Order;
             #if MODULAR
@@ -324,6 +366,14 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             {
                 request.Active = cmdletContext.Active.Value;
             }
+            if (cmdletContext.Category != null)
+            {
+                request.Category = cmdletContext.Category;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             if (cmdletContext.DocumentIdentifier != null)
             {
                 request.DocumentIdentifier = cmdletContext.DocumentIdentifier;
@@ -331,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
+            }
+            if (cmdletContext.ExternalParameter != null)
+            {
+                request.ExternalParameters = cmdletContext.ExternalParameter;
             }
             if (cmdletContext.MustSucceedForCutover != null)
             {
@@ -416,8 +470,11 @@ namespace Amazon.PowerShell.Cmdlets.MGN
             public System.String ActionID { get; set; }
             public System.String ActionName { get; set; }
             public System.Boolean? Active { get; set; }
+            public Amazon.Mgn.ActionCategory Category { get; set; }
+            public System.String Description { get; set; }
             public System.String DocumentIdentifier { get; set; }
             public System.String DocumentVersion { get; set; }
+            public Dictionary<System.String, Amazon.Mgn.Model.SsmExternalParameter> ExternalParameter { get; set; }
             public System.Boolean? MustSucceedForCutover { get; set; }
             public System.Int32? Order { get; set; }
             public Dictionary<System.String, List<Amazon.Mgn.Model.SsmParameterStoreParameter>> Parameter { get; set; }

@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CRSResourceTag', 
         'Get-CRSBatchSchema', 
         'Get-CRSCollaboration', 
         'Get-CRSCollaborationList', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CRSMembershipList', 
         'Get-CRSProtectedQuery', 
         'Get-CRSProtectedQueryList', 
+        'Get-CRSResourceTag', 
         'Get-CRSSchema', 
         'Get-CRSSchemaAnalysisRule', 
         'Get-CRSSchemaList', 
@@ -113,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CRSConfiguredTableAssociation', 
         'Remove-CRSMember', 
         'Remove-CRSMembership', 
+        'Remove-CRSResourceTag', 
         'Start-CRSProtectedQuery', 
         'Update-CRSCollaboration', 
         'Update-CRSConfiguredTable', 

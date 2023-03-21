@@ -139,6 +139,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListExportErrors" OutputProperty="Items" Verb="Get" Noun="ExportErrorList" PipelineParameter="ExportID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExports" OutputProperty="Items" Verb="Get" Noun="ExportList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImportErrors" OutputProperty="Items" Verb="Get" Noun="ImportErrorList" PipelineParameter="ImportID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImports" OutputProperty="Items" Verb="Get" Noun="ImportList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSourceServerActions" OutputProperty="Items" Verb="Get" Noun="SourceServerActionList" PipelineParameter="SourceServerID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -180,6 +196,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartCutover" OutputProperty="Job" Verb="Start" Noun="Cutover" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExport" OutputProperty="ExportTask" Verb="Start" Noun="Export" ShouldProcessTarget="S3Bucket" PipelineParameter="S3Bucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImport" OutputProperty="ImportTask" Verb="Start" Noun="Import" ShouldProcessTarget="S3BucketSource_S3Bucket" PipelineParameter="S3BucketSource_S3Bucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

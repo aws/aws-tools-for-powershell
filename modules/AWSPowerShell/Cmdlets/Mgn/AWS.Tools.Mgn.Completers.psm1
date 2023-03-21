@@ -80,6 +80,16 @@ $MGN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Mgn.ActionCategory
+        {
+            ($_ -eq "Write-MGNSourceServerAction/Category") -Or
+            ($_ -eq "Write-MGNTemplateAction/Category")
+        }
+        {
+            $v = "BACKUP","CONFIGURATION","DISASTER_RECOVERY","LICENSE_AND_SUBSCRIPTION","NETWORKING","OBSERVABILITY","OPERATING_SYSTEM","OTHER","SECURITY","VALIDATION"
+            break
+        }
+
         # Amazon.Mgn.BootMode
         {
             ($_ -eq "New-MGNLaunchConfigurationTemplate/BootMode") -Or
@@ -193,6 +203,7 @@ $MGN_Completers = {
 
 $MGN_map = @{
     "BootMode"=@("New-MGNLaunchConfigurationTemplate","Update-MGNLaunchConfiguration","Update-MGNLaunchConfigurationTemplate")
+    "Category"=@("Write-MGNSourceServerAction","Write-MGNTemplateAction")
     "DataPlaneRouting"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-MGNReplicationConfigurationTemplate","Update-MGNReplicationConfiguration","Update-MGNReplicationConfigurationTemplate")
@@ -285,6 +296,10 @@ $MGN_SelectMap = @{
                "Get-MGNReplicationConfiguration",
                "Initialize-MGNService",
                "Get-MGNApplicationList",
+               "Get-MGNExportErrorList",
+               "Get-MGNExportList",
+               "Get-MGNImportErrorList",
+               "Get-MGNImportList",
                "Get-MGNSourceServerActionList",
                "Get-MGNResourceTag",
                "Get-MGNTemplateActionList",
@@ -296,6 +311,8 @@ $MGN_SelectMap = @{
                "Remove-MGNTemplateAction",
                "Resume-MGNDataReplication",
                "Start-MGNCutover",
+               "Start-MGNExport",
+               "Start-MGNImport",
                "Start-MGNReplication",
                "Start-MGNTest",
                "Add-MGNResourceTag",

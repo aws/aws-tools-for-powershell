@@ -32,7 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// manual allocations. To remove an allocation for a resource without deleting the resource,
     /// set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>.
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html">Release
-    /// an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
+    /// an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>. 
+    /// 
+    ///  <note><para>
+    /// All EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual
+    /// consistency</a> model.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "EC2IpamPoolAllocation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. The following are the possible values:</para><ul><li><para>destination - The ID of the resource.</para></li><li><para>destination-port - The destination port.</para></li><li><para>protocol - The protocol.</para></li><li><para>source - The ID of the resource.</para></li></ul>
+        /// <para>The filters. The following are the possible values:</para><ul><li><para>destination - The ID of the resource.</para></li><li><para>filter-at-source.source-address - The source IPv4 address at the source.</para></li><li><para>filter-at-source.source-port-range - The source port range at the source.</para></li><li><para>filter-at-source.destination-address - The destination IPv4 address at the source.</para></li><li><para>filter-at-source.destination-port-range - The destination port range at the source.</para></li><li><para>filter-at-destination.source-address - The source IPv4 address at the destination.</para></li><li><para>filter-at-destination.source-port-range - The source port range at the destination.</para></li><li><para>filter-at-destination.destination-address - The destination IPv4 address at the destination.</para></li><li><para>filter-at-destination.destination-port-range - The destination port range at the destination.</para></li><li><para>protocol - The protocol.</para></li><li><para>source - The ID of the resource.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

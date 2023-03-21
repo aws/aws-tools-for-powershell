@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CHMMGChannelsAssociatedWithChannelFlowList', 
         'Get-CHMMGChannelsModeratedByAppInstanceUserList', 
         'Get-CHMMGMessagingSessionEndpoint', 
+        'Get-CHMMGMessagingStreamingConfiguration', 
         'Get-CHMMGResourceTag', 
         'Get-CHMMGSubChannelList', 
         'Hide-CHMMGChannelMessage', 
@@ -123,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CHMMGChannelMembership', 
         'Remove-CHMMGChannelMessage', 
         'Remove-CHMMGChannelModerator', 
+        'Remove-CHMMGMessagingStreamingConfiguration', 
         'Remove-CHMMGResourceTag', 
         'Search-CHMMGChannel', 
         'Send-CHMMGChannelFlowCallback', 
@@ -132,7 +134,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CHMMGChannelFlow', 
         'Update-CHMMGChannelMessage', 
         'Update-CHMMGChannelReadMarker', 
-        'Write-CHMMGChannelMembershipPreference')
+        'Write-CHMMGChannelMembershipPreference', 
+        'Write-CHMMGMessagingStreamingConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

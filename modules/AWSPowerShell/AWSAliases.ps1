@@ -2818,6 +2818,9 @@ Set-Alias -Name Delete-CHMMGChannelMessage -Value Remove-CHMMGChannelMessage
 Set-Alias -Name CHMMG-DeleteChannelMessage -Value Remove-CHMMGChannelMessage
 Set-Alias -Name Delete-CHMMGChannelModerator -Value Remove-CHMMGChannelModerator
 Set-Alias -Name CHMMG-DeleteChannelModerator -Value Remove-CHMMGChannelModerator
+Set-Alias -Name Delete-CHMMGMessagingStreamingConfigurations -Value Remove-CHMMGMessagingStreamingConfiguration
+Set-Alias -Name Delete-CHMMGMessagingStreamingConfiguration -Value Remove-CHMMGMessagingStreamingConfiguration
+Set-Alias -Name CHMMG-DeleteMessagingStreamingConfigurations -Value Remove-CHMMGMessagingStreamingConfiguration
 Set-Alias -Name Describe-CHMMGChannel -Value Get-CHMMGChannel
 Set-Alias -Name CHMMG-DescribeChannel -Value Get-CHMMGChannel
 Set-Alias -Name Describe-CHMMGChannelBan -Value Get-CHMMGChannelBan
@@ -2839,6 +2842,8 @@ Set-Alias -Name CHMMG-GetChannelMembershipPreferences -Value Get-CHMMGChannelMem
 Set-Alias -Name CHMMG-GetChannelMessage -Value Get-CHMMGChannelMessage
 Set-Alias -Name CHMMG-GetChannelMessageStatus -Value Get-CHMMGChannelMessageStatus
 Set-Alias -Name CHMMG-GetMessagingSessionEndpoint -Value Get-CHMMGMessagingSessionEndpoint
+Set-Alias -Name Get-CHMMGMessagingStreamingConfigurations -Value Get-CHMMGMessagingStreamingConfiguration
+Set-Alias -Name CHMMG-GetMessagingStreamingConfigurations -Value Get-CHMMGMessagingStreamingConfiguration
 Set-Alias -Name List-CHMMGChannelBans -Value Get-CHMMGChannelBanList
 Set-Alias -Name List-CHMMGChannelBanList -Value Get-CHMMGChannelBanList
 Set-Alias -Name CHMMG-ListChannelBans -Value Get-CHMMGChannelBanList
@@ -2873,6 +2878,9 @@ Set-Alias -Name CHMMG-ListTagsForResource -Value Get-CHMMGResourceTag
 Set-Alias -Name Put-CHMMGChannelMembershipPreferences -Value Write-CHMMGChannelMembershipPreference
 Set-Alias -Name Put-CHMMGChannelMembershipPreference -Value Write-CHMMGChannelMembershipPreference
 Set-Alias -Name CHMMG-PutChannelMembershipPreferences -Value Write-CHMMGChannelMembershipPreference
+Set-Alias -Name Put-CHMMGMessagingStreamingConfigurations -Value Write-CHMMGMessagingStreamingConfiguration
+Set-Alias -Name Put-CHMMGMessagingStreamingConfiguration -Value Write-CHMMGMessagingStreamingConfiguration
+Set-Alias -Name CHMMG-PutMessagingStreamingConfigurations -Value Write-CHMMGMessagingStreamingConfiguration
 Set-Alias -Name Redact-CHMMGChannelMessage -Value Hide-CHMMGChannelMessage
 Set-Alias -Name CHMMG-RedactChannelMessage -Value Hide-CHMMGChannelMessage
 Set-Alias -Name Search-CHMMGChannels -Value Search-CHMMGChannel
@@ -3074,7 +3082,10 @@ Set-Alias -Name CRS-ListProtectedQueries -Value Get-CRSProtectedQueryList
 Set-Alias -Name List-CRSSchemas -Value Get-CRSSchemaList
 Set-Alias -Name List-CRSSchemaList -Value Get-CRSSchemaList
 Set-Alias -Name CRS-ListSchemas -Value Get-CRSSchemaList
+Set-Alias -Name CRS-ListTagsForResource -Value Get-CRSResourceTag
 Set-Alias -Name CRS-StartProtectedQuery -Value Start-CRSProtectedQuery
+Set-Alias -Name CRS-TagResource -Value Add-CRSResourceTag
+Set-Alias -Name CRS-UntagResource -Value Remove-CRSResourceTag
 Set-Alias -Name CRS-UpdateCollaboration -Value Update-CRSCollaboration
 Set-Alias -Name CRS-UpdateConfiguredTableAnalysisRule -Value Update-CRSConfiguredTableAnalysisRule
 Set-Alias -Name CRS-UpdateConfiguredTableAssociation -Value Update-CRSConfiguredTableAssociation
@@ -16168,6 +16179,18 @@ Set-Alias -Name MGN-InitializeService -Value Initialize-MGNService
 Set-Alias -Name List-MGNApplications -Value Get-MGNApplicationList
 Set-Alias -Name List-MGNApplicationList -Value Get-MGNApplicationList
 Set-Alias -Name MGN-ListApplications -Value Get-MGNApplicationList
+Set-Alias -Name List-MGNExportErrors -Value Get-MGNExportErrorList
+Set-Alias -Name List-MGNExportErrorList -Value Get-MGNExportErrorList
+Set-Alias -Name MGN-ListExportErrors -Value Get-MGNExportErrorList
+Set-Alias -Name List-MGNExports -Value Get-MGNExportList
+Set-Alias -Name List-MGNExportList -Value Get-MGNExportList
+Set-Alias -Name MGN-ListExports -Value Get-MGNExportList
+Set-Alias -Name List-MGNImportErrors -Value Get-MGNImportErrorList
+Set-Alias -Name List-MGNImportErrorList -Value Get-MGNImportErrorList
+Set-Alias -Name MGN-ListImportErrors -Value Get-MGNImportErrorList
+Set-Alias -Name List-MGNImports -Value Get-MGNImportList
+Set-Alias -Name List-MGNImportList -Value Get-MGNImportList
+Set-Alias -Name MGN-ListImports -Value Get-MGNImportList
 Set-Alias -Name List-MGNSourceServerActions -Value Get-MGNSourceServerActionList
 Set-Alias -Name List-MGNSourceServerActionList -Value Get-MGNSourceServerActionList
 Set-Alias -Name MGN-ListSourceServerActions -Value Get-MGNSourceServerActionList
@@ -16189,6 +16212,8 @@ Set-Alias -Name MGN-RemoveTemplateAction -Value Remove-MGNTemplateAction
 Set-Alias -Name Retry-MGNDataReplication -Value Resume-MGNDataReplication
 Set-Alias -Name MGN-RetryDataReplication -Value Resume-MGNDataReplication
 Set-Alias -Name MGN-StartCutover -Value Start-MGNCutover
+Set-Alias -Name MGN-StartExport -Value Start-MGNExport
+Set-Alias -Name MGN-StartImport -Value Start-MGNImport
 Set-Alias -Name MGN-StartReplication -Value Start-MGNReplication
 Set-Alias -Name MGN-StartTest -Value Start-MGNTest
 Set-Alias -Name MGN-TagResource -Value Add-MGNResourceTag

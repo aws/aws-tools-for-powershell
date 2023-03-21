@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The list of asset property value entries for the batch get request. You can specify
-        /// up to 16 entries per request.</para>
+        /// up to 128 entries per request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

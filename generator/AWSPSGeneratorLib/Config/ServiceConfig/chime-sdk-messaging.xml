@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMessagingStreamingConfigurations" Verb="Remove" Noun="MessagingStreamingConfiguration" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeChannel" OutputProperty="Channel" Verb="Get" Noun="Channel" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -122,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMessagingStreamingConfigurations" OutputProperty="StreamingConfigurations" Verb="Get" Noun="MessagingStreamingConfiguration" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListChannelBans" OutputProperty="*" Verb="Get" Noun="ChannelBanList" PipelineParameter="ChannelArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -167,6 +175,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutChannelMembershipPreferences" OutputProperty="*" Verb="Write" Noun="ChannelMembershipPreference" ShouldProcessTarget="ChannelArn" PipelineParameter="ChannelArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMessagingStreamingConfigurations" OutputProperty="StreamingConfigurations" Verb="Write" Noun="MessagingStreamingConfiguration" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

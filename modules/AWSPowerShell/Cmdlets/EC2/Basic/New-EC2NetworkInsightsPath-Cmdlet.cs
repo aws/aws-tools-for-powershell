@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// Reachability Analyzer enables you to analyze and debug network reachability between
-    /// two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What
-    /// is Reachability Analyzer</a>.
+    /// two resources in your virtual private cloud (VPC). For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">Reachability Analyzer
+    /// Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2NetworkInsightsPath", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,25 +50,38 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services resource that is the destination of the path.</para>
+        /// <para>The ID or ARN of the destination. If the resource is in another account, you must
+        /// specify an ARN.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Destination { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtDestination_DestinationAddress
+        /// <summary>
+        /// <para>
+        /// <para>The destination IPv4 address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterAtDestination_DestinationAddress { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtSource_DestinationAddress
+        /// <summary>
+        /// <para>
+        /// <para>The destination IPv4 address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterAtSource_DestinationAddress { get; set; }
         #endregion
         
         #region Parameter DestinationIp
         /// <summary>
         /// <para>
-        /// <para>The IP address of the Amazon Web Services resource that is the destination of the
-        /// path.</para>
+        /// <para>The IP address of the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,6 +96,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? DestinationPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtDestination_DestinationPortRange_FromPort
+        /// <summary>
+        /// <para>
+        /// <para>The first port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtDestination_DestinationPortRange_FromPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtDestination_SourcePortRange_FromPort
+        /// <summary>
+        /// <para>
+        /// <para>The first port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtDestination_SourcePortRange_FromPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtSource_DestinationPortRange_FromPort
+        /// <summary>
+        /// <para>
+        /// <para>The first port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtSource_DestinationPortRange_FromPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtSource_SourcePortRange_FromPort
+        /// <summary>
+        /// <para>
+        /// <para>The first port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtSource_SourcePortRange_FromPort { get; set; }
         #endregion
         
         #region Parameter Protocol
@@ -105,7 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services resource that is the source of the path.</para>
+        /// <para>The ID or ARN of the source. If the resource is in another account, you must specify
+        /// an ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,10 +173,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Source { get; set; }
         #endregion
         
+        #region Parameter FilterAtDestination_SourceAddress
+        /// <summary>
+        /// <para>
+        /// <para>The source IPv4 address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterAtDestination_SourceAddress { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtSource_SourceAddress
+        /// <summary>
+        /// <para>
+        /// <para>The source IPv4 address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterAtSource_SourceAddress { get; set; }
+        #endregion
+        
         #region Parameter SourceIp
         /// <summary>
         /// <para>
-        /// <para>The IP address of the Amazon Web Services resource that is the source of the path.</para>
+        /// <para>The IP address of the source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,6 +212,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TagSpecifications")]
         public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtDestination_DestinationPortRange_ToPort
+        /// <summary>
+        /// <para>
+        /// <para>The last port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtDestination_DestinationPortRange_ToPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtDestination_SourcePortRange_ToPort
+        /// <summary>
+        /// <para>
+        /// <para>The last port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtDestination_SourcePortRange_ToPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtSource_DestinationPortRange_ToPort
+        /// <summary>
+        /// <para>
+        /// <para>The last port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtSource_DestinationPortRange_ToPort { get; set; }
+        #endregion
+        
+        #region Parameter FilterAtSource_SourcePortRange_ToPort
+        /// <summary>
+        /// <para>
+        /// <para>The last port in the range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FilterAtSource_SourcePortRange_ToPort { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -196,14 +310,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.ClientToken = this.ClientToken;
             context.Destination = this.Destination;
-            #if MODULAR
-            if (this.Destination == null && ParameterWasBound(nameof(this.Destination)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Destination which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DestinationIp = this.DestinationIp;
             context.DestinationPort = this.DestinationPort;
+            context.FilterAtDestination_DestinationAddress = this.FilterAtDestination_DestinationAddress;
+            context.FilterAtDestination_DestinationPortRange_FromPort = this.FilterAtDestination_DestinationPortRange_FromPort;
+            context.FilterAtDestination_DestinationPortRange_ToPort = this.FilterAtDestination_DestinationPortRange_ToPort;
+            context.FilterAtDestination_SourceAddress = this.FilterAtDestination_SourceAddress;
+            context.FilterAtDestination_SourcePortRange_FromPort = this.FilterAtDestination_SourcePortRange_FromPort;
+            context.FilterAtDestination_SourcePortRange_ToPort = this.FilterAtDestination_SourcePortRange_ToPort;
+            context.FilterAtSource_DestinationAddress = this.FilterAtSource_DestinationAddress;
+            context.FilterAtSource_DestinationPortRange_FromPort = this.FilterAtSource_DestinationPortRange_FromPort;
+            context.FilterAtSource_DestinationPortRange_ToPort = this.FilterAtSource_DestinationPortRange_ToPort;
+            context.FilterAtSource_SourceAddress = this.FilterAtSource_SourceAddress;
+            context.FilterAtSource_SourcePortRange_FromPort = this.FilterAtSource_SourcePortRange_FromPort;
+            context.FilterAtSource_SourcePortRange_ToPort = this.FilterAtSource_SourcePortRange_ToPort;
             context.Protocol = this.Protocol;
             #if MODULAR
             if (this.Protocol == null && ParameterWasBound(nameof(this.Protocol)))
@@ -254,6 +374,204 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationPort != null)
             {
                 request.DestinationPort = cmdletContext.DestinationPort.Value;
+            }
+            
+             // populate FilterAtDestination
+            var requestFilterAtDestinationIsNull = true;
+            request.FilterAtDestination = new Amazon.EC2.Model.PathRequestFilter();
+            System.String requestFilterAtDestination_filterAtDestination_DestinationAddress = null;
+            if (cmdletContext.FilterAtDestination_DestinationAddress != null)
+            {
+                requestFilterAtDestination_filterAtDestination_DestinationAddress = cmdletContext.FilterAtDestination_DestinationAddress;
+            }
+            if (requestFilterAtDestination_filterAtDestination_DestinationAddress != null)
+            {
+                request.FilterAtDestination.DestinationAddress = requestFilterAtDestination_filterAtDestination_DestinationAddress;
+                requestFilterAtDestinationIsNull = false;
+            }
+            System.String requestFilterAtDestination_filterAtDestination_SourceAddress = null;
+            if (cmdletContext.FilterAtDestination_SourceAddress != null)
+            {
+                requestFilterAtDestination_filterAtDestination_SourceAddress = cmdletContext.FilterAtDestination_SourceAddress;
+            }
+            if (requestFilterAtDestination_filterAtDestination_SourceAddress != null)
+            {
+                request.FilterAtDestination.SourceAddress = requestFilterAtDestination_filterAtDestination_SourceAddress;
+                requestFilterAtDestinationIsNull = false;
+            }
+            Amazon.EC2.Model.RequestFilterPortRange requestFilterAtDestination_filterAtDestination_DestinationPortRange = null;
+            
+             // populate DestinationPortRange
+            var requestFilterAtDestination_filterAtDestination_DestinationPortRangeIsNull = true;
+            requestFilterAtDestination_filterAtDestination_DestinationPortRange = new Amazon.EC2.Model.RequestFilterPortRange();
+            System.Int32? requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_FromPort = null;
+            if (cmdletContext.FilterAtDestination_DestinationPortRange_FromPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_FromPort = cmdletContext.FilterAtDestination_DestinationPortRange_FromPort.Value;
+            }
+            if (requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_FromPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_DestinationPortRange.FromPort = requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_FromPort.Value;
+                requestFilterAtDestination_filterAtDestination_DestinationPortRangeIsNull = false;
+            }
+            System.Int32? requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_ToPort = null;
+            if (cmdletContext.FilterAtDestination_DestinationPortRange_ToPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_ToPort = cmdletContext.FilterAtDestination_DestinationPortRange_ToPort.Value;
+            }
+            if (requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_ToPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_DestinationPortRange.ToPort = requestFilterAtDestination_filterAtDestination_DestinationPortRange_filterAtDestination_DestinationPortRange_ToPort.Value;
+                requestFilterAtDestination_filterAtDestination_DestinationPortRangeIsNull = false;
+            }
+             // determine if requestFilterAtDestination_filterAtDestination_DestinationPortRange should be set to null
+            if (requestFilterAtDestination_filterAtDestination_DestinationPortRangeIsNull)
+            {
+                requestFilterAtDestination_filterAtDestination_DestinationPortRange = null;
+            }
+            if (requestFilterAtDestination_filterAtDestination_DestinationPortRange != null)
+            {
+                request.FilterAtDestination.DestinationPortRange = requestFilterAtDestination_filterAtDestination_DestinationPortRange;
+                requestFilterAtDestinationIsNull = false;
+            }
+            Amazon.EC2.Model.RequestFilterPortRange requestFilterAtDestination_filterAtDestination_SourcePortRange = null;
+            
+             // populate SourcePortRange
+            var requestFilterAtDestination_filterAtDestination_SourcePortRangeIsNull = true;
+            requestFilterAtDestination_filterAtDestination_SourcePortRange = new Amazon.EC2.Model.RequestFilterPortRange();
+            System.Int32? requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_FromPort = null;
+            if (cmdletContext.FilterAtDestination_SourcePortRange_FromPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_FromPort = cmdletContext.FilterAtDestination_SourcePortRange_FromPort.Value;
+            }
+            if (requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_FromPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_SourcePortRange.FromPort = requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_FromPort.Value;
+                requestFilterAtDestination_filterAtDestination_SourcePortRangeIsNull = false;
+            }
+            System.Int32? requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_ToPort = null;
+            if (cmdletContext.FilterAtDestination_SourcePortRange_ToPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_ToPort = cmdletContext.FilterAtDestination_SourcePortRange_ToPort.Value;
+            }
+            if (requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_ToPort != null)
+            {
+                requestFilterAtDestination_filterAtDestination_SourcePortRange.ToPort = requestFilterAtDestination_filterAtDestination_SourcePortRange_filterAtDestination_SourcePortRange_ToPort.Value;
+                requestFilterAtDestination_filterAtDestination_SourcePortRangeIsNull = false;
+            }
+             // determine if requestFilterAtDestination_filterAtDestination_SourcePortRange should be set to null
+            if (requestFilterAtDestination_filterAtDestination_SourcePortRangeIsNull)
+            {
+                requestFilterAtDestination_filterAtDestination_SourcePortRange = null;
+            }
+            if (requestFilterAtDestination_filterAtDestination_SourcePortRange != null)
+            {
+                request.FilterAtDestination.SourcePortRange = requestFilterAtDestination_filterAtDestination_SourcePortRange;
+                requestFilterAtDestinationIsNull = false;
+            }
+             // determine if request.FilterAtDestination should be set to null
+            if (requestFilterAtDestinationIsNull)
+            {
+                request.FilterAtDestination = null;
+            }
+            
+             // populate FilterAtSource
+            var requestFilterAtSourceIsNull = true;
+            request.FilterAtSource = new Amazon.EC2.Model.PathRequestFilter();
+            System.String requestFilterAtSource_filterAtSource_DestinationAddress = null;
+            if (cmdletContext.FilterAtSource_DestinationAddress != null)
+            {
+                requestFilterAtSource_filterAtSource_DestinationAddress = cmdletContext.FilterAtSource_DestinationAddress;
+            }
+            if (requestFilterAtSource_filterAtSource_DestinationAddress != null)
+            {
+                request.FilterAtSource.DestinationAddress = requestFilterAtSource_filterAtSource_DestinationAddress;
+                requestFilterAtSourceIsNull = false;
+            }
+            System.String requestFilterAtSource_filterAtSource_SourceAddress = null;
+            if (cmdletContext.FilterAtSource_SourceAddress != null)
+            {
+                requestFilterAtSource_filterAtSource_SourceAddress = cmdletContext.FilterAtSource_SourceAddress;
+            }
+            if (requestFilterAtSource_filterAtSource_SourceAddress != null)
+            {
+                request.FilterAtSource.SourceAddress = requestFilterAtSource_filterAtSource_SourceAddress;
+                requestFilterAtSourceIsNull = false;
+            }
+            Amazon.EC2.Model.RequestFilterPortRange requestFilterAtSource_filterAtSource_DestinationPortRange = null;
+            
+             // populate DestinationPortRange
+            var requestFilterAtSource_filterAtSource_DestinationPortRangeIsNull = true;
+            requestFilterAtSource_filterAtSource_DestinationPortRange = new Amazon.EC2.Model.RequestFilterPortRange();
+            System.Int32? requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_FromPort = null;
+            if (cmdletContext.FilterAtSource_DestinationPortRange_FromPort != null)
+            {
+                requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_FromPort = cmdletContext.FilterAtSource_DestinationPortRange_FromPort.Value;
+            }
+            if (requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_FromPort != null)
+            {
+                requestFilterAtSource_filterAtSource_DestinationPortRange.FromPort = requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_FromPort.Value;
+                requestFilterAtSource_filterAtSource_DestinationPortRangeIsNull = false;
+            }
+            System.Int32? requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_ToPort = null;
+            if (cmdletContext.FilterAtSource_DestinationPortRange_ToPort != null)
+            {
+                requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_ToPort = cmdletContext.FilterAtSource_DestinationPortRange_ToPort.Value;
+            }
+            if (requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_ToPort != null)
+            {
+                requestFilterAtSource_filterAtSource_DestinationPortRange.ToPort = requestFilterAtSource_filterAtSource_DestinationPortRange_filterAtSource_DestinationPortRange_ToPort.Value;
+                requestFilterAtSource_filterAtSource_DestinationPortRangeIsNull = false;
+            }
+             // determine if requestFilterAtSource_filterAtSource_DestinationPortRange should be set to null
+            if (requestFilterAtSource_filterAtSource_DestinationPortRangeIsNull)
+            {
+                requestFilterAtSource_filterAtSource_DestinationPortRange = null;
+            }
+            if (requestFilterAtSource_filterAtSource_DestinationPortRange != null)
+            {
+                request.FilterAtSource.DestinationPortRange = requestFilterAtSource_filterAtSource_DestinationPortRange;
+                requestFilterAtSourceIsNull = false;
+            }
+            Amazon.EC2.Model.RequestFilterPortRange requestFilterAtSource_filterAtSource_SourcePortRange = null;
+            
+             // populate SourcePortRange
+            var requestFilterAtSource_filterAtSource_SourcePortRangeIsNull = true;
+            requestFilterAtSource_filterAtSource_SourcePortRange = new Amazon.EC2.Model.RequestFilterPortRange();
+            System.Int32? requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_FromPort = null;
+            if (cmdletContext.FilterAtSource_SourcePortRange_FromPort != null)
+            {
+                requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_FromPort = cmdletContext.FilterAtSource_SourcePortRange_FromPort.Value;
+            }
+            if (requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_FromPort != null)
+            {
+                requestFilterAtSource_filterAtSource_SourcePortRange.FromPort = requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_FromPort.Value;
+                requestFilterAtSource_filterAtSource_SourcePortRangeIsNull = false;
+            }
+            System.Int32? requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_ToPort = null;
+            if (cmdletContext.FilterAtSource_SourcePortRange_ToPort != null)
+            {
+                requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_ToPort = cmdletContext.FilterAtSource_SourcePortRange_ToPort.Value;
+            }
+            if (requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_ToPort != null)
+            {
+                requestFilterAtSource_filterAtSource_SourcePortRange.ToPort = requestFilterAtSource_filterAtSource_SourcePortRange_filterAtSource_SourcePortRange_ToPort.Value;
+                requestFilterAtSource_filterAtSource_SourcePortRangeIsNull = false;
+            }
+             // determine if requestFilterAtSource_filterAtSource_SourcePortRange should be set to null
+            if (requestFilterAtSource_filterAtSource_SourcePortRangeIsNull)
+            {
+                requestFilterAtSource_filterAtSource_SourcePortRange = null;
+            }
+            if (requestFilterAtSource_filterAtSource_SourcePortRange != null)
+            {
+                request.FilterAtSource.SourcePortRange = requestFilterAtSource_filterAtSource_SourcePortRange;
+                requestFilterAtSourceIsNull = false;
+            }
+             // determine if request.FilterAtSource should be set to null
+            if (requestFilterAtSourceIsNull)
+            {
+                request.FilterAtSource = null;
             }
             if (cmdletContext.Protocol != null)
             {
@@ -336,6 +654,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Destination { get; set; }
             public System.String DestinationIp { get; set; }
             public System.Int32? DestinationPort { get; set; }
+            public System.String FilterAtDestination_DestinationAddress { get; set; }
+            public System.Int32? FilterAtDestination_DestinationPortRange_FromPort { get; set; }
+            public System.Int32? FilterAtDestination_DestinationPortRange_ToPort { get; set; }
+            public System.String FilterAtDestination_SourceAddress { get; set; }
+            public System.Int32? FilterAtDestination_SourcePortRange_FromPort { get; set; }
+            public System.Int32? FilterAtDestination_SourcePortRange_ToPort { get; set; }
+            public System.String FilterAtSource_DestinationAddress { get; set; }
+            public System.Int32? FilterAtSource_DestinationPortRange_FromPort { get; set; }
+            public System.Int32? FilterAtSource_DestinationPortRange_ToPort { get; set; }
+            public System.String FilterAtSource_SourceAddress { get; set; }
+            public System.Int32? FilterAtSource_SourcePortRange_FromPort { get; set; }
+            public System.Int32? FilterAtSource_SourcePortRange_ToPort { get; set; }
             public Amazon.EC2.Protocol Protocol { get; set; }
             public System.String Source { get; set; }
             public System.String SourceIp { get; set; }

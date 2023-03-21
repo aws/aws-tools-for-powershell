@@ -22,28 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CleanRooms;
-using Amazon.CleanRooms.Model;
+using Amazon.Mgn;
+using Amazon.Mgn.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CRS
+namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
-    /// Creates a membership for a specific collaboration identifier and joins the collaboration.
+    /// Start export.
     /// </summary>
-    [Cmdlet("New", "CRSMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CleanRooms.Model.Membership")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service CreateMembership API operation.", Operation = new[] {"CreateMembership"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.CreateMembershipResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.Membership or Amazon.CleanRooms.Model.CreateMembershipResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.Membership object.",
-        "The service call response (type Amazon.CleanRooms.Model.CreateMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "MGNExport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Mgn.Model.ExportTask")]
+    [AWSCmdlet("Calls the Application Migration Service StartExport API operation.", Operation = new[] {"StartExport"}, SelectReturnType = typeof(Amazon.Mgn.Model.StartExportResponse))]
+    [AWSCmdletOutput("Amazon.Mgn.Model.ExportTask or Amazon.Mgn.Model.StartExportResponse",
+        "This cmdlet returns an Amazon.Mgn.Model.ExportTask object.",
+        "The service call response (type Amazon.Mgn.Model.StartExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCRSMembershipCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class StartMGNExportCmdlet : AmazonMgnClientCmdlet, IExecutor
     {
         
-        #region Parameter CollaborationIdentifier
+        #region Parameter S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The unique ID for the associated collaboration.</para>
+        /// <para>Start export request s3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,56 +54,53 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CollaborationIdentifier { get; set; }
+        public System.String S3Bucket { get; set; }
         #endregion
         
-        #region Parameter QueryLogStatus
+        #region Parameter S3BucketOwner
         /// <summary>
         /// <para>
-        /// <para>An indicator as to whether query logging has been enabled or disabled for the collaboration.</para>
+        /// <para>Start export request s3 bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter S3Key
+        /// <summary>
+        /// <para>
+        /// <para>Start export request s3key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CleanRooms.MembershipQueryLogStatus")]
-        public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An optional label that you can assign to a resource when you create it. Each tag consists
-        /// of a key and an optional value, both of which you define. When you use tagging, you
-        /// can also use tag-based access control in IAM policies to control access to this resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String S3Key { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Membership'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.CreateMembershipResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.CreateMembershipResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ExportTask'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Mgn.Model.StartExportResponse).
+        /// Specifying the name of a property of type Amazon.Mgn.Model.StartExportResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Membership";
+        public string Select { get; set; } = "ExportTask";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CollaborationIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the S3Bucket parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^S3Bucket' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^S3Bucket' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CollaborationIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CRSMembership (CreateMembership)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.S3Bucket), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-MGNExport (StartExport)"))
             {
                 return;
             }
@@ -137,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.CreateMembershipResponse, NewCRSMembershipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Mgn.Model.StartExportResponse, StartMGNExportCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,31 +143,24 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CollaborationIdentifier;
+                context.Select = (response, cmdlet) => this.S3Bucket;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CollaborationIdentifier = this.CollaborationIdentifier;
+            context.S3Bucket = this.S3Bucket;
             #if MODULAR
-            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
+            if (this.S3Bucket == null && ParameterWasBound(nameof(this.S3Bucket)))
             {
-                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter S3Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.QueryLogStatus = this.QueryLogStatus;
+            context.S3BucketOwner = this.S3BucketOwner;
+            context.S3Key = this.S3Key;
             #if MODULAR
-            if (this.QueryLogStatus == null && ParameterWasBound(nameof(this.QueryLogStatus)))
+            if (this.S3Key == null && ParameterWasBound(nameof(this.S3Key)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueryLogStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter S3Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,19 +175,19 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.CreateMembershipRequest();
+            var request = new Amazon.Mgn.Model.StartExportRequest();
             
-            if (cmdletContext.CollaborationIdentifier != null)
+            if (cmdletContext.S3Bucket != null)
             {
-                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
+                request.S3Bucket = cmdletContext.S3Bucket;
             }
-            if (cmdletContext.QueryLogStatus != null)
+            if (cmdletContext.S3BucketOwner != null)
             {
-                request.QueryLogStatus = cmdletContext.QueryLogStatus;
+                request.S3BucketOwner = cmdletContext.S3BucketOwner;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.S3Key != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.S3Key = cmdletContext.S3Key;
             }
             
             CmdletOutput output;
@@ -232,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.CreateMembershipResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.CreateMembershipRequest request)
+        private Amazon.Mgn.Model.StartExportResponse CallAWSServiceOperation(IAmazonMgn client, Amazon.Mgn.Model.StartExportRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "CreateMembership");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Migration Service", "StartExport");
             try
             {
                 #if DESKTOP
-                return client.CreateMembership(request);
+                return client.StartExport(request);
                 #elif CORECLR
-                return client.CreateMembershipAsync(request).GetAwaiter().GetResult();
+                return client.StartExportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,11 +250,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CollaborationIdentifier { get; set; }
-            public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.CreateMembershipResponse, NewCRSMembershipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Membership;
+            public System.String S3Bucket { get; set; }
+            public System.String S3BucketOwner { get; set; }
+            public System.String S3Key { get; set; }
+            public System.Func<Amazon.Mgn.Model.StartExportResponse, StartMGNExportCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ExportTask;
         }
         
     }

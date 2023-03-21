@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// complete snapshot. You may remount and use your volume while the snapshot status is
     /// <code>pending</code>.
     /// </para><para>
-    /// To create a snapshot for Amazon EBS volumes that serve as root devices, you should
-    /// stop the instance before taking the snapshot.
+    /// When you create a snapshot for an EBS volume that serves as a root device, we recommend
+    /// that you stop the instance before taking the snapshot.
     /// </para><para>
     /// Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes
     /// that are created from encrypted snapshots are also automatically encrypted. Your encrypted

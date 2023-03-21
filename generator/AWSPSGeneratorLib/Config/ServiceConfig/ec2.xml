@@ -431,7 +431,16 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNetworkInsightsPath" OutputProperty="NetworkInsightsPath" Verb="New" Noun="NetworkInsightsPath" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="FilterAtDestination_DestinationPortRange_FromPort" NewName="FilterAtDestination_DestinationPortRange_FromPort" />
+                <Param Name="FilterAtDestination_DestinationPortRange_ToPort" NewName="FilterAtDestination_DestinationPortRange_ToPort" />
+                <Param Name="FilterAtDestination_SourcePortRange_FromPort" NewName="FilterAtDestination_SourcePortRange_FromPort" />
+                <Param Name="FilterAtDestination_SourcePortRange_ToPort" NewName="FilterAtDestination_SourcePortRange_ToPort" />
+                <Param Name="FilterAtSource_DestinationPortRange_FromPort" NewName="FilterAtSource_DestinationPortRange_FromPort" />
+                <Param Name="FilterAtSource_DestinationPortRange_ToPort" NewName="FilterAtSource_DestinationPortRange_ToPort" />
+                <Param Name="FilterAtSource_SourcePortRange_FromPort" NewName="FilterAtSource_SourcePortRange_FromPort" />
+                <Param Name="FilterAtSource_SourcePortRange_ToPort" NewName="FilterAtSource_SourcePortRange_ToPort" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNetworkInterface" OutputProperty="NetworkInterface" Verb="New" Noun="NetworkInterface" ShouldProcessTarget="SubnetId" PositionalParameters="Description;PrivateIpAddress;Groups" PipelineParameter="SubnetId" NoPipelineParameter="false">

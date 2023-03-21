@@ -28,22 +28,23 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Creates a membership for a specific collaboration identifier and joins the collaboration.
+    /// Removes a tag or list of tags from a resource.
     /// </summary>
-    [Cmdlet("New", "CRSMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CleanRooms.Model.Membership")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service CreateMembership API operation.", Operation = new[] {"CreateMembership"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.CreateMembershipResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.Membership or Amazon.CleanRooms.Model.CreateMembershipResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.Membership object.",
-        "The service call response (type Amazon.CleanRooms.Model.CreateMembershipResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CRSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.CleanRooms.Model.UntagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CleanRooms.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCRSMembershipCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class RemoveCRSResourceTagCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
-        #region Parameter CollaborationIdentifier
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The unique ID for the associated collaboration.</para>
+        /// <para>The Amazon Resource Name (ARN) associated with the resource you want to remove the
+        /// tag from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,56 +55,43 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CollaborationIdentifier { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter QueryLogStatus
+        #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>An indicator as to whether query logging has been enabled or disabled for the collaboration.</para>
+        /// <para>A list of key names of tags to be removed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CleanRooms.MembershipQueryLogStatus")]
-        public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An optional label that you can assign to a resource when you create it. Each tag consists
-        /// of a key and an optional value, both of which you define. When you use tagging, you
-        /// can also use tag-based access control in IAM policies to control access to this resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Membership'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.CreateMembershipResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.CreateMembershipResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Membership";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CollaborationIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CollaborationIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CRSMembership (CreateMembership)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CRSResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -137,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.CreateMembershipResponse, NewCRSMembershipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.UntagResourceResponse, RemoveCRSResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,31 +134,26 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CollaborationIdentifier;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CollaborationIdentifier = this.CollaborationIdentifier;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.QueryLogStatus = this.QueryLogStatus;
-            #if MODULAR
-            if (this.QueryLogStatus == null && ParameterWasBound(nameof(this.QueryLogStatus)))
+            if (this.TagKey != null)
             {
-                WriteWarning("You are passing $null as a value for parameter QueryLogStatus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.CreateMembershipRequest();
+            var request = new Amazon.CleanRooms.Model.UntagResourceRequest();
             
-            if (cmdletContext.CollaborationIdentifier != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.QueryLogStatus != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.QueryLogStatus = cmdletContext.QueryLogStatus;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -232,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.CreateMembershipResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.CreateMembershipRequest request)
+        private Amazon.CleanRooms.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "CreateMembership");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.CreateMembership(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.CreateMembershipAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,11 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CollaborationIdentifier { get; set; }
-            public Amazon.CleanRooms.MembershipQueryLogStatus QueryLogStatus { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.CreateMembershipResponse, NewCRSMembershipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Membership;
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.UntagResourceResponse, RemoveCRSResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

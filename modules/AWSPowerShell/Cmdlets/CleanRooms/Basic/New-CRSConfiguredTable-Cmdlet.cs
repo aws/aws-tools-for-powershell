@@ -125,6 +125,19 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String Glue_TableName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An optional label that you can assign to a resource when you create it. Each tag consists
+        /// of a key and an optional value, both of which you define. When you use tagging, you
+        /// can also use tag-based access control in IAM policies to control access to this resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConfiguredTable'.
@@ -194,6 +207,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #endif
             context.Glue_DatabaseName = this.Glue_DatabaseName;
             context.Glue_TableName = this.Glue_TableName;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -270,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             {
                 request.TableReference = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -337,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             public System.String Name { get; set; }
             public System.String Glue_DatabaseName { get; set; }
             public System.String Glue_TableName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CleanRooms.Model.CreateConfiguredTableResponse, NewCRSConfiguredTableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConfiguredTable;
         }

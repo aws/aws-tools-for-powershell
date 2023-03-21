@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the security group. This is informational only.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
+        /// <para>A description for the security group.</para><para>Constraints: Up to 255 characters in length</para><para>Constraints for EC2-Classic: ASCII characters</para><para>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</para>
         /// </para>
         /// </summary>
         #if !MODULAR
