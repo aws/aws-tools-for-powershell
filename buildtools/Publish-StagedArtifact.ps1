@@ -163,7 +163,7 @@ function PublishRecursive([string]$modulePath) {
                 }
                 else {
                     Publish-Module -Path $modulePath @commonArgs -Force
-                    if($PSCmdlet.ParameterSetName -eq $paramSetRemote) {
+                    if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
                         Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                     }
                     Write-Host "Published $modulePath"
@@ -172,7 +172,7 @@ function PublishRecursive([string]$modulePath) {
             }
             catch {
                 #We could have failed because the module was already published (possible in case we run this script multiple times)
-                if($PSCmdlet.ParameterSetName -eq $paramSetRemote) {
+                if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
                     try {
                         Find-Module ([System.IO.Path]::GetFileNameWithoutExtension($manifest)) -RequiredVersion $manifestData.ModuleVersion
                         Write-Host "Successfully found module $modulePath version $($manifestData.ModuleVersion) already on the gallery"
