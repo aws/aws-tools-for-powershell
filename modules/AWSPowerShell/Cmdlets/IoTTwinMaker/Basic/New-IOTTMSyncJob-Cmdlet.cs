@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter SyncRole
         /// <summary>
         /// <para>
-        /// <para>The SyncJob IAM role. This IAM role is used by the sync job to read from the syncSource,
-        /// and create, update or delete the corresponding resources.</para>
+        /// <para>The SyncJob IAM role. This IAM role is used by the SyncJob to read from the syncSource,
+        /// and create, update, or delete the corresponding resources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter SyncSource
         /// <summary>
         /// <para>
-        /// <para>The sync source.</para><note><para>Currently the only supported syncSoucre is <code>SITEWISE </code>.</para></note>
+        /// <para>The sync source.</para><note><para>Currently the only supported syncSoource is <code>SITEWISE </code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The workspace Id.</para>
+        /// <para>The workspace ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

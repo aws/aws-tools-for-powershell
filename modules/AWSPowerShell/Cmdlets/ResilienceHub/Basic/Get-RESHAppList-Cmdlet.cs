@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists your AWS Resilience Hub applications.
+    /// Lists your Resilience Hub applications.
     /// 
     ///  <note><para>
     /// You can filter applications using only one filter at a time or without using any filter.

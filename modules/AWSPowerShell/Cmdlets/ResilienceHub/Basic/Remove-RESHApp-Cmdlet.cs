@@ -28,8 +28,8 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Deletes an AWS Resilience Hub application. This is a destructive action that can't
-    /// be undone.
+    /// Deletes an Resilience Hub application. This is a destructive action that can't be
+    /// undone.
     /// </summary>
     [Cmdlet("Remove", "RESHApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>A boolean option to force the deletion of an AWS Resilience Hub application. </para>
+        /// <para>A boolean option to force the deletion of an Resilience Hub application. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Publishes a new version of a specific AWS Resilience Hub application.
+    /// Publishes a new version of a specific Resilience Hub application.
     /// </summary>
     [Cmdlet("Publish", "RESHAppVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.PublishAppVersionResponse")]

@@ -28,13 +28,13 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Updates the resource details in the AWS Resilience Hub application.
+    /// Updates the resource details in the Resilience Hub application.
     /// 
     ///  <note><ul><li><para>
-    /// This action has no effect outside AWS Resilience Hub.
+    /// This action has no effect outside Resilience Hub.
     /// </para></li><li><para>
-    /// This API updates the AWS Resilience Hub application draft version. To use this resource
-    /// for running resiliency assessments, you must publish the AWS Resilience Hub application
+    /// This API updates the Resilience Hub application draft version. To use this resource
+    /// for running resiliency assessments, you must publish the Resilience Hub application
     /// using the <code>PublishAppVersion</code> API.
     /// </para></li><li><para>
     /// To update application version with new <code>physicalResourceID</code>, you must call
@@ -112,10 +112,21 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AwsRegion { get; set; }
         #endregion
         
+        #region Parameter LogicalResourceId_EksSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource
+        /// belongs to.</para><note><para>This parameter accepts values in "eks-cluster/namespace" format.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogicalResourceId_EksSourceName { get; set; }
+        #endregion
+        
         #region Parameter Excluded
         /// <summary>
         /// <para>
-        /// <para>Indicates if a resource is excluded from an AWS Resilience Hub application.</para><note><para>You can exclude only imported resources from an AWS Resilience Hub application.</para></note>
+        /// <para>Indicates if a resource is excluded from an Resilience Hub application.</para><note><para>You can exclude only imported resources from an Resilience Hub application.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -288,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             context.AwsAccountId = this.AwsAccountId;
             context.AwsRegion = this.AwsRegion;
             context.Excluded = this.Excluded;
+            context.LogicalResourceId_EksSourceName = this.LogicalResourceId_EksSourceName;
             context.LogicalResourceId_Identifier = this.LogicalResourceId_Identifier;
             context.LogicalResourceId_LogicalStackName = this.LogicalResourceId_LogicalStackName;
             context.LogicalResourceId_ResourceGroupName = this.LogicalResourceId_ResourceGroupName;
@@ -339,6 +351,16 @@ namespace Amazon.PowerShell.Cmdlets.RESH
              // populate LogicalResourceId
             var requestLogicalResourceIdIsNull = true;
             request.LogicalResourceId = new Amazon.ResilienceHub.Model.LogicalResourceId();
+            System.String requestLogicalResourceId_logicalResourceId_EksSourceName = null;
+            if (cmdletContext.LogicalResourceId_EksSourceName != null)
+            {
+                requestLogicalResourceId_logicalResourceId_EksSourceName = cmdletContext.LogicalResourceId_EksSourceName;
+            }
+            if (requestLogicalResourceId_logicalResourceId_EksSourceName != null)
+            {
+                request.LogicalResourceId.EksSourceName = requestLogicalResourceId_logicalResourceId_EksSourceName;
+                requestLogicalResourceIdIsNull = false;
+            }
             System.String requestLogicalResourceId_logicalResourceId_Identifier = null;
             if (cmdletContext.LogicalResourceId_Identifier != null)
             {
@@ -463,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             public System.String AwsAccountId { get; set; }
             public System.String AwsRegion { get; set; }
             public System.Boolean? Excluded { get; set; }
+            public System.String LogicalResourceId_EksSourceName { get; set; }
             public System.String LogicalResourceId_Identifier { get; set; }
             public System.String LogicalResourceId_LogicalStackName { get; set; }
             public System.String LogicalResourceId_ResourceGroupName { get; set; }

@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Describes an assessment for an AWS Resilience Hub application.
+    /// Describes an assessment for an Resilience Hub application.
     /// </summary>
     [Cmdlet("Get", "RESHAppAssessment")]
     [OutputType("Amazon.ResilienceHub.Model.AppAssessment")]

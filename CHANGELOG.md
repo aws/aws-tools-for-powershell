@@ -1,4 +1,18 @@
-﻿### 4.1.296 (2023-03-21 23:03Z)
+﻿### 4.1.297 (2023-03-22 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.510.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon IoT TwinMaker
+    * Modified cmdlet New-IOTTMScene: added parameter SceneMetadata.
+    * Modified cmdlet Update-IOTTMScene: added parameter SceneMetadata.
+  * Amazon Resilience Hub
+    * Modified cmdlet Get-RESHAppVersionResource: added parameter LogicalResourceId_EksSourceName.
+    * Modified cmdlet Import-RESHResourcesToDraftAppVersion: added parameter EksSource.
+    * Modified cmdlet New-RESHAppVersionResource: added parameter LogicalResourceId_EksSourceName.
+    * Modified cmdlet Remove-RESHAppInputSource: added parameters EksSourceClusterNamespace_EksClusterArn and EksSourceClusterNamespace_Namespace.
+    * Modified cmdlet Remove-RESHAppVersionResource: added parameter LogicalResourceId_EksSourceName.
+    * Modified cmdlet Remove-RESHDraftAppVersionResourceMapping: added parameter EksSourceName.
+    * Modified cmdlet Update-RESHAppVersionResource: added parameter LogicalResourceId_EksSourceName.
+
+### 4.1.296 (2023-03-21 23:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.295 (2023-03-20 21:01Z)

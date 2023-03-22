@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter SyncSource
         /// <summary>
         /// <para>
-        /// <para>The sync soucre.</para><note><para>Currently the only supported syncSoucre is <code>SITEWISE </code>.</para></note>
+        /// <para>The sync source.</para><note><para>Currently the only supported syncSource is <code>SITEWISE </code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The workspace Id.</para>
+        /// <para>The workspace ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

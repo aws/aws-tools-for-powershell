@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists the tags for your resources in your AWS Resilience Hub applications.
+    /// Lists the tags for your resources in your Resilience Hub applications.
     /// </summary>
     [Cmdlet("Get", "RESHResourceTag")]
     [OutputType("System.String")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for a specific resource in your AWS Resilience Hub
-        /// application.</para>
+        /// <para>The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

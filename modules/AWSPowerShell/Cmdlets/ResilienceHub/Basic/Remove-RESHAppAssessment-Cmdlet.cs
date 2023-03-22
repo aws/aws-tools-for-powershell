@@ -28,8 +28,8 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Deletes an AWS Resilience Hub application assessment. This is a destructive action
-    /// that can't be undone.
+    /// Deletes an Resilience Hub application assessment. This is a destructive action that
+    /// can't be undone.
     /// </summary>
     [Cmdlet("Remove", "RESHAppAssessment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ResilienceHub.Model.DeleteAppAssessmentResponse")]

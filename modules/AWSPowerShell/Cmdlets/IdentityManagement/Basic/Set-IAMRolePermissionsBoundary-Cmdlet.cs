@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// You cannot set the boundary for a service-linked role. 
+    /// You cannot set the boundary for a service-linked role.
     /// </para><important><para>
     /// Policies used as permissions boundaries do not provide permissions. You must also
     /// attach a permissions policy to the role. To learn how the effective permissions for

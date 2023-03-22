@@ -28,15 +28,15 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Adds a resource to the AWS Resilience Hub applicationand assigns it to the specified
-    /// Application Components. If you specify a new Application Component, AWS Resilience
-    /// Hub will automatically create the Application Component.
+    /// Adds a resource to the Resilience Hub application and assigns it to the specified
+    /// Application Components. If you specify a new Application Component, Resilience Hub
+    /// will automatically create the Application Component.
     /// 
     ///  <note><ul><li><para>
-    /// This action has no effect outside AWS Resilience Hub.
+    /// This action has no effect outside Resilience Hub.
     /// </para></li><li><para>
-    /// This API updates the AWS Resilience Hub application draft version. To use this resource
-    /// for running resiliency assessments, you must publish the AWS Resilience Hub application
+    /// This API updates the Resilience Hub application draft version. To use this resource
+    /// for running resiliency assessments, you must publish the Resilience Hub application
     /// using the <code>PublishAppVersion</code> API.
     /// </para></li><li><para>
     /// To update application version with new <code>physicalResourceID</code>, you must call
@@ -119,6 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AwsRegion { get; set; }
+        #endregion
+        
+        #region Parameter LogicalResourceId_EksSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource
+        /// belongs to.</para><note><para>This parameter accepts values in "eks-cluster/namespace" format.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogicalResourceId_EksSourceName { get; set; }
         #endregion
         
         #region Parameter LogicalResourceId_Identifier
@@ -333,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             context.AwsAccountId = this.AwsAccountId;
             context.AwsRegion = this.AwsRegion;
             context.ClientToken = this.ClientToken;
+            context.LogicalResourceId_EksSourceName = this.LogicalResourceId_EksSourceName;
             context.LogicalResourceId_Identifier = this.LogicalResourceId_Identifier;
             #if MODULAR
             if (this.LogicalResourceId_Identifier == null && ParameterWasBound(nameof(this.LogicalResourceId_Identifier)))
@@ -408,6 +420,16 @@ namespace Amazon.PowerShell.Cmdlets.RESH
              // populate LogicalResourceId
             var requestLogicalResourceIdIsNull = true;
             request.LogicalResourceId = new Amazon.ResilienceHub.Model.LogicalResourceId();
+            System.String requestLogicalResourceId_logicalResourceId_EksSourceName = null;
+            if (cmdletContext.LogicalResourceId_EksSourceName != null)
+            {
+                requestLogicalResourceId_logicalResourceId_EksSourceName = cmdletContext.LogicalResourceId_EksSourceName;
+            }
+            if (requestLogicalResourceId_logicalResourceId_EksSourceName != null)
+            {
+                request.LogicalResourceId.EksSourceName = requestLogicalResourceId_logicalResourceId_EksSourceName;
+                requestLogicalResourceIdIsNull = false;
+            }
             System.String requestLogicalResourceId_logicalResourceId_Identifier = null;
             if (cmdletContext.LogicalResourceId_Identifier != null)
             {
@@ -532,6 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             public System.String AwsAccountId { get; set; }
             public System.String AwsRegion { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String LogicalResourceId_EksSourceName { get; set; }
             public System.String LogicalResourceId_Identifier { get; set; }
             public System.String LogicalResourceId_LogicalStackName { get; set; }
             public System.String LogicalResourceId_ResourceGroupName { get; set; }

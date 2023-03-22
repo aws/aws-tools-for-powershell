@@ -28,9 +28,9 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Imports resources to AWS Resilience Hub application draft version from different input
-    /// sources. For more information about the input sources supported by AWS Resilience
-    /// Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+    /// Imports resources to Resilience Hub application draft version from different input
+    /// sources. For more information about the input sources supported by Resilience Hub,
+    /// see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
     /// the structure and describe your Resilience Hub application</a>.
     /// </summary>
     [Cmdlet("Import", "RESHResourcesToDraftAppVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,11 +62,22 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AppArn { get; set; }
         #endregion
         
+        #region Parameter EksSource
+        /// <summary>
+        /// <para>
+        /// <para>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksSources")]
+        public Amazon.ResilienceHub.Model.EksSource[] EksSource { get; set; }
+        #endregion
+        
         #region Parameter ImportStrategy
         /// <summary>
         /// <para>
-        /// <para>The import strategy you would like to set to import resources into AWS Resilience
-        /// Hub application.</para>
+        /// <para>The import strategy you would like to set to import resources into Resilience Hub
+        /// application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter SourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) for the resources that you want to import.</para>
+        /// <para>The Amazon Resource Names (ARNs) for the resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.EksSource != null)
+            {
+                context.EksSource = new List<Amazon.ResilienceHub.Model.EksSource>(this.EksSource);
+            }
             context.ImportStrategy = this.ImportStrategy;
             if (this.SourceArn != null)
             {
@@ -193,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
+            }
+            if (cmdletContext.EksSource != null)
+            {
+                request.EksSources = cmdletContext.EksSource;
             }
             if (cmdletContext.ImportStrategy != null)
             {
@@ -268,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
+            public List<Amazon.ResilienceHub.Model.EksSource> EksSource { get; set; }
             public Amazon.ResilienceHub.ResourceImportStrategyType ImportStrategy { get; set; }
             public List<System.String> SourceArn { get; set; }
             public List<Amazon.ResilienceHub.Model.TerraformSource> TerraformSource { get; set; }

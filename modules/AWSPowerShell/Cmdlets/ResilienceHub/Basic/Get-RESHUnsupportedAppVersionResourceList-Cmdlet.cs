@@ -28,9 +28,9 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists the resources that are not currently supported in AWS Resilience Hub. An unsupported
+    /// Lists the resources that are not currently supported in Resilience Hub. An unsupported
     /// resource is a resource that exists in the object that was used to create an app, but
-    /// is not supported by AWS Resilience Hub.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// is not supported by Resilience Hub.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHUnsupportedAppVersionResourceList")]
     [OutputType("Amazon.ResilienceHub.Model.ListUnsupportedAppVersionResourcesResponse")]

@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Creates a new recommendation template for the AWS Resilience Hub application.
+    /// Creates a new recommendation template for the Resilience Hub application.
     /// </summary>
     [Cmdlet("New", "RESHRecommendationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResilienceHub.Model.RecommendationTemplate")]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A list of objects that filter the request.</para>
+        /// <para>A list of objects that filter the request.</para><para>The following filter combinations are supported:</para><ul><li><para>Filter with state</para></li><li><para>Filter with ResourceType and ResourceId</para></li><li><para>Filter with ResourceType and ExternalId</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter SyncSource
         /// <summary>
         /// <para>
-        /// <para>The sync soucre.</para><note><para>Currently the only supported syncSoucre is <code>SITEWISE </code>.</para></note>
+        /// <para>The sync source.</para><note><para>Currently the only supported syncSource is <code>SITEWISE </code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

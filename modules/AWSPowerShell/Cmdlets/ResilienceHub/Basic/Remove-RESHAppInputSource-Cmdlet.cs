@@ -28,8 +28,8 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Deletes the input source and all of its imported resources from the AWS Resilience
-    /// Hub application.
+    /// Deletes the input source and all of its imported resources from the Resilience Hub
+    /// application.
     /// </summary>
     [Cmdlet("Remove", "RESHAppInputSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse")]
@@ -60,10 +60,33 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AppArn { get; set; }
         #endregion
         
+        #region Parameter EksSourceClusterNamespace_EksClusterArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The
+        /// format for this ARN is: arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>.
+        /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EksSourceClusterNamespace_EksClusterArn { get; set; }
+        #endregion
+        
+        #region Parameter EksSourceClusterNamespace_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>Name of the namespace that is located on your Amazon Elastic Kubernetes Service cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EksSourceClusterNamespace_Namespace { get; set; }
+        #endregion
+        
         #region Parameter TerraformSource_S3StateFileUrl
         /// <summary>
         /// <para>
-        /// <para> The Terraform s3 state file you need to import. </para>
+        /// <para> The URL of the Terraform s3 state file you need to import. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the imported resource you want to remove from the
-        /// AWS Resilience Hub application. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+        /// Resilience Hub application. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>
         /// </summary>
@@ -164,6 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.EksSourceClusterNamespace_EksClusterArn = this.EksSourceClusterNamespace_EksClusterArn;
+            context.EksSourceClusterNamespace_Namespace = this.EksSourceClusterNamespace_Namespace;
             context.SourceArn = this.SourceArn;
             context.TerraformSource_S3StateFileUrl = this.TerraformSource_S3StateFileUrl;
             
@@ -189,6 +214,35 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate EksSourceClusterNamespace
+            var requestEksSourceClusterNamespaceIsNull = true;
+            request.EksSourceClusterNamespace = new Amazon.ResilienceHub.Model.EksSourceClusterNamespace();
+            System.String requestEksSourceClusterNamespace_eksSourceClusterNamespace_EksClusterArn = null;
+            if (cmdletContext.EksSourceClusterNamespace_EksClusterArn != null)
+            {
+                requestEksSourceClusterNamespace_eksSourceClusterNamespace_EksClusterArn = cmdletContext.EksSourceClusterNamespace_EksClusterArn;
+            }
+            if (requestEksSourceClusterNamespace_eksSourceClusterNamespace_EksClusterArn != null)
+            {
+                request.EksSourceClusterNamespace.EksClusterArn = requestEksSourceClusterNamespace_eksSourceClusterNamespace_EksClusterArn;
+                requestEksSourceClusterNamespaceIsNull = false;
+            }
+            System.String requestEksSourceClusterNamespace_eksSourceClusterNamespace_Namespace = null;
+            if (cmdletContext.EksSourceClusterNamespace_Namespace != null)
+            {
+                requestEksSourceClusterNamespace_eksSourceClusterNamespace_Namespace = cmdletContext.EksSourceClusterNamespace_Namespace;
+            }
+            if (requestEksSourceClusterNamespace_eksSourceClusterNamespace_Namespace != null)
+            {
+                request.EksSourceClusterNamespace.Namespace = requestEksSourceClusterNamespace_eksSourceClusterNamespace_Namespace;
+                requestEksSourceClusterNamespaceIsNull = false;
+            }
+             // determine if request.EksSourceClusterNamespace should be set to null
+            if (requestEksSourceClusterNamespaceIsNull)
+            {
+                request.EksSourceClusterNamespace = null;
             }
             if (cmdletContext.SourceArn != null)
             {
@@ -276,6 +330,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             public System.String AppArn { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String EksSourceClusterNamespace_EksClusterArn { get; set; }
+            public System.String EksSourceClusterNamespace_Namespace { get; set; }
             public System.String SourceArn { get; set; }
             public System.String TerraformSource_S3StateFileUrl { get; set; }
             public System.Func<Amazon.ResilienceHub.Model.DeleteAppInputSourceResponse, RemoveRESHAppInputSourceCmdlet, object> Select { get; set; } =

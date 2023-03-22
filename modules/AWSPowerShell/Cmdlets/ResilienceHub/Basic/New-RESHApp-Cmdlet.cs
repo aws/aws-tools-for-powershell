@@ -28,16 +28,16 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a
-    /// collection of Amazon Web Services resources structured to prevent and recover Amazon
-    /// Web Services application disruptions. To describe a AWS Resilience Hub application,
-    /// you provide an application name, resources from one or more–up to five–CloudFormation
-    /// stacks, and an appropriate resiliency policy.
+    /// Creates an Resilience Hub application. An Resilience Hub application is a collection
+    /// of Amazon Web Services resources structured to prevent and recover Amazon Web Services
+    /// application disruptions. To describe a Resilience Hub application, you provide an
+    /// application name, resources from one or more–up to five–CloudFormation stacks, and
+    /// an appropriate resiliency policy.
     /// 
     ///  
     /// <para>
-    /// After you create an AWS Resilience Hub application, you publish it so that you can
-    /// run a resiliency assessment on it. You can then use recommendations from the assessment
+    /// After you create an Resilience Hub application, you publish it so that you can run
+    /// a resiliency assessment on it. You can then use recommendations from the assessment
     /// to improve resiliency by running another assessment, comparing results, and then iterating
     /// the process until you achieve your goals for recovery time objective (RTO) and recovery
     /// point objective (RPO).

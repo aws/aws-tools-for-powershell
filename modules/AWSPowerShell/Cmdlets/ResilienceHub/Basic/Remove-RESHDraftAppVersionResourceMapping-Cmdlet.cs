@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String[] AppRegistryAppName { get; set; }
         #endregion
         
+        #region Parameter EksSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want
+        /// to remove from the resource mappings.</para><note><para>This parameter accepts values in "eks-cluster/namespace" format.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksSourceNames")]
+        public System.String[] EksSourceName { get; set; }
+        #endregion
+        
         #region Parameter LogicalStackName
         /// <summary>
         /// <para>
@@ -187,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             {
                 context.AppRegistryAppName = new List<System.String>(this.AppRegistryAppName);
             }
+            if (this.EksSourceName != null)
+            {
+                context.EksSourceName = new List<System.String>(this.EksSourceName);
+            }
             if (this.LogicalStackName != null)
             {
                 context.LogicalStackName = new List<System.String>(this.LogicalStackName);
@@ -226,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.AppRegistryAppName != null)
             {
                 request.AppRegistryAppNames = cmdletContext.AppRegistryAppName;
+            }
+            if (cmdletContext.EksSourceName != null)
+            {
+                request.EksSourceNames = cmdletContext.EksSourceName;
             }
             if (cmdletContext.LogicalStackName != null)
             {
@@ -306,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             public System.String AppArn { get; set; }
             public List<System.String> AppRegistryAppName { get; set; }
+            public List<System.String> EksSourceName { get; set; }
             public List<System.String> LogicalStackName { get; set; }
             public List<System.String> ResourceGroupName { get; set; }
             public List<System.String> ResourceName { get; set; }

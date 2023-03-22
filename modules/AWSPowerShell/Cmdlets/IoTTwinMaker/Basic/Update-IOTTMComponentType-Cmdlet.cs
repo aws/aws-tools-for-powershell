@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         #region Parameter PropertyGroup
         /// <summary>
         /// <para>
-        /// <para>The property groups</para>
+        /// <para>The property groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

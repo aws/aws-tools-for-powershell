@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Describes details about an AWS Resilience Hub application.
+    /// Describes details about an Resilience Hub application.
     /// </summary>
     [Cmdlet("Get", "RESHAppVersionTemplate")]
     [OutputType("Amazon.ResilienceHub.Model.DescribeAppVersionTemplateResponse")]

@@ -28,8 +28,8 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists all the input sources of the AWS Resilience Hub application. For more information
-    /// about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+    /// Lists all the input sources of the Resilience Hub application. For more information
+    /// about the input sources supported by Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
     /// the structure and describe your Resilience Hub application</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHAppInputSourceList")]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of input sources to be displayed per AWS Resilience Hub application.</para>
+        /// <para>Maximum number of input sources to be displayed per Resilience Hub application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

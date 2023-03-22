@@ -94,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
         public System.String SceneId { get; set; }
         #endregion
         
+        #region Parameter SceneMetadata
+        /// <summary>
+        /// <para>
+        /// <para>The request metadata.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable SceneMetadata { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -203,6 +213,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 WriteWarning("You are passing $null as a value for parameter SceneId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SceneMetadata != null)
+            {
+                context.SceneMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.SceneMetadata.Keys)
+                {
+                    context.SceneMetadata.Add((String)hashKey, (String)(this.SceneMetadata[hashKey]));
+                }
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -249,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             if (cmdletContext.SceneId != null)
             {
                 request.SceneId = cmdletContext.SceneId;
+            }
+            if (cmdletContext.SceneMetadata != null)
+            {
+                request.SceneMetadata = cmdletContext.SceneMetadata;
             }
             if (cmdletContext.Tag != null)
             {
@@ -323,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             public System.String ContentLocation { get; set; }
             public System.String Description { get; set; }
             public System.String SceneId { get; set; }
+            public Dictionary<System.String, System.String> SceneMetadata { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.IoTTwinMaker.Model.CreateSceneResponse, NewIOTTMSceneCmdlet, object> Select { get; set; } =

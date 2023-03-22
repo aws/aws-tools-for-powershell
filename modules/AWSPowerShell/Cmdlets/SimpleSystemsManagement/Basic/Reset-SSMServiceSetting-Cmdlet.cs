@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the service setting to reset. The setting ID can
-        /// be one of the following.</para><ul><li><para><code>/ssm/automation/customer-script-log-destination</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code></para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li><li><para><code>/ssm/opsinsights/opscenter</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li></ul>
+        /// be one of the following.</para><ul><li><para><code>/ssm/managed-instance/default-ec2-instance-management-role</code></para></li><li><para><code>/ssm/automation/customer-script-log-destination</code></para></li><li><para><code>/ssm/automation/customer-script-log-group-name</code></para></li><li><para><code>/ssm/documents/console/public-sharing-permission</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li><li><para><code>/ssm/opsinsights/opscenter</code></para></li><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

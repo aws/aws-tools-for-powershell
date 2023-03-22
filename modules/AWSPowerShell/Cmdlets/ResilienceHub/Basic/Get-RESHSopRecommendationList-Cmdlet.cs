@@ -28,8 +28,8 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists the standard operating procedure (SOP) recommendations for the AWS Resilience
-    /// Hub applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the standard operating procedure (SOP) recommendations for the Resilience Hub
+    /// applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RESHSopRecommendationList")]
     [OutputType("Amazon.ResilienceHub.Model.SopRecommendation")]

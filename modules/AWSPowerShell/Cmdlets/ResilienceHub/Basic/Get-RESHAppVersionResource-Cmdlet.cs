@@ -28,7 +28,7 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Describes a resource of the AWS Resilience Hub application.
+    /// Describes a resource of the Resilience Hub application.
     /// 
     ///  <note><para>
     /// This API accepts only one of the following parameters to descibe the resource:
@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AwsRegion { get; set; }
+        #endregion
+        
+        #region Parameter LogicalResourceId_EksSourceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource
+        /// belongs to.</para><note><para>This parameter accepts values in "eks-cluster/namespace" format.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogicalResourceId_EksSourceName { get; set; }
         #endregion
         
         #region Parameter LogicalResourceId_Identifier
@@ -224,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #endif
             context.AwsAccountId = this.AwsAccountId;
             context.AwsRegion = this.AwsRegion;
+            context.LogicalResourceId_EksSourceName = this.LogicalResourceId_EksSourceName;
             context.LogicalResourceId_Identifier = this.LogicalResourceId_Identifier;
             context.LogicalResourceId_LogicalStackName = this.LogicalResourceId_LogicalStackName;
             context.LogicalResourceId_ResourceGroupName = this.LogicalResourceId_ResourceGroupName;
@@ -266,6 +278,16 @@ namespace Amazon.PowerShell.Cmdlets.RESH
              // populate LogicalResourceId
             var requestLogicalResourceIdIsNull = true;
             request.LogicalResourceId = new Amazon.ResilienceHub.Model.LogicalResourceId();
+            System.String requestLogicalResourceId_logicalResourceId_EksSourceName = null;
+            if (cmdletContext.LogicalResourceId_EksSourceName != null)
+            {
+                requestLogicalResourceId_logicalResourceId_EksSourceName = cmdletContext.LogicalResourceId_EksSourceName;
+            }
+            if (requestLogicalResourceId_logicalResourceId_EksSourceName != null)
+            {
+                request.LogicalResourceId.EksSourceName = requestLogicalResourceId_logicalResourceId_EksSourceName;
+                requestLogicalResourceIdIsNull = false;
+            }
             System.String requestLogicalResourceId_logicalResourceId_Identifier = null;
             if (cmdletContext.LogicalResourceId_Identifier != null)
             {
@@ -384,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             public System.String AppVersion { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String AwsRegion { get; set; }
+            public System.String LogicalResourceId_EksSourceName { get; set; }
             public System.String LogicalResourceId_Identifier { get; set; }
             public System.String LogicalResourceId_LogicalStackName { get; set; }
             public System.String LogicalResourceId_ResourceGroupName { get; set; }

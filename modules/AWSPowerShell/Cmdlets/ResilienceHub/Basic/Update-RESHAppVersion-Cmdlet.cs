@@ -28,11 +28,11 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Updates the AWS Resilience Hub application version.
+    /// Updates the Resilience Hub application version.
     /// 
     ///  <note><para>
-    /// This API updates the AWS Resilience Hub application draft version. To use this information
-    /// for running resiliency assessments, you must publish the AWS Resilience Hub application
+    /// This API updates the Resilience Hub application draft version. To use this information
+    /// for running resiliency assessments, you must publish the Resilience Hub application
     /// using the <code>PublishAppVersion</code> API.
     /// </para></note>
     /// </summary>

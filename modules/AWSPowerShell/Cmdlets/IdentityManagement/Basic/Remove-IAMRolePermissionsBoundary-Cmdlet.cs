@@ -30,10 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Deletes the permissions boundary for the specified IAM role. 
     /// 
-    ///  <important><para>
+    ///  
+    /// <para>
+    /// You cannot set the boundary for a service-linked role.
+    /// </para><important><para>
     /// Deleting the permissions boundary for a role might increase its permissions. For example,
     /// it might allow anyone who assumes the role to perform all the actions granted in its
-    /// permissions policies. 
+    /// permissions policies.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "IAMRolePermissionsBoundary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
