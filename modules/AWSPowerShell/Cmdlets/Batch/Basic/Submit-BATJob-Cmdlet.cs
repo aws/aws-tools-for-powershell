@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobDefinition
         /// <summary>
         /// <para>
-        /// <para>The job definition used by this job. This value can be one of <code>name</code>, <code>name:revision</code>,
-        /// or the Amazon Resource Name (ARN) for the job definition. If <code>name</code> is
-        /// specified without a revision then the latest active revision is used.</para>
+        /// <para>The job definition used by this job. This value can be one of <code>definition-name</code>,
+        /// <code>definition-name:revision</code>, or the Amazon Resource Name (ARN) for the job
+        /// definition, with or without the revision (<code>arn:aws:batch:<i>region</i>:<i>account</i>:job-definition/<i>definition-name</i>:<i>revision</i></code>, or <code>arn:aws:batch:<i>region</i>:<i>account</i>:job-definition/<i>definition-name</i></code>).</para><para>If the revision is not specified, then the latest active revision is used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -194,6 +194,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String JobQueue { get; set; }
+        #endregion
+        
+        #region Parameter Metadata_Label
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksPropertiesOverride_PodProperties_Metadata_Labels")]
+        public System.Collections.Hashtable Metadata_Label { get; set; }
         #endregion
         
         #region Parameter NodeOverrides_NodePropertyOverride
@@ -462,6 +473,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.PodProperties_Container = new List<Amazon.Batch.Model.EksContainerOverride>(this.PodProperties_Container);
             }
+            if (this.Metadata_Label != null)
+            {
+                context.Metadata_Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata_Label.Keys)
+                {
+                    context.Metadata_Label.Add((String)hashKey, (String)(this.Metadata_Label[hashKey]));
+                }
+            }
             context.JobDefinition = this.JobDefinition;
             #if MODULAR
             if (this.JobDefinition == null && ParameterWasBound(nameof(this.JobDefinition)))
@@ -642,6 +661,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container != null)
             {
                 requestEksPropertiesOverride_eksPropertiesOverride_PodProperties.Containers = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container;
+                requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull = false;
+            }
+            Amazon.Batch.Model.EksMetadata requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata = null;
+            
+             // populate Metadata
+            var requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_MetadataIsNull = true;
+            requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata = new Amazon.Batch.Model.EksMetadata();
+            Dictionary<System.String, System.String> requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata_metadata_Label = null;
+            if (cmdletContext.Metadata_Label != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata_metadata_Label = cmdletContext.Metadata_Label;
+            }
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata_metadata_Label != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata.Labels = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata_metadata_Label;
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_MetadataIsNull = false;
+            }
+             // determine if requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata should be set to null
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_MetadataIsNull)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata = null;
+            }
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties.Metadata = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata;
                 requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull = false;
             }
              // determine if requestEksPropertiesOverride_eksPropertiesOverride_PodProperties should be set to null
@@ -825,6 +869,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? ContainerOverrides_Vcpus { get; set; }
             public List<Amazon.Batch.Model.JobDependency> DependsOn { get; set; }
             public List<Amazon.Batch.Model.EksContainerOverride> PodProperties_Container { get; set; }
+            public Dictionary<System.String, System.String> Metadata_Label { get; set; }
             public System.String JobDefinition { get; set; }
             public System.String JobName { get; set; }
             public System.String JobQueue { get; set; }

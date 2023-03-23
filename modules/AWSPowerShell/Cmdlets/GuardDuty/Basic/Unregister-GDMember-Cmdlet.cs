@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// <summary>
     /// Disassociates GuardDuty member accounts (to the current administrator account) specified
     /// by the account IDs.
+    /// 
+    ///  
+    /// <para>
+    /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
+    /// set to <code>ALL</code>, you'll receive an error if you attempt to disassociate a
+    /// member account before removing them from your Amazon Web Services organization.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

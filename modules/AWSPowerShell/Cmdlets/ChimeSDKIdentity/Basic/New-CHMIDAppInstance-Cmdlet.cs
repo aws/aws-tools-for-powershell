@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The <code>ClientRequestToken</code> of the <code>AppInstance</code>.</para>
+        /// <para>The unique ID of the request. Use different tokens to create different <code>AppInstances</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags assigned to the <code>AppInstanceUser</code>.</para>
+        /// <para>Tags assigned to the <code>AppInstance</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

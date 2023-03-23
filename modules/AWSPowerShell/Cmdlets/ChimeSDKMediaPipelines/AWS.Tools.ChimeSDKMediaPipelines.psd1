@@ -89,15 +89,22 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-CHMMPResourceTag', 
         'Get-CHMMPMediaCapturePipeline', 
         'Get-CHMMPMediaCapturePipelineList', 
+        'Get-CHMMPMediaInsightsPipelineConfiguration', 
+        'Get-CHMMPMediaInsightsPipelineConfigurationList', 
         'Get-CHMMPMediaPipeline', 
         'Get-CHMMPMediaPipelineList', 
         'Get-CHMMPResourceTag', 
         'New-CHMMPMediaCapturePipeline', 
         'New-CHMMPMediaConcatenationPipeline', 
+        'New-CHMMPMediaInsightsPipeline', 
+        'New-CHMMPMediaInsightsPipelineConfiguration', 
         'New-CHMMPMediaLiveConnectorPipeline', 
         'Remove-CHMMPMediaCapturePipeline', 
+        'Remove-CHMMPMediaInsightsPipelineConfiguration', 
         'Remove-CHMMPMediaPipeline', 
-        'Remove-CHMMPResourceTag')
+        'Remove-CHMMPResourceTag', 
+        'Update-CHMMPMediaInsightsPipelineConfiguration', 
+        'Update-CHMMPMediaInsightsPipelineStatus')
 
     # Variables to export from this module
     VariablesToExport = '*'

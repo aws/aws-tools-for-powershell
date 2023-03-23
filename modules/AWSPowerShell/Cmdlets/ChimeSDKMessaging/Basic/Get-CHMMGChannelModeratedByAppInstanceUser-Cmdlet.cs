@@ -28,11 +28,13 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>.
+    /// Returns the full details of a channel moderated by the specified <code>AppInstanceUser</code>
+    /// or <code>AppInstanceBot</code>.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
+    /// as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelModeratedByAppInstanceUser")]
@@ -50,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter AppInstanceUserArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> in the moderated channel.</para>
+        /// <para>The ARN of the user or bot in the moderated channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

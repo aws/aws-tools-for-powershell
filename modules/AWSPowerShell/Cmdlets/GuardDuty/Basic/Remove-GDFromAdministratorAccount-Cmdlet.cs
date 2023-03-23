@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Disassociates the current GuardDuty member account from its administrator account.
+    /// 
+    ///  
+    /// <para>
+    /// With <code>autoEnableOrganizationMembers</code> configuration for your organization
+    /// set to <code>ALL</code>, you'll receive an error if you attempt to disable GuardDuty
+    /// in a member account.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "GDFromAdministratorAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

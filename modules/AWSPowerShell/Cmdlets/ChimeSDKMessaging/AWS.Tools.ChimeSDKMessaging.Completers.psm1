@@ -132,6 +132,16 @@ $CHMMG_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMessaging.ExpirationCriterion
+        {
+            ($_ -eq "New-CHMMGChannel/ExpirationSettings_ExpirationCriterion") -Or
+            ($_ -eq "Write-CHMMGChannelExpirationSetting/ExpirationSettings_ExpirationCriterion")
+        }
+        {
+            $v = "CREATED_TIMESTAMP","LAST_MESSAGE_TIMESTAMP"
+            break
+        }
+
         # Amazon.ChimeSDKMessaging.PushNotificationType
         {
             ($_ -eq "Send-CHMMGChannelFlowCallback/ChannelMessage_PushNotification_Type") -Or
@@ -159,6 +169,7 @@ $CHMMG_Completers = {
 
 $CHMMG_map = @{
     "ChannelMessage_PushNotification_Type"=@("Send-CHMMGChannelFlowCallback")
+    "ExpirationSettings_ExpirationCriterion"=@("New-CHMMGChannel","Write-CHMMGChannelExpirationSetting")
     "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
     "Persistence"=@("Send-CHMMGChannelMessage")
     "Preferences_PushNotifications_AllowNotifications"=@("Write-CHMMGChannelMembershipPreference")
@@ -257,6 +268,7 @@ $CHMMG_SelectMap = @{
                "Get-CHMMGChannelsModeratedByAppInstanceUserList",
                "Get-CHMMGSubChannelList",
                "Get-CHMMGResourceTag",
+               "Write-CHMMGChannelExpirationSetting",
                "Write-CHMMGChannelMembershipPreference",
                "Write-CHMMGMessagingStreamingConfiguration",
                "Hide-CHMMGChannelMessage",

@@ -59,6 +59,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutoMLJobV2" OutputProperty="AutoMLJobArn" Verb="New" Noun="AutoMLJobV2" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" NewName="AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" />
+                <Param Name="AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates" NewName="AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidates" />
+                <Param Name="AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" />
+                <Param Name="AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" NewName="AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSeconds" />
+                <Param Name="AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidates" NewName="AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxCandidates" />
+                <Param Name="AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" NewName="AutoMLProblemTypeConfig_TextClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSeconds" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="New" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -510,6 +521,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAutoMLJob" OutputProperty="*" Verb="Get" Noun="AutoMLJob" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoMLJobV2" OutputProperty="*" Verb="Get" Noun="AutoMLJobV2" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

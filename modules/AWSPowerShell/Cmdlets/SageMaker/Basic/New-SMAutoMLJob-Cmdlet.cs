@@ -188,8 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The maximum runtime, in seconds, an AutoML job has to complete.</para><para>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and
         /// its processing is ended gracefully. The AutoML job identifies the best model whose
         /// training was completed and marks it as the best-performing model. Any unfinished steps
-        /// of the job, such as automatic one-click Autopilot model deployment, are not completed.
-        /// </para>
+        /// of the job, such as automatic one-click Autopilot model deployment, are not completed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,7 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CompletionCriteria_MaxCandidate
         /// <summary>
         /// <para>
-        /// <para>The maximum number of times a training job is allowed to run.</para>
+        /// <para>The maximum number of times a training job is allowed to run.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), the supported
+        /// value is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
-        /// see the used by the action.</para>
+        /// see the used by the action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,8 +341,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ProblemType
         /// <summary>
         /// <para>
-        /// <para>Defines the type of supervised learning available for the candidates. For more information,
-        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
+        /// <para>Defines the type of supervised learning problem available for the candidates. For
+        /// more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html">
         /// Amazon SageMaker Autopilot problem types and algorithm support</a>.</para>
         /// </para>
         /// </summary>
@@ -412,7 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</para>
+        /// <para>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
+        /// resources in different ways, for example, by purpose, owner, or environment. For more
+        /// information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// Amazon Web ServicesResources</a>. Tag keys must be unique per resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

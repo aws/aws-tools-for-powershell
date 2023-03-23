@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="New" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAppInstanceUser" OutputProperty="AppInstanceUserArn" Verb="New" Noun="AppInstanceUser" ShouldProcessTarget="AppInstanceUserId" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -35,6 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAppInstanceAdmin" Verb="Remove" Noun="AppInstanceAdmin" ShouldProcessTarget="AppInstanceAdminArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppInstanceBot" Verb="Remove" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAppInstanceBot" OutputProperty="AppInstanceBot" Verb="Get" Noun="AppInstanceBot" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAppInstanceUser" OutputProperty="AppInstanceUser" Verb="Get" Noun="AppInstanceUser" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +79,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAppInstanceAdmins" OutputProperty="*" Verb="Get" Noun="AppInstanceAdminList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppInstanceBots" OutputProperty="*" Verb="Get" Noun="AppInstanceBotList" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -90,6 +106,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAppInstanceUserExpirationSettings" OutputProperty="*" Verb="Write" Noun="AppInstanceUserExpirationSetting" ShouldProcessTarget="AppInstanceUserArn" PipelineParameter="AppInstanceUserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterAppInstanceUserEndpoint" OutputProperty="*" Verb="Register" Noun="AppInstanceUserEndpoint" ShouldProcessTarget="ResourceArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +123,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAppInstance" OutputProperty="AppInstanceArn" Verb="Update" Noun="AppInstance" ShouldProcessTarget="AppInstanceArn" PipelineParameter="AppInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAppInstanceBot" OutputProperty="AppInstanceBotArn" Verb="Update" Noun="AppInstanceBot" ShouldProcessTarget="AppInstanceBotArn" PipelineParameter="AppInstanceBotArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

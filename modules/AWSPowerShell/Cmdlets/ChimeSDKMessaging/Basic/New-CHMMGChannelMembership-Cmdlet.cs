@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
+    /// Adds a member to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code>
     /// is derived from the request header. A channel member can:
     /// 
     ///  <ul><li><para>
@@ -49,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// </para></li><li><para>
     /// Private Channels: You must be a member to list or send messages.
     /// </para></li></ul><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+    /// <code>AppInstanceUserArn</code> or <code>AppInstanceBot</code> that makes the API
+    /// call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMMGChannelMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

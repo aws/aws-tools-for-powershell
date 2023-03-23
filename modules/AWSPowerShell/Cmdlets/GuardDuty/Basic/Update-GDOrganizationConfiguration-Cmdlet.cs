@@ -28,7 +28,9 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Updates the delegated administrator account with the values provided.
+    /// Configures the delegated administrator account with the provided values. You must
+    /// provide the value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.
+    /// 
     /// 
     ///  
     /// <para>
@@ -47,22 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
     )]
     public partial class UpdateGDOrganizationConfigurationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
-        
-        #region Parameter AutoEnable
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether to automatically enable member accounts in the organization.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Boolean? AutoEnable { get; set; }
-        #endregion
         
         #region Parameter AuditLogs_AutoEnable
         /// <summary>
@@ -99,10 +85,26 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? S3Logs_AutoEnable { get; set; }
         #endregion
         
+        #region Parameter AutoEnableOrganizationMember
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the auto-enablement configuration of GuardDuty for the member accounts in
+        /// the organization. </para><ul><li><para><code>NEW</code>: Indicates that new accounts joining the organization are configured
+        /// to have GuardDuty enabled automatically.</para></li><li><para><code>ALL</code>: Indicates that all accounts (new and existing members) in the organization
+        /// are configured to have GuardDuty enabled automatically.</para></li><li><para><code>NONE</code>: Indicates that no account in the organization will be configured
+        /// to have GuardDuty enabled automatically.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoEnableOrganizationMembers")]
+        [AWSConstantClassSource("Amazon.GuardDuty.AutoEnableMembers")]
+        public Amazon.GuardDuty.AutoEnableMembers AutoEnableOrganizationMember { get; set; }
+        #endregion
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector to update the delegated administrator for.</para>
+        /// <para>The ID of the detector that configures the delegated administrator.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,6 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Features")]
         public Amazon.GuardDuty.Model.OrganizationFeatureConfiguration[] Feature { get; set; }
+        #endregion
+        
+        #region Parameter AutoEnable
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to automatically enable member accounts in the organization.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated, use AutoEnableOrganizationMembers instead")]
+        public System.Boolean? AutoEnable { get; set; }
         #endregion
         
         #region Parameter Select
@@ -188,13 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 context.Select = (response, cmdlet) => this.DetectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutoEnable = this.AutoEnable;
-            #if MODULAR
-            if (this.AutoEnable == null && ParameterWasBound(nameof(this.AutoEnable)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AutoEnable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AutoEnableOrganizationMember = this.AutoEnableOrganizationMember;
             context.AuditLogs_AutoEnable = this.AuditLogs_AutoEnable;
             context.EbsVolumes_AutoEnable = this.EbsVolumes_AutoEnable;
             context.S3Logs_AutoEnable = this.S3Logs_AutoEnable;
@@ -225,9 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.GD
             // create request
             var request = new Amazon.GuardDuty.Model.UpdateOrganizationConfigurationRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AutoEnable != null)
             {
                 request.AutoEnable = cmdletContext.AutoEnable.Value;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.AutoEnableOrganizationMember != null)
+            {
+                request.AutoEnableOrganizationMembers = cmdletContext.AutoEnableOrganizationMember;
             }
             
              // populate DataSources
@@ -427,7 +444,9 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.Boolean? AutoEnable { get; set; }
+            public Amazon.GuardDuty.AutoEnableMembers AutoEnableOrganizationMember { get; set; }
             public System.Boolean? AuditLogs_AutoEnable { get; set; }
             public System.Boolean? EbsVolumes_AutoEnable { get; set; }
             public System.Boolean? S3Logs_AutoEnable { get; set; }

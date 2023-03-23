@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Creates a streaming media pipeline in an Amazon Chime SDK meeting.
+    /// Creates a media live connector pipeline in an Amazon Chime SDK meeting.
     /// </summary>
     [Cmdlet("New", "CHMMPMediaLiveConnectorPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKMediaPipelines.Model.MediaLiveConnectorPipeline")]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Sink
         /// <summary>
         /// <para>
-        /// <para>The media pipeline's data sinks.</para>
+        /// <para>The media live connector pipeline's data sinks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para>The media pipeline's data sources.</para>
+        /// <para>The media live connector pipeline's data sources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags associated with the media pipeline.</para>
+        /// <para>The tags associated with the media live connector pipeline.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -97,6 +97,23 @@ $CHMID_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKIdentity.ExpirationCriterion
+        {
+            ($_ -eq "New-CHMIDAppInstanceUser/ExpirationSettings_ExpirationCriterion") -Or
+            ($_ -eq "Write-CHMIDAppInstanceUserExpirationSetting/ExpirationSettings_ExpirationCriterion")
+        }
+        {
+            $v = "CREATED_TIMESTAMP"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.RespondsTo
+        "New-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo"
+        {
+            $v = "STANDARD_MESSAGES"
+            break
+        }
+
 
     }
 
@@ -107,6 +124,8 @@ $CHMID_Completers = {
 
 $CHMID_map = @{
     "AllowMessages"=@("Register-CHMIDAppInstanceUserEndpoint","Update-CHMIDAppInstanceUserEndpoint")
+    "Configuration_Lex_RespondsTo"=@("New-CHMIDAppInstanceBot")
+    "ExpirationSettings_ExpirationCriterion"=@("New-CHMIDAppInstanceUser","Write-CHMIDAppInstanceUserExpirationSetting")
     "Type"=@("Register-CHMIDAppInstanceUserEndpoint")
 }
 
@@ -162,26 +181,32 @@ $CHMID_SelectCompleters = {
 $CHMID_SelectMap = @{
     "Select"=@("New-CHMIDAppInstance",
                "New-CHMIDAppInstanceAdmin",
+               "New-CHMIDAppInstanceBot",
                "New-CHMIDAppInstanceUser",
                "Remove-CHMIDAppInstance",
                "Remove-CHMIDAppInstanceAdmin",
+               "Remove-CHMIDAppInstanceBot",
                "Remove-CHMIDAppInstanceUser",
                "Unregister-CHMIDAppInstanceUserEndpoint",
                "Get-CHMIDAppInstance",
                "Get-CHMIDAppInstanceAdmin",
+               "Get-CHMIDAppInstanceBot",
                "Get-CHMIDAppInstanceUser",
                "Get-CHMIDAppInstanceUserEndpoint",
                "Get-CHMIDAppInstanceRetentionSetting",
                "Get-CHMIDAppInstanceAdminList",
+               "Get-CHMIDAppInstanceBotList",
                "Get-CHMIDAppInstanceList",
                "Get-CHMIDAppInstanceUserEndpointList",
                "Get-CHMIDAppInstanceUserList",
                "Get-CHMIDResourceTag",
                "Write-CHMIDAppInstanceRetentionSetting",
+               "Write-CHMIDAppInstanceUserExpirationSetting",
                "Register-CHMIDAppInstanceUserEndpoint",
                "Add-CHMIDResourceTag",
                "Remove-CHMIDResourceTag",
                "Update-CHMIDAppInstance",
+               "Update-CHMIDAppInstanceBot",
                "Update-CHMIDAppInstanceUser",
                "Update-CHMIDAppInstanceUserEndpoint")
 }

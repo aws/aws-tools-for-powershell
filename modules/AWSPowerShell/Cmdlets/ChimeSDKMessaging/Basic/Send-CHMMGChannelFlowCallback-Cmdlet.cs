@@ -102,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         public System.String ChannelMessage_Content { get; set; }
         #endregion
         
+        #region Parameter ChannelMessage_ContentType
+        /// <summary>
+        /// <para>
+        /// <para>The content type of the call-back message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChannelMessage_ContentType { get; set; }
+        #endregion
+        
         #region Parameter DeleteResource
         /// <summary>
         /// <para>
@@ -257,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.ChannelMessage_Content = this.ChannelMessage_Content;
+            context.ChannelMessage_ContentType = this.ChannelMessage_ContentType;
             if (this.ChannelMessage_MessageAttribute != null)
             {
                 context.ChannelMessage_MessageAttribute = new Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue>(StringComparer.Ordinal);
@@ -314,6 +325,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (requestChannelMessage_channelMessage_Content != null)
             {
                 request.ChannelMessage.Content = requestChannelMessage_channelMessage_Content;
+                requestChannelMessageIsNull = false;
+            }
+            System.String requestChannelMessage_channelMessage_ContentType = null;
+            if (cmdletContext.ChannelMessage_ContentType != null)
+            {
+                requestChannelMessage_channelMessage_ContentType = cmdletContext.ChannelMessage_ContentType;
+            }
+            if (requestChannelMessage_channelMessage_ContentType != null)
+            {
+                request.ChannelMessage.ContentType = requestChannelMessage_channelMessage_ContentType;
                 requestChannelMessageIsNull = false;
             }
             Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue> requestChannelMessage_channelMessage_MessageAttribute = null;
@@ -474,6 +495,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String CallbackId { get; set; }
             public System.String ChannelArn { get; set; }
             public System.String ChannelMessage_Content { get; set; }
+            public System.String ChannelMessage_ContentType { get; set; }
             public Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue> ChannelMessage_MessageAttribute { get; set; }
             public System.String ChannelMessage_MessageId { get; set; }
             public System.String ChannelMessage_Metadata { get; set; }

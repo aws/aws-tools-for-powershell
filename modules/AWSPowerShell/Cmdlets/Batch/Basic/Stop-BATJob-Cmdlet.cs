@@ -28,11 +28,16 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Cancels a job in an Batch job queue. Jobs that are in the <code>SUBMITTED</code>,
-    /// <code>PENDING</code>, or <code>RUNNABLE</code> state are canceled. Jobs that progressed
-    /// to the <code>STARTING</code> or <code>RUNNING</code> state aren't canceled. However,
-    /// the API operation still succeeds, even if no job is canceled. These jobs must be terminated
-    /// with the <a>TerminateJob</a> operation.
+    /// Cancels a job in an Batch job queue. Jobs that are in the <code>SUBMITTED</code> or
+    /// <code>PENDING</code> are canceled. A job in<code>RUNNABLE</code> remains in <code>RUNNABLE</code>
+    /// until it reaches the head of the job queue. Then the job status is updated to <code>FAILED</code>.
+    /// 
+    ///  
+    /// <para>
+    /// Jobs that progressed to the <code>STARTING</code> or <code>RUNNING</code> state aren't
+    /// canceled. However, the API operation still succeeds, even if no job is canceled. These
+    /// jobs must be terminated with the <a>TerminateJob</a> operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

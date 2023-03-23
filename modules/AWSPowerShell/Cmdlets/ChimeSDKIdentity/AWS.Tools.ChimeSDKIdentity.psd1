@@ -90,6 +90,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CHMIDAppInstance', 
         'Get-CHMIDAppInstanceAdmin', 
         'Get-CHMIDAppInstanceAdminList', 
+        'Get-CHMIDAppInstanceBot', 
+        'Get-CHMIDAppInstanceBotList', 
         'Get-CHMIDAppInstanceList', 
         'Get-CHMIDAppInstanceRetentionSetting', 
         'Get-CHMIDAppInstanceUser', 
@@ -99,17 +101,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CHMIDResourceTag', 
         'New-CHMIDAppInstance', 
         'New-CHMIDAppInstanceAdmin', 
+        'New-CHMIDAppInstanceBot', 
         'New-CHMIDAppInstanceUser', 
         'Register-CHMIDAppInstanceUserEndpoint', 
         'Remove-CHMIDAppInstance', 
         'Remove-CHMIDAppInstanceAdmin', 
+        'Remove-CHMIDAppInstanceBot', 
         'Remove-CHMIDAppInstanceUser', 
         'Remove-CHMIDResourceTag', 
         'Unregister-CHMIDAppInstanceUserEndpoint', 
         'Update-CHMIDAppInstance', 
+        'Update-CHMIDAppInstanceBot', 
         'Update-CHMIDAppInstanceUser', 
         'Update-CHMIDAppInstanceUserEndpoint', 
-        'Write-CHMIDAppInstanceRetentionSetting')
+        'Write-CHMIDAppInstanceRetentionSetting', 
+        'Write-CHMIDAppInstanceUserExpirationSetting')
 
     # Variables to export from this module
     VariablesToExport = '*'

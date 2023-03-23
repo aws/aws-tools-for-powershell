@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMessaging.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMG
 {
     /// <summary>
-    /// Adds a specified number of users to a channel.
+    /// Adds a specified number of users and bots to a channel.
     /// </summary>
     [Cmdlet("New", "CHMMGCreateChannelMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKMessaging.Model.BatchCreateChannelMembershipResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChannelArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the channel to which you're adding users.</para>
+        /// <para>The ARN of the channel to which you're adding users or bots.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter MemberArn
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code>s of the members you want to add to the channel.</para>
+        /// <para>The ARNs of the members you want to add to the channel. Only <code>AppInstanceUsers</code>
+        /// and <code>AppInstanceBots</code> can be added as a channel member.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

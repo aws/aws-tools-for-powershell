@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// deleted. Deleted messages do not appear in the results. This action always returns
     /// the latest version of an edited message.
     /// </para><para>
-    /// Also, the x-amz-chime-bearer request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
+    /// Also, the <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN
+    /// of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the
+    /// API call as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CHMMGChannelMessageList")]
@@ -73,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

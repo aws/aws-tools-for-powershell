@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Sends a message to a particular channel that the member is a part of.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
+    /// as the value in the header.
     /// </para><para>
     /// Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
     /// <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,6 +120,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Content { get; set; }
+        #endregion
+        
+        #region Parameter ContentType
+        /// <summary>
+        /// <para>
+        /// <para>The content type of the channel message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContentType { get; set; }
         #endregion
         
         #region Parameter MessageAttribute
@@ -292,6 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ContentType = this.ContentType;
             if (this.MessageAttribute != null)
             {
                 context.MessageAttribute = new Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue>(StringComparer.Ordinal);
@@ -350,6 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.Content != null)
             {
                 request.Content = cmdletContext.Content;
+            }
+            if (cmdletContext.ContentType != null)
+            {
+                request.ContentType = cmdletContext.ContentType;
             }
             if (cmdletContext.MessageAttribute != null)
             {
@@ -475,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChimeBearer { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String Content { get; set; }
+            public System.String ContentType { get; set; }
             public Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue> MessageAttribute { get; set; }
             public System.String Metadata { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMessagePersistenceType Persistence { get; set; }

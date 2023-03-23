@@ -26,11 +26,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMediaInsightsPipeline" OutputProperty="MediaInsightsPipeline" Verb="New" Noun="MediaInsightsPipeline" ShouldProcessTarget="MediaInsightsPipelineConfigurationArn" PipelineParameter="MediaInsightsPipelineConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="New" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="MediaInsightsPipelineConfigurationName" PipelineParameter="MediaInsightsPipelineConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMediaLiveConnectorPipeline" OutputProperty="MediaLiveConnectorPipeline" Verb="New" Noun="MediaLiveConnectorPipeline" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMediaCapturePipeline" Verb="Remove" Noun="MediaCapturePipeline" ShouldProcessTarget="MediaPipelineId" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMediaInsightsPipelineConfiguration" Verb="Remove" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -42,11 +54,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="Get" Noun="MediaInsightsPipelineConfiguration" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMediaPipeline" OutputProperty="MediaPipeline" Verb="Get" Noun="MediaPipeline" PipelineParameter="MediaPipelineId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMediaCapturePipelines" OutputProperty="MediaCapturePipelines" Verb="Get" Noun="MediaCapturePipelineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMediaInsightsPipelineConfigurations" OutputProperty="MediaInsightsPipelineConfigurations" Verb="Get" Noun="MediaInsightsPipelineConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +83,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMediaInsightsPipelineConfiguration" OutputProperty="MediaInsightsPipelineConfiguration" Verb="Update" Noun="MediaInsightsPipelineConfiguration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMediaInsightsPipelineStatus" Verb="Update" Noun="MediaInsightsPipelineStatus" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>
         /// <para>The namespace of the package to delete. The package component that specifies its namespace
         /// depends on its type. For example:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. The namespace is required
-        /// when deleting Maven package versions. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain corresponding components, packages of those
-        /// formats do not have a namespace. </para></li></ul>
+        /// when deleting Maven package versions. </para></li><li><para> The namespace of an npm package is its <code>scope</code>.</para></li><li><para> Python and NuGet packages do not contain corresponding components, packages of those
+        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -94,6 +94,13 @@ $CHMVO_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKVoice.LanguageCode
+        "Start-CHMVOVoiceToneAnalysisTask/LanguageCode"
+        {
+            $v = "en-US"
+            break
+        }
+
         # Amazon.ChimeSDKVoice.NumberSelectionBehavior
         "New-CHMVOProxySession/NumberSelectionBehavior"
         {
@@ -160,6 +167,7 @@ $CHMVO_map = @{
     "AwsRegion"=@("New-CHMVOVoiceConnector")
     "FilterName"=@("Get-CHMVOPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMVOProxySession")
+    "LanguageCode"=@("Start-CHMVOVoiceToneAnalysisTask")
     "NumberSelectionBehavior"=@("New-CHMVOProxySession")
     "PhoneNumberType"=@("Search-CHMVOAvailablePhoneNumber")
     "ProductType"=@("Get-CHMVOPhoneNumberList","Get-CHMVOSupportedPhoneNumberCountryList","New-CHMVOPhoneNumberOrder","Update-CHMVOPhoneNumber")
@@ -229,6 +237,8 @@ $CHMVO_SelectMap = @{
                "New-CHMVOSipRule",
                "New-CHMVOVoiceConnector",
                "New-CHMVOVoiceConnectorGroup",
+               "New-CHMVOVoiceProfile",
+               "New-CHMVOVoiceProfileDomain",
                "Remove-CHMVOPhoneNumber",
                "Remove-CHMVOProxySession",
                "Remove-CHMVOSipMediaApplication",
@@ -241,6 +251,8 @@ $CHMVO_SelectMap = @{
                "Remove-CHMVOVoiceConnectorStreamingConfiguration",
                "Remove-CHMVOVoiceConnectorTermination",
                "Remove-CHMVOVoiceConnectorTerminationCredential",
+               "Remove-CHMVOVoiceProfile",
+               "Remove-CHMVOVoiceProfileDomain",
                "Remove-CHMVOPhoneNumbersFromVoiceConnector",
                "Remove-CHMVOPhoneNumbersFromVoiceConnectorGroup",
                "Get-CHMVOGlobalSetting",
@@ -252,6 +264,7 @@ $CHMVO_SelectMap = @{
                "Get-CHMVOSipMediaApplicationAlexaSkillConfiguration",
                "Get-CHMVOSipMediaApplicationLoggingConfiguration",
                "Get-CHMVOSipRule",
+               "Get-CHMVOSpeakerSearchTask",
                "Get-CHMVOVoiceConnector",
                "Get-CHMVOVoiceConnectorEmergencyCallingConfiguration",
                "Get-CHMVOVoiceConnectorGroup",
@@ -261,6 +274,9 @@ $CHMVO_SelectMap = @{
                "Get-CHMVOVoiceConnectorStreamingConfiguration",
                "Get-CHMVOVoiceConnectorTermination",
                "Get-CHMVOVoiceConnectorTerminationHealth",
+               "Get-CHMVOVoiceProfile",
+               "Get-CHMVOVoiceProfileDomain",
+               "Get-CHMVOVoiceToneAnalysisTask",
                "Get-CHMVOAvailableVoiceConnectorRegionList",
                "Get-CHMVOPhoneNumberOrderList",
                "Get-CHMVOPhoneNumberList",
@@ -268,9 +284,12 @@ $CHMVO_SelectMap = @{
                "Get-CHMVOSipMediaApplicationList",
                "Get-CHMVOSipRuleList",
                "Get-CHMVOSupportedPhoneNumberCountryList",
+               "Get-CHMVOResourceTag",
                "Get-CHMVOVoiceConnectorGroupList",
                "Get-CHMVOVoiceConnectorList",
                "Get-CHMVOVoiceConnectorTerminationCredentialList",
+               "Get-CHMVOVoiceProfileDomainList",
+               "Get-CHMVOVoiceProfileList",
                "Write-CHMVOSipMediaApplicationAlexaSkillConfiguration",
                "Write-CHMVOSipMediaApplicationLoggingConfiguration",
                "Write-CHMVOVoiceConnectorEmergencyCallingConfiguration",
@@ -282,6 +301,12 @@ $CHMVO_SelectMap = @{
                "Write-CHMVOVoiceConnectorTerminationCredential",
                "Restore-CHMVOPhoneNumber",
                "Search-CHMVOAvailablePhoneNumber",
+               "Start-CHMVOSpeakerSearchTask",
+               "Start-CHMVOVoiceToneAnalysisTask",
+               "Stop-CHMVOSpeakerSearchTask",
+               "Stop-CHMVOVoiceToneAnalysisTask",
+               "Add-CHMVOResourceTag",
+               "Remove-CHMVOResourceTag",
                "Update-CHMVOGlobalSetting",
                "Update-CHMVOPhoneNumber",
                "Update-CHMVOPhoneNumberSetting",
@@ -291,6 +316,8 @@ $CHMVO_SelectMap = @{
                "Update-CHMVOSipRule",
                "Update-CHMVOVoiceConnector",
                "Update-CHMVOVoiceConnectorGroup",
+               "Update-CHMVOVoiceProfile",
+               "Update-CHMVOVoiceProfileDomain",
                "Confirm-CHMVOE911Address")
 }
 

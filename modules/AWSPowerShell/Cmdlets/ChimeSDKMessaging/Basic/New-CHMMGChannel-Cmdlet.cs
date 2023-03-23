@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     ///  
     /// <para><b>Restriction</b>: You can't change a channel's privacy.
     /// </para><note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
+    /// as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "CHMMGChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,6 +103,28 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter ExpirationSettings_ExpirationCriterion
+        /// <summary>
+        /// <para>
+        /// <para>The conditions that must be met for a channel to expire.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKMessaging.ExpirationCriterion")]
+        public Amazon.ChimeSDKMessaging.ExpirationCriterion ExpirationSettings_ExpirationCriterion { get; set; }
+        #endregion
+        
+        #region Parameter ExpirationSettings_ExpirationDay
+        /// <summary>
+        /// <para>
+        /// <para>The period in days after which the system automatically deletes a channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExpirationSettings_ExpirationDays")]
+        public System.Int32? ExpirationSettings_ExpirationDay { get; set; }
         #endregion
         
         #region Parameter ElasticChannelConfiguration_MaximumSubChannel
@@ -302,6 +326,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             context.ElasticChannelConfiguration_MaximumSubChannel = this.ElasticChannelConfiguration_MaximumSubChannel;
             context.ElasticChannelConfiguration_MinimumMembershipPercentage = this.ElasticChannelConfiguration_MinimumMembershipPercentage;
             context.ElasticChannelConfiguration_TargetMembershipsPerSubChannel = this.ElasticChannelConfiguration_TargetMembershipsPerSubChannel;
+            context.ExpirationSettings_ExpirationCriterion = this.ExpirationSettings_ExpirationCriterion;
+            context.ExpirationSettings_ExpirationDay = this.ExpirationSettings_ExpirationDay;
             if (this.MemberArn != null)
             {
                 context.MemberArn = new List<System.String>(this.MemberArn);
@@ -394,6 +420,35 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (requestElasticChannelConfigurationIsNull)
             {
                 request.ElasticChannelConfiguration = null;
+            }
+            
+             // populate ExpirationSettings
+            var requestExpirationSettingsIsNull = true;
+            request.ExpirationSettings = new Amazon.ChimeSDKMessaging.Model.ExpirationSettings();
+            Amazon.ChimeSDKMessaging.ExpirationCriterion requestExpirationSettings_expirationSettings_ExpirationCriterion = null;
+            if (cmdletContext.ExpirationSettings_ExpirationCriterion != null)
+            {
+                requestExpirationSettings_expirationSettings_ExpirationCriterion = cmdletContext.ExpirationSettings_ExpirationCriterion;
+            }
+            if (requestExpirationSettings_expirationSettings_ExpirationCriterion != null)
+            {
+                request.ExpirationSettings.ExpirationCriterion = requestExpirationSettings_expirationSettings_ExpirationCriterion;
+                requestExpirationSettingsIsNull = false;
+            }
+            System.Int32? requestExpirationSettings_expirationSettings_ExpirationDay = null;
+            if (cmdletContext.ExpirationSettings_ExpirationDay != null)
+            {
+                requestExpirationSettings_expirationSettings_ExpirationDay = cmdletContext.ExpirationSettings_ExpirationDay.Value;
+            }
+            if (requestExpirationSettings_expirationSettings_ExpirationDay != null)
+            {
+                request.ExpirationSettings.ExpirationDays = requestExpirationSettings_expirationSettings_ExpirationDay.Value;
+                requestExpirationSettingsIsNull = false;
+            }
+             // determine if request.ExpirationSettings should be set to null
+            if (requestExpirationSettingsIsNull)
+            {
+                request.ExpirationSettings = null;
             }
             if (cmdletContext.MemberArn != null)
             {
@@ -491,6 +546,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.Int32? ElasticChannelConfiguration_MaximumSubChannel { get; set; }
             public System.Int32? ElasticChannelConfiguration_MinimumMembershipPercentage { get; set; }
             public System.Int32? ElasticChannelConfiguration_TargetMembershipsPerSubChannel { get; set; }
+            public Amazon.ChimeSDKMessaging.ExpirationCriterion ExpirationSettings_ExpirationCriterion { get; set; }
+            public System.Int32? ExpirationSettings_ExpirationDay { get; set; }
             public List<System.String> MemberArn { get; set; }
             public System.String Metadata { get; set; }
             public Amazon.ChimeSDKMessaging.ChannelMode Mode { get; set; }

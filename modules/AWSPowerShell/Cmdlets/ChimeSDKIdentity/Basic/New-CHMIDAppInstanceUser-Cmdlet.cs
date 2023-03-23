@@ -80,11 +80,34 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The token assigned to the user requesting an <code>AppInstance</code>.</para>
+        /// <para>The unique ID of the request. Use different tokens to request additional <code>AppInstances</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter ExpirationSettings_ExpirationCriterion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ChimeSDKIdentity.ExpirationCriterion")]
+        public Amazon.ChimeSDKIdentity.ExpirationCriterion ExpirationSettings_ExpirationCriterion { get; set; }
+        #endregion
+        
+        #region Parameter ExpirationSettings_ExpirationDay
+        /// <summary>
+        /// <para>
+        /// <para>The period in days after which an <code>AppInstanceUser</code> will be automatically
+        /// deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExpirationSettings_ExpirationDays")]
+        public System.Int32? ExpirationSettings_ExpirationDay { get; set; }
         #endregion
         
         #region Parameter Metadata
@@ -202,6 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ExpirationSettings_ExpirationCriterion = this.ExpirationSettings_ExpirationCriterion;
+            context.ExpirationSettings_ExpirationDay = this.ExpirationSettings_ExpirationDay;
             context.Metadata = this.Metadata;
             context.Name = this.Name;
             #if MODULAR
@@ -241,6 +266,35 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate ExpirationSettings
+            var requestExpirationSettingsIsNull = true;
+            request.ExpirationSettings = new Amazon.ChimeSDKIdentity.Model.ExpirationSettings();
+            Amazon.ChimeSDKIdentity.ExpirationCriterion requestExpirationSettings_expirationSettings_ExpirationCriterion = null;
+            if (cmdletContext.ExpirationSettings_ExpirationCriterion != null)
+            {
+                requestExpirationSettings_expirationSettings_ExpirationCriterion = cmdletContext.ExpirationSettings_ExpirationCriterion;
+            }
+            if (requestExpirationSettings_expirationSettings_ExpirationCriterion != null)
+            {
+                request.ExpirationSettings.ExpirationCriterion = requestExpirationSettings_expirationSettings_ExpirationCriterion;
+                requestExpirationSettingsIsNull = false;
+            }
+            System.Int32? requestExpirationSettings_expirationSettings_ExpirationDay = null;
+            if (cmdletContext.ExpirationSettings_ExpirationDay != null)
+            {
+                requestExpirationSettings_expirationSettings_ExpirationDay = cmdletContext.ExpirationSettings_ExpirationDay.Value;
+            }
+            if (requestExpirationSettings_expirationSettings_ExpirationDay != null)
+            {
+                request.ExpirationSettings.ExpirationDays = requestExpirationSettings_expirationSettings_ExpirationDay.Value;
+                requestExpirationSettingsIsNull = false;
+            }
+             // determine if request.ExpirationSettings should be set to null
+            if (requestExpirationSettingsIsNull)
+            {
+                request.ExpirationSettings = null;
             }
             if (cmdletContext.Metadata != null)
             {
@@ -318,6 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             public System.String AppInstanceArn { get; set; }
             public System.String AppInstanceUserId { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Amazon.ChimeSDKIdentity.ExpirationCriterion ExpirationSettings_ExpirationCriterion { get; set; }
+            public System.Int32? ExpirationSettings_ExpirationDay { get; set; }
             public System.String Metadata { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ChimeSDKIdentity.Model.Tag> Tag { get; set; }

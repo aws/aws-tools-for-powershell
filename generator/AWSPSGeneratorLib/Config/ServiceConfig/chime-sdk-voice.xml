@@ -62,6 +62,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVoiceProfile" OutputProperty="VoiceProfile" Verb="New" Noun="VoiceProfile" ShouldProcessTarget="SpeakerSearchTaskId" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVoiceProfileDomain" OutputProperty="VoiceProfileDomain" Verb="New" Noun="VoiceProfileDomain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -110,6 +118,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceProfile" Verb="Remove" Noun="VoiceProfile" ShouldProcessTarget="VoiceProfileId" PipelineParameter="VoiceProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceProfileDomain" Verb="Remove" Noun="VoiceProfileDomain" ShouldProcessTarget="VoiceProfileDomainId" PipelineParameter="VoiceProfileDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociatePhoneNumbersFromVoiceConnector" OutputProperty="PhoneNumberErrors" Verb="Remove" Noun="PhoneNumbersFromVoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -154,6 +170,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Get" Noun="SpeakerSearchTask" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVoiceConnector" OutputProperty="VoiceConnector" Verb="Get" Noun="VoiceConnector" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -190,6 +210,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceProfile" OutputProperty="VoiceProfile" Verb="Get" Noun="VoiceProfile" PipelineParameter="VoiceProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceProfileDomain" OutputProperty="VoiceProfileDomain" Verb="Get" Noun="VoiceProfileDomain" PipelineParameter="VoiceProfileDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Get" Noun="VoiceToneAnalysisTask" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAvailableVoiceConnectorRegions" OutputProperty="VoiceConnectorRegions" Verb="Get" Noun="AvailableVoiceConnectorRegionList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -218,6 +250,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListVoiceConnectorGroups" OutputProperty="VoiceConnectorGroups" Verb="Get" Noun="VoiceConnectorGroupList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -227,6 +263,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListVoiceConnectorTerminationCredentials" OutputProperty="Usernames" Verb="Get" Noun="VoiceConnectorTerminationCredentialList" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceProfileDomains" OutputProperty="VoiceProfileDomains" Verb="Get" Noun="VoiceProfileDomainList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceProfiles" OutputProperty="VoiceProfiles" Verb="Get" Noun="VoiceProfileList" PipelineParameter="VoiceProfileDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,6 +320,30 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartSpeakerSearchTask" OutputProperty="SpeakerSearchTask" Verb="Start" Noun="SpeakerSearchTask" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartVoiceToneAnalysisTask" OutputProperty="VoiceToneAnalysisTask" Verb="Start" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopSpeakerSearchTask" Verb="Stop" Noun="SpeakerSearchTask" ShouldProcessTarget="SpeakerSearchTaskId" PipelineParameter="SpeakerSearchTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopVoiceToneAnalysisTask" Verb="Stop" Noun="VoiceToneAnalysisTask" ShouldProcessTarget="VoiceToneAnalysisTaskId" PipelineParameter="VoiceToneAnalysisTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateGlobalSettings" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="VoiceConnector_CdrBucket" PipelineParameter="VoiceConnector_CdrBucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -309,6 +377,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVoiceConnectorGroup" OutputProperty="VoiceConnectorGroup" Verb="Update" Noun="VoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVoiceProfile" OutputProperty="VoiceProfile" Verb="Update" Noun="VoiceProfile" ShouldProcessTarget="VoiceProfileId" PipelineParameter="VoiceProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVoiceProfileDomain" OutputProperty="VoiceProfileDomain" Verb="Update" Noun="VoiceProfileDomain" ShouldProcessTarget="VoiceProfileDomainId" PipelineParameter="VoiceProfileDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

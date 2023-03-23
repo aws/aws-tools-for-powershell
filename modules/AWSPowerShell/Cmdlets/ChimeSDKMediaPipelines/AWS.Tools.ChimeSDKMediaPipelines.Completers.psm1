@@ -111,10 +111,24 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.FragmentSelectorType
+        "New-CHMMPMediaInsightsPipeline/KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"
+        {
+            $v = "ProducerTimestamp","ServerTimestamp"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.LayoutOption
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"
         {
             $v = "GridView"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.MediaEncoding
+        "New-CHMMPMediaInsightsPipeline/KinesisVideoStreamSourceRuntimeConfiguration_MediaEncoding"
+        {
+            $v = "pcm"
             break
         }
 
@@ -132,10 +146,24 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.MediaPipelineStatusUpdate
+        "Update-CHMMPMediaInsightsPipelineStatus/UpdateStatus"
+        {
+            $v = "Pause","Resume"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.PresenterPosition
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"
         {
             $v = "BottomLeft","BottomRight","TopLeft","TopRight"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.RecordingFileFormat
+        "New-CHMMPMediaInsightsPipeline/S3RecordingSinkRuntimeConfiguration_RecordingFileFormat"
+        {
+            $v = "Opus","Wav"
             break
         }
 
@@ -171,8 +199,12 @@ $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State"=@("New-CHMMPMediaCapturePipeline")
+    "KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"=@("New-CHMMPMediaInsightsPipeline")
+    "KinesisVideoStreamSourceRuntimeConfiguration_MediaEncoding"=@("New-CHMMPMediaInsightsPipeline")
+    "S3RecordingSinkRuntimeConfiguration_RecordingFileFormat"=@("New-CHMMPMediaInsightsPipeline")
     "SinkType"=@("New-CHMMPMediaCapturePipeline")
     "SourceType"=@("New-CHMMPMediaCapturePipeline")
+    "UpdateStatus"=@("Update-CHMMPMediaInsightsPipelineStatus")
 }
 
 _awsArgumentCompleterRegistration $CHMMP_Completers $CHMMP_map
@@ -227,16 +259,23 @@ $CHMMP_SelectCompleters = {
 $CHMMP_SelectMap = @{
     "Select"=@("New-CHMMPMediaCapturePipeline",
                "New-CHMMPMediaConcatenationPipeline",
+               "New-CHMMPMediaInsightsPipeline",
+               "New-CHMMPMediaInsightsPipelineConfiguration",
                "New-CHMMPMediaLiveConnectorPipeline",
                "Remove-CHMMPMediaCapturePipeline",
+               "Remove-CHMMPMediaInsightsPipelineConfiguration",
                "Remove-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipeline",
+               "Get-CHMMPMediaInsightsPipelineConfiguration",
                "Get-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipelineList",
+               "Get-CHMMPMediaInsightsPipelineConfigurationList",
                "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
                "Add-CHMMPResourceTag",
-               "Remove-CHMMPResourceTag")
+               "Remove-CHMMPResourceTag",
+               "Update-CHMMPMediaInsightsPipelineConfiguration",
+               "Update-CHMMPMediaInsightsPipelineStatus")
 }
 
 _awsArgumentCompleterRegistration $CHMMP_SelectCompleters $CHMMP_SelectMap

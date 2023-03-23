@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
     /// Updates the content of a message.
     /// 
     ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
-    /// of the user that makes the API call as the value in the header.
+    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
+    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
+    /// as the value in the header.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "CHMMGChannelMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         #region Parameter ChimeBearer
         /// <summary>
         /// <para>
-        /// <para>The <code>AppInstanceUserArn</code> of the user that makes the API call.</para>
+        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
+        /// the API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +88,25 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// <para>The content of the message being updated.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Content { get; set; }
+        #endregion
+        
+        #region Parameter ContentType
+        /// <summary>
+        /// <para>
+        /// <para>The content type of the channel message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContentType { get; set; }
         #endregion
         
         #region Parameter MessageId
@@ -204,6 +223,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.Content = this.Content;
+            #if MODULAR
+            if (this.Content == null && ParameterWasBound(nameof(this.Content)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ContentType = this.ContentType;
             context.MessageId = this.MessageId;
             #if MODULAR
             if (this.MessageId == null && ParameterWasBound(nameof(this.MessageId)))
@@ -240,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             if (cmdletContext.Content != null)
             {
                 request.Content = cmdletContext.Content;
+            }
+            if (cmdletContext.ContentType != null)
+            {
+                request.ContentType = cmdletContext.ContentType;
             }
             if (cmdletContext.MessageId != null)
             {
@@ -317,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             public System.String ChannelArn { get; set; }
             public System.String ChimeBearer { get; set; }
             public System.String Content { get; set; }
+            public System.String ContentType { get; set; }
             public System.String MessageId { get; set; }
             public System.String Metadata { get; set; }
             public System.String SubChannelId { get; set; }

@@ -425,8 +425,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// based on the job queue demand.</para><para>If the state is <code>DISABLED</code>, then the Batch scheduler doesn't attempt to
         /// place jobs within the environment. Jobs in a <code>STARTING</code> or <code>RUNNING</code>
         /// state continue to progress normally. Managed compute environments in the <code>DISABLED</code>
-        /// state don't scale out. However, they scale in to <code>minvCpus</code> value after
-        /// instances become idle.</para>
+        /// state don't scale out. </para><note><para>Compute environments in a <code>DISABLED</code> state may continue to incur billing
+        /// charges. To prevent additional charges, turn off and then delete the compute environment.
+        /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state">State</a>
+        /// in the <i>Batch User Guide</i>.</para></note><para>When an instance is idle, the instance scales down to the <code>minvCpus</code> value.
+        /// However, the instance size doesn't change. For example, consider a <code>c5.8xlarge</code>
+        /// instance with a <code>minvCpus</code> value of <code>4</code> and a <code>desiredvCpus</code>
+        /// value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
+        /// instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

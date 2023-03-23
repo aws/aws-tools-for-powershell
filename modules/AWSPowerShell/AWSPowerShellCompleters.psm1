@@ -6793,6 +6793,23 @@ $CHMID_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKIdentity.ExpirationCriterion
+        {
+            ($_ -eq "New-CHMIDAppInstanceUser/ExpirationSettings_ExpirationCriterion") -Or
+            ($_ -eq "Write-CHMIDAppInstanceUserExpirationSetting/ExpirationSettings_ExpirationCriterion")
+        }
+        {
+            $v = "CREATED_TIMESTAMP"
+            break
+        }
+
+        # Amazon.ChimeSDKIdentity.RespondsTo
+        "New-CHMIDAppInstanceBot/Configuration_Lex_RespondsTo"
+        {
+            $v = "STANDARD_MESSAGES"
+            break
+        }
+
 
     }
 
@@ -6803,6 +6820,8 @@ $CHMID_Completers = {
 
 $CHMID_map = @{
     "AllowMessages"=@("Register-CHMIDAppInstanceUserEndpoint","Update-CHMIDAppInstanceUserEndpoint")
+    "Configuration_Lex_RespondsTo"=@("New-CHMIDAppInstanceBot")
+    "ExpirationSettings_ExpirationCriterion"=@("New-CHMIDAppInstanceUser","Write-CHMIDAppInstanceUserExpirationSetting")
     "Type"=@("Register-CHMIDAppInstanceUserEndpoint")
 }
 
@@ -6858,26 +6877,32 @@ $CHMID_SelectCompleters = {
 $CHMID_SelectMap = @{
     "Select"=@("New-CHMIDAppInstance",
                "New-CHMIDAppInstanceAdmin",
+               "New-CHMIDAppInstanceBot",
                "New-CHMIDAppInstanceUser",
                "Remove-CHMIDAppInstance",
                "Remove-CHMIDAppInstanceAdmin",
+               "Remove-CHMIDAppInstanceBot",
                "Remove-CHMIDAppInstanceUser",
                "Unregister-CHMIDAppInstanceUserEndpoint",
                "Get-CHMIDAppInstance",
                "Get-CHMIDAppInstanceAdmin",
+               "Get-CHMIDAppInstanceBot",
                "Get-CHMIDAppInstanceUser",
                "Get-CHMIDAppInstanceUserEndpoint",
                "Get-CHMIDAppInstanceRetentionSetting",
                "Get-CHMIDAppInstanceAdminList",
+               "Get-CHMIDAppInstanceBotList",
                "Get-CHMIDAppInstanceList",
                "Get-CHMIDAppInstanceUserEndpointList",
                "Get-CHMIDAppInstanceUserList",
                "Get-CHMIDResourceTag",
                "Write-CHMIDAppInstanceRetentionSetting",
+               "Write-CHMIDAppInstanceUserExpirationSetting",
                "Register-CHMIDAppInstanceUserEndpoint",
                "Add-CHMIDResourceTag",
                "Remove-CHMIDResourceTag",
                "Update-CHMIDAppInstance",
+               "Update-CHMIDAppInstanceBot",
                "Update-CHMIDAppInstanceUser",
                "Update-CHMIDAppInstanceUserEndpoint")
 }
@@ -6922,10 +6947,24 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.FragmentSelectorType
+        "New-CHMMPMediaInsightsPipeline/KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"
+        {
+            $v = "ProducerTimestamp","ServerTimestamp"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.LayoutOption
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_Layout"
         {
             $v = "GridView"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.MediaEncoding
+        "New-CHMMPMediaInsightsPipeline/KinesisVideoStreamSourceRuntimeConfiguration_MediaEncoding"
+        {
+            $v = "pcm"
             break
         }
 
@@ -6943,10 +6982,24 @@ $CHMMP_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMediaPipelines.MediaPipelineStatusUpdate
+        "Update-CHMMPMediaInsightsPipelineStatus/UpdateStatus"
+        {
+            $v = "Pause","Resume"
+            break
+        }
+
         # Amazon.ChimeSDKMediaPipelines.PresenterPosition
         "New-CHMMPMediaCapturePipeline/ChimeSdkMeetingConfiguration_ArtifactsConfiguration_CompositedVideo_GridViewConfiguration_PresenterOnlyConfiguration_PresenterPosition"
         {
             $v = "BottomLeft","BottomRight","TopLeft","TopRight"
+            break
+        }
+
+        # Amazon.ChimeSDKMediaPipelines.RecordingFileFormat
+        "New-CHMMPMediaInsightsPipeline/S3RecordingSinkRuntimeConfiguration_RecordingFileFormat"
+        {
+            $v = "Opus","Wav"
             break
         }
 
@@ -6982,8 +7035,12 @@ $CHMMP_map = @{
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Content_State"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_MuxType"=@("New-CHMMPMediaCapturePipeline")
     "ChimeSdkMeetingConfiguration_ArtifactsConfiguration_Video_State"=@("New-CHMMPMediaCapturePipeline")
+    "KinesisVideoStreamRecordingSourceRuntimeConfiguration_FragmentSelector_FragmentSelectorType"=@("New-CHMMPMediaInsightsPipeline")
+    "KinesisVideoStreamSourceRuntimeConfiguration_MediaEncoding"=@("New-CHMMPMediaInsightsPipeline")
+    "S3RecordingSinkRuntimeConfiguration_RecordingFileFormat"=@("New-CHMMPMediaInsightsPipeline")
     "SinkType"=@("New-CHMMPMediaCapturePipeline")
     "SourceType"=@("New-CHMMPMediaCapturePipeline")
+    "UpdateStatus"=@("Update-CHMMPMediaInsightsPipelineStatus")
 }
 
 _awsArgumentCompleterRegistration $CHMMP_Completers $CHMMP_map
@@ -7038,16 +7095,23 @@ $CHMMP_SelectCompleters = {
 $CHMMP_SelectMap = @{
     "Select"=@("New-CHMMPMediaCapturePipeline",
                "New-CHMMPMediaConcatenationPipeline",
+               "New-CHMMPMediaInsightsPipeline",
+               "New-CHMMPMediaInsightsPipelineConfiguration",
                "New-CHMMPMediaLiveConnectorPipeline",
                "Remove-CHMMPMediaCapturePipeline",
+               "Remove-CHMMPMediaInsightsPipelineConfiguration",
                "Remove-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipeline",
+               "Get-CHMMPMediaInsightsPipelineConfiguration",
                "Get-CHMMPMediaPipeline",
                "Get-CHMMPMediaCapturePipelineList",
+               "Get-CHMMPMediaInsightsPipelineConfigurationList",
                "Get-CHMMPMediaPipelineList",
                "Get-CHMMPResourceTag",
                "Add-CHMMPResourceTag",
-               "Remove-CHMMPResourceTag")
+               "Remove-CHMMPResourceTag",
+               "Update-CHMMPMediaInsightsPipelineConfiguration",
+               "Update-CHMMPMediaInsightsPipelineStatus")
 }
 
 _awsArgumentCompleterRegistration $CHMMP_SelectCompleters $CHMMP_SelectMap
@@ -7322,6 +7386,16 @@ $CHMMG_Completers = {
             break
         }
 
+        # Amazon.ChimeSDKMessaging.ExpirationCriterion
+        {
+            ($_ -eq "New-CHMMGChannel/ExpirationSettings_ExpirationCriterion") -Or
+            ($_ -eq "Write-CHMMGChannelExpirationSetting/ExpirationSettings_ExpirationCriterion")
+        }
+        {
+            $v = "CREATED_TIMESTAMP","LAST_MESSAGE_TIMESTAMP"
+            break
+        }
+
         # Amazon.ChimeSDKMessaging.PushNotificationType
         {
             ($_ -eq "Send-CHMMGChannelFlowCallback/ChannelMessage_PushNotification_Type") -Or
@@ -7349,6 +7423,7 @@ $CHMMG_Completers = {
 
 $CHMMG_map = @{
     "ChannelMessage_PushNotification_Type"=@("Send-CHMMGChannelFlowCallback")
+    "ExpirationSettings_ExpirationCriterion"=@("New-CHMMGChannel","Write-CHMMGChannelExpirationSetting")
     "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
     "Persistence"=@("Send-CHMMGChannelMessage")
     "Preferences_PushNotifications_AllowNotifications"=@("Write-CHMMGChannelMembershipPreference")
@@ -7447,6 +7522,7 @@ $CHMMG_SelectMap = @{
                "Get-CHMMGChannelsModeratedByAppInstanceUserList",
                "Get-CHMMGSubChannelList",
                "Get-CHMMGResourceTag",
+               "Write-CHMMGChannelExpirationSetting",
                "Write-CHMMGChannelMembershipPreference",
                "Write-CHMMGMessagingStreamingConfiguration",
                "Hide-CHMMGChannelMessage",
@@ -7480,6 +7556,13 @@ $CHMVO_Completers = {
         "New-CHMVOProxySession/GeoMatchLevel"
         {
             $v = "AreaCode","Country"
+            break
+        }
+
+        # Amazon.ChimeSDKVoice.LanguageCode
+        "Start-CHMVOVoiceToneAnalysisTask/LanguageCode"
+        {
+            $v = "en-US"
             break
         }
 
@@ -7549,6 +7632,7 @@ $CHMVO_map = @{
     "AwsRegion"=@("New-CHMVOVoiceConnector")
     "FilterName"=@("Get-CHMVOPhoneNumberList")
     "GeoMatchLevel"=@("New-CHMVOProxySession")
+    "LanguageCode"=@("Start-CHMVOVoiceToneAnalysisTask")
     "NumberSelectionBehavior"=@("New-CHMVOProxySession")
     "PhoneNumberType"=@("Search-CHMVOAvailablePhoneNumber")
     "ProductType"=@("Get-CHMVOPhoneNumberList","Get-CHMVOSupportedPhoneNumberCountryList","New-CHMVOPhoneNumberOrder","Update-CHMVOPhoneNumber")
@@ -7618,6 +7702,8 @@ $CHMVO_SelectMap = @{
                "New-CHMVOSipRule",
                "New-CHMVOVoiceConnector",
                "New-CHMVOVoiceConnectorGroup",
+               "New-CHMVOVoiceProfile",
+               "New-CHMVOVoiceProfileDomain",
                "Remove-CHMVOPhoneNumber",
                "Remove-CHMVOProxySession",
                "Remove-CHMVOSipMediaApplication",
@@ -7630,6 +7716,8 @@ $CHMVO_SelectMap = @{
                "Remove-CHMVOVoiceConnectorStreamingConfiguration",
                "Remove-CHMVOVoiceConnectorTermination",
                "Remove-CHMVOVoiceConnectorTerminationCredential",
+               "Remove-CHMVOVoiceProfile",
+               "Remove-CHMVOVoiceProfileDomain",
                "Remove-CHMVOPhoneNumbersFromVoiceConnector",
                "Remove-CHMVOPhoneNumbersFromVoiceConnectorGroup",
                "Get-CHMVOGlobalSetting",
@@ -7641,6 +7729,7 @@ $CHMVO_SelectMap = @{
                "Get-CHMVOSipMediaApplicationAlexaSkillConfiguration",
                "Get-CHMVOSipMediaApplicationLoggingConfiguration",
                "Get-CHMVOSipRule",
+               "Get-CHMVOSpeakerSearchTask",
                "Get-CHMVOVoiceConnector",
                "Get-CHMVOVoiceConnectorEmergencyCallingConfiguration",
                "Get-CHMVOVoiceConnectorGroup",
@@ -7650,6 +7739,9 @@ $CHMVO_SelectMap = @{
                "Get-CHMVOVoiceConnectorStreamingConfiguration",
                "Get-CHMVOVoiceConnectorTermination",
                "Get-CHMVOVoiceConnectorTerminationHealth",
+               "Get-CHMVOVoiceProfile",
+               "Get-CHMVOVoiceProfileDomain",
+               "Get-CHMVOVoiceToneAnalysisTask",
                "Get-CHMVOAvailableVoiceConnectorRegionList",
                "Get-CHMVOPhoneNumberOrderList",
                "Get-CHMVOPhoneNumberList",
@@ -7657,9 +7749,12 @@ $CHMVO_SelectMap = @{
                "Get-CHMVOSipMediaApplicationList",
                "Get-CHMVOSipRuleList",
                "Get-CHMVOSupportedPhoneNumberCountryList",
+               "Get-CHMVOResourceTag",
                "Get-CHMVOVoiceConnectorGroupList",
                "Get-CHMVOVoiceConnectorList",
                "Get-CHMVOVoiceConnectorTerminationCredentialList",
+               "Get-CHMVOVoiceProfileDomainList",
+               "Get-CHMVOVoiceProfileList",
                "Write-CHMVOSipMediaApplicationAlexaSkillConfiguration",
                "Write-CHMVOSipMediaApplicationLoggingConfiguration",
                "Write-CHMVOVoiceConnectorEmergencyCallingConfiguration",
@@ -7671,6 +7766,12 @@ $CHMVO_SelectMap = @{
                "Write-CHMVOVoiceConnectorTerminationCredential",
                "Restore-CHMVOPhoneNumber",
                "Search-CHMVOAvailablePhoneNumber",
+               "Start-CHMVOSpeakerSearchTask",
+               "Start-CHMVOVoiceToneAnalysisTask",
+               "Stop-CHMVOSpeakerSearchTask",
+               "Stop-CHMVOVoiceToneAnalysisTask",
+               "Add-CHMVOResourceTag",
+               "Remove-CHMVOResourceTag",
                "Update-CHMVOGlobalSetting",
                "Update-CHMVOPhoneNumber",
                "Update-CHMVOPhoneNumberSetting",
@@ -7680,6 +7781,8 @@ $CHMVO_SelectMap = @{
                "Update-CHMVOSipRule",
                "Update-CHMVOVoiceConnector",
                "Update-CHMVOVoiceConnectorGroup",
+               "Update-CHMVOVoiceProfile",
+               "Update-CHMVOVoiceProfileDomain",
                "Confirm-CHMVOE911Address")
 }
 
@@ -26207,6 +26310,13 @@ $GD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GuardDuty.AutoEnableMembers
+        "Update-GDOrganizationConfiguration/AutoEnableOrganizationMembers"
+        {
+            $v = "ALL","NEW","NONE"
+            break
+        }
+
         # Amazon.GuardDuty.DestinationType
         "New-GDPublishingDestination/DestinationType"
         {
@@ -26279,6 +26389,7 @@ $GD_Completers = {
 
 $GD_map = @{
     "Action"=@("New-GDFilter","Update-GDFilter")
+    "AutoEnableOrganizationMembers"=@("Update-GDOrganizationConfiguration")
     "DestinationType"=@("New-GDPublishingDestination")
     "EbsSnapshotPreservation"=@("Update-GDMalwareScanSetting")
     "Feedback"=@("Update-GDFindingFeedback")
@@ -30748,6 +30859,70 @@ $IVSC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $IVSC_SelectCompleters $IVSC_SelectMap
+# Argument completions for service Amazon Interactive Video Service RealTime
+
+
+$IVSRT_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.IVSRT.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IVSRT_SelectMap = @{
+    "Select"=@("New-IVSRTParticipantToken",
+               "New-IVSRTStage",
+               "Remove-IVSRTStage",
+               "Disconnect-IVSRTParticipant",
+               "Get-IVSRTStage",
+               "Get-IVSRTStageList",
+               "Get-IVSRTResourceTag",
+               "Add-IVSRTResourceTag",
+               "Remove-IVSRTResourceTag",
+               "Update-IVSRTStage")
+}
+
+_awsArgumentCompleterRegistration $IVSRT_SelectCompleters $IVSRT_SelectMap
 # Argument completions for service Amazon Managed Streaming for Apache Kafka (MSK)
 
 
@@ -48631,7 +48806,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
             break
         }
 
@@ -48702,7 +48877,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AutoMLMetricEnum
-        "New-SMAutoMLJob/AutoMLJobObjective_MetricName"
+        {
+            ($_ -eq "New-SMAutoMLJob/AutoMLJobObjective_MetricName") -Or
+            ($_ -eq "New-SMAutoMLJobV2/AutoMLJobObjective_MetricName")
+        }
         {
             $v = "Accuracy","AUC","BalancedAccuracy","F1","F1macro","MAE","MSE","Precision","PrecisionMacro","R2","Recall","RecallMacro","RMSE"
             break
@@ -49839,7 +50017,7 @@ $SM_map = @{
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
-    "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")
+    "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DataQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
@@ -49989,6 +50167,7 @@ $SM_SelectMap = @{
                "New-SMAppImageConfig",
                "New-SMArtifact",
                "New-SMAutoMLJob",
+               "New-SMAutoMLJobV2",
                "New-SMCodeRepository",
                "New-SMCompilationJob",
                "New-SMContext",
@@ -50088,6 +50267,7 @@ $SM_SelectMap = @{
                "Get-SMAppImageConfig",
                "Get-SMArtifact",
                "Get-SMAutoMLJob",
+               "Get-SMAutoMLJobV2",
                "Get-SMCodeRepository",
                "Get-SMCompilationJob",
                "Get-SMContext",

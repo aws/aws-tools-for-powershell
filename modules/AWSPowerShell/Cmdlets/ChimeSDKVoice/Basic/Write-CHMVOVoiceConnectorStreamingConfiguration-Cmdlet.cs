@@ -40,6 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class WriteCHMVOVoiceConnectorStreamingConfigurationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter MediaInsightsConfiguration_ConfigurationArn
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamingConfiguration_MediaInsightsConfiguration_ConfigurationArn")]
+        public System.String MediaInsightsConfiguration_ConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter StreamingConfiguration_DataRetentionInHour
         /// <summary>
         /// <para>
@@ -71,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? StreamingConfiguration_Disabled { get; set; }
+        #endregion
+        
+        #region Parameter MediaInsightsConfiguration_Disabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamingConfiguration_MediaInsightsConfiguration_Disabled")]
+        public System.Boolean? MediaInsightsConfiguration_Disabled { get; set; }
         #endregion
         
         #region Parameter StreamingConfiguration_StreamingNotificationTarget
@@ -177,6 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 WriteWarning("You are passing $null as a value for parameter StreamingConfiguration_Disabled which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MediaInsightsConfiguration_ConfigurationArn = this.MediaInsightsConfiguration_ConfigurationArn;
+            context.MediaInsightsConfiguration_Disabled = this.MediaInsightsConfiguration_Disabled;
             if (this.StreamingConfiguration_StreamingNotificationTarget != null)
             {
                 context.StreamingConfiguration_StreamingNotificationTarget = new List<Amazon.ChimeSDKVoice.Model.StreamingNotificationTarget>(this.StreamingConfiguration_StreamingNotificationTarget);
@@ -236,6 +264,41 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (requestStreamingConfiguration_streamingConfiguration_StreamingNotificationTarget != null)
             {
                 request.StreamingConfiguration.StreamingNotificationTargets = requestStreamingConfiguration_streamingConfiguration_StreamingNotificationTarget;
+                requestStreamingConfigurationIsNull = false;
+            }
+            Amazon.ChimeSDKVoice.Model.MediaInsightsConfiguration requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration = null;
+            
+             // populate MediaInsightsConfiguration
+            var requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfigurationIsNull = true;
+            requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration = new Amazon.ChimeSDKVoice.Model.MediaInsightsConfiguration();
+            System.String requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_ConfigurationArn = null;
+            if (cmdletContext.MediaInsightsConfiguration_ConfigurationArn != null)
+            {
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_ConfigurationArn = cmdletContext.MediaInsightsConfiguration_ConfigurationArn;
+            }
+            if (requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_ConfigurationArn != null)
+            {
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration.ConfigurationArn = requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_ConfigurationArn;
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfigurationIsNull = false;
+            }
+            System.Boolean? requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_Disabled = null;
+            if (cmdletContext.MediaInsightsConfiguration_Disabled != null)
+            {
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_Disabled = cmdletContext.MediaInsightsConfiguration_Disabled.Value;
+            }
+            if (requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_Disabled != null)
+            {
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration.Disabled = requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration_mediaInsightsConfiguration_Disabled.Value;
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfigurationIsNull = false;
+            }
+             // determine if requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration should be set to null
+            if (requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfigurationIsNull)
+            {
+                requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration = null;
+            }
+            if (requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration != null)
+            {
+                request.StreamingConfiguration.MediaInsightsConfiguration = requestStreamingConfiguration_streamingConfiguration_MediaInsightsConfiguration;
                 requestStreamingConfigurationIsNull = false;
             }
              // determine if request.StreamingConfiguration should be set to null
@@ -310,6 +373,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         {
             public System.Int32? StreamingConfiguration_DataRetentionInHour { get; set; }
             public System.Boolean? StreamingConfiguration_Disabled { get; set; }
+            public System.String MediaInsightsConfiguration_ConfigurationArn { get; set; }
+            public System.Boolean? MediaInsightsConfiguration_Disabled { get; set; }
             public List<Amazon.ChimeSDKVoice.Model.StreamingNotificationTarget> StreamingConfiguration_StreamingNotificationTarget { get; set; }
             public System.String VoiceConnectorId { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.PutVoiceConnectorStreamingConfigurationResponse, WriteCHMVOVoiceConnectorStreamingConfigurationCmdlet, object> Select { get; set; } =

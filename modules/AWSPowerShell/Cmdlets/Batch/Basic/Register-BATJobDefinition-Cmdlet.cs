@@ -266,6 +266,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_JobRoleArn { get; set; }
         #endregion
         
+        #region Parameter Metadata_Label
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksProperties_PodProperties_Metadata_Labels")]
+        public System.Collections.Hashtable Metadata_Label { get; set; }
+        #endregion
+        
         #region Parameter LogConfiguration_LogDriver
         /// <summary>
         /// <para>
@@ -550,6 +561,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? LinuxParameters_SharedMemorySize { get; set; }
         #endregion
         
+        #region Parameter EphemeralStorage_SizeInGiB
+        /// <summary>
+        /// <para>
+        /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
+        /// value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_EphemeralStorage_SizeInGiB")]
+        public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
+        #endregion
+        
         #region Parameter LinuxParameters_Swappiness
         /// <summary>
         /// <para>
@@ -801,6 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ContainerProperties_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerProperties_Environment);
             }
+            context.EphemeralStorage_SizeInGiB = this.EphemeralStorage_SizeInGiB;
             context.ContainerProperties_ExecutionRoleArn = this.ContainerProperties_ExecutionRoleArn;
             context.FargatePlatformConfiguration_PlatformVersion = this.FargatePlatformConfiguration_PlatformVersion;
             context.ContainerProperties_Image = this.ContainerProperties_Image;
@@ -867,6 +891,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.PodProperties_DnsPolicy = this.PodProperties_DnsPolicy;
             context.PodProperties_HostNetwork = this.PodProperties_HostNetwork;
+            if (this.Metadata_Label != null)
+            {
+                context.Metadata_Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata_Label.Keys)
+                {
+                    context.Metadata_Label.Add((String)hashKey, (String)(this.Metadata_Label[hashKey]));
+                }
+            }
             context.PodProperties_ServiceAccountName = this.PodProperties_ServiceAccountName;
             if (this.PodProperties_Volume != null)
             {
@@ -1104,6 +1136,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.Volumes = requestContainerProperties_containerProperties_Volume;
                 requestContainerPropertiesIsNull = false;
             }
+            Amazon.Batch.Model.EphemeralStorage requestContainerProperties_containerProperties_EphemeralStorage = null;
+            
+             // populate EphemeralStorage
+            var requestContainerProperties_containerProperties_EphemeralStorageIsNull = true;
+            requestContainerProperties_containerProperties_EphemeralStorage = new Amazon.Batch.Model.EphemeralStorage();
+            System.Int32? requestContainerProperties_containerProperties_EphemeralStorage_ephemeralStorage_SizeInGiB = null;
+            if (cmdletContext.EphemeralStorage_SizeInGiB != null)
+            {
+                requestContainerProperties_containerProperties_EphemeralStorage_ephemeralStorage_SizeInGiB = cmdletContext.EphemeralStorage_SizeInGiB.Value;
+            }
+            if (requestContainerProperties_containerProperties_EphemeralStorage_ephemeralStorage_SizeInGiB != null)
+            {
+                requestContainerProperties_containerProperties_EphemeralStorage.SizeInGiB = requestContainerProperties_containerProperties_EphemeralStorage_ephemeralStorage_SizeInGiB.Value;
+                requestContainerProperties_containerProperties_EphemeralStorageIsNull = false;
+            }
+             // determine if requestContainerProperties_containerProperties_EphemeralStorage should be set to null
+            if (requestContainerProperties_containerProperties_EphemeralStorageIsNull)
+            {
+                requestContainerProperties_containerProperties_EphemeralStorage = null;
+            }
+            if (requestContainerProperties_containerProperties_EphemeralStorage != null)
+            {
+                request.ContainerProperties.EphemeralStorage = requestContainerProperties_containerProperties_EphemeralStorage;
+                requestContainerPropertiesIsNull = false;
+            }
             Amazon.Batch.Model.FargatePlatformConfiguration requestContainerProperties_containerProperties_FargatePlatformConfiguration = null;
             
              // populate FargatePlatformConfiguration
@@ -1338,6 +1395,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 requestEksProperties_eksProperties_PodProperties.Volumes = requestEksProperties_eksProperties_PodProperties_podProperties_Volume;
                 requestEksProperties_eksProperties_PodPropertiesIsNull = false;
             }
+            Amazon.Batch.Model.EksMetadata requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata = null;
+            
+             // populate Metadata
+            var requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull = true;
+            requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata = new Amazon.Batch.Model.EksMetadata();
+            Dictionary<System.String, System.String> requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label = null;
+            if (cmdletContext.Metadata_Label != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label = cmdletContext.Metadata_Label;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata.Labels = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata_metadata_Label;
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull = false;
+            }
+             // determine if requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata should be set to null
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_MetadataIsNull)
+            {
+                requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata = null;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata != null)
+            {
+                requestEksProperties_eksProperties_PodProperties.Metadata = requestEksProperties_eksProperties_PodProperties_eksProperties_PodProperties_Metadata;
+                requestEksProperties_eksProperties_PodPropertiesIsNull = false;
+            }
              // determine if requestEksProperties_eksProperties_PodProperties should be set to null
             if (requestEksProperties_eksProperties_PodPropertiesIsNull)
             {
@@ -1516,6 +1598,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             public List<System.String> ContainerProperties_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
+            public System.Int32? EphemeralStorage_SizeInGiB { get; set; }
             public System.String ContainerProperties_ExecutionRoleArn { get; set; }
             public System.String FargatePlatformConfiguration_PlatformVersion { get; set; }
             public System.String ContainerProperties_Image { get; set; }
@@ -1546,6 +1629,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.EksContainer> PodProperties_Container { get; set; }
             public System.String PodProperties_DnsPolicy { get; set; }
             public System.Boolean? PodProperties_HostNetwork { get; set; }
+            public Dictionary<System.String, System.String> Metadata_Label { get; set; }
             public System.String PodProperties_ServiceAccountName { get; set; }
             public List<Amazon.Batch.Model.EksVolume> PodProperties_Volume { get; set; }
             public System.String JobDefinitionName { get; set; }

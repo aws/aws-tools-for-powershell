@@ -1,4 +1,59 @@
-﻿### 4.1.297 (2023-03-22 21:02Z)
+﻿### 4.1.298 (2023-03-23 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.511.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameters EphemeralStorage_SizeInGiB and Metadata_Label.
+    * Modified cmdlet Submit-BATJob: added parameter Metadata_Label.
+  * Amazon Chime SDK Identity
+    * Added cmdlet Get-CHMIDAppInstanceBot leveraging the DescribeAppInstanceBot service API.
+    * Added cmdlet Get-CHMIDAppInstanceBotList leveraging the ListAppInstanceBots service API.
+    * Added cmdlet New-CHMIDAppInstanceBot leveraging the CreateAppInstanceBot service API.
+    * Added cmdlet Remove-CHMIDAppInstanceBot leveraging the DeleteAppInstanceBot service API.
+    * Added cmdlet Update-CHMIDAppInstanceBot leveraging the UpdateAppInstanceBot service API.
+    * Added cmdlet Write-CHMIDAppInstanceUserExpirationSetting leveraging the PutAppInstanceUserExpirationSettings service API.
+    * Modified cmdlet New-CHMIDAppInstanceUser: added parameters ExpirationSettings_ExpirationCriterion and ExpirationSettings_ExpirationDay.
+  * Amazon Chime SDK Media Pipelines
+    * Added cmdlet Get-CHMMPMediaInsightsPipelineConfiguration leveraging the GetMediaInsightsPipelineConfiguration service API.
+    * Added cmdlet Get-CHMMPMediaInsightsPipelineConfigurationList leveraging the ListMediaInsightsPipelineConfigurations service API.
+    * Added cmdlet New-CHMMPMediaInsightsPipeline leveraging the CreateMediaInsightsPipeline service API.
+    * Added cmdlet New-CHMMPMediaInsightsPipelineConfiguration leveraging the CreateMediaInsightsPipelineConfiguration service API.
+    * Added cmdlet Remove-CHMMPMediaInsightsPipelineConfiguration leveraging the DeleteMediaInsightsPipelineConfiguration service API.
+    * Added cmdlet Update-CHMMPMediaInsightsPipelineConfiguration leveraging the UpdateMediaInsightsPipelineConfiguration service API.
+    * Added cmdlet Update-CHMMPMediaInsightsPipelineStatus leveraging the UpdateMediaInsightsPipelineStatus service API.
+  * Amazon Chime SDK Messaging
+    * Added cmdlet Write-CHMMGChannelExpirationSetting leveraging the PutChannelExpirationSettings service API.
+    * Modified cmdlet New-CHMMGChannel: added parameters ExpirationSettings_ExpirationCriterion and ExpirationSettings_ExpirationDay.
+    * Modified cmdlet Send-CHMMGChannelFlowCallback: added parameter ChannelMessage_ContentType.
+    * Modified cmdlet Send-CHMMGChannelMessage: added parameter ContentType.
+    * Modified cmdlet Update-CHMMGChannelMessage: added parameter ContentType.
+  * Amazon Chime SDK Voice
+    * Added cmdlet Add-CHMVOResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CHMVOResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-CHMVOSpeakerSearchTask leveraging the GetSpeakerSearchTask service API.
+    * Added cmdlet Get-CHMVOVoiceProfile leveraging the GetVoiceProfile service API.
+    * Added cmdlet Get-CHMVOVoiceProfileDomain leveraging the GetVoiceProfileDomain service API.
+    * Added cmdlet Get-CHMVOVoiceProfileDomainList leveraging the ListVoiceProfileDomains service API.
+    * Added cmdlet Get-CHMVOVoiceProfileList leveraging the ListVoiceProfiles service API.
+    * Added cmdlet Get-CHMVOVoiceToneAnalysisTask leveraging the GetVoiceToneAnalysisTask service API.
+    * Added cmdlet New-CHMVOVoiceProfile leveraging the CreateVoiceProfile service API.
+    * Added cmdlet New-CHMVOVoiceProfileDomain leveraging the CreateVoiceProfileDomain service API.
+    * Added cmdlet Remove-CHMVOResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-CHMVOVoiceProfile leveraging the DeleteVoiceProfile service API.
+    * Added cmdlet Remove-CHMVOVoiceProfileDomain leveraging the DeleteVoiceProfileDomain service API.
+    * Added cmdlet Start-CHMVOSpeakerSearchTask leveraging the StartSpeakerSearchTask service API.
+    * Added cmdlet Start-CHMVOVoiceToneAnalysisTask leveraging the StartVoiceToneAnalysisTask service API.
+    * Added cmdlet Stop-CHMVOSpeakerSearchTask leveraging the StopSpeakerSearchTask service API.
+    * Added cmdlet Stop-CHMVOVoiceToneAnalysisTask leveraging the StopVoiceToneAnalysisTask service API.
+    * Added cmdlet Update-CHMVOVoiceProfile leveraging the UpdateVoiceProfile service API.
+    * Added cmdlet Update-CHMVOVoiceProfileDomain leveraging the UpdateVoiceProfileDomain service API.
+    * Modified cmdlet Write-CHMVOVoiceConnectorStreamingConfiguration: added parameters MediaInsightsConfiguration_ConfigurationArn and MediaInsightsConfiguration_Disabled.
+  * Amazon GuardDuty
+    * Modified cmdlet Update-GDOrganizationConfiguration: added parameter AutoEnableOrganizationMember.
+  * Amazon Interactive Video Service RealTime. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IVSRT and can be listed using the command 'Get-AWSCmdletName -Service IVSRT'.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMAutoMLJobV2 leveraging the DescribeAutoMLJobV2 service API.
+    * Added cmdlet New-SMAutoMLJobV2 leveraging the CreateAutoMLJobV2 service API.
+
+### 4.1.297 (2023-03-22 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.510.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon IoT TwinMaker
     * Modified cmdlet New-IOTTMScene: added parameter SceneMetadata.

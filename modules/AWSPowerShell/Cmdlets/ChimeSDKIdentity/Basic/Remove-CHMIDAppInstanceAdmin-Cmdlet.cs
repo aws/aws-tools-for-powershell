@@ -28,8 +28,8 @@ using Amazon.ChimeSDKIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMID
 {
     /// <summary>
-    /// Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This
-    /// action does not delete the user.
+    /// Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code> or <code>AppInstanceBot</code>.
+    /// This action does not delete the user.
     /// </summary>
     [Cmdlet("Remove", "CHMIDAppInstanceAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

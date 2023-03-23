@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>The namespace of the requested package. The package component that specifies its namespace
         /// depends on its type. For example:</para><ul><li><para> The namespace of a Maven package is its <code>groupId</code>. The namespace is required
         /// when requesting Maven packages. </para></li><li><para> The namespace of an npm package is its <code>scope</code>. </para></li><li><para> Python and NuGet packages do not contain a corresponding component, packages of those
-        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is it’s <code>namespace</code>. </para></li></ul>
+        /// formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <code>namespace</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

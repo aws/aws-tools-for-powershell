@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Turns on GuardDuty monitoring of the specified member accounts. Use this operation
-    /// to restart monitoring of accounts that you stopped monitoring with the <code>StopMonitoringMembers</code>
+    /// to restart monitoring of accounts that you stopped monitoring with the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_StopMonitoringMembers.html">StopMonitoringMembers</a>
     /// operation.
     /// </summary>
     [Cmdlet("Start", "GDMonitoringMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token for each client request. </para>
+        /// <para>The unique ID assigned to the request. Use different tokens to register other endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
