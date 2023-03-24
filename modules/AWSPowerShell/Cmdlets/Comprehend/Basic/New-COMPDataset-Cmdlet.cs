@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DocumentClassifierInputDataConfig_S3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as
+        /// <para>The Amazon S3 URI for the input data. The S3 bucket must be in the same Region as
         /// the API endpoint that you are calling. The URI can point to a single input file or
         /// it can provide the prefix for a collection of input files.</para><para>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix
         /// is a single file, Amazon Comprehend uses that file as input. If more than one file
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para> Specifies the Amazon S3 location where the training documents for an entity recognizer
-        /// are located. The URI must be in the same region as the API endpoint that you are calling.</para>
+        /// are located. The URI must be in the same Region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

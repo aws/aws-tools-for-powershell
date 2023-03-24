@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
         /// values in the list depend on the DB engine being used.</para><para><b>Aurora MySQL</b></para><para>Possible values are <code>audit</code>, <code>error</code>, <code>general</code>,
-        /// and <code>slowquery</code>.</para><para><b>Aurora PostgreSQL</b></para><para>Possible value is <code>postgresql</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// and <code>slowquery</code>.</para><para>For more information about exporting CloudWatch Logs for Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -227,8 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora) and <code>aurora-mysql</code>
-        /// (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible
+        /// Aurora)</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -245,10 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
-        /// Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL
-        /// 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.mysql_aurora.2.07.1</code>,
-        /// <code>8.0.mysql_aurora.3.02.0</code></para>
+        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for <code>aurora-mysql</code> (MySQL
+        /// 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>Examples: <code>5.7.mysql_aurora.2.07.1</code>, <code>8.0.mysql_aurora.3.02.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

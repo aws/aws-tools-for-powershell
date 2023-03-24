@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend read access to your input data.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read
+        /// access to your input data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,8 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter ModelKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
-        /// trained custom models. The ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The
+        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>The JSON resource-based policy to attach to your custom entity recognizer model. You
-        /// can use this policy to allow another AWS account to import your custom model.</para><para>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid
+        /// can use this policy to allow another Amazon Web Services account to import your custom
+        /// model.</para><para>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid
         /// JSON for your policy, enclose the attribute names and values in double quotes. If
         /// the JSON body is also enclosed in double quotes, then you must escape the double quotes
         /// that are inside the policy:</para><para><code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code></para><para>To avoid escaping quotes, you can use single quotes to enclose the policy and double
@@ -195,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The name given to the newly created recognizer. Recognizer names can be a maximum
         /// of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
-        /// The name must be unique in the account/region.</para>
+        /// The name must be unique in the account/Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -213,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para> Specifies the Amazon S3 location where the annotations for an entity recognizer are
-        /// located. The URI must be in the same region as the API endpoint that you are calling.</para>
+        /// located. The URI must be in the same Region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -225,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para> Specifies the Amazon S3 location where the training documents for an entity recognizer
-        /// are located. The URI must be in the same region as the API endpoint that you are calling.</para>
+        /// are located. The URI must be in the same Region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon S3 location where the entity list is located. The URI must be
-        /// in the same region as the API endpoint that you are calling.</para>
+        /// in the same Region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The ID for each subnet being used in your private VPC. This subnet is a subset of
         /// the a range of IPv4 addresses used by the VPC and is specific to a given availability
-        /// zone in the VPC’s region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
+        /// zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
         /// and Subnets</a>. </para>
         /// </para>
@@ -294,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para> Specifies the Amazon S3 location where the test annotations for an entity recognizer
-        /// are located. The URI must be in the same region as the API endpoint that you are calling.</para>
+        /// are located. The URI must be in the same Region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,8 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para> Specifies the Amazon S3 location where the test documents for an entity recognizer
-        /// are located. The URI must be in the same AWS Region as the API endpoint that you are
-        /// calling.</para>
+        /// are located. The URI must be in the same Amazon Web Services Region as the API endpoint
+        /// that you are calling.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>The version name given to the newly created recognizer. Version names can be a maximum
         /// of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
         /// The version name must be unique among all models with the same recognizer name in
-        /// the account/ AWS Region.</para>
+        /// the account/Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,9 +332,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
-        /// data on the storage volume attached to the ML compute instance(s) that process the
-        /// analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// <para>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend
+        /// uses to encrypt data on the storage volume attached to the ML compute instance(s)
+        /// that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

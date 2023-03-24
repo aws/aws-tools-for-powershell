@@ -108,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for the metric data.</para><para>To avoid conflicts with Amazon Web Services service namespaces, you should not specify
+        /// <para>The namespace for the metric data. You can use ASCII characters for the namespace,
+        /// except for control characters which are not supported.</para><para>To avoid conflicts with Amazon Web Services service namespaces, you should not specify
         /// a namespace that begins with <code>AWS/</code></para>
         /// </para>
         /// </summary>

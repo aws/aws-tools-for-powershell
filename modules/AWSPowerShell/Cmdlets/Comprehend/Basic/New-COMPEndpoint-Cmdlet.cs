@@ -57,9 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend read access to trained custom models encrypted with
-        /// a customer managed key (ModelKmsKeyId).</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read
+        /// access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

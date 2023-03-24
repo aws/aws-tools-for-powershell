@@ -35,7 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// 
     ///  
     /// <para>
-    ///  In the event of an error, no alarms are deleted.
+    ///  If you specify an incorrect alarm name or make any other error in the operation,
+    /// no alarms are deleted. To confirm that alarms were deleted successfully, you can use
+    /// the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a>
+    /// operation after using <code>DeleteAlarms</code>.
     /// </para><note><para>
     /// It is possible to create a loop or cycle of composite alarms, where composite alarm
     /// A depends on composite alarm B, and composite alarm B also depends on composite alarm
@@ -65,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The alarms to be deleted.</para>
+        /// <para>The alarms to be deleted. Do not enclose the alarm names in quote marks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

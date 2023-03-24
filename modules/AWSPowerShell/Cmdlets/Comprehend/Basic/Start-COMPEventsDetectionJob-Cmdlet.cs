@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend read access to your input data.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read
+        /// access to your input data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

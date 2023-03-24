@@ -29,15 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Creates a new custom model that replicates a source custom model that you import.
-    /// The source model can be in your AWS account or another one.
+    /// The source model can be in your Amazon Web Services account or another one.
     /// 
     ///  
     /// <para>
-    /// If the source model is in another AWS account, then it must have a resource-based
-    /// policy that authorizes you to import it.
+    /// If the source model is in another Amazon Web Services account, then it must have a
+    /// resource-based policy that authorizes you to import it.
     /// </para><para>
-    /// The source model must be in the same AWS region that you're using when you import.
-    /// You can't import a model that's in a different region.
+    /// The source model must be in the same Amazon Web Services Region that you're using
+    /// when you import. You can't import a model that's in a different Region.
     /// </para>
     /// </summary>
     [Cmdlet("Import", "COMPModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend permission to use Amazon Key Management Service (KMS)
-        /// to encrypt or decrypt the custom model.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission
+        /// to use Amazon Key Management Service (KMS) to encrypt or decrypt the custom model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter ModelKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
-        /// trained custom models. The ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The
+        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>The version name given to the custom model that is created by this import. Version
         /// names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and
         /// underscores (_) are allowed. The version name must be unique among all models with
-        /// the same classifier name in the account/AWS Region.</para>
+        /// the same classifier name in the account/Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
+    /// If you create an Aurora DB cluster, the request creates an empty cluster. You must
+    /// explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a>
+    /// operation. If you create a Multi-AZ DB cluster, the request creates a writer and two
+    /// reader DB instances for you, each in a different Availability Zone.
+    /// </para><para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
     /// Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL
     /// DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What
@@ -327,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values:</para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mysql</code></para></li><li><para><code>postgres</code></para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values:</para><ul><li><para><code>aurora-mysql</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mysql</code></para></li><li><para><code>postgres</code></para></li></ul><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -344,20 +349,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-        /// <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</para><para>The <code>parallelquery</code> engine mode isn't required for Aurora MySQL version
-        /// 1.23 and higher 1.x versions, and version 2.09 and higher 2.x versions.</para><para>The <code>global</code> engine mode isn't required for Aurora MySQL version 1.22 and
-        /// higher 1.x versions, and <code>global</code> engine mode isn't required for any 2.x
-        /// versions.</para><para>The <code>multimaster</code> engine mode only applies for DB clusters created with
-        /// Aurora MySQL version 5.6.10a.</para><para>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</para><para>For Aurora PostgreSQL, the <code>global</code> engine mode isn't required, and both
-        /// the <code>parallelquery</code> and the <code>multimaster</code> engine modes currently
-        /// aren't supported.</para><para>Limitations and requirements apply to some DB engine modes. For more information,
+        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para><para>The <code>serverless</code> engine mode only applies for Aurora Serverless v1 DB clusters.</para><para>Limitations and requirements apply to some DB engine modes. For more information,
         /// see the following sections in the <i>Amazon Aurora User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">Limitations
         /// of Aurora Serverless v1</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html">Requirements
         /// for Aurora Serverless v2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">Limitations
-        /// of Parallel Query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">Limitations
-        /// of Aurora Global Databases</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">Limitations
-        /// of Multi-Master Clusters</a></para></li></ul><para>Valid for: Aurora DB clusters only</para>
+        /// of parallel query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">Limitations
+        /// of Aurora global databases</a></para></li></ul><para>Valid for: Aurora DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,16 +364,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use
-        /// the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible
-        /// Aurora, use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
+        /// <para>The version number of the database engine to use.</para><para>To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible)
+        /// and version 3 (MySQL 8.0-compatible), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>You can supply either <code>5.7</code> or <code>8.0</code> to use the default engine
+        /// version for Aurora MySQL version 2 or version 3, respectively.</para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following
         /// command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for MySQL, use the following
         /// command:</para><para><code>aws rds describe-db-engine-versions --engine mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for RDS for PostgreSQL, use the following
-        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">MySQL
-        /// on Amazon RDS Versions</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>Aurora PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon
-        /// Aurora PostgreSQL releases and engine versions</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL
-        /// on Amazon RDS Versions</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
-        /// RDS for PostgreSQL versions and extensions</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// command:</para><para><code>aws rds describe-db-engine-versions --engine postgres --query "DBEngineVersions[].EngineVersion"</code></para><para><b>Aurora MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html">Database
+        /// engine updates for Amazon Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>Aurora PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.20180305.html">Amazon
+        /// Aurora PostgreSQL releases and engine versions</a> in the <i>Amazon Aurora User Guide</i>.</para><para><b>MySQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">Amazon
+        /// RDS for MySQL</a> in the <i>Amazon RDS User Guide</i>.</para><para><b>PostgreSQL</b></para><para>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon
+        /// RDS for PostgreSQL</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -398,8 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
-        /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
-        /// RDS Provisioned IOPS storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
+        /// allocated for each DB instance in the Multi-AZ DB cluster.</para><para>For information about valid IOPS values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Provisioned
+        /// IOPS storage</a> in the <i>Amazon RDS User Guide</i>.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Constraints: Must be a multiple between .5 and 50 of the storage amount for the DB
         /// cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>

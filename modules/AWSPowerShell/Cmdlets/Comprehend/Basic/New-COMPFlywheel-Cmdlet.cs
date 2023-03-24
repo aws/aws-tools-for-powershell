@@ -28,9 +28,10 @@ using Amazon.Comprehend.Model;
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
-    /// A flywheel is an AWS resource that orchestrates the ongoing training of a model for
-    /// custom classification or custom entity recognition. You can create a flywheel to start
-    /// with an existing trained model, or Comprehend can create and train a new model.
+    /// A flywheel is an Amazon Web Services resource that orchestrates the ongoing training
+    /// of a model for custom classification or custom entity recognition. You can create
+    /// a flywheel to start with an existing trained model, or Comprehend can create and train
+    /// a new model.
     /// 
     ///  
     /// <para>
@@ -82,9 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend the permissions required to access the flywheel data
-        /// in the data lake.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend the permissions
+        /// required to access the flywheel data in the data lake.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -192,8 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataSecurityConfig_ModelKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
-        /// trained custom models. The ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// <para>ID for the KMS key that Amazon Comprehend uses to encrypt trained custom models. The
+        /// ModelKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The ID for each subnet being used in your private VPC. This subnet is a subset of
         /// the a range of IPv4 addresses used by the VPC and is specific to a given availability
-        /// zone in the VPC’s region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
+        /// zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
         /// and Subnets</a>. </para>
         /// </para>

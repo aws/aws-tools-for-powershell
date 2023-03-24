@@ -46,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><para>
     /// If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
     /// </para><ul><li><para>
-    /// The <code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions
+    /// The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with EC2 actions
     /// </para></li><li><para>
-    /// The <code>iam:CreateServiceLinkedRole</code> to create an alarm with Systems Manager
-    /// OpsItem actions.
+    /// The <code>iam:CreateServiceLinkedRole</code> permissions to create an alarm with Systems
+    /// Manager OpsItem or response plan actions.
     /// </para></li></ul><para>
     /// The first time you create an alarm in the Amazon Web Services Management Console,
     /// the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked
@@ -102,13 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>ALARM</code> state
-        /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
-        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
-        /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
-        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code> | <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></code> | <code>arn:aws:ssm-incidents::<i>account-id</i>:response-plan:<i>response-plan-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para>
+        /// from any other state. Each action is specified as an Amazon Resource Name (ARN). Valid
+        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><code>arn:aws:automate:<i>region</i>:ec2:stop</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:terminate</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:reboot</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:recover</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSN notification action:</b></para><ul><li><para><code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></code></para></li><li><para><code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The name for the alarm. This name must be unique within the Region.</para>
+        /// <para>The name for the alarm. This name must be unique within the Region.</para><para>The name must contain only UTF-8 characters, and can't contain ASCII control characters</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -240,12 +235,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code>
-        /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
-        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
-        /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
-        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>&gt;arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
+        /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// Valid values:</para><para><b>EC2 actions:</b></para><ul><li><para><code>arn:aws:automate:<i>region</i>:ec2:stop</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:terminate</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:reboot</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:recover</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSN notification action:</b></para><ul><li><para><code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></code></para></li><li><para><code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -303,13 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to an <code>OK</code> state from
-        /// any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
-        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
-        /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
-        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code>
-        /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para>
+        /// any other state. Each action is specified as an Amazon Resource Name (ARN). Valid
+        /// values:</para><para><b>EC2 actions:</b></para><ul><li><para><code>arn:aws:automate:<i>region</i>:ec2:stop</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:terminate</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:reboot</code></para></li><li><para><code>arn:aws:automate:<i>region</i>:ec2:recover</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para></li><li><para><code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Recover/1.0</code></para></li></ul><para><b>Autoscaling action:</b></para><ul><li><para><code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSN notification action:</b></para><ul><li><para><code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>:autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para></li></ul><para><b>SSM integration actions:</b></para><ul><li><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i>#CATEGORY=<i>category-name</i></code></para></li><li><para><code>arn:aws:ssm-incidents::<i>account-id</i>:responseplan/<i>response-plan-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

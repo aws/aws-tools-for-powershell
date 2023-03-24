@@ -12546,7 +12546,7 @@ $COMP_Completers = {
             ($_ -eq "Get-COMPEntityRecognizerList/Filter_Status")
         }
         {
-            $v = "DELETING","IN_ERROR","STOPPED","STOP_REQUESTED","SUBMITTED","TRAINED","TRAINING"
+            $v = "DELETING","IN_ERROR","STOPPED","STOP_REQUESTED","SUBMITTED","TRAINED","TRAINED_WITH_WARNING","TRAINING"
             break
         }
 

@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
-        /// that grants Amazon Comprehend read access to your input data. For more information,
-        /// see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend read
+        /// access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based
         /// permissions</a>.</para>
         /// </para>
         /// </summary>
@@ -152,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <para>
         /// <para>The ID for each subnet being used in your private VPC. This subnet is a subset of
         /// the a range of IPv4 addresses used by the VPC and is specific to a given availability
-        /// zone in the VPC’s region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
+        /// zone in the VPC’s Region. This ID number is preceded by "subnet-", for instance: "subnet-04ccf456919e69055".
         /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
         /// and Subnets</a>. </para>
         /// </para>
