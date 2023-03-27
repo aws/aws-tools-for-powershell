@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the session in which the notebook will be updated.</para>
+        /// <para>The active notebook session ID. Required if the notebook has an active session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

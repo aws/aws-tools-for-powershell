@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates a Voice Connector's termination settings.
     /// </summary>
     [Cmdlet("Write", "CHMVOVoiceConnectorTermination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.Termination")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Termination_CallingRegion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The countries to which calls are allowed, in ISO 3166-1 alpha-2 format. Required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Termination_CidrAllowedList
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The IP addresses allowed to make calls, in CIDR format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Termination_CpsLimit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The limit on calls per second. Max value based on account service quota. Default value
+        /// of 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Termination_DefaultPhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The default outbound calling number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Termination_Disabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When termination is disabled, outbound calls cannot be made.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

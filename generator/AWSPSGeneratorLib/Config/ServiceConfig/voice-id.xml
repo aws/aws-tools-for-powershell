@@ -18,7 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateFraudster" OutputProperty="Fraudster" Verb="Add" Noun="FraudsterAssociation" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="Domain" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWatchlist" OutputProperty="Watchlist" Verb="New" Noun="Watchlist" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -31,6 +39,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSpeaker" Verb="Remove" Noun="Speaker" ShouldProcessTarget="SpeakerId" PipelineParameter="SpeakerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWatchlist" Verb="Remove" Noun="Watchlist" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +66,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWatchlist" OutputProperty="Watchlist" Verb="Get" Noun="Watchlist" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateFraudster" OutputProperty="Fraudster" Verb="Remove" Noun="FraudsterAssociation" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EvaluateSession" OutputProperty="*" Verb="Get" Noun="SessionEvaluation" PipelineParameter="SessionNameOrId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -66,6 +86,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFraudsters" OutputProperty="FraudsterSummaries" Verb="Get" Noun="FraudsterList" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSpeakerEnrollmentJobs" OutputProperty="JobSummaries" Verb="Get" Noun="SpeakerEnrollmentJobList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +99,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWatchlists" OutputProperty="WatchlistSummaries" Verb="Get" Noun="WatchlistList" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,6 +127,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomain" OutputProperty="Domain" Verb="Edit" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWatchlist" OutputProperty="Watchlist" Verb="Update" Noun="Watchlist" ShouldProcessTarget="WatchlistId" PipelineParameter="WatchlistId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

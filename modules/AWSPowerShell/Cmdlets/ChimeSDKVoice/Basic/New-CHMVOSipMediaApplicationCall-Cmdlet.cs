@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates an outbound call to a phone number from the phone number specified in the
+    /// request, and it invokes the endpoint of the specified <code>sipMediaApplicationId</code>.
     /// </summary>
     [Cmdlet("New", "CHMVOSipMediaApplicationCall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplicationCall")]
@@ -45,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ArgumentsMap
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Context passed to a CreateSipMediaApplication API call. For example, you could pass
+        /// key-value pairs such as: <code>"FirstName": "John", "LastName": "Doe"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter FromPhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number that a user calls from. This is a phone number in your Amazon Chime
+        /// SDK phone number inventory.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipHeader
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SIP headers added to an outbound call leg.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the SIP media application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ToPhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number that the service should call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

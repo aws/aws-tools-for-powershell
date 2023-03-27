@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Gets the Alexa Skill configuration for the SIP media application.
     /// </summary>
     [Cmdlet("Get", "CHMVOSipMediaApplicationAlexaSkillConfiguration")]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplicationAlexaSkillConfiguration")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SIP media application ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

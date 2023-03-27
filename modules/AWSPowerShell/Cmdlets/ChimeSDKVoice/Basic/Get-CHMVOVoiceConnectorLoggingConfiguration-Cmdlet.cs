@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the logging configuration settings for the specified Voice Connector. Shows
+    /// whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceConnectorLoggingConfiguration")]
     [OutputType("Amazon.ChimeSDKVoice.Model.LoggingConfiguration")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,15 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates an Amazon Chime SDK Voice Connector group under the administrator's AWS account.
+    /// You can associate Amazon Chime SDK Voice Connectors with the Voice Connector group
+    /// by including <code>VoiceConnectorItems</code> in the request. 
+    /// 
+    ///  
+    /// <para>
+    /// You can include Voice Connectors from different AWS Regions in your group. This creates
+    /// a fault tolerant mechanism for fallback in case of availability events.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CHMVOVoiceConnectorGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceConnectorGroup")]
@@ -43,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the Voice Connector group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorItem
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Lists the Voice Connectors that inbound calls are routed to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

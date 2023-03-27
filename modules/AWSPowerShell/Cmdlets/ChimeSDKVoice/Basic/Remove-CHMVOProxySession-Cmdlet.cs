@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Deletes the specified proxy session from the specified Amazon Chime SDK Voice Connector.
     /// </summary>
     [Cmdlet("Remove", "CHMVOProxySession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ProxySessionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The proxy session ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

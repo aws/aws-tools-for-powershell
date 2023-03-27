@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates the specified proxy session details, such as voice or SMS capabilities.
     /// </summary>
     [Cmdlet("Update", "CHMVOProxySession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.ProxySession")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Capability
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The proxy session capabilities.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ExpiryMinute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of minutes allowed for the proxy session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ProxySessionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The proxy session ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

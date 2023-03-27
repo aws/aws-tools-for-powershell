@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates a Voice Connector's termination credentials.
     /// </summary>
     [Cmdlet("Write", "CHMVOVoiceConnectorTerminationCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Passwords
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The termination credentials being updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

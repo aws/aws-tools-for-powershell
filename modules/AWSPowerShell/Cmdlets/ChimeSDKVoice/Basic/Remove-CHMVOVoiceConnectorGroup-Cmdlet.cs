@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Deletes an Amazon Chime SDK Voice Connector group. Any <code>VoiceConnectorItems</code>
+    /// and phone numbers associated with the group must be removed before it can be deleted.
     /// </summary>
     [Cmdlet("Remove", "CHMVOVoiceConnectorGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorGroupId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector Group ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

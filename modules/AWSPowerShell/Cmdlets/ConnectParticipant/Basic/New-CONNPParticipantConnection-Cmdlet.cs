@@ -68,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter ConnectParticipant
         /// <summary>
         /// <para>
-        /// <para>Amazon Connect Participant is used to mark the participant as connected for message
-        /// streaming.</para>
+        /// <para>Amazon Connect Participant is used to mark the participant as connected for customer
+        /// participant in message streaming, as well as for agent or manager participant in non-streaming
+        /// chats.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

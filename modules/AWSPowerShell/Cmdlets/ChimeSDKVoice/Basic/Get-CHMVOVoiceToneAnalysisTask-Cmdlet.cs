@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the details of a voice tone analysis task.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceToneAnalysisTask")]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceToneAnalysisTask")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter IsCaller
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether the voice being analyzed is the caller (originator) or the callee
+        /// (responder).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceToneAnalysisTaskId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the voice tone anlysis task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

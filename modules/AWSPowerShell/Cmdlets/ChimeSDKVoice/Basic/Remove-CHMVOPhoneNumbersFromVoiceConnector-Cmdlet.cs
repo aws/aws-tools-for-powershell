@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Disassociates the specified phone numbers from the specified Amazon Chime SDK Voice
+    /// Connector.
     /// </summary>
     [Cmdlet("Remove", "CHMVOPhoneNumbersFromVoiceConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ChimeSDKVoice.Model.PhoneNumberError")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter E164PhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>List of phone numbers, in E.164 format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

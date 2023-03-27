@@ -28,8 +28,8 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Associates a resource with an application. Both the resource and the application can
-    /// be specified either by ID or name.
+    /// Associates a resource with an application. The resource can be specified by its ARN
+    /// or name. The application can be specified by ARN, ID, or name.
     /// </summary>
     [Cmdlet("Register", "SCARResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppRegistry.Model.AssociateResourceResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application.</para>
+        /// <para> The name, ID, or ARN of the application. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

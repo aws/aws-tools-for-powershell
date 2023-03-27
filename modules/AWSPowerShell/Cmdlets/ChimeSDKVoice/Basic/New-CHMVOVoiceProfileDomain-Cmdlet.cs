@@ -28,7 +28,18 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates a voice profile domain, a collection of voice profiles, their voice prints,
+    /// and encrypted enrollment audio.
+    /// 
+    ///  <important><para>
+    /// Before creating any voice profiles, you must provide all notices and obtain all consents
+    /// from the speaker as required under applicable privacy and biometrics laws, and as
+    /// required under the <a href="https://aws.amazon.com/service-terms/">AWS service terms</a>
+    /// for the Amazon Chime SDK.
+    /// </para></important><para>
+    /// For more information about voice profile domains, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using
+    /// Amazon Chime SDK Voice Analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CHMVOVoiceProfileDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceProfileDomain")]
@@ -47,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier for the client request. Use a different token for different
+        /// domain creation requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the voice profile domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the KMS key used to encrypt the enrollment data in a voice profile domain.
+        /// Asymmetric customer managed keys are not supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the voice profile domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The tags assigned to the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

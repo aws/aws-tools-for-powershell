@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Invokes the AWS Lambda function associated with the SIP media application and transaction
+    /// ID in an update request. The Lambda function can then return a new set of actions.
     /// </summary>
     [Cmdlet("Update", "CHMVOSipMediaApplicationCall", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplicationCall")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Argument
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Arguments made available to the Lambda function as part of the <code>CALL_UPDATE_REQUESTED</code>
+        /// event. Can contain 0-20 key-value pairs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the SIP media application handling the call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter TransactionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the call transaction.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

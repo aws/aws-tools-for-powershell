@@ -1,4 +1,35 @@
-﻿### 4.1.299 (2023-03-24 21:01Z)
+﻿### 4.1.300 (2023-03-27 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.513.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Modified cmdlet New-ATHWorkGroup: added parameter Configuration_EnableMinimumEncryptionConfiguration.
+    * Modified cmdlet Update-ATHWorkGroup: added parameter ConfigurationUpdates_EnableMinimumEncryptionConfiguration.
+  * Amazon Connect Service
+    * Modified cmdlet Start-CONNChatContact: added parameter RelatedContactId.
+  * Amazon IoT Wireless
+    * Added cmdlet Get-IOTWDevicesForWirelessDeviceImportTaskList leveraging the ListDevicesForWirelessDeviceImportTask service API.
+    * Added cmdlet Get-IOTWWirelessDeviceImportTask leveraging the GetWirelessDeviceImportTask service API.
+    * Added cmdlet Get-IOTWWirelessDeviceImportTaskList leveraging the ListWirelessDeviceImportTasks service API.
+    * Added cmdlet Remove-IOTWWirelessDeviceImportTask leveraging the DeleteWirelessDeviceImportTask service API.
+    * Added cmdlet Start-IOTWSingleWirelessDeviceImportTask leveraging the StartSingleWirelessDeviceImportTask service API.
+    * Added cmdlet Start-IOTWWirelessDeviceImportTask leveraging the StartWirelessDeviceImportTask service API.
+    * Added cmdlet Unregister-IOTWWirelessDevice leveraging the DeregisterWirelessDevice service API.
+    * Added cmdlet Update-IOTWWirelessDeviceImportTask leveraging the UpdateWirelessDeviceImportTask service API.
+    * Modified cmdlet Get-IOTWDeviceProfileList: added parameter DeviceProfileType.
+    * Modified cmdlet New-IOTWDeviceProfile: added parameter Sidewalk.
+    * Modified cmdlet New-IOTWWirelessDevice: added parameter Sidewalk_DeviceProfileId.
+  * Amazon Voice ID
+    * Added cmdlet Add-VIDFraudsterAssociation leveraging the AssociateFraudster service API.
+    * Added cmdlet Get-VIDFraudsterList leveraging the ListFraudsters service API.
+    * Added cmdlet Get-VIDWatchlist leveraging the DescribeWatchlist service API.
+    * Added cmdlet Get-VIDWatchlistList leveraging the ListWatchlists service API.
+    * Added cmdlet New-VIDWatchlist leveraging the CreateWatchlist service API.
+    * Added cmdlet Remove-VIDFraudsterAssociation leveraging the DisassociateFraudster service API.
+    * Added cmdlet Remove-VIDWatchlist leveraging the DeleteWatchlist service API.
+    * Added cmdlet Update-VIDWatchlist leveraging the UpdateWatchlist service API.
+    * Modified cmdlet Start-VIDFraudsterRegistrationJob: added parameter RegistrationConfig_WatchlistId.
+    * Modified cmdlet Start-VIDSpeakerEnrollmentJob: added parameter FraudDetectionConfig_WatchlistId.
+
+### 4.1.299 (2023-03-24 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.512.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.298 (2023-03-23 21:11Z)

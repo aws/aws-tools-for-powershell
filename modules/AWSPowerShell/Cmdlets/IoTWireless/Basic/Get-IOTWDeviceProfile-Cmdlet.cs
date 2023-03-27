@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class GetIOTWDeviceProfileCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Id
         /// <summary>
         /// <para>

@@ -28,7 +28,12 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Deletes the termination settings for the specified Amazon Chime SDK Voice Connector.
+    /// 
+    ///  <note><para>
+    /// If emergency calling is configured for the Voice Connector, it must be deleted prior
+    /// to deleting the termination settings.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CHMVOVoiceConnectorTermination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

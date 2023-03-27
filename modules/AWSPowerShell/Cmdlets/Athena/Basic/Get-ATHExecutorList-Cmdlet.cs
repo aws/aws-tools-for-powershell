@@ -28,9 +28,9 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Lists, in descending order, the executors that have been submitted to a session. Newer
-    /// executors are listed first; older executors are listed later. The result can be optionally
-    /// filtered by state.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists, in descending order, the executors that joined a session. Newer executors are
+    /// listed first; older executors are listed later. The result can be optionally filtered
+    /// by state.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ATHExecutorList")]
     [OutputType("Amazon.Athena.Model.ListExecutorsResponse")]

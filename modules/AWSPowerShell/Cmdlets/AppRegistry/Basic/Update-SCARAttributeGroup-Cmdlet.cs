@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter AttributeGroup
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the attribute group that holds the attributes to describe the application.</para>
+        /// <para> The name, ID, or ARN of the attribute group that holds the attributes to describe
+        /// the application. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

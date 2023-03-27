@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Associates phone numbers with the specified Amazon Chime SDK Voice Connector.
     /// </summary>
     [Cmdlet("Add", "CHMVOPhoneNumbersWithVoiceConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.PhoneNumberError")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter E164PhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>List of phone numbers, in E.164 format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ForceAssociate
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If true, associates the provided phone numbers with the provided Amazon Chime SDK
+        /// Voice Connector and removes any previously existing associations. If false, does not
+        /// associate any phone numbers that have previously existing associations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

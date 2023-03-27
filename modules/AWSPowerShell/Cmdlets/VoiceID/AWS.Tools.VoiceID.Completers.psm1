@@ -180,27 +180,35 @@ $VID_SelectCompleters = {
 }
 
 $VID_SelectMap = @{
-    "Select"=@("New-VIDDomain",
+    "Select"=@("Add-VIDFraudsterAssociation",
+               "New-VIDDomain",
+               "New-VIDWatchlist",
                "Remove-VIDDomain",
                "Remove-VIDFraudster",
                "Remove-VIDSpeaker",
+               "Remove-VIDWatchlist",
                "Get-VIDDomain",
                "Get-VIDFraudster",
                "Get-VIDFraudsterRegistrationJob",
                "Get-VIDSpeaker",
                "Get-VIDSpeakerEnrollmentJob",
+               "Get-VIDWatchlist",
+               "Remove-VIDFraudsterAssociation",
                "Get-VIDSessionEvaluation",
                "Get-VIDDomainList",
                "Get-VIDFraudsterRegistrationJobList",
+               "Get-VIDFraudsterList",
                "Get-VIDSpeakerEnrollmentJobList",
                "Get-VIDSpeakerList",
                "Get-VIDResourceTag",
+               "Get-VIDWatchlistList",
                "Set-VIDOptOutSpeaker",
                "Start-VIDFraudsterRegistrationJob",
                "Start-VIDSpeakerEnrollmentJob",
                "Add-VIDResourceTag",
                "Remove-VIDResourceTag",
-               "Edit-VIDDomain")
+               "Edit-VIDDomain",
+               "Update-VIDWatchlist")
 }
 
 _awsArgumentCompleterRegistration $VID_SelectCompleters $VID_SelectMap

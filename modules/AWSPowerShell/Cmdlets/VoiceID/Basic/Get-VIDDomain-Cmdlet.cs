@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the domain you are describing.</para>
+        /// <para>The identifier of the domain that you are describing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

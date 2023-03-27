@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The total duration of the newly started chat session. If not specified, the chat session
-        /// duration defaults to 25 hour. The minumum configurable time is 60 minutes. The maximum
+        /// duration defaults to 25 hour. The minimum configurable time is 60 minutes. The maximum
         /// configurable time is 10,080 minutes (7 days).</para>
         /// </para>
         /// </summary>
@@ -187,6 +187,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.RehydrationType PersistentChat_RehydrationType { get; set; }
         #endregion
         
+        #region Parameter RelatedContactId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for an Amazon Connect contact. This identifier is related to
+        /// the chat starting.</para><note><para>You cannot provide data for both RelatedContactId and PersistentChat. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelatedContactId { get; set; }
+        #endregion
+        
         #region Parameter PersistentChat_SourceContactId
         /// <summary>
         /// <para>
@@ -200,11 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter SupportedMessagingContentType
         /// <summary>
         /// <para>
-        /// <para>The supported chat message content types. Content types must always contain <code>text/plain</code>.
-        /// You can then put any other supported type in the list. For example, all the following
-        /// lists are valid because they contain <code>text/plain</code>: <code>[text/plain, text/markdown,
-        /// application/json]</code>, <code>[text/markdown, text/plain]</code>, <code>[text/plain,
-        /// application/json]</code>.</para>
+        /// <para>The supported chat message content types. Supported types are <code>text/plain</code>,
+        /// <code>text/markdown</code>, <code>application/json</code>, <code>application/vnd.amazonaws.connect.message.interactive</code>,
+        /// and <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </para><para>Content types must always contain <code>text/plain</code>. You can then put any other
+        /// supported type in the list. For example, all the following lists are valid because
+        /// they contain <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>,
+        /// <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json, application/vnd.amazonaws.connect.message.interactive.response]</code>.
+        /// </para><note><para>The type <code>application/vnd.amazonaws.connect.message.interactive</code> is required
+        /// to use the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html">Show
+        /// view</a> flow block.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.PersistentChat_RehydrationType = this.PersistentChat_RehydrationType;
             context.PersistentChat_SourceContactId = this.PersistentChat_SourceContactId;
+            context.RelatedContactId = this.RelatedContactId;
             if (this.SupportedMessagingContentType != null)
             {
                 context.SupportedMessagingContentType = new List<System.String>(this.SupportedMessagingContentType);
@@ -439,6 +455,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             {
                 request.PersistentChat = null;
             }
+            if (cmdletContext.RelatedContactId != null)
+            {
+                request.RelatedContactId = cmdletContext.RelatedContactId;
+            }
             if (cmdletContext.SupportedMessagingContentType != null)
             {
                 request.SupportedMessagingContentTypes = cmdletContext.SupportedMessagingContentType;
@@ -514,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String ParticipantDetails_DisplayName { get; set; }
             public Amazon.Connect.RehydrationType PersistentChat_RehydrationType { get; set; }
             public System.String PersistentChat_SourceContactId { get; set; }
+            public System.String RelatedContactId { get; set; }
             public List<System.String> SupportedMessagingContentType { get; set; }
             public System.Func<Amazon.Connect.Model.StartChatContactResponse, StartCONNChatContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

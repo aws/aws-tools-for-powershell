@@ -28,7 +28,18 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates phone number details, such as product type or calling name, for the specified
+    /// phone number ID. You can update one phone number detail at a time. For example, you
+    /// can update either the product type or the calling name in one action.
+    /// 
+    ///  
+    /// <para>
+    /// For numbers outside the U.S., you must use the Amazon Chime SDK SIP Media Application
+    /// Dial-In product type.
+    /// </para><para>
+    /// Updates to outbound calling names can take 72 hours to complete. Pending updates to
+    /// outbound calling names must be complete before you can request another update.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "CHMVOPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.PhoneNumber")]
@@ -47,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter CallingName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The outbound calling name associated with the phone number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ProductType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The product type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

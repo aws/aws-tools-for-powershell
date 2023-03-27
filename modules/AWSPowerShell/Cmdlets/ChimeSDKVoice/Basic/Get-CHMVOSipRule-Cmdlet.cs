@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target
+    /// endpoints.
     /// </summary>
     [Cmdlet("Get", "CHMVOSipRule")]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipRule")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipRuleId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SIP rule ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

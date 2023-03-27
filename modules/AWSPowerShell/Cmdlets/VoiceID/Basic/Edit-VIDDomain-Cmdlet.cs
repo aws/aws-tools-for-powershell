@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A brief description of the domain.</para>
+        /// <para>A brief description about this domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

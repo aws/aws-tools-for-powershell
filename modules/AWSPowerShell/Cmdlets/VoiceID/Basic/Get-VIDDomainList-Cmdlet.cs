@@ -45,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of domains to list per API call.</para>
+        /// <para>The maximum number of results that are returned per call. You can use <code>NextToken</code>
+        /// to obtain more pages of results. The default is 100; the maximum allowed page size
+        /// is also 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         /// <para>If <code>NextToken</code> is returned, there are more results available. The value
         /// of <code>NextToken</code> is a unique pagination token for each page. Make the call
         /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 24 hours. </para>
+        /// unchanged. Each pagination token expires after 24 hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

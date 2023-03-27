@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves information about the last time a <code>SIP OPTIONS</code> ping was received
+    /// from your SIP infrastructure for the specified Amazon Chime SDK Voice Connector.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceConnectorTerminationHealth")]
     [OutputType("Amazon.ChimeSDKVoice.Model.TerminationHealth")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

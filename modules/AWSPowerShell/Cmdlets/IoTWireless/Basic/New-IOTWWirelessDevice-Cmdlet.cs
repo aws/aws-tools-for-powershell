@@ -202,6 +202,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String LoRaWAN_DeviceProfileId { get; set; }
         #endregion
         
+        #region Parameter Sidewalk_DeviceProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Sidewalk device profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Sidewalk_DeviceProfileId { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_AbpV1_0_x_FCntStart
         /// <summary>
         /// <para>
@@ -499,6 +509,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_ServiceProfileId = this.LoRaWAN_ServiceProfileId;
             context.Name = this.Name;
             context.Positioning = this.Positioning;
+            context.Sidewalk_DeviceProfileId = this.Sidewalk_DeviceProfileId;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
@@ -935,6 +946,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Positioning = cmdletContext.Positioning;
             }
+            
+             // populate Sidewalk
+            var requestSidewalkIsNull = true;
+            request.Sidewalk = new Amazon.IoTWireless.Model.SidewalkCreateWirelessDevice();
+            System.String requestSidewalk_sidewalk_DeviceProfileId = null;
+            if (cmdletContext.Sidewalk_DeviceProfileId != null)
+            {
+                requestSidewalk_sidewalk_DeviceProfileId = cmdletContext.Sidewalk_DeviceProfileId;
+            }
+            if (requestSidewalk_sidewalk_DeviceProfileId != null)
+            {
+                request.Sidewalk.DeviceProfileId = requestSidewalk_sidewalk_DeviceProfileId;
+                requestSidewalkIsNull = false;
+            }
+             // determine if request.Sidewalk should be set to null
+            if (requestSidewalkIsNull)
+            {
+                request.Sidewalk = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1035,6 +1065,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String LoRaWAN_ServiceProfileId { get; set; }
             public System.String Name { get; set; }
             public Amazon.IoTWireless.PositioningConfigStatus Positioning { get; set; }
+            public System.String Sidewalk_DeviceProfileId { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public Amazon.IoTWireless.WirelessDeviceType Type { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateWirelessDeviceResponse, NewIOTWWirelessDeviceCmdlet, object> Select { get; set; } =

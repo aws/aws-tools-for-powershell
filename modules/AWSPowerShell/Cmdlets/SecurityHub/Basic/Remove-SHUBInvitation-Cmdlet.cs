@@ -33,8 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// This operation is only used by accounts that are not part of an organization. Organization
-    /// accounts do not receive invitations.
+    /// A Security Hub administrator account can use this operation to delete invitations
+    /// sent to one or more member accounts.
+    /// </para><para>
+    /// This operation is only used to delete invitations that are sent to member accounts
+    /// that aren't part of an organization. Organization accounts don't receive invitations.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The list of the account IDs that sent the invitations to delete.</para>
+        /// <para>The list of member account IDs that received the invitations you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

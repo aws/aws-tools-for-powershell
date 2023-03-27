@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application.</para>
+        /// <para> The name, ID, or ARN of the application. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

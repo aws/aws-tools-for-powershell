@@ -28,7 +28,10 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Validates an address to be used for 911 calls made with Amazon Chime SDK Voice Connectors.
+    /// You can use validated addresses in a Presence Information Data Format Location Object
+    /// file that you include in SIP requests. That helps ensure that addresses are routed
+    /// to the appropriate Public Safety Answering Point.
     /// </summary>
     [Cmdlet("Confirm", "CHMVOE911Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.ValidateE911AddressResponse")]
@@ -46,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter City
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address city, such as <code>Portland</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Country
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The country in the address being validated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter PostalCode
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The dress postal code, such <code>04352</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter State
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address state, such as <code>ME</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreetInfo
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address street information, such as <code>8th Avenue</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -148,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreetNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The address street number, such as <code>200</code> or <code>2121</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

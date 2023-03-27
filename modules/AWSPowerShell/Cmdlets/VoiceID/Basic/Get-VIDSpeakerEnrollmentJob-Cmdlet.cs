@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the domain containing the speaker enrollment job.</para>
+        /// <para>The identifier of the domain that contains the speaker enrollment job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

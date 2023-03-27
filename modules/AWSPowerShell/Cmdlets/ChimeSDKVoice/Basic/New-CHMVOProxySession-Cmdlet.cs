@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates a proxy session for the specified Amazon Chime SDK Voice Connector for the
+    /// specified participant phone numbers.
     /// </summary>
     [Cmdlet("New", "CHMVOProxySession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.ProxySession")]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter GeoMatchParams_AreaCode
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The area code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Capability
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The proxy session's capabilities.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter GeoMatchParams_Country
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The country. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ExpiryMinute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of minutes allowed for the proxy session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter GeoMatchLevel
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The preference for matching the country or area code of the proxy phone number with
+        /// that of the first participant.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the proxy session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter NumberSelectionBehavior
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The preference for proxy phone number reuse, or stickiness, between the same participants
+        /// across sessions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ParticipantPhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The participant phone numbers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

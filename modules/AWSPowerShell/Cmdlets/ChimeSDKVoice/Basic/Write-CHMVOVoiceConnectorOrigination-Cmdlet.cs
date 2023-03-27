@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates a Voice Connector's origination settings.
     /// </summary>
     [Cmdlet("Write", "CHMVOVoiceConnectorOrigination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.Origination")]
@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Origination_Disabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When origination settings are disabled, inbound calls are not enabled for your Amazon
+        /// Chime SDK Voice Connector. This parameter is not required, but you must specify this
+        /// parameter or <code>Routes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Origination_Route
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The call distribution properties defined for your SIP hosts. Valid range: Minimum
+        /// value of 1. Maximum value of 20. This parameter is not required, but you must specify
+        /// this parameter or <code>Disabled</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

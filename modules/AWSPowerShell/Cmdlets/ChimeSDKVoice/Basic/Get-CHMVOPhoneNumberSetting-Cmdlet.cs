@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the phone number settings for the administrator's AWS account, such as the
+    /// default outbound calling name.
     /// </summary>
     [Cmdlet("Get", "CHMVOPhoneNumberSetting")]
     [OutputType("Amazon.ChimeSDKVoice.Model.GetPhoneNumberSettingsResponse")]

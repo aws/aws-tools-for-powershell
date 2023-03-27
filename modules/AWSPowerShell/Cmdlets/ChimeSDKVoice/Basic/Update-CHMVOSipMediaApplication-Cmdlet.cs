@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates the details of the specified SIP media application.
     /// </summary>
     [Cmdlet("Update", "CHMVOSipMediaApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplication")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Endpoint
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The new set of endpoints for the specified SIP media application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The new name for the specified SIP media application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SIP media application ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

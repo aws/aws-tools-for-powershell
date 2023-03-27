@@ -28,10 +28,8 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Creates a workgroup with the specified name. Only one of <code>Configurations</code>
-    /// or <code>Configuration</code> can be specified; <code>Configurations</code> for a
-    /// workgroup with multi engine support (for example, an Apache Spark enabled workgroup)
-    /// or <code>Configuration</code> for an Athena SQL workgroup.
+    /// Creates a workgroup with the specified name. A workgroup can be an Apache Spark enabled
+    /// workgroup or an Athena SQL workgroup.
     /// </summary>
     [Cmdlet("New", "ATHWorkGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -90,6 +88,20 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.String EngineVersion_EffectiveEngineVersion { get; set; }
         #endregion
         
+        #region Parameter Configuration_EnableMinimumEncryptionConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Enforces a minimal level of encryption for the workgroup for query and calculation
+        /// results that are written to Amazon S3. When enabled, workgroup users can set encryption
+        /// only to the minimum level set by the administrator or higher when they submit queries.</para><para>The <code>EnforceWorkGroupConfiguration</code> setting takes precedence over the <code>EnableMinimumEncryptionConfiguration</code>
+        /// flag. This means that if <code>EnforceWorkGroupConfiguration</code> is true, the <code>EnableMinimumEncryptionConfiguration</code>
+        /// flag is ignored, and the workgroup configuration for encryption is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_EnableMinimumEncryptionConfiguration { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_EncryptionOption
         /// <summary>
         /// <para>
@@ -121,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Configuration_ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>Role used in a notebook session for accessing the user's resources.</para>
+        /// <para>Role used in a session for accessing the user's resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,13 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ResultConfiguration_OutputLocation
         /// <summary>
         /// <para>
-        /// <para>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
-        /// To run the query, you must specify the query results location using one of the ways:
-        /// either for individual queries using either this setting (client-side), or in the workgroup,
-        /// using <a>WorkGroupConfiguration</a>. If none of them is set, Athena issues an error
-        /// that no output location is provided. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query
-        /// Results</a>. If workgroup settings override client-side settings, then the query uses
-        /// the settings specified for the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</para>
+        /// <para>The location in Amazon S3 where your query and calculation results are stored, such
+        /// as <code>s3://path/to/query/bucket/</code>. To run the query, you must specify the
+        /// query results location using one of the ways: either for individual queries using
+        /// either this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>.
+        /// If none of them is set, Athena issues an error that no output location is provided.
+        /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working
+        /// with query results, recent queries, and output files</a>. If workgroup settings override
+        /// client-side settings, then the query uses the settings specified for the workgroup.
+        /// See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.Configuration_AdditionalConfiguration = this.Configuration_AdditionalConfiguration;
             context.Configuration_BytesScannedCutoffPerQuery = this.Configuration_BytesScannedCutoffPerQuery;
             context.CustomerContentEncryptionConfiguration_KmsKey = this.CustomerContentEncryptionConfiguration_KmsKey;
+            context.Configuration_EnableMinimumEncryptionConfiguration = this.Configuration_EnableMinimumEncryptionConfiguration;
             context.Configuration_EnforceWorkGroupConfiguration = this.Configuration_EnforceWorkGroupConfiguration;
             context.EngineVersion_EffectiveEngineVersion = this.EngineVersion_EffectiveEngineVersion;
             context.EngineVersion_SelectedEngineVersion = this.EngineVersion_SelectedEngineVersion;
@@ -395,6 +410,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestConfiguration_configuration_BytesScannedCutoffPerQuery != null)
             {
                 request.Configuration.BytesScannedCutoffPerQuery = requestConfiguration_configuration_BytesScannedCutoffPerQuery.Value;
+                requestConfigurationIsNull = false;
+            }
+            System.Boolean? requestConfiguration_configuration_EnableMinimumEncryptionConfiguration = null;
+            if (cmdletContext.Configuration_EnableMinimumEncryptionConfiguration != null)
+            {
+                requestConfiguration_configuration_EnableMinimumEncryptionConfiguration = cmdletContext.Configuration_EnableMinimumEncryptionConfiguration.Value;
+            }
+            if (requestConfiguration_configuration_EnableMinimumEncryptionConfiguration != null)
+            {
+                request.Configuration.EnableMinimumEncryptionConfiguration = requestConfiguration_configuration_EnableMinimumEncryptionConfiguration.Value;
                 requestConfigurationIsNull = false;
             }
             System.Boolean? requestConfiguration_configuration_EnforceWorkGroupConfiguration = null;
@@ -673,6 +698,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String Configuration_AdditionalConfiguration { get; set; }
             public System.Int64? Configuration_BytesScannedCutoffPerQuery { get; set; }
             public System.String CustomerContentEncryptionConfiguration_KmsKey { get; set; }
+            public System.Boolean? Configuration_EnableMinimumEncryptionConfiguration { get; set; }
             public System.Boolean? Configuration_EnforceWorkGroupConfiguration { get; set; }
             public System.String EngineVersion_EffectiveEngineVersion { get; set; }
             public System.String EngineVersion_SelectedEngineVersion { get; set; }

@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Deletes a voice profile, including its voice print and enrollment data. WARNING: This
+    /// action is not reversible.
     /// </summary>
     [Cmdlet("Remove", "CHMVOVoiceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceProfileId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The voice profile ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

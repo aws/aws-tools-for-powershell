@@ -28,7 +28,9 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates the phone number settings for the administrator's AWS account, such as the
+    /// default outbound calling name. You can update the default outbound calling name once
+    /// every seven days. Outbound calling names can take up to 72 hours to update.
     /// </summary>
     [Cmdlet("Update", "CHMVOPhoneNumberSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter CallingName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The default outbound calling name for the account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

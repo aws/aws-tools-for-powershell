@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the emergency calling configuration details for the specified Voice Connector.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceConnectorEmergencyCallingConfiguration")]
     [OutputType("Amazon.ChimeSDKVoice.Model.EmergencyCallingConfiguration")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

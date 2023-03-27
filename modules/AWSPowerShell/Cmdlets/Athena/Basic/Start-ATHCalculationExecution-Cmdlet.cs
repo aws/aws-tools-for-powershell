@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Submits calculations for execution within a session. You can supply the code to run
-    /// as an inline code block within the request or as an Amazon S3 URL.
+    /// as an inline code block within the request.
     /// </summary>
     [Cmdlet("Start", "ATHCalculationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Athena.Model.StartCalculationExecutionResponse")]

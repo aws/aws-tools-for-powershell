@@ -28,7 +28,9 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates a SIP media application. For more information about SIP media applications,
+    /// see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing
+    /// SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.
     /// </summary>
     [Cmdlet("New", "CHMVOSipMediaApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplication")]
@@ -47,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The AWS Region assigned to the SIP media application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Endpoint
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>List of endpoints (Lambda ARNs) specified for the SIP media application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SIP media application's name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

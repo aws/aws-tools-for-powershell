@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Returns a list of the tags in a given resource.
     /// </summary>
     [Cmdlet("Get", "CHMVOResourceTag")]
     [OutputType("Amazon.ChimeSDKVoice.Model.Tag")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The resource ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

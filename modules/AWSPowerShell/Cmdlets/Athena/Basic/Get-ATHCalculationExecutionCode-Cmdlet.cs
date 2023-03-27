@@ -28,7 +28,7 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Retrieves a pre-signed URL to a copy of the code that was executed for the calculation.
+    /// Retrieves the unencrypted code that was executed for the calculation.
     /// </summary>
     [Cmdlet("Get", "ATHCalculationExecutionCode")]
     [OutputType("System.String")]

@@ -144,6 +144,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWirelessDeviceImportTask" Verb="Remove" Noun="WirelessDeviceImportTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWirelessGateway" Verb="Remove" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -153,6 +157,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWirelessGatewayTaskDefinition" Verb="Remove" Noun="WirelessGatewayTaskDefinition" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterWirelessDevice" Verb="Unregister" Noun="WirelessDevice" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,6 +264,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWirelessDeviceImportTask" OutputProperty="*" Verb="Get" Noun="WirelessDeviceImportTask" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetWirelessDeviceStatistics" OutputProperty="*" Verb="Get" Noun="WirelessDeviceStatistic" PipelineParameter="WirelessDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -288,7 +300,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceProfiles" OutputProperty="DeviceProfileList" Verb="Get" Noun="DeviceProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeviceProfiles" OutputProperty="DeviceProfileList" Verb="Get" Noun="DeviceProfileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevicesForWirelessDeviceImportTask" OutputProperty="*" Verb="Get" Noun="DevicesForWirelessDeviceImportTaskList" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -329,6 +345,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWirelessDeviceImportTasks" OutputProperty="WirelessDeviceImportTaskList" Verb="Get" Noun="WirelessDeviceImportTaskList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -381,6 +401,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMulticastGroupSession" Verb="Start" Noun="MulticastGroupSession" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSingleWirelessDeviceImportTask" OutputProperty="*" Verb="Start" Noun="SingleWirelessDeviceImportTask" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartWirelessDeviceImportTask" OutputProperty="*" Verb="Start" Noun="WirelessDeviceImportTask" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -448,6 +476,10 @@
                 <Param Name="LoRaWAN_AbpV1_0_x_FCntStart" NewName="LoRaWAN_AbpV1_0_x_FCntStart" AutoApplyAlias="false" />
                 <Param Name="LoRaWAN_AbpV1_1_FCntStart" NewName="LoRaWAN_AbpV1_1_FCntStart" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWirelessDeviceImportTask" Verb="Update" Noun="WirelessDeviceImportTask" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWirelessGateway" Verb="Update" Noun="WirelessGateway" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

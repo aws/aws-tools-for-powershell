@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the domain containing the fraudster registration job.</para>
+        /// <para>The identifier of the domain that contains the fraudster registration job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the fraudster registration job you are describing.</para>
+        /// <para>The identifier of the fraudster registration job you are describing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

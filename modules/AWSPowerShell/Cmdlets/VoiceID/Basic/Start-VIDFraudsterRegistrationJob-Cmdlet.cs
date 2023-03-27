@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the domain containing the fraudster registration job and in which
+        /// <para>The identifier of the domain that contains the fraudster registration job and in which
         /// the fraudsters are registered.</para>
         /// </para>
         /// </summary>
@@ -167,11 +167,25 @@ namespace Amazon.PowerShell.Cmdlets.VID
         public System.String OutputDataConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter RegistrationConfig_WatchlistId
+        /// <summary>
+        /// <para>
+        /// <para>The identifiers of watchlists that a fraudster is registered to. If a watchlist isn't
+        /// provided, the fraudsters are registered to the default watchlist. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RegistrationConfig_WatchlistIds")]
+        public System.String[] RegistrationConfig_WatchlistId { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token for starting a new fraudster registration job. If not provided,
-        /// Amazon Web Services SDK populates this field.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
             #endif
             context.RegistrationConfig_DuplicateRegistrationAction = this.RegistrationConfig_DuplicateRegistrationAction;
             context.RegistrationConfig_FraudsterSimilarityThreshold = this.RegistrationConfig_FraudsterSimilarityThreshold;
+            if (this.RegistrationConfig_WatchlistId != null)
+            {
+                context.RegistrationConfig_WatchlistId = new List<System.String>(this.RegistrationConfig_WatchlistId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -377,6 +395,16 @@ namespace Amazon.PowerShell.Cmdlets.VID
                 request.RegistrationConfig.FraudsterSimilarityThreshold = requestRegistrationConfig_registrationConfig_FraudsterSimilarityThreshold.Value;
                 requestRegistrationConfigIsNull = false;
             }
+            List<System.String> requestRegistrationConfig_registrationConfig_WatchlistId = null;
+            if (cmdletContext.RegistrationConfig_WatchlistId != null)
+            {
+                requestRegistrationConfig_registrationConfig_WatchlistId = cmdletContext.RegistrationConfig_WatchlistId;
+            }
+            if (requestRegistrationConfig_registrationConfig_WatchlistId != null)
+            {
+                request.RegistrationConfig.WatchlistIds = requestRegistrationConfig_registrationConfig_WatchlistId;
+                requestRegistrationConfigIsNull = false;
+            }
              // determine if request.RegistrationConfig should be set to null
             if (requestRegistrationConfigIsNull)
             {
@@ -452,6 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
             public System.String OutputDataConfig_S3Uri { get; set; }
             public Amazon.VoiceID.DuplicateRegistrationAction RegistrationConfig_DuplicateRegistrationAction { get; set; }
             public System.Int32? RegistrationConfig_FraudsterSimilarityThreshold { get; set; }
+            public List<System.String> RegistrationConfig_WatchlistId { get; set; }
             public System.Func<Amazon.VoiceID.Model.StartFraudsterRegistrationJobResponse, StartVIDFraudsterRegistrationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Job;
         }

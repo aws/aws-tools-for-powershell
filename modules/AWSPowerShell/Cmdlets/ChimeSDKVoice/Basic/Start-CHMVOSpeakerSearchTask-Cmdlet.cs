@@ -28,7 +28,14 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Starts a speaker search task.
+    /// 
+    ///  <important><para>
+    /// Before starting any speaker search tasks, you must provide all notices and obtain
+    /// all consents from the speaker as required under applicable privacy and biometrics
+    /// laws, and as required under the <a href="https://aws.amazon.com/service-terms/">AWS
+    /// service terms</a> for the Amazon Chime SDK.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Start", "CHMVOSpeakerSearchTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SpeakerSearchTask")]
@@ -43,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier for the client request. Use a different token for different
+        /// speaker search tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter TransactionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The transaction ID of the call being analyzed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceProfileDomainId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the voice profile domain that will store the voice profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

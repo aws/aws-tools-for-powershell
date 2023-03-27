@@ -185,11 +185,24 @@ namespace Amazon.PowerShell.Cmdlets.VID
         public System.String OutputDataConfig_S3Uri { get; set; }
         #endregion
         
+        #region Parameter FraudDetectionConfig_WatchlistId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of watchlists against which fraud detection is performed. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnrollmentConfig_FraudDetectionConfig_WatchlistIds")]
+        public System.String[] FraudDetectionConfig_WatchlistId { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token for starting a new speaker enrollment Job. If not provided,
-        /// Amazon Web Services SDK populates this field.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
             context.EnrollmentConfig_ExistingEnrollmentAction = this.EnrollmentConfig_ExistingEnrollmentAction;
             context.FraudDetectionConfig_FraudDetectionAction = this.FraudDetectionConfig_FraudDetectionAction;
             context.FraudDetectionConfig_RiskThreshold = this.FraudDetectionConfig_RiskThreshold;
+            if (this.FraudDetectionConfig_WatchlistId != null)
+            {
+                context.FraudDetectionConfig_WatchlistId = new List<System.String>(this.FraudDetectionConfig_WatchlistId);
+            }
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
             #if MODULAR
             if (this.InputDataConfig_S3Uri == null && ParameterWasBound(nameof(this.InputDataConfig_S3Uri)))
@@ -357,6 +374,16 @@ namespace Amazon.PowerShell.Cmdlets.VID
             if (requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig_fraudDetectionConfig_RiskThreshold != null)
             {
                 requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig.RiskThreshold = requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig_fraudDetectionConfig_RiskThreshold.Value;
+                requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfigIsNull = false;
+            }
+            List<System.String> requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig_fraudDetectionConfig_WatchlistId = null;
+            if (cmdletContext.FraudDetectionConfig_WatchlistId != null)
+            {
+                requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig_fraudDetectionConfig_WatchlistId = cmdletContext.FraudDetectionConfig_WatchlistId;
+            }
+            if (requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig_fraudDetectionConfig_WatchlistId != null)
+            {
+                requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig.WatchlistIds = requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig_fraudDetectionConfig_WatchlistId;
                 requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfigIsNull = false;
             }
              // determine if requestEnrollmentConfig_enrollmentConfig_FraudDetectionConfig should be set to null
@@ -493,6 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
             public Amazon.VoiceID.ExistingEnrollmentAction EnrollmentConfig_ExistingEnrollmentAction { get; set; }
             public Amazon.VoiceID.FraudDetectionAction FraudDetectionConfig_FraudDetectionAction { get; set; }
             public System.Int32? FraudDetectionConfig_RiskThreshold { get; set; }
+            public List<System.String> FraudDetectionConfig_WatchlistId { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public System.String JobName { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }

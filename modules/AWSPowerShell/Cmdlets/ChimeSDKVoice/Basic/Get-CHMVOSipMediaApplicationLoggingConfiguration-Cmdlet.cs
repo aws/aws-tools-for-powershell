@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the logging configuration for the specified SIP media application.
     /// </summary>
     [Cmdlet("Get", "CHMVOSipMediaApplicationLoggingConfiguration")]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplicationLoggingConfiguration")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SipMediaApplicationId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The SIP media application ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

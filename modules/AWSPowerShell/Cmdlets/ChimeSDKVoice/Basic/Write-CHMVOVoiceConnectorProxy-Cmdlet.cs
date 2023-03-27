@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Puts the specified proxy configuration to the specified Amazon Chime SDK Voice Connector.
     /// </summary>
     [Cmdlet("Write", "CHMVOVoiceConnectorProxy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.Proxy")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter DefaultSessionExpiryMinute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The default number of minutes allowed for proxy session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Disabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When true, stops proxy sessions from being created on the specified Amazon Chime SDK
+        /// Voice Connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter FallBackPhoneNumber
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number to route calls to after a proxy session expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter PhoneNumberPoolCountry
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The countries for proxy phone numbers to be selected from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

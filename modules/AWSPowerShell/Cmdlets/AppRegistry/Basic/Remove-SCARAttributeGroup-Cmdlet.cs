@@ -28,7 +28,7 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Deletes an attribute group, specified either by its attribute group ID or name.
+    /// Deletes an attribute group, specified either by its attribute group ID, name, or ARN.
     /// </summary>
     [Cmdlet("Remove", "SCARAttributeGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppRegistry.Model.AttributeGroupSummary")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter AttributeGroup
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the attribute group that holds the attributes to describe the application.</para>
+        /// <para> The name, ID, or ARN of the attribute group that holds the attributes to describe
+        /// the application. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

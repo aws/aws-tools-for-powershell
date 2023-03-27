@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Lists the available AWS Regions in which you can create an Amazon Chime SDK Voice
+    /// Connector.
     /// </summary>
     [Cmdlet("Get", "CHMVOAvailableVoiceConnectorRegionList")]
     [OutputType("System.String")]

@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the proxy configuration details for the specified Amazon Chime SDK Voice
+    /// Connector.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceConnectorProxy")]
     [OutputType("Amazon.ChimeSDKVoice.Model.Proxy")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

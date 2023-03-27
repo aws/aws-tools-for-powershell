@@ -212,6 +212,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.Int32? LoRaWAN_RxFreq2 { get; set; }
         #endregion
         
+        #region Parameter Sidewalk
+        /// <summary>
+        /// <para>
+        /// <para>The Sidewalk-related information for creating the Sidewalk device profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoTWireless.Model.SidewalkCreateDeviceProfile Sidewalk { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_Supports32BitFCnt
         /// <summary>
         /// <para>
@@ -350,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_SupportsClassC = this.LoRaWAN_SupportsClassC;
             context.LoRaWAN_SupportsJoin = this.LoRaWAN_SupportsJoin;
             context.Name = this.Name;
+            context.Sidewalk = this.Sidewalk;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
@@ -577,6 +588,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Sidewalk != null)
+            {
+                request.Sidewalk = cmdletContext.Sidewalk;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -663,6 +678,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Boolean? LoRaWAN_SupportsClassC { get; set; }
             public System.Boolean? LoRaWAN_SupportsJoin { get; set; }
             public System.String Name { get; set; }
+            public Amazon.IoTWireless.Model.SidewalkCreateDeviceProfile Sidewalk { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateDeviceProfileResponse, NewIOTWDeviceProfileCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

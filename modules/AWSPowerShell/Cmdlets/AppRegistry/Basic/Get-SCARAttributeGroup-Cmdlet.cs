@@ -28,8 +28,8 @@ using Amazon.AppRegistry.Model;
 namespace Amazon.PowerShell.Cmdlets.SCAR
 {
     /// <summary>
-    /// Retrieves an attribute group, either by its name or its ID. The attribute group can
-    /// be specified either by its unique ID or by its name.
+    /// Retrieves an attribute group by its ARN, ID, or name. The attribute group can be
+    /// specified by its ARN, ID, or name.
     /// </summary>
     [Cmdlet("Get", "SCARAttributeGroup")]
     [OutputType("Amazon.AppRegistry.Model.GetAttributeGroupResponse")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter AttributeGroup
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the attribute group that holds the attributes to describe the application.</para>
+        /// <para> The name, ID, or ARN of the attribute group that holds the attributes to describe
+        /// the application. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

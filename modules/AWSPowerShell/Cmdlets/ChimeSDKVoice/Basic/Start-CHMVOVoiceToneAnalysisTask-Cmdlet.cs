@@ -28,7 +28,16 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Starts a voice tone analysis task. For more information about voice tone analysis,
+    /// see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using
+    /// Amazon Chime SDK voice analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// 
+    ///  <important><para>
+    /// Before starting any voice tone analysis tasks, you must provide all notices and obtain
+    /// all consents from the speaker as required under applicable privacy and biometrics
+    /// laws, and as required under the <a href="https://aws.amazon.com/service-terms/">AWS
+    /// service terms</a> for the Amazon Chime SDK.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Start", "CHMVOVoiceToneAnalysisTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceToneAnalysisTask")]
@@ -43,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier for the client request. Use a different token for different
+        /// voice tone analysis tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The language code.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter TransactionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The transaction ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

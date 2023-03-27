@@ -28,7 +28,18 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates a voice profile, which consists of an enrolled user and their latest voice
+    /// print.
+    /// 
+    ///  <important><para>
+    /// Before creating any voice profiles, you must provide all notices and obtain all consents
+    /// from the speaker as required under applicable privacy and biometrics laws, and as
+    /// required under the <a href="https://aws.amazon.com/service-terms/">AWS service terms</a>
+    /// for the Amazon Chime SDK.
+    /// </para></important><para>
+    /// For more information about voice profiles and voice analytics, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/pstn-voice-analytics.html">Using
+    /// Amazon Chime SDK Voice Analytics</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CHMVOVoiceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceProfile")]
@@ -45,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter SpeakerSearchTaskId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the speaker search task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

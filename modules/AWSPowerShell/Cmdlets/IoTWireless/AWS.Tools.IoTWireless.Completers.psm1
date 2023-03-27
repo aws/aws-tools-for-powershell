@@ -80,6 +80,13 @@ $IOTW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTWireless.DeviceProfileType
+        "Get-IOTWDeviceProfileList/DeviceProfileType"
+        {
+            $v = "LoRaWAN","Sidewalk"
+            break
+        }
+
         # Amazon.IoTWireless.DlClass
         {
             ($_ -eq "New-IOTWMulticastGroup/LoRaWAN_DlClass") -Or
@@ -176,6 +183,13 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.OnboardStatus
+        "Get-IOTWDevicesForWirelessDeviceImportTaskList/Status"
+        {
+            $v = "FAILED","INITIALIZED","ONBOARDED","PENDING"
+            break
+        }
+
         # Amazon.IoTWireless.PartnerType
         {
             ($_ -eq "Get-IOTWPartnerAccount/PartnerType") -Or
@@ -234,7 +248,7 @@ $IOTW_Completers = {
             ($_ -eq "Update-IOTWMulticastGroup/LoRaWAN_RfRegion")
         }
         {
-            $v = "AS923-1","AU915","EU868","US915"
+            $v = "AS923-1","AS923-2","AS923-3","AS923-4","AU915","CN470","CN779","EU433","EU868","IN865","KR920","RU864","US915"
             break
         }
 
@@ -260,7 +274,8 @@ $IOTW_Completers = {
             ($_ -eq "New-IOTWWirelessDevice/Type") -Or
             ($_ -eq "Get-IOTWQueuedMessageList/WirelessDeviceType") -Or
             ($_ -eq "Get-IOTWWirelessDeviceList/WirelessDeviceType") -Or
-            ($_ -eq "Remove-IOTWQueuedMessage/WirelessDeviceType")
+            ($_ -eq "Remove-IOTWQueuedMessage/WirelessDeviceType") -Or
+            ($_ -eq "Unregister-IOTWWirelessDevice/WirelessDeviceType")
         }
         {
             $v = "LoRaWAN","Sidewalk"
@@ -301,6 +316,7 @@ $IOTW_map = @{
     "ConnectionStatus_LoRaWAN_WirelessGatewayEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "ConnectionStatus_WirelessGatewayIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "DefaultLogLevel"=@("Update-IOTWLogLevelsByResourceType")
+    "DeviceProfileType"=@("Get-IOTWDeviceProfileList")
     "DeviceRegistrationState_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "DeviceRegistrationState_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
@@ -324,11 +340,12 @@ $IOTW_map = @{
     "ServiceType"=@("Get-IOTWServiceEndpoint")
     "Solvers_SemtechGnss_Fec"=@("Write-IOTWPositionConfiguration")
     "Solvers_SemtechGnss_Status"=@("Write-IOTWPositionConfiguration")
+    "Status"=@("Get-IOTWDevicesForWirelessDeviceImportTaskList")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
-    "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage")
+    "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage","Unregister-IOTWWirelessDevice")
     "WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
     "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
 }
@@ -409,9 +426,11 @@ $IOTW_SelectMap = @{
                "Remove-IOTWQueuedMessage",
                "Remove-IOTWServiceProfile",
                "Remove-IOTWWirelessDevice",
+               "Remove-IOTWWirelessDeviceImportTask",
                "Remove-IOTWWirelessGateway",
                "Remove-IOTWWirelessGatewayTask",
                "Remove-IOTWWirelessGatewayTaskDefinition",
+               "Unregister-IOTWWirelessDevice",
                "Split-IOTWAwsAccountFromPartnerAccount",
                "Split-IOTWMulticastGroupFromFuotaTask",
                "Split-IOTWWirelessDeviceFromFuotaTask",
@@ -437,6 +456,7 @@ $IOTW_SelectMap = @{
                "Get-IOTWServiceEndpoint",
                "Get-IOTWServiceProfile",
                "Get-IOTWWirelessDevice",
+               "Get-IOTWWirelessDeviceImportTask",
                "Get-IOTWWirelessDeviceStatistic",
                "Get-IOTWWirelessGateway",
                "Get-IOTWWirelessGatewayCertificate",
@@ -446,6 +466,7 @@ $IOTW_SelectMap = @{
                "Get-IOTWWirelessGatewayTaskDefinition",
                "Get-IOTWDestinationList",
                "Get-IOTWDeviceProfileList",
+               "Get-IOTWDevicesForWirelessDeviceImportTaskList",
                "Get-IOTWEventConfigurationList",
                "Get-IOTWFuotaTaskList",
                "Get-IOTWMulticastGroupList",
@@ -456,6 +477,7 @@ $IOTW_SelectMap = @{
                "Get-IOTWQueuedMessageList",
                "Get-IOTWServiceProfileList",
                "Get-IOTWResourceTag",
+               "Get-IOTWWirelessDeviceImportTaskList",
                "Get-IOTWWirelessDeviceList",
                "Get-IOTWWirelessGatewayList",
                "Get-IOTWWirelessGatewayTaskDefinitionList",
@@ -469,6 +491,8 @@ $IOTW_SelectMap = @{
                "Start-IOTWBulkDisassociateWirelessDeviceFromMulticastGroup",
                "Start-IOTWFuotaTask",
                "Start-IOTWMulticastGroupSession",
+               "Start-IOTWSingleWirelessDeviceImportTask",
+               "Start-IOTWWirelessDeviceImportTask",
                "Add-IOTWResourceTag",
                "Test-IOTWWirelessDevice",
                "Remove-IOTWResourceTag",
@@ -483,6 +507,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWResourceEventConfiguration",
                "Update-IOTWResourcePosition",
                "Update-IOTWWirelessDevice",
+               "Update-IOTWWirelessDeviceImportTask",
                "Update-IOTWWirelessGateway")
 }
 

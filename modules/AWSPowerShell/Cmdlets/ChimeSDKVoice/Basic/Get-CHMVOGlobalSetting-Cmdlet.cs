@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the global settings for the Amazon Chime SDK Voice Connectors in an AWS
+    /// account.
     /// </summary>
     [Cmdlet("Get", "CHMVOGlobalSetting")]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceConnectorSettings")]

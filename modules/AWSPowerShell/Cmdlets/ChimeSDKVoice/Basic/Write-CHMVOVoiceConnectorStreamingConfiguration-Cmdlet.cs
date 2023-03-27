@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Updates a Voice Connector's streaming configuration settings.
     /// </summary>
     [Cmdlet("Write", "CHMVOVoiceConnectorStreamingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.StreamingConfiguration")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter MediaInsightsConfiguration_ConfigurationArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The configuration's ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreamingConfiguration_DataRetentionInHour
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The amount of time, in hours, to the Kinesis data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreamingConfiguration_Disabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When true, streaming to Kinesis is off.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter MediaInsightsConfiguration_Disabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Denotes the configration as enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter StreamingConfiguration_StreamingNotificationTarget
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The streaming notification targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Voice Connector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

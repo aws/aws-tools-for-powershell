@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the domain containing the speaker.</para>
+        /// <para>The identifier of the domain that contains the speaker.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

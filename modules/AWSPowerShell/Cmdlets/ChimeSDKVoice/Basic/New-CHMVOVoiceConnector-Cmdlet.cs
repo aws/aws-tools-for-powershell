@@ -28,7 +28,10 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates an Amazon Chime SDK Voice Connector. For more information about Voice Connectors,
+    /// see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html">Managing
+    /// Amazon Chime SDK Voice Connector groups</a> in the <i>Amazon Chime SDK Administrator
+    /// Guide</i>.
     /// </summary>
     [Cmdlet("New", "CHMVOVoiceConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceConnector")]
@@ -43,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The AWS Region in which the Amazon Chime SDK Voice Connector is created. Default value:
+        /// <code>us-east-1</code> .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the Voice Connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter RequireEncryption
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Enables or disables encryption for the Voice Connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

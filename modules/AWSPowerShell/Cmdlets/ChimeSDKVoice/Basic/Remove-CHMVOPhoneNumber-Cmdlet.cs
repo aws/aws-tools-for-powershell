@@ -28,7 +28,15 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Moves the specified phone number into the <b>Deletion queue</b>. A phone number must
+    /// be disassociated from any users or Amazon Chime SDK Voice Connectors before it can
+    /// be deleted.
+    /// 
+    ///  
+    /// <para>
+    /// Deleted phone numbers remain in the <b>Deletion queue</b> queue for 7 days before
+    /// they are deleted permanently.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CHMVOPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter PhoneNumberId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

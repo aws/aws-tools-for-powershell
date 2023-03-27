@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Retrieves the details of the specified voice profile domain.
     /// </summary>
     [Cmdlet("Get", "CHMVOVoiceProfileDomain")]
     [OutputType("Amazon.ChimeSDKVoice.Model.VoiceProfileDomain")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceProfileDomainId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The voice profile domain ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

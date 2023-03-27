@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>Contains additional notebook engine <code>MAP&lt;string, string&gt;</code> parameter
-        /// mappings in the form of key-value pairs. To specify an Amazon S3 URI that the Jupyter
+        /// mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter
         /// server will download and serve, specify a value for the <a>StartSessionRequest$NotebookVersion</a>
-        /// field, and then add a key named <code>NotebookFileURI</code> to <code>AdditionalConfigs</code>
-        /// that has value of the Amazon S3 URI.</para>
+        /// field, and then add a key named <code>NotebookId</code> to <code>AdditionalConfigs</code>
+        /// that has the value of the Athena notebook ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +122,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter NotebookVersion
         /// <summary>
         /// <para>
-        /// <para>The notebook version. This value is required only when requesting that a notebook
-        /// server be started for the session. The only valid notebook version is <code>Jupyter1.0</code>.</para>
+        /// <para>The notebook version. This value is supplied automatically for notebook sessions in
+        /// the Athena console and is not required for programmatic session access. The only valid
+        /// notebook version is <code>Athena notebook version 1</code>. If you specify a value
+        /// for <code>NotebookVersion</code>, you must also specify a value for <code>NotebookId</code>.
+        /// See <a>EngineConfiguration$AdditionalConfigs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -86,11 +86,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-VIDFraudsterAssociation', 
         'Add-VIDResourceTag', 
         'Edit-VIDDomain', 
         'Get-VIDDomain', 
         'Get-VIDDomainList', 
         'Get-VIDFraudster', 
+        'Get-VIDFraudsterList', 
         'Get-VIDFraudsterRegistrationJob', 
         'Get-VIDFraudsterRegistrationJobList', 
         'Get-VIDResourceTag', 
@@ -99,14 +101,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-VIDSpeakerEnrollmentJob', 
         'Get-VIDSpeakerEnrollmentJobList', 
         'Get-VIDSpeakerList', 
+        'Get-VIDWatchlist', 
+        'Get-VIDWatchlistList', 
         'New-VIDDomain', 
+        'New-VIDWatchlist', 
         'Remove-VIDDomain', 
         'Remove-VIDFraudster', 
+        'Remove-VIDFraudsterAssociation', 
         'Remove-VIDResourceTag', 
         'Remove-VIDSpeaker', 
+        'Remove-VIDWatchlist', 
         'Set-VIDOptOutSpeaker', 
         'Start-VIDFraudsterRegistrationJob', 
-        'Start-VIDSpeakerEnrollmentJob')
+        'Start-VIDSpeakerEnrollmentJob', 
+        'Update-VIDWatchlist')
 
     # Variables to export from this module
     VariablesToExport = '*'

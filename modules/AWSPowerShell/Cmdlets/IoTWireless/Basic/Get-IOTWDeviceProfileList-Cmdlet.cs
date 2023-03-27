@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
     public partial class GetIOTWDeviceProfileListCmdlet : AmazonIoTWirelessClientCmdlet, IExecutor
     {
         
+        #region Parameter DeviceProfileType
+        /// <summary>
+        /// <para>
+        /// <para>A filter to list only device profiles that use this type, which can be <code>LoRaWAN</code>
+        /// or <code>Sidewalk</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTWireless.DeviceProfileType")]
+        public Amazon.IoTWireless.DeviceProfileType DeviceProfileType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -88,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 context.Select = CreateSelectDelegate<Amazon.IoTWireless.Model.ListDeviceProfilesResponse, GetIOTWDeviceProfileListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeviceProfileType = this.DeviceProfileType;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -106,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             // create request
             var request = new Amazon.IoTWireless.Model.ListDeviceProfilesRequest();
             
+            if (cmdletContext.DeviceProfileType != null)
+            {
+                request.DeviceProfileType = cmdletContext.DeviceProfileType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -175,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoTWireless.DeviceProfileType DeviceProfileType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.IoTWireless.Model.ListDeviceProfilesResponse, GetIOTWDeviceProfileListCmdlet, object> Select { get; set; } =

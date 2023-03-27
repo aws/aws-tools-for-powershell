@@ -28,7 +28,7 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Lists the countries that you can order phone numbers from.
     /// </summary>
     [Cmdlet("Get", "CHMVOSupportedPhoneNumberCountryList")]
     [OutputType("Amazon.ChimeSDKVoice.Model.PhoneNumberCountry")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ProductType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number product type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

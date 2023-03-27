@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SCAR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>The name or ID of the application that will be updated.</para>
+        /// <para> The name, ID, or ARN of the application that will be updated. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

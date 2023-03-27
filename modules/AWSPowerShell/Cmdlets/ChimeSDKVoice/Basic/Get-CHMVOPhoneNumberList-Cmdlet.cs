@@ -28,7 +28,8 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Lists the phone numbers for the specified Amazon Chime SDK account, Amazon Chime SDK
+    /// user, Amazon Chime SDK Voice Connector, or Amazon Chime SDK Voice Connector group.
     /// </summary>
     [Cmdlet("Get", "CHMVOPhoneNumberList")]
     [OutputType("Amazon.ChimeSDKVoice.Model.PhoneNumber")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter FilterName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The filter to limit the number of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter FilterValue
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The filter value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter ProductType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The phone number product types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The status of your organization's phone numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in a single call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token used to return the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

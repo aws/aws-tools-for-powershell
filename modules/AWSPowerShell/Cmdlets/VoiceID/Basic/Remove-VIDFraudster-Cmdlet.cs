@@ -28,7 +28,8 @@ using Amazon.VoiceID.Model;
 namespace Amazon.PowerShell.Cmdlets.VID
 {
     /// <summary>
-    /// Deletes the specified fraudster from Voice ID.
+    /// Deletes the specified fraudster from Voice ID. This action disassociates the fraudster
+    /// from any watchlists it is a part of.
     /// </summary>
     [Cmdlet("Remove", "VIDFraudster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the domain containing the fraudster.</para>
+        /// <para>The identifier of the domain that contains the fraudster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

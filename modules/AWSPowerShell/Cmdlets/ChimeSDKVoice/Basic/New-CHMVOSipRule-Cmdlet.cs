@@ -28,7 +28,9 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    
+    /// Creates a SIP rule, which can be used to run a SIP media application as a target for
+    /// a specific trigger type. For more information about SIP rules, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing
+    /// SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.
     /// </summary>
     [Cmdlet("New", "CHMVOSipRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipRule")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Disabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Disables or enables a SIP rule. You must disable SIP rules before you can delete them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the SIP rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter TargetApplication
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>List of SIP media applications, with priority and AWS Region. Only one SIP application
+        /// per AWS Region can be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter TriggerType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of trigger assigned to the SIP rule in <code>TriggerValue</code>, currently
+        /// <code>RequestUriHostname</code> or <code>ToPhoneNumber</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +102,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter TriggerValue
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If <code>TriggerType</code> is <code>RequestUriHostname</code>, the value can be the
+        /// outbound host name of a Voice Connector. If <code>TriggerType</code> is <code>ToPhoneNumber</code>,
+        /// the value can be a customer-owned phone number in the E164 format. The <code>SipMediaApplication</code>
+        /// specified in the <code>SipRule</code> is triggered if the request URI in an incoming
+        /// SIP request matches the <code>RequestUriHostname</code>, or if the <code>To</code>
+        /// header in the incoming SIP request matches the <code>ToPhoneNumber</code> value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

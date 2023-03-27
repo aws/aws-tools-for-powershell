@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.VID
 {
     /// <summary>
     /// Creates a domain that contains all Amazon Connect Voice ID data, such as speakers,
-    /// fraudsters, customer audio, and voiceprints.
+    /// fraudsters, customer audio, and voiceprints. Every domain is created with a default
+    /// watchlist that fraudsters can be a part of.
     /// </summary>
     [Cmdlet("New", "VIDDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VoiceID.Model.Domain")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A brief description of the domain.</para>
+        /// <para>A brief description of this domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.VID
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token for creating a new domain. If not provided, Amazon Web Services
-        /// SDK populates this field.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the Amazon Web Services SDK populates this field. For
+        /// more information about idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
