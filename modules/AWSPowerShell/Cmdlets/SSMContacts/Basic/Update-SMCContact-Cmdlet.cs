@@ -67,6 +67,18 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter Plan_RotationId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of the on-call rotations associated with the plan.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Plan_RotationIds")]
+        public System.String[] Plan_RotationId { get; set; }
+        #endregion
+        
         #region Parameter Plan_Stage
         /// <summary>
         /// <para>
@@ -148,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             }
             #endif
             context.DisplayName = this.DisplayName;
+            if (this.Plan_RotationId != null)
+            {
+                context.Plan_RotationId = new List<System.String>(this.Plan_RotationId);
+            }
             if (this.Plan_Stage != null)
             {
                 context.Plan_Stage = new List<Amazon.SSMContacts.Model.Stage>(this.Plan_Stage);
@@ -180,6 +196,16 @@ namespace Amazon.PowerShell.Cmdlets.SMC
              // populate Plan
             var requestPlanIsNull = true;
             request.Plan = new Amazon.SSMContacts.Model.Plan();
+            List<System.String> requestPlan_plan_RotationId = null;
+            if (cmdletContext.Plan_RotationId != null)
+            {
+                requestPlan_plan_RotationId = cmdletContext.Plan_RotationId;
+            }
+            if (requestPlan_plan_RotationId != null)
+            {
+                request.Plan.RotationIds = requestPlan_plan_RotationId;
+                requestPlanIsNull = false;
+            }
             List<Amazon.SSMContacts.Model.Stage> requestPlan_plan_Stage = null;
             if (cmdletContext.Plan_Stage != null)
             {
@@ -258,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         {
             public System.String ContactId { get; set; }
             public System.String DisplayName { get; set; }
+            public List<System.String> Plan_RotationId { get; set; }
             public List<Amazon.SSMContacts.Model.Stage> Plan_Stage { get; set; }
             public System.Func<Amazon.SSMContacts.Model.UpdateContactResponse, UpdateSMCContactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         /// <summary>
         /// <para>
         /// <para>Filters the timeline events based on the provided conditional values. You can filter
-        /// timeline events using the following keys:</para><ul><li><para><code>eventTime</code></para></li><li><para><code>eventType</code></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all timeline events.</para></li><li><para>If you specify more than one filter in a single request, the response returns timeline
+        /// timeline events with the following keys:</para><ul><li><para><code>eventTime</code></para></li><li><para><code>eventType</code></para></li></ul><para>Note the following when deciding how to use Filters:</para><ul><li><para>If you don't specify a Filter, the response includes all timeline events.</para></li><li><para>If you specify more than one filter in a single request, the response returns timeline
         /// events that match all filters.</para></li><li><para>If you specify a filter with more than one value, the response returns timeline events
         /// that match any of the values provided.</para></li></ul>
         /// </para>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>Sort by the specified key value pair.</para>
+        /// <para>Sort timeline events by the specified key value pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

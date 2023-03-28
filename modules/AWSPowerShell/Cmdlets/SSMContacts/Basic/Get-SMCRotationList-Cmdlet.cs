@@ -28,39 +28,35 @@ using Amazon.SSMContacts.Model;
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
-    /// Lists all contact channels for the specified contact.
+    /// Retrieves a list of on-call rotations.
     /// </summary>
-    [Cmdlet("Get", "SMCContactChannelList")]
-    [OutputType("Amazon.SSMContacts.Model.ContactChannel")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts ListContactChannels API operation.", Operation = new[] {"ListContactChannels"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListContactChannelsResponse))]
-    [AWSCmdletOutput("Amazon.SSMContacts.Model.ContactChannel or Amazon.SSMContacts.Model.ListContactChannelsResponse",
-        "This cmdlet returns a collection of Amazon.SSMContacts.Model.ContactChannel objects.",
-        "The service call response (type Amazon.SSMContacts.Model.ListContactChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMCRotationList")]
+    [OutputType("Amazon.SSMContacts.Model.Rotation")]
+    [AWSCmdlet("Calls the AWS System Manager Contacts ListRotations API operation.", Operation = new[] {"ListRotations"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListRotationsResponse))]
+    [AWSCmdletOutput("Amazon.SSMContacts.Model.Rotation or Amazon.SSMContacts.Model.ListRotationsResponse",
+        "This cmdlet returns a collection of Amazon.SSMContacts.Model.Rotation objects.",
+        "The service call response (type Amazon.SSMContacts.Model.ListRotationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMCContactChannelListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
+    public partial class GetSMCRotationListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
-        #region Parameter ContactId
+        #region Parameter RotationNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the contact.</para>
+        /// <para>A filter to include rotations in list results based on their common prefix. For example,
+        /// entering prod returns a list of all rotation names that begin with <code>prod</code>,
+        /// such as <code>production</code> and <code>prod-1</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactId { get; set; }
+        public System.String RotationNamePrefix { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of contact channels per page.</para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token to continue to the next page of results.</para>
+        /// <para>A token to start the list. Use this token to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,21 +76,21 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactChannels'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.ListContactChannelsResponse).
-        /// Specifying the name of a property of type Amazon.SSMContacts.Model.ListContactChannelsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Rotations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.ListRotationsResponse).
+        /// Specifying the name of a property of type Amazon.SSMContacts.Model.ListRotationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactChannels";
+        public string Select { get; set; } = "Rotations";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the RotationNamePrefix parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^RotationNamePrefix' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RotationNamePrefix' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.ListContactChannelsResponse, GetSMCContactChannelListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.ListRotationsResponse, GetSMCRotationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,18 +117,12 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactId;
+                context.Select = (response, cmdlet) => this.RotationNamePrefix;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactId = this.ContactId;
-            #if MODULAR
-            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.RotationNamePrefix = this.RotationNamePrefix;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,12 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SSMContacts.Model.ListContactChannelsRequest();
+            var request = new Amazon.SSMContacts.Model.ListRotationsRequest();
             
-            if (cmdletContext.ContactId != null)
-            {
-                request.ContactId = cmdletContext.ContactId;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -160,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.RotationNamePrefix != null)
+            {
+                request.RotationNamePrefix = cmdletContext.RotationNamePrefix;
             }
             
             CmdletOutput output;
@@ -194,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         #region AWS Service Operation Call
         
-        private Amazon.SSMContacts.Model.ListContactChannelsResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListContactChannelsRequest request)
+        private Amazon.SSMContacts.Model.ListRotationsResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListRotationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListContactChannels");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListRotations");
             try
             {
                 #if DESKTOP
-                return client.ListContactChannels(request);
+                return client.ListRotations(request);
                 #elif CORECLR
-                return client.ListContactChannelsAsync(request).GetAwaiter().GetResult();
+                return client.ListRotationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +212,11 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SSMContacts.Model.ListContactChannelsResponse, GetSMCContactChannelListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactChannels;
+            public System.String RotationNamePrefix { get; set; }
+            public System.Func<Amazon.SSMContacts.Model.ListRotationsResponse, GetSMCRotationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Rotations;
         }
         
     }

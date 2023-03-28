@@ -34,6 +34,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRotation" OutputProperty="RotationArn" Verb="New" Noun="Rotation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRotationOverride" OutputProperty="RotationOverrideId" Verb="New" Noun="RotationOverride" ShouldProcessTarget="RotationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeactivateContactChannel" Verb="Disable" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +51,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactChannel" Verb="Remove" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRotation" Verb="Remove" Noun="Rotation" ShouldProcessTarget="RotationId" PipelineParameter="RotationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRotationOverride" Verb="Remove" Noun="RotationOverride" ShouldProcessTarget="RotationOverrideId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,6 +82,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRotation" OutputProperty="*" Verb="Get" Noun="Rotation" PipelineParameter="RotationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRotationOverride" OutputProperty="*" Verb="Get" Noun="RotationOverride" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContactChannels" OutputProperty="ContactChannels" Verb="Get" Noun="ContactChannelList" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -82,11 +106,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPageResolutions" OutputProperty="PageResolutions" Verb="Get" Noun="PageResolutionList" PipelineParameter="PageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPagesByContact" OutputProperty="Pages" Verb="Get" Noun="PagesByContactList" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPagesByEngagement" OutputProperty="Pages" Verb="Get" Noun="PagesByEngagementList" PipelineParameter="EngagementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPreviewRotationShifts" OutputProperty="RotationShifts" Verb="Get" Noun="PreviewRotationShiftList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRotationOverrides" OutputProperty="RotationOverrides" Verb="Get" Noun="RotationOverrideList" PipelineParameter="RotationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRotations" OutputProperty="Rotations" Verb="Get" Noun="RotationList" PipelineParameter="RotationNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRotationShifts" OutputProperty="RotationShifts" Verb="Get" Noun="RotationShiftList" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -123,6 +167,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactChannel" Verb="Update" Noun="ContactChannel" ShouldProcessTarget="ContactChannelId" PipelineParameter="ContactChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRotation" Verb="Update" Noun="Rotation" ShouldProcessTarget="RotationId" PipelineParameter="RotationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter AcceptCode
         /// <summary>
         /// <para>
-        /// <para>The accept code is a 6-digit code used to acknowledge the page.</para>
+        /// <para>A 6-digit code used to acknowledge the page.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

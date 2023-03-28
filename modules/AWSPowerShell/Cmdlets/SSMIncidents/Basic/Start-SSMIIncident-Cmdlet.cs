@@ -64,8 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter RelatedItem
         /// <summary>
         /// <para>
-        /// <para>Add related items to the incident for other responders to use. Related items are AWS
-        /// resources, external links, or files uploaded to an Amazon S3 bucket. </para>
+        /// <para>Add related items to the incident for other responders to use. Related items are Amazon
+        /// Web Services resources, external links, or files uploaded to an Amazon S3 bucket.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

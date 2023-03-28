@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>The short name to quickly identify a contact or escalation plan. The contact alias
-        /// must be unique and identifiable. </para>
+        /// must be unique and identifiable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The full name of the contact or escalation plan. </para>
+        /// <para>The full name of the contact or escalation plan.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,6 +80,18 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         public System.String IdempotencyToken { get; set; }
         #endregion
         
+        #region Parameter Plan_RotationId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Names (ARNs) of the on-call rotations associated with the plan.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Plan_RotationIds")]
+        public System.String[] Plan_RotationId { get; set; }
+        #endregion
+        
         #region Parameter Plan_Stage
         /// <summary>
         /// <para>
@@ -87,14 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// and contact methods.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Plan_Stages")]
         public Amazon.SSMContacts.Model.Stage[] Plan_Stage { get; set; }
         #endregion
@@ -103,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         /// <summary>
         /// <para>
         /// <para>Adds a tag to the target. You can only tag resources created in the first Region of
-        /// your replication set. </para>
+        /// your replication set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,16 +205,14 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             #endif
             context.DisplayName = this.DisplayName;
             context.IdempotencyToken = this.IdempotencyToken;
+            if (this.Plan_RotationId != null)
+            {
+                context.Plan_RotationId = new List<System.String>(this.Plan_RotationId);
+            }
             if (this.Plan_Stage != null)
             {
                 context.Plan_Stage = new List<Amazon.SSMContacts.Model.Stage>(this.Plan_Stage);
             }
-            #if MODULAR
-            if (this.Plan_Stage == null && ParameterWasBound(nameof(this.Plan_Stage)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Plan_Stage which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SSMContacts.Model.Tag>(this.Tag);
@@ -253,6 +256,16 @@ namespace Amazon.PowerShell.Cmdlets.SMC
              // populate Plan
             var requestPlanIsNull = true;
             request.Plan = new Amazon.SSMContacts.Model.Plan();
+            List<System.String> requestPlan_plan_RotationId = null;
+            if (cmdletContext.Plan_RotationId != null)
+            {
+                requestPlan_plan_RotationId = cmdletContext.Plan_RotationId;
+            }
+            if (requestPlan_plan_RotationId != null)
+            {
+                request.Plan.RotationIds = requestPlan_plan_RotationId;
+                requestPlanIsNull = false;
+            }
             List<Amazon.SSMContacts.Model.Stage> requestPlan_plan_Stage = null;
             if (cmdletContext.Plan_Stage != null)
             {
@@ -340,6 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             public System.String Alias { get; set; }
             public System.String DisplayName { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public List<System.String> Plan_RotationId { get; set; }
             public List<Amazon.SSMContacts.Model.Stage> Plan_Stage { get; set; }
             public List<Amazon.SSMContacts.Model.Tag> Tag { get; set; }
             public Amazon.SSMContacts.ContactType Type { get; set; }

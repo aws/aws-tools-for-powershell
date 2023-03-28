@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter IncidentRecordArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the incident record containing the related items
-        /// you are updating.</para>
+        /// <para>The Amazon Resource Name (ARN) of the incident record that contains the related items
+        /// that you update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -236,7 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token ensuring that the operation is called only once with the specified details.</para>
+        /// <para>A token that ensures that a client calls the operation only once with the specified
+        /// details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,22 @@
-﻿### 4.1.300 (2023-03-27 20:56Z)
+﻿### 4.1.301 (2023-03-28 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.514.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon System Manager Contacts
+    * Added cmdlet Get-SMCPageResolutionList leveraging the ListPageResolutions service API.
+    * Added cmdlet Get-SMCPreviewRotationShiftList leveraging the ListPreviewRotationShifts service API.
+    * Added cmdlet Get-SMCRotation leveraging the GetRotation service API.
+    * Added cmdlet Get-SMCRotationList leveraging the ListRotations service API.
+    * Added cmdlet Get-SMCRotationOverride leveraging the GetRotationOverride service API.
+    * Added cmdlet Get-SMCRotationOverrideList leveraging the ListRotationOverrides service API.
+    * Added cmdlet Get-SMCRotationShiftList leveraging the ListRotationShifts service API.
+    * Added cmdlet New-SMCRotation leveraging the CreateRotation service API.
+    * Added cmdlet New-SMCRotationOverride leveraging the CreateRotationOverride service API.
+    * Added cmdlet Remove-SMCRotation leveraging the DeleteRotation service API.
+    * Added cmdlet Remove-SMCRotationOverride leveraging the DeleteRotationOverride service API.
+    * Added cmdlet Update-SMCRotation leveraging the UpdateRotation service API.
+    * Modified cmdlet New-SMCContact: added parameter Plan_RotationId.
+    * Modified cmdlet Update-SMCContact: added parameter Plan_RotationId.
+
+### 4.1.300 (2023-03-27 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.513.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Athena
     * Modified cmdlet New-ATHWorkGroup: added parameter Configuration_EnableMinimumEncryptionConfiguration.

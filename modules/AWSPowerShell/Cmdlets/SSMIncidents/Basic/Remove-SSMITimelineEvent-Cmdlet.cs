@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter EventId
         /// <summary>
         /// <para>
-        /// <para>The ID of the event you are updating. You can find this by using <code>ListTimelineEvents</code>.</para>
+        /// <para>The ID of the event to update. You can use <code>ListTimelineEvents</code> to find
+        /// an event's ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

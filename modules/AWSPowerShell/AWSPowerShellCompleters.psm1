@@ -54106,7 +54106,7 @@ $SMC_Completers = {
             ($_ -eq "New-SMCContact/Type")
         }
         {
-            $v = "ESCALATION","PERSONAL"
+            $v = "ESCALATION","ONCALL_SCHEDULE","PERSONAL"
             break
         }
 
@@ -54178,20 +54178,31 @@ $SMC_SelectMap = @{
                "Enable-SMCContactChannel",
                "New-SMCContact",
                "New-SMCContactChannel",
+               "New-SMCRotation",
+               "New-SMCRotationOverride",
                "Disable-SMCContactChannel",
                "Remove-SMCContact",
                "Remove-SMCContactChannel",
+               "Remove-SMCRotation",
+               "Remove-SMCRotationOverride",
                "Get-SMCEngagement",
                "Get-SMCPage",
                "Get-SMCContact",
                "Get-SMCContactChannel",
                "Get-SMCContactPolicy",
+               "Get-SMCRotation",
+               "Get-SMCRotationOverride",
                "Get-SMCContactChannelList",
                "Get-SMCContactList",
                "Get-SMCEngagementList",
                "Get-SMCPageReceiptList",
+               "Get-SMCPageResolutionList",
                "Get-SMCPagesByContactList",
                "Get-SMCPagesByEngagementList",
+               "Get-SMCPreviewRotationShiftList",
+               "Get-SMCRotationOverrideList",
+               "Get-SMCRotationList",
+               "Get-SMCRotationShiftList",
                "Get-SMCResourceTag",
                "Write-SMCContactPolicy",
                "Send-SMCActivationCode",
@@ -54200,7 +54211,8 @@ $SMC_SelectMap = @{
                "Add-SMCResourceTag",
                "Remove-SMCResourceTag",
                "Update-SMCContact",
-               "Update-SMCContactChannel")
+               "Update-SMCContactChannel",
+               "Update-SMCRotation")
 }
 
 _awsArgumentCompleterRegistration $SMC_SelectCompleters $SMC_SelectMap

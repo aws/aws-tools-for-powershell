@@ -28,23 +28,22 @@ using Amazon.SSMContacts.Model;
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
-    /// Activates a contact's contact channel. Incident Manager can't engage a contact until
-    /// the contact channel has been activated.
+    /// Deletes an existing override for an on-call rotation.
     /// </summary>
-    [Cmdlet("Enable", "SMCContactChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "SMCRotationOverride", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts ActivateContactChannel API operation.", Operation = new[] {"ActivateContactChannel"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ActivateContactChannelResponse))]
-    [AWSCmdletOutput("None or Amazon.SSMContacts.Model.ActivateContactChannelResponse",
+    [AWSCmdlet("Calls the AWS System Manager Contacts DeleteRotationOverride API operation.", Operation = new[] {"DeleteRotationOverride"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.DeleteRotationOverrideResponse))]
+    [AWSCmdletOutput("None or Amazon.SSMContacts.Model.DeleteRotationOverrideResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SSMContacts.Model.ActivateContactChannelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SSMContacts.Model.DeleteRotationOverrideResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableSMCContactChannelCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
+    public partial class RemoveSMCRotationOverrideCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
-        #region Parameter ActivationCode
+        #region Parameter RotationId
         /// <summary>
         /// <para>
-        /// <para>The code sent to the contact channel when it was created in the contact.</para>
+        /// <para>The Amazon Resource Name (ARN) of the rotation that was overridden.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,44 +54,34 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ActivationCode { get; set; }
+        public System.String RotationId { get; set; }
         #endregion
         
-        #region Parameter ContactChannelId
+        #region Parameter RotationOverrideId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the contact channel.</para>
+        /// <para>The Amazon Resource Name (ARN) of the on-call rotation override to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactChannelId { get; set; }
+        public System.String RotationOverrideId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.ActivateContactChannelResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.DeleteRotationOverrideResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactChannelId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactChannelId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactChannelId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -110,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactChannelId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-SMCContactChannel (ActivateContactChannel)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RotationOverrideId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMCRotationOverride (DeleteRotationOverride)"))
             {
                 return;
             }
@@ -121,33 +110,23 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.ActivateContactChannelResponse, EnableSMCContactChannelCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.DeleteRotationOverrideResponse, RemoveSMCRotationOverrideCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ContactChannelId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ActivationCode = this.ActivationCode;
+            context.RotationId = this.RotationId;
             #if MODULAR
-            if (this.ActivationCode == null && ParameterWasBound(nameof(this.ActivationCode)))
+            if (this.RotationId == null && ParameterWasBound(nameof(this.RotationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ActivationCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RotationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ContactChannelId = this.ContactChannelId;
+            context.RotationOverrideId = this.RotationOverrideId;
             #if MODULAR
-            if (this.ContactChannelId == null && ParameterWasBound(nameof(this.ContactChannelId)))
+            if (this.RotationOverrideId == null && ParameterWasBound(nameof(this.RotationOverrideId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactChannelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RotationOverrideId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,15 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SSMContacts.Model.ActivateContactChannelRequest();
+            var request = new Amazon.SSMContacts.Model.DeleteRotationOverrideRequest();
             
-            if (cmdletContext.ActivationCode != null)
+            if (cmdletContext.RotationId != null)
             {
-                request.ActivationCode = cmdletContext.ActivationCode;
+                request.RotationId = cmdletContext.RotationId;
             }
-            if (cmdletContext.ContactChannelId != null)
+            if (cmdletContext.RotationOverrideId != null)
             {
-                request.ContactChannelId = cmdletContext.ContactChannelId;
+                request.RotationOverrideId = cmdletContext.RotationOverrideId;
             }
             
             CmdletOutput output;
@@ -207,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         #region AWS Service Operation Call
         
-        private Amazon.SSMContacts.Model.ActivateContactChannelResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ActivateContactChannelRequest request)
+        private Amazon.SSMContacts.Model.DeleteRotationOverrideResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.DeleteRotationOverrideRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ActivateContactChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "DeleteRotationOverride");
             try
             {
                 #if DESKTOP
-                return client.ActivateContactChannel(request);
+                return client.DeleteRotationOverride(request);
                 #elif CORECLR
-                return client.ActivateContactChannelAsync(request).GetAwaiter().GetResult();
+                return client.DeleteRotationOverrideAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,9 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ActivationCode { get; set; }
-            public System.String ContactChannelId { get; set; }
-            public System.Func<Amazon.SSMContacts.Model.ActivateContactChannelResponse, EnableSMCContactChannelCmdlet, object> Select { get; set; } =
+            public System.String RotationId { get; set; }
+            public System.String RotationOverrideId { get; set; }
+            public System.Func<Amazon.SSMContacts.Model.DeleteRotationOverrideResponse, RemoveSMCRotationOverrideCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

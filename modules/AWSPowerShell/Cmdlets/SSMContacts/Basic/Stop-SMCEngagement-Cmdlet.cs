@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>The reason that you're stopping the engagement. </para>
+        /// <para>The reason that you're stopping the engagement.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

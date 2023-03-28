@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter NotificationTarget
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS targets that are notified when updates are made to an incident.</para><para>Using multiple SNS topics creates redundancy in the event that a Region is down during
+        /// <para>The Amazon SNS targets that Incident Manager notifies when a client updates an incident.</para><para>Using multiple SNS topics creates redundancy in the event that a Region is down during
         /// the incident.</para>
         /// </para>
         /// </summary>
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the incident. An incident can be <code>Open</code> or <code>Resolved</code>.</para>
+        /// <para>The status of the incident. Possible statuses are <code>Open</code> or <code>Resolved</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that ensures that the operation is called only once with the specified details.</para>
+        /// <para>A token that ensures that a client calls the operation only once with the specified
+        /// details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

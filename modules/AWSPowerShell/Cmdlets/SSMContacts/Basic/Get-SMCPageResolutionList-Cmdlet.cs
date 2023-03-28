@@ -28,22 +28,25 @@ using Amazon.SSMContacts.Model;
 namespace Amazon.PowerShell.Cmdlets.SMC
 {
     /// <summary>
-    /// Lists all contact channels for the specified contact.
+    /// Returns the resolution path of an engagement. For example, the escalation plan engaged
+    /// in an incident might target an on-call schedule that includes several contacts in
+    /// a rotation, but just one contact on-call when the incident starts. The resolution
+    /// path indicates the hierarchy of <i>escalation plan &gt; on-call schedule &gt; contact</i>.
     /// </summary>
-    [Cmdlet("Get", "SMCContactChannelList")]
-    [OutputType("Amazon.SSMContacts.Model.ContactChannel")]
-    [AWSCmdlet("Calls the AWS System Manager Contacts ListContactChannels API operation.", Operation = new[] {"ListContactChannels"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListContactChannelsResponse))]
-    [AWSCmdletOutput("Amazon.SSMContacts.Model.ContactChannel or Amazon.SSMContacts.Model.ListContactChannelsResponse",
-        "This cmdlet returns a collection of Amazon.SSMContacts.Model.ContactChannel objects.",
-        "The service call response (type Amazon.SSMContacts.Model.ListContactChannelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMCPageResolutionList")]
+    [OutputType("Amazon.SSMContacts.Model.ResolutionContact")]
+    [AWSCmdlet("Calls the AWS System Manager Contacts ListPageResolutions API operation.", Operation = new[] {"ListPageResolutions"}, SelectReturnType = typeof(Amazon.SSMContacts.Model.ListPageResolutionsResponse))]
+    [AWSCmdletOutput("Amazon.SSMContacts.Model.ResolutionContact or Amazon.SSMContacts.Model.ListPageResolutionsResponse",
+        "This cmdlet returns a collection of Amazon.SSMContacts.Model.ResolutionContact objects.",
+        "The service call response (type Amazon.SSMContacts.Model.ListPageResolutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMCContactChannelListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
+    public partial class GetSMCPageResolutionListCmdlet : AmazonSSMContactsClientCmdlet, IExecutor
     {
         
-        #region Parameter ContactId
+        #region Parameter PageId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the contact.</para>
+        /// <para>The Amazon Resource Name (ARN) of the contact engaged for the incident.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,24 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactId { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of contact channels per page.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
+        public System.String PageId { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token to continue to the next page of results.</para>
+        /// <para>A token to start the list. Use this token to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,21 +72,21 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactChannels'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.ListContactChannelsResponse).
-        /// Specifying the name of a property of type Amazon.SSMContacts.Model.ListContactChannelsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PageResolutions'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SSMContacts.Model.ListPageResolutionsResponse).
+        /// Specifying the name of a property of type Amazon.SSMContacts.Model.ListPageResolutionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactChannels";
+        public string Select { get; set; } = "PageResolutions";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PageId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PageId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PageId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.ListContactChannelsResponse, GetSMCContactChannelListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SSMContacts.Model.ListPageResolutionsResponse, GetSMCPageResolutionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -121,18 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.SMC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactId;
+                context.Select = (response, cmdlet) => this.PageId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactId = this.ContactId;
+            context.NextToken = this.NextToken;
+            context.PageId = this.PageId;
             #if MODULAR
-            if (this.ContactId == null && ParameterWasBound(nameof(this.ContactId)))
+            if (this.PageId == null && ParameterWasBound(nameof(this.PageId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,19 +138,15 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SSMContacts.Model.ListContactChannelsRequest();
+            var request = new Amazon.SSMContacts.Model.ListPageResolutionsRequest();
             
-            if (cmdletContext.ContactId != null)
-            {
-                request.ContactId = cmdletContext.ContactId;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.PageId != null)
+            {
+                request.PageId = cmdletContext.PageId;
             }
             
             CmdletOutput output;
@@ -194,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         #region AWS Service Operation Call
         
-        private Amazon.SSMContacts.Model.ListContactChannelsResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListContactChannelsRequest request)
+        private Amazon.SSMContacts.Model.ListPageResolutionsResponse CallAWSServiceOperation(IAmazonSSMContacts client, Amazon.SSMContacts.Model.ListPageResolutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListContactChannels");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS System Manager Contacts", "ListPageResolutions");
             try
             {
                 #if DESKTOP
-                return client.ListContactChannels(request);
+                return client.ListPageResolutions(request);
                 #elif CORECLR
-                return client.ListContactChannelsAsync(request).GetAwaiter().GetResult();
+                return client.ListPageResolutionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,11 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.SMC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactId { get; set; }
-            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SSMContacts.Model.ListContactChannelsResponse, GetSMCContactChannelListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactChannels;
+            public System.String PageId { get; set; }
+            public System.Func<Amazon.SSMContacts.Model.ListPageResolutionsResponse, GetSMCPageResolutionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PageResolutions;
         }
         
     }
