@@ -389,7 +389,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// must be specified. The new DB parameter group can be the default for that DB parameter
         /// group family.</para><para>If you specify only a major version, Amazon RDS will update the DB instance to the
         /// default minor version if the current minor version is lower. For information about
-        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para><para>In RDS Custom for Oracle, this parameter is supported for read replicas only if they
+        /// valid engine versions, see <code>CreateDBInstance</code>, or call <code>DescribeDBEngineVersions</code>.</para><para>If the instance that you're modifying is acting as a read replica, the engine version
+        /// that you specify must be the same or later than the version that the source DB instance
+        /// or cluster is running.</para><para>In RDS Custom for Oracle, this parameter is supported for read replicas only if they
         /// are in the <code>PATCH_DB_FAILURE</code> lifecycle.</para>
         /// </para>
         /// </summary>

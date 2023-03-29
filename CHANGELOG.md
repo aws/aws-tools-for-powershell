@@ -1,4 +1,9 @@
-﻿### 4.1.301 (2023-03-28 20:59Z)
+﻿### 4.1.302 (2023-03-29 21:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.515.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter SourceDBClusterIdentifier.
+
+### 4.1.301 (2023-03-28 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.514.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon System Manager Contacts
     * Added cmdlet Get-SMCPageResolutionList leveraging the ListPageResolutions service API.

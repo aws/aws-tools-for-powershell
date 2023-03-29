@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the source DB instance for which to stop replicating
-        /// automated backups, for example, <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</para>
+        /// automate backups, for example, <code>arn:aws:rds:us-west-2:123456789012:db:mydatabase</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OSS
 {
     /// <summary>
     /// Update the OpenSearch Serverless settings for the current Amazon Web Services account.
-    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling">Autoscaling</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">Managing
+    /// capacity limits for Amazon OpenSearch Serverless</a>.
     /// </summary>
     [Cmdlet("Update", "OSSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpenSearchServerless.Model.AccountSettingsDetail")]

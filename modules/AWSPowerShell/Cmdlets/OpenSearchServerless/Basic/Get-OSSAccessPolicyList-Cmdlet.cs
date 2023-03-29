@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>Resource filters (can be collection or indexes) that policies can apply to.</para>
+        /// <para>Resource filters (can be collections or indexes) that policies can apply to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

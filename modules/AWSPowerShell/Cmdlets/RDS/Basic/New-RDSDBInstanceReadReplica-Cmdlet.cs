@@ -28,21 +28,24 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new DB instance that acts as a read replica for an existing source DB instance.
-    /// You can create a read replica for a DB instance running MySQL, MariaDB, Oracle, PostgreSQL,
-    /// or SQL Server. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-    /// with Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
+    /// Creates a new DB instance that acts as a read replica for an existing source DB instance
+    /// or Multi-AZ DB cluster. You can create a read replica for a DB instance running MySQL,
+    /// MariaDB, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a Multi-AZ
+    /// DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
+    /// with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating
+    /// from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon
+    /// RDS User Guide</i>.
     /// 
     ///  
     /// <para>
     /// Amazon Aurora doesn't support this operation. Call the <code>CreateDBInstance</code>
     /// operation to create a DB instance for an Aurora DB cluster.
     /// </para><para>
-    /// All read replica DB instances are created with backups disabled. All other DB instance
-    /// attributes (including DB security groups and DB parameter groups) are inherited from
-    /// the source DB instance, except as specified.
+    /// All read replica DB instances are created with backups disabled. All other attributes
+    /// (including DB security groups and DB parameter groups) are inherited from the source
+    /// DB instance or cluster, except as specified.
     /// </para><important><para>
-    /// Your source DB instance must have backup retention enabled.
+    /// Your source DB instance or cluster must have backup retention enabled.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "RDSDBInstanceReadReplica", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -205,8 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DomainIAMRoleName
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
-        /// Service.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// <para>The name of the IAM role to be used when making API calls to the Directory Service.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,13 +285,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Amazon Web Services KMS key identifier for an encrypted read replica.</para><para>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias
         /// name for the KMS key.</para><para>If you create an encrypted read replica in the same Amazon Web Services Region as
-        /// the source DB instance, then do not specify a value for this parameter. A read replica
-        /// in the same Amazon Web Services Region is always encrypted with the same KMS key as
-        /// the source DB instance.</para><para>If you create an encrypted read replica in a different Amazon Web Services Region,
+        /// the source DB instance or Multi-AZ DB cluster, don't specify a value for this parameter.
+        /// A read replica in the same Amazon Web Services Region is always encrypted with the
+        /// same KMS key as the source DB instance or cluster.</para><para>If you create an encrypted read replica in a different Amazon Web Services Region,
         /// then you must specify a KMS key identifier for the destination Amazon Web Services
         /// Region. KMS keys are specific to the Amazon Web Services Region that they are created
         /// in, and you can't use KMS keys from one Amazon Web Services Region in another Amazon
-        /// Web Services Region.</para><para>You can't create an encrypted read replica from an unencrypted DB instance.</para><para>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary
+        /// Web Services Region.</para><para>You can't create an encrypted read replica from an unencrypted DB instance or Multi-AZ
+        /// DB cluster.</para><para>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary
         /// replica.</para>
         /// </para>
         /// </summary>
@@ -344,8 +347,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the read replica is in a Multi-AZ deployment.</para><para>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
         /// your replica in another Availability Zone for failover support for the replica. Creating
-        /// your read replica as a Multi-AZ DB instance is independent of whether the source database
-        /// is a Multi-AZ DB instance.</para><para>This setting doesn't apply to RDS Custom.</para>
+        /// your read replica as a Multi-AZ DB instance is independent of whether the source is
+        /// a Multi-AZ DB instance or a Multi-AZ DB cluster.</para><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The option group the DB instance is associated with. If omitted, the option group
-        /// associated with the source instance is used.</para><note><para>For SQL Server, you must use the option group associated with the source instance.</para></note><para>This setting doesn't apply to RDS Custom.</para>
+        /// associated with the source instance or cluster is used.</para><note><para>For SQL Server, you must use the option group associated with the source.</para></note><para>This setting doesn't apply to RDS Custom.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -421,7 +424,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code>
         /// API operation in the source Amazon Web Services Region that contains the source DB
         /// instance.</para><para>This setting applies only to Amazon Web Services GovCloud (US) Regions and China Amazon
-        /// Web Services Regions. It's ignored in other Amazon Web Services Regions.</para><para>You must specify this parameter when you create an encrypted read replica from another
+        /// Web Services Regions. It's ignored in other Amazon Web Services Regions.</para><para>This setting applies only when replicating from a source DB <i>instance</i>. Source
+        /// DB clusters aren't supported in Amazon Web Services GovCloud (US) Regions and China
+        /// Amazon Web Services Regions.</para><para>You must specify this parameter when you create an encrypted read replica from another
         /// Amazon Web Services Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code>
         /// when you are creating an encrypted read replica in the same Amazon Web Services Region.</para><para>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code>
         /// API operation that can run in the source Amazon Web Services Region that contains
@@ -504,16 +509,31 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
         #endregion
         
+        #region Parameter SourceDBClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Multi-AZ DB cluster that will act as the source for the read
+        /// replica. Each DB cluster can have up to 15 read replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing Multi-AZ DB cluster.</para></li><li><para>Can't be specified if the <code>SourceDBInstanceIdentifier</code> parameter is also
+        /// specified.</para></li><li><para>The specified DB cluster must have automatic backups enabled, that is, its backup
+        /// retention period must be greater than 0.</para></li><li><para>The source DB cluster must be in the same Amazon Web Services Region as the read replica.
+        /// Cross-Region replication isn't supported.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceDBClusterIdentifier { get; set; }
+        #endregion
+        
         #region Parameter SourceDBInstanceIdentifier
         /// <summary>
         /// <para>
         /// <para>The identifier of the DB instance that will act as the source for the read replica.
-        /// Each DB instance can have up to five read replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server
-        /// DB instance.</para></li><li><para>Can specify a DB instance that is a MySQL read replica only if the source is running
-        /// MySQL 5.6 or later.</para></li><li><para>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Read
-        /// Replica Limitations with Oracle</a> in the <i>Amazon RDS User Guide</i>.</para></li><li><para>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.Limitations.html">Read
-        /// Replica Limitations with Microsoft SQL Server</a> in the <i>Amazon RDS User Guide</i>.</para></li><li><para>Can specify a PostgreSQL DB instance only if the source is running PostgreSQL 9.3.5
-        /// or later (9.4.7 and higher for cross-Region replication).</para></li><li><para>The specified DB instance must have automatic backups enabled, that is, its backup
+        /// Each DB instance can have up to 15 read replicas, with the exception of Oracle and
+        /// SQL Server, which can have up to five.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server
+        /// DB instance.</para></li><li><para>Can't be specified if the <code>SourceDBClusterIdentifier</code> parameter is also
+        /// specified.</para></li><li><para>For the limitations of Oracle read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.limitations.html#oracle-read-replicas.limitations.versions-and-licenses">Version
+        /// and licensing considerations for RDS for Oracle replicas</a> in the <i>Amazon RDS
+        /// User Guide</i>.</para></li><li><para>For the limitations of SQL Server read replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.ReadReplicas.html#SQLServer.ReadReplicas.Limitations">Read
+        /// replica limitations with SQL Server</a> in the <i>Amazon RDS User Guide</i>.</para></li><li><para>The specified DB instance must have automatic backups enabled, that is, its backup
         /// retention period must be greater than 0.</para></li><li><para>If the source DB instance is in the same Amazon Web Services Region as the read replica,
         /// specify a valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different Amazon Web Services Region from the read
         /// replica, specify a valid DB instance ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing
@@ -521,14 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// to SQL Server or RDS Custom, which don't support cross-Region replicas.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceDBInstanceIdentifier { get; set; }
         #endregion
         
@@ -707,13 +720,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.PubliclyAccessible = this.PubliclyAccessible;
             context.ReplicaMode = this.ReplicaMode;
+            context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
-            #if MODULAR
-            if (this.SourceDBInstanceIdentifier == null && ParameterWasBound(nameof(this.SourceDBInstanceIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceDBInstanceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.StorageThroughput = this.StorageThroughput;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
@@ -869,6 +877,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.ReplicaMode = cmdletContext.ReplicaMode;
             }
+            if (cmdletContext.SourceDBClusterIdentifier != null)
+            {
+                request.SourceDBClusterIdentifier = cmdletContext.SourceDBClusterIdentifier;
+            }
             if (cmdletContext.SourceDBInstanceIdentifier != null)
             {
                 request.SourceDBInstanceIdentifier = cmdletContext.SourceDBInstanceIdentifier;
@@ -986,6 +998,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
+            public System.String SourceDBClusterIdentifier { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
             public System.Int32? StorageThroughput { get; set; }
             public System.String StorageType { get; set; }

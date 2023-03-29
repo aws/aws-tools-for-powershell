@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.OSS
         #region Parameter SamlOptions_SessionTimeout
         /// <summary>
         /// <para>
-        /// <para>The session timeout, in minutes. Minimum is 15 minutes and maximum is 1440 minutes
-        /// (24 hours or 1 day). Default is 60 minutes.</para>
+        /// <para>The session timeout, in minutes. Default is 60 minutes (12 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

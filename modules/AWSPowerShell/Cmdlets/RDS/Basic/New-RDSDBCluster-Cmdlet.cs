@@ -38,13 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// reader DB instances for you, each in a different Availability Zone.
     /// </para><para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon
-    /// Aurora DB cluster as a read replica of another DB cluster or Amazon RDS MySQL or PostgreSQL
-    /// DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What
+    /// Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL
+    /// or PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What
     /// is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><para>
     /// You can also use the <code>ReplicationSourceIdentifier</code> parameter to create
-    /// a Multi-AZ DB cluster read replica with an RDS for PostgreSQL DB instance as the source.
-    /// For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ
+    /// a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance
+    /// as the source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ
     /// DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.
     /// </para>
     /// </summary>
@@ -705,7 +705,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
-        /// cluster is created as a read replica.</para><para>Valid for: Aurora DB clusters and RDS for PostgreSQL Multi-AZ DB clusters</para>
+        /// cluster is created as a read replica.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
