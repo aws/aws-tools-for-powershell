@@ -85,9 +85,11 @@ $NWFW_Completers = {
             ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
-            ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type")
+            ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type")
         }
         {
             $v = "AWS_OWNED_KMS_KEY","CUSTOMER_KMS"
@@ -163,7 +165,7 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
-    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
+    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "ManagedType"=@("Get-NWFWRuleGroupList")
@@ -228,21 +230,25 @@ $NWFW_SelectMap = @{
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
                "New-NWFWRuleGroup",
+               "New-NWFWTLSInspectionConfiguration",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
                "Remove-NWFWResourcePolicy",
                "Remove-NWFWRuleGroup",
+               "Remove-NWFWTLSInspectionConfiguration",
                "Get-NWFWFirewall",
                "Get-NWFWFirewallPolicy",
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
+               "Get-NWFWTLSInspectionConfiguration",
                "Unregister-NWFWSubnet",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
+               "Get-NWFWTLSInspectionConfigurationList",
                "Write-NWFWResourcePolicy",
                "Add-NWFWResourceTag",
                "Remove-NWFWResourceTag",
@@ -253,7 +259,8 @@ $NWFW_SelectMap = @{
                "Update-NWFWFirewallPolicyChangeProtection",
                "Update-NWFWLoggingConfiguration",
                "Update-NWFWRuleGroup",
-               "Update-NWFWSubnetChangeProtection")
+               "Update-NWFWSubnetChangeProtection",
+               "Update-NWFWTLSInspectionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $NWFW_SelectCompleters $NWFW_SelectMap

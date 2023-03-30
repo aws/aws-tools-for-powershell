@@ -93,6 +93,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Disable-GDOrganizationAdminAccount', 
         'Enable-GDOrganizationAdminAccount', 
         'Get-GDAdministratorAccount', 
+        'Get-GDCoverageList', 
+        'Get-GDCoverageStatistic', 
         'Get-GDDetector', 
         'Get-GDDetectorList', 
         'Get-GDFilter', 

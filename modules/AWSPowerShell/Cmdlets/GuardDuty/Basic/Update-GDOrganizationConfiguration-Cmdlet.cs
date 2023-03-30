@@ -89,10 +89,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>Indicates the auto-enablement configuration of GuardDuty for the member accounts in
-        /// the organization. </para><ul><li><para><code>NEW</code>: Indicates that new accounts joining the organization are configured
-        /// to have GuardDuty enabled automatically.</para></li><li><para><code>ALL</code>: Indicates that all accounts (new and existing members) in the organization
-        /// are configured to have GuardDuty enabled automatically.</para></li><li><para><code>NONE</code>: Indicates that no account in the organization will be configured
-        /// to have GuardDuty enabled automatically.</para></li></ul>
+        /// the organization. </para><ul><li><para><code>NEW</code>: Indicates that when a new account joins the organization, they
+        /// will have GuardDuty enabled automatically. </para></li><li><para><code>ALL</code>: Indicates that all accounts in the Amazon Web Services Organization
+        /// have GuardDuty enabled automatically. This includes <code>NEW</code> accounts that
+        /// join the organization and accounts that may have been suspended or removed from the
+        /// organization in GuardDuty.</para></li><li><para><code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for
+        /// any accounts in the organization. GuardDuty must be managed for each account individually
+        /// by the administrator.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AutoEnable
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to automatically enable member accounts in the organization.</para>
+        /// <para>Indicates whether to automatically enable member accounts in the organization.</para><para>Even though this is still supported, we recommend using <code>AutoEnableOrganizationMembers</code>
+        /// to achieve the similar results.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

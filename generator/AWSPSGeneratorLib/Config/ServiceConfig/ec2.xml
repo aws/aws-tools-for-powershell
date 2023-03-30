@@ -1957,6 +1957,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVpnTunnelReplacementStatus" OutputProperty="*" Verb="Get" Noun="VpnTunnelReplacementStatus" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportClientVpnClientCertificateRevocationList" OutputProperty="Return" Verb="Import" Noun="ClientVpnClientCertificateRevocationList" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2381,6 +2385,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReplaceTransitGatewayRoute" OutputProperty="Route" Verb="Set" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" ShouldProcessMsgNoun="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceVpnTunnel" OutputProperty="Return" Verb="Set" Noun="VpnTunnel" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

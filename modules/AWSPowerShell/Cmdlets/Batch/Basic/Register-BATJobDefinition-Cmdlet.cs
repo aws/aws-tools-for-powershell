@@ -269,7 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Metadata_Label
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Key-value pairs used to identify, sort, and organize cube resources. Can contain up
+        /// to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores
+        /// (_). Labels can be added or modified at any time. Each resource can have multiple
+        /// labels, but each key must be unique for a given object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

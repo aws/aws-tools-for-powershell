@@ -28,7 +28,7 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// List workloads. Paginated.
+    /// Paginated list of workloads.
     /// </summary>
     [Cmdlet("Get", "WATWorkloadList")]
     [OutputType("Amazon.WellArchitected.Model.WorkloadSummary")]

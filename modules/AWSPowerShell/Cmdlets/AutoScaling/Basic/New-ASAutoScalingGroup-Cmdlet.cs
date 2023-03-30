@@ -202,11 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HealthCheckType
         /// <summary>
         /// <para>
-        /// <para>Determines whether any additional health checks are performed on the instances in
-        /// this group. Amazon EC2 health checks are always on. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-        /// checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>The valid values are <code>EC2</code> (default), <code>ELB</code>, and <code>VPC_LATTICE</code>.
-        /// The <code>VPC_LATTICE</code> health check type is reserved for use with VPC Lattice,
-        /// which is in preview release and is subject to change.</para>
+        /// <para>A comma-separated list of one or more health check types.</para><para>The valid values are <code>EC2</code>, <code>ELB</code>, and <code>VPC_LATTICE</code>.
+        /// <code>EC2</code> is the default health check and cannot be disabled. For more information,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
+        /// checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A list of Classic Load Balancers associated with this Auto Scaling group. For Application
-        /// Load Balancers, Network Load Balancers, and Gateway Load Balancer, specify the <code>TargetGroupARNs</code>
+        /// Load Balancers, Network Load Balancers, and Gateway Load Balancers, specify the <code>TargetGroupARNs</code>
         /// property instead.</para>
         /// </para>
         /// </summary>
@@ -444,12 +443,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TrafficSource
         /// <summary>
         /// <para>
-        /// <para><b>Reserved for use with Amazon VPC Lattice, which is in preview release and is subject
-        /// to change. Do not use this parameter for production workloads. It is also subject
-        /// to change.</b></para><para>The unique identifiers of one or more traffic sources.</para><para>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice
-        /// target group. Amazon EC2 Auto Scaling registers the running instances with the attached
-        /// target groups. The target groups receive incoming traffic and route requests to one
-        /// or more registered targets.</para>
+        /// <para>The list of traffic sources to attach to this Auto Scaling group. You can use any
+        /// of the following as traffic sources for an Auto Scaling group: Classic Load Balancer,
+        /// Application Load Balancer, Gateway Load Balancer, Network Load Balancer, and VPC Lattice.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

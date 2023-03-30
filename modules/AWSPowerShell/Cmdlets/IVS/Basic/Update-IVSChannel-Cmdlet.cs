@@ -68,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.Boolean? Authorized { get; set; }
         #endregion
         
+        #region Parameter InsecureIngest
+        /// <summary>
+        /// <para>
+        /// <para>Whether the channel allows insecure RTMP ingest. Default: <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InsecureIngest { get; set; }
+        #endregion
+        
         #region Parameter LatencyMode
         /// <summary>
         /// <para>
@@ -194,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             }
             #endif
             context.Authorized = this.Authorized;
+            context.InsecureIngest = this.InsecureIngest;
             context.LatencyMode = this.LatencyMode;
             context.Name = this.Name;
             context.RecordingConfigurationArn = this.RecordingConfigurationArn;
@@ -221,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Authorized != null)
             {
                 request.Authorized = cmdletContext.Authorized.Value;
+            }
+            if (cmdletContext.InsecureIngest != null)
+            {
+                request.InsecureIngest = cmdletContext.InsecureIngest.Value;
             }
             if (cmdletContext.LatencyMode != null)
             {
@@ -301,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         {
             public System.String Arn { get; set; }
             public System.Boolean? Authorized { get; set; }
+            public System.Boolean? InsecureIngest { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.String Name { get; set; }
             public System.String RecordingConfigurationArn { get; set; }

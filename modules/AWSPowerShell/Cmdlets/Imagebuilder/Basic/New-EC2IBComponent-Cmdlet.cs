@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SupportedOsVersion
         /// <summary>
         /// <para>
-        /// <para> The operating system (OS) version supported by the component. If the OS information
+        /// <para>The operating system (OS) version supported by the component. If the OS information
         /// is available, a prefix match is performed against the base image OS version during
         /// image recipe creation.</para>
         /// </para>

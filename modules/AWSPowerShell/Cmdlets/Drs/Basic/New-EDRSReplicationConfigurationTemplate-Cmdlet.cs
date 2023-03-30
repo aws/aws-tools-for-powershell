@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? AssociateDefaultSecurityGroup { get; set; }
         #endregion
         
+        #region Parameter AutoReplicateNewDisk
+        /// <summary>
+        /// <para>
+        /// <para>Whether to allow the AWS replication agent to automatically replicate newly added
+        /// disks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoReplicateNewDisks")]
+        public System.Boolean? AutoReplicateNewDisk { get; set; }
+        #endregion
+        
         #region Parameter BandwidthThrottling
         /// <summary>
         /// <para>
@@ -317,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                 WriteWarning("You are passing $null as a value for parameter AssociateDefaultSecurityGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoReplicateNewDisk = this.AutoReplicateNewDisk;
             context.BandwidthThrottling = this.BandwidthThrottling;
             #if MODULAR
             if (this.BandwidthThrottling == null && ParameterWasBound(nameof(this.BandwidthThrottling)))
@@ -436,6 +449,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             {
                 request.AssociateDefaultSecurityGroup = cmdletContext.AssociateDefaultSecurityGroup.Value;
             }
+            if (cmdletContext.AutoReplicateNewDisk != null)
+            {
+                request.AutoReplicateNewDisks = cmdletContext.AutoReplicateNewDisk.Value;
+            }
             if (cmdletContext.BandwidthThrottling != null)
             {
                 request.BandwidthThrottling = cmdletContext.BandwidthThrottling.Value;
@@ -550,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AssociateDefaultSecurityGroup { get; set; }
+            public System.Boolean? AutoReplicateNewDisk { get; set; }
             public System.Int64? BandwidthThrottling { get; set; }
             public System.Boolean? CreatePublicIP { get; set; }
             public Amazon.Drs.ReplicationConfigurationDataPlaneRouting DataPlaneRouting { get; set; }

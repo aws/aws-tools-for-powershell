@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that you specify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ImageAsset
         /// <summary>
         /// <para>
@@ -246,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExecutionRoleArn = this.ExecutionRoleArn;
             if (this.ImageAsset != null)
             {
                 context.ImageAsset = new List<System.String>(this.ImageAsset);
@@ -308,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.ExecutionRoleArn != null)
+            {
+                request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
             }
             if (cmdletContext.ImageAsset != null)
             {
@@ -411,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.String ExecutionRoleArn { get; set; }
             public List<System.String> ImageAsset { get; set; }
             public System.Boolean? ImageMask { get; set; }
             public Amazon.SageMakerGeospatial.OutputType OutputDataType { get; set; }

@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WATAnswerList', 
         'Get-WATCheckDetailList', 
         'Get-WATCheckSummaryList', 
+        'Get-WATConsolidatedReport', 
         'Get-WATLens', 
         'Get-WATLensList', 
         'Get-WATLensReview', 

@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String ContainerRecipeArn { get; set; }
         #endregion
         
+        #region Parameter EcrConfiguration_ContainerTag
+        /// <summary>
+        /// <para>
+        /// <para>Tags for Image Builder to apply to the output container image that &amp;INS; scans.
+        /// Tags can help you identify and manage your scanned images.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageScanningConfiguration_EcrConfiguration_ContainerTags")]
+        public System.String[] EcrConfiguration_ContainerTag { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -70,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the distribution configuration that will be used
-        /// to configure and distribute images updated by this image pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the distribution configuration that Image Builder
+        /// uses to configure and distribute images that this image pipeline has updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter EnhancedImageMetadataEnabled
         /// <summary>
         /// <para>
-        /// <para> Collects additional information about the image being created, including the operating
+        /// <para>Collects additional information about the image being created, including the operating
         /// system (OS) version and package list. This information is used to enhance the overall
         /// experience of using EC2 Image Builder. Enabled by default.</para>
         /// </para>
@@ -118,6 +130,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String ImageRecipeArn { get; set; }
         #endregion
         
+        #region Parameter ImageScanningConfiguration_ImageScanningEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A setting that indicates whether Image Builder keeps a snapshot of the vulnerability
+        /// scans that Amazon Inspector runs against the build instance when you create a new
+        /// image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ImageScanningConfiguration_ImageScanningEnabled { get; set; }
+        #endregion
+        
         #region Parameter ImageTestsConfiguration_ImageTestsEnabled
         /// <summary>
         /// <para>
@@ -132,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used
-        /// to build images updated by this image pipeline.</para>
+        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that Image Builder
+        /// uses to build images that this image pipeline has updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,6 +188,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Imagebuilder.PipelineExecutionStartCondition")]
         public Amazon.Imagebuilder.PipelineExecutionStartCondition Schedule_PipelineExecutionStartCondition { get; set; }
+        #endregion
+        
+        #region Parameter EcrConfiguration_RepositoryName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the container repository that Amazon Inspector scans to identify findings
+        /// for your container images. The name includes the path for the repository location.
+        /// If you don’t provide this information, Image Builder creates a repository in your
+        /// account named <code>image-builder-image-scanning-repository</code> for vulnerability
+        /// scans of your output container images.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ImageScanningConfiguration_EcrConfiguration_RepositoryName")]
+        public System.String EcrConfiguration_RepositoryName { get; set; }
         #endregion
         
         #region Parameter Schedule_ScheduleExpression
@@ -296,6 +335,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             #endif
             context.ImageRecipeArn = this.ImageRecipeArn;
+            if (this.EcrConfiguration_ContainerTag != null)
+            {
+                context.EcrConfiguration_ContainerTag = new List<System.String>(this.EcrConfiguration_ContainerTag);
+            }
+            context.EcrConfiguration_RepositoryName = this.EcrConfiguration_RepositoryName;
+            context.ImageScanningConfiguration_ImageScanningEnabled = this.ImageScanningConfiguration_ImageScanningEnabled;
             context.ImageTestsConfiguration_ImageTestsEnabled = this.ImageTestsConfiguration_ImageTestsEnabled;
             context.ImageTestsConfiguration_TimeoutMinute = this.ImageTestsConfiguration_TimeoutMinute;
             context.InfrastructureConfigurationArn = this.InfrastructureConfigurationArn;
@@ -352,6 +397,60 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.ImageRecipeArn != null)
             {
                 request.ImageRecipeArn = cmdletContext.ImageRecipeArn;
+            }
+            
+             // populate ImageScanningConfiguration
+            var requestImageScanningConfigurationIsNull = true;
+            request.ImageScanningConfiguration = new Amazon.Imagebuilder.Model.ImageScanningConfiguration();
+            System.Boolean? requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningEnabled = null;
+            if (cmdletContext.ImageScanningConfiguration_ImageScanningEnabled != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningEnabled = cmdletContext.ImageScanningConfiguration_ImageScanningEnabled.Value;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningEnabled != null)
+            {
+                request.ImageScanningConfiguration.ImageScanningEnabled = requestImageScanningConfiguration_imageScanningConfiguration_ImageScanningEnabled.Value;
+                requestImageScanningConfigurationIsNull = false;
+            }
+            Amazon.Imagebuilder.Model.EcrConfiguration requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration = null;
+            
+             // populate EcrConfiguration
+            var requestImageScanningConfiguration_imageScanningConfiguration_EcrConfigurationIsNull = true;
+            requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration = new Amazon.Imagebuilder.Model.EcrConfiguration();
+            List<System.String> requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_ContainerTag = null;
+            if (cmdletContext.EcrConfiguration_ContainerTag != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_ContainerTag = cmdletContext.EcrConfiguration_ContainerTag;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_ContainerTag != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration.ContainerTags = requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_ContainerTag;
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfigurationIsNull = false;
+            }
+            System.String requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_RepositoryName = null;
+            if (cmdletContext.EcrConfiguration_RepositoryName != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_RepositoryName = cmdletContext.EcrConfiguration_RepositoryName;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_RepositoryName != null)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration.RepositoryName = requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration_ecrConfiguration_RepositoryName;
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfigurationIsNull = false;
+            }
+             // determine if requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration should be set to null
+            if (requestImageScanningConfiguration_imageScanningConfiguration_EcrConfigurationIsNull)
+            {
+                requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration = null;
+            }
+            if (requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration != null)
+            {
+                request.ImageScanningConfiguration.EcrConfiguration = requestImageScanningConfiguration_imageScanningConfiguration_EcrConfiguration;
+                requestImageScanningConfigurationIsNull = false;
+            }
+             // determine if request.ImageScanningConfiguration should be set to null
+            if (requestImageScanningConfigurationIsNull)
+            {
+                request.ImageScanningConfiguration = null;
             }
             
              // populate ImageTestsConfiguration
@@ -497,6 +596,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
             public System.String ImagePipelineArn { get; set; }
             public System.String ImageRecipeArn { get; set; }
+            public List<System.String> EcrConfiguration_ContainerTag { get; set; }
+            public System.String EcrConfiguration_RepositoryName { get; set; }
+            public System.Boolean? ImageScanningConfiguration_ImageScanningEnabled { get; set; }
             public System.Boolean? ImageTestsConfiguration_ImageTestsEnabled { get; set; }
             public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }
             public System.String InfrastructureConfigurationArn { get; set; }

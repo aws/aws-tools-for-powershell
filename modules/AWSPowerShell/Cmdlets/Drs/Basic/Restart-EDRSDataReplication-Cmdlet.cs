@@ -28,10 +28,10 @@ using Amazon.Drs.Model;
 namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
-    /// Causes the data replication initiation sequence to begin immediately upon next Handshake
-    /// for the specified Source Server ID, regardless of when the previous initiation started.
-    /// This command will work only if the Source Server is stalled or is in a DISCONNECTED
-    /// or STOPPED state.
+    /// WARNING: RetryDataReplication is deprecated. Causes the data replication initiation
+    /// sequence to begin immediately upon next Handshake for the specified Source Server
+    /// ID, regardless of when the previous initiation started. This command will work only
+    /// if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Restart", "EDRSDataReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Drs.Model.RetryDataReplicationResponse")]
@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
     [AWSCmdletOutput("Amazon.Drs.Model.RetryDataReplicationResponse",
         "This cmdlet returns an Amazon.Drs.Model.RetryDataReplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("WARNING: RetryDataReplication is deprecated")]
     public partial class RestartEDRSDataReplicationCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         

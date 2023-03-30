@@ -19608,6 +19608,7 @@ $EC2_SelectMap = @{
                "Get-EC2VerifiedAccessGroupPolicy",
                "Get-EC2VpnConnectionDeviceSampleConfiguration",
                "Get-EC2VpnConnectionDeviceType",
+               "Get-EC2VpnTunnelReplacementStatus",
                "Import-EC2ClientVpnClientCertificateRevocationList",
                "Import-EC2Image",
                "Import-EC2KeyPair",
@@ -19706,6 +19707,7 @@ $EC2_SelectMap = @{
                "Set-EC2Route",
                "Set-EC2RouteTableAssociation",
                "Set-EC2TransitGatewayRoute",
+               "Set-EC2VpnTunnel",
                "Send-EC2InstanceStatus",
                "Request-EC2SpotFleet",
                "Request-EC2SpotInstance",
@@ -26317,6 +26319,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.CoverageSortKey
+        "Get-GDCoverageList/SortCriteria_AttributeName"
+        {
+            $v = "ACCOUNT_ID","ADDON_VERSION","CLUSTER_NAME","COVERAGE_STATUS","ISSUE","UPDATED_AT"
+            break
+        }
+
         # Amazon.GuardDuty.DestinationType
         "New-GDPublishingDestination/DestinationType"
         {
@@ -26365,6 +26374,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.OrderBy
+        "Get-GDCoverageList/SortCriteria_OrderBy"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
         # Amazon.GuardDuty.ThreatIntelSetFormat
         "New-GDThreatIntelSet/Format"
         {
@@ -26395,6 +26411,8 @@ $GD_map = @{
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+    "SortCriteria_AttributeName"=@("Get-GDCoverageList")
+    "SortCriteria_OrderBy"=@("Get-GDCoverageList")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
 
@@ -26475,6 +26493,7 @@ $GD_SelectMap = @{
                "Unregister-GDMember",
                "Enable-GDOrganizationAdminAccount",
                "Get-GDAdministratorAccount",
+               "Get-GDCoverageStatistic",
                "Get-GDDetector",
                "Get-GDFilter",
                "Get-GDFinding",
@@ -26489,6 +26508,7 @@ $GD_SelectMap = @{
                "Get-GDThreatIntelSet",
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
+               "Get-GDCoverageList",
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",
@@ -27399,6 +27419,8 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImageRecipe",
                "Get-EC2IBImageRecipePolicy",
                "Get-EC2IBInfrastructureConfiguration",
+               "Get-EC2IBWorkflowExecution",
+               "Get-EC2IBWorkflowStepExecution",
                "Import-EC2IBComponent",
                "Import-EC2IBVmImage",
                "Get-EC2IBComponentBuildVersionList",
@@ -27411,8 +27433,12 @@ $EC2IB_SelectMap = @{
                "Get-EC2IBImagePipelineList",
                "Get-EC2IBImageRecipeList",
                "Get-EC2IBImageList",
+               "Get-EC2IBImageScanFindingAggregationList",
+               "Get-EC2IBImageScanFindingList",
                "Get-EC2IBInfrastructureConfigurationList",
                "Get-EC2IBResourceTag",
+               "Get-EC2IBWorkflowExecutionList",
+               "Get-EC2IBWorkflowStepExecutionList",
                "Write-EC2IBComponentPolicy",
                "Write-EC2IBContainerRecipePolicy",
                "Write-EC2IBImagePolicy",
@@ -31246,6 +31272,16 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.FeaturedResultsSetStatus
+        {
+            ($_ -eq "New-KNDRFeaturedResultsSet/Status") -Or
+            ($_ -eq "Update-KNDRFeaturedResultsSet/Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Kendra.IndexEdition
         "New-KNDRIndex/Edition"
         {
@@ -31326,6 +31362,7 @@ $KNDR_map = @{
     "Mode"=@("Update-KNDRQuerySuggestionsConfig")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
     "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
+    "Status"=@("New-KNDRFeaturedResultsSet","Update-KNDRFeaturedResultsSet")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
     "Type"=@("New-KNDRDataSource")
     "UserContextPolicy"=@("New-KNDRIndex","Update-KNDRIndex")
@@ -31385,6 +31422,7 @@ $KNDR_SelectMap = @{
     "Select"=@("Add-KNDREntitiesToExperience",
                "Add-KNDRPersonasToEntity",
                "Remove-KNDRDocumentBatch",
+               "Remove-KNDRFeaturedResultsSetBatch",
                "Get-KNDRGetDocumentStatus",
                "Write-KNDRDocumentBatch",
                "Clear-KNDRQuerySuggestion",
@@ -31392,6 +31430,7 @@ $KNDR_SelectMap = @{
                "New-KNDRDataSource",
                "New-KNDRExperience",
                "New-KNDRFaq",
+               "New-KNDRFeaturedResultsSet",
                "New-KNDRIndex",
                "New-KNDRQuerySuggestionsBlockList",
                "New-KNDRThesaurus",
@@ -31407,6 +31446,7 @@ $KNDR_SelectMap = @{
                "Get-KNDRDataSource",
                "Get-KNDRExperience",
                "Get-KNDRFaq",
+               "Get-KNDRFeaturedResultsSet",
                "Get-KNDRIndex",
                "Get-KNDRPrincipalMapping",
                "Get-KNDRQuerySuggestionsBlockList",
@@ -31423,6 +31463,7 @@ $KNDR_SelectMap = @{
                "Get-KNDRExperienceEntityList",
                "Get-KNDRExperienceList",
                "Get-KNDRFaqList",
+               "Get-KNDRFeaturedResultsSetList",
                "Get-KNDRGroupsOlderThanOrderingIdList",
                "Get-KNDRIndexList",
                "Get-KNDRQuerySuggestionsBlockListList",
@@ -31438,6 +31479,7 @@ $KNDR_SelectMap = @{
                "Update-KNDRAccessControlConfiguration",
                "Update-KNDRDataSource",
                "Update-KNDRExperience",
+               "Update-KNDRFeaturedResultsSet",
                "Update-KNDRIndex",
                "Update-KNDRQuerySuggestionsBlockList",
                "Update-KNDRQuerySuggestionsConfig",
@@ -39681,9 +39723,11 @@ $NWFW_Completers = {
             ($_ -eq "New-NWFWFirewall/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
             ($_ -eq "New-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallEncryptionConfiguration/EncryptionConfiguration_Type") -Or
             ($_ -eq "Update-NWFWFirewallPolicy/EncryptionConfiguration_Type") -Or
-            ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type")
+            ($_ -eq "Update-NWFWRuleGroup/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-NWFWTLSInspectionConfiguration/EncryptionConfiguration_Type")
         }
         {
             $v = "AWS_OWNED_KMS_KEY","CUSTOMER_KMS"
@@ -39759,7 +39803,7 @@ $NWFW_Completers = {
 }
 
 $NWFW_map = @{
-    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup")
+    "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
     "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "ManagedType"=@("Get-NWFWRuleGroupList")
@@ -39824,21 +39868,25 @@ $NWFW_SelectMap = @{
                "New-NWFWFirewall",
                "New-NWFWFirewallPolicy",
                "New-NWFWRuleGroup",
+               "New-NWFWTLSInspectionConfiguration",
                "Remove-NWFWFirewall",
                "Remove-NWFWFirewallPolicy",
                "Remove-NWFWResourcePolicy",
                "Remove-NWFWRuleGroup",
+               "Remove-NWFWTLSInspectionConfiguration",
                "Get-NWFWFirewall",
                "Get-NWFWFirewallPolicy",
                "Get-NWFWLoggingConfiguration",
                "Get-NWFWResourcePolicy",
                "Get-NWFWRuleGroup",
                "Get-NWFWRuleGroupMetadata",
+               "Get-NWFWTLSInspectionConfiguration",
                "Unregister-NWFWSubnet",
                "Get-NWFWFirewallPolicyList",
                "Get-NWFWFirewallList",
                "Get-NWFWRuleGroupList",
                "Get-NWFWResourceTag",
+               "Get-NWFWTLSInspectionConfigurationList",
                "Write-NWFWResourcePolicy",
                "Add-NWFWResourceTag",
                "Remove-NWFWResourceTag",
@@ -39849,7 +39897,8 @@ $NWFW_SelectMap = @{
                "Update-NWFWFirewallPolicyChangeProtection",
                "Update-NWFWLoggingConfiguration",
                "Update-NWFWRuleGroup",
-               "Update-NWFWSubnetChangeProtection")
+               "Update-NWFWSubnetChangeProtection",
+               "Update-NWFWTLSInspectionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $NWFW_SelectCompleters $NWFW_SelectMap
@@ -56877,6 +56926,205 @@ $VID_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $VID_SelectCompleters $VID_SelectMap
+# Argument completions for service VPC Lattice
+
+
+$VPCL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.VPCLattice.AuthType
+        {
+            ($_ -eq "New-VPCLService/AuthType") -Or
+            ($_ -eq "New-VPCLServiceNetwork/AuthType") -Or
+            ($_ -eq "Update-VPCLService/AuthType") -Or
+            ($_ -eq "Update-VPCLServiceNetwork/AuthType")
+        }
+        {
+            $v = "AWS_IAM","NONE"
+            break
+        }
+
+        # Amazon.VPCLattice.HealthCheckProtocolVersion
+        {
+            ($_ -eq "New-VPCLTargetGroup/Config_HealthCheck_ProtocolVersion") -Or
+            ($_ -eq "Update-VPCLTargetGroup/HealthCheck_ProtocolVersion")
+        }
+        {
+            $v = "HTTP1","HTTP2"
+            break
+        }
+
+        # Amazon.VPCLattice.IpAddressType
+        "New-VPCLTargetGroup/Config_IpAddressType"
+        {
+            $v = "IPV4","IPV6"
+            break
+        }
+
+        # Amazon.VPCLattice.ListenerProtocol
+        "New-VPCLListener/Protocol"
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.VPCLattice.TargetGroupProtocol
+        {
+            ($_ -eq "New-VPCLTargetGroup/Config_HealthCheck_Protocol") -Or
+            ($_ -eq "New-VPCLTargetGroup/Config_Protocol") -Or
+            ($_ -eq "Update-VPCLTargetGroup/HealthCheck_Protocol")
+        }
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
+        # Amazon.VPCLattice.TargetGroupProtocolVersion
+        "New-VPCLTargetGroup/Config_ProtocolVersion"
+        {
+            $v = "GRPC","HTTP1","HTTP2"
+            break
+        }
+
+        # Amazon.VPCLattice.TargetGroupType
+        {
+            ($_ -eq "Get-VPCLTargetGroupList/TargetGroupType") -Or
+            ($_ -eq "New-VPCLTargetGroup/Type")
+        }
+        {
+            $v = "ALB","INSTANCE","IP","LAMBDA"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$VPCL_map = @{
+    "AuthType"=@("New-VPCLService","New-VPCLServiceNetwork","Update-VPCLService","Update-VPCLServiceNetwork")
+    "Config_HealthCheck_Protocol"=@("New-VPCLTargetGroup")
+    "Config_HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup")
+    "Config_IpAddressType"=@("New-VPCLTargetGroup")
+    "Config_Protocol"=@("New-VPCLTargetGroup")
+    "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
+    "HealthCheck_Protocol"=@("Update-VPCLTargetGroup")
+    "HealthCheck_ProtocolVersion"=@("Update-VPCLTargetGroup")
+    "Protocol"=@("New-VPCLListener")
+    "TargetGroupType"=@("Get-VPCLTargetGroupList")
+    "Type"=@("New-VPCLTargetGroup")
+}
+
+_awsArgumentCompleterRegistration $VPCL_Completers $VPCL_map
+
+$VPCL_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.VPCL.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$VPCL_SelectMap = @{
+    "Select"=@("Update-VPCLRuleList",
+               "New-VPCLAccessLogSubscription",
+               "New-VPCLListener",
+               "New-VPCLRule",
+               "New-VPCLService",
+               "New-VPCLServiceNetwork",
+               "New-VPCLServiceNetworkServiceAssociation",
+               "New-VPCLServiceNetworkVpcAssociation",
+               "New-VPCLTargetGroup",
+               "Remove-VPCLAccessLogSubscription",
+               "Remove-VPCLAuthPolicy",
+               "Remove-VPCLListener",
+               "Remove-VPCLResourcePolicy",
+               "Remove-VPCLRule",
+               "Remove-VPCLService",
+               "Remove-VPCLServiceNetwork",
+               "Remove-VPCLServiceNetworkServiceAssociation",
+               "Remove-VPCLServiceNetworkVpcAssociation",
+               "Remove-VPCLTargetGroup",
+               "Unregister-VPCLTarget",
+               "Get-VPCLAccessLogSubscription",
+               "Get-VPCLAuthPolicy",
+               "Get-VPCLListener",
+               "Get-VPCLResourcePolicy",
+               "Get-VPCLRule",
+               "Get-VPCLService",
+               "Get-VPCLServiceNetwork",
+               "Get-VPCLServiceNetworkServiceAssociation",
+               "Get-VPCLServiceNetworkVpcAssociation",
+               "Get-VPCLTargetGroup",
+               "Get-VPCLAccessLogSubscriptionList",
+               "Get-VPCLListenerList",
+               "Get-VPCLRuleList",
+               "Get-VPCLServiceNetworkList",
+               "Get-VPCLServiceNetworkServiceAssociationList",
+               "Get-VPCLServiceNetworkVpcAssociationList",
+               "Get-VPCLServiceList",
+               "Get-VPCLResourceTag",
+               "Get-VPCLTargetGroupList",
+               "Get-VPCLTargetList",
+               "Write-VPCLAuthPolicy",
+               "Write-VPCLResourcePolicy",
+               "Register-VPCLTarget",
+               "Add-VPCLResourceTag",
+               "Remove-VPCLResourceTag",
+               "Update-VPCLAccessLogSubscription",
+               "Update-VPCLListener",
+               "Update-VPCLRule",
+               "Update-VPCLService",
+               "Update-VPCLServiceNetwork",
+               "Update-VPCLServiceNetworkVpcAssociation",
+               "Update-VPCLTargetGroup")
+}
+
+_awsArgumentCompleterRegistration $VPCL_SelectCompleters $VPCL_SelectMap
 # Argument completions for service AWS WAF
 
 
@@ -57470,6 +57718,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.ReportFormat
+        "Get-WATConsolidatedReport/Format"
+        {
+            $v = "JSON","PDF"
+            break
+        }
+
         # Amazon.WellArchitected.ShareInvitationAction
         "Update-WATShareInvitation/ShareInvitationAction"
         {
@@ -57532,6 +57787,7 @@ $WAT_Completers = {
 $WAT_map = @{
     "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
+    "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
     "LensType"=@("Get-WATLensList")
@@ -57606,6 +57862,7 @@ $WAT_SelectMap = @{
                "Unregister-WATLens",
                "Export-WATLens",
                "Get-WATAnswer",
+               "Get-WATConsolidatedReport",
                "Get-WATLens",
                "Get-WATLensReview",
                "Get-WATLensReviewReport",

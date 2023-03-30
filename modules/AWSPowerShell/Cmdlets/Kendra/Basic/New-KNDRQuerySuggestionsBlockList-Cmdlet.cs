@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A user-friendly description for the block list.</para><para>For example, the description "List of all offensive words that can appear in user
+        /// <para>A description for the block list.</para><para>For example, the description "List of all offensive words that can appear in user
         /// queries and need to be blocked from suggestions."</para>
         /// </para>
         /// </summary>
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A user friendly name for the block list.</para><para>For example, the block list named 'offensive-words' includes all offensive words that
-        /// could appear in user queries and need to be blocked from suggestions.</para>
+        /// <para>A name for the block list.</para><para>For example, the name 'offensive-words', which includes all offensive words that could
+        /// appear in user queries and need to be blocked from suggestions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,10 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM (Identity and Access Management) role used by Amazon Kendra to access the
-        /// block list text file in your S3 bucket.</para><para>You need permissions to the role ARN (Amazon Web Services Resource Name). The role
-        /// needs S3 read permissions to your file in S3 and needs to give STS (Security Token
-        /// Service) assume role permissions to Amazon Kendra.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to access your S3 bucket
+        /// that contains the block list text file. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// access roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A tag that you can assign to a block list that categorizes the block list.</para>
+        /// <para>A list of key-value pairs that identify or categorize the block list. Tag keys and
+        /// values can consist of Unicode letters, digits, white space, and any of the following
+        /// symbols: _ . : / = + - @.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

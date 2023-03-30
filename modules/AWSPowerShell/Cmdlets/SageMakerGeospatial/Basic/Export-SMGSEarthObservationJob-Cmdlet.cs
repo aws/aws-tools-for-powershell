@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
 {
     /// <summary>
     /// Use this operation to export results of an Earth Observation job and optionally source
-    /// images used as input to the EOJ to an S3 location.
+    /// images used as input to the EOJ to an Amazon S3 location.
     /// </summary>
     [Cmdlet("Export", "SMGSEarthObservationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMakerGeospatial.Model.ExportEarthObservationJobResponse")]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter S3Data_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Key Management Service (KMS) key ID for server-side encryption.</para>
+        /// <para>The Key Management Service key ID for server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("OutputConfig_S3Data_S3Uri")]
         public System.String S3Data_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique token that guarantees that the call to this API is idempotent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -183,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClientToken = this.ClientToken;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             #if MODULAR
             if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
@@ -218,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.ExecutionRoleArn != null)
             {
@@ -333,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.String ClientToken { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.Boolean? ExportSourceImage { get; set; }
             public System.String S3Data_KmsKeyId { get; set; }

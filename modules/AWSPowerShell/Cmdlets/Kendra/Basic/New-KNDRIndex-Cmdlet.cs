@@ -71,9 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code>
         /// for indexes intended for development, testing, or proof of concept. Use <code>ENTERPRISE_EDITION</code>
-        /// for your production databases. Once you set the edition for an index, it can't be
-        /// changed.</para><para>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
-        /// is <code>ENTERPRISE_EDITION</code>.</para><para>For more information on quota limits for enterprise and developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
+        /// for production. Once you set the edition for an index, it can't be changed.</para><para>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
+        /// is <code>ENTERPRISE_EDITION</code>.</para><para>For more information on quota limits for Enterprise and Developer editions, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>An Identity and Access Management (IAM) role that gives Amazon Kendra permissions
-        /// to access your Amazon CloudWatch logs and metrics. This is also the role you use when
-        /// you call the <code>BatchPutDocument</code> API to index documents from an Amazon S3
-        /// bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to access your Amazon
+        /// CloudWatch logs and metrics. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// access roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,8 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that identify the index. You can use the tags to identify
-        /// and organize your resources and to control access to resources.</para>
+        /// <para>A list of key-value pairs that identify or categorize the index. You can also use
+        /// tags to help control access to the index. Tag keys and values can consist of Unicode
+        /// letters, digits, white space, and any of the following symbols: _ . : / = + - @.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,10 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter UserGroupResolutionConfiguration_UserGroupResolutionMode
         /// <summary>
         /// <para>
-        /// <para>The identity store provider (mode) you want to use to fetch access levels of groups
-        /// and users. IAM Identity Center (successor to Single Sign-On) is currently the only
-        /// available mode. Your users and groups must exist in an IAM Identity Center identity
-        /// source in order to use this mode.</para>
+        /// <para>The identity store provider (mode) you want to use to get users and groups. IAM Identity
+        /// Center (successor to Single Sign-On) is currently the only available mode. Your users
+        /// and groups must exist in an IAM Identity Center identity source in order to use this
+        /// mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

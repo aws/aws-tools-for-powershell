@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         public System.Boolean? AssociateDefaultSecurityGroup { get; set; }
         #endregion
         
+        #region Parameter AutoReplicateNewDisk
+        /// <summary>
+        /// <para>
+        /// <para>Whether to allow the AWS replication agent to automatically replicate newly added
+        /// disks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoReplicateNewDisks")]
+        public System.Boolean? AutoReplicateNewDisk { get; set; }
+        #endregion
+        
         #region Parameter BandwidthThrottling
         /// <summary>
         /// <para>
@@ -271,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Arn = this.Arn;
             context.AssociateDefaultSecurityGroup = this.AssociateDefaultSecurityGroup;
+            context.AutoReplicateNewDisk = this.AutoReplicateNewDisk;
             context.BandwidthThrottling = this.BandwidthThrottling;
             context.CreatePublicIP = this.CreatePublicIP;
             context.DataPlaneRouting = this.DataPlaneRouting;
@@ -326,6 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
             if (cmdletContext.AssociateDefaultSecurityGroup != null)
             {
                 request.AssociateDefaultSecurityGroup = cmdletContext.AssociateDefaultSecurityGroup.Value;
+            }
+            if (cmdletContext.AutoReplicateNewDisk != null)
+            {
+                request.AutoReplicateNewDisks = cmdletContext.AutoReplicateNewDisk.Value;
             }
             if (cmdletContext.BandwidthThrottling != null)
             {
@@ -442,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
         {
             public System.String Arn { get; set; }
             public System.Boolean? AssociateDefaultSecurityGroup { get; set; }
+            public System.Boolean? AutoReplicateNewDisk { get; set; }
             public System.Int64? BandwidthThrottling { get; set; }
             public System.Boolean? CreatePublicIP { get; set; }
             public Amazon.Drs.ReplicationConfigurationDataPlaneRouting DataPlaneRouting { get; set; }

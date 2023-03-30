@@ -28,9 +28,15 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
-    /// Do not use this API for production workloads. This API is also subject to change.</b><para>
     /// Gets information about the traffic sources for the specified Auto Scaling group.
+    /// 
+    ///  
+    /// <para>
+    /// You can optionally provide a traffic source type. If you provide a traffic source
+    /// type, then the results only include that traffic source type.
+    /// </para><para>
+    /// If you do not provide a traffic source type, then the results include all the traffic
+    /// sources for the specified Auto Scaling group. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASTrafficSource")]
@@ -63,18 +69,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TrafficSourceType
         /// <summary>
         /// <para>
-        /// <para>The type of traffic source you are describing. Currently, the only valid value is
-        /// <code>vpc-lattice</code>.</para>
+        /// <para>The traffic source type that you want to describe.</para><para>The following lists the valid values:</para><ul><li><para><code>elb</code> if the traffic source is a Classic Load Balancer.</para></li><li><para><code>elbv2</code> if the traffic source is a Application Load Balancer, Gateway
+        /// Load Balancer, or Network Load Balancer.</para></li><li><para><code>vpc-lattice</code> if the traffic source is VPC Lattice.</para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrafficSourceType { get; set; }
         #endregion
         
@@ -170,12 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.MaxRecord = this.MaxRecord;
             context.NextToken = this.NextToken;
             context.TrafficSourceType = this.TrafficSourceType;
-            #if MODULAR
-            if (this.TrafficSourceType == null && ParameterWasBound(nameof(this.TrafficSourceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TrafficSourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

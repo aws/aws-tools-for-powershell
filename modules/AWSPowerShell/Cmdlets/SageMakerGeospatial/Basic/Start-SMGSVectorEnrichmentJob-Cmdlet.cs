@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter InputConfig_DocumentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The input structure that defines the data source file type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter MapMatchingConfig_IdAttributeName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The field name for the data that describes the identifier representing a collection
+        /// of GPS points belonging to an individual trace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter S3Data_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Key Management Service (KMS) key ID for server-side encryption.</para>
+        /// <para>The Key Management Service key ID for server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Key Management Service (KMS) key ID for server-side encryption.</para>
+        /// <para>The Key Management Service key ID for server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter ReverseGeocodingConfig_XAttributeName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The field name for the data that describes x-axis coordinate, eg. longitude of a point.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter ReverseGeocodingConfig_YAttributeName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The field name for the data that describes y-axis coordinate, eg. latitude of a point.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

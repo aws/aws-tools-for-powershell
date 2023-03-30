@@ -28,12 +28,18 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
+    /// <note><para>
+    /// This API call has been replaced with a new "traffic sources" API call (<code>DetachTrafficSources</code>)
+    /// that can detach multiple traffic sources types. While we continue to support <code>DetachLoadBalancers</code>,
+    /// and you can use both the original <code>DetachLoadBalancers</code> API call and the
+    /// new <code>DetachTrafficSources</code> API call on the same Auto Scaling group, we
+    /// recommend using the new "traffic sources" API call to simplify how you manage traffic
+    /// sources.
+    /// </para></note><para>
     /// Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This operation detaches only Classic Load Balancers. If you have Application Load
-    /// Balancers, Network Load Balancers, or Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a>
+    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
     /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering

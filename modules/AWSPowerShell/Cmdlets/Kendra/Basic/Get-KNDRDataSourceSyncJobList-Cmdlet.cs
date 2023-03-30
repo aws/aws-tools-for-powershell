@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter StartTimeFilter_EndTime
         /// <summary>
         /// <para>
-        /// <para>The UNIX datetime of the end of the time range.</para>
+        /// <para>The Unix timestamp for the end of the time range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter StartTimeFilter_StartTime
         /// <summary>
         /// <para>
-        /// <para>The UNIX datetime of the beginning of the time range.</para>
+        /// <para>The Unix timestamp for the beginning of the time range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

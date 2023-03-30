@@ -121,6 +121,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.ReportFormat
+        "Get-WATConsolidatedReport/Format"
+        {
+            $v = "JSON","PDF"
+            break
+        }
+
         # Amazon.WellArchitected.ShareInvitationAction
         "Update-WATShareInvitation/ShareInvitationAction"
         {
@@ -183,6 +190,7 @@ $WAT_Completers = {
 $WAT_map = @{
     "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
+    "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
     "LensType"=@("Get-WATLensList")
@@ -257,6 +265,7 @@ $WAT_SelectMap = @{
                "Unregister-WATLens",
                "Export-WATLens",
                "Get-WATAnswer",
+               "Get-WATConsolidatedReport",
                "Get-WATLens",
                "Get-WATLensReview",
                "Get-WATLensReviewReport",

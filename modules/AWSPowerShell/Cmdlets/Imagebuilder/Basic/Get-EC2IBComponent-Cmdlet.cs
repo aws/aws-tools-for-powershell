@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ComponentBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires
-        /// "/\d+$" suffix.</para>
+        /// <para>The Amazon Resource Name (ARN) of the component that you want to get. Regex requires
+        /// the suffix <code>/\d+$</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

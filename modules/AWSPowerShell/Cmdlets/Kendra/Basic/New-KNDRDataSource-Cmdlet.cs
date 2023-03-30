@@ -37,10 +37,6 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// </para><para><code>CreateDataSource</code> is a synchronous operation. The operation returns 200
     /// if the data source was successfully created. Otherwise, an exception is raised.
     /// </para><para>
-    /// Amazon S3 and <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-source-custom.html">custom</a>
-    /// data sources are the only supported data sources in the Amazon Web Services GovCloud
-    /// (US-West) region.
-    /// </para><para>
     /// For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
     /// started with Python SDK</a>. For an example of creating an index and data source using
     /// the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting
@@ -278,9 +274,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the data source
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source
         /// and required resources. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// roles for Amazon Kendra</a>.</para><para>You can't specify the <code>RoleArn</code> parameter when the <code>Type</code> parameter
+        /// access roles for Amazon Kendra.</a>.</para><para>You can't specify the <code>RoleArn</code> parameter when the <code>Type</code> parameter
         /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para><para>The <code>RoleArn</code> parameter is required for all other data sources.</para>
         /// </para>
@@ -321,7 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>Sets the frequency for Amazon Kendra to check the documents in your data source repository
         /// and update the index. If you don't set a schedule Amazon Kendra will not periodically
         /// update the index. You can call the <code>StartDataSourceSyncJob</code> API to update
-        /// the index.</para><para>You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter
+        /// the index.</para><para>Specify a <code>cron-</code> format schedule string or an empty string to indicate
+        /// that the index is updated on demand.</para><para>You can't specify the <code>Schedule</code> parameter when the <code>Type</code> parameter
         /// is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
         /// exception.</para>
         /// </para>
@@ -402,8 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that identify the data source connector. You can use the
-        /// tags to identify and organize your resources and to control access to resources.</para>
+        /// <para>A list of key-value pairs that identify or categorize the data source connector. You
+        /// can also use tags to help control access to the data source connector. Tag keys and
+        /// values can consist of Unicode letters, digits, white space, and any of the following
+        /// symbols: _ . : / = + - @.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

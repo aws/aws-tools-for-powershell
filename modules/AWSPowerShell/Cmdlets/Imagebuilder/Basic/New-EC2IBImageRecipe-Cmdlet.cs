@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description of the image recipe.</para>
+        /// <para>The description of the image recipe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the image recipe.</para>
+        /// <para>The name of the image recipe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags of the image recipe.</para>
+        /// <para>The tags of the image recipe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

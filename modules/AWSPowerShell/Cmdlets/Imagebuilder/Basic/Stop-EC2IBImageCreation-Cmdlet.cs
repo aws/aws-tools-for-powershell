@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image that you want to cancel creation for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConsolidatedReport" OutputProperty="*" Verb="Get" Noun="ConsolidatedReport" PipelineParameter="Format" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetLens" OutputProperty="Lens" Verb="Get" Noun="Lens" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

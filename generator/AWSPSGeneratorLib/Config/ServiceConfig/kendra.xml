@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteFeaturedResultsSet" OutputProperty="Errors" Verb="Remove" Noun="FeaturedResultsSetBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDocumentStatus" OutputProperty="*" Verb="Get" Noun="GetDocumentStatus" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -82,6 +86,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFaq" OutputProperty="Id" Verb="New" Noun="Faq" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="New" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetName" PipelineParameter="FeaturedResultsSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -142,6 +150,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFaq" OutputProperty="*" Verb="Get" Noun="Faq" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFeaturedResultsSet" OutputProperty="*" Verb="Get" Noun="FeaturedResultsSet" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -206,6 +218,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFaqs" OutputProperty="FaqSummaryItems" Verb="Get" Noun="FaqList" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFeaturedResultsSets" OutputProperty="FeaturedResultsSetSummaryItems" Verb="Get" Noun="FeaturedResultsSetList" PipelineParameter="IndexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -279,6 +295,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateExperience" Verb="Update" Noun="Experience" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFeaturedResultsSet" OutputProperty="FeaturedResultsSet" Verb="Update" Noun="FeaturedResultsSet" ShouldProcessTarget="FeaturedResultsSetId" PipelineParameter="FeaturedResultsSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,16 +28,29 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
-    /// Do not use this API for production workloads. This API is also subject to change.</b><para>
     /// Attaches one or more traffic sources to the specified Auto Scaling group.
-    /// </para><para>
-    /// To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a>
-    /// API. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a>
-    /// API.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
+    /// You can use any of the following as traffic sources for an Auto Scaling group:
+    /// </para><ul><li><para>
+    /// Application Load Balancer
+    /// </para></li><li><para>
+    /// Classic Load Balancer
+    /// </para></li><li><para>
+    /// Network Load Balancer
+    /// </para></li><li><para>
+    /// Gateway Load Balancer
+    /// </para></li><li><para>
+    /// VPC Lattice
+    /// </para></li></ul><para>
     /// This operation is additive and does not detach existing traffic sources from the Auto
-    /// Scaling group.
+    /// Scaling group. 
+    /// </para><para>
+    /// After the operation completes, use the <a>DescribeTrafficSources</a> API to return
+    /// details about the state of the attachments between traffic sources and your Auto Scaling
+    /// group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ASTrafficSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -71,10 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic
-        /// sources.</para><para>Currently, you must specify an Amazon Resource Name (ARN) for an existing VPC Lattice
-        /// target group. Amazon EC2 Auto Scaling registers the running instances with the attached
-        /// target groups. The target groups receive incoming traffic and route requests to one
-        /// or more registered targets.</para>
+        /// sources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -123,6 +123,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowExecution" OutputProperty="*" Verb="Get" Noun="WorkflowExecution" PipelineParameter="WorkflowExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowStepExecution" OutputProperty="*" Verb="Get" Noun="WorkflowStepExecution" PipelineParameter="StepExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportComponent" OutputProperty="ComponentBuildVersionArn" Verb="Import" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -171,11 +179,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListImageScanFindingAggregations" OutputProperty="*" Verb="Get" Noun="ImageScanFindingAggregationList" PipelineParameter="Filter_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImageScanFindings" OutputProperty="Findings" Verb="Get" Noun="ImageScanFindingList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListInfrastructureConfigurations" OutputProperty="InfrastructureConfigurationSummaryList" Verb="Get" Noun="InfrastructureConfigurationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowExecutionList" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflowStepExecutions" OutputProperty="*" Verb="Get" Noun="WorkflowStepExecutionList" PipelineParameter="WorkflowExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,8 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// To attach an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer,
-    /// use the <a>AttachLoadBalancerTargetGroups</a> API operation instead.
+    /// This API call has been replaced with a new "traffic sources" API call (<code>AttachTrafficSources</code>)
+    /// that can attach multiple traffic sources types. While we continue to support <code>AttachLoadBalancers</code>,
+    /// and you can use both the original <code>AttachLoadBalancers</code> API call and the
+    /// new <code>AttachTrafficSources</code> API call on the same Auto Scaling group, we
+    /// recommend using the new "traffic sources" API call to simplify how you manage traffic
+    /// sources.
     /// </para></note><para>
     /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon
     /// EC2 Auto Scaling registers the running instances with these Classic Load Balancers.

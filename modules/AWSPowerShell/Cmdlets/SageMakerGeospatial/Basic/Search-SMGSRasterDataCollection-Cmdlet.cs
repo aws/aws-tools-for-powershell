@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter RasterDataCollectionQuery_BandFilter
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The list of Bands to be displayed in the result for each item.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter PolygonGeometry_Coordinate
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Coordinates representing a Polygon based on the <a href="https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6">GeoJson
+        /// spec</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter PropertyFilters_LogicalOperator
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Logical Operator used to combine the Property Filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter PropertyFilters_Property
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of Property Filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

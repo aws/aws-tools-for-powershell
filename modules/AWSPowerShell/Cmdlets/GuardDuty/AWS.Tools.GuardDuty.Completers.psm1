@@ -87,6 +87,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.CoverageSortKey
+        "Get-GDCoverageList/SortCriteria_AttributeName"
+        {
+            $v = "ACCOUNT_ID","ADDON_VERSION","CLUSTER_NAME","COVERAGE_STATUS","ISSUE","UPDATED_AT"
+            break
+        }
+
         # Amazon.GuardDuty.DestinationType
         "New-GDPublishingDestination/DestinationType"
         {
@@ -135,6 +142,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.OrderBy
+        "Get-GDCoverageList/SortCriteria_OrderBy"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
         # Amazon.GuardDuty.ThreatIntelSetFormat
         "New-GDThreatIntelSet/Format"
         {
@@ -165,6 +179,8 @@ $GD_map = @{
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+    "SortCriteria_AttributeName"=@("Get-GDCoverageList")
+    "SortCriteria_OrderBy"=@("Get-GDCoverageList")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
 
@@ -245,6 +261,7 @@ $GD_SelectMap = @{
                "Unregister-GDMember",
                "Enable-GDOrganizationAdminAccount",
                "Get-GDAdministratorAccount",
+               "Get-GDCoverageStatistic",
                "Get-GDDetector",
                "Get-GDFilter",
                "Get-GDFinding",
@@ -259,6 +276,7 @@ $GD_SelectMap = @{
                "Get-GDThreatIntelSet",
                "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
+               "Get-GDCoverageList",
                "Get-GDDetectorList",
                "Get-GDFilterList",
                "Get-GDFindingList",

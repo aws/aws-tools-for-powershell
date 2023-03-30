@@ -1,4 +1,55 @@
-﻿### 4.1.302 (2023-03-29 21:03Z)
+﻿### 4.1.303 (2023-03-30 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.516.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EC2 Image Builder
+    * Added cmdlet Get-EC2IBImageScanFindingAggregationList leveraging the ListImageScanFindingAggregations service API.
+    * Added cmdlet Get-EC2IBImageScanFindingList leveraging the ListImageScanFindings service API.
+    * Added cmdlet Get-EC2IBWorkflowExecution leveraging the GetWorkflowExecution service API.
+    * Added cmdlet Get-EC2IBWorkflowExecutionList leveraging the ListWorkflowExecutions service API.
+    * Added cmdlet Get-EC2IBWorkflowStepExecution leveraging the GetWorkflowStepExecution service API.
+    * Added cmdlet Get-EC2IBWorkflowStepExecutionList leveraging the ListWorkflowStepExecutions service API.
+    * Modified cmdlet New-EC2IBImage: added parameters EcrConfiguration_ContainerTag, EcrConfiguration_RepositoryName and ImageScanningConfiguration_ImageScanningEnabled.
+    * Modified cmdlet New-EC2IBImagePipeline: added parameters EcrConfiguration_ContainerTag, EcrConfiguration_RepositoryName and ImageScanningConfiguration_ImageScanningEnabled.
+    * Modified cmdlet Update-EC2IBImagePipeline: added parameters EcrConfiguration_ContainerTag, EcrConfiguration_RepositoryName and ImageScanningConfiguration_ImageScanningEnabled.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2VpnTunnelReplacementStatus leveraging the GetVpnTunnelReplacementStatus service API.
+    * Added cmdlet Set-EC2VpnTunnel leveraging the ReplaceVpnTunnel service API.
+    * Modified cmdlet Edit-EC2VpnTunnelOption: added parameters SkipTunnelReplacement and TunnelOptions_EnableTunnelLifecycleControl.
+  * Amazon Elastic Disaster Recovery Service
+    * Modified cmdlet New-EDRSReplicationConfigurationTemplate: added parameter AutoReplicateNewDisk.
+    * Modified cmdlet Update-EDRSReplicationConfiguration: added parameter AutoReplicateNewDisk.
+    * Modified cmdlet Update-EDRSReplicationConfigurationTemplate: added parameter AutoReplicateNewDisk.
+  * Amazon Glue
+    * [Breaking Change] Modified cmdlet Update-GLUEDataQualityRuleset: removed parameter UpdatedName.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDCoverageList leveraging the ListCoverage service API.
+    * Added cmdlet Get-GDCoverageStatistic leveraging the GetCoverageStatistics service API.
+  * Amazon Interactive Video Service
+    * Modified cmdlet New-IVSChannel: added parameter InsecureIngest.
+    * Modified cmdlet Update-IVSChannel: added parameter InsecureIngest.
+  * Amazon Kendra
+    * Added cmdlet Get-KNDRFeaturedResultsSet leveraging the DescribeFeaturedResultsSet service API.
+    * Added cmdlet Get-KNDRFeaturedResultsSetList leveraging the ListFeaturedResultsSets service API.
+    * Added cmdlet New-KNDRFeaturedResultsSet leveraging the CreateFeaturedResultsSet service API.
+    * Added cmdlet Remove-KNDRFeaturedResultsSetBatch leveraging the BatchDeleteFeaturedResultsSet service API.
+    * Added cmdlet Update-KNDRFeaturedResultsSet leveraging the UpdateFeaturedResultsSet service API.
+  * Amazon Network Firewall
+    * Added cmdlet Get-NWFWTLSInspectionConfiguration leveraging the DescribeTLSInspectionConfiguration service API.
+    * Added cmdlet Get-NWFWTLSInspectionConfigurationList leveraging the ListTLSInspectionConfigurations service API.
+    * Added cmdlet New-NWFWTLSInspectionConfiguration leveraging the CreateTLSInspectionConfiguration service API.
+    * Added cmdlet Remove-NWFWTLSInspectionConfiguration leveraging the DeleteTLSInspectionConfiguration service API.
+    * Added cmdlet Update-NWFWTLSInspectionConfiguration leveraging the UpdateTLSInspectionConfiguration service API.
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameter FirewallPolicy_TLSInspectionConfigurationArn.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameter FirewallPolicy_TLSInspectionConfigurationArn.
+  * Amazon SageMaker Geospatial
+    * Modified cmdlet Export-SMGSEarthObservationJob: added parameter ClientToken.
+    * Modified cmdlet Export-SMGSVectorEnrichmentJob: added parameter ClientToken.
+    * Modified cmdlet Get-SMGSTile: added parameter ExecutionRoleArn.
+    * Modified cmdlet Start-SMGSEarthObservationJob: added parameter ZonalStatisticsConfig_ZoneS3PathKmsKeyId.
+  * Amazon VPC Lattice. Added cmdlets to support the service. Cmdlets for the service have the noun prefix VPCL and can be listed using the command 'Get-AWSCmdletName -Service VPCL'.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Get-WATConsolidatedReport leveraging the GetConsolidatedReport service API.
+
+### 4.1.302 (2023-03-29 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.515.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Relational Database Service
     * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter SourceDBClusterIdentifier.

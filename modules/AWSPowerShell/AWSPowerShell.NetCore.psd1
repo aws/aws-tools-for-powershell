@@ -377,6 +377,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Transfer.dll',
         'AWSSDK.Translate.dll',
         'AWSSDK.VoiceID.dll',
+        'AWSSDK.VPCLattice.dll',
         'AWSSDK.WAF.dll',
         'AWSSDK.WAFRegional.dll',
         'AWSSDK.WAFV2.dll',

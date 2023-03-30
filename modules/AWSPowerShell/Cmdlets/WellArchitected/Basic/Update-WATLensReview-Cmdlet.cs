@@ -28,7 +28,7 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// Update lens review.
+    /// Update lens review for a particular workload.
     /// </summary>
     [Cmdlet("Update", "WATLensReview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WellArchitected.Model.UpdateLensReviewResponse")]

@@ -28,7 +28,7 @@ using Amazon.WellArchitected.Model;
 namespace Amazon.PowerShell.Cmdlets.WAT
 {
     /// <summary>
-    /// List lens reviews.
+    /// List lens reviews for a particular workload.
     /// </summary>
     [Cmdlet("Get", "WATLensReviewList")]
     [OutputType("Amazon.WellArchitected.Model.ListLensReviewsResponse")]

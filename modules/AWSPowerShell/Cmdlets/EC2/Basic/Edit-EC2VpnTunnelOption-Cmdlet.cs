@@ -66,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? TunnelOptions_DPDTimeoutSecond { get; set; }
         #endregion
         
+        #region Parameter TunnelOptions_EnableTunnelLifecycleControl
+        /// <summary>
+        /// <para>
+        /// <para>Turn on or off tunnel endpoint lifecycle control feature.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TunnelOptions_EnableTunnelLifecycleControl { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_IKEVersion
         /// <summary>
         /// <para>
@@ -259,6 +269,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? TunnelOptions_ReplayWindowSize { get; set; }
         #endregion
         
+        #region Parameter SkipTunnelReplacement
+        /// <summary>
+        /// <para>
+        /// <para>Choose whether or not to trigger immediate tunnel replacement.</para><para>Valid values: <code>True</code> | <code>False</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SkipTunnelReplacement { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_StartupAction
         /// <summary>
         /// <para>
@@ -390,8 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.VpnConnectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SkipTunnelReplacement = this.SkipTunnelReplacement;
             context.TunnelOptions_DPDTimeoutAction = this.TunnelOptions_DPDTimeoutAction;
             context.TunnelOptions_DPDTimeoutSecond = this.TunnelOptions_DPDTimeoutSecond;
+            context.TunnelOptions_EnableTunnelLifecycleControl = this.TunnelOptions_EnableTunnelLifecycleControl;
             if (this.TunnelOptions_IKEVersion != null)
             {
                 context.TunnelOptions_IKEVersion = new List<Amazon.EC2.Model.IKEVersionsRequestListValue>(this.TunnelOptions_IKEVersion);
@@ -462,6 +484,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyVpnTunnelOptionsRequest();
             
+            if (cmdletContext.SkipTunnelReplacement != null)
+            {
+                request.SkipTunnelReplacement = cmdletContext.SkipTunnelReplacement.Value;
+            }
             
              // populate TunnelOptions
             var requestTunnelOptionsIsNull = true;
@@ -484,6 +510,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestTunnelOptions_tunnelOptions_DPDTimeoutSecond != null)
             {
                 request.TunnelOptions.DPDTimeoutSeconds = requestTunnelOptions_tunnelOptions_DPDTimeoutSecond.Value;
+                requestTunnelOptionsIsNull = false;
+            }
+            System.Boolean? requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl = null;
+            if (cmdletContext.TunnelOptions_EnableTunnelLifecycleControl != null)
+            {
+                requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl = cmdletContext.TunnelOptions_EnableTunnelLifecycleControl.Value;
+            }
+            if (requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl != null)
+            {
+                request.TunnelOptions.EnableTunnelLifecycleControl = requestTunnelOptions_tunnelOptions_EnableTunnelLifecycleControl.Value;
                 requestTunnelOptionsIsNull = false;
             }
             List<Amazon.EC2.Model.IKEVersionsRequestListValue> requestTunnelOptions_tunnelOptions_IKEVersion = null;
@@ -780,8 +816,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? SkipTunnelReplacement { get; set; }
             public System.String TunnelOptions_DPDTimeoutAction { get; set; }
             public System.Int32? TunnelOptions_DPDTimeoutSecond { get; set; }
+            public System.Boolean? TunnelOptions_EnableTunnelLifecycleControl { get; set; }
             public List<Amazon.EC2.Model.IKEVersionsRequestListValue> TunnelOptions_IKEVersion { get; set; }
             public System.Boolean? CloudWatchLogOptions_LogEnabled { get; set; }
             public System.String CloudWatchLogOptions_LogGroupArn { get; set; }

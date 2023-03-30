@@ -77,16 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Ruleset { get; set; }
         #endregion
         
-        #region Parameter UpdatedName
-        /// <summary>
-        /// <para>
-        /// <para>The new name of the ruleset, if you are renaming it.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String UpdatedName { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -158,7 +148,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.Ruleset = this.Ruleset;
-            context.UpdatedName = this.UpdatedName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,10 +175,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Ruleset != null)
             {
                 request.Ruleset = cmdletContext.Ruleset;
-            }
-            if (cmdletContext.UpdatedName != null)
-            {
-                request.UpdatedName = cmdletContext.UpdatedName;
             }
             
             CmdletOutput output;
@@ -255,7 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String Ruleset { get; set; }
-            public System.String UpdatedName { get; set; }
             public System.Func<Amazon.Glue.Model.UpdateDataQualityRulesetResponse, UpdateGLUEDataQualityRulesetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

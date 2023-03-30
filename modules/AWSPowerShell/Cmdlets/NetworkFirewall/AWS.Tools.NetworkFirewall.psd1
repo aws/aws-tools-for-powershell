@@ -97,9 +97,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-NWFWRuleGroup', 
         'Get-NWFWRuleGroupList', 
         'Get-NWFWRuleGroupMetadata', 
+        'Get-NWFWTLSInspectionConfiguration', 
+        'Get-NWFWTLSInspectionConfigurationList', 
         'New-NWFWFirewall', 
         'New-NWFWFirewallPolicy', 
         'New-NWFWRuleGroup', 
+        'New-NWFWTLSInspectionConfiguration', 
         'Register-NWFWFirewallPolicy', 
         'Register-NWFWSubnet', 
         'Remove-NWFWFirewall', 
@@ -107,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-NWFWResourcePolicy', 
         'Remove-NWFWResourceTag', 
         'Remove-NWFWRuleGroup', 
+        'Remove-NWFWTLSInspectionConfiguration', 
         'Unregister-NWFWSubnet', 
         'Update-NWFWFirewallDeleteProtection', 
         'Update-NWFWFirewallDescription', 
@@ -116,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-NWFWLoggingConfiguration', 
         'Update-NWFWRuleGroup', 
         'Update-NWFWSubnetChangeProtection', 
+        'Update-NWFWTLSInspectionConfiguration', 
         'Write-NWFWResourcePolicy')
 
     # Variables to export from this module

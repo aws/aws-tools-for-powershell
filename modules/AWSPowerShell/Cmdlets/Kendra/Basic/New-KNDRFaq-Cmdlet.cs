@@ -28,7 +28,8 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Creates an new set of frequently asked question (FAQ) questions and answers.
+    /// Creates a set of frequently ask questions (FAQs) using a specified FAQ file stored
+    /// in an Amazon S3 bucket.
     /// 
     ///  
     /// <para>
@@ -157,9 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that
-        /// contains the FAQs. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-        /// Roles for Amazon Kendra</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to access the S3 bucket
+        /// that contains the FAQs. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
+        /// access roles for Amazon Kendra</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

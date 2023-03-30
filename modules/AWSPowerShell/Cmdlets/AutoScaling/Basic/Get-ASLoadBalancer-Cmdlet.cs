@@ -28,12 +28,18 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
+    /// <note><para>
+    /// This API call has been replaced with a new "traffic sources" API call (<code>DescribeTrafficSources</code>)
+    /// that can describe multiple traffic sources types. While we continue to support <code>DescribeLoadBalancers</code>,
+    /// and you can use both the original <code>DescribeLoadBalancers</code> API call and
+    /// the new <code>DescribeTrafficSources</code> API call on the same Auto Scaling group,
+    /// we recommend using the new "traffic sources" API call to simplify how you manage traffic
+    /// sources.
+    /// </para></note><para>
     /// Gets information about the load balancers for the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// This operation describes only Classic Load Balancers. If you have Application Load
-    /// Balancers, Network Load Balancers, or Gateway Load Balancer, use the <a>DescribeLoadBalancerTargetGroups</a>
+    /// Balancers, Network Load Balancers, or Gateway Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a>
     /// API instead.
     /// </para><para>
     /// To determine the attachment status of the load balancer, use the <code>State</code>

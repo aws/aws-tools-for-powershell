@@ -240,6 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.StreamExceptionPolicy StatefulEngineOptions_StreamExceptionPolicy { get; set; }
         #endregion
         
+        #region Parameter FirewallPolicy_TLSInspectionConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the TLS inspection configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FirewallPolicy_TLSInspectionConfigurationArn { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_Type
         /// <summary>
         /// <para>
@@ -380,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             {
                 context.FirewallPolicy_StatelessRuleGroupReference = new List<Amazon.NetworkFirewall.Model.StatelessRuleGroupReference>(this.FirewallPolicy_StatelessRuleGroupReference);
             }
+            context.FirewallPolicy_TLSInspectionConfigurationArn = this.FirewallPolicy_TLSInspectionConfigurationArn;
             context.FirewallPolicyArn = this.FirewallPolicyArn;
             context.FirewallPolicyName = this.FirewallPolicyName;
             context.UpdateToken = this.UpdateToken;
@@ -504,6 +515,16 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             if (requestFirewallPolicy_firewallPolicy_StatelessRuleGroupReference != null)
             {
                 request.FirewallPolicy.StatelessRuleGroupReferences = requestFirewallPolicy_firewallPolicy_StatelessRuleGroupReference;
+                requestFirewallPolicyIsNull = false;
+            }
+            System.String requestFirewallPolicy_firewallPolicy_TLSInspectionConfigurationArn = null;
+            if (cmdletContext.FirewallPolicy_TLSInspectionConfigurationArn != null)
+            {
+                requestFirewallPolicy_firewallPolicy_TLSInspectionConfigurationArn = cmdletContext.FirewallPolicy_TLSInspectionConfigurationArn;
+            }
+            if (requestFirewallPolicy_firewallPolicy_TLSInspectionConfigurationArn != null)
+            {
+                request.FirewallPolicy.TLSInspectionConfigurationArn = requestFirewallPolicy_firewallPolicy_TLSInspectionConfigurationArn;
                 requestFirewallPolicyIsNull = false;
             }
             Amazon.NetworkFirewall.Model.StatefulEngineOptions requestFirewallPolicy_firewallPolicy_StatefulEngineOptions = null;
@@ -631,6 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public List<System.String> FirewallPolicy_StatelessDefaultAction { get; set; }
             public List<System.String> FirewallPolicy_StatelessFragmentDefaultAction { get; set; }
             public List<Amazon.NetworkFirewall.Model.StatelessRuleGroupReference> FirewallPolicy_StatelessRuleGroupReference { get; set; }
+            public System.String FirewallPolicy_TLSInspectionConfigurationArn { get; set; }
             public System.String FirewallPolicyArn { get; set; }
             public System.String FirewallPolicyName { get; set; }
             public System.String UpdateToken { get; set; }

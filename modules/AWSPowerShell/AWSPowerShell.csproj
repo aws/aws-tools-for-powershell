@@ -1027,6 +1027,9 @@
     <Reference Include="AWSSDK.VoiceID">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VoiceID.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.VPCLattice">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.VPCLattice.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WAF">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WAF.dll</HintPath>
     </Reference>
@@ -2033,6 +2036,9 @@
     </Reference>
     <Reference Include="AWSSDK.VoiceID">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.VoiceID.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.VPCLattice">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.VPCLattice.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAF">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WAF.dll</HintPath>

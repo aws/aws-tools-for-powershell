@@ -103,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter PolygonGeometry_Coordinate
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Coordinates representing a Polygon based on the <a href="https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6">GeoJson
+        /// spec</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter TemporalStatisticsConfig_GroupBy
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The input for the temporal statistics grouping by time frequency option.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter S3Data_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Key Management Service (KMS) key ID for server-side encryption.</para>
+        /// <para>The Key Management Service key ID for server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Key Management Service (KMS) key ID for server-side encryption.</para>
+        /// <para>The Key Management Service key ID for server-side encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter PropertyFilters_LogicalOperator
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Logical Operator used to combine the Property Filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter S3Data_MetadataProvider
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Metadata provider from whom the Amazon S3 data has been acquired.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -230,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter CustomIndices_Operation
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of BandMath indices to compute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -241,7 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter OutputResolution_Predefined
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A string value representing Predefined Output Resolution for a stacking operation.
+        /// Allowed values are <code>HIGHEST</code>, <code>LOWEST</code>, and <code>AVERAGE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +255,9 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter BandMathConfig_PredefinedIndex
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>One or many of the supported predefined indices to compute. Allowed values: <code>NDVI</code>,
+        /// <code>EVI2</code>, <code>MSAVI</code>, <code>NDWI</code>, <code>NDMI</code>, <code>NDSI</code>,
+        /// and <code>WDRVI</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -274,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter PropertyFilters_Property
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of Property Filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -318,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter TemporalStatisticsConfig_Statistic
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The list of the statistics method options.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter ZonalStatisticsConfig_Statistic
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>List of zonal statistics to compute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -351,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter CloudRemovalConfig_TargetBand
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>TargetBands to be returned in the output of CloudRemoval operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -373,7 +377,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter ResamplingConfig_TargetBand
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Bands used in the operation. If no target bands are specified, it uses all bands available
+        /// in the input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,7 +389,9 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter StackConfig_TargetBand
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of bands to be stacked in the specified order. When the parameter is not provided,
+        /// all the available bands in the data collection are stacked in the alphabetical order
+        /// of their asset names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter TemporalStatisticsConfig_TargetBand
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The list of target band names for the temporal statistic to calculate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,7 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter ZonalStatisticsConfig_TargetBand
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Bands used in the operation. If no target bands are specified, it uses all bands available
+        /// input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -417,7 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter JobConfig_ResamplingConfig_OutputResolution_UserDefined_Unit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The units for output resolution of the result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,7 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter JobConfig_StackConfig_OutputResolution_UserDefined_Unit
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The units for output resolution of the result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -439,7 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter JobConfig_ResamplingConfig_OutputResolution_UserDefined_Value
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The value for output resolution of the result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -449,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter JobConfig_StackConfig_OutputResolution_UserDefined_Value
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The value for output resolution of the result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -459,12 +467,28 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         #region Parameter ZonalStatisticsConfig_ZoneS3Path
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon S3 path pointing to the GeoJSON containing the polygonal zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobConfig_ZonalStatisticsConfig_ZoneS3Path")]
         public System.String ZonalStatisticsConfig_ZoneS3Path { get; set; }
+        #endregion
+        
+        #region Parameter ZonalStatisticsConfig_ZoneS3PathKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) or an ID of a Amazon Web Services Key Management Service
+        /// (Amazon Web Services KMS) key that Amazon SageMaker uses to decrypt your output artifacts
+        /// with Amazon S3 server-side encryption. The SageMaker execution role must have <code>kms:GenerateDataKey</code>
+        /// permission.</para><para>The <code>KmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:&lt;region&gt;:&lt;account&gt;:key/&lt;key-id-12ab-34cd-56ef-1234567890ab&gt;"</code></para></li></ul><para>For more information about key identifiers, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">Key
+        /// identifiers (KeyID)</a> in the Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) documentation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobConfig_ZonalStatisticsConfig_ZoneS3PathKmsKeyId")]
+        public System.String ZonalStatisticsConfig_ZoneS3PathKmsKeyId { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -639,6 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
                 context.ZonalStatisticsConfig_TargetBand = new List<System.String>(this.ZonalStatisticsConfig_TargetBand);
             }
             context.ZonalStatisticsConfig_ZoneS3Path = this.ZonalStatisticsConfig_ZoneS3Path;
+            context.ZonalStatisticsConfig_ZoneS3PathKmsKeyId = this.ZonalStatisticsConfig_ZoneS3PathKmsKeyId;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             #if MODULAR
@@ -1337,6 +1362,16 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
                 requestJobConfig_jobConfig_ZonalStatisticsConfig.ZoneS3Path = requestJobConfig_jobConfig_ZonalStatisticsConfig_zonalStatisticsConfig_ZoneS3Path;
                 requestJobConfig_jobConfig_ZonalStatisticsConfigIsNull = false;
             }
+            System.String requestJobConfig_jobConfig_ZonalStatisticsConfig_zonalStatisticsConfig_ZoneS3PathKmsKeyId = null;
+            if (cmdletContext.ZonalStatisticsConfig_ZoneS3PathKmsKeyId != null)
+            {
+                requestJobConfig_jobConfig_ZonalStatisticsConfig_zonalStatisticsConfig_ZoneS3PathKmsKeyId = cmdletContext.ZonalStatisticsConfig_ZoneS3PathKmsKeyId;
+            }
+            if (requestJobConfig_jobConfig_ZonalStatisticsConfig_zonalStatisticsConfig_ZoneS3PathKmsKeyId != null)
+            {
+                requestJobConfig_jobConfig_ZonalStatisticsConfig.ZoneS3PathKmsKeyId = requestJobConfig_jobConfig_ZonalStatisticsConfig_zonalStatisticsConfig_ZoneS3PathKmsKeyId;
+                requestJobConfig_jobConfig_ZonalStatisticsConfigIsNull = false;
+            }
              // determine if requestJobConfig_jobConfig_ZonalStatisticsConfig should be set to null
             if (requestJobConfig_jobConfig_ZonalStatisticsConfigIsNull)
             {
@@ -1461,6 +1496,7 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             public List<System.String> ZonalStatisticsConfig_Statistic { get; set; }
             public List<System.String> ZonalStatisticsConfig_TargetBand { get; set; }
             public System.String ZonalStatisticsConfig_ZoneS3Path { get; set; }
+            public System.String ZonalStatisticsConfig_ZoneS3PathKmsKeyId { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

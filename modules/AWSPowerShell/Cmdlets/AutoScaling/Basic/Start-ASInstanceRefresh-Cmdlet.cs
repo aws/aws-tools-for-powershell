@@ -190,7 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter DesiredConfiguration_MixedInstancesPolicy
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Use this structure to launch multiple instance types and On-Demand Instances and Spot
+        /// Instances within a single Auto Scaling group.</para><para>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use
+        /// to launch instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto
+        /// Scaling groups with multiple instance types and purchase options</a> in the <i>Amazon
+        /// EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -115,6 +115,16 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.FeaturedResultsSetStatus
+        {
+            ($_ -eq "New-KNDRFeaturedResultsSet/Status") -Or
+            ($_ -eq "Update-KNDRFeaturedResultsSet/Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Kendra.IndexEdition
         "New-KNDRIndex/Edition"
         {
@@ -195,6 +205,7 @@ $KNDR_map = @{
     "Mode"=@("Update-KNDRQuerySuggestionsConfig")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
     "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
+    "Status"=@("New-KNDRFeaturedResultsSet","Update-KNDRFeaturedResultsSet")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
     "Type"=@("New-KNDRDataSource")
     "UserContextPolicy"=@("New-KNDRIndex","Update-KNDRIndex")
@@ -254,6 +265,7 @@ $KNDR_SelectMap = @{
     "Select"=@("Add-KNDREntitiesToExperience",
                "Add-KNDRPersonasToEntity",
                "Remove-KNDRDocumentBatch",
+               "Remove-KNDRFeaturedResultsSetBatch",
                "Get-KNDRGetDocumentStatus",
                "Write-KNDRDocumentBatch",
                "Clear-KNDRQuerySuggestion",
@@ -261,6 +273,7 @@ $KNDR_SelectMap = @{
                "New-KNDRDataSource",
                "New-KNDRExperience",
                "New-KNDRFaq",
+               "New-KNDRFeaturedResultsSet",
                "New-KNDRIndex",
                "New-KNDRQuerySuggestionsBlockList",
                "New-KNDRThesaurus",
@@ -276,6 +289,7 @@ $KNDR_SelectMap = @{
                "Get-KNDRDataSource",
                "Get-KNDRExperience",
                "Get-KNDRFaq",
+               "Get-KNDRFeaturedResultsSet",
                "Get-KNDRIndex",
                "Get-KNDRPrincipalMapping",
                "Get-KNDRQuerySuggestionsBlockList",
@@ -292,6 +306,7 @@ $KNDR_SelectMap = @{
                "Get-KNDRExperienceEntityList",
                "Get-KNDRExperienceList",
                "Get-KNDRFaqList",
+               "Get-KNDRFeaturedResultsSetList",
                "Get-KNDRGroupsOlderThanOrderingIdList",
                "Get-KNDRIndexList",
                "Get-KNDRQuerySuggestionsBlockListList",
@@ -307,6 +322,7 @@ $KNDR_SelectMap = @{
                "Update-KNDRAccessControlConfiguration",
                "Update-KNDRDataSource",
                "Update-KNDRExperience",
+               "Update-KNDRFeaturedResultsSet",
                "Update-KNDRIndex",
                "Update-KNDRQuerySuggestionsBlockList",
                "Update-KNDRQuerySuggestionsConfig",

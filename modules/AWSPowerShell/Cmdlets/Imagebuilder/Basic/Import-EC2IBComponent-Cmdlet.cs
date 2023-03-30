@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ChangeDescription
         /// <summary>
         /// <para>
-        /// <para>The change description of the component. Describes what change has been made in this
-        /// version, or what makes this version different from other versions of this component.</para>
+        /// <para>The change description of the component. This description indicates the change that
+        /// has been made in this version, or what makes this version different from other versions
+        /// of this component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the component.</para>
+        /// <para>The name of the component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

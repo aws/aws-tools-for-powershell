@@ -34,9 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
     /// <para>
     /// A lens can have up to 100 versions.
     /// </para><para>
-    /// After a lens has been imported, create a new lens version to publish it. The owner
-    /// of a lens can share the lens with other Amazon Web Services accounts and IAM users
-    /// in the same Amazon Web Services Region. Only the owner of a lens can delete it. 
+    /// Use this operation to publish a new lens version after you have imported a lens. The
+    /// <code>LensAlias</code> is used to identify the lens to be published. The owner of
+    /// a lens can share the lens with other Amazon Web Services accounts and users in the
+    /// same Amazon Web Services Region. Only the owner of a lens can delete it. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "WATLensVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
