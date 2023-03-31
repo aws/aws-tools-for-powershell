@@ -65,12 +65,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter BucketName
         /// <summary>
-        /// <para>The name of the bucket that will hold the uploaded content.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
-        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <para>
+        /// The name of the bucket that will hold the uploaded content.
+        /// </para>
+        ///  
+        /// <para>
+        /// When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you use this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
+        /// you provide the Outposts access point ARN in place of the bucket name. For more information
+        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [Amazon.PowerShell.Common.AWSRequiredParameter]
@@ -280,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter ServerSideEncryption
         /// <summary>
-        /// Specifies the encryption used on the server to store the content.
+        /// The server-side encryption algorithm used when storing this object in Amazon S3
         /// Allowable values: None, AES256, aws:kms.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
@@ -290,7 +305,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter ServerSideEncryptionKeyManagementServiceKeyId
         /// <summary>
-        /// Specifies the AWS KMS key for Amazon S3 to use to encrypt the object.
+        /// The id of the AWS Key Management Service key that Amazon S3 should use to encrypt and decrypt the object.
+        /// If a key id is not specified, the default key will be used for encryption and decryption.
+        /// <para>
+        /// If <code>x-amz-server-side-encryption</code> has a valid value of <code>aws:kms</code>,
+        /// this header specifies the ID of the Amazon Web Services Key Management Service (Amazon
+        /// Web Services KMS) symmetric encryption customer managed key that was used for the
+        /// object. If you specify <code>x-amz-server-side-encryption:aws:kms</code>, but do not
+        /// provide<code> x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the
+        /// Amazon Web Services managed key to protect the data. If the KMS key does not exist
+        /// in the same account issuing the command, you must use the full ARN and not just the
+        /// ID. 
+        /// </para>
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }

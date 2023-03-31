@@ -48,12 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter BucketName
         /// <summary>
-        /// <para>The name of the bucket to create a pre-signed url to, or containing the object.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
-        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <para>
+        /// The name of the bucket to create a pre-signed url to, or containing the object.
+        /// </para>
+        ///  
+        /// <para>
+        /// When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
@@ -72,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ResponseHeaderOverrides_ContentDisposition
         /// <summary>
         /// <para>
-        /// The ContentDisposition header value.
+        /// Specifies presentational information for the object. For more information, see <a
+        /// href="https://www.rfc-editor.org/rfc/rfc6266#section-4">https://www.rfc-editor.org/rfc/rfc6266#section-4</a>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ResponseHeaderOverrides_ContentEncoding
         /// <summary>
         /// <para>
-        /// The ContentEncoding header value.
+        /// Specifies what content encodings have been applied to the object and thus what decoding
+        /// mechanisms must be applied to obtain the media-type referenced by the Content-Type
+        /// header field. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding">https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding</a>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// A standard MIME type describing the format of the object data.
+        /// A standard MIME type describing the format of the contents. For more information,
+        /// see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type">https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type</a>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

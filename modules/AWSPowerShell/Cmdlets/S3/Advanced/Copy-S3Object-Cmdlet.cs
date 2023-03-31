@@ -76,12 +76,27 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter BucketName
         /// <summary>
-        /// <para>The name of the bucket containing the source object.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
-        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <para>
+        /// The name of the bucket containing the source object.
+        /// </para>
+        ///  
+        /// <para>
+        /// When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you use this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
+        /// you provide the Outposts access point ARN in place of the bucket name. For more information
+        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
         /// </summary>
         [Parameter(Position = 0, Mandatory = true, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("SourceBucket")]
@@ -124,13 +139,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter DestinationBucket
         /// <summary>
-        /// <para>The name of the bucket that will contain the copied object. If not specified,
-        /// the copy is to another S3 object in the source bucket.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
-        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
-        /// ARN in place of the bucket name. For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <para>
+        /// The name of the bucket that will contain the copied object.
+        /// If not specified, the copy is to another S3 object in the source bucket.
+        /// </para>
+        ///  
+        /// <para>
+        /// When using this action with an access point, you must direct requests to the access
+        /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+        /// When using this action with an access point through the Amazon Web Services SDKs,
+        /// you provide the access point ARN in place of the bucket name. For more information
+        /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you use this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
+        /// you provide the Outposts access point ARN in place of the bucket name. For more information
+        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
         /// </summary>
         [Parameter(Position = 3, ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         public System.String DestinationBucket { get; set; }
@@ -229,8 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter ServerSideEncryption
         /// <summary>
-        /// Specifies the encryption used on the server to store the content.
-        /// Allowable values: None, AES256, aws:kms.
+        /// <para>
+        /// The server-side encryption algorithm used when storing this object in Amazon S3 (for
+        /// example, AES256, <code>aws:kms</code>).
+        /// </para>
         /// </summary>
         [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionMethod")]
@@ -240,6 +272,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionKeyManagementServiceKeyId
         /// <summary>
         /// Specifies the AWS KMS key for Amazon S3 to use to encrypt the object.
+        /// <para>
+        /// Specifies the Amazon Web Services KMS key ID to use for object encryption. All GET
+        /// and PUT requests for an object protected by Amazon Web Services KMS will fail if not
+        /// made via SSL or using SigV4. For information about configuring using any of the officially
+        /// supported Amazon Web Services SDKs and Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying
+        /// the Signature Version in Request Authentication</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
         /// </summary>
         [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
@@ -247,8 +286,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter WebsiteRedirectLocation
         /// <summary>
-        /// If this is set then when a GET request is made from the S3 website endpoint a 301 HTTP status code
-        /// will be returned indicating a redirect with this value as the redirect location.
+        /// <para>
+        /// If the bucket is configured as a website, redirects requests for this object to another
+        /// object in the same bucket or to an external URL. Amazon S3 stores the value of this
+        /// header in the object metadata. This value is unique to each object and is not copied
+        /// when using the <code>x-amz-metadata-directive</code> header. Instead, you may opt
+        /// to provide this header in combination with the directive.
+        /// </para>
         /// </summary>
         [Parameter(ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         public System.String WebsiteRedirectLocation { get; set; }
