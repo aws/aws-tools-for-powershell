@@ -38,7 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// To use this API against an access point, provide the alias of the access point in
     /// place of the bucket name.
-    /// </para><para>
+    /// </para><note><para>
+    /// For requests made using Amazon Web Services Signature Version 4 (SigV4), we recommend
+    /// that you use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html">HeadBucket</a>
+    /// to return the bucket Region instead of GetBucketLocation.
+    /// </para></note><para>
     /// The following operations are related to <code>GetBucketLocation</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul>
     /// </summary>

@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Resilience Hub application. The format for
-        /// this ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
+        /// <para>The Amazon Resource Name (ARN) of the Resilience Hub application. The format for this
+        /// ARN is: arn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.
         /// For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
         /// Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i> guide.</para>
         /// </para>

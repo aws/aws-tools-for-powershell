@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services
-        /// KMS) symmetric customer managed key to use for encrypting inventory reports.</para>
+        /// KMS) symmetric encryption customer managed key to use for encrypting inventory reports.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

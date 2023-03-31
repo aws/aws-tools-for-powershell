@@ -33,11 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// you must have READ access to the object.
     /// 
     ///  
-    /// <para><code>GetObjectAttributes</code> combines the functionality of <code>GetObjectAcl</code>,
-    /// <code>GetObjectLegalHold</code>, <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
-    /// <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>.
-    /// All of the data returned with each of those individual calls can be returned with
-    /// a single call to <code>GetObjectAttributes</code>.
+    /// <para><code>GetObjectAttributes</code> combines the functionality of <code>HeadObject</code>
+    /// and <code>ListParts</code>. All of the data returned with each of those individual
+    /// calls can be returned with a single call to <code>GetObjectAttributes</code>.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
@@ -50,9 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Encryption request headers, such as <code>x-amz-server-side-encryption</code>, should
     /// not be sent for GET requests if your object uses server-side encryption with Amazon
     /// Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS)
-    /// or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your
-    /// object does use these types of keys, you'll get an HTTP <code>400 Bad Request</code>
-    /// error.
+    /// or server-side encryption with Amazon S3 managed keys (SSE-S3). If your object does
+    /// use these types of keys, you'll get an HTTP <code>400 Bad Request</code> error.
     /// </para></li><li><para>
     ///  The last modified property in this case is the creation date of the object.
     /// </para></li></ul></note><para>
@@ -103,17 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket containing the object.</para><para>When using this action with an access point, you must direct requests to the access
+        /// <para>The name of the bucket that contains the object.</para><para>When using this action with an access point, you must direct requests to the access
         /// point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When using this action with Amazon S3 on Outposts, you must direct requests to the
-        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com.
-        /// When using this action using S3 on Outposts through the Amazon Web Services SDKs,
-        /// you provide the Outposts bucket ARN in place of the bucket name. For more information
-        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-        /// S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When you use this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
+        /// you provide the Outposts access point ARN in place of the bucket name. For more information
+        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

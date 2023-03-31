@@ -28023,6 +28023,16 @@ $CWIM_Completers = {
             break
         }
 
+        # Amazon.InternetMonitor.LogDeliveryStatus
+        {
+            ($_ -eq "New-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus") -Or
+            ($_ -eq "Update-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.InternetMonitor.MonitorConfigState
         "Update-CWIMMonitor/Status"
         {
@@ -28040,6 +28050,7 @@ $CWIM_Completers = {
 
 $CWIM_map = @{
     "EventStatus"=@("Get-CWIMHealthEventList")
+    "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "Status"=@("Update-CWIMMonitor")
 }
 
@@ -50680,6 +50691,32 @@ $SME_SelectMap = @{
 _awsArgumentCompleterRegistration $SME_SelectCompleters $SME_SelectMap
 # Argument completions for service Amazon SageMaker Feature Store Runtime
 
+
+$SMFS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SageMakerFeatureStoreRuntime.DeletionMode
+        "Remove-SMFSRecord/DeletionMode"
+        {
+            $v = "HardDelete","SoftDelete"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMFS_map = @{
+    "DeletionMode"=@("Remove-SMFSRecord")
+}
+
+_awsArgumentCompleterRegistration $SMFS_Completers $SMFS_map
 
 $SMFS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

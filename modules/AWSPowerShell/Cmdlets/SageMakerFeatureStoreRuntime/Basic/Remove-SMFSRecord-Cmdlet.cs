@@ -28,10 +28,28 @@ using Amazon.SageMakerFeatureStoreRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.SMFS
 {
     /// <summary>
-    /// Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code>
-    /// API is called a new record will be added to the <code>OfflineStore</code> and the
-    /// <code>Record</code> will be removed from the <code>OnlineStore</code>. This record
-    /// will have a value of <code>True</code> in the <code>is_deleted</code> column.
+    /// Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the <code>OnlineStore</code>.
+    /// Feature Store supports both <code>SOFT_DELETE</code> and <code>HARD_DELETE</code>.
+    /// For <code>SOFT_DELETE</code> (default), feature columns are set to <code>null</code>
+    /// and the record is no longer retrievable by <code>GetRecord</code> or <code>BatchGetRecord</code>.
+    /// For<code> HARD_DELETE</code>, the complete <code>Record</code> is removed from the
+    /// <code>OnlineStore</code>. In both cases, Feature Store appends the deleted record
+    /// marker to the <code>OfflineStore</code> with feature values set to <code>null</code>,
+    /// <code>is_deleted</code> value set to <code>True</code>, and <code>EventTime</code>
+    /// set to the delete input <code>EventTime</code>.
+    /// 
+    ///  
+    /// <para>
+    /// Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should
+    /// be set later than the <code>EventTime</code> of the existing record in the <code>OnlineStore</code>
+    /// for that <code>RecordIdentifer</code>. If it is not, the deletion does not occur:
+    /// </para><ul><li><para>
+    /// For <code>SOFT_DELETE</code>, the existing (undeleted) record remains in the <code>OnlineStore</code>,
+    /// though the delete record marker is still written to the <code>OfflineStore</code>.
+    /// </para></li><li><para><code>HARD_DELETE</code> returns <code>EventTime</code>: <code>400 ValidationException</code>
+    /// to indicate that the delete operation failed. No delete record marker is written to
+    /// the <code>OfflineStore</code>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "SMFSRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -42,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
     )]
     public partial class RemoveSMFSRecordCmdlet : AmazonSageMakerFeatureStoreRuntimeClientCmdlet, IExecutor
     {
+        
+        #region Parameter DeletionMode
+        /// <summary>
+        /// <para>
+        /// <para>The name of the deletion mode for deleting the record. By default, the deletion mode
+        /// is set to <code>SoftDelete</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMakerFeatureStoreRuntime.DeletionMode")]
+        public Amazon.SageMakerFeatureStoreRuntime.DeletionMode DeletionMode { get; set; }
+        #endregion
         
         #region Parameter EventTime
         /// <summary>
@@ -149,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
                 context.Select = CreateSelectDelegate<Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordResponse, RemoveSMFSRecordCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.DeletionMode = this.DeletionMode;
             context.EventTime = this.EventTime;
             #if MODULAR
             if (this.EventTime == null && ParameterWasBound(nameof(this.EventTime)))
@@ -190,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             // create request
             var request = new Amazon.SageMakerFeatureStoreRuntime.Model.DeleteRecordRequest();
             
+            if (cmdletContext.DeletionMode != null)
+            {
+                request.DeletionMode = cmdletContext.DeletionMode;
+            }
             if (cmdletContext.EventTime != null)
             {
                 request.EventTime = cmdletContext.EventTime;
@@ -267,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMakerFeatureStoreRuntime.DeletionMode DeletionMode { get; set; }
             public System.String EventTime { get; set; }
             public System.String FeatureGroupName { get; set; }
             public System.String RecordIdentifierValueAsString { get; set; }

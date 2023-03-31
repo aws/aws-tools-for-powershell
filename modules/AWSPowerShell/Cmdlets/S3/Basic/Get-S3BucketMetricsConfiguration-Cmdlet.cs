@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter MetricsId
         /// <summary>
         /// <para>
-        /// The ID used to identify the metrics configuration.
+        /// The ID used to identify the metrics configuration. 
+        /// The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,12 @@
-﻿### 4.1.303 (2023-03-30 21:13Z)
+﻿### 4.1.304 (2023-03-31 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.517.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon CloudWatch Internet Monitor
+    * Modified cmdlet New-CWIMMonitor: added parameters S3Config_BucketName, S3Config_BucketPrefix and S3Config_LogDeliveryStatus.
+    * Modified cmdlet Update-CWIMMonitor: added parameters S3Config_BucketName, S3Config_BucketPrefix and S3Config_LogDeliveryStatus.
+  * Amazon SageMaker Feature Store Runtime
+    * Modified cmdlet Remove-SMFSRecord: added parameter DeletionMode.
+
+### 4.1.303 (2023-03-30 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.516.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon EC2 Image Builder
     * Added cmdlet Get-EC2IBImageScanFindingAggregationList leveraging the ListImageScanFindingAggregations service API.

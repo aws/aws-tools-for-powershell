@@ -47,12 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When using this action with Amazon S3 on Outposts, you must direct requests to the
-        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com.
-        /// When using this action using S3 on Outposts through the Amazon Web Services SDKs,
-        /// you provide the Outposts bucket ARN in place of the bucket name. For more information
-        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-        /// S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When you use this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
+        /// you provide the Outposts access point ARN in place of the bucket name. For more information
+        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -122,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Owner_DisplayName
         /// <summary>
         /// <para>
-        /// The display name of the owner.
+        /// <para>Container for the display name of the owner. This value is only supported in the following
+        /// Amazon Web Services Regions:</para><ul><li><para>US East (N. Virginia)</para></li><li><para>US West (N. California)</para></li><li><para>US West (Oregon)</para></li><li><para>Asia Pacific (Singapore)</para></li><li><para>Asia Pacific (Sydney)</para></li><li><para>Asia Pacific (Tokyo)</para></li><li><para>Europe (Ireland)</para></li><li><para>South America (São Paulo)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Encryption_EncryptionType
         /// <summary>
         /// <para>
-        /// The server-side encryption algorithm used when storing job results in Amazon S3 (e.g., AES256, aws:kms).
+        /// The server-side encryption algorithm used when storing job results in Amazon S3
+        /// (for example, AES256, <code>aws:kms</code>).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -200,10 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// If the encryption type is <code>aws:kms</code>, this optional value
-        /// specifies the ID of the symmetric customer managed key to use for encryption
-        /// of job results. Amazon S3 only supports symmetric keys. For more information, see 
+        /// specifies the ID of the symmetric encryption customer managed key to use for encryption
+        /// of job results. Amazon S3 only supports symmetric encryption KMS keys. For more information, see 
         /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">
-        /// Using symmetric and asymmetric keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.
+        /// Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

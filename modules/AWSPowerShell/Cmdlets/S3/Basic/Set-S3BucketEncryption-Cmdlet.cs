@@ -45,10 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>Specifies default encryption for a bucket using server-side encryption with Amazon
-        /// S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
-        /// For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
-        /// S3 Default Bucket Encryption</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// <para>Specifies default encryption for a bucket using server-side encryption with different
+        /// key options. By default, all buckets have a default encryption configuration that
+        /// uses server-side encryption with Amazon S3 managed keys (SSE-S3). You can optionally
+        /// configure default encryption for a bucket by using server-side encryption with an
+        /// Amazon Web Services KMS key (SSE-KMS) or a customer-provided key (SSE-C). For information
+        /// about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
+        /// S3 Bucket Default Encryption</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -87,6 +87,16 @@ $CWIM_Completers = {
             break
         }
 
+        # Amazon.InternetMonitor.LogDeliveryStatus
+        {
+            ($_ -eq "New-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus") -Or
+            ($_ -eq "Update-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.InternetMonitor.MonitorConfigState
         "Update-CWIMMonitor/Status"
         {
@@ -104,6 +114,7 @@ $CWIM_Completers = {
 
 $CWIM_map = @{
     "EventStatus"=@("Get-CWIMHealthEventList")
+    "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "Status"=@("Update-CWIMMonitor")
 }
 

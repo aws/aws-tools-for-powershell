@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Owner_DisplayName
         /// <summary>
         /// <para>
-        /// The display name of the owner.
+        /// <para>Container for the display name of the owner. This value is only supported in the following
+        /// Amazon Web Services Regions:</para><ul><li><para>US East (N. Virginia)</para></li><li><para>US West (N. California)</para></li><li><para>US West (Oregon)</para></li><li><para>Asia Pacific (Singapore)</para></li><li><para>Asia Pacific (Sydney)</para></li><li><para>Asia Pacific (Tokyo)</para></li><li><para>Europe (Ireland)</para></li><li><para>South America (São Paulo)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -130,15 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// The key of an S3 object.
         /// If not specified, the ACLs are applied to the bucket.
-        /// <para>When using this API with an access point, you must direct requests to the access point hostname. 
+        /// <para>Key for which the PUT action was initiated.</para><para>When using this action with an access point, you must direct requests to the access point hostname.
         /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
-        /// When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. 
+        /// When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. 
         /// For more information about access point ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</para><para>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. 
-        /// The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. 
-        /// When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using Access Points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When you use this action with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. 
+        /// The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs, you provide the Outposts access point ARN in place of the bucket name. 
         /// For more information about S3 on Outposts ARNs, see 
-        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts">What is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

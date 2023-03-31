@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon SageMaker Feature Store Runtime
 
 
+$SMFS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SageMakerFeatureStoreRuntime.DeletionMode
+        "Remove-SMFSRecord/DeletionMode"
+        {
+            $v = "HardDelete","SoftDelete"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SMFS_map = @{
+    "DeletionMode"=@("Remove-SMFSRecord")
+}
+
+_awsArgumentCompleterRegistration $SMFS_Completers $SMFS_map
+
 $SMFS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

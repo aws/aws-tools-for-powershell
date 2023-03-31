@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// parameter in the request. You will need permission for the <code>s3:DeleteObjectVersionTagging</code>
     /// action.
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+    /// The following operations are related to <code>DeleteObjectTagging</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -62,12 +62,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// When using this action with an access point through the Amazon Web Services SDKs,
         /// you provide the access point ARN in place of the bucket name. For more information
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
-        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When using this action with Amazon S3 on Outposts, you must direct requests to the
-        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com.
-        /// When using this action using S3 on Outposts through the Amazon Web Services SDKs,
-        /// you provide the Outposts bucket ARN in place of the bucket name. For more information
-        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
-        /// S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><para>When you use this action with Amazon S3 on Outposts, you must direct requests to the
+        /// S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
+        /// you provide the Outposts access point ARN in place of the bucket name. For more information
+        /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
+        /// is S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

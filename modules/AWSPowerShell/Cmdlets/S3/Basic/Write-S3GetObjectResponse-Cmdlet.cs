@@ -407,7 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ServerSideEncryptionMethod
         /// <summary>
         /// <para>
-        /// The server-side encryption algorithm used when storing requested object in Amazon S3 (for example, AES256, aws:kms).
+        /// The server-side encryption algorithm used when storing requested object in Amazon
+        /// S3 (for example, AES256, <code>aws:kms</code>).
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +441,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para> If present, specifies the ID of the Amazon Web Services Key Management Service (Amazon
-        /// Web Services KMS) symmetric customer managed key that was used for stored in Amazon S3 object. </para>
+        /// Web Services KMS) symmetric encryption customer managed key that was used for stored
+        /// in Amazon S3 object. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

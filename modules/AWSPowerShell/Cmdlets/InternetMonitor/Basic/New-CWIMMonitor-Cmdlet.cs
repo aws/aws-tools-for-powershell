@@ -29,15 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
     /// Creates a monitor in Amazon CloudWatch Internet Monitor. A monitor is built based
-    /// on information from the application resources that you add: Virtual Private Clouds
-    /// (VPCs), Amazon CloudFront distributions, and WorkSpaces directories. 
+    /// on information from the application resources that you add: Amazon Virtual Private
+    /// Clouds (VPCs), Amazon CloudFront distributions, and WorkSpaces directories. Internet
+    /// Monitor then publishes internet measurements from Amazon Web Services that are specific
+    /// to the <i>city-networks</i>, that is, the locations and ASNs (typically internet service
+    /// providers or ISPs), where clients access your application. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-InternetMonitor.html">Using
+    /// Amazon CloudWatch Internet Monitor</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// After you create a monitor, you can view the internet performance for your application,
-    /// scoped to a location, as well as any health events that are impairing traffic. Internet
-    /// Monitor can also diagnose whether the impairment is on the Amazon Web Services network
-    /// or is an issue with an internet service provider (ISP).
+    /// When you create a monitor, you set a maximum limit for the number of city-networks
+    /// where client traffic is monitored. The city-network maximum that you choose is the
+    /// limit, but you only pay for the number of city-networks that are actually monitored.
+    /// You can change the maximum at any time by updating your monitor. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing
+    /// a city-network maximum value</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWIMMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,11 +56,49 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
     public partial class NewCWIMMonitorCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
+        #region Parameter S3Config_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InternetMeasurementsLogDelivery_S3Config_BucketName")]
+        public System.String S3Config_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter S3Config_BucketPrefix
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket prefix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InternetMeasurementsLogDelivery_S3Config_BucketPrefix")]
+        public System.String S3Config_BucketPrefix { get; set; }
+        #endregion
+        
+        #region Parameter S3Config_LogDeliveryStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus")]
+        [AWSConstantClassSource("Amazon.InternetMonitor.LogDeliveryStatus")]
+        public Amazon.InternetMonitor.LogDeliveryStatus S3Config_LogDeliveryStatus { get; set; }
+        #endregion
+        
         #region Parameter MaxCityNetworksToMonitor
         /// <summary>
         /// <para>
-        /// <para>The maximum number of city-network combinations (that is, combinations of a city location
-        /// and network, such as an ISP) to be monitored for your resources.</para>
+        /// <para>The maximum number of city-networks to monitor for your resources. A city-network
+        /// is the location (city) where clients access your application resources from and the
+        /// network or ASN, such as an internet service provider (ISP), that clients access the
+        /// resources through. This limit helps control billing costs.</para><para>To learn more, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/IMCityNetworksMaximum.html">Choosing
+        /// a city-network maximum value </a> in the Amazon CloudWatch Internet Monitor section
+        /// of the <i>CloudWatch User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -183,6 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.S3Config_BucketName = this.S3Config_BucketName;
+            context.S3Config_BucketPrefix = this.S3Config_BucketPrefix;
+            context.S3Config_LogDeliveryStatus = this.S3Config_LogDeliveryStatus;
             context.MaxCityNetworksToMonitor = this.MaxCityNetworksToMonitor;
             #if MODULAR
             if (this.MaxCityNetworksToMonitor == null && ParameterWasBound(nameof(this.MaxCityNetworksToMonitor)))
@@ -228,6 +276,60 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate InternetMeasurementsLogDelivery
+            var requestInternetMeasurementsLogDeliveryIsNull = true;
+            request.InternetMeasurementsLogDelivery = new Amazon.InternetMonitor.Model.InternetMeasurementsLogDelivery();
+            Amazon.InternetMonitor.Model.S3Config requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config = null;
+            
+             // populate S3Config
+            var requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3ConfigIsNull = true;
+            requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config = new Amazon.InternetMonitor.Model.S3Config();
+            System.String requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketName = null;
+            if (cmdletContext.S3Config_BucketName != null)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketName = cmdletContext.S3Config_BucketName;
+            }
+            if (requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketName != null)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config.BucketName = requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketName;
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3ConfigIsNull = false;
+            }
+            System.String requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketPrefix = null;
+            if (cmdletContext.S3Config_BucketPrefix != null)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketPrefix = cmdletContext.S3Config_BucketPrefix;
+            }
+            if (requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketPrefix != null)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config.BucketPrefix = requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_BucketPrefix;
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3ConfigIsNull = false;
+            }
+            Amazon.InternetMonitor.LogDeliveryStatus requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_LogDeliveryStatus = null;
+            if (cmdletContext.S3Config_LogDeliveryStatus != null)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_LogDeliveryStatus = cmdletContext.S3Config_LogDeliveryStatus;
+            }
+            if (requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_LogDeliveryStatus != null)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config.LogDeliveryStatus = requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config_s3Config_LogDeliveryStatus;
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3ConfigIsNull = false;
+            }
+             // determine if requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config should be set to null
+            if (requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3ConfigIsNull)
+            {
+                requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config = null;
+            }
+            if (requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config != null)
+            {
+                request.InternetMeasurementsLogDelivery.S3Config = requestInternetMeasurementsLogDelivery_internetMeasurementsLogDelivery_S3Config;
+                requestInternetMeasurementsLogDeliveryIsNull = false;
+            }
+             // determine if request.InternetMeasurementsLogDelivery should be set to null
+            if (requestInternetMeasurementsLogDeliveryIsNull)
+            {
+                request.InternetMeasurementsLogDelivery = null;
             }
             if (cmdletContext.MaxCityNetworksToMonitor != null)
             {
@@ -307,6 +409,9 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String S3Config_BucketName { get; set; }
+            public System.String S3Config_BucketPrefix { get; set; }
+            public Amazon.InternetMonitor.LogDeliveryStatus S3Config_LogDeliveryStatus { get; set; }
             public System.Int32? MaxCityNetworksToMonitor { get; set; }
             public System.String MonitorName { get; set; }
             public List<System.String> Resource { get; set; }

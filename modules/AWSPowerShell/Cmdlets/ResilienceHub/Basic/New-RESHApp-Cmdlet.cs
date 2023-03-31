@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// Creates an Resilience Hub application. An Resilience Hub application is a collection
     /// of Amazon Web Services resources structured to prevent and recover Amazon Web Services
     /// application disruptions. To describe a Resilience Hub application, you provide an
-    /// application name, resources from one or more–up to five–CloudFormation stacks, and
-    /// an appropriate resiliency policy.
+    /// application name, resources from one or more–up to 20–CloudFormation stacks, and an
+    /// appropriate resiliency policy.
     /// 
     ///  
     /// <para>
