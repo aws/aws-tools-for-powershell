@@ -103,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter IdleTimeout
         /// <summary>
         /// <para>
-        /// <para>The number of seconds when idle before request times out. </para>
+        /// <para> The number of minutes when idle before session times out. Default for Spark ETL jobs
+        /// is value of Timeout. Consult the documentation for other job types. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The number of seconds before request times out. </para>
+        /// <para> The number of minutes before session times out. Default for Spark ETL jobs is 48
+        /// hours (2880 minutes), the maximum session lifetime for this job type. Consult the
+        /// documentation for other job types. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

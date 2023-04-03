@@ -80,6 +80,13 @@ $LICM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LicenseManager.ActivationOverrideBehavior
+        "New-LICMGrantVersion/Options_ActivationOverrideBehavior"
+        {
+            $v = "ALL_GRANTS_PERMITTED_BY_ISSUER","DISTRIBUTED_GRANTS_ONLY"
+            break
+        }
+
         # Amazon.LicenseManager.CheckoutType
         "Invoke-LICMLicenseCheckout/CheckoutType"
         {
@@ -156,6 +163,7 @@ $LICM_map = @{
     "DigitalSignatureMethod"=@("Invoke-LICMLicenseCheckoutBorrow")
     "LicenseConfigurationStatus"=@("Update-LICMLicenseConfiguration")
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
+    "Options_ActivationOverrideBehavior"=@("New-LICMGrantVersion")
     "ReportFrequency_Period"=@("New-LICMLicenseManagerReportGenerator","Update-LICMLicenseManagerReportGenerator")
     "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion")
 }

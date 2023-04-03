@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AuditContext_AdditionalAuditContext
         /// <summary>
         /// <para>
-        /// <para>The context for the audit..</para>
+        /// <para>A string containing the additional audit context information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

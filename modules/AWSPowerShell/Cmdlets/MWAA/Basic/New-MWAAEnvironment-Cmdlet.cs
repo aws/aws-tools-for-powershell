@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>A list of key-value pairs containing the Apache Airflow configuration options you
-        /// want to attach to your environment. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
+        /// want to attach to your environment. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html">Apache
         /// Airflow configuration options</a>.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The relative path to the DAGs folder on your Amazon S3 bucket. For example, <code>dags</code>.
-        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
+        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html">Adding
         /// or updating DAGs</a>.</para>
         /// </para>
         /// </summary>
@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The environment class type. Valid values: <code>mw1.small</code>, <code>mw1.medium</code>,
-        /// <code>mw1.large</code>. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
+        /// <code>mw1.large</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
         /// MWAA environment class</a>.</para>
         /// </para>
         /// </summary>
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// role is an Amazon Web Services Identity and Access Management (IAM) role that grants
         /// MWAA permission to access Amazon Web Services services and resources used by your
         /// environment. For example, <code>arn:aws:iam::123456789:role/my-execution-role</code>.
-        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
+        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html">Amazon
         /// MWAA Execution role</a>.</para>
         /// </para>
         /// </summary>
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The Amazon Web Services Key Management Service (KMS) key to encrypt the data in your
         /// environment. You can use an Amazon Web Services owned CMK, or a Customer managed CMK
-        /// (advanced). To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create
+        /// (advanced). For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/create-environment.html">Create
         /// an Amazon MWAA environment</a>.</para>
         /// </para>
         /// </summary>
@@ -304,8 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter PluginsS3ObjectVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the plugins.zip file on your Amazon S3 bucket. A version must be specified
-        /// each time a plugins.zip file is updated. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
+        /// <para>The version of the plugins.zip file on your Amazon S3 bucket. You must specify a version
+        /// each time a plugins.zip file is updated. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
         /// S3 Versioning works</a>.</para>
         /// </para>
         /// </summary>
@@ -317,8 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The relative path to the <code>plugins.zip</code> file on your Amazon S3 bucket. For
-        /// example, <code>plugins.zip</code>. If specified, then the plugins.zip version is required.
-        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
+        /// example, <code>plugins.zip</code>. If specified, then the <code>plugins.zip</code>
+        /// version is required. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html">Installing
         /// custom plugins</a>.</para>
         /// </para>
         /// </summary>
@@ -329,8 +329,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter RequirementsS3ObjectVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the requirements.txt file on your Amazon S3 bucket. A version must
-        /// be specified each time a requirements.txt file is updated. To learn more, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
+        /// <para>The version of the <code>requirements.txt</code> file on your Amazon S3 bucket. You
+        /// must specify a version each time a requirements.txt file is updated. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">How
         /// S3 Versioning works</a>.</para>
         /// </para>
         /// </summary>
@@ -342,8 +343,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The relative path to the <code>requirements.txt</code> file on your Amazon S3 bucket.
-        /// For example, <code>requirements.txt</code>. If specified, then a file version is required.
-        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
+        /// For example, <code>requirements.txt</code>. If specified, then a version is required.
+        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html">Installing
         /// Python dependencies</a>.</para>
         /// </para>
         /// </summary>
@@ -365,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter NetworkConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of security group IDs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
+        /// <para>A list of security group IDs. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html">Security
         /// in your VPC on Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
@@ -379,7 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG code and supporting
         /// files are stored. For example, <code>arn:aws:s3:::my-airflow-bucket-unique-name</code>.
-        /// To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
+        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html">Create
         /// an Amazon S3 bucket for Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
@@ -394,10 +395,38 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public System.String SourceBucketArn { get; set; }
         #endregion
         
+        #region Parameter StartupScriptS3ObjectVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the startup shell script in your Amazon S3 bucket. You must specify
+        /// the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html">version
+        /// ID</a> that Amazon S3 assigns to the file every time you update the script. </para><para> Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that are no more
+        /// than 1,024 bytes long. The following is an example: </para><para><code>3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo</code></para><para> For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
+        /// a startup script</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StartupScriptS3ObjectVersion { get; set; }
+        #endregion
+        
+        #region Parameter StartupScriptS3Path
+        /// <summary>
+        /// <para>
+        /// <para>The relative path to the startup shell script in your Amazon S3 bucket. For example,
+        /// <code>s3://mwaa-environment/startup.sh</code>.</para><para> Amazon MWAA runs the script as your environment starts, and before running the Apache
+        /// Airflow process. You can use this script to install dependencies, modify Apache Airflow
+        /// configuration options, and set environment variables. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html">Using
+        /// a startup script</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StartupScriptS3Path { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfiguration_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
+        /// <para>A list of subnet IDs. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html">About
         /// networking on Amazon MWAA</a>.</para>
         /// </para>
         /// </summary>
@@ -410,7 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// <summary>
         /// <para>
         /// <para>The key-value tag pairs you want to associate to your environment. For example, <code>"Environment":
-        /// "Staging"</code>. To learn more, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// "Staging"</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
         /// Amazon Web Services resources</a>.</para>
         /// </para>
         /// </summary>
@@ -422,7 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter WebserverAccessMode
         /// <summary>
         /// <para>
-        /// <para>The Apache Airflow <i>Web server</i> access mode. To learn more, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
+        /// <para>The Apache Airflow <i>Web server</i> access mode. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html">Apache
         /// Airflow access modes</a>.</para>
         /// </para>
         /// </summary>
@@ -550,6 +579,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
                 WriteWarning("You are passing $null as a value for parameter SourceBucketArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StartupScriptS3ObjectVersion = this.StartupScriptS3ObjectVersion;
+            context.StartupScriptS3Path = this.StartupScriptS3Path;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -849,6 +880,14 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.SourceBucketArn = cmdletContext.SourceBucketArn;
             }
+            if (cmdletContext.StartupScriptS3ObjectVersion != null)
+            {
+                request.StartupScriptS3ObjectVersion = cmdletContext.StartupScriptS3ObjectVersion;
+            }
+            if (cmdletContext.StartupScriptS3Path != null)
+            {
+                request.StartupScriptS3Path = cmdletContext.StartupScriptS3Path;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -949,6 +988,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public System.String RequirementsS3Path { get; set; }
             public System.Int32? Scheduler { get; set; }
             public System.String SourceBucketArn { get; set; }
+            public System.String StartupScriptS3ObjectVersion { get; set; }
+            public System.String StartupScriptS3Path { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.MWAA.WebserverAccessMode WebserverAccessMode { get; set; }
             public System.String WeeklyMaintenanceWindowStart { get; set; }

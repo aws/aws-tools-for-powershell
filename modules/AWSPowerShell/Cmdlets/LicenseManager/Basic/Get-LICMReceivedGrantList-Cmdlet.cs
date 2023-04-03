@@ -28,7 +28,9 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Lists grants that are received but not accepted.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists grants that are received. Received grants are grants created while specifying
+    /// the recipient as this Amazon Web Services account, your organization, or an organizational
+    /// unit (OU) to which this member account belongs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LICMReceivedGrantList")]
     [OutputType("Amazon.LicenseManager.Model.Grant")]

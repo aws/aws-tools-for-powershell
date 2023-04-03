@@ -28,7 +28,8 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Creates a new version of the specified grant.
+    /// Creates a new version of the specified grant. For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html">Granted
+    /// licenses in License Manager</a> in the <i>License Manager User Guide</i>.
     /// </summary>
     [Cmdlet("New", "LICMGrantVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LicenseManager.Model.CreateGrantVersionResponse")]
@@ -38,6 +39,26 @@ namespace Amazon.PowerShell.Cmdlets.LICM
     )]
     public partial class NewLICMGrantVersionCmdlet : AmazonLicenseManagerClientCmdlet, IExecutor
     {
+        
+        #region Parameter Options_ActivationOverrideBehavior
+        /// <summary>
+        /// <para>
+        /// <para>An activation option for your grant that determines the behavior of activating a grant.
+        /// Activation options can only be used with granted licenses sourced from the Amazon
+        /// Web Services Marketplace. Additionally, the operation must specify the value of <code>ACTIVE</code>
+        /// for the <code>Status</code> parameter.</para><ul><li><para>As a license administrator, you can optionally specify an <code>ActivationOverrideBehavior</code>
+        /// when activating a grant.</para></li><li><para>As a grantor, you can optionally specify an <code>ActivationOverrideBehavior</code>
+        /// when you activate a grant for a grantee account in your organization.</para></li><li><para>As a grantee, if the grantor creating the distributed grant doesn’t specify an <code>ActivationOverrideBehavior</code>,
+        /// you can optionally specify one when you are activating the grant.</para></li></ul><dl><dt>DISTRIBUTED_GRANTS_ONLY</dt><dd><para>Use this value to activate a grant without replacing any member account’s active grants
+        /// for the same product.</para></dd><dt>ALL_GRANTS_PERMITTED_BY_ISSUER</dt><dd><para>Use this value to activate a grant and disable other active grants in any member accounts
+        /// for the same product. This action will also replace their previously activated grants
+        /// with this activated grant.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LicenseManager.ActivationOverrideBehavior")]
+        public Amazon.LicenseManager.ActivationOverrideBehavior Options_ActivationOverrideBehavior { get; set; }
+        #endregion
         
         #region Parameter AllowedOperation
         /// <summary>
@@ -207,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             }
             #endif
             context.GrantName = this.GrantName;
+            context.Options_ActivationOverrideBehavior = this.Options_ActivationOverrideBehavior;
             context.SourceVersion = this.SourceVersion;
             context.Status = this.Status;
             context.StatusReason = this.StatusReason;
@@ -241,6 +263,25 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.GrantName != null)
             {
                 request.GrantName = cmdletContext.GrantName;
+            }
+            
+             // populate Options
+            var requestOptionsIsNull = true;
+            request.Options = new Amazon.LicenseManager.Model.Options();
+            Amazon.LicenseManager.ActivationOverrideBehavior requestOptions_options_ActivationOverrideBehavior = null;
+            if (cmdletContext.Options_ActivationOverrideBehavior != null)
+            {
+                requestOptions_options_ActivationOverrideBehavior = cmdletContext.Options_ActivationOverrideBehavior;
+            }
+            if (requestOptions_options_ActivationOverrideBehavior != null)
+            {
+                request.Options.ActivationOverrideBehavior = requestOptions_options_ActivationOverrideBehavior;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
             }
             if (cmdletContext.SourceVersion != null)
             {
@@ -319,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.String ClientToken { get; set; }
             public System.String GrantArn { get; set; }
             public System.String GrantName { get; set; }
+            public Amazon.LicenseManager.ActivationOverrideBehavior Options_ActivationOverrideBehavior { get; set; }
             public System.String SourceVersion { get; set; }
             public Amazon.LicenseManager.GrantStatus Status { get; set; }
             public System.String StatusReason { get; set; }

@@ -1,4 +1,22 @@
-﻿### 4.1.304 (2023-03-31 21:08Z)
+﻿### 4.1.305 (2023-04-03 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.518.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AmazonMWAA
+    * Modified cmdlet New-MWAAEnvironment: added parameters StartupScriptS3ObjectVersion and StartupScriptS3Path.
+    * Modified cmdlet Update-MWAAEnvironment: added parameters StartupScriptS3ObjectVersion and StartupScriptS3Path.
+  * Amazon Lake Formation
+    * Modified cmdlet Register-LKFResource: added parameter WithFederation.
+    * Modified cmdlet Update-LKFResource: added parameter WithFederation.
+  * Amazon License Manager
+    * Modified cmdlet New-LICMGrantVersion: added parameter Options_ActivationOverrideBehavior.
+  * Amazon Service Catalog
+    * Added cmdlet Start-SCProvisionProductEngineWorkflowResult leveraging the NotifyProvisionProductEngineWorkflowResult service API.
+    * Added cmdlet Start-SCTerminateProvisionedProductEngineWorkflowResult leveraging the NotifyTerminateProvisionedProductEngineWorkflowResult service API.
+    * Added cmdlet Start-SCUpdateProvisionedProductEngineWorkflowResult leveraging the NotifyUpdateProvisionedProductEngineWorkflowResult service API.
+  * Amazon WAF V2
+    * Modified cmdlet New-WAF2WebACL: added parameter AssociationConfig_RequestBody.
+    * Modified cmdlet Update-WAF2WebACL: added parameter AssociationConfig_RequestBody.
+
+### 4.1.304 (2023-03-31 21:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.517.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon CloudWatch Internet Monitor
     * Modified cmdlet New-CWIMMonitor: added parameters S3Config_BucketName, S3Config_BucketPrefix and S3Config_LogDeliveryStatus.

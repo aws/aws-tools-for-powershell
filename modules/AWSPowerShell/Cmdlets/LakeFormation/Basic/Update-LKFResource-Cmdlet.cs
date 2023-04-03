@@ -75,6 +75,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter WithFederation
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not the resource is a federated resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WithFederation { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -150,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WithFederation = this.WithFederation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.WithFederation != null)
+            {
+                request.WithFederation = cmdletContext.WithFederation.Value;
             }
             
             CmdletOutput output;
@@ -237,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         {
             public System.String ResourceArn { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Boolean? WithFederation { get; set; }
             public System.Func<Amazon.LakeFormation.Model.UpdateResourceResponse, UpdateLKFResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

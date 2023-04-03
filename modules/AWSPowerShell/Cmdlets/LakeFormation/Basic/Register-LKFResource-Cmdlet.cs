@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.Boolean? UseServiceLinkedRole { get; set; }
         #endregion
         
+        #region Parameter WithFederation
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not the resource is a federated resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WithFederation { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -166,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             #endif
             context.RoleArn = this.RoleArn;
             context.UseServiceLinkedRole = this.UseServiceLinkedRole;
+            context.WithFederation = this.WithFederation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (cmdletContext.UseServiceLinkedRole != null)
             {
                 request.UseServiceLinkedRole = cmdletContext.UseServiceLinkedRole.Value;
+            }
+            if (cmdletContext.WithFederation != null)
+            {
+                request.WithFederation = cmdletContext.WithFederation.Value;
             }
             
             CmdletOutput output;
@@ -258,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String ResourceArn { get; set; }
             public System.String RoleArn { get; set; }
             public System.Boolean? UseServiceLinkedRole { get; set; }
+            public System.Boolean? WithFederation { get; set; }
             public System.Func<Amazon.LakeFormation.Model.RegisterResourceResponse, RegisterLKFResourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

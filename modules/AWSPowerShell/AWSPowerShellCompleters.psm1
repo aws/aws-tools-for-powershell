@@ -25240,7 +25240,7 @@ $GLUE_Completers = {
             ($_ -eq "Get-GLUEDatabaseList/ResourceShareType")
         }
         {
-            $v = "ALL","FOREIGN"
+            $v = "ALL","FEDERATED","FOREIGN"
             break
         }
 
@@ -33409,6 +33409,13 @@ $LICM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LicenseManager.ActivationOverrideBehavior
+        "New-LICMGrantVersion/Options_ActivationOverrideBehavior"
+        {
+            $v = "ALL_GRANTS_PERMITTED_BY_ISSUER","DISTRIBUTED_GRANTS_ONLY"
+            break
+        }
+
         # Amazon.LicenseManager.CheckoutType
         "Invoke-LICMLicenseCheckout/CheckoutType"
         {
@@ -33485,6 +33492,7 @@ $LICM_map = @{
     "DigitalSignatureMethod"=@("Invoke-LICMLicenseCheckoutBorrow")
     "LicenseConfigurationStatus"=@("Update-LICMLicenseConfiguration")
     "LicenseCountingType"=@("New-LICMLicenseConfiguration")
+    "Options_ActivationOverrideBehavior"=@("New-LICMGrantVersion")
     "ReportFrequency_Period"=@("New-LICMLicenseManagerReportGenerator","Update-LICMLicenseManagerReportGenerator")
     "Status"=@("New-LICMGrantVersion","New-LICMLicenseVersion")
 }
@@ -51899,6 +51907,17 @@ $SC_Completers = {
             break
         }
 
+        # Amazon.ServiceCatalog.EngineWorkflowStatus
+        {
+            ($_ -eq "Start-SCProvisionProductEngineWorkflowResult/Status") -Or
+            ($_ -eq "Start-SCTerminateProvisionedProductEngineWorkflowResult/Status") -Or
+            ($_ -eq "Start-SCUpdateProvisionedProductEngineWorkflowResult/Status")
+        }
+        {
+            $v = "FAILED","SUCCEEDED"
+            break
+        }
+
         # Amazon.ServiceCatalog.OrganizationNodeType
         {
             ($_ -eq "New-SCPortfolioShare/OrganizationNode_Type") -Or
@@ -51942,7 +51961,7 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.ProductType
         "New-SCProduct/ProductType"
         {
-            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE"
+            $v = "CLOUD_FORMATION_TEMPLATE","DEFAULT_CUSTOM","MARKETPLACE","TERRAFORM_OPEN_SOURCE"
             break
         }
 
@@ -51976,7 +51995,7 @@ $SC_Completers = {
             ($_ -eq "New-SCProduct/ProvisioningArtifactParameters_Type")
         }
         {
-            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE_AMI","MARKETPLACE_CAR"
+            $v = "CLOUD_FORMATION_TEMPLATE","DEFAULT_CUSTOM","MARKETPLACE_AMI","MARKETPLACE_CAR","TERRAFORM_OPEN_SOURCE"
             break
         }
 
@@ -52040,6 +52059,7 @@ $SC_map = @{
     "SortBy"=@("Find-SCProduct","Find-SCProductsAsAdmin")
     "SortOrder"=@("Find-SCProduct","Find-SCProductsAsAdmin","Find-SCProvisionedProduct")
     "SourceConnection_Type"=@("New-SCProduct","Update-SCProduct")
+    "Status"=@("Start-SCProvisionProductEngineWorkflowResult","Start-SCTerminateProvisionedProductEngineWorkflowResult","Start-SCUpdateProvisionedProductEngineWorkflowResult")
     "Type"=@("Get-SCPortfolioShare")
 }
 
@@ -52164,6 +52184,9 @@ $SC_SelectMap = @{
                "Get-SCServiceActionsForProvisioningArtifactList",
                "Get-SCStackInstancesForProvisionedProduct",
                "Get-SCTagOptionList",
+               "Start-SCProvisionProductEngineWorkflowResult",
+               "Start-SCTerminateProvisionedProductEngineWorkflowResult",
+               "Start-SCUpdateProvisionedProductEngineWorkflowResult",
                "New-SCProvisionedProduct",
                "Deny-SCPortfolioShare",
                "Get-SCProvisionedProduct",

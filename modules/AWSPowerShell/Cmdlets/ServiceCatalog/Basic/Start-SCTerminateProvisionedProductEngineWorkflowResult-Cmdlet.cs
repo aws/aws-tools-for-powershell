@@ -28,74 +28,42 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a portfolio.
-    /// 
-    ///  
-    /// <para>
-    /// A delegated admin is authorized to invoke this command.
-    /// </para>
+    /// Notifies the result of the terminate engine execution.
     /// </summary>
-    [Cmdlet("New", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ServiceCatalog.Model.CreatePortfolioResponse")]
-    [AWSCmdlet("Calls the AWS Service Catalog CreatePortfolio API operation.", Operation = new[] {"CreatePortfolio"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.CreatePortfolioResponse))]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.CreatePortfolioResponse",
-        "This cmdlet returns an Amazon.ServiceCatalog.Model.CreatePortfolioResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "SCTerminateProvisionedProductEngineWorkflowResult", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Service Catalog NotifyTerminateProvisionedProductEngineWorkflowResult API operation.", Operation = new[] {"NotifyTerminateProvisionedProductEngineWorkflowResult"}, SelectReturnType = typeof(Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse))]
+    [AWSCmdletOutput("None or Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSCPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class StartSCTerminateProvisionedProductEngineWorkflowResultCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter AcceptLanguage
+        #region Parameter FailureReason
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para> The reason why the terminate engine execution failed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AcceptLanguage { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>The description of the portfolio.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter DisplayName
-        /// <summary>
-        /// <para>
-        /// <para>The name to use for display purposes.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DisplayName { get; set; }
+        public System.String FailureReason { get; set; }
         #endregion
         
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests differ
-        /// only by the idempotency token, the same response is returned for each repeated request.</para>
+        /// <para> The idempotency token that identifies the terminate engine execution. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdempotencyToken { get; set; }
         #endregion
         
-        #region Parameter ProviderName
+        #region Parameter RecordId
         /// <summary>
         /// <para>
-        /// <para>The name of the portfolio provider.</para>
+        /// <para> The identifier of the record. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,25 +74,48 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProviderName { get; set; }
+        public System.String RecordId { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para>
+        /// <para> The status of the terminate engine execution. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.ServiceCatalog.Model.Tag[] Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.EngineWorkflowStatus")]
+        public Amazon.ServiceCatalog.EngineWorkflowStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowToken
+        /// <summary>
+        /// <para>
+        /// <para> The encrypted contents of the terminate engine execution payload that Service Catalog
+        /// sends after the Terraform product terminate workflow starts. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkflowToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ServiceCatalog.Model.CreatePortfolioResponse).
-        /// Specifying the name of a property of type Amazon.ServiceCatalog.Model.CreatePortfolioResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -146,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DisplayName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SCPortfolio (CreatePortfolio)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RecordId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-SCTerminateProvisionedProductEngineWorkflowResult (NotifyTerminateProvisionedProductEngineWorkflowResult)"))
             {
                 return;
             }
@@ -159,30 +150,32 @@ namespace Amazon.PowerShell.Cmdlets.SC
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ServiceCatalog.Model.CreatePortfolioResponse, NewSCPortfolioCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse, StartSCTerminateProvisionedProductEngineWorkflowResultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.AcceptLanguage = this.AcceptLanguage;
-            context.Description = this.Description;
-            context.DisplayName = this.DisplayName;
-            #if MODULAR
-            if (this.DisplayName == null && ParameterWasBound(nameof(this.DisplayName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DisplayName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.FailureReason = this.FailureReason;
             context.IdempotencyToken = this.IdempotencyToken;
-            context.ProviderName = this.ProviderName;
+            context.RecordId = this.RecordId;
             #if MODULAR
-            if (this.ProviderName == null && ParameterWasBound(nameof(this.ProviderName)))
+            if (this.RecordId == null && ParameterWasBound(nameof(this.RecordId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProviderName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RecordId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.Status = this.Status;
+            #if MODULAR
+            if (this.Status == null && ParameterWasBound(nameof(this.Status)))
             {
-                context.Tag = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
+                WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.WorkflowToken = this.WorkflowToken;
+            #if MODULAR
+            if (this.WorkflowToken == null && ParameterWasBound(nameof(this.WorkflowToken)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkflowToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,31 +190,27 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.CreatePortfolioRequest();
+            var request = new Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultRequest();
             
-            if (cmdletContext.AcceptLanguage != null)
+            if (cmdletContext.FailureReason != null)
             {
-                request.AcceptLanguage = cmdletContext.AcceptLanguage;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.DisplayName != null)
-            {
-                request.DisplayName = cmdletContext.DisplayName;
+                request.FailureReason = cmdletContext.FailureReason;
             }
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
-            if (cmdletContext.ProviderName != null)
+            if (cmdletContext.RecordId != null)
             {
-                request.ProviderName = cmdletContext.ProviderName;
+                request.RecordId = cmdletContext.RecordId;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.Status != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.WorkflowToken != null)
+            {
+                request.WorkflowToken = cmdletContext.WorkflowToken;
             }
             
             CmdletOutput output;
@@ -256,15 +245,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.CreatePortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.CreatePortfolioRequest request)
+        private Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "CreatePortfolio");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "NotifyTerminateProvisionedProductEngineWorkflowResult");
             try
             {
                 #if DESKTOP
-                return client.CreatePortfolio(request);
+                return client.NotifyTerminateProvisionedProductEngineWorkflowResult(request);
                 #elif CORECLR
-                return client.CreatePortfolioAsync(request).GetAwaiter().GetResult();
+                return client.NotifyTerminateProvisionedProductEngineWorkflowResultAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -284,14 +273,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AcceptLanguage { get; set; }
-            public System.String Description { get; set; }
-            public System.String DisplayName { get; set; }
+            public System.String FailureReason { get; set; }
             public System.String IdempotencyToken { get; set; }
-            public System.String ProviderName { get; set; }
-            public List<Amazon.ServiceCatalog.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.ServiceCatalog.Model.CreatePortfolioResponse, NewSCPortfolioCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String RecordId { get; set; }
+            public Amazon.ServiceCatalog.EngineWorkflowStatus Status { get; set; }
+            public System.String WorkflowToken { get; set; }
+            public System.Func<Amazon.ServiceCatalog.Model.NotifyTerminateProvisionedProductEngineWorkflowResultResponse, StartSCTerminateProvisionedProductEngineWorkflowResultCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

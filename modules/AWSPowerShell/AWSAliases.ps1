@@ -22216,6 +22216,12 @@ Set-Alias -Name SC-ListStackInstancesForProvisionedProduct -Value Get-SCStackIns
 Set-Alias -Name List-SCTagOptions -Value Get-SCTagOptionList
 Set-Alias -Name List-SCTagOptionList -Value Get-SCTagOptionList
 Set-Alias -Name SC-ListTagOptions -Value Get-SCTagOptionList
+Set-Alias -Name Notify-SCProvisionProductEngineWorkflowResult -Value Start-SCProvisionProductEngineWorkflowResult
+Set-Alias -Name SC-NotifyProvisionProductEngineWorkflowResult -Value Start-SCProvisionProductEngineWorkflowResult
+Set-Alias -Name Notify-SCTerminateProvisionedProductEngineWorkflowResult -Value Start-SCTerminateProvisionedProductEngineWorkflowResult
+Set-Alias -Name SC-NotifyTerminateProvisionedProductEngineWorkflowResult -Value Start-SCTerminateProvisionedProductEngineWorkflowResult
+Set-Alias -Name Notify-SCUpdateProvisionedProductEngineWorkflowResult -Value Start-SCUpdateProvisionedProductEngineWorkflowResult
+Set-Alias -Name SC-NotifyUpdateProvisionedProductEngineWorkflowResult -Value Start-SCUpdateProvisionedProductEngineWorkflowResult
 Set-Alias -Name Provision-SCProduct -Value New-SCProvisionedProduct
 Set-Alias -Name Provision-SCProvisionedProduct -Value New-SCProvisionedProduct
 Set-Alias -Name SC-ProvisionProduct -Value New-SCProvisionedProduct

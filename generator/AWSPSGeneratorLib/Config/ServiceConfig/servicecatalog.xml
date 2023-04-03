@@ -318,6 +318,18 @@
             <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="NotifyProvisionProductEngineWorkflowResult" Verb="Start" Noun="ProvisionProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyTerminateProvisionedProductEngineWorkflowResult" Verb="Start" Noun="TerminateProvisionedProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyUpdateProvisionedProductEngineWorkflowResult" Verb="Start" Noun="UpdateProvisionedProductEngineWorkflowResult" ShouldProcessTarget="RecordId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ProvisionProduct" OutputProperty="RecordDetail" Verb="New" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductName" PipelineParameter="ProvisionedProductName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

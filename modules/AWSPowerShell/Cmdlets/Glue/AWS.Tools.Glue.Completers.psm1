@@ -198,7 +198,7 @@ $GLUE_Completers = {
             ($_ -eq "Get-GLUEDatabaseList/ResourceShareType")
         }
         {
-            $v = "ALL","FOREIGN"
+            $v = "ALL","FEDERATED","FOREIGN"
             break
         }
 

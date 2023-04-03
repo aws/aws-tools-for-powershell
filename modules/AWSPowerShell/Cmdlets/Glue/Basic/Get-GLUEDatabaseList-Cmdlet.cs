@@ -55,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>Allows you to specify that you want to list the databases shared with your account.
-        /// The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </para><ul><li><para>If set to <code>FOREIGN</code>, will list the databases shared with your account.
+        /// The allowable values are <code>FEDERATED</code>, <code>FOREIGN</code> or <code>ALL</code>.
+        /// </para><ul><li><para>If set to <code>FEDERATED</code>, will list the federated databases (referencing an
+        /// external entity) shared with your account.</para></li><li><para>If set to <code>FOREIGN</code>, will list the databases shared with your account.
         /// </para></li><li><para>If set to <code>ALL</code>, will list the databases shared with your account, as well
         /// as the databases in yor local account. </para></li></ul>
         /// </para>

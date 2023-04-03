@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// rule type, to reflect the relative cost of each rule. Simple rules that cost little
         /// to run use fewer WCUs than more complex rules that use more processing power. Rule
         /// group capacity is fixed at creation, which helps users plan their web ACL WCU usage
-        /// when they use a rule group. The WCU limit for web ACLs is 1,500. </para>
+        /// when they use a rule group. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-waf-capacity-units.html">WAF
+        /// web ACL capacity units (WCU)</a> in the <i>WAF Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
         /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
-        /// Metrics</a>.</para>
+        /// Metrics</a> in the <i>WAF Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,11 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>A map of custom response keys and content bodies. When you create a rule with a block
         /// action, you can send a custom response to the web request. You define these for the
         /// rule group, and then use them in the rules that you define in the rule group. </para><para>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
-        /// web requests and responses in WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
-        /// Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
+        /// web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </para><para>For information about the limits on count and size for custom request and response
         /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF
-        /// quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
-        /// Developer Guide</a>. </para>
+        /// quotas</a> in the <i>WAF Developer Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
         /// application. A regional application can be an Application Load Balancer (ALB), an
-        /// Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or
-        /// an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

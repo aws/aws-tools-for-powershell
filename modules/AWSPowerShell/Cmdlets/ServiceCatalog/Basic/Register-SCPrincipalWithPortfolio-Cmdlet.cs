@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>en</code> - English (default)</para></li><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The language code.</para><ul><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the principal (IAM user, role, or group). This field allows an ARN with
-        /// no <code>accountID</code> if <code>PrincipalType</code> is <code>IAM_PATTERN</code>.
+        /// <para>The ARN of the principal (user, role, or group). This field allows an ARN with no
+        /// <code>accountID</code> if <code>PrincipalType</code> is <code>IAM_PATTERN</code>.
         /// </para><para>You can associate multiple <code>IAM</code> patterns even if the account has no principal
         /// with that name. This is useful in Principal Name Sharing if you want to share a principal
         /// without creating it in the account that owns the portfolio. </para>
