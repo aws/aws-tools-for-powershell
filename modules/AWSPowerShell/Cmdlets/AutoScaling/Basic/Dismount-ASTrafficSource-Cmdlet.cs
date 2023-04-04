@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TrafficSource
         /// <summary>
         /// <para>
-        /// <para>The unique identifiers of one or more traffic sources you are detaching. You can specify
-        /// up to 10 traffic sources.</para>
+        /// <para>The unique identifiers of one or more traffic sources. You can specify up to 10 traffic
+        /// sources.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

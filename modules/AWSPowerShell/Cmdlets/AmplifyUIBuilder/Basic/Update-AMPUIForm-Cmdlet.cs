@@ -271,6 +271,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter UpdatedForm_LabelDecorator
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an icon or decoration to display on the form.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AmplifyUIBuilder.LabelDecorator")]
+        public Amazon.AmplifyUIBuilder.LabelDecorator UpdatedForm_LabelDecorator { get; set; }
+        #endregion
+        
         #region Parameter UpdatedForm_Name
         /// <summary>
         /// <para>
@@ -518,6 +529,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 }
             }
             context.UpdatedForm_FormActionType = this.UpdatedForm_FormActionType;
+            context.UpdatedForm_LabelDecorator = this.UpdatedForm_LabelDecorator;
             context.UpdatedForm_Name = this.UpdatedForm_Name;
             context.UpdatedForm_SchemaVersion = this.UpdatedForm_SchemaVersion;
             if (this.UpdatedForm_SectionalElement != null)
@@ -588,6 +600,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestUpdatedForm_updatedForm_FormActionType != null)
             {
                 request.UpdatedForm.FormActionType = requestUpdatedForm_updatedForm_FormActionType;
+                requestUpdatedFormIsNull = false;
+            }
+            Amazon.AmplifyUIBuilder.LabelDecorator requestUpdatedForm_updatedForm_LabelDecorator = null;
+            if (cmdletContext.UpdatedForm_LabelDecorator != null)
+            {
+                requestUpdatedForm_updatedForm_LabelDecorator = cmdletContext.UpdatedForm_LabelDecorator;
+            }
+            if (requestUpdatedForm_updatedForm_LabelDecorator != null)
+            {
+                request.UpdatedForm.LabelDecorator = requestUpdatedForm_updatedForm_LabelDecorator;
                 requestUpdatedFormIsNull = false;
             }
             System.String requestUpdatedForm_updatedForm_Name = null;
@@ -1130,6 +1152,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             public System.String DataType_DataTypeName { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.FieldConfig> UpdatedForm_Field { get; set; }
             public Amazon.AmplifyUIBuilder.FormActionType UpdatedForm_FormActionType { get; set; }
+            public Amazon.AmplifyUIBuilder.LabelDecorator UpdatedForm_LabelDecorator { get; set; }
             public System.String UpdatedForm_Name { get; set; }
             public System.String UpdatedForm_SchemaVersion { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.SectionalElement> UpdatedForm_SectionalElement { get; set; }

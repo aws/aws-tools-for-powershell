@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter Request_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the client to request the token from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Request_ClientId { get; set; }
+        #endregion
+        
         #region Parameter Request_Code
         /// <summary>
         /// <para>
@@ -163,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 WriteWarning("You are passing $null as a value for parameter Provider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Request_ClientId = this.Request_ClientId;
             context.Request_Code = this.Request_Code;
             #if MODULAR
             if (this.Request_Code == null && ParameterWasBound(nameof(this.Request_Code)))
@@ -201,6 +212,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
              // populate Request
             var requestRequestIsNull = true;
             request.Request = new Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenRequestBody();
+            System.String requestRequest_request_ClientId = null;
+            if (cmdletContext.Request_ClientId != null)
+            {
+                requestRequest_request_ClientId = cmdletContext.Request_ClientId;
+            }
+            if (requestRequest_request_ClientId != null)
+            {
+                request.Request.ClientId = requestRequest_request_ClientId;
+                requestRequestIsNull = false;
+            }
             System.String requestRequest_request_Code = null;
             if (cmdletContext.Request_Code != null)
             {
@@ -288,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.AmplifyUIBuilder.TokenProviders Provider { get; set; }
+            public System.String Request_ClientId { get; set; }
             public System.String Request_Code { get; set; }
             public System.String Request_RedirectUri { get; set; }
             public System.Func<Amazon.AmplifyUIBuilder.Model.ExchangeCodeForTokenResponse, ConvertAMPUICodeForTokenCmdlet, object> Select { get; set; } =

@@ -28,7 +28,7 @@ using Amazon.AmplifyUIBuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.AMPUI
 {
     /// <summary>
-    /// Stores the metadata information about a feature on a form or view.
+    /// Stores the metadata information about a feature on a form.
     /// </summary>
     [Cmdlet("Write", "AMPUIMetadataFlag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -124,6 +124,16 @@ $AMPUI_Completers = {
             break
         }
 
+        # Amazon.AmplifyUIBuilder.LabelDecorator
+        {
+            ($_ -eq "New-AMPUIForm/FormToCreate_LabelDecorator") -Or
+            ($_ -eq "Update-AMPUIForm/UpdatedForm_LabelDecorator")
+        }
+        {
+            $v = "none","optional","required"
+            break
+        }
+
         # Amazon.AmplifyUIBuilder.TokenProviders
         {
             ($_ -eq "Convert-AMPUICodeForToken/Provider") -Or
@@ -149,6 +159,7 @@ $AMPUI_map = @{
     "FormToCreate_Cta_Submit_Position_Fixed"=@("New-AMPUIForm")
     "FormToCreate_DataType_DataSourceType"=@("New-AMPUIForm")
     "FormToCreate_FormActionType"=@("New-AMPUIForm")
+    "FormToCreate_LabelDecorator"=@("New-AMPUIForm")
     "Provider"=@("Convert-AMPUICodeForToken","Update-AMPUIToken")
     "UpdatedForm_Cta_Cancel_Position_Fixed"=@("Update-AMPUIForm")
     "UpdatedForm_Cta_Clear_Position_Fixed"=@("Update-AMPUIForm")
@@ -156,6 +167,7 @@ $AMPUI_map = @{
     "UpdatedForm_Cta_Submit_Position_Fixed"=@("Update-AMPUIForm")
     "UpdatedForm_DataType_DataSourceType"=@("Update-AMPUIForm")
     "UpdatedForm_FormActionType"=@("Update-AMPUIForm")
+    "UpdatedForm_LabelDecorator"=@("Update-AMPUIForm")
 }
 
 _awsArgumentCompleterRegistration $AMPUI_Completers $AMPUI_map

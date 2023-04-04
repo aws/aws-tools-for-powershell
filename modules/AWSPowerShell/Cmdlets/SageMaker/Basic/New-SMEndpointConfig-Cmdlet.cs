@@ -227,6 +227,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.ClarifyTextGranularity TextConfig_Granularity { get; set; }
         #endregion
         
+        #region Parameter NotificationConfig_IncludeInferenceResponseIn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon SNS topics where you want the inference response to be included.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_OutputConfig_NotificationConfig_IncludeInferenceResponseIn")]
+        public System.String[] NotificationConfig_IncludeInferenceResponseIn { get; set; }
+        #endregion
+        
         #region Parameter DataCaptureConfig_InitialSamplingPercentage
         /// <summary>
         /// <para>
@@ -474,6 +485,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ProductionVariant[] ProductionVariant { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_S3FailurePath
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 location to upload failure inference responses to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AsyncInferenceConfig_OutputConfig_S3FailurePath")]
+        public System.String OutputConfig_S3FailurePath { get; set; }
+        #endregion
+        
         #region Parameter OutputConfig_S3OutputPath
         /// <summary>
         /// <para>
@@ -653,7 +675,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ClientConfig_MaxConcurrentInvocationsPerInstance = this.ClientConfig_MaxConcurrentInvocationsPerInstance;
             context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
             context.NotificationConfig_ErrorTopic = this.NotificationConfig_ErrorTopic;
+            if (this.NotificationConfig_IncludeInferenceResponseIn != null)
+            {
+                context.NotificationConfig_IncludeInferenceResponseIn = new List<System.String>(this.NotificationConfig_IncludeInferenceResponseIn);
+            }
             context.NotificationConfig_SuccessTopic = this.NotificationConfig_SuccessTopic;
+            context.OutputConfig_S3FailurePath = this.OutputConfig_S3FailurePath;
             context.OutputConfig_S3OutputPath = this.OutputConfig_S3OutputPath;
             if (this.CaptureContentTypeHeader_CsvContentType != null)
             {
@@ -786,6 +813,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.KmsKeyId = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_KmsKeyId;
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
             }
+            System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath = null;
+            if (cmdletContext.OutputConfig_S3FailurePath != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath = cmdletContext.OutputConfig_S3FailurePath;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig.S3FailurePath = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3FailurePath;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfigIsNull = false;
+            }
             System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_outputConfig_S3OutputPath = null;
             if (cmdletContext.OutputConfig_S3OutputPath != null)
             {
@@ -809,6 +846,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_ErrorTopic != null)
             {
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig.ErrorTopic = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_ErrorTopic;
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfigIsNull = false;
+            }
+            List<System.String> requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_IncludeInferenceResponseIn = null;
+            if (cmdletContext.NotificationConfig_IncludeInferenceResponseIn != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_IncludeInferenceResponseIn = cmdletContext.NotificationConfig_IncludeInferenceResponseIn;
+            }
+            if (requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_IncludeInferenceResponseIn != null)
+            {
+                requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig.IncludeInferenceResponseIn = requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_IncludeInferenceResponseIn;
                 requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfigIsNull = false;
             }
             System.String requestAsyncInferenceConfig_asyncInferenceConfig_OutputConfig_asyncInferenceConfig_OutputConfig_NotificationConfig_notificationConfig_SuccessTopic = null;
@@ -1308,7 +1355,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? ClientConfig_MaxConcurrentInvocationsPerInstance { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String NotificationConfig_ErrorTopic { get; set; }
+            public List<System.String> NotificationConfig_IncludeInferenceResponseIn { get; set; }
             public System.String NotificationConfig_SuccessTopic { get; set; }
+            public System.String OutputConfig_S3FailurePath { get; set; }
             public System.String OutputConfig_S3OutputPath { get; set; }
             public List<System.String> CaptureContentTypeHeader_CsvContentType { get; set; }
             public List<System.String> CaptureContentTypeHeader_JsonContentType { get; set; }

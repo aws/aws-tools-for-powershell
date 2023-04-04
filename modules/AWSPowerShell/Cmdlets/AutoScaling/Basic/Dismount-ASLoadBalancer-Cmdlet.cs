@@ -29,12 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// <note><para>
-    /// This API call has been replaced with a new "traffic sources" API call (<code>DetachTrafficSources</code>)
-    /// that can detach multiple traffic sources types. While we continue to support <code>DetachLoadBalancers</code>,
-    /// and you can use both the original <code>DetachLoadBalancers</code> API call and the
-    /// new <code>DetachTrafficSources</code> API call on the same Auto Scaling group, we
-    /// recommend using the new "traffic sources" API call to simplify how you manage traffic
-    /// sources.
+    /// This API operation is superseded by <a>DetachTrafficSources</a>, which can detach
+    /// multiple traffic sources types. We recommend using <code>DetachTrafficSources</code>
+    /// to simplify how you manage traffic sources. However, we continue to support <code>DetachLoadBalancers</code>.
+    /// You can use both the original <code>DetachLoadBalancers</code> API operation and <code>DetachTrafficSources</code>
+    /// on the same Auto Scaling group.
     /// </para></note><para>
     /// Detaches one or more Classic Load Balancers from the specified Auto Scaling group.
     /// </para><para>

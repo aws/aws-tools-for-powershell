@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// <summary>
     /// Associates a web ACL with a regional application resource, to protect the resource.
     /// A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway
-    /// REST API, an AppSync GraphQL API, an Amazon Cognito user pool, or an App Runner service.
+    /// REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or an App Runner service.
     /// 
     /// 
     ///  
@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// For Amazon CloudFront, don't use this call. Instead, use your CloudFront distribution
     /// configuration. To associate a web ACL, in the CloudFront call <code>UpdateDistribution</code>,
     /// set the web ACL ID to the Amazon Resource Name (ARN) of the web ACL. For information,
-    /// see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
-    /// in the <i>Amazon CloudFront Developer Guide</i>. 
+    /// see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
     /// </para><para>
     /// When you make changes to web ACLs or web ACL components, like rules and rule groups,
     /// WAF propagates the changes everywhere that the web ACL and its components are stored
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:<i>partition</i>:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway REST API: <code>arn:<i>partition</i>:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li><li><para>For an AppSync GraphQL API: <code>arn:<i>partition</i>:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></code></para></li><li><para>For an Amazon Cognito user pool: <code>arn:<i>partition</i>:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i></code></para></li><li><para>For an App Runner service: <code>arn:<i>partition</i>:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i></code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li><li><para>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></code></para></li><li><para>For an Amazon Cognito user pool: <code>arn:aws:cognito-idp:<i>region</i>:<i>account-id</i>:userpool/<i>user-pool-id</i></code></para></li><li><para>For an App Runner service: <code>arn:aws:apprunner:<i>region</i>:<i>account-id</i>:service/<i>apprunner-service-name</i>/<i>apprunner-service-id</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

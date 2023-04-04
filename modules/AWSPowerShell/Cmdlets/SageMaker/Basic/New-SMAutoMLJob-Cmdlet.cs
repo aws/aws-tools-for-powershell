@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// Find the best-performing model after you run an Autopilot job by calling <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a></code>.
+    /// Find the best-performing model after you run an Autopilot job by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>.
     /// </para><para>
     /// For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Automate
     /// Model Development with Amazon SageMaker Autopilot</a>.
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// attribute must be set and one only.</para><para>If the list of algorithms provided as values for <code>AutoMLAlgorithms</code> is
         /// empty, <code>AutoMLCandidateGenerationConfig</code> uses the full set of algorithms
         /// for the given training mode.</para></li><li><para>When <code>AlgorithmsConfig</code> is not provided, <code>AutoMLCandidateGenerationConfig</code>
-        /// uses the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per training mode, see <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-        /// AutoMLAlgorithmConfig</a></code>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
+        /// uses the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// AutoMLAlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
         /// support</a> section in Autopilot developer guide.</para>
         /// </para>
         /// </summary>
@@ -157,9 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of channel objects that describes the input data and its location. Each channel
-        /// is a named input source. Similar to <code>InputDataConfig</code> supported by <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a></code>. Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for
-        /// the training dataset. There is not a minimum number of rows required for the validation
-        /// dataset.</para>
+        /// is a named input source. Similar to <code>InputDataConfig</code> supported by <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>.
+        /// Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for the training
+        /// dataset. There is not a minimum number of rows required for the validation dataset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -214,7 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
-        /// see the <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a></code> used by the <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a></code> action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+        /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
+        /// action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
         /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>

@@ -1,4 +1,17 @@
-﻿### 4.1.305 (2023-04-03 21:02Z)
+﻿### 4.1.306 (2023-04-04 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.519.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Amplify UI Builder
+    * Modified cmdlet Convert-AMPUICodeForToken: added parameter Request_ClientId.
+    * Modified cmdlet New-AMPUIForm: added parameter FormToCreate_LabelDecorator.
+    * Modified cmdlet Update-AMPUIForm: added parameter UpdatedForm_LabelDecorator.
+    * Modified cmdlet Update-AMPUIToken: added parameter RefreshTokenBody_ClientId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMEndpointConfig: added parameters NotificationConfig_IncludeInferenceResponseIn and OutputConfig_S3FailurePath.
+  * Amazon WAF V2
+    * [Breaking Change] Modified cmdlet New-WAF2WebACL: removed parameter AssociationConfig_RequestBody.
+    * [Breaking Change] Modified cmdlet Update-WAF2WebACL: removed parameter AssociationConfig_RequestBody.
+
+### 4.1.305 (2023-04-03 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.518.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AmazonMWAA
     * Modified cmdlet New-MWAAEnvironment: added parameters StartupScriptS3ObjectVersion and StartupScriptS3Path.

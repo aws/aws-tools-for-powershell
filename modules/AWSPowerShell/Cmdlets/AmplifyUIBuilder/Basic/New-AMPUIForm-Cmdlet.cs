@@ -280,6 +280,17 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         public Amazon.AmplifyUIBuilder.FormActionType FormToCreate_FormActionType { get; set; }
         #endregion
         
+        #region Parameter FormToCreate_LabelDecorator
+        /// <summary>
+        /// <para>
+        /// <para>Specifies an icon or decoration to display on the form.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AmplifyUIBuilder.LabelDecorator")]
+        public Amazon.AmplifyUIBuilder.LabelDecorator FormToCreate_LabelDecorator { get; set; }
+        #endregion
+        
         #region Parameter FormToCreate_Name
         /// <summary>
         /// <para>
@@ -576,6 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 WriteWarning("You are passing $null as a value for parameter FormToCreate_FormActionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FormToCreate_LabelDecorator = this.FormToCreate_LabelDecorator;
             context.FormToCreate_Name = this.FormToCreate_Name;
             #if MODULAR
             if (this.FormToCreate_Name == null && ParameterWasBound(nameof(this.FormToCreate_Name)))
@@ -668,6 +680,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             if (requestFormToCreate_formToCreate_FormActionType != null)
             {
                 request.FormToCreate.FormActionType = requestFormToCreate_formToCreate_FormActionType;
+                requestFormToCreateIsNull = false;
+            }
+            Amazon.AmplifyUIBuilder.LabelDecorator requestFormToCreate_formToCreate_LabelDecorator = null;
+            if (cmdletContext.FormToCreate_LabelDecorator != null)
+            {
+                requestFormToCreate_formToCreate_LabelDecorator = cmdletContext.FormToCreate_LabelDecorator;
+            }
+            if (requestFormToCreate_formToCreate_LabelDecorator != null)
+            {
+                request.FormToCreate.LabelDecorator = requestFormToCreate_formToCreate_LabelDecorator;
                 requestFormToCreateIsNull = false;
             }
             System.String requestFormToCreate_formToCreate_Name = null;
@@ -1219,6 +1241,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             public System.String DataType_DataTypeName { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.FieldConfig> FormToCreate_Field { get; set; }
             public Amazon.AmplifyUIBuilder.FormActionType FormToCreate_FormActionType { get; set; }
+            public Amazon.AmplifyUIBuilder.LabelDecorator FormToCreate_LabelDecorator { get; set; }
             public System.String FormToCreate_Name { get; set; }
             public System.String FormToCreate_SchemaVersion { get; set; }
             public Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.SectionalElement> FormToCreate_SectionalElement { get; set; }

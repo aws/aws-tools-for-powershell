@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The policy to attach to the specified rule group. </para><para>The policy specifications must conform to the following:</para><ul><li><para>The policy must be composed using IAM Policy version 2012-10-17.</para></li><li><para>The policy must include specifications for <code>Effect</code>, <code>Action</code>,
+        /// <para>The policy to attach to the specified rule group. </para><para>The policy specifications must conform to the following:</para><ul><li><para>The policy must be composed using IAM Policy version 2012-10-17 or version 2015-01-01.</para></li><li><para>The policy must include specifications for <code>Effect</code>, <code>Action</code>,
         /// and <code>Principal</code>.</para></li><li><para><code>Effect</code> must specify <code>Allow</code>.</para></li><li><para><code>Action</code> must specify <code>wafv2:CreateWebACL</code>, <code>wafv2:UpdateWebACL</code>,
         /// and <code>wafv2:PutFirewallManagerRuleGroups</code> and may optionally specify <code>wafv2:GetRuleGroup</code>.
         /// WAF rejects any extra actions or wildcard actions in the policy.</para></li><li><para>The policy must not include a <code>Resource</code> parameter.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM

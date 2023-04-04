@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter RefreshTokenBody_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the client to request the token from.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RefreshTokenBody_ClientId { get; set; }
+        #endregion
+        
         #region Parameter Provider
         /// <summary>
         /// <para>
@@ -146,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 WriteWarning("You are passing $null as a value for parameter Provider which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RefreshTokenBody_ClientId = this.RefreshTokenBody_ClientId;
             context.RefreshTokenBody_Token = this.RefreshTokenBody_Token;
             #if MODULAR
             if (this.RefreshTokenBody_Token == null && ParameterWasBound(nameof(this.RefreshTokenBody_Token)))
@@ -177,6 +188,16 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
              // populate RefreshTokenBody
             var requestRefreshTokenBodyIsNull = true;
             request.RefreshTokenBody = new Amazon.AmplifyUIBuilder.Model.RefreshTokenRequestBody();
+            System.String requestRefreshTokenBody_refreshTokenBody_ClientId = null;
+            if (cmdletContext.RefreshTokenBody_ClientId != null)
+            {
+                requestRefreshTokenBody_refreshTokenBody_ClientId = cmdletContext.RefreshTokenBody_ClientId;
+            }
+            if (requestRefreshTokenBody_refreshTokenBody_ClientId != null)
+            {
+                request.RefreshTokenBody.ClientId = requestRefreshTokenBody_refreshTokenBody_ClientId;
+                requestRefreshTokenBodyIsNull = false;
+            }
             System.String requestRefreshTokenBody_refreshTokenBody_Token = null;
             if (cmdletContext.RefreshTokenBody_Token != null)
             {
@@ -254,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.AmplifyUIBuilder.TokenProviders Provider { get; set; }
+            public System.String RefreshTokenBody_ClientId { get; set; }
             public System.String RefreshTokenBody_Token { get; set; }
             public System.Func<Amazon.AmplifyUIBuilder.Model.RefreshTokenResponse, UpdateAMPUITokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

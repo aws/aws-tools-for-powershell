@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule
     /// group. You can associate a web ACL with one or more Amazon Web Services resources
     /// to protect. The resources can be an Amazon CloudFront distribution, an Amazon API
-    /// Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon
-    /// Cognito user pool, or an App Runner service. 
+    /// Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, Amazon Cognito
+    /// user pool, or an App Runner service. 
     /// </para>
     /// </summary>
     [Cmdlet("Update", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch.
         /// For the list of available metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF
-        /// Metrics</a> in the <i>WAF Developer Guide</i>.</para>
+        /// Metrics</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,9 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// action, you can send a custom response to the web request. You define these for the
         /// web ACL, and then use them in the rules and default actions that you define in the
         /// web ACL. </para><para>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing
-        /// web requests and responses in WAF</a> in the <i>WAF Developer Guide</i>. </para><para>For information about the limits on count and size for custom request and response
+        /// web requests and responses in WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
+        /// Developer Guide</a>. </para><para>For information about the limits on count and size for custom request and response
         /// settings, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF
-        /// quotas</a> in the <i>WAF Developer Guide</i>. </para>
+        /// quotas</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF
+        /// Developer Guide</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,19 +245,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter AssociationConfig_RequestBody
-        /// <summary>
-        /// <para>
-        /// <para>Customizes the maximum size of the request body that your protected CloudFront distributions
-        /// forward to WAF for inspection. The default size is 16 KB (16,384 kilobytes). </para><note><para>You are charged additional fees when your protected resources forward body sizes that
-        /// are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF
-        /// Pricing</a>.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Collections.Hashtable AssociationConfig_RequestBody { get; set; }
-        #endregion
-        
         #region Parameter Rule
         /// <summary>
         /// <para>
@@ -291,8 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
         /// application. A regional application can be an Application Load Balancer (ALB), an
-        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or
+        /// an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
@@ -387,14 +376,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AssociationConfig_RequestBody != null)
-            {
-                context.AssociationConfig_RequestBody = new Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig>(StringComparer.Ordinal);
-                foreach (var hashKey in this.AssociationConfig_RequestBody.Keys)
-                {
-                    context.AssociationConfig_RequestBody.Add((String)hashKey, (RequestBodyAssociatedResourceTypeConfig)(this.AssociationConfig_RequestBody[hashKey]));
-                }
-            }
             context.CaptchaConfig_ImmunityTimeProperty_ImmunityTime = this.CaptchaConfig_ImmunityTimeProperty_ImmunityTime;
             context.ChallengeConfig_ImmunityTimeProperty_ImmunityTime = this.ChallengeConfig_ImmunityTimeProperty_ImmunityTime;
             if (this.CustomResponseBody != null)
@@ -481,25 +462,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.UpdateWebACLRequest();
             
-            
-             // populate AssociationConfig
-            var requestAssociationConfigIsNull = true;
-            request.AssociationConfig = new Amazon.WAFV2.Model.AssociationConfig();
-            Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> requestAssociationConfig_associationConfig_RequestBody = null;
-            if (cmdletContext.AssociationConfig_RequestBody != null)
-            {
-                requestAssociationConfig_associationConfig_RequestBody = cmdletContext.AssociationConfig_RequestBody;
-            }
-            if (requestAssociationConfig_associationConfig_RequestBody != null)
-            {
-                request.AssociationConfig.RequestBody = requestAssociationConfig_associationConfig_RequestBody;
-                requestAssociationConfigIsNull = false;
-            }
-             // determine if request.AssociationConfig should be set to null
-            if (requestAssociationConfigIsNull)
-            {
-                request.AssociationConfig = null;
-            }
             
              // populate CaptchaConfig
             var requestCaptchaConfigIsNull = true;
@@ -729,7 +691,6 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig> AssociationConfig_RequestBody { get; set; }
             public System.Int64? CaptchaConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public System.Int64? ChallengeConfig_ImmunityTimeProperty_ImmunityTime { get; set; }
             public Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody> CustomResponseBody { get; set; }

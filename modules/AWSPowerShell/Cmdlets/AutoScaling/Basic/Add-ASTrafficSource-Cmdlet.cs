@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li><li><para>
     /// Classic Load Balancer
     /// </para></li><li><para>
-    /// Network Load Balancer
-    /// </para></li><li><para>
     /// Gateway Load Balancer
+    /// </para></li><li><para>
+    /// Network Load Balancer
     /// </para></li><li><para>
     /// VPC Lattice
     /// </para></li></ul><para>

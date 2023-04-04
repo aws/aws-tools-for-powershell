@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// Find the resulting model after you run an AutoML job V2 by calling <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a></code>.
+    /// Find the resulting model after you run an AutoML job V2 by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>.
     /// </para><para>
-    /// To create an <code>AutoMLJob</code> using tabular data, see <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a></code>.
+    /// To create an <code>AutoMLJob</code> using tabular data, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.
     /// </para><note><para>
     /// This API action is callable through SageMaker Canvas only. Calling it directly from
     /// the CLI or an SDK results in an error.
@@ -68,8 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>An array of channel objects describing the input data and their location. Each channel
-        /// is a named input source. Similar to <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a></code> supported by <code>CreateAutoMLJob</code>. The supported formats depend on
-        /// the problem type:</para><ul><li><para>ImageClassification: S3Prefix, <code>ManifestFile</code>, <code>AugmentedManifestFile</code></para></li><li><para>TextClassification: S3Prefix</para></li></ul>
+        /// is a named input source. Similar to <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html#sagemaker-CreateAutoMLJob-request-InputDataConfig">InputDataConfig</a>
+        /// supported by <code>CreateAutoMLJob</code>. The supported formats depend on the problem
+        /// type:</para><ul><li><para>ImageClassification: S3Prefix, <code>ManifestFile</code>, <code>AugmentedManifestFile</code></para></li><li><para>TextClassification: S3Prefix</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,7 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
-        /// see the <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a></code> used by the <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a></code> action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+        /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
+        /// action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
         /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>
@@ -210,7 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum time, in seconds, that each training job executed inside hyperparameter
         /// tuning is allowed to run as part of a hyperparameter tuning job. For more information,
-        /// see the <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a></code> used by the <code><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a></code> action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
+        /// see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html">StoppingCondition</a>
+        /// used by the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html">CreateHyperParameterTuningJob</a>
+        /// action.</para><para>For V2 jobs (jobs created by calling <code>CreateAutoMLJobV2</code>), this field controls
         /// the runtime of the job candidate.</para>
         /// </para>
         /// </summary>
