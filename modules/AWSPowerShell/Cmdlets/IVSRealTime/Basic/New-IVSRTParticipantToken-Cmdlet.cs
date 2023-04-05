@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     public partial class NewIVSRTParticipantTokenCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Attribute
         /// <summary>
         /// <para>

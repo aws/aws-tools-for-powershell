@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     public partial class NewIVSRTStageCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Name
         /// <summary>
         /// <para>

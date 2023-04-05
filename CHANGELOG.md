@@ -1,4 +1,7 @@
-﻿### 4.1.306 (2023-04-04 21:08Z)
+﻿### 4.1.307 (2023-04-05 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.520.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+
+### 4.1.306 (2023-04-04 21:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.519.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Amplify UI Builder
     * Modified cmdlet Convert-AMPUICodeForToken: added parameter Request_ClientId.

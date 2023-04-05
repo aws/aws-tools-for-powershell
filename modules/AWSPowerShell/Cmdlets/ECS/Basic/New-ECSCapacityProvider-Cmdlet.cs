@@ -184,9 +184,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ManagedScaling_TargetCapacity
         /// <summary>
         /// <para>
-        /// <para>The target capacity value for the capacity provider. The specified value must be greater
-        /// than <code>0</code> and less than or equal to <code>100</code>. A value of <code>100</code>
-        /// results in the Amazon EC2 instances in your Auto Scaling group being completely used.</para>
+        /// <para>The target capacity utilization as a percentage for the capacity provider. The specified
+        /// value must be greater than <code>0</code> and less than or equal to <code>100</code>.
+        /// For example, if you want the capacity provider to maintain 10% spare capacity, then
+        /// that means the utilization is 90%, so use a <code>targetCapacity</code> of <code>90</code>.
+        /// The default value of <code>100</code> percent results in the Amazon EC2 instances
+        /// in your Auto Scaling group being completely used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

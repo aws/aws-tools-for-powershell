@@ -153,7 +153,7 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.ProductType
         "New-SCProduct/ProductType"
         {
-            $v = "CLOUD_FORMATION_TEMPLATE","DEFAULT_CUSTOM","MARKETPLACE","TERRAFORM_OPEN_SOURCE"
+            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE","TERRAFORM_OPEN_SOURCE"
             break
         }
 
@@ -187,7 +187,7 @@ $SC_Completers = {
             ($_ -eq "New-SCProduct/ProvisioningArtifactParameters_Type")
         }
         {
-            $v = "CLOUD_FORMATION_TEMPLATE","DEFAULT_CUSTOM","MARKETPLACE_AMI","MARKETPLACE_CAR","TERRAFORM_OPEN_SOURCE"
+            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE_AMI","MARKETPLACE_CAR","TERRAFORM_OPEN_SOURCE"
             break
         }
 

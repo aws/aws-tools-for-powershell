@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
     /// Retrieves information about the resource policy. The resource policy is an IAM policy
-    /// created by AWS RAM on behalf of the resource owner when they share a resource.
+    /// created on behalf of the resource owner when they share a resource.
     /// </summary>
     [Cmdlet("Get", "VPCLResourcePolicy")]
     [OutputType("System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>An IAM policy.</para>
+        /// <para>The Amazon Resource Name (ARN) of the service network or service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
