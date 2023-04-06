@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+@{
+    SongTitle = 'Somewhere Down The Road'
+    Artist    = 'No One You Know'
+} | ConvertTo-DDBItem
+
+Get-DDBItem -TableName 'Music' -Key $key | ConvertFrom-DDBItem
+
+Name                           Value
+----                           -----
+Genre                          Country
+Artist                         No One You Know
+Price                          1.94
+CriticRating                   9
+SongTitle                      Somewhere Down The Road
+AlbumTitle                     Somewhat Famous
+    </code>
+    <description>ConvertFrom-DDBItem is used to convert the result of Get-DDBItem from a hashtable of DynamoDB AttributeValues to a hashtable of common types like string and double.</description>
+  </example>
+</examples>

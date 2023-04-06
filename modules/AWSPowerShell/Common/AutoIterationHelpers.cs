@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -29,6 +30,19 @@ namespace Amazon.PowerShell.Common
 {
     public static class AutoIterationHelpers
     {
+        public static bool HasValue<T>(T token)
+        {
+            var tokenDictionary = token as IDictionary;
+            if (tokenDictionary != null)
+            {
+                return tokenDictionary.Count > 0;
+            }
+            else
+            {
+                throw new ArgumentException("Unknown iteration key type.");
+            }
+        }
+
         public static bool HasValue(string s)
         {
             return !string.IsNullOrEmpty(s);
@@ -64,6 +78,6 @@ namespace Amazon.PowerShell.Common
         {
             return limit.ToString(CultureInfo.InvariantCulture);
         }
-    
+
     }
 }

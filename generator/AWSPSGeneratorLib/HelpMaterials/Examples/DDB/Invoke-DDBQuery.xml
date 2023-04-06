@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+$invokeDDBQuery = @{
+    TableName = 'Music'
+    KeyConditionExpression = ' SongTitle = :SongTitle and Artist = :Artist'
+    ExpressionAttributeValues = @{
+        ':SongTitle' = 'Somewhere Down The Road'
+        ':Artist' = 'No One You Know'
+    } | ConvertTo-DDBItem
+}
+Invoke-DDBQuery @invokeDDBQuery | ConvertFrom-DDBItem
+
+Name                           Value
+----                           -----
+Genre                          Country
+Artist                         No One You Know
+Price                          1.94
+CriticRating                   9
+SongTitle                      Somewhere Down The Road
+AlbumTitle                     Somewhat Famous
+    </code>
+    <description>Invokes a query that returns DynamoDB items with the specified SongTitle and Artist.</description>
+  </example>
+</examples>

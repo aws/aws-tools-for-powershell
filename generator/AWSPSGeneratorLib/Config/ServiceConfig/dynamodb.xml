@@ -29,11 +29,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetItem" Verb="Get" Noun="BatchItem" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
+		<ServiceOperation MethodName="BatchGetItem" OutputProperty="Responses" Verb="Get" Noun="BatchItem" PipelineParameter="RequestItems" NoPipelineParameter="false">
+			<Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchWriteItem" Verb="Write" Noun="BatchItem" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+		<ServiceOperation MethodName="BatchWriteItem" OutputProperty="UnprocessedItems" Verb="Set" Noun="BatchItem" ShouldProcessTarget="RequestItems" PipelineParameter="RequestItems" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -53,7 +53,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="Key" PipelineParameter="" NoPipelineParameter="false">
+		<ServiceOperation MethodName="DeleteItem" OutputProperty="Attributes" Verb="Remove" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Key" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -133,7 +133,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+		<ServiceOperation MethodName="GetItem" Verb="Get" Noun="Item" OutputProperty="Item" PipelineParameter="Key" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,12 +173,15 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+		<ServiceOperation MethodName="PutItem" OutputProperty="Attributes" Verb="Set" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Item" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Query" Verb="Select" Noun="Data" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
+		<ServiceOperation MethodName="Query" OutputProperty="Items" Verb="Invoke" Noun="Query" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+			<Params>
+				<Param Name="Select" NewName="SelectItem" AutoApplyAlias="false" />
+			</Params>
+            <AutoIterate Start="ExclusiveStartKey" Next="LastEvaluatedKey" EmitLimit="Limit"/>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreTableFromBackup" OutputProperty="TableDescription" Verb="Restore" Noun="TableFromBackup" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false">
@@ -189,8 +192,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Scan" Verb="Read" Noun="Table" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
+		<ServiceOperation MethodName="Scan" OutputProperty="Items" Verb="Invoke" Noun="Scan" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+			<Params>
+				<Param Name="Select" NewName="SelectItem" AutoApplyAlias="false" />
+			</Params>
+			<AutoIterate Start="ExclusiveStartKey" Next="LastEvaluatedKey" EmitLimit="Limit"/>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
@@ -225,7 +231,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+		<ServiceOperation MethodName="UpdateItem"  OutputProperty="Attributes" Verb="Update" Noun="Item" ShouldProcessTarget="TableName" PipelineParameter="Key" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
