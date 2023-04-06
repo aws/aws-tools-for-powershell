@@ -13,6 +13,7 @@ on:
 
 permissions:
   id-token: write
+  contents: read
 
 jobs:
   build:
@@ -45,3 +46,14 @@ jobs:
           } else {
               Write-Host "No breaking changes detected."
           }
+  verify-installer-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Verify AWS.Tools.Installer version
+        shell: pwsh
+        run: |
+          ./buildtools/Test-InstallerVersion.ps1 -From  ${{ github.event.pull_request.base.sha }} -To ${{ github.sha }}
