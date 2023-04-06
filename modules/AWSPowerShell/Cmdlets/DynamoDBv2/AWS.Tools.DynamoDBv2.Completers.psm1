@@ -101,6 +101,19 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ConditionalOperator
+        {
+            ($_ -eq "Invoke-DDBQuery/ConditionalOperator") -Or
+            ($_ -eq "Invoke-DDBScan/ConditionalOperator") -Or
+            ($_ -eq "Remove-DDBItem/ConditionalOperator") -Or
+            ($_ -eq "Set-DDBItem/ConditionalOperator") -Or
+            ($_ -eq "Update-DDBItem/ConditionalOperator")
+        }
+        {
+            $v = "AND","OR"
+            break
+        }
+
         # Amazon.DynamoDBv2.ContributorInsightsAction
         "Update-DDBContributorInsight/ContributorInsightsAction"
         {
@@ -145,10 +158,18 @@ $DDB_Completers = {
 
         # Amazon.DynamoDBv2.ReturnConsumedCapacity
         {
+            ($_ -eq "Get-DDBBatchItem/ReturnConsumedCapacity") -Or
+            ($_ -eq "Get-DDBItem/ReturnConsumedCapacity") -Or
             ($_ -eq "Get-DDBItemTransactionally/ReturnConsumedCapacity") -Or
             ($_ -eq "Invoke-DDBDDBBatchExecuteStatement/ReturnConsumedCapacity") -Or
             ($_ -eq "Invoke-DDBDDBExecuteStatement/ReturnConsumedCapacity") -Or
             ($_ -eq "Invoke-DDBDDBExecuteTransaction/ReturnConsumedCapacity") -Or
+            ($_ -eq "Invoke-DDBQuery/ReturnConsumedCapacity") -Or
+            ($_ -eq "Invoke-DDBScan/ReturnConsumedCapacity") -Or
+            ($_ -eq "Remove-DDBItem/ReturnConsumedCapacity") -Or
+            ($_ -eq "Set-DDBBatchItem/ReturnConsumedCapacity") -Or
+            ($_ -eq "Set-DDBItem/ReturnConsumedCapacity") -Or
+            ($_ -eq "Update-DDBItem/ReturnConsumedCapacity") -Or
             ($_ -eq "Write-DDBItemTransactionally/ReturnConsumedCapacity")
         }
         {
@@ -157,9 +178,26 @@ $DDB_Completers = {
         }
 
         # Amazon.DynamoDBv2.ReturnItemCollectionMetrics
-        "Write-DDBItemTransactionally/ReturnItemCollectionMetrics"
+        {
+            ($_ -eq "Remove-DDBItem/ReturnItemCollectionMetrics") -Or
+            ($_ -eq "Set-DDBBatchItem/ReturnItemCollectionMetrics") -Or
+            ($_ -eq "Set-DDBItem/ReturnItemCollectionMetrics") -Or
+            ($_ -eq "Update-DDBItem/ReturnItemCollectionMetrics") -Or
+            ($_ -eq "Write-DDBItemTransactionally/ReturnItemCollectionMetrics")
+        }
         {
             $v = "NONE","SIZE"
+            break
+        }
+
+        # Amazon.DynamoDBv2.ReturnValue
+        {
+            ($_ -eq "Remove-DDBItem/ReturnValues") -Or
+            ($_ -eq "Set-DDBItem/ReturnValues") -Or
+            ($_ -eq "Update-DDBItem/ReturnValues")
+        }
+        {
+            $v = "ALL_NEW","ALL_OLD","NONE","UPDATED_NEW","UPDATED_OLD"
             break
         }
 
@@ -178,6 +216,16 @@ $DDB_Completers = {
         }
         {
             $v = "B","N","S"
+            break
+        }
+
+        # Amazon.DynamoDBv2.Select
+        {
+            ($_ -eq "Invoke-DDBQuery/Select") -Or
+            ($_ -eq "Invoke-DDBScan/Select")
+        }
+        {
+            $v = "ALL_ATTRIBUTES","ALL_PROJECTED_ATTRIBUTES","COUNT","SPECIFIC_ATTRIBUTES"
             break
         }
 
@@ -219,6 +267,7 @@ $DDB_map = @{
     "BackupType"=@("Get-DDBBackupList")
     "BillingMode"=@("New-DDBTable","Update-DDBTable")
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
+    "ConditionalOperator"=@("Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ContributorInsightsAction"=@("Update-DDBContributorInsight")
     "ExportFormat"=@("Export-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
@@ -229,9 +278,11 @@ $DDB_map = @{
     "KeyType"=@("Add-DDBKeySchema")
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
-    "ReturnConsumedCapacity"=@("Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Write-DDBItemTransactionally")
-    "ReturnItemCollectionMetrics"=@("Write-DDBItemTransactionally")
+    "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
+    "ReturnItemCollectionMetrics"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
+    "ReturnValues"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "S3SseAlgorithm"=@("Export-DDBTableToPointInTime")
+    "Select"=@("Invoke-DDBQuery","Invoke-DDBScan")
     "SSESpecification_SSEType"=@("Update-DDBTable")
     "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
@@ -291,9 +342,12 @@ $DDB_SelectCompleters = {
 
 $DDB_SelectMap = @{
     "Select"=@("Invoke-DDBDDBBatchExecuteStatement",
+               "Get-DDBBatchItem",
+               "Set-DDBBatchItem",
                "New-DDBBackup",
                "New-DDBGlobalTable",
                "Remove-DDBBackup",
+               "Remove-DDBItem",
                "Remove-DDBTable",
                "Get-DDBBackup",
                "Get-DDBContinuousBackup",
@@ -313,6 +367,7 @@ $DDB_SelectMap = @{
                "Invoke-DDBDDBExecuteStatement",
                "Invoke-DDBDDBExecuteTransaction",
                "Export-DDBTableToPointInTime",
+               "Get-DDBItem",
                "Import-DDBTable",
                "Get-DDBBackupList",
                "Get-DDBContributorInsightList",
@@ -321,8 +376,11 @@ $DDB_SelectMap = @{
                "Get-DDBImportList",
                "Get-DDBTableList",
                "Get-DDBResourceTag",
+               "Set-DDBItem",
+               "Invoke-DDBQuery",
                "Restore-DDBTableFromBackup",
                "Restore-DDBTableToPointInTime",
+               "Invoke-DDBScan",
                "Add-DDBResourceTag",
                "Get-DDBItemTransactionally",
                "Write-DDBItemTransactionally",
@@ -331,11 +389,14 @@ $DDB_SelectMap = @{
                "Update-DDBContributorInsight",
                "Update-DDBGlobalTable",
                "Update-DDBGlobalTableSetting",
+               "Update-DDBItem",
                "Update-DDBTable",
                "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "Add-DDBIndexSchema",
                "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem",
                "New-DDBTable",
                "New-DDBTableSchema")
 }
@@ -452,6 +513,8 @@ $DDB_SelectMap = @{
                "Get-DDBStreamList",
                "Add-DDBIndexSchema",
                "Add-DDBKeySchema",
+               "ConvertFrom-DDBItem",
+               "ConvertTo-DDBItem",
                "New-DDBTable",
                "New-DDBTableSchema")
 }

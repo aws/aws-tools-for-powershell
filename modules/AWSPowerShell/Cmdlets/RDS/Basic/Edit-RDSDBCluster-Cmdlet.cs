@@ -80,12 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether the modifications in this request and any pending modifications
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
         /// setting for the DB cluster. If this parameter is disabled, changes to the DB cluster
-        /// are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter only affects the <code>EnableIAMDatabaseAuthentication</code>,
-        /// <code>MasterUserPassword</code>, and <code>NewDBClusterIdentifier</code> values. If
-        /// the <code>ApplyImmediately</code> parameter is disabled, then changes to the <code>EnableIAMDatabaseAuthentication</code>,
-        /// <code>MasterUserPassword</code>, and <code>NewDBClusterIdentifier</code> values are
-        /// applied during the next maintenance window. All other changes are applied immediately,
-        /// regardless of the value of the <code>ApplyImmediately</code> parameter.</para><para>By default, this parameter is disabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
+        /// are applied during the next maintenance window.</para><para>Most modifications can be applied immediately or during the next scheduled maintenance
+        /// window. Some modifications, such as turning on deletion protection and changing the
+        /// master password, are applied immediately—regardless of when you choose to apply them.</para><para>By default, this parameter is disabled.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless <code>ApplyImmediately</code> is enabled. </para><para>If the cluster that you're modifying has one or more read replicas, all replicas must
+        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>If the cluster that you're modifying has one or more read replicas, all replicas must
         /// be running an engine version that's the same or later than the version you specify.</para><para>To list all of the available engine versions for Aurora MySQL version 2 (5.7-compatible)
         /// and version 3 (MySQL 8.0-compatible), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for MySQL 5.6-compatible Aurora, use
         /// the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code></para><para>To list all of the available engine versions for Aurora PostgreSQL, use the following

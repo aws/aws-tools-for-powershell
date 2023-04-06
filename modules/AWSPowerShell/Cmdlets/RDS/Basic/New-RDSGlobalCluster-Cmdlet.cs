@@ -98,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier of the new global database cluster.</para>
+        /// <para>The cluster identifier of the new global database cluster. This parameter is stored
+        /// as a lowercase string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

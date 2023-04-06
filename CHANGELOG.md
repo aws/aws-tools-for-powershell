@@ -1,4 +1,31 @@
-﻿### 4.1.307 (2023-04-05 21:14Z)
+﻿### 4.1.308 (2023-04-06 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.521.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * 
+    * Added cmdlet ConvertFrom-DDBItem.
+    * Added cmdlet ConvertTo-DDBItem.
+  * Amazon DynamoDB
+    * Added cmdlet Get-DDBBatchItem leveraging the BatchGetItem service API.
+    * Added cmdlet Get-DDBItem leveraging the GetItem service API.
+    * Added cmdlet Invoke-DDBQuery leveraging the Query service API.
+    * Added cmdlet Invoke-DDBScan leveraging the Scan service API.
+    * Added cmdlet Remove-DDBItem leveraging the DeleteItem service API.
+    * Added cmdlet Set-DDBBatchItem leveraging the BatchWriteItem service API.
+    * Added cmdlet Set-DDBItem leveraging the PutItem service API.
+    * Added cmdlet Update-DDBItem leveraging the UpdateItem service API.
+  * Amazon Proton
+    * Added cmdlet Get-PROServiceInstanceSyncStatus leveraging the GetServiceInstanceSyncStatus service API.
+    * Added cmdlet Get-PROServiceSyncBlockerSummary leveraging the GetServiceSyncBlockerSummary service API.
+    * Added cmdlet Get-PROServiceSyncConfig leveraging the GetServiceSyncConfig service API.
+    * Added cmdlet New-PROServiceInstance leveraging the CreateServiceInstance service API.
+    * Added cmdlet New-PROServiceSyncConfig leveraging the CreateServiceSyncConfig service API.
+    * Added cmdlet Remove-PROServiceSyncConfig leveraging the DeleteServiceSyncConfig service API.
+    * Added cmdlet Update-PROServiceSyncBlocker leveraging the UpdateServiceSyncBlocker service API.
+    * Added cmdlet Update-PROServiceSyncConfig leveraging the UpdateServiceSyncConfig service API.
+    * Modified cmdlet New-PROComponent: added parameter ClientToken.
+    * Modified cmdlet Update-PROComponent: added parameter ClientToken.
+    * Modified cmdlet Update-PROServiceInstance: added parameter ClientToken.
+
+### 4.1.307 (2023-04-05 21:14Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.520.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
 
 ### 4.1.306 (2023-04-04 21:08Z)

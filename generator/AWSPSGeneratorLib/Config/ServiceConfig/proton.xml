@@ -67,6 +67,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceInstance" OutputProperty="ServiceInstance" Verb="New" Noun="ServiceInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceSyncConfig" OutputProperty="ServiceSyncConfig" Verb="New" Noun="ServiceSyncConfig" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateServiceTemplate" OutputProperty="ServiceTemplate" Verb="New" Noun="ServiceTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -104,6 +112,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteService" OutputProperty="Service" Verb="Remove" Noun="Service" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceSyncConfig" OutputProperty="ServiceSyncConfig" Verb="Remove" Noun="ServiceSyncConfig" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -160,6 +172,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetServiceInstance" OutputProperty="ServiceInstance" Verb="Get" Noun="ServiceInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceInstanceSyncStatus" OutputProperty="*" Verb="Get" Noun="ServiceInstanceSyncStatus" PipelineParameter="ServiceInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceSyncBlockerSummary" OutputProperty="ServiceSyncBlockerSummary" Verb="Get" Noun="ServiceSyncBlockerSummary" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceSyncConfig" OutputProperty="ServiceSyncConfig" Verb="Get" Noun="ServiceSyncConfig" PipelineParameter="ServiceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -308,6 +332,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateServicePipeline" OutputProperty="Pipeline" Verb="Update" Noun="ServicePipeline" ShouldProcessTarget="ServiceName" PipelineParameter="ServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceSyncBlocker" OutputProperty="*" Verb="Update" Noun="ServiceSyncBlocker" ShouldProcessTarget="Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceSyncConfig" OutputProperty="ServiceSyncConfig" Verb="Update" Noun="ServiceSyncConfig" ShouldProcessTarget="ServiceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

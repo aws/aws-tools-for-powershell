@@ -167,8 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specifies a DB subnet group for the DB instance. The new DB instance is created in
         /// the VPC associated with the DB subnet group. If no DB subnet group is specified, then
-        /// the new DB instance isn't created in a VPC.</para><para>Constraints:</para><ul><li><para>Can only be specified if the source DB instance identifier specifies a DB instance
-        /// in another Amazon Web Services Region.</para></li><li><para>If supplied, must match the name of an existing DBSubnetGroup.</para></li><li><para>The specified DB subnet group must be in the same Amazon Web Services Region in which
+        /// the new DB instance isn't created in a VPC.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBSubnetGroup.</para></li><li><para>The specified DB subnet group must be in the same Amazon Web Services Region in which
         /// the operation is running.</para></li><li><para>All read replicas in one Amazon Web Services Region that are created from the same
         /// source DB instance must either:&gt;</para><ul><li><para>Specify DB subnet groups from the same VPC. All these read replicas are created in
         /// the same VPC.</para></li><li><para>Not specify a DB subnet group. All these read replicas are created outside of any

@@ -22,49 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.Proton;
+using Amazon.Proton.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Deletes a custom engine version. To run this command, make sure you meet the following
-    /// prerequisites:
-    /// 
-    ///  <ul><li><para>
-    /// The CEV must not be the default for RDS Custom. If it is, change the default before
-    /// running this command.
-    /// </para></li><li><para>
-    /// The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance
-    /// snapshot, or automated backup of your RDS Custom instance.
-    /// </para></li></ul><para>
-    /// Typically, deletion takes a few minutes.
-    /// </para><note><para>
-    /// The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated
-    /// with Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in
-    /// CloudTrail, calls to the <code>DeleteCustomDbEngineVersion</code> event aren't logged.
-    /// However, you might see calls from the API gateway that accesses your Amazon S3 bucket.
-    /// These calls originate from the MediaImport service for the <code>DeleteCustomDbEngineVersion</code>
-    /// event.
-    /// </para></note><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">Deleting
-    /// a CEV</a> in the <i>Amazon RDS User Guide</i>.
-    /// </para>
+    /// Update the service sync blocker by resolving it.
     /// </summary>
-    [Cmdlet("Remove", "RDSCustomDBEngineVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteCustomDBEngineVersion API operation.", Operation = new[] {"DeleteCustomDBEngineVersion"}, SelectReturnType = typeof(Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse))]
-    [AWSCmdletOutput("Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse",
-        "This cmdlet returns an Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PROServiceSyncBlocker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Proton.Model.UpdateServiceSyncBlockerResponse")]
+    [AWSCmdlet("Calls the AWS Proton UpdateServiceSyncBlocker API operation.", Operation = new[] {"UpdateServiceSyncBlocker"}, SelectReturnType = typeof(Amazon.Proton.Model.UpdateServiceSyncBlockerResponse))]
+    [AWSCmdletOutput("Amazon.Proton.Model.UpdateServiceSyncBlockerResponse",
+        "This cmdlet returns an Amazon.Proton.Model.UpdateServiceSyncBlockerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRDSCustomDBEngineVersionCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class UpdatePROServiceSyncBlockerCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
-        #region Parameter Engine
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The database engine. The only supported engines are <code>custom-oracle-ee</code>
-        /// and <code>custom-oracle-ee-cdb</code>.</para>
+        /// <para>The ID of the service sync blocker.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,15 +53,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Engine { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter EngineVersion
+        #region Parameter ResolvedReason
         /// <summary>
         /// <para>
-        /// <para>The custom engine version (CEV) for your DB instance. This option is required for
-        /// RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
-        /// <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</para>
+        /// <para>The reason the service sync blocker was resolved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,14 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EngineVersion { get; set; }
+        public System.String ResolvedReason { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse).
-        /// Specifying the name of a property of type Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.UpdateServiceSyncBlockerResponse).
+        /// Specifying the name of a property of type Amazon.Proton.Model.UpdateServiceSyncBlockerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EngineVersion), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSCustomDBEngineVersion (DeleteCustomDBEngineVersion)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PROServiceSyncBlocker (UpdateServiceSyncBlocker)"))
             {
                 return;
             }
@@ -136,21 +112,21 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse, RemoveRDSCustomDBEngineVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Proton.Model.UpdateServiceSyncBlockerResponse, UpdatePROServiceSyncBlockerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Engine = this.Engine;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.EngineVersion = this.EngineVersion;
+            context.ResolvedReason = this.ResolvedReason;
             #if MODULAR
-            if (this.EngineVersion == null && ParameterWasBound(nameof(this.EngineVersion)))
+            if (this.ResolvedReason == null && ParameterWasBound(nameof(this.ResolvedReason)))
             {
-                WriteWarning("You are passing $null as a value for parameter EngineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResolvedReason which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -167,15 +143,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.DeleteCustomDBEngineVersionRequest();
+            var request = new Amazon.Proton.Model.UpdateServiceSyncBlockerRequest();
             
-            if (cmdletContext.Engine != null)
+            if (cmdletContext.Id != null)
             {
-                request.Engine = cmdletContext.Engine;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.EngineVersion != null)
+            if (cmdletContext.ResolvedReason != null)
             {
-                request.EngineVersion = cmdletContext.EngineVersion;
+                request.ResolvedReason = cmdletContext.ResolvedReason;
             }
             
             CmdletOutput output;
@@ -210,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.DeleteCustomDBEngineVersionRequest request)
+        private Amazon.Proton.Model.UpdateServiceSyncBlockerResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.UpdateServiceSyncBlockerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "DeleteCustomDBEngineVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "UpdateServiceSyncBlocker");
             try
             {
                 #if DESKTOP
-                return client.DeleteCustomDBEngineVersion(request);
+                return client.UpdateServiceSyncBlocker(request);
                 #elif CORECLR
-                return client.DeleteCustomDBEngineVersionAsync(request).GetAwaiter().GetResult();
+                return client.UpdateServiceSyncBlockerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,9 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Engine { get; set; }
-            public System.String EngineVersion { get; set; }
-            public System.Func<Amazon.RDS.Model.DeleteCustomDBEngineVersionResponse, RemoveRDSCustomDBEngineVersionCmdlet, object> Select { get; set; } =
+            public System.String Id { get; set; }
+            public System.String ResolvedReason { get; set; }
+            public System.Func<Amazon.Proton.Model.UpdateServiceSyncBlockerResponse, UpdatePROServiceSyncBlockerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

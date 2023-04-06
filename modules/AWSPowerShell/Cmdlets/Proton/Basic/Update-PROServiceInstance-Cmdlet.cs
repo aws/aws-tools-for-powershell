@@ -145,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String TemplateMinorVersion { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>The client token of the service instance to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceInstance'.
@@ -187,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 context.Select = CreateSelectDelegate<Amazon.Proton.Model.UpdateServiceInstanceResponse, UpdatePROServiceInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ClientToken = this.ClientToken;
             context.DeploymentType = this.DeploymentType;
             #if MODULAR
             if (this.DeploymentType == null && ParameterWasBound(nameof(this.DeploymentType)))
@@ -227,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             // create request
             var request = new Amazon.Proton.Model.UpdateServiceInstanceRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.DeploymentType != null)
             {
                 request.DeploymentType = cmdletContext.DeploymentType;
@@ -312,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public Amazon.Proton.DeploymentUpdateType DeploymentType { get; set; }
             public System.String Name { get; set; }
             public System.String ServiceName { get; set; }

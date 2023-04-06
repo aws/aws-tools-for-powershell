@@ -28,73 +28,26 @@ using Amazon.Proton.Model;
 namespace Amazon.PowerShell.Cmdlets.PRO
 {
     /// <summary>
-    /// Create an Proton component. A component is an infrastructure extension for a service
-    /// instance.
-    /// 
-    ///  
-    /// <para>
-    /// For more information about components, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton
-    /// components</a> in the <i>Proton User Guide</i>.
-    /// </para>
+    /// Create a service instance.
     /// </summary>
-    [Cmdlet("New", "PROComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Proton.Model.Component")]
-    [AWSCmdlet("Calls the AWS Proton CreateComponent API operation.", Operation = new[] {"CreateComponent"}, SelectReturnType = typeof(Amazon.Proton.Model.CreateComponentResponse))]
-    [AWSCmdletOutput("Amazon.Proton.Model.Component or Amazon.Proton.Model.CreateComponentResponse",
-        "This cmdlet returns an Amazon.Proton.Model.Component object.",
-        "The service call response (type Amazon.Proton.Model.CreateComponentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "PROServiceInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Proton.Model.ServiceInstance")]
+    [AWSCmdlet("Calls the AWS Proton CreateServiceInstance API operation.", Operation = new[] {"CreateServiceInstance"}, SelectReturnType = typeof(Amazon.Proton.Model.CreateServiceInstanceResponse))]
+    [AWSCmdletOutput("Amazon.Proton.Model.ServiceInstance or Amazon.Proton.Model.CreateServiceInstanceResponse",
+        "This cmdlet returns an Amazon.Proton.Model.ServiceInstance object.",
+        "The service call response (type Amazon.Proton.Model.CreateServiceInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewPROComponentCmdlet : AmazonProtonClientCmdlet, IExecutor
+    public partial class NewPROServiceInstanceCmdlet : AmazonProtonClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>An optional customer-provided description of the component.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the Proton environment that you want to associate this component with.
-        /// You must specify this when you don't specify <code>serviceInstanceName</code> and
-        /// <code>serviceName</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EnvironmentName { get; set; }
-        #endregion
-        
-        #region Parameter Manifest
-        /// <summary>
-        /// <para>
-        /// <para>A path to a manifest file that lists the Infrastructure as Code (IaC) file, template
-        /// language, and rendering engine for infrastructure that a custom component provisions.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Manifest { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The customer-provided name of the component.</para>
+        /// <para>The name of the service instance to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,59 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ServiceInstanceName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the service instance that you want to attach this component to. If you
-        /// don't specify this, the component isn't attached to any service instance. Specify
-        /// both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceInstanceName { get; set; }
-        #endregion
-        
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the service that <code>serviceInstanceName</code> is associated with.
-        /// If you don't specify this, the component isn't attached to any service instance. Specify
-        /// both <code>serviceInstanceName</code> and <code>serviceName</code> or neither of them.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceName { get; set; }
-        #endregion
-        
-        #region Parameter ServiceSpec
-        /// <summary>
-        /// <para>
-        /// <para>The service spec that you want the component to use to access service inputs. Set
-        /// this only when you attach the component to a service instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ServiceSpec { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An optional list of metadata items that you can associate with the Proton component.
-        /// A tag is a key-value pair.</para><para>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
-        /// resources and tagging</a> in the <i>Proton User Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.Proton.Model.Tag[] Tag { get; set; }
-        #endregion
-        
-        #region Parameter TemplateFile
-        /// <summary>
-        /// <para>
-        /// <para>A path to the Infrastructure as Code (IaC) file describing infrastructure that a custom
-        /// component provisions.</para><note><para>Components support a single IaC file, even if you use Terraform as your template language.</para></note>
+        /// <para>The name of the service the service instance is added to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,13 +75,64 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateFile { get; set; }
+        public System.String ServiceName { get; set; }
+        #endregion
+        
+        #region Parameter Spec
+        /// <summary>
+        /// <para>
+        /// <para>The spec for the service instance you want to create.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Spec { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of metadata items that you can associate with the Proton service
+        /// instance. A tag is a key-value pair.</para><para>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
+        /// resources and tagging</a> in the <i>Proton User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Proton.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TemplateMajorVersion
+        /// <summary>
+        /// <para>
+        /// <para>To create a new major and minor version of the service template, <i>exclude</i><code>major
+        /// Version</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateMajorVersion { get; set; }
+        #endregion
+        
+        #region Parameter TemplateMinorVersion
+        /// <summary>
+        /// <para>
+        /// <para>To create a new minor version of the service template, include a <code>major Version</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateMinorVersion { get; set; }
         #endregion
         
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The client token for the created component.</para>
+        /// <para>The client token of the service instance to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,13 +141,13 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Component'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.CreateComponentResponse).
-        /// Specifying the name of a property of type Amazon.Proton.Model.CreateComponentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ServiceInstance'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Proton.Model.CreateServiceInstanceResponse).
+        /// Specifying the name of a property of type Amazon.Proton.Model.CreateServiceInstanceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Component";
+        public string Select { get; set; } = "ServiceInstance";
         #endregion
         
         #region Parameter PassThru
@@ -221,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROComponent (CreateComponent)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PROServiceInstance (CreateServiceInstance)"))
             {
                 return;
             }
@@ -234,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Proton.Model.CreateComponentResponse, NewPROComponentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Proton.Model.CreateServiceInstanceResponse, NewPROServiceInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -247,15 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.PRO
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            context.Description = this.Description;
-            context.EnvironmentName = this.EnvironmentName;
-            context.Manifest = this.Manifest;
-            #if MODULAR
-            if (this.Manifest == null && ParameterWasBound(nameof(this.Manifest)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Manifest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -263,20 +209,26 @@ namespace Amazon.PowerShell.Cmdlets.PRO
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ServiceInstanceName = this.ServiceInstanceName;
             context.ServiceName = this.ServiceName;
-            context.ServiceSpec = this.ServiceSpec;
+            #if MODULAR
+            if (this.ServiceName == null && ParameterWasBound(nameof(this.ServiceName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ServiceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Spec = this.Spec;
+            #if MODULAR
+            if (this.Spec == null && ParameterWasBound(nameof(this.Spec)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Spec which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Proton.Model.Tag>(this.Tag);
             }
-            context.TemplateFile = this.TemplateFile;
-            #if MODULAR
-            if (this.TemplateFile == null && ParameterWasBound(nameof(this.TemplateFile)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TemplateFile which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TemplateMajorVersion = this.TemplateMajorVersion;
+            context.TemplateMinorVersion = this.TemplateMinorVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -291,47 +243,35 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Proton.Model.CreateComponentRequest();
+            var request = new Amazon.Proton.Model.CreateServiceInstanceRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.EnvironmentName != null)
-            {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
-            }
-            if (cmdletContext.Manifest != null)
-            {
-                request.Manifest = cmdletContext.Manifest;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.ServiceInstanceName != null)
-            {
-                request.ServiceInstanceName = cmdletContext.ServiceInstanceName;
             }
             if (cmdletContext.ServiceName != null)
             {
                 request.ServiceName = cmdletContext.ServiceName;
             }
-            if (cmdletContext.ServiceSpec != null)
+            if (cmdletContext.Spec != null)
             {
-                request.ServiceSpec = cmdletContext.ServiceSpec;
+                request.Spec = cmdletContext.Spec;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.TemplateFile != null)
+            if (cmdletContext.TemplateMajorVersion != null)
             {
-                request.TemplateFile = cmdletContext.TemplateFile;
+                request.TemplateMajorVersion = cmdletContext.TemplateMajorVersion;
+            }
+            if (cmdletContext.TemplateMinorVersion != null)
+            {
+                request.TemplateMinorVersion = cmdletContext.TemplateMinorVersion;
             }
             
             CmdletOutput output;
@@ -366,15 +306,15 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         
         #region AWS Service Operation Call
         
-        private Amazon.Proton.Model.CreateComponentResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.CreateComponentRequest request)
+        private Amazon.Proton.Model.CreateServiceInstanceResponse CallAWSServiceOperation(IAmazonProton client, Amazon.Proton.Model.CreateServiceInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "CreateComponent");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Proton", "CreateServiceInstance");
             try
             {
                 #if DESKTOP
-                return client.CreateComponent(request);
+                return client.CreateServiceInstance(request);
                 #elif CORECLR
-                return client.CreateComponentAsync(request).GetAwaiter().GetResult();
+                return client.CreateServiceInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -395,17 +335,14 @@ namespace Amazon.PowerShell.Cmdlets.PRO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public System.String Description { get; set; }
-            public System.String EnvironmentName { get; set; }
-            public System.String Manifest { get; set; }
             public System.String Name { get; set; }
-            public System.String ServiceInstanceName { get; set; }
             public System.String ServiceName { get; set; }
-            public System.String ServiceSpec { get; set; }
+            public System.String Spec { get; set; }
             public List<Amazon.Proton.Model.Tag> Tag { get; set; }
-            public System.String TemplateFile { get; set; }
-            public System.Func<Amazon.Proton.Model.CreateComponentResponse, NewPROComponentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Component;
+            public System.String TemplateMajorVersion { get; set; }
+            public System.String TemplateMinorVersion { get; set; }
+            public System.Func<Amazon.Proton.Model.CreateServiceInstanceResponse, NewPROServiceInstanceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ServiceInstance;
         }
         
     }

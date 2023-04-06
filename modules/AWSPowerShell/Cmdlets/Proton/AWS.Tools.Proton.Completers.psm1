@@ -132,7 +132,9 @@ $PRO_Completers = {
             ($_ -eq "Update-PROEnvironment/ProvisioningRepository_Provider") -Or
             ($_ -eq "Get-PRORepositorySyncDefinitionList/RepositoryProvider") -Or
             ($_ -eq "Get-PRORepositorySyncStatus/RepositoryProvider") -Or
+            ($_ -eq "New-PROServiceSyncConfig/RepositoryProvider") -Or
             ($_ -eq "New-PROTemplateSyncConfig/RepositoryProvider") -Or
+            ($_ -eq "Update-PROServiceSyncConfig/RepositoryProvider") -Or
             ($_ -eq "Update-PROTemplateSyncConfig/RepositoryProvider")
         }
         {
@@ -160,7 +162,7 @@ $PRO_Completers = {
             ($_ -eq "Get-PRORepositorySyncStatus/SyncType")
         }
         {
-            $v = "TEMPLATE_SYNC"
+            $v = "SERVICE_SYNC","TEMPLATE_SYNC"
             break
         }
 
@@ -202,7 +204,7 @@ $PRO_map = @{
     "Provider"=@("Get-PRORepository","New-PRORepository","Remove-PRORepository")
     "Provisioning"=@("New-PROEnvironmentTemplate")
     "ProvisioningRepository_Provider"=@("New-PROEnvironment","Update-PROEnvironment")
-    "RepositoryProvider"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus","New-PROTemplateSyncConfig","Update-PROTemplateSyncConfig")
+    "RepositoryProvider"=@("Get-PRORepositorySyncDefinitionList","Get-PRORepositorySyncStatus","New-PROServiceSyncConfig","New-PROTemplateSyncConfig","Update-PROServiceSyncConfig","Update-PROTemplateSyncConfig")
     "RequestedBy"=@("Get-PROEnvironmentAccountConnectionList")
     "SortBy"=@("Get-PROServiceInstanceList")
     "SortOrder"=@("Get-PROServiceInstanceList")
@@ -273,6 +275,8 @@ $PRO_SelectMap = @{
                "New-PROEnvironmentTemplateVersion",
                "New-PRORepository",
                "New-PROService",
+               "New-PROServiceInstance",
+               "New-PROServiceSyncConfig",
                "New-PROServiceTemplate",
                "New-PROServiceTemplateVersion",
                "New-PROTemplateSyncConfig",
@@ -283,6 +287,7 @@ $PRO_SelectMap = @{
                "Remove-PROEnvironmentTemplateVersion",
                "Remove-PRORepository",
                "Remove-PROService",
+               "Remove-PROServiceSyncConfig",
                "Remove-PROServiceTemplate",
                "Remove-PROServiceTemplateVersion",
                "Remove-PROTemplateSyncConfig",
@@ -297,6 +302,9 @@ $PRO_SelectMap = @{
                "Get-PROResourcesSummary",
                "Get-PROService",
                "Get-PROServiceInstance",
+               "Get-PROServiceInstanceSyncStatus",
+               "Get-PROServiceSyncBlockerSummary",
+               "Get-PROServiceSyncConfig",
                "Get-PROServiceTemplate",
                "Get-PROServiceTemplateVersion",
                "Get-PROTemplateSyncConfig",
@@ -334,6 +342,8 @@ $PRO_SelectMap = @{
                "Update-PROService",
                "Update-PROServiceInstance",
                "Update-PROServicePipeline",
+               "Update-PROServiceSyncBlocker",
+               "Update-PROServiceSyncConfig",
                "Update-PROServiceTemplate",
                "Update-PROServiceTemplateVersion",
                "Update-PROTemplateSyncConfig")

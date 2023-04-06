@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The DB engine. The only supported value is <code>custom-oracle-ee</code>.</para>
+        /// <para>The DB engine. The only supported values are <code>custom-oracle-ee</code> and <code>custom-oracle-ee-cdb</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
