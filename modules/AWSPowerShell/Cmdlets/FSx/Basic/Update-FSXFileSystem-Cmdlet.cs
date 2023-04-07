@@ -33,15 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// 
     ///  
     /// <para>
-    /// For Amazon FSx for Windows File Server file systems, you can update the following
-    /// properties:
+    /// For FSx for Windows File Server file systems, you can update the following properties:
     /// </para><ul><li><para><code>AuditLogConfiguration</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>SelfManagedActiveDirectoryConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
-    /// For Amazon FSx for Lustre file systems, you can update the following properties:
+    /// For FSx for Lustre file systems, you can update the following properties:
     /// </para><ul><li><para><code>AutoImportPolicy</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DataCompressionType</code></para></li><li><para><code>LustreRootSquashConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
-    /// For Amazon FSx for NetApp ONTAP file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
-    /// For the Amazon FSx for OpenZFS file systems, you can update the following properties:
-    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
+    /// For FSx for ONTAP file systems, you can update the following properties:
+    /// </para><ul><li><para><code>AddRouteTableIds</code></para></li><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>FsxAdminPassword</code></para></li><li><para><code>RemoveRouteTableIds</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul><para>
+    /// For FSx for OpenZFS file systems, you can update the following properties:
+    /// </para><ul><li><para><code>AutomaticBackupRetentionDays</code></para></li><li><para><code>CopyTagsToBackups</code></para></li><li><para><code>CopyTagsToVolumes</code></para></li><li><para><code>DailyAutomaticBackupStartTime</code></para></li><li><para><code>DiskIopsConfiguration</code></para></li><li><para><code>StorageCapacity</code></para></li><li><para><code>ThroughputCapacity</code></para></li><li><para><code>WeeklyMaintenanceStartTime</code></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "FSXFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.FileSystem")]
@@ -92,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent updates.
+        /// <para>A string of up to 63 ASCII characters that Amazon FSx uses to ensure idempotent updates.
         /// This string is automatically filled on your behalf when you use the Command Line Interface
         /// (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
@@ -251,21 +250,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>Use this parameter to increase the storage capacity of an Amazon FSx for Windows File
-        /// Server, Amazon FSx for Lustre, or Amazon FSx for NetApp ONTAP file system. Specifies
-        /// the storage capacity target value, in GiB, to increase the storage capacity for the
-        /// file system that you're updating. </para><note><para>You can't make a storage capacity increase request if there is an existing storage
-        /// capacity increase request in progress.</para></note><para>For Windows file systems, the storage capacity target value must be at least 10 percent
-        /// greater than the current storage capacity value. To increase storage capacity, the
-        /// file system must have at least 16 MBps of throughput capacity. For more information,
-        /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
-        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>.</para><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code>
+        /// <para>Use this parameter to increase the storage capacity of an FSx for Windows File Server,
+        /// FSx for Lustre, FSx for OpenZFS, or FSx for ONTAP file system. Specifies the storage
+        /// capacity target value, in GiB, to increase the storage capacity for the file system
+        /// that you're updating. </para><note><para>You can't make a storage capacity increase request if there is an existing storage
+        /// capacity increase request in progress.</para></note><para>For Lustre file systems, the storage capacity target value can be the following:</para><ul><li><para>For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code>
         /// deployment types, valid values are in multiples of 2400 GiB. The value must be greater
         /// than the current storage capacity.</para></li><li><para>For <code>PERSISTENT HDD</code> file systems, valid values are multiples of 6000 GiB
         /// for 12-MBps throughput per TiB file systems and multiples of 1800 GiB for 40-MBps
         /// throughput per TiB file systems. The values must be greater than the current storage
         /// capacity.</para></li><li><para>For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing
-        /// storage and throughput capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</para><para>For ONTAP file systems, the storage capacity target value must be at least 10 percent
+        /// storage and throughput capacity</a> in the <i>FSx for Lustre User Guide</i>.</para><para>For FSx for OpenZFS file systems, the storage capacity target value must be at least
+        /// 10 percent greater than the current storage capacity value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html">Managing
+        /// storage capacity</a> in the <i>FSx for OpenZFS User Guide</i>.</para><para>For Windows file systems, the storage capacity target value must be at least 10 percent
+        /// greater than the current storage capacity value. To increase storage capacity, the
+        /// file system must have at least 16 MBps of throughput capacity. For more information,
+        /// see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
+        /// storage capacity</a> in the <i>Amazon FSx for Windows File Server User Guide</i>.</para><para>For ONTAP file systems, the storage capacity target value must be at least 10 percent
         /// greater than the current storage capacity value. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing
         /// storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
         /// Guide</i>.</para>

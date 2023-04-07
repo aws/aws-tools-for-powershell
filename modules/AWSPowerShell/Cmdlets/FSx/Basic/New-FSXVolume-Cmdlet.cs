@@ -134,8 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_JunctionPath
         /// <summary>
         /// <para>
-        /// <para>Specifies the location in the SVM's namespace where the volume is mounted. The <code>JunctionPath</code>
-        /// must have a leading forward slash, such as <code>/vol3</code>.</para>
+        /// <para>Specifies the location in the SVM's namespace where the volume is mounted. This parameter
+        /// is required. The <code>JunctionPath</code> must have a leading forward slash, such
+        /// as <code>/vol3</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,7 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_SizeInMegabyte
         /// <summary>
         /// <para>
-        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating.</para>
+        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating. Provide
+        /// any whole number in the range of 20–104857600 to specify the size of the volume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -331,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Set to true to enable deduplication, compression, and compaction storage efficiency
-        /// features on the volume.</para>
+        /// features on the volume, or set to false to disable them. This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

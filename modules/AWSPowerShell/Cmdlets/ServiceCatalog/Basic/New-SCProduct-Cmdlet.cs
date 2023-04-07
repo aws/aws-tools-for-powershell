@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The type of provisioning artifact.</para><ul><li><para><code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</para></li><li><para><code>MARKETPLACE_AMI</code> - Amazon Web Services Marketplace AMI</para></li><li><para><code>MARKETPLACE_CAR</code> - Amazon Web Services Marketplace Clusters and Amazon
-        /// Web Services Resources</para></li></ul>
+        /// Web Services Resources</para></li><li><para><code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

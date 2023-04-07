@@ -33062,8 +33062,21 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.InvokeMode
+        {
+            ($_ -eq "New-LMFunctionUrlConfig/InvokeMode") -Or
+            ($_ -eq "Update-LMFunctionUrlConfig/InvokeMode")
+        }
+        {
+            $v = "BUFFERED","RESPONSE_STREAM"
+            break
+        }
+
         # Amazon.Lambda.LogType
-        "Invoke-LMFunction/LogType"
+        {
+            ($_ -eq "Invoke-LMFunction/LogType") -Or
+            ($_ -eq "Invoke-LMWithResponseStream/LogType")
+        }
         {
             $v = "None","Tail"
             break
@@ -33073,6 +33086,13 @@ $LM_Completers = {
         "Publish-LMFunction/PackageType"
         {
             $v = "Image","Zip"
+            break
+        }
+
+        # Amazon.Lambda.ResponseStreamingInvocationType
+        "Invoke-LMWithResponseStream/InvocationType"
+        {
+            $v = "DryRun","RequestResponse"
             break
         }
 
@@ -33131,8 +33151,9 @@ $LM_map = @{
     "DocumentDBEventSourceConfig_FullDocument"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
-    "InvocationType"=@("Invoke-LMFunction")
-    "LogType"=@("Invoke-LMFunction")
+    "InvocationType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
+    "InvokeMode"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
+    "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
@@ -33226,6 +33247,7 @@ $LM_SelectMap = @{
                "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
                "Invoke-LMFunctionAsync",
+               "Invoke-LMWithResponseStream",
                "Get-LMAliasList",
                "Get-LMCodeSigningConfigList",
                "Get-LMEventSourceMappingList",
@@ -44346,6 +44368,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.DayOfWeek
+        {
+            ($_ -eq "New-QSRefreshSchedule/Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek") -Or
+            ($_ -eq "Update-QSRefreshSchedule/Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek")
+        }
+        {
+            $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
+            break
+        }
+
         # Amazon.QuickSight.Edition
         "New-QSAccountSubscription/Edition"
         {
@@ -44382,9 +44414,20 @@ $QS_Completers = {
         }
 
         # Amazon.QuickSight.IngestionType
-        "New-QSIngestion/IngestionType"
+        {
+            ($_ -eq "New-QSIngestion/IngestionType") -Or
+            ($_ -eq "New-QSRefreshSchedule/Schedule_RefreshType") -Or
+            ($_ -eq "Update-QSRefreshSchedule/Schedule_RefreshType")
+        }
         {
             $v = "FULL_REFRESH","INCREMENTAL_REFRESH"
+            break
+        }
+
+        # Amazon.QuickSight.LookbackWindowSizeUnit
+        "Write-QSDataSetRefreshProperty/DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit"
+        {
+            $v = "DAY","HOUR","WEEK"
             break
         }
 
@@ -44423,6 +44466,16 @@ $QS_Completers = {
         }
         {
             $v = "A0","A1","A2","A3","A4","A5","JIS_B4","JIS_B5","US_LEGAL","US_LETTER","US_TABLOID_LEDGER"
+            break
+        }
+
+        # Amazon.QuickSight.RefreshInterval
+        {
+            ($_ -eq "New-QSRefreshSchedule/Schedule_ScheduleFrequency_Interval") -Or
+            ($_ -eq "Update-QSRefreshSchedule/Schedule_ScheduleFrequency_Interval")
+        }
+        {
+            $v = "DAILY","HOURLY","MINUTE15","MINUTE30","MONTHLY","WEEKLY"
             break
         }
 
@@ -44525,6 +44578,7 @@ $QS_map = @{
     "DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
@@ -44541,6 +44595,9 @@ $QS_map = @{
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionTagConfiguration_Status"=@("New-QSDataSet","Update-QSDataSet")
+    "Schedule_RefreshType"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "Schedule_ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
 }
@@ -44609,6 +44666,7 @@ $QS_SelectMap = @{
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
                "New-QSNamespace",
+               "New-QSRefreshSchedule",
                "New-QSTemplate",
                "New-QSTemplateAlias",
                "New-QSTheme",
@@ -44618,6 +44676,7 @@ $QS_SelectMap = @{
                "Remove-QSAnalysis",
                "Remove-QSDashboard",
                "Remove-QSDataSet",
+               "Remove-QSDataSetRefreshProperty",
                "Remove-QSDataSource",
                "Remove-QSFolder",
                "Remove-QSFolderMembership",
@@ -44625,6 +44684,7 @@ $QS_SelectMap = @{
                "Remove-QSGroupMembership",
                "Remove-QSIAMPolicyAssignment",
                "Remove-QSNamespace",
+               "Remove-QSRefreshSchedule",
                "Remove-QSTemplate",
                "Remove-QSTemplateAlias",
                "Remove-QSTheme",
@@ -44642,6 +44702,7 @@ $QS_SelectMap = @{
                "Get-QSDashboardPermission",
                "Get-QSDataSet",
                "Get-QSDataSetPermission",
+               "Get-QSDataSetRefreshProperty",
                "Get-QSDataSource",
                "Get-QSDataSourcePermission",
                "Get-QSFolder",
@@ -44653,6 +44714,7 @@ $QS_SelectMap = @{
                "Get-QSIngestion",
                "Get-QSIpRestriction",
                "Get-QSNamespace",
+               "Get-QSRefreshSchedule",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplateDefinition",
@@ -44678,6 +44740,7 @@ $QS_SelectMap = @{
                "Get-QSIAMPolicyAssignmentsForUserList",
                "Get-QSIngestionList",
                "Get-QSNamespaceList",
+               "Get-QSRefreshScheduleList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
@@ -44687,6 +44750,7 @@ $QS_SelectMap = @{
                "Get-QSThemeVersionList",
                "Get-QSUserGroupList",
                "Get-QSUserList",
+               "Write-QSDataSetRefreshProperty",
                "Register-QSUser",
                "Restore-QSAnalysis",
                "Search-QSAnalysis",
@@ -44714,6 +44778,7 @@ $QS_SelectMap = @{
                "Update-QSIAMPolicyAssignment",
                "Update-QSIpRestriction",
                "Update-QSPublicSharingSetting",
+               "Update-QSRefreshSchedule",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",

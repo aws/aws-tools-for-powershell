@@ -22,32 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes a data repository association on an Amazon FSx for Lustre file system. Deleting
-    /// the data repository association unlinks the file system from the Amazon S3 bucket.
-    /// When deleting a data repository association, you have the option of deleting the data
-    /// in the file system that corresponds to the data repository association. Data repository
-    /// associations are supported for all file systems except for <code>Scratch_1</code>
-    /// deployment type.
+    /// Deletes a refresh schedule from a dataset.
     /// </summary>
-    [Cmdlet("Remove", "FSXDataRepositoryAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse")]
-    [AWSCmdlet("Calls the Amazon FSx DeleteDataRepositoryAssociation API operation.", Operation = new[] {"DeleteDataRepositoryAssociation"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse))]
-    [AWSCmdletOutput("Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "QSRefreshSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.QuickSight.Model.DeleteRefreshScheduleResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight DeleteRefreshSchedule API operation.", Operation = new[] {"DeleteRefreshSchedule"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteRefreshScheduleResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteRefreshScheduleResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteRefreshScheduleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFSXDataRepositoryAssociationCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class RemoveQSRefreshScheduleCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
-        #region Parameter AssociationId
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data repository association that you want to delete.</para>
+        /// <para>The Amazon Web Services account ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter DataSetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the dataset.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DataSetId { get; set; }
+        #endregion
+        
+        #region Parameter ScheduleId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the refresh schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,35 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssociationId { get; set; }
-        #endregion
-        
-        #region Parameter ClientRequestToken
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
-        #endregion
-        
-        #region Parameter DeleteDataInFileSystem
-        /// <summary>
-        /// <para>
-        /// <para>Set to <code>true</code> to delete the data in the file system that corresponds to
-        /// the data repository association.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? DeleteDataInFileSystem { get; set; }
+        public System.String ScheduleId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse).
-        /// Specifying the name of a property of type Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DeleteRefreshScheduleResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DeleteRefreshScheduleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AssociationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AssociationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ScheduleId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ScheduleId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssociationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScheduleId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AssociationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FSXDataRepositoryAssociation (DeleteDataRepositoryAssociation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ScheduleId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QSRefreshSchedule (DeleteRefreshSchedule)"))
             {
                 return;
             }
@@ -132,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse, RemoveFSXDataRepositoryAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DeleteRefreshScheduleResponse, RemoveQSRefreshScheduleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,18 +149,30 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AssociationId;
+                context.Select = (response, cmdlet) => this.ScheduleId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AssociationId = this.AssociationId;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.AssociationId == null && ParameterWasBound(nameof(this.AssociationId)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientRequestToken = this.ClientRequestToken;
-            context.DeleteDataInFileSystem = this.DeleteDataInFileSystem;
+            context.DataSetId = this.DataSetId;
+            #if MODULAR
+            if (this.DataSetId == null && ParameterWasBound(nameof(this.DataSetId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DataSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ScheduleId = this.ScheduleId;
+            #if MODULAR
+            if (this.ScheduleId == null && ParameterWasBound(nameof(this.ScheduleId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ScheduleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,19 +187,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FSx.Model.DeleteDataRepositoryAssociationRequest();
+            var request = new Amazon.QuickSight.Model.DeleteRefreshScheduleRequest();
             
-            if (cmdletContext.AssociationId != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.AssociationId = cmdletContext.AssociationId;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.DataSetId != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.DataSetId = cmdletContext.DataSetId;
             }
-            if (cmdletContext.DeleteDataInFileSystem != null)
+            if (cmdletContext.ScheduleId != null)
             {
-                request.DeleteDataInFileSystem = cmdletContext.DeleteDataInFileSystem.Value;
+                request.ScheduleId = cmdletContext.ScheduleId;
             }
             
             CmdletOutput output;
@@ -214,15 +234,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.DeleteDataRepositoryAssociationRequest request)
+        private Amazon.QuickSight.Model.DeleteRefreshScheduleResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DeleteRefreshScheduleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "DeleteDataRepositoryAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DeleteRefreshSchedule");
             try
             {
                 #if DESKTOP
-                return client.DeleteDataRepositoryAssociation(request);
+                return client.DeleteRefreshSchedule(request);
                 #elif CORECLR
-                return client.DeleteDataRepositoryAssociationAsync(request).GetAwaiter().GetResult();
+                return client.DeleteRefreshScheduleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssociationId { get; set; }
-            public System.String ClientRequestToken { get; set; }
-            public System.Boolean? DeleteDataInFileSystem { get; set; }
-            public System.Func<Amazon.FSx.Model.DeleteDataRepositoryAssociationResponse, RemoveFSXDataRepositoryAssociationCmdlet, object> Select { get; set; } =
+            public System.String AwsAccountId { get; set; }
+            public System.String DataSetId { get; set; }
+            public System.String ScheduleId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.DeleteRefreshScheduleResponse, RemoveQSRefreshScheduleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

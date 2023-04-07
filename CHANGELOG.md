@@ -1,4 +1,24 @@
-﻿### 4.1.308 (2023-04-06 21:09Z)
+﻿### 4.1.309 (2023-04-07 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameter DBClusterParameterGroupName.
+  * Amazon Lambda
+    * Added cmdlet Invoke-LMWithResponseStream leveraging the InvokeWithResponseStream service API.
+    * Modified cmdlet New-LMFunctionUrlConfig: added parameter InvokeMode.
+    * Modified cmdlet Update-LMFunctionUrlConfig: added parameter InvokeMode.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSDataSetRefreshProperty leveraging the DescribeDataSetRefreshProperties service API.
+    * Added cmdlet Get-QSRefreshSchedule leveraging the DescribeRefreshSchedule service API.
+    * Added cmdlet Get-QSRefreshScheduleList leveraging the ListRefreshSchedules service API.
+    * Added cmdlet New-QSRefreshSchedule leveraging the CreateRefreshSchedule service API.
+    * Added cmdlet Remove-QSDataSetRefreshProperty leveraging the DeleteDataSetRefreshProperties service API.
+    * Added cmdlet Remove-QSRefreshSchedule leveraging the DeleteRefreshSchedule service API.
+    * Added cmdlet Update-QSRefreshSchedule leveraging the UpdateRefreshSchedule service API.
+    * Added cmdlet Write-QSDataSetRefreshProperty leveraging the PutDataSetRefreshProperties service API.
+    * Modified cmdlet New-QSDataSet: added parameter RowLevelPermissionTagConfiguration_TagRuleConfiguration.
+    * Modified cmdlet Update-QSDataSet: added parameter RowLevelPermissionTagConfiguration_TagRuleConfiguration.
+
+### 4.1.308 (2023-04-06 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.521.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * 
     * Added cmdlet ConvertFrom-DDBItem.

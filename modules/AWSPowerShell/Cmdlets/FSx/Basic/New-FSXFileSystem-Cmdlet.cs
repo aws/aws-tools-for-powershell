@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation.
+        /// <para>A string of up to 63 ASCII characters that Amazon FSx uses to ensure idempotent creation.
         /// This string is automatically filled on your behalf when you use the Command Line Interface
         /// (CLI) or an Amazon Web Services SDK.</para>
         /// </para>
@@ -244,7 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// an unused IP address range for you from the 198.19.* range. By default in the Amazon
         /// FSx console, Amazon FSx chooses the last 64 IP addresses from the VPC’s primary CIDR
         /// range to use as the endpoint IP address range for the file system. You can have overlapping
-        /// endpoint IP addresses for file systems deployed in the same VPC/route tables.</para>
+        /// endpoint IP addresses for file systems deployed in the same VPC/route tables, as long
+        /// as they don't overlap with any subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

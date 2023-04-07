@@ -276,6 +276,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
         #endregion
         
+        #region Parameter RowLevelPermissionTagConfiguration_TagRuleConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>A list of tag configuration rules to apply to a dataset. All tag configurations have
+        /// the OR condition. Tags within each tile will be joined (AND). At least one rule in
+        /// this structure must have all tag values assigned to it to apply Row-level security
+        /// (RLS) to the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RowLevelPermissionTagConfiguration_TagRuleConfigurations")]
+        public System.String[][] RowLevelPermissionTagConfiguration_TagRuleConfiguration { get; set; }
+        #endregion
+        
         #region Parameter RowLevelPermissionTagConfiguration_TagRule
         /// <summary>
         /// <para>
@@ -440,6 +454,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.RowLevelPermissionDataSet_PermissionPolicy = this.RowLevelPermissionDataSet_PermissionPolicy;
             context.RowLevelPermissionDataSet_Status = this.RowLevelPermissionDataSet_Status;
             context.RowLevelPermissionTagConfiguration_Status = this.RowLevelPermissionTagConfiguration_Status;
+            if (this.RowLevelPermissionTagConfiguration_TagRuleConfiguration != null)
+            {
+                context.RowLevelPermissionTagConfiguration_TagRuleConfiguration = new List<List<System.String>>();
+                foreach (var innerList in this.RowLevelPermissionTagConfiguration_TagRuleConfiguration)
+                {
+                    context.RowLevelPermissionTagConfiguration_TagRuleConfiguration.Add(new List<System.String>(innerList));
+                }
+            }
             if (this.RowLevelPermissionTagConfiguration_TagRule != null)
             {
                 context.RowLevelPermissionTagConfiguration_TagRule = new List<Amazon.QuickSight.Model.RowLevelPermissionTagRule>(this.RowLevelPermissionTagConfiguration_TagRule);
@@ -606,6 +628,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.RowLevelPermissionTagConfiguration.Status = requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_Status;
                 requestRowLevelPermissionTagConfigurationIsNull = false;
             }
+            List<List<System.String>> requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRuleConfiguration = null;
+            if (cmdletContext.RowLevelPermissionTagConfiguration_TagRuleConfiguration != null)
+            {
+                requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRuleConfiguration = cmdletContext.RowLevelPermissionTagConfiguration_TagRuleConfiguration;
+            }
+            if (requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRuleConfiguration != null)
+            {
+                request.RowLevelPermissionTagConfiguration.TagRuleConfigurations = requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRuleConfiguration;
+                requestRowLevelPermissionTagConfigurationIsNull = false;
+            }
             List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> requestRowLevelPermissionTagConfiguration_rowLevelPermissionTagConfiguration_TagRule = null;
             if (cmdletContext.RowLevelPermissionTagConfiguration_TagRule != null)
             {
@@ -704,6 +736,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.RowLevelPermissionPolicy RowLevelPermissionDataSet_PermissionPolicy { get; set; }
             public Amazon.QuickSight.Status RowLevelPermissionDataSet_Status { get; set; }
             public Amazon.QuickSight.Status RowLevelPermissionTagConfiguration_Status { get; set; }
+            public List<List<System.String>> RowLevelPermissionTagConfiguration_TagRuleConfiguration { get; set; }
             public List<Amazon.QuickSight.Model.RowLevelPermissionTagRule> RowLevelPermissionTagConfiguration_TagRule { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateDataSetResponse, NewQSDataSetCmdlet, object> Select { get; set; } =

@@ -84,6 +84,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRefreshSchedule" OutputProperty="*" Verb="New" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" NewName="Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_FreeForm_CanvasSizeOptions_ScreenCanvasSizeOptions_OptimizedViewPortWidth" Alias="ScreenCanvasSizeOptions_OptimizedViewPortWidth" />
@@ -123,6 +127,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataSetRefreshProperties" OutputProperty="*" Verb="Remove" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +156,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteNamespace" OutputProperty="*" Verb="Remove" Noun="Namespace" ShouldProcessTarget="AwsAccountId" PipelineParameter="Namespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="RefreshSchedule" ShouldProcessTarget="ScheduleId" PipelineParameter="ScheduleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -219,6 +231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSetRefreshProperties" OutputProperty="DataSetRefreshProperties" Verb="Get" Noun="DataSetRefreshProperty" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -260,6 +276,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="Namespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRefreshSchedule" OutputProperty="*" Verb="Get" Noun="RefreshSchedule" PipelineParameter="ScheduleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -368,6 +388,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRefreshSchedules" OutputProperty="RefreshSchedules" Verb="Get" Noun="RefreshScheduleList" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -401,6 +425,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListUsers" OutputProperty="UserList" Verb="Get" Noun="UserList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataSetRefreshProperties" OutputProperty="*" Verb="Write" Noun="DataSetRefreshProperty" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -520,6 +548,10 @@
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest</Type>
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse</Type>
             </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params>

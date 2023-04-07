@@ -131,8 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <code>Path</code> you provide must be located within the file system’s ExportPath.
         /// An example <code>Path</code> value is "s3://myBucket/myExportPath/optionalPrefix".
         /// The report provides the following information for each file in the report: FilePath,
-        /// FileStatus, and ErrorCode. To learn more about a file system's <code>ExportPath</code>,
-        /// see . </para>
+        /// FileStatus, and ErrorCode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

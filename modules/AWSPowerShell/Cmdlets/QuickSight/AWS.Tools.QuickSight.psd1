@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QSDataSet', 
         'Get-QSDataSetList', 
         'Get-QSDataSetPermission', 
+        'Get-QSDataSetRefreshProperty', 
         'Get-QSDataSource', 
         'Get-QSDataSourceList', 
         'Get-QSDataSourcePermission', 
@@ -124,6 +125,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-QSIpRestriction', 
         'Get-QSNamespace', 
         'Get-QSNamespaceList', 
+        'Get-QSRefreshSchedule', 
+        'Get-QSRefreshScheduleList', 
         'Get-QSResourceTag', 
         'Get-QSSessionEmbedUrl', 
         'Get-QSTemplate', 
@@ -157,6 +160,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-QSIAMPolicyAssignment', 
         'New-QSIngestion', 
         'New-QSNamespace', 
+        'New-QSRefreshSchedule', 
         'New-QSTemplate', 
         'New-QSTemplateAlias', 
         'New-QSTheme', 
@@ -167,6 +171,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-QSAnalysis', 
         'Remove-QSDashboard', 
         'Remove-QSDataSet', 
+        'Remove-QSDataSetRefreshProperty', 
         'Remove-QSDataSource', 
         'Remove-QSFolder', 
         'Remove-QSFolderMembership', 
@@ -174,6 +179,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-QSGroupMembership', 
         'Remove-QSIAMPolicyAssignment', 
         'Remove-QSNamespace', 
+        'Remove-QSRefreshSchedule', 
         'Remove-QSResourceTag', 
         'Remove-QSTemplate', 
         'Remove-QSTemplateAlias', 
@@ -205,13 +211,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-QSIAMPolicyAssignment', 
         'Update-QSIpRestriction', 
         'Update-QSPublicSharingSetting', 
+        'Update-QSRefreshSchedule', 
         'Update-QSTemplate', 
         'Update-QSTemplateAlias', 
         'Update-QSTemplatePermission', 
         'Update-QSTheme', 
         'Update-QSThemeAlias', 
         'Update-QSThemePermission', 
-        'Update-QSUser')
+        'Update-QSUser', 
+        'Write-QSDataSetRefreshProperty')
 
     # Variables to export from this module
     VariablesToExport = '*'

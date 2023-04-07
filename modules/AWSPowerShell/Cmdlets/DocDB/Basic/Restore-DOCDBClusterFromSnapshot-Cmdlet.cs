@@ -80,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter DBClusterParameterGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB cluster parameter group to associate with this DB cluster.</para><para><i>Type:</i> String.       <i>Required:</i> No.</para><para>If this argument is omitted, the default DB cluster parameter group is used. If supplied,
+        /// must match the name of an existing default DB cluster parameter group. The string
+        /// must consist of from 1 to 255 letters, numbers or hyphens. Its first character must
+        /// be a letter, and it cannot end with a hyphen or contain two consecutive hyphens.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBClusterParameterGroupName { get; set; }
+        #endregion
+        
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
@@ -283,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 WriteWarning("You are passing $null as a value for parameter DBClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
@@ -337,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.DBClusterParameterGroupName != null)
+            {
+                request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
             }
             if (cmdletContext.DBSubnetGroupName != null)
             {
@@ -441,6 +459,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         {
             public List<System.String> AvailabilityZone { get; set; }
             public System.String DBClusterIdentifier { get; set; }
+            public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }

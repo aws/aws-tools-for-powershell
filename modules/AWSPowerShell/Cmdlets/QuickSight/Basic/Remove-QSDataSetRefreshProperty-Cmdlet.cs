@@ -22,36 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes an Amazon FSx backup. After deletion, the backup no longer exists, and its
-    /// data is gone.
-    /// 
-    ///  
-    /// <para>
-    /// The <code>DeleteBackup</code> call returns instantly. The backup won't show up in
-    /// later <code>DescribeBackups</code> calls.
-    /// </para><important><para>
-    /// The data in a deleted backup is also deleted and can't be recovered by any means.
-    /// </para></important>
+    /// Deletes the dataset refresh properties of the dataset.
     /// </summary>
-    [Cmdlet("Remove", "FSXBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.FSx.Model.DeleteBackupResponse")]
-    [AWSCmdlet("Calls the Amazon FSx DeleteBackup API operation.", Operation = new[] {"DeleteBackup"}, SelectReturnType = typeof(Amazon.FSx.Model.DeleteBackupResponse))]
-    [AWSCmdletOutput("Amazon.FSx.Model.DeleteBackupResponse",
-        "This cmdlet returns an Amazon.FSx.Model.DeleteBackupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "QSDataSetRefreshProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight DeleteDataSetRefreshProperties API operation.", Operation = new[] {"DeleteDataSetRefreshProperties"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFSXBackupCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class RemoveQSDataSetRefreshPropertyCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
-        #region Parameter BackupId
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the backup that you want to delete.</para>
+        /// <para>The Amazon Web Services account ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter DataSetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the dataset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,25 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupId { get; set; }
-        #endregion
-        
-        #region Parameter ClientRequestToken
-        /// <summary>
-        /// <para>
-        /// <para>A string of up to 63 ASCII characters that Amazon FSx uses to ensure idempotent deletion.
-        /// This parameter is automatically filled on your behalf when using the CLI or SDK.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientRequestToken { get; set; }
+        public System.String DataSetId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FSx.Model.DeleteBackupResponse).
-        /// Specifying the name of a property of type Amazon.FSx.Model.DeleteBackupResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DataSetId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DataSetId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DataSetId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BackupId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FSXBackup (DeleteBackup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DataSetId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QSDataSetRefreshProperty (DeleteDataSetRefreshProperties)"))
             {
                 return;
             }
@@ -126,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FSx.Model.DeleteBackupResponse, RemoveFSXBackupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse, RemoveQSDataSetRefreshPropertyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,17 +132,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupId;
+                context.Select = (response, cmdlet) => this.DataSetId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupId = this.BackupId;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.BackupId == null && ParameterWasBound(nameof(this.BackupId)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ClientRequestToken = this.ClientRequestToken;
+            context.DataSetId = this.DataSetId;
+            #if MODULAR
+            if (this.DataSetId == null && ParameterWasBound(nameof(this.DataSetId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter DataSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FSx.Model.DeleteBackupRequest();
+            var request = new Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesRequest();
             
-            if (cmdletContext.BackupId != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.BackupId = cmdletContext.BackupId;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.ClientRequestToken != null)
+            if (cmdletContext.DataSetId != null)
             {
-                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                request.DataSetId = cmdletContext.DataSetId;
             }
             
             CmdletOutput output;
@@ -203,15 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.DeleteBackupResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.DeleteBackupRequest request)
+        private Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "DeleteBackup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DeleteDataSetRefreshProperties");
             try
             {
                 #if DESKTOP
-                return client.DeleteBackup(request);
+                return client.DeleteDataSetRefreshProperties(request);
                 #elif CORECLR
-                return client.DeleteBackupAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDataSetRefreshPropertiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -231,9 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupId { get; set; }
-            public System.String ClientRequestToken { get; set; }
-            public System.Func<Amazon.FSx.Model.DeleteBackupResponse, RemoveFSXBackupCmdlet, object> Select { get; set; } =
+            public System.String AwsAccountId { get; set; }
+            public System.String DataSetId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.DeleteDataSetRefreshPropertiesResponse, RemoveQSDataSetRefreshPropertyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

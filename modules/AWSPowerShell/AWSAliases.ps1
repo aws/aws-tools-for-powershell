@@ -14453,6 +14453,7 @@ Set-Alias -Name Invoke-LM -Value Invoke-LMFunction
 Set-Alias -Name LM-Invoke -Value Invoke-LMFunction
 Set-Alias -Name Invoke-LMAsync -Value Invoke-LMFunctionAsync
 Set-Alias -Name LM-InvokeAsync -Value Invoke-LMFunctionAsync
+Set-Alias -Name LM-InvokeWithResponseStream -Value Invoke-LMWithResponseStream
 Set-Alias -Name List-LMAliases -Value Get-LMAliasList
 Set-Alias -Name List-LMAliasList -Value Get-LMAliasList
 Set-Alias -Name LM-ListAliases -Value Get-LMAliasList
@@ -18960,6 +18961,8 @@ Set-Alias -Name Create-QSIngestion -Value New-QSIngestion
 Set-Alias -Name QS-CreateIngestion -Value New-QSIngestion
 Set-Alias -Name Create-QSNamespace -Value New-QSNamespace
 Set-Alias -Name QS-CreateNamespace -Value New-QSNamespace
+Set-Alias -Name Create-QSRefreshSchedule -Value New-QSRefreshSchedule
+Set-Alias -Name QS-CreateRefreshSchedule -Value New-QSRefreshSchedule
 Set-Alias -Name Create-QSTemplateAlias -Value New-QSTemplateAlias
 Set-Alias -Name QS-CreateTemplateAlias -Value New-QSTemplateAlias
 Set-Alias -Name Create-QSTemplate -Value New-QSTemplate
@@ -18978,6 +18981,9 @@ Set-Alias -Name Delete-QSDashboard -Value Remove-QSDashboard
 Set-Alias -Name QS-DeleteDashboard -Value Remove-QSDashboard
 Set-Alias -Name Delete-QSDataSet -Value Remove-QSDataSet
 Set-Alias -Name QS-DeleteDataSet -Value Remove-QSDataSet
+Set-Alias -Name Delete-QSDataSetRefreshProperties -Value Remove-QSDataSetRefreshProperty
+Set-Alias -Name Delete-QSDataSetRefreshProperty -Value Remove-QSDataSetRefreshProperty
+Set-Alias -Name QS-DeleteDataSetRefreshProperties -Value Remove-QSDataSetRefreshProperty
 Set-Alias -Name Delete-QSDataSource -Value Remove-QSDataSource
 Set-Alias -Name QS-DeleteDataSource -Value Remove-QSDataSource
 Set-Alias -Name Delete-QSFolder -Value Remove-QSFolder
@@ -18992,6 +18998,8 @@ Set-Alias -Name Delete-QSIAMPolicyAssignment -Value Remove-QSIAMPolicyAssignment
 Set-Alias -Name QS-DeleteIAMPolicyAssignment -Value Remove-QSIAMPolicyAssignment
 Set-Alias -Name Delete-QSNamespace -Value Remove-QSNamespace
 Set-Alias -Name QS-DeleteNamespace -Value Remove-QSNamespace
+Set-Alias -Name Delete-QSRefreshSchedule -Value Remove-QSRefreshSchedule
+Set-Alias -Name QS-DeleteRefreshSchedule -Value Remove-QSRefreshSchedule
 Set-Alias -Name Delete-QSTemplateAlias -Value Remove-QSTemplateAlias
 Set-Alias -Name QS-DeleteTemplateAlias -Value Remove-QSTemplateAlias
 Set-Alias -Name Delete-QSTemplate -Value Remove-QSTemplate
@@ -19030,6 +19038,9 @@ Set-Alias -Name QS-DescribeDataSet -Value Get-QSDataSet
 Set-Alias -Name Describe-QSDataSetPermissions -Value Get-QSDataSetPermission
 Set-Alias -Name Describe-QSDataSetPermission -Value Get-QSDataSetPermission
 Set-Alias -Name QS-DescribeDataSetPermissions -Value Get-QSDataSetPermission
+Set-Alias -Name Describe-QSDataSetRefreshProperties -Value Get-QSDataSetRefreshProperty
+Set-Alias -Name Describe-QSDataSetRefreshProperty -Value Get-QSDataSetRefreshProperty
+Set-Alias -Name QS-DescribeDataSetRefreshProperties -Value Get-QSDataSetRefreshProperty
 Set-Alias -Name Describe-QSDataSource -Value Get-QSDataSource
 Set-Alias -Name QS-DescribeDataSource -Value Get-QSDataSource
 Set-Alias -Name Describe-QSDataSourcePermissions -Value Get-QSDataSourcePermission
@@ -19055,6 +19066,8 @@ Set-Alias -Name Describe-QSIpRestriction -Value Get-QSIpRestriction
 Set-Alias -Name QS-DescribeIpRestriction -Value Get-QSIpRestriction
 Set-Alias -Name Describe-QSNamespace -Value Get-QSNamespace
 Set-Alias -Name QS-DescribeNamespace -Value Get-QSNamespace
+Set-Alias -Name Describe-QSRefreshSchedule -Value Get-QSRefreshSchedule
+Set-Alias -Name QS-DescribeRefreshSchedule -Value Get-QSRefreshSchedule
 Set-Alias -Name Describe-QSTemplateAlias -Value Get-QSTemplateAlias
 Set-Alias -Name QS-DescribeTemplateAlias -Value Get-QSTemplateAlias
 Set-Alias -Name Describe-QSTemplate -Value Get-QSTemplate
@@ -19118,6 +19131,9 @@ Set-Alias -Name QS-ListIngestions -Value Get-QSIngestionList
 Set-Alias -Name List-QSNamespaces -Value Get-QSNamespaceList
 Set-Alias -Name List-QSNamespaceList -Value Get-QSNamespaceList
 Set-Alias -Name QS-ListNamespaces -Value Get-QSNamespaceList
+Set-Alias -Name List-QSRefreshSchedules -Value Get-QSRefreshScheduleList
+Set-Alias -Name List-QSRefreshScheduleList -Value Get-QSRefreshScheduleList
+Set-Alias -Name QS-ListRefreshSchedules -Value Get-QSRefreshScheduleList
 Set-Alias -Name QS-ListTagsForResource -Value Get-QSResourceTag
 Set-Alias -Name List-QSTemplateAliases -Value Get-QSTemplateAliasList
 Set-Alias -Name List-QSTemplateAliasList -Value Get-QSTemplateAliasList
@@ -19143,6 +19159,9 @@ Set-Alias -Name QS-ListUserGroups -Value Get-QSUserGroupList
 Set-Alias -Name List-QSUsers -Value Get-QSUserList
 Set-Alias -Name List-QSUserList -Value Get-QSUserList
 Set-Alias -Name QS-ListUsers -Value Get-QSUserList
+Set-Alias -Name Put-QSDataSetRefreshProperties -Value Write-QSDataSetRefreshProperty
+Set-Alias -Name Put-QSDataSetRefreshProperty -Value Write-QSDataSetRefreshProperty
+Set-Alias -Name QS-PutDataSetRefreshProperties -Value Write-QSDataSetRefreshProperty
 Set-Alias -Name QS-RegisterUser -Value Register-QSUser
 Set-Alias -Name QS-RestoreAnalysis -Value Restore-QSAnalysis
 Set-Alias -Name Search-QSAnalyses -Value Search-QSAnalysis
@@ -19184,6 +19203,7 @@ Set-Alias -Name QS-UpdateIAMPolicyAssignment -Value Update-QSIAMPolicyAssignment
 Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
 Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting
+Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule
 Set-Alias -Name QS-UpdateTemplateAlias -Value Update-QSTemplateAlias
 Set-Alias -Name QS-UpdateTemplate -Value Update-QSTemplate
 Set-Alias -Name Update-QSTemplatePermissions -Value Update-QSTemplatePermission

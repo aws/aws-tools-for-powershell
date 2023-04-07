@@ -142,8 +142,21 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.InvokeMode
+        {
+            ($_ -eq "New-LMFunctionUrlConfig/InvokeMode") -Or
+            ($_ -eq "Update-LMFunctionUrlConfig/InvokeMode")
+        }
+        {
+            $v = "BUFFERED","RESPONSE_STREAM"
+            break
+        }
+
         # Amazon.Lambda.LogType
-        "Invoke-LMFunction/LogType"
+        {
+            ($_ -eq "Invoke-LMFunction/LogType") -Or
+            ($_ -eq "Invoke-LMWithResponseStream/LogType")
+        }
         {
             $v = "None","Tail"
             break
@@ -153,6 +166,13 @@ $LM_Completers = {
         "Publish-LMFunction/PackageType"
         {
             $v = "Image","Zip"
+            break
+        }
+
+        # Amazon.Lambda.ResponseStreamingInvocationType
+        "Invoke-LMWithResponseStream/InvocationType"
+        {
+            $v = "DryRun","RequestResponse"
             break
         }
 
@@ -211,8 +231,9 @@ $LM_map = @{
     "DocumentDBEventSourceConfig_FullDocument"=@("New-LMEventSourceMapping","Update-LMEventSourceMapping")
     "FunctionUrlAuthType"=@("Add-LMPermission")
     "FunctionVersion"=@("Get-LMFunctionList")
-    "InvocationType"=@("Invoke-LMFunction")
-    "LogType"=@("Invoke-LMFunction")
+    "InvocationType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
+    "InvokeMode"=@("New-LMFunctionUrlConfig","Update-LMFunctionUrlConfig")
+    "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
@@ -306,6 +327,7 @@ $LM_SelectMap = @{
                "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
                "Invoke-LMFunctionAsync",
+               "Invoke-LMWithResponseStream",
                "Get-LMAliasList",
                "Get-LMCodeSigningConfigList",
                "Get-LMEventSourceMappingList",

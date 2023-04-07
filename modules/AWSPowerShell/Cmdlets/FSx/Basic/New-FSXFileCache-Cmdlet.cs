@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>An idempotency token for resource creation, in a string of up to 64 ASCII characters.
+        /// <para>An idempotency token for resource creation, in a string of up to 63 ASCII characters.
         /// This token is automatically filled on your behalf when you use the Command Line Interface
         /// (CLI) or an Amazon Web Services SDK.</para><para>By using the idempotent operation, you can retry a <code>CreateFileCache</code> operation
         /// without the risk of creating an extra cache. This approach can be useful when an initial
