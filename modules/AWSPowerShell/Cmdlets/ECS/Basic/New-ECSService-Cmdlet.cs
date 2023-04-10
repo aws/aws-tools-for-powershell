@@ -241,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter EnableExecuteCommand
         /// <summary>
         /// <para>
-        /// <para>Determines whether the execute command functionality is enabled for the service. If
-        /// <code>true</code>, this enables execute command functionality on all containers in
-        /// the service tasks.</para>
+        /// <para>Determines whether the execute command functionality is turned on for the service.
+        /// If <code>true</code>, this enables execute command functionality on all containers
+        /// in the service tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -418,7 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for
         /// use with Service Connect. The namespace must be in the same Amazon Web Services Region
         /// as the Amazon ECS service and cluster. The type of namespace doesn't affect Service
-        /// Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+        /// Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
         /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -680,7 +680,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
         /// full ARN of the task definition to run in your service. If a <code>revision</code>
         /// isn't specified, the latest <code>ACTIVE</code> revision is used.</para><para>A task definition must be specified if the service uses either the <code>ECS</code>
-        /// or <code>CODE_DEPLOY</code> deployment controllers.</para>
+        /// or <code>CODE_DEPLOY</code> deployment controllers.</para><para>For more information about deployment types, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
+        /// ECS deployment types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

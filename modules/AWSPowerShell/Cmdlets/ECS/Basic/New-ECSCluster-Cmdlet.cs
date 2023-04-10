@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// instance discovery method is the "HTTP" namespace type in the Command Line Interface.
         /// Other types of instance discovery aren't used by Service Connect.</para><para>If you update the service with an empty string <code>""</code> for the namespace name,
         /// the cluster configuration for Service Connect is removed. Note that the namespace
-        /// will remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+        /// will remain in Cloud Map and must be deleted separately.</para><para>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
         /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -39,19 +39,21 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><ul><li><para>
     /// If you are creating a stream processor for detecting faces, you provide as input a
     /// Kinesis video stream (<code>Input</code>) and a Kinesis data stream (<code>Output</code>)
-    /// stream. You also specify the face recognition criteria in <code>Settings</code>. For
-    /// example, the collection containing faces that you want to recognize. After you have
-    /// finished analyzing a streaming video, use <a>StopStreamProcessor</a> to stop processing.
+    /// stream for receiving the output. You must use the <code>FaceSearch</code> option in
+    /// <code>Settings</code>, specifying the collection that contains the faces you want
+    /// to recognize. After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a>
+    /// to stop processing.
     /// </para></li><li><para>
     /// If you are creating a stream processor to detect labels, you provide as input a Kinesis
     /// video stream (<code>Input</code>), Amazon S3 bucket information (<code>Output</code>),
     /// and an Amazon SNS topic ARN (<code>NotificationChannel</code>). You can also provide
     /// a KMS key ID to encrypt the data sent to your Amazon S3 bucket. You specify what you
-    /// want to detect in <code>ConnectedHomeSettings</code>, such as people, packages and
-    /// people, or pets, people, and packages. You can also specify where in the frame you
-    /// want Amazon Rekognition to monitor with <code>RegionsOfInterest</code>. When you run
-    /// the <a>StartStreamProcessor</a> operation on a label detection stream processor, you
-    /// input start and stop information to determine the length of the processing time.
+    /// want to detect by using the <code>ConnectedHome</code> option in settings, and selecting
+    /// one of the following: <code>PERSON</code>, <code>PET</code>, <code>PACKAGE</code>,
+    /// <code>ALL</code> You can also specify where in the frame you want Amazon Rekognition
+    /// to monitor with <code>RegionsOfInterest</code>. When you run the <a>StartStreamProcessor</a>
+    /// operation on a label detection stream processor, you input start and stop information
+    /// to determine the length of the processing time.
     /// </para></li></ul><para>
     ///  Use <code>Name</code> to assign an identifier for the stream processor. You use <code>Name</code>
     /// to manage the stream processor. For example, you can start processing the source video

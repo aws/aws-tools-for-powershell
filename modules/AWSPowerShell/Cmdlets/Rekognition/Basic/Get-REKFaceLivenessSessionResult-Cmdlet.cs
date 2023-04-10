@@ -28,30 +28,29 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Stops a running model. The operation might take a while to complete. To check the
-    /// current status, call <a>DescribeProjectVersions</a>. 
-    /// 
-    ///  
-    /// <para>
-    /// This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
-    /// action.
-    /// </para>
+    /// Retrieves the results of a specific Face Liveness session. It requires the <code>sessionId</code>
+    /// as input, which was created using <code>CreateFaceLivenessSession</code>. Returns
+    /// the corresponding Face Liveness confidence score, a reference image that includes
+    /// a face bounding box, and audit images that also contain face bounding boxes. The Face
+    /// Liveness confidence score ranges from 0 to 100. The reference image can optionally
+    /// be returned.
     /// </summary>
-    [Cmdlet("Stop", "REKProjectVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Rekognition.ProjectVersionStatus")]
-    [AWSCmdlet("Calls the Amazon Rekognition StopProjectVersion API operation.", Operation = new[] {"StopProjectVersion"}, SelectReturnType = typeof(Amazon.Rekognition.Model.StopProjectVersionResponse))]
-    [AWSCmdletOutput("Amazon.Rekognition.ProjectVersionStatus or Amazon.Rekognition.Model.StopProjectVersionResponse",
-        "This cmdlet returns an Amazon.Rekognition.ProjectVersionStatus object.",
-        "The service call response (type Amazon.Rekognition.Model.StopProjectVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "REKFaceLivenessSessionResult")]
+    [OutputType("Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse")]
+    [AWSCmdlet("Calls the Amazon Rekognition GetFaceLivenessSessionResults API operation.", Operation = new[] {"GetFaceLivenessSessionResults"}, SelectReturnType = typeof(Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse))]
+    [AWSCmdletOutput("Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse",
+        "This cmdlet returns an Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopREKProjectVersionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
+    public partial class GetREKFaceLivenessSessionResultCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
-        #region Parameter ProjectVersionArn
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the model version that you want to delete.</para><para>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code>
-        /// action.</para>
+        /// <para>A unique 128-bit UUID. This is used to uniquely identify the session and also acts
+        /// as an idempotency token for all operations associated with the session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,50 +61,34 @@ namespace Amazon.PowerShell.Cmdlets.REK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProjectVersionArn { get; set; }
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.StopProjectVersionResponse).
-        /// Specifying the name of a property of type Amazon.Rekognition.Model.StopProjectVersionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse).
+        /// Specifying the name of a property of type Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Status";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ProjectVersionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ProjectVersionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SessionId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProjectVersionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SessionId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProjectVersionArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-REKProjectVersion (StopProjectVersion)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -115,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.StopProjectVersionResponse, StopREKProjectVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse, GetREKFaceLivenessSessionResultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,14 +107,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ProjectVersionArn;
+                context.Select = (response, cmdlet) => this.SessionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ProjectVersionArn = this.ProjectVersionArn;
+            context.SessionId = this.SessionId;
             #if MODULAR
-            if (this.ProjectVersionArn == null && ParameterWasBound(nameof(this.ProjectVersionArn)))
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProjectVersionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -148,11 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Rekognition.Model.StopProjectVersionRequest();
+            var request = new Amazon.Rekognition.Model.GetFaceLivenessSessionResultsRequest();
             
-            if (cmdletContext.ProjectVersionArn != null)
+            if (cmdletContext.SessionId != null)
             {
-                request.ProjectVersionArn = cmdletContext.ProjectVersionArn;
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -187,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private Amazon.Rekognition.Model.StopProjectVersionResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.StopProjectVersionRequest request)
+        private Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.GetFaceLivenessSessionResultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "StopProjectVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "GetFaceLivenessSessionResults");
             try
             {
                 #if DESKTOP
-                return client.StopProjectVersion(request);
+                return client.GetFaceLivenessSessionResults(request);
                 #elif CORECLR
-                return client.StopProjectVersionAsync(request).GetAwaiter().GetResult();
+                return client.GetFaceLivenessSessionResultsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -215,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProjectVersionArn { get; set; }
-            public System.Func<Amazon.Rekognition.Model.StopProjectVersionResponse, StopREKProjectVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Status;
+            public System.String SessionId { get; set; }
+            public System.Func<Amazon.Rekognition.Model.GetFaceLivenessSessionResultsResponse, GetREKFaceLivenessSessionResultCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

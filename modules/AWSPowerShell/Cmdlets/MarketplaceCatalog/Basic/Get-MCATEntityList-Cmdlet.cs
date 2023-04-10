@@ -85,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public Amazon.MarketplaceCatalog.Model.Filter[] FilterList { get; set; }
         #endregion
         
+        #region Parameter OwnershipType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.OwnershipType")]
+        public Amazon.MarketplaceCatalog.OwnershipType OwnershipType { get; set; }
+        #endregion
+        
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
@@ -211,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OwnershipType = this.OwnershipType;
             context.Sort_SortBy = this.Sort_SortBy;
             context.Sort_SortOrder = this.Sort_SortOrder;
             
@@ -248,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.OwnershipType != null)
+            {
+                request.OwnershipType = cmdletContext.OwnershipType;
             }
             
              // populate Sort
@@ -368,6 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public List<Amazon.MarketplaceCatalog.Model.Filter> FilterList { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.MarketplaceCatalog.OwnershipType OwnershipType { get; set; }
             public System.String Sort_SortBy { get; set; }
             public Amazon.MarketplaceCatalog.SortOrder Sort_SortOrder { get; set; }
             public System.Func<Amazon.MarketplaceCatalog.Model.ListEntitiesResponse, GetMCATEntityListCmdlet, object> Select { get; set; } =

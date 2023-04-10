@@ -116,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The content of the chat message. </para><ul><li><para>For <code>text/plain</code> and <code>text/markdown</code>, the Length Constraints
         /// are Minimum of 1, Maximum of 1024. </para></li><li><para>For <code>application/json</code>, the Length Constraints are Minimum of 1, Maximum
-        /// of 12000. </para></li></ul>
+        /// of 12000. </para></li><li><para>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the
+        /// Length Constraints are Minimum of 1, Maximum of 12288.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>,
-        /// and <code>application/json</code>.</para>
+        /// <code>application/json</code>, and <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

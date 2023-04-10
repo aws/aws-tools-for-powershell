@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// If you change the account setting for the root user, the default settings for all
-    /// of the users and roles that no individual account setting was specified are reset
-    /// for. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
+    /// If you change the root user account setting, the default settings are reset for users
+    /// and roles that do not have specified individual account settings. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
     /// Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// When <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or <code>containerInstanceLongArnFormat</code>
@@ -47,15 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// When <code>awsvpcTrunking</code> is specified, the elastic network interface (ENI)
     /// limit for any new container instances that support the feature is changed. If <code>awsvpcTrunking</code>
-    /// is enabled, any new container instances that support the feature are launched have
+    /// is turned on, any new container instances that support the feature are launched have
     /// the increased ENI limits available to them. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic
     /// Network Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
     /// </para><para>
     /// When <code>containerInsights</code> is specified, the default setting indicating whether
-    /// CloudWatch Container Insights is enabled for your clusters is changed. If <code>containerInsights</code>
-    /// is enabled, any new clusters that are created will have Container Insights enabled
-    /// unless you disable it during cluster creation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
+    /// Amazon Web Services CloudWatch Container Insights is turned on for your clusters is
+    /// changed. If <code>containerInsights</code> is turned on, any new clusters that are
+    /// created will have Container Insights turned on unless you disable it during cluster
+    /// creation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
     /// Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -78,8 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// is specified, the ARN and resource ID for your Amazon ECS container instances is affected.
         /// If <code>awsvpcTrunking</code> is specified, the elastic network interface (ENI) limit
         /// for your Amazon ECS container instances is affected. If <code>containerInsights</code>
-        /// is specified, the default setting for CloudWatch Container Insights for your clusters
-        /// is affected.</para>
+        /// is specified, the default setting for Amazon Web Services CloudWatch Container Insights
+        /// for your clusters is affected. If <code>fargateFIPSMode</code> is specified, Fargate
+        /// FIPS 140 compliance is affected.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

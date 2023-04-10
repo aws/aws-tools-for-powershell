@@ -203,7 +203,7 @@ $OMICS_Completers = {
             ($_ -eq "Start-OMICSRun/WorkflowType")
         }
         {
-            $v = "PRIVATE","SERVICE"
+            $v = "PRIVATE"
             break
         }
 

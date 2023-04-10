@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ImageContent
         /// <summary>
         /// <para>
-        /// <para>Blob of image bytes up to 5 MBs.</para>
+        /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
+        /// <code>DetectCustomLabels</code> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

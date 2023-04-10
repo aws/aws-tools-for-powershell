@@ -15721,10 +15721,13 @@ Set-Alias -Name Vote-MBCProposalVote -Value Send-MBCProposalVote
 Set-Alias -Name MBC-VoteOnProposal -Value Send-MBCProposalVote
 Set-Alias -Name Cancel-MCATChangeSet -Value Stop-MCATChangeSet
 Set-Alias -Name MCAT-CancelChangeSet -Value Stop-MCATChangeSet
+Set-Alias -Name Delete-MCATResourcePolicy -Value Remove-MCATResourcePolicy
+Set-Alias -Name MCAT-DeleteResourcePolicy -Value Remove-MCATResourcePolicy
 Set-Alias -Name Describe-MCATChangeSet -Value Get-MCATChangeSet
 Set-Alias -Name MCAT-DescribeChangeSet -Value Get-MCATChangeSet
 Set-Alias -Name Describe-MCATEntity -Value Get-MCATEntity
 Set-Alias -Name MCAT-DescribeEntity -Value Get-MCATEntity
+Set-Alias -Name MCAT-GetResourcePolicy -Value Get-MCATResourcePolicy
 Set-Alias -Name List-MCATChangeSets -Value Get-MCATChangeSetList
 Set-Alias -Name List-MCATChangeSetList -Value Get-MCATChangeSetList
 Set-Alias -Name MCAT-ListChangeSets -Value Get-MCATChangeSetList
@@ -15732,6 +15735,8 @@ Set-Alias -Name List-MCATEntities -Value Get-MCATEntityList
 Set-Alias -Name List-MCATEntityList -Value Get-MCATEntityList
 Set-Alias -Name MCAT-ListEntities -Value Get-MCATEntityList
 Set-Alias -Name MCAT-ListTagsForResource -Value Get-MCATResourceTag
+Set-Alias -Name Put-MCATResourcePolicy -Value Write-MCATResourcePolicy
+Set-Alias -Name MCAT-PutResourcePolicy -Value Write-MCATResourcePolicy
 Set-Alias -Name MCAT-StartChangeSet -Value Start-MCATChangeSet
 Set-Alias -Name MCAT-TagResource -Value Add-MCATResourceTag
 Set-Alias -Name MCAT-UntagResource -Value Remove-MCATResourceTag
@@ -19951,6 +19956,8 @@ Set-Alias -Name Create-REKCollection -Value New-REKCollection
 Set-Alias -Name REK-CreateCollection -Value New-REKCollection
 Set-Alias -Name Create-REKDataset -Value New-REKDataset
 Set-Alias -Name REK-CreateDataset -Value New-REKDataset
+Set-Alias -Name Create-REKFaceLivenessSession -Value New-REKFaceLivenessSession
+Set-Alias -Name REK-CreateFaceLivenessSession -Value New-REKFaceLivenessSession
 Set-Alias -Name Create-REKProject -Value New-REKProject
 Set-Alias -Name REK-CreateProject -Value New-REKProject
 Set-Alias -Name Create-REKProjectVersion -Value New-REKProjectVersion
@@ -20007,6 +20014,8 @@ Set-Alias -Name REK-GetCelebrityInfo -Value Get-REKCelebrityInfo
 Set-Alias -Name REK-GetCelebrityRecognition -Value Get-REKCelebrityRecognition
 Set-Alias -Name REK-GetContentModeration -Value Get-REKContentModeration
 Set-Alias -Name REK-GetFaceDetection -Value Get-REKFaceDetection
+Set-Alias -Name Get-REKFaceLivenessSessionResults -Value Get-REKFaceLivenessSessionResult
+Set-Alias -Name REK-GetFaceLivenessSessionResults -Value Get-REKFaceLivenessSessionResult
 Set-Alias -Name REK-GetFaceSearch -Value Get-REKFaceSearch
 Set-Alias -Name REK-GetLabelDetection -Value Get-REKLabelDetection
 Set-Alias -Name REK-GetPersonTracking -Value Get-REKPersonTracking

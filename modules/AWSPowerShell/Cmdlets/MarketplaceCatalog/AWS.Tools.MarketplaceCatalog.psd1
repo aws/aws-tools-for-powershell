@@ -91,10 +91,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MCATChangeSetList', 
         'Get-MCATEntity', 
         'Get-MCATEntityList', 
+        'Get-MCATResourcePolicy', 
         'Get-MCATResourceTag', 
+        'Remove-MCATResourcePolicy', 
         'Remove-MCATResourceTag', 
         'Start-MCATChangeSet', 
-        'Stop-MCATChangeSet')
+        'Stop-MCATChangeSet', 
+        'Write-MCATResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

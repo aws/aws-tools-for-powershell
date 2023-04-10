@@ -48,6 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     /// </para><para>
     /// You copy a model version by calling <a>CopyProjectVersion</a>.
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>rekognition:PutProjectPolicy</code>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "REKProjectPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

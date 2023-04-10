@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// Task-protection, by default, expires after 2 hours at which point Amazon ECS unsets
+    /// Task-protection, by default, expires after 2 hours at which point Amazon ECS clears
     /// the <code>protectionEnabled</code> property making the task eligible for termination
     /// by a subsequent scale-in event.
     /// </para><para>

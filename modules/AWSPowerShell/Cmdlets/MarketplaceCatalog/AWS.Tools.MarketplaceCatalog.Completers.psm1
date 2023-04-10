@@ -80,6 +80,13 @@ $MCAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceCatalog.OwnershipType
+        "Get-MCATEntityList/OwnershipType"
+        {
+            $v = "SELF","SHARED"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.SortOrder
         {
             ($_ -eq "Get-MCATChangeSetList/Sort_SortOrder") -Or
@@ -99,6 +106,7 @@ $MCAT_Completers = {
 }
 
 $MCAT_map = @{
+    "OwnershipType"=@("Get-MCATEntityList")
     "Sort_SortOrder"=@("Get-MCATChangeSetList","Get-MCATEntityList")
 }
 
@@ -153,11 +161,14 @@ $MCAT_SelectCompleters = {
 
 $MCAT_SelectMap = @{
     "Select"=@("Stop-MCATChangeSet",
+               "Remove-MCATResourcePolicy",
                "Get-MCATChangeSet",
                "Get-MCATEntity",
+               "Get-MCATResourcePolicy",
                "Get-MCATChangeSetList",
                "Get-MCATEntityList",
                "Get-MCATResourceTag",
+               "Write-MCATResourcePolicy",
                "Start-MCATChangeSet",
                "Add-MCATResourceTag",
                "Remove-MCATResourceTag")

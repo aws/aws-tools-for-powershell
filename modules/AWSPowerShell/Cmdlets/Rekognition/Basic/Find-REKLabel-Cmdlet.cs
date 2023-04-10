@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// labels.
     /// </para><para><b>Response Elements</b></para><para>
     ///  For each object, scene, and concept the API returns one or more labels. The API returns
-    /// the following types of information regarding labels:
+    /// the following types of information about labels:
     /// </para><ul><li><para>
     ///  Name - The name of the detected label. 
     /// </para></li><li><para>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// If the object detected is a person, the operation doesn't provide the same facial
     /// details that the <a>DetectFaces</a> operation provides.
     /// </para></note><para>
-    /// This is a stateless API operation. That is, the operation does not persist any data.
+    /// This is a stateless API operation that doesn't return any data.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:DetectLabels</code>
     /// action. 
@@ -142,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter ImageContent
         /// <summary>
         /// <para>
-        /// <para>Blob of image bytes up to 5 MBs.</para>
+        /// <para>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to
+        /// <code>DetectCustomLabels</code> is 4MB. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

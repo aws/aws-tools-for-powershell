@@ -20293,7 +20293,7 @@ $ECS_Completers = {
             ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
-            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","serviceLongArnFormat","taskLongArnFormat"
+            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","serviceLongArnFormat","taskLongArnFormat"
             break
         }
 
@@ -36024,6 +36024,13 @@ $MCAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MarketplaceCatalog.OwnershipType
+        "Get-MCATEntityList/OwnershipType"
+        {
+            $v = "SELF","SHARED"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.SortOrder
         {
             ($_ -eq "Get-MCATChangeSetList/Sort_SortOrder") -Or
@@ -36043,6 +36050,7 @@ $MCAT_Completers = {
 }
 
 $MCAT_map = @{
+    "OwnershipType"=@("Get-MCATEntityList")
     "Sort_SortOrder"=@("Get-MCATChangeSetList","Get-MCATEntityList")
 }
 
@@ -36097,11 +36105,14 @@ $MCAT_SelectCompleters = {
 
 $MCAT_SelectMap = @{
     "Select"=@("Stop-MCATChangeSet",
+               "Remove-MCATResourcePolicy",
                "Get-MCATChangeSet",
                "Get-MCATEntity",
+               "Get-MCATResourcePolicy",
                "Get-MCATChangeSetList",
                "Get-MCATEntityList",
                "Get-MCATResourceTag",
+               "Write-MCATResourcePolicy",
                "Start-MCATChangeSet",
                "Add-MCATResourceTag",
                "Remove-MCATResourceTag")
@@ -40641,7 +40652,7 @@ $OMICS_Completers = {
             ($_ -eq "Start-OMICSRun/WorkflowType")
         }
         {
-            $v = "PRIVATE","SERVICE"
+            $v = "PRIVATE"
             break
         }
 
@@ -46126,6 +46137,7 @@ $REK_SelectMap = @{
                "Copy-REKProjectVersion",
                "New-REKCollection",
                "New-REKDataset",
+               "New-REKFaceLivenessSession",
                "New-REKProject",
                "New-REKProjectVersion",
                "New-REKStreamProcessor",
@@ -46152,6 +46164,7 @@ $REK_SelectMap = @{
                "Get-REKCelebrityRecognition",
                "Get-REKContentModeration",
                "Get-REKFaceDetection",
+               "Get-REKFaceLivenessSessionResult",
                "Get-REKFaceSearch",
                "Get-REKLabelDetection",
                "Get-REKPersonTracking",

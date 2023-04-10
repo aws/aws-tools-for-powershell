@@ -52,6 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// Copying a model version takes a while to complete. To get the current status, call
     /// <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the <a>ProjectVersionDescription</a>
     /// object. The copy operation has finished when the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.
+    /// </para><para>
+    /// This operation requires permissions to perform the <code>rekognition:CopyProjectVersion</code>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "REKProjectVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

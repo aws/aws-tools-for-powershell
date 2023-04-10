@@ -416,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for
         /// use with Service Connect. The namespace must be in the same Amazon Web Services Region
         /// as the Amazon ECS service and cluster. The type of namespace doesn't affect Service
-        /// Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+        /// Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/working-with-services.html">Working
         /// with Services</a> in the <i>Cloud Map Developer Guide</i>.</para>
         /// </para>
         /// </summary>

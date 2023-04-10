@@ -22,37 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Rekognition;
-using Amazon.Rekognition.Model;
+using Amazon.MarketplaceCatalog;
+using Amazon.MarketplaceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.REK
+namespace Amazon.PowerShell.Cmdlets.MCAT
 {
     /// <summary>
-    /// Deletes an existing project policy.
-    /// 
-    ///  
-    /// <para>
-    /// To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>.
-    /// To attach a project policy to a project, call <a>PutProjectPolicy</a>.
-    /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:DeleteProjectPolicy</code>
-    /// action.
-    /// </para>
+    /// Attaches a resource-based policy to an Entity. Examples of an entity include: <code>AmiProduct</code>
+    /// and <code>ContainerProduct</code>.
     /// </summary>
-    [Cmdlet("Remove", "REKProjectPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "MCATResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Rekognition DeleteProjectPolicy API operation.", Operation = new[] {"DeleteProjectPolicy"}, SelectReturnType = typeof(Amazon.Rekognition.Model.DeleteProjectPolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.Rekognition.Model.DeleteProjectPolicyResponse",
+    [AWSCmdlet("Calls the AWS Marketplace Catalog Service PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Rekognition.Model.DeleteProjectPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveREKProjectPolicyCmdlet : AmazonRekognitionClientCmdlet, IExecutor
+    public partial class WriteMCATResourcePolicyCmdlet : AmazonMarketplaceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter PolicyName
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The name of the policy that you want to delete.</para>
+        /// <para>The policy document to set; formatted in JSON.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,45 +55,45 @@ namespace Amazon.PowerShell.Cmdlets.REK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PolicyName { get; set; }
+        public System.String Policy { get; set; }
         #endregion
         
-        #region Parameter PolicyRevisionId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the project policy revision that you want to delete.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PolicyRevisionId { get; set; }
-        #endregion
-        
-        #region Parameter ProjectArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the project that the project policy you want to
-        /// delete is attached to.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Entity resource you want to associate with a
+        /// resource policy. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProjectArn { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Rekognition.Model.DeleteProjectPolicyResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -119,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-REKProjectPolicy (DeleteProjectPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-MCATResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -130,24 +122,33 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DeleteProjectPolicyResponse, RemoveREKProjectPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse, WriteMCATResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.PolicyName = this.PolicyName;
-            #if MODULAR
-            if (this.PolicyName == null && ParameterWasBound(nameof(this.PolicyName)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.ResourceArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Policy = this.Policy;
+            #if MODULAR
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PolicyRevisionId = this.PolicyRevisionId;
-            context.ProjectArn = this.ProjectArn;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ProjectArn == null && ParameterWasBound(nameof(this.ProjectArn)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProjectArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,19 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Rekognition.Model.DeleteProjectPolicyRequest();
+            var request = new Amazon.MarketplaceCatalog.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.PolicyName != null)
+            if (cmdletContext.Policy != null)
             {
-                request.PolicyName = cmdletContext.PolicyName;
+                request.Policy = cmdletContext.Policy;
             }
-            if (cmdletContext.PolicyRevisionId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.PolicyRevisionId = cmdletContext.PolicyRevisionId;
-            }
-            if (cmdletContext.ProjectArn != null)
-            {
-                request.ProjectArn = cmdletContext.ProjectArn;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -211,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private Amazon.Rekognition.Model.DeleteProjectPolicyResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.DeleteProjectPolicyRequest request)
+        private Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonMarketplaceCatalog client, Amazon.MarketplaceCatalog.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "DeleteProjectPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Catalog Service", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteProjectPolicy(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.DeleteProjectPolicyAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,10 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PolicyName { get; set; }
-            public System.String PolicyRevisionId { get; set; }
-            public System.String ProjectArn { get; set; }
-            public System.Func<Amazon.Rekognition.Model.DeleteProjectPolicyResponse, RemoveREKProjectPolicyCmdlet, object> Select { get; set; } =
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.MarketplaceCatalog.Model.PutResourcePolicyResponse, WriteMCATResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

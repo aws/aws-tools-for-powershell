@@ -42,7 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
     /// against the same entity (<code>entity-id@1</code>).
     /// </para><para>
     /// For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">
-    /// Working with change sets</a>.
+    /// Working with change sets</a>. For information on change types for single-AMI products,
+    /// see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working
+    /// with single-AMI products</a>. Als, for more information on change types available
+    /// for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working
+    /// with container products</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "MCATChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

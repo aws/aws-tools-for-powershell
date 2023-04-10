@@ -1,4 +1,15 @@
-﻿### 4.1.309 (2023-04-07 20:54Z)
+﻿### 4.1.310 (2023-04-10 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.523.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Marketplace Catalog Service
+    * Added cmdlet Get-MCATResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-MCATResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-MCATResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Get-MCATEntityList: added parameter OwnershipType.
+  * Amazon Rekognition
+    * Added cmdlet Get-REKFaceLivenessSessionResult leveraging the GetFaceLivenessSessionResults service API.
+    * Added cmdlet New-REKFaceLivenessSession leveraging the CreateFaceLivenessSession service API.
+
+### 4.1.309 (2023-04-07 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon DocumentDB (with MongoDB compatibility)
     * Modified cmdlet Restore-DOCDBClusterFromSnapshot: added parameter DBClusterParameterGroupName.
