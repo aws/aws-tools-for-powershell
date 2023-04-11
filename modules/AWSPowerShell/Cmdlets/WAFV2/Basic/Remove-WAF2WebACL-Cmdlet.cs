@@ -43,14 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// For regional resources, call <a>ListResourcesForWebACL</a>.
     /// </para></li><li><para>
     /// For Amazon CloudFront distributions, use the CloudFront call <code>ListDistributionsByWebACLId</code>.
-    /// For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>.
+    /// For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
+    /// in the <i>Amazon CloudFront API Reference</i>. 
     /// </para></li></ul></li><li><para>
     /// To disassociate a resource from a web ACL, use the following calls:
     /// </para><ul><li><para>
     /// For regional resources, call <a>DisassociateWebACL</a>.
     /// </para></li><li><para>
     /// For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront
-    /// call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
+    /// call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
+    /// in the <i>Amazon CloudFront API Reference</i>. 
     /// </para></li></ul></li></ul></note>
     /// </summary>
     [Cmdlet("Remove", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -128,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
         /// application. A regional application can be an Application Load Balancer (ALB), an
-        /// Amazon API Gateway REST API, an AppSync GraphQL API, a Amazon Cognito user pool, or
-        /// an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

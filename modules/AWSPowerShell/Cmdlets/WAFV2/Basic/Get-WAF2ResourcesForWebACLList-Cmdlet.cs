@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>
         /// <para>Used for web ACLs that are scoped for regional applications. A regional application
         /// can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
-        /// GraphQL API, a Amazon Cognito user pool, or an App Runner service. </para><note><para>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>.
+        /// GraphQL API, an Amazon Cognito user pool, or an App Runner service. </para><note><para>If you don't provide a resource type, the call uses the resource type <code>APPLICATION_LOAD_BALANCER</code>.
         /// </para></note><para>Default: <code>APPLICATION_LOAD_BALANCER</code></para>
         /// </para>
         /// </summary>

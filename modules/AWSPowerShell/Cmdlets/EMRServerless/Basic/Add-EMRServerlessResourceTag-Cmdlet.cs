@@ -28,11 +28,12 @@ using Amazon.EMRServerless.Model;
 namespace Amazon.PowerShell.Cmdlets.EMRServerless
 {
     /// <summary>
-    /// Assigns tags to resources. A tag is a label that you assign to an AWS resource. Each
-    /// tag consists of a key and an optional value, both of which you define. Tags enable
-    /// you to categorize your AWS resources by attributes such as purpose, owner, or environment.
-    /// When you have many resources of the same type, you can quickly identify a specific
-    /// resource based on the tags you've assigned to it.
+    /// Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services
+    /// resource. Each tag consists of a key and an optional value, both of which you define.
+    /// Tags enable you to categorize your Amazon Web Services resources by attributes such
+    /// as purpose, owner, or environment. When you have many resources of the same type,
+    /// you can quickly identify a specific resource based on the tags you've assigned to
+    /// it.
     /// </summary>
     [Cmdlet("Add", "EMRServerlessResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

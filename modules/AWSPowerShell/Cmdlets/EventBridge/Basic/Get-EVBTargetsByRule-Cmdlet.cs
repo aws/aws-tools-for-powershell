@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     public partial class GetEVBTargetsByRuleCmdlet : AmazonEventBridgeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter EventBusName
         /// <summary>
         /// <para>
