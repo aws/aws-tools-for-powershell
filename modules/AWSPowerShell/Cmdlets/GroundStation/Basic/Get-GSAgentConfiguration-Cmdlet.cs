@@ -28,7 +28,11 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
+    /// <note><para>
+    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
+    /// </para></note><para>
     /// Gets the latest configuration information for a registered agent.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GSAgentConfiguration")]
     [OutputType("Amazon.GroundStation.Model.GetAgentConfigurationResponse")]

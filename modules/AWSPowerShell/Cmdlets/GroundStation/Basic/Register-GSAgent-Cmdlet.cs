@@ -28,7 +28,11 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Registers a new agent with AWS Groundstation.
+    /// <note><para>
+    ///  For use by AWS Ground Station Agent and shouldn't be called directly.
+    /// </para></note><para>
+    ///  Registers a new agent with AWS Ground Station. 
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "GSAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -39,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.GS
     )]
     public partial class RegisterGSAgentCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentDetails_AgentCpuCore
+        /// <summary>
+        /// <para>
+        /// <para>List of CPU cores reserved for the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentDetails_AgentCpuCores")]
+        public System.Int32[] AgentDetails_AgentCpuCore { get; set; }
+        #endregion
         
         #region Parameter AgentDetails_AgentVersion
         /// <summary>
@@ -166,17 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter AgentDetails_ReservedCpuCore
         /// <summary>
         /// <para>
-        /// <para>Number of Cpu cores reserved for agent.</para>
+        /// <note><para>This field should not be used. Use agentCpuCores instead.</para></note><para>List of CPU cores reserved for processes other than the agent running on the EC2 instance.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("AgentDetails_ReservedCpuCores")]
         public System.Int32[] AgentDetails_ReservedCpuCore { get; set; }
         #endregion
@@ -223,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.RegisterAgentResponse, RegisterGSAgentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AgentDetails_AgentCpuCore != null)
+            {
+                context.AgentDetails_AgentCpuCore = new List<System.Int32>(this.AgentDetails_AgentCpuCore);
+            }
             context.AgentDetails_AgentVersion = this.AgentDetails_AgentVersion;
             #if MODULAR
             if (this.AgentDetails_AgentVersion == null && ParameterWasBound(nameof(this.AgentDetails_AgentVersion)))
@@ -258,12 +270,6 @@ namespace Amazon.PowerShell.Cmdlets.GS
             {
                 context.AgentDetails_ReservedCpuCore = new List<System.Int32>(this.AgentDetails_ReservedCpuCore);
             }
-            #if MODULAR
-            if (this.AgentDetails_ReservedCpuCore == null && ParameterWasBound(nameof(this.AgentDetails_ReservedCpuCore)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AgentDetails_ReservedCpuCore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.DiscoveryData_CapabilityArn != null)
             {
                 context.DiscoveryData_CapabilityArn = new List<System.String>(this.DiscoveryData_CapabilityArn);
@@ -314,6 +320,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
              // populate AgentDetails
             var requestAgentDetailsIsNull = true;
             request.AgentDetails = new Amazon.GroundStation.Model.AgentDetails();
+            List<System.Int32> requestAgentDetails_agentDetails_AgentCpuCore = null;
+            if (cmdletContext.AgentDetails_AgentCpuCore != null)
+            {
+                requestAgentDetails_agentDetails_AgentCpuCore = cmdletContext.AgentDetails_AgentCpuCore;
+            }
+            if (requestAgentDetails_agentDetails_AgentCpuCore != null)
+            {
+                request.AgentDetails.AgentCpuCores = requestAgentDetails_agentDetails_AgentCpuCore;
+                requestAgentDetailsIsNull = false;
+            }
             System.String requestAgentDetails_agentDetails_AgentVersion = null;
             if (cmdletContext.AgentDetails_AgentVersion != null)
             {
@@ -469,6 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.Int32> AgentDetails_AgentCpuCore { get; set; }
             public System.String AgentDetails_AgentVersion { get; set; }
             public List<Amazon.GroundStation.Model.ComponentVersion> AgentDetails_ComponentVersion { get; set; }
             public System.String AgentDetails_InstanceId { get; set; }

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter AccessorType
         /// <summary>
         /// <para>
-        /// <para>The type of accessor.</para><note><para>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</para></note>
+        /// <para>The type of accessor.</para><note><para>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

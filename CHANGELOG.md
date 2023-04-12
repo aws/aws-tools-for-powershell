@@ -1,4 +1,9 @@
-﻿### 4.1.311 (2023-04-11 22:08Z)
+﻿### 4.1.312 (2023-04-12 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.525.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Ground Station
+    * Modified cmdlet Register-GSAgent: added parameter AgentDetails_AgentCpuCore.
+
+### 4.1.311 (2023-04-11 22:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.524.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon WAF V2
     * Modified cmdlet New-WAF2WebACL: added parameter AssociationConfig_RequestBody.
