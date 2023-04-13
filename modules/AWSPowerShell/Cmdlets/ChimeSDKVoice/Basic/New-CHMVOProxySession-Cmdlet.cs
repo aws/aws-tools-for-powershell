@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter GeoMatchParams_Country
         /// <summary>
         /// <para>
-        /// <para>The country. </para>
+        /// <para>The country.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

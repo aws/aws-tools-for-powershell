@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// The type of encryption that will be used on
-        /// the output associated with this entitlement.
+        /// the output associated with this entitlement. Allowable encryption types: static-key,
+        /// speke.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

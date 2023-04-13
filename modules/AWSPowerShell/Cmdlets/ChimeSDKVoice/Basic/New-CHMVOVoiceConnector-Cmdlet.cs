@@ -43,6 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
     public partial class NewCHMVOVoiceConnectorCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         #region Parameter AwsRegion
         /// <summary>
         /// <para>
@@ -86,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? RequireEncryption { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags assigned to the Voice Connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ChimeSDKVoice.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -145,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 WriteWarning("You are passing $null as a value for parameter RequireEncryption which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ChimeSDKVoice.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -172,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             if (cmdletContext.RequireEncryption != null)
             {
                 request.RequireEncryption = cmdletContext.RequireEncryption.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -237,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             public Amazon.ChimeSDKVoice.VoiceConnectorAwsRegion AwsRegion { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? RequireEncryption { get; set; }
+            public List<Amazon.ChimeSDKVoice.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ChimeSDKVoice.Model.CreateVoiceConnectorResponse, NewCHMVOVoiceConnectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VoiceConnector;
         }

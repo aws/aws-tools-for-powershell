@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// The type of key used for the encryption. If
-        /// no keyType is provided, the service will use the default setting (static-key).
+        /// no keyType is provided, the service will use the default setting (static-key). Allowable
+        /// encryption types: static-key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -227,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// The stream ID that you want to use for this transport.
-        /// This parameter applies only to Zixi-based streams.
+        /// This parameter applies only to Zixi and SRT caller-based streams.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// The name of the VPC interface to use
-        /// for this output.
+        /// for this resource.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

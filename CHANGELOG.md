@@ -1,4 +1,32 @@
-﻿### 4.1.312 (2023-04-12 21:13Z)
+﻿### 4.1.313 (2023-04-13 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.526.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Voice
+    * Modified cmdlet New-CHMVOSipMediaApplication: added parameter Tag.
+    * Modified cmdlet New-CHMVOVoiceConnector: added parameter Tag.
+  * Amazon Elemental MediaConnect
+    * Added cmdlet Add-EMCNBridgeOutput leveraging the AddBridgeOutputs service API.
+    * Added cmdlet Add-EMCNBridgeSource leveraging the AddBridgeSources service API.
+    * Added cmdlet Get-EMCNBridge leveraging the DescribeBridge service API.
+    * Added cmdlet Get-EMCNBridgeList leveraging the ListBridges service API.
+    * Added cmdlet Get-EMCNGateway leveraging the DescribeGateway service API.
+    * Added cmdlet Get-EMCNGatewayInstance leveraging the DescribeGatewayInstance service API.
+    * Added cmdlet Get-EMCNGatewayInstanceList leveraging the ListGatewayInstances service API.
+    * Added cmdlet Get-EMCNGatewayList leveraging the ListGateways service API.
+    * Added cmdlet New-EMCNBridge leveraging the CreateBridge service API.
+    * Added cmdlet New-EMCNGateway leveraging the CreateGateway service API.
+    * Added cmdlet Remove-EMCNBridge leveraging the DeleteBridge service API.
+    * Added cmdlet Remove-EMCNBridgeOutput leveraging the RemoveBridgeOutput service API.
+    * Added cmdlet Remove-EMCNBridgeSource leveraging the RemoveBridgeSource service API.
+    * Added cmdlet Remove-EMCNGateway leveraging the DeleteGateway service API.
+    * Added cmdlet Remove-EMCNGatewayInstance leveraging the DeregisterGatewayInstance service API.
+    * Added cmdlet Update-EMCNBridge leveraging the UpdateBridge service API.
+    * Added cmdlet Update-EMCNBridgeOutput leveraging the UpdateBridgeOutput service API.
+    * Added cmdlet Update-EMCNBridgeSource leveraging the UpdateBridgeSource service API.
+    * Added cmdlet Update-EMCNBridgeState leveraging the UpdateBridgeState service API.
+    * Added cmdlet Update-EMCNGatewayInstance leveraging the UpdateGatewayInstance service API.
+    * Modified cmdlet Update-EMCNFlowSource: added parameters GatewayBridgeSource_BridgeArn and VpcInterfaceAttachment_VpcInterfaceName.
+
+### 4.1.312 (2023-04-12 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.525.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Ground Station
     * Modified cmdlet Register-GSAgent: added parameter AgentDetails_AgentCpuCore.

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter LoggingConfiguration_EnableSIPLog
         /// <summary>
         /// <para>
-        /// <para>Boolean that enables sending SIP message logs to Amazon CloudWatch logs.</para>
+        /// <para>Boolean that enables sending SIP message logs to Amazon CloudWatch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -22,51 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKVoice;
-using Amazon.ChimeSDKVoice.Model;
+using Amazon.MediaConnect;
+using Amazon.MediaConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMVO
+namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Creates a SIP media application. For more information about SIP media applications,
-    /// see <a href="https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html">Managing
-    /// SIP media applications and rules</a> in the <i>Amazon Chime SDK Administrator Guide</i>.
+    /// Creates a new gateway. The request must include at least one network (up to 4).
     /// </summary>
-    [Cmdlet("New", "CHMVOSipMediaApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplication")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Voice CreateSipMediaApplication API operation.", Operation = new[] {"CreateSipMediaApplication"}, SelectReturnType = typeof(Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKVoice.Model.SipMediaApplication or Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse",
-        "This cmdlet returns an Amazon.ChimeSDKVoice.Model.SipMediaApplication object.",
-        "The service call response (type Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "EMCNGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaConnect.Model.Gateway")]
+    [AWSCmdlet("Calls the AWS Elemental MediaConnect CreateGateway API operation.", Operation = new[] {"CreateGateway"}, SelectReturnType = typeof(Amazon.MediaConnect.Model.CreateGatewayResponse))]
+    [AWSCmdletOutput("Amazon.MediaConnect.Model.Gateway or Amazon.MediaConnect.Model.CreateGatewayResponse",
+        "This cmdlet returns an Amazon.MediaConnect.Model.Gateway object.",
+        "The service call response (type Amazon.MediaConnect.Model.CreateGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCHMVOSipMediaApplicationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
+    public partial class NewEMCNGatewayCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter AwsRegion
+        #region Parameter EgressCidrBlock
         /// <summary>
         /// <para>
-        /// <para>The AWS Region assigned to the SIP media application.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AwsRegion { get; set; }
-        #endregion
-        
-        #region Parameter Endpoint
-        /// <summary>
-        /// <para>
-        /// <para>List of endpoints (Lambda ARNs) specified for the SIP media application.</para>
+        /// The range of IP addresses that are allowed
+        /// to contribute content or initiate output requests for flows communicating with this
+        /// gateway. These IP addresses should be in the form of a Classless Inter-Domain Routing
+        /// (CIDR) block; for example, 10.0.0.0/16.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,20 +57,21 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Endpoints")]
-        public Amazon.ChimeSDKVoice.Model.SipMediaApplicationEndpoint[] Endpoint { get; set; }
+        [Alias("EgressCidrBlocks")]
+        public System.String[] EgressCidrBlock { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The SIP media application's name.</para>
+        /// The name of the gateway. This name can not be modified
+        /// after the gateway is created.
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -98,26 +79,43 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter Network
         /// <summary>
         /// <para>
-        /// <para>The tags assigned to the SIP media application.</para>
+        /// The list of networks that you want to add.
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.ChimeSDKVoice.Model.Tag[] Tag { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Networks")]
+        public Amazon.MediaConnect.Model.GatewayNetwork[] Network { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'SipMediaApplication'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Gateway'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaConnect.Model.CreateGatewayResponse).
+        /// Specifying the name of a property of type Amazon.MediaConnect.Model.CreateGatewayResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "SipMediaApplication";
+        public string Select { get; set; } = "Gateway";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -136,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMVOSipMediaApplication (CreateSipMediaApplication)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EMCNGateway (CreateGateway)"))
             {
                 return;
             }
@@ -146,26 +144,29 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse, NewCHMVOSipMediaApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaConnect.Model.CreateGatewayResponse, NewEMCNGatewayCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.AwsRegion = this.AwsRegion;
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Name;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.EgressCidrBlock != null)
+            {
+                context.EgressCidrBlock = new List<System.String>(this.EgressCidrBlock);
+            }
             #if MODULAR
-            if (this.AwsRegion == null && ParameterWasBound(nameof(this.AwsRegion)))
+            if (this.EgressCidrBlock == null && ParameterWasBound(nameof(this.EgressCidrBlock)))
             {
-                WriteWarning("You are passing $null as a value for parameter AwsRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Endpoint != null)
-            {
-                context.Endpoint = new List<Amazon.ChimeSDKVoice.Model.SipMediaApplicationEndpoint>(this.Endpoint);
-            }
-            #if MODULAR
-            if (this.Endpoint == null && ParameterWasBound(nameof(this.Endpoint)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Endpoint which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EgressCidrBlock which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.Name = this.Name;
@@ -175,10 +176,16 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            if (this.Network != null)
             {
-                context.Tag = new List<Amazon.ChimeSDKVoice.Model.Tag>(this.Tag);
+                context.Network = new List<Amazon.MediaConnect.Model.GatewayNetwork>(this.Network);
             }
+            #if MODULAR
+            if (this.Network == null && ParameterWasBound(nameof(this.Network)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Network which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,23 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationRequest();
+            var request = new Amazon.MediaConnect.Model.CreateGatewayRequest();
             
-            if (cmdletContext.AwsRegion != null)
+            if (cmdletContext.EgressCidrBlock != null)
             {
-                request.AwsRegion = cmdletContext.AwsRegion;
-            }
-            if (cmdletContext.Endpoint != null)
-            {
-                request.Endpoints = cmdletContext.Endpoint;
+                request.EgressCidrBlocks = cmdletContext.EgressCidrBlock;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.Network != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.Networks = cmdletContext.Network;
             }
             
             CmdletOutput output;
@@ -244,15 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse CallAWSServiceOperation(IAmazonChimeSDKVoice client, Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationRequest request)
+        private Amazon.MediaConnect.Model.CreateGatewayResponse CallAWSServiceOperation(IAmazonMediaConnect client, Amazon.MediaConnect.Model.CreateGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Voice", "CreateSipMediaApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaConnect", "CreateGateway");
             try
             {
                 #if DESKTOP
-                return client.CreateSipMediaApplication(request);
+                return client.CreateGateway(request);
                 #elif CORECLR
-                return client.CreateSipMediaApplicationAsync(request).GetAwaiter().GetResult();
+                return client.CreateGatewayAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,12 +275,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AwsRegion { get; set; }
-            public List<Amazon.ChimeSDKVoice.Model.SipMediaApplicationEndpoint> Endpoint { get; set; }
+            public List<System.String> EgressCidrBlock { get; set; }
             public System.String Name { get; set; }
-            public List<Amazon.ChimeSDKVoice.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.ChimeSDKVoice.Model.CreateSipMediaApplicationResponse, NewCHMVOSipMediaApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.SipMediaApplication;
+            public List<Amazon.MediaConnect.Model.GatewayNetwork> Network { get; set; }
+            public System.Func<Amazon.MediaConnect.Model.CreateGatewayResponse, NewEMCNGatewayCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Gateway;
         }
         
     }

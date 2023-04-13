@@ -36216,10 +36216,24 @@ $EMCN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaConnect.BridgePlacement
+        "Update-EMCNGatewayInstance/BridgePlacement"
+        {
+            $v = "AVAILABLE","LOCKED"
+            break
+        }
+
         # Amazon.MediaConnect.Colorimetry
         "Update-EMCNFlowMediaStream/Attributes_Fmtp_Colorimetry"
         {
             $v = "BT2020","BT2100","BT601","BT709","ST2065-1","ST2065-3","XYZ"
+            break
+        }
+
+        # Amazon.MediaConnect.DesiredState
+        "Update-EMCNBridgeState/DesiredState"
+        {
+            $v = "ACTIVE","DELETED","STANDBY"
             break
         }
 
@@ -36232,7 +36246,9 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.FailoverMode
         {
+            ($_ -eq "New-EMCNBridge/SourceFailoverConfig_FailoverMode") -Or
             ($_ -eq "New-EMCNFlow/SourceFailoverConfig_FailoverMode") -Or
+            ($_ -eq "Update-EMCNBridge/SourceFailoverConfig_FailoverMode") -Or
             ($_ -eq "Update-EMCNFlow/SourceFailoverConfig_FailoverMode")
         }
         {
@@ -36259,11 +36275,13 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.Protocol
         {
+            ($_ -eq "Update-EMCNBridgeOutput/NetworkOutput_Protocol") -Or
+            ($_ -eq "Update-EMCNBridgeSource/NetworkSource_Protocol") -Or
             ($_ -eq "Update-EMCNFlowOutput/Protocol") -Or
             ($_ -eq "Update-EMCNFlowSource/Protocol")
         }
         {
-            $v = "cdi","fujitsu-qos","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","zixi-pull","zixi-push"
+            $v = "cdi","fujitsu-qos","rist","rtp","rtp-fec","srt-caller","srt-listener","st2110-jpegxs","udp","zixi-pull","zixi-push"
             break
         }
 
@@ -36283,7 +36301,9 @@ $EMCN_Completers = {
 
         # Amazon.MediaConnect.State
         {
+            ($_ -eq "New-EMCNBridge/SourceFailoverConfig_State") -Or
             ($_ -eq "New-EMCNFlow/SourceFailoverConfig_State") -Or
+            ($_ -eq "Update-EMCNBridge/SourceFailoverConfig_State") -Or
             ($_ -eq "Update-EMCNFlow/SourceFailoverConfig_State")
         }
         {
@@ -36311,12 +36331,16 @@ $EMCN_map = @{
     "Attributes_Fmtp_Range"=@("Update-EMCNFlowMediaStream")
     "Attributes_Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
     "Attributes_Fmtp_Tcs"=@("Update-EMCNFlowMediaStream")
+    "BridgePlacement"=@("Update-EMCNGatewayInstance")
+    "DesiredState"=@("Update-EMCNBridgeState")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "Maintenance_MaintenanceDay"=@("New-EMCNFlow","Update-EMCNFlow")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
+    "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
+    "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
-    "SourceFailoverConfig_FailoverMode"=@("New-EMCNFlow","Update-EMCNFlow")
-    "SourceFailoverConfig_State"=@("New-EMCNFlow","Update-EMCNFlow")
+    "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
+    "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
 }
 
 _awsArgumentCompleterRegistration $EMCN_Completers $EMCN_map
@@ -36369,22 +36393,37 @@ $EMCN_SelectCompleters = {
 }
 
 $EMCN_SelectMap = @{
-    "Select"=@("Add-EMCNFlowMediaStream",
+    "Select"=@("Add-EMCNBridgeOutput",
+               "Add-EMCNBridgeSource",
+               "Add-EMCNFlowMediaStream",
                "Add-EMCNFlowOutput",
                "Add-EMCNFlowSource",
                "Add-EMCNFlowVpcInterface",
+               "New-EMCNBridge",
                "New-EMCNFlow",
+               "New-EMCNGateway",
+               "Remove-EMCNBridge",
                "Remove-EMCNFlow",
+               "Remove-EMCNGateway",
+               "Remove-EMCNGatewayInstance",
+               "Get-EMCNBridge",
                "Get-EMCNFlow",
+               "Get-EMCNGateway",
+               "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",
                "Get-EMCNReservation",
                "Grant-EMCNFlowEntitlement",
+               "Get-EMCNBridgeList",
                "Get-EMCNEntitlementList",
                "Get-EMCNFlowList",
+               "Get-EMCNGatewayInstanceList",
+               "Get-EMCNGatewayList",
                "Get-EMCNOfferingList",
                "Get-EMCNReservationList",
                "Get-EMCNResourceTag",
                "New-EMCNOffering",
+               "Remove-EMCNBridgeOutput",
+               "Remove-EMCNBridgeSource",
                "Remove-EMCNFlowMediaStream",
                "Remove-EMCNFlowOutput",
                "Remove-EMCNFlowSource",
@@ -36394,11 +36433,16 @@ $EMCN_SelectMap = @{
                "Stop-EMCNFlow",
                "Add-EMCNResourceTag",
                "Remove-EMCNResourceTag",
+               "Update-EMCNBridge",
+               "Update-EMCNBridgeOutput",
+               "Update-EMCNBridgeSource",
+               "Update-EMCNBridgeState",
                "Update-EMCNFlow",
                "Update-EMCNFlowEntitlement",
                "Update-EMCNFlowMediaStream",
                "Update-EMCNFlowOutput",
-               "Update-EMCNFlowSource")
+               "Update-EMCNFlowSource",
+               "Update-EMCNGatewayInstance")
 }
 
 _awsArgumentCompleterRegistration $EMCN_SelectCompleters $EMCN_SelectMap

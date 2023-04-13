@@ -40,11 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class UpdateEMCNFlowSourceCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter GatewayBridgeSource_BridgeArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the bridge feeding this flow.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GatewayBridgeSource_BridgeArn { get; set; }
+        #endregion
+        
         #region Parameter Decryption
         /// <summary>
         /// <para>
         /// The type of encryption used on the content
-        /// ingested from this source.
+        /// ingested from this source. Allowable encryption types: static-key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter MaxBitrate
         /// <summary>
         /// <para>
-        /// The smoothing max bitrate for RIST, RTP, and
-        /// RTP-FEC streams.
+        /// The smoothing max bitrate (in bps) for RIST,
+        /// RTP, and RTP-FEC streams.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,11 +247,23 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// <summary>
         /// <para>
         /// The stream ID that you want to use for this transport.
-        /// This parameter applies only to Zixi-based streams.
+        /// This parameter applies only to Zixi and SRT caller-based streams.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StreamId { get; set; }
+        #endregion
+        
+        #region Parameter VpcInterfaceAttachment_VpcInterfaceName
+        /// <summary>
+        /// <para>
+        /// The name of the VPC interface to use
+        /// for this resource.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GatewayBridgeSource_VpcInterfaceAttachment_VpcInterfaceName")]
+        public System.String VpcInterfaceAttachment_VpcInterfaceName { get; set; }
         #endregion
         
         #region Parameter VpcInterfaceName
@@ -339,6 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter FlowArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GatewayBridgeSource_BridgeArn = this.GatewayBridgeSource_BridgeArn;
+            context.VpcInterfaceAttachment_VpcInterfaceName = this.VpcInterfaceAttachment_VpcInterfaceName;
             context.IngestPort = this.IngestPort;
             context.MaxBitrate = this.MaxBitrate;
             context.MaxLatency = this.MaxLatency;
@@ -394,6 +418,50 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.FlowArn != null)
             {
                 request.FlowArn = cmdletContext.FlowArn;
+            }
+            
+             // populate GatewayBridgeSource
+            var requestGatewayBridgeSourceIsNull = true;
+            request.GatewayBridgeSource = new Amazon.MediaConnect.Model.UpdateGatewayBridgeSourceRequest();
+            System.String requestGatewayBridgeSource_gatewayBridgeSource_BridgeArn = null;
+            if (cmdletContext.GatewayBridgeSource_BridgeArn != null)
+            {
+                requestGatewayBridgeSource_gatewayBridgeSource_BridgeArn = cmdletContext.GatewayBridgeSource_BridgeArn;
+            }
+            if (requestGatewayBridgeSource_gatewayBridgeSource_BridgeArn != null)
+            {
+                request.GatewayBridgeSource.BridgeArn = requestGatewayBridgeSource_gatewayBridgeSource_BridgeArn;
+                requestGatewayBridgeSourceIsNull = false;
+            }
+            Amazon.MediaConnect.Model.VpcInterfaceAttachment requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment = null;
+            
+             // populate VpcInterfaceAttachment
+            var requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachmentIsNull = true;
+            requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment = new Amazon.MediaConnect.Model.VpcInterfaceAttachment();
+            System.String requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName = null;
+            if (cmdletContext.VpcInterfaceAttachment_VpcInterfaceName != null)
+            {
+                requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName = cmdletContext.VpcInterfaceAttachment_VpcInterfaceName;
+            }
+            if (requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName != null)
+            {
+                requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment.VpcInterfaceName = requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName;
+                requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachmentIsNull = false;
+            }
+             // determine if requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment should be set to null
+            if (requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachmentIsNull)
+            {
+                requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment = null;
+            }
+            if (requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment != null)
+            {
+                request.GatewayBridgeSource.VpcInterfaceAttachment = requestGatewayBridgeSource_gatewayBridgeSource_VpcInterfaceAttachment;
+                requestGatewayBridgeSourceIsNull = false;
+            }
+             // determine if request.GatewayBridgeSource should be set to null
+            if (requestGatewayBridgeSourceIsNull)
+            {
+                request.GatewayBridgeSource = null;
             }
             if (cmdletContext.IngestPort != null)
             {
@@ -520,6 +588,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String Description { get; set; }
             public System.String EntitlementArn { get; set; }
             public System.String FlowArn { get; set; }
+            public System.String GatewayBridgeSource_BridgeArn { get; set; }
+            public System.String VpcInterfaceAttachment_VpcInterfaceName { get; set; }
             public System.Int32? IngestPort { get; set; }
             public System.Int32? MaxBitrate { get; set; }
             public System.Int32? MaxLatency { get; set; }
