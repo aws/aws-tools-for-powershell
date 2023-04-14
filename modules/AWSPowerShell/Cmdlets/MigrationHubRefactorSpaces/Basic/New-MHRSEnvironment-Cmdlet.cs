@@ -37,8 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// 
     ///  
     /// <para>
-    /// When creating an environment with a network fabric type of <code>TRANSIT_GATEWAY</code>,
-    /// Refactor Spaces provisions a transit gateway in your account.
+    /// When creating an environment with a <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a>
+    /// of <code>TRANSIT_GATEWAY</code>, Refactor Spaces provisions a transit gateway to enable
+    /// services in VPCs to communicate directly across accounts. If <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a>
+    /// is <code>NONE</code>, Refactor Spaces does not create a transit gateway and you must
+    /// use your network infrastructure to route traffic to services with private URL endpoints.
     /// </para>
     /// </summary>
     [Cmdlet("New", "MHRSEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

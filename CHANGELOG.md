@@ -1,4 +1,9 @@
-﻿### 4.1.313 (2023-04-13 21:01Z)
+﻿### 4.1.314 (2023-04-14 21:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.527.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameters AllowEngineModeChange and EngineMode.
+
+### 4.1.313 (2023-04-13 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.526.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Voice
     * Modified cmdlet New-CHMVOSipMediaApplication: added parameter Tag.

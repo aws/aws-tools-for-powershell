@@ -33,6 +33,16 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
     /// regardless of the account that creates the application. Refactor Spaces provisions
     /// an Amazon API Gateway, API Gateway VPC link, and Network Load Balancer for the application
     /// proxy inside your account.
+    /// 
+    ///  
+    /// <para>
+    /// In environments created with a <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html#migrationhubrefactorspaces-CreateEnvironment-request-NetworkFabricType">CreateEnvironment:NetworkFabricType</a>
+    /// of <code>NONE</code> you need to configure <a href="https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html">
+    /// VPC to VPC connectivity</a> between your service VPC and the application proxy VPC
+    /// to route traffic through the application proxy to a service with a private URL endpoint.
+    /// For more information, see <a href="https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/getting-started-create-application.html">
+    /// Create an application</a> in the <i>Refactor Spaces User Guide</i>. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "MHRSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MigrationHubRefactorSpaces.Model.CreateApplicationResponse")]

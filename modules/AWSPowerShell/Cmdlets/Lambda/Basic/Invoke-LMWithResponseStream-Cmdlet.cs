@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Configure your Lambda functions to stream response payloads back to clients. For more
     /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html">Configuring
     /// a Lambda function to stream responses</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a>
+    /// action. For details on how to set up permissions for cross-account invocations, see
+    /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountinvoke">Granting
+    /// function access to other accounts</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Invoke", "LMWithResponseStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.InvokeWithResponseStreamResponse")]

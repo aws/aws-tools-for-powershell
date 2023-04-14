@@ -55,11 +55,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ
-        /// DB cluster.</para><para>Type: Integer</para><para>Valid for: Multi-AZ DB clusters only</para>
+        /// DB cluster.</para><para>Valid for: Multi-AZ DB clusters only</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? AllocatedStorage { get; set; }
+        #endregion
+        
+        #region Parameter AllowEngineModeChange
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether engine mode changes from <code>serverless</code> to
+        /// <code>provisioned</code> are allowed.</para><para>Constraints: You must allow engine mode changes when specifying a different value
+        /// for the <code>EngineMode</code> parameter from the DB cluster's current engine mode.</para><para>Valid for: Aurora Serverless v1 DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowEngineModeChange { get; set; }
         #endregion
         
         #region Parameter AllowMajorVersionUpgrade
@@ -313,6 +325,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnablePerformanceInsights")]
         public System.Boolean? EnablePerformanceInsight { get; set; }
+        #endregion
+        
+        #region Parameter EngineMode
+        /// <summary>
+        /// <para>
+        /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code> or <code>serverless</code>.</para><note><para>The DB engine mode can be modified only from <code>serverless</code> to <code>provisioned</code>.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html">
+        /// CreateDBCluster</a>.</para><para>Valid for: Aurora DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineMode { get; set; }
         #endregion
         
         #region Parameter EngineVersion
@@ -717,6 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllocatedStorage = this.AllocatedStorage;
+            context.AllowEngineModeChange = this.AllowEngineModeChange;
             context.AllowMajorVersionUpgrade = this.AllowMajorVersionUpgrade;
             context.ApplyImmediately = this.ApplyImmediately;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
@@ -748,6 +772,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EnablePerformanceInsight = this.EnablePerformanceInsight;
+            context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
             context.ManageMasterUserPassword = this.ManageMasterUserPassword;
@@ -796,6 +821,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AllocatedStorage != null)
             {
                 request.AllocatedStorage = cmdletContext.AllocatedStorage.Value;
+            }
+            if (cmdletContext.AllowEngineModeChange != null)
+            {
+                request.AllowEngineModeChange = cmdletContext.AllowEngineModeChange.Value;
             }
             if (cmdletContext.AllowMajorVersionUpgrade != null)
             {
@@ -893,6 +922,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnablePerformanceInsight != null)
             {
                 request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsight.Value;
+            }
+            if (cmdletContext.EngineMode != null)
+            {
+                request.EngineMode = cmdletContext.EngineMode;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -1126,6 +1159,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? AllocatedStorage { get; set; }
+            public System.Boolean? AllowEngineModeChange { get; set; }
             public System.Boolean? AllowMajorVersionUpgrade { get; set; }
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
@@ -1145,6 +1179,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
+            public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.Boolean? ManageMasterUserPassword { get; set; }
