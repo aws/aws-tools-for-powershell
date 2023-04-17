@@ -150,6 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public Amazon.InternetMonitor.MonitorConfigState Status { get; set; }
         #endregion
         
+        #region Parameter TrafficPercentageToMonitor
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of the internet-facing traffic for your application that you want to
+        /// monitor with this monitor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TrafficPercentageToMonitor { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -245,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
                 context.ResourcesToRemove = new List<System.String>(this.ResourcesToRemove);
             }
             context.Status = this.Status;
+            context.TrafficPercentageToMonitor = this.TrafficPercentageToMonitor;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -339,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             {
                 request.Status = cmdletContext.Status;
             }
+            if (cmdletContext.TrafficPercentageToMonitor != null)
+            {
+                request.TrafficPercentageToMonitor = cmdletContext.TrafficPercentageToMonitor.Value;
+            }
             
             CmdletOutput output;
             
@@ -409,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             public List<System.String> ResourcesToAdd { get; set; }
             public List<System.String> ResourcesToRemove { get; set; }
             public Amazon.InternetMonitor.MonitorConfigState Status { get; set; }
+            public System.Int32? TrafficPercentageToMonitor { get; set; }
             public System.Func<Amazon.InternetMonitor.Model.UpdateMonitorResponse, UpdateCWIMMonitorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

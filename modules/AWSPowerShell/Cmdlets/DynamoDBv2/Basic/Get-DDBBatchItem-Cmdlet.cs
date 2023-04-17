@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// table in the request. If you want strongly consistent reads instead, you can set <code>ConsistentRead</code>
     /// to <code>true</code> for any or all tables.
     /// </para><para>
-    /// In order to minimize response latency, <code>BatchGetItem</code> retrieves items in
-    /// parallel.
+    /// In order to minimize response latency, <code>BatchGetItem</code> may retrieve items
+    /// in parallel.
     /// </para><para>
     /// When designing your application, keep in mind that DynamoDB does not return items
     /// in any particular order. To help parse the response by item, include the primary key

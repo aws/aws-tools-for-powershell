@@ -105,6 +105,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String[][] LoRaWAN_JoinEuiFilter { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_MaxEirp
+        /// <summary>
+        /// <para>
+        /// <para>The MaxEIRP value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? LoRaWAN_MaxEirp { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -237,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                     context.LoRaWAN_JoinEuiFilter.Add(new List<System.String>(innerList));
                 }
             }
+            context.LoRaWAN_MaxEirp = this.LoRaWAN_MaxEirp;
             if (this.LoRaWAN_NetIdFilter != null)
             {
                 context.LoRaWAN_NetIdFilter = new List<System.String>(this.LoRaWAN_NetIdFilter);
@@ -297,6 +308,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_JoinEuiFilter != null)
             {
                 request.LoRaWAN.JoinEuiFilters = requestLoRaWAN_loRaWAN_JoinEuiFilter;
+                requestLoRaWANIsNull = false;
+            }
+            System.Single? requestLoRaWAN_loRaWAN_MaxEirp = null;
+            if (cmdletContext.LoRaWAN_MaxEirp != null)
+            {
+                requestLoRaWAN_loRaWAN_MaxEirp = cmdletContext.LoRaWAN_MaxEirp.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_MaxEirp != null)
+            {
+                request.LoRaWAN.MaxEirp = requestLoRaWAN_loRaWAN_MaxEirp.Value;
                 requestLoRaWANIsNull = false;
             }
             List<System.String> requestLoRaWAN_loRaWAN_NetIdFilter = null;
@@ -444,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public List<System.Int32> Beaconing_Frequency { get; set; }
             public System.String LoRaWAN_GatewayEui { get; set; }
             public List<List<System.String>> LoRaWAN_JoinEuiFilter { get; set; }
+            public System.Single? LoRaWAN_MaxEirp { get; set; }
             public List<System.String> LoRaWAN_NetIdFilter { get; set; }
             public System.String LoRaWAN_RfRegion { get; set; }
             public List<System.Int32> LoRaWAN_SubBand { get; set; }

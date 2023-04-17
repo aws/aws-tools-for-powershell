@@ -78,6 +78,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String[][] JoinEuiFilter { get; set; }
         #endregion
         
+        #region Parameter MaxEirp
+        /// <summary>
+        /// <para>
+        /// <para>The MaxEIRP value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? MaxEirp { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -176,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                     context.JoinEuiFilter.Add(new List<System.String>(innerList));
                 }
             }
+            context.MaxEirp = this.MaxEirp;
             context.Name = this.Name;
             if (this.NetIdFilter != null)
             {
@@ -208,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (cmdletContext.JoinEuiFilter != null)
             {
                 request.JoinEuiFilters = cmdletContext.JoinEuiFilter;
+            }
+            if (cmdletContext.MaxEirp != null)
+            {
+                request.MaxEirp = cmdletContext.MaxEirp.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -281,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public List<List<System.String>> JoinEuiFilter { get; set; }
+            public System.Single? MaxEirp { get; set; }
             public System.String Name { get; set; }
             public List<System.String> NetIdFilter { get; set; }
             public System.Func<Amazon.IoTWireless.Model.UpdateWirelessGatewayResponse, UpdateIOTWWirelessGatewayCmdlet, object> Select { get; set; } =

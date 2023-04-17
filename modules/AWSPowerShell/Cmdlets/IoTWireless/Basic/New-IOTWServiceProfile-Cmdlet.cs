@@ -92,6 +92,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_PrAllowed
+        /// <summary>
+        /// <para>
+        /// <para>The PRAllowed value that describes whether passive roaming is allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoRaWAN_PrAllowed { get; set; }
+        #endregion
+        
+        #region Parameter LoRaWAN_RaAllowed
+        /// <summary>
+        /// <para>
+        /// <para>The RAAllowed value that describes whether roaming activation is allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoRaWAN_RaAllowed { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -170,6 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             context.LoRaWAN_AddGwMetadata = this.LoRaWAN_AddGwMetadata;
             context.LoRaWAN_DrMax = this.LoRaWAN_DrMax;
             context.LoRaWAN_DrMin = this.LoRaWAN_DrMin;
+            context.LoRaWAN_PrAllowed = this.LoRaWAN_PrAllowed;
+            context.LoRaWAN_RaAllowed = this.LoRaWAN_RaAllowed;
             context.Name = this.Name;
             if (this.Tag != null)
             {
@@ -227,6 +249,26 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_DrMin != null)
             {
                 request.LoRaWAN.DrMin = requestLoRaWAN_loRaWAN_DrMin.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Boolean? requestLoRaWAN_loRaWAN_PrAllowed = null;
+            if (cmdletContext.LoRaWAN_PrAllowed != null)
+            {
+                requestLoRaWAN_loRaWAN_PrAllowed = cmdletContext.LoRaWAN_PrAllowed.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_PrAllowed != null)
+            {
+                request.LoRaWAN.PrAllowed = requestLoRaWAN_loRaWAN_PrAllowed.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Boolean? requestLoRaWAN_loRaWAN_RaAllowed = null;
+            if (cmdletContext.LoRaWAN_RaAllowed != null)
+            {
+                requestLoRaWAN_loRaWAN_RaAllowed = cmdletContext.LoRaWAN_RaAllowed.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_RaAllowed != null)
+            {
+                request.LoRaWAN.RaAllowed = requestLoRaWAN_loRaWAN_RaAllowed.Value;
                 requestLoRaWANIsNull = false;
             }
              // determine if request.LoRaWAN should be set to null
@@ -307,6 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.Boolean? LoRaWAN_AddGwMetadata { get; set; }
             public System.Int32? LoRaWAN_DrMax { get; set; }
             public System.Int32? LoRaWAN_DrMin { get; set; }
+            public System.Boolean? LoRaWAN_PrAllowed { get; set; }
+            public System.Boolean? LoRaWAN_RaAllowed { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.IoTWireless.Model.CreateServiceProfileResponse, NewIOTWServiceProfileCmdlet, object> Select { get; set; } =

@@ -632,6 +632,23 @@ namespace Amazon.PowerShell.Cmdlets.AF
         public Amazon.Appflow.TriggerType TriggerConfig_TriggerType { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>The <code>clientToken</code> parameter is an idempotency token. It ensures that your
+        /// <code>UpdateFlow</code> request completes only once. You choose the value to pass.
+        /// For example, if you don't receive a response from your request, you can safely retry
+        /// the request with the same <code>clientToken</code> parameter value.</para><para>If you omit a <code>clientToken</code> value, the Amazon Web Services SDK that you
+        /// are using inserts a value for you. This way, the SDK can safely retry requests multiple
+        /// times after a network error. You must provide your own value for other use cases.</para><para>If you specify input parameters that differ from your first request, an error occurs.
+        /// If you use a different value for <code>clientToken</code>, Amazon AppFlow considers
+        /// it a new call to <code>UpdateFlow</code>. The token is active for 8 hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'FlowStatus'.
@@ -694,6 +711,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 context.Select = (response, cmdlet) => this.FlowName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.DestinationFlowConfigList != null)
             {
@@ -800,6 +818,10 @@ namespace Amazon.PowerShell.Cmdlets.AF
             // create request
             var request = new Amazon.Appflow.Model.UpdateFlowRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -1679,6 +1701,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.Appflow.Model.DestinationFlowConfig> DestinationFlowConfigList { get; set; }
             public System.String FlowName { get; set; }

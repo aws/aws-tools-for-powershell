@@ -17046,7 +17046,11 @@ $EDRS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Drs.LaunchDisposition
-        "Update-EDRSLaunchConfiguration/LaunchDisposition"
+        {
+            ($_ -eq "New-EDRSLaunchConfigurationTemplate/LaunchDisposition") -Or
+            ($_ -eq "Update-EDRSLaunchConfiguration/LaunchDisposition") -Or
+            ($_ -eq "Update-EDRSLaunchConfigurationTemplate/LaunchDisposition")
+        }
         {
             $v = "STARTED","STOPPED"
             break
@@ -17093,7 +17097,11 @@ $EDRS_Completers = {
         }
 
         # Amazon.Drs.TargetInstanceTypeRightSizingMethod
-        "Update-EDRSLaunchConfiguration/TargetInstanceTypeRightSizingMethod"
+        {
+            ($_ -eq "New-EDRSLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod") -Or
+            ($_ -eq "Update-EDRSLaunchConfiguration/TargetInstanceTypeRightSizingMethod") -Or
+            ($_ -eq "Update-EDRSLaunchConfigurationTemplate/TargetInstanceTypeRightSizingMethod")
+        }
         {
             $v = "BASIC","NONE"
             break
@@ -17111,9 +17119,9 @@ $EDRS_map = @{
     "DataPlaneRouting"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "DefaultLargeStagingDiskType"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
     "EbsEncryption"=@("New-EDRSReplicationConfigurationTemplate","Update-EDRSReplicationConfiguration","Update-EDRSReplicationConfigurationTemplate")
-    "LaunchDisposition"=@("Update-EDRSLaunchConfiguration")
+    "LaunchDisposition"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
     "Order"=@("Get-EDRSRecoverySnapshot")
-    "TargetInstanceTypeRightSizingMethod"=@("Update-EDRSLaunchConfiguration")
+    "TargetInstanceTypeRightSizingMethod"=@("New-EDRSLaunchConfigurationTemplate","Update-EDRSLaunchConfiguration","Update-EDRSLaunchConfigurationTemplate")
 }
 
 _awsArgumentCompleterRegistration $EDRS_Completers $EDRS_map
@@ -17167,13 +17175,16 @@ $EDRS_SelectCompleters = {
 
 $EDRS_SelectMap = @{
     "Select"=@("New-EDRSExtendedSourceServer",
+               "New-EDRSLaunchConfigurationTemplate",
                "New-EDRSReplicationConfigurationTemplate",
                "Remove-EDRSJob",
+               "Remove-EDRSLaunchConfigurationTemplate",
                "Remove-EDRSRecoveryInstance",
                "Remove-EDRSReplicationConfigurationTemplate",
                "Remove-EDRSSourceServer",
                "Get-EDRSJobLogItem",
                "Get-EDRSJob",
+               "Get-EDRSLaunchConfigurationTemplate",
                "Get-EDRSRecoveryInstance",
                "Get-EDRSRecoverySnapshot",
                "Get-EDRSReplicationConfigurationTemplate",
@@ -17199,6 +17210,7 @@ $EDRS_SelectMap = @{
                "Remove-EDRSResourceTag",
                "Update-EDRSFailbackReplicationConfiguration",
                "Update-EDRSLaunchConfiguration",
+               "Update-EDRSLaunchConfigurationTemplate",
                "Update-EDRSReplicationConfiguration",
                "Update-EDRSReplicationConfigurationTemplate")
 }
@@ -33104,7 +33116,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
             break
         }
 

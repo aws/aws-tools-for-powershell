@@ -1,4 +1,28 @@
-﻿### 4.1.314 (2023-04-14 21:03Z)
+﻿### 4.1.315 (2023-04-17 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.528.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Modified cmdlet New-AFConnectorProfile: added parameter ClientToken.
+    * Modified cmdlet New-AFFlow: added parameter ClientToken.
+    * Modified cmdlet Register-AFConnector: added parameter ClientToken.
+    * Modified cmdlet Start-AFFlow: added parameter ClientToken.
+    * Modified cmdlet Update-AFConnectorProfile: added parameter ClientToken.
+    * Modified cmdlet Update-AFConnectorRegistration: added parameter ClientToken.
+    * Modified cmdlet Update-AFFlow: added parameter ClientToken.
+  * Amazon CloudWatch Internet Monitor
+    * Modified cmdlet New-CWIMMonitor: added parameter TrafficPercentageToMonitor.
+    * Modified cmdlet Update-CWIMMonitor: added parameter TrafficPercentageToMonitor.
+  * Amazon Elastic Disaster Recovery Service
+    * Added cmdlet Get-EDRSLaunchConfigurationTemplate leveraging the DescribeLaunchConfigurationTemplates service API.
+    * Added cmdlet New-EDRSLaunchConfigurationTemplate leveraging the CreateLaunchConfigurationTemplate service API.
+    * Added cmdlet Remove-EDRSLaunchConfigurationTemplate leveraging the DeleteLaunchConfigurationTemplate service API.
+    * Added cmdlet Update-EDRSLaunchConfigurationTemplate leveraging the UpdateLaunchConfigurationTemplate service API.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWServiceProfile: added parameters LoRaWAN_PrAllowed and LoRaWAN_RaAllowed.
+    * Modified cmdlet New-IOTWWirelessGateway: added parameter LoRaWAN_MaxEirp.
+    * Modified cmdlet Start-IOTWMulticastGroupSession: added parameter LoRaWAN_PingSlotPeriod.
+    * Modified cmdlet Update-IOTWWirelessGateway: added parameter MaxEirp.
+
+### 4.1.314 (2023-04-14 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.527.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Relational Database Service
     * Modified cmdlet Edit-RDSDBCluster: added parameters AllowEngineModeChange and EngineMode.

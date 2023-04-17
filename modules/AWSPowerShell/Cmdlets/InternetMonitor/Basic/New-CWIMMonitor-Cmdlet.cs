@@ -101,13 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// of the <i>CloudWatch User Guide</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int32? MaxCityNetworksToMonitor { get; set; }
         #endregion
         
@@ -152,6 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter TrafficPercentageToMonitor
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of the internet-facing traffic for your application that you want to
+        /// monitor with this monitor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TrafficPercentageToMonitor { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -232,12 +237,6 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             context.S3Config_BucketPrefix = this.S3Config_BucketPrefix;
             context.S3Config_LogDeliveryStatus = this.S3Config_LogDeliveryStatus;
             context.MaxCityNetworksToMonitor = this.MaxCityNetworksToMonitor;
-            #if MODULAR
-            if (this.MaxCityNetworksToMonitor == null && ParameterWasBound(nameof(this.MaxCityNetworksToMonitor)))
-            {
-                WriteWarning("You are passing $null as a value for parameter MaxCityNetworksToMonitor which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MonitorName = this.MonitorName;
             #if MODULAR
             if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
@@ -257,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.TrafficPercentageToMonitor = this.TrafficPercentageToMonitor;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -347,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.TrafficPercentageToMonitor != null)
+            {
+                request.TrafficPercentageToMonitor = cmdletContext.TrafficPercentageToMonitor.Value;
+            }
             
             CmdletOutput output;
             
@@ -416,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             public System.String MonitorName { get; set; }
             public List<System.String> Resource { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Int32? TrafficPercentageToMonitor { get; set; }
             public System.Func<Amazon.InternetMonitor.Model.CreateMonitorResponse, NewCWIMMonitorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

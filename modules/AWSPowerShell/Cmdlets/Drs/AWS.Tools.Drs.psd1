@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EDRSJob', 
         'Get-EDRSJobLogItem', 
         'Get-EDRSLaunchConfiguration', 
+        'Get-EDRSLaunchConfigurationTemplate', 
         'Get-EDRSRecoveryInstance', 
         'Get-EDRSRecoverySnapshot', 
         'Get-EDRSReplicationConfiguration', 
@@ -103,8 +104,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EDRSStagingAccountList', 
         'Initialize-EDRSService', 
         'New-EDRSExtendedSourceServer', 
+        'New-EDRSLaunchConfigurationTemplate', 
         'New-EDRSReplicationConfigurationTemplate', 
         'Remove-EDRSJob', 
+        'Remove-EDRSLaunchConfigurationTemplate', 
         'Remove-EDRSRecoveryInstance', 
         'Remove-EDRSReplicationConfigurationTemplate', 
         'Remove-EDRSResourceTag', 
@@ -119,6 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-EDRSReplication', 
         'Update-EDRSFailbackReplicationConfiguration', 
         'Update-EDRSLaunchConfiguration', 
+        'Update-EDRSLaunchConfigurationTemplate', 
         'Update-EDRSReplicationConfiguration', 
         'Update-EDRSReplicationConfigurationTemplate')
 

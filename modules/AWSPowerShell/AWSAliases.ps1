@@ -6858,10 +6858,14 @@ Set-Alias -Name DOCE-UntagResource -Value Remove-DOCEResourceTag
 Set-Alias -Name DOCE-UpdateCluster -Value Update-DOCECluster
 Set-Alias -Name Create-EDRSExtendedSourceServer -Value New-EDRSExtendedSourceServer
 Set-Alias -Name EDRS-CreateExtendedSourceServer -Value New-EDRSExtendedSourceServer
+Set-Alias -Name Create-EDRSLaunchConfigurationTemplate -Value New-EDRSLaunchConfigurationTemplate
+Set-Alias -Name EDRS-CreateLaunchConfigurationTemplate -Value New-EDRSLaunchConfigurationTemplate
 Set-Alias -Name Create-EDRSReplicationConfigurationTemplate -Value New-EDRSReplicationConfigurationTemplate
 Set-Alias -Name EDRS-CreateReplicationConfigurationTemplate -Value New-EDRSReplicationConfigurationTemplate
 Set-Alias -Name Delete-EDRSJob -Value Remove-EDRSJob
 Set-Alias -Name EDRS-DeleteJob -Value Remove-EDRSJob
+Set-Alias -Name Delete-EDRSLaunchConfigurationTemplate -Value Remove-EDRSLaunchConfigurationTemplate
+Set-Alias -Name EDRS-DeleteLaunchConfigurationTemplate -Value Remove-EDRSLaunchConfigurationTemplate
 Set-Alias -Name Delete-EDRSRecoveryInstance -Value Remove-EDRSRecoveryInstance
 Set-Alias -Name EDRS-DeleteRecoveryInstance -Value Remove-EDRSRecoveryInstance
 Set-Alias -Name Delete-EDRSReplicationConfigurationTemplate -Value Remove-EDRSReplicationConfigurationTemplate
@@ -6874,6 +6878,9 @@ Set-Alias -Name EDRS-DescribeJobLogItems -Value Get-EDRSJobLogItem
 Set-Alias -Name Describe-EDRSJobs -Value Get-EDRSJob
 Set-Alias -Name Describe-EDRSJob -Value Get-EDRSJob
 Set-Alias -Name EDRS-DescribeJobs -Value Get-EDRSJob
+Set-Alias -Name Describe-EDRSLaunchConfigurationTemplates -Value Get-EDRSLaunchConfigurationTemplate
+Set-Alias -Name Describe-EDRSLaunchConfigurationTemplate -Value Get-EDRSLaunchConfigurationTemplate
+Set-Alias -Name EDRS-DescribeLaunchConfigurationTemplates -Value Get-EDRSLaunchConfigurationTemplate
 Set-Alias -Name Describe-EDRSRecoveryInstances -Value Get-EDRSRecoveryInstance
 Set-Alias -Name Describe-EDRSRecoveryInstance -Value Get-EDRSRecoveryInstance
 Set-Alias -Name EDRS-DescribeRecoveryInstances -Value Get-EDRSRecoveryInstance
@@ -6916,6 +6923,7 @@ Set-Alias -Name EDRS-TerminateRecoveryInstances -Value Stop-EDRSRecoveryInstance
 Set-Alias -Name EDRS-UntagResource -Value Remove-EDRSResourceTag
 Set-Alias -Name EDRS-UpdateFailbackReplicationConfiguration -Value Update-EDRSFailbackReplicationConfiguration
 Set-Alias -Name EDRS-UpdateLaunchConfiguration -Value Update-EDRSLaunchConfiguration
+Set-Alias -Name EDRS-UpdateLaunchConfigurationTemplate -Value Update-EDRSLaunchConfigurationTemplate
 Set-Alias -Name EDRS-UpdateReplicationConfiguration -Value Update-EDRSReplicationConfiguration
 Set-Alias -Name EDRS-UpdateReplicationConfigurationTemplate -Value Update-EDRSReplicationConfigurationTemplate
 Set-Alias -Name Accept-DSSharedDirectory -Value Confirm-DSSharedDirectory

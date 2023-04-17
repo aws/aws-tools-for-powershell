@@ -22,46 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EMRServerless;
-using Amazon.EMRServerless.Model;
+using Amazon.Drs;
+using Amazon.Drs.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMRServerless
+namespace Amazon.PowerShell.Cmdlets.EDRS
 {
     /// <summary>
-    /// Returns a URL to access the job run dashboard. The generated URL is valid for one
-    /// hour, after which you must invoke the API again to generate a new URL.
+    /// Deletes a single Launch Configuration Template by ID.
     /// </summary>
-    [Cmdlet("Get", "EMRServerlessDashboardForJobRun")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the EMR Serverless GetDashboardForJobRun API operation.", Operation = new[] {"GetDashboardForJobRun"}, SelectReturnType = typeof(Amazon.EMRServerless.Model.GetDashboardForJobRunResponse))]
-    [AWSCmdletOutput("System.String or Amazon.EMRServerless.Model.GetDashboardForJobRunResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.EMRServerless.Model.GetDashboardForJobRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EDRSLaunchConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Elastic Disaster Recovery Service DeleteLaunchConfigurationTemplate API operation.", Operation = new[] {"DeleteLaunchConfigurationTemplate"}, SelectReturnType = typeof(Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEMRServerlessDashboardForJobRunCmdlet : AmazonEMRServerlessClientCmdlet, IExecutor
+    public partial class RemoveEDRSLaunchConfigurationTemplateCmdlet : AmazonDrsClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationId
+        #region Parameter LaunchConfigurationTemplateID
         /// <summary>
         /// <para>
-        /// <para>The ID of the application.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationId { get; set; }
-        #endregion
-        
-        #region Parameter JobRunId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the job run.</para>
+        /// <para>The ID of the Launch Configuration Template to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,34 +54,49 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobRunId { get; set; }
+        public System.String LaunchConfigurationTemplateID { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Url'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EMRServerless.Model.GetDashboardForJobRunResponse).
-        /// Specifying the name of a property of type Amazon.EMRServerless.Model.GetDashboardForJobRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Url";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobRunId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the LaunchConfigurationTemplateID parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^LaunchConfigurationTemplateID' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobRunId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LaunchConfigurationTemplateID' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LaunchConfigurationTemplateID), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EDRSLaunchConfigurationTemplate (DeleteLaunchConfigurationTemplate)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -109,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EMRServerless.Model.GetDashboardForJobRunResponse, GetEMRServerlessDashboardForJobRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse, RemoveEDRSLaunchConfigurationTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,21 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobRunId;
+                context.Select = (response, cmdlet) => this.LaunchConfigurationTemplateID;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationId = this.ApplicationId;
+            context.LaunchConfigurationTemplateID = this.LaunchConfigurationTemplateID;
             #if MODULAR
-            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            if (this.LaunchConfigurationTemplateID == null && ParameterWasBound(nameof(this.LaunchConfigurationTemplateID)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.JobRunId = this.JobRunId;
-            #if MODULAR
-            if (this.JobRunId == null && ParameterWasBound(nameof(this.JobRunId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter JobRunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter LaunchConfigurationTemplateID which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,15 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EMRServerless.Model.GetDashboardForJobRunRequest();
+            var request = new Amazon.Drs.Model.DeleteLaunchConfigurationTemplateRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.LaunchConfigurationTemplateID != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.JobRunId != null)
-            {
-                request.JobRunId = cmdletContext.JobRunId;
+                request.LaunchConfigurationTemplateID = cmdletContext.LaunchConfigurationTemplateID;
             }
             
             CmdletOutput output;
@@ -192,15 +178,15 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         #region AWS Service Operation Call
         
-        private Amazon.EMRServerless.Model.GetDashboardForJobRunResponse CallAWSServiceOperation(IAmazonEMRServerless client, Amazon.EMRServerless.Model.GetDashboardForJobRunRequest request)
+        private Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse CallAWSServiceOperation(IAmazonDrs client, Amazon.Drs.Model.DeleteLaunchConfigurationTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "EMR Serverless", "GetDashboardForJobRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Disaster Recovery Service", "DeleteLaunchConfigurationTemplate");
             try
             {
                 #if DESKTOP
-                return client.GetDashboardForJobRun(request);
+                return client.DeleteLaunchConfigurationTemplate(request);
                 #elif CORECLR
-                return client.GetDashboardForJobRunAsync(request).GetAwaiter().GetResult();
+                return client.DeleteLaunchConfigurationTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,10 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.String JobRunId { get; set; }
-            public System.Func<Amazon.EMRServerless.Model.GetDashboardForJobRunResponse, GetEMRServerlessDashboardForJobRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Url;
+            public System.String LaunchConfigurationTemplateID { get; set; }
+            public System.Func<Amazon.Drs.Model.DeleteLaunchConfigurationTemplateResponse, RemoveEDRSLaunchConfigurationTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

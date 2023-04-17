@@ -77,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public System.String Id { get; set; }
         #endregion
         
+        #region Parameter LoRaWAN_PingSlotPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The PingSlotPeriod value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? LoRaWAN_PingSlotPeriod { get; set; }
+        #endregion
+        
         #region Parameter LoRaWAN_SessionStartTime
         /// <summary>
         /// <para>
@@ -167,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #endif
             context.LoRaWAN_DlDr = this.LoRaWAN_DlDr;
             context.LoRaWAN_DlFreq = this.LoRaWAN_DlFreq;
+            context.LoRaWAN_PingSlotPeriod = this.LoRaWAN_PingSlotPeriod;
             context.LoRaWAN_SessionStartTime = this.LoRaWAN_SessionStartTime;
             context.LoRaWAN_SessionTimeout = this.LoRaWAN_SessionTimeout;
             
@@ -211,6 +222,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestLoRaWAN_loRaWAN_DlFreq != null)
             {
                 request.LoRaWAN.DlFreq = requestLoRaWAN_loRaWAN_DlFreq.Value;
+                requestLoRaWANIsNull = false;
+            }
+            System.Int32? requestLoRaWAN_loRaWAN_PingSlotPeriod = null;
+            if (cmdletContext.LoRaWAN_PingSlotPeriod != null)
+            {
+                requestLoRaWAN_loRaWAN_PingSlotPeriod = cmdletContext.LoRaWAN_PingSlotPeriod.Value;
+            }
+            if (requestLoRaWAN_loRaWAN_PingSlotPeriod != null)
+            {
+                request.LoRaWAN.PingSlotPeriod = requestLoRaWAN_loRaWAN_PingSlotPeriod.Value;
                 requestLoRaWANIsNull = false;
             }
             System.DateTime? requestLoRaWAN_loRaWAN_SessionStartTime = null;
@@ -302,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             public System.String Id { get; set; }
             public System.Int32? LoRaWAN_DlDr { get; set; }
             public System.Int32? LoRaWAN_DlFreq { get; set; }
+            public System.Int32? LoRaWAN_PingSlotPeriod { get; set; }
             public System.DateTime? LoRaWAN_SessionStartTime { get; set; }
             public System.Int32? LoRaWAN_SessionTimeout { get; set; }
             public System.Func<Amazon.IoTWireless.Model.StartMulticastGroupSessionResponse, StartIOTWMulticastGroupSessionCmdlet, object> Select { get; set; } =

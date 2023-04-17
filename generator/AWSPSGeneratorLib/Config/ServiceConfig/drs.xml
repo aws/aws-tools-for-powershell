@@ -22,11 +22,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchConfigurationTemplate" OutputProperty="LaunchConfigurationTemplate" Verb="New" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ReplicationConfigurationTemplate" ShouldProcessTarget="StagingAreaSubnetId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobID" PipelineParameter="JobID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchConfigurationTemplate" Verb="Remove" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="LaunchConfigurationTemplateID" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeJobs" OutputProperty="Items" Verb="Get" Noun="Job" PipelineParameter="Filters_JobIDs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchConfigurationTemplates" OutputProperty="Items" Verb="Get" Noun="LaunchConfigurationTemplate" PipelineParameter="LaunchConfigurationTemplateIDs" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -147,6 +159,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLaunchConfiguration" OutputProperty="*" Verb="Update" Noun="LaunchConfiguration" ShouldProcessTarget="Name" PipelineParameter="SourceServerID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLaunchConfigurationTemplate" OutputProperty="LaunchConfigurationTemplate" Verb="Update" Noun="LaunchConfigurationTemplate" ShouldProcessTarget="LaunchConfigurationTemplateID" PipelineParameter="LaunchConfigurationTemplateID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

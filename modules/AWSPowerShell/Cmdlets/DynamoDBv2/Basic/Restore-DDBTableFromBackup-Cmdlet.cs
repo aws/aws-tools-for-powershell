@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
     /// Creates a new table from an existing backup. Any number of users can execute up to
-    /// 4 concurrent restores (any type of restore) in a given account. 
+    /// 50 concurrent restores (any type of restore) in a given account. 
     /// 
     ///  
     /// <para>
