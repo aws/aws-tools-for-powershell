@@ -77,12 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The version number of the database engine to which you want to upgrade. Changing this
         /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>To list all of the available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
-        /// Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora --query '*[]|[?SupportsGlobalDatabases
-        /// == `true`].[EngineVersion]'</code></para><para>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL
-        /// 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases
-        /// == `true`].[EngineVersion]'</code></para><para>To list all of the available engine versions for <code>aurora-postgresql</code>, use
-        /// the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases
+        /// window unless <code>ApplyImmediately</code> is enabled.</para><para>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL-based
+        /// Aurora global databases), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases
+        /// == `true`].[EngineVersion]'</code></para><para>To list all of the available engine versions for <code>aurora-postgresql</code> (for
+        /// PostgreSQL-based Aurora global databases), use the following command:</para><para><code>aws rds describe-db-engine-versions --engine aurora-postgresql --query '*[]|[?SupportsGlobalDatabases
         /// == `true`].[EngineVersion]'</code></para>
         /// </para>
         /// </summary>

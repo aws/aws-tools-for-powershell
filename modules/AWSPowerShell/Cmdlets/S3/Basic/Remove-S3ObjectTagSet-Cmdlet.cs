@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// parameter in the request. You will need permission for the <code>s3:DeleteObjectVersionTagging</code>
     /// action.
     /// </para><para>
-    /// The following operations are related to <code>DeleteObjectTagging</code>:
+    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html">PutObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

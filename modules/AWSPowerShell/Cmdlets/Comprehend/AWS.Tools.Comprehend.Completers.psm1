@@ -111,6 +111,13 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.DocumentClassifierDocumentTypeFormat
+        "New-COMPDocumentClassifier/InputDataConfig_DocumentType"
+        {
+            $v = "PLAIN_TEXT_DOCUMENT","SEMI_STRUCTURED_DOCUMENT"
+            break
+        }
+
         # Amazon.Comprehend.DocumentClassifierMode
         {
             ($_ -eq "New-COMPDocumentClassifier/Mode") -Or
@@ -124,7 +131,8 @@ $COMP_Completers = {
         # Amazon.Comprehend.DocumentReadAction
         {
             ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadAction") -Or
-            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction")
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction") -Or
+            ($_ -eq "New-COMPDocumentClassifier/InputDataConfig_DocumentReaderConfig_DocumentReadAction")
         }
         {
             $v = "TEXTRACT_ANALYZE_DOCUMENT","TEXTRACT_DETECT_DOCUMENT_TEXT"
@@ -134,7 +142,8 @@ $COMP_Completers = {
         # Amazon.Comprehend.DocumentReadMode
         {
             ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadMode") -Or
-            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode")
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode") -Or
+            ($_ -eq "New-COMPDocumentClassifier/InputDataConfig_DocumentReaderConfig_DocumentReadMode")
         }
         {
             $v = "FORCE_DOCUMENT_READ_ACTION","SERVICE_DEFAULT"
@@ -267,7 +276,10 @@ $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
     "Filter_Status"=@("Get-COMPDatasetList","Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList","Get-COMPFlywheelList")
     "InputDataConfig_DataFormat"=@("New-COMPDataset","New-COMPDocumentClassifier","New-COMPEntityRecognizer")
+    "InputDataConfig_DocumentReaderConfig_DocumentReadAction"=@("New-COMPDocumentClassifier")
+    "InputDataConfig_DocumentReaderConfig_DocumentReadMode"=@("New-COMPDocumentClassifier")
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
+    "InputDataConfig_DocumentType"=@("New-COMPDocumentClassifier")
     "InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat"=@("New-COMPDataset")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")

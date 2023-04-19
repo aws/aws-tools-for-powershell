@@ -28,45 +28,75 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Creates a resource share. You can provide a list of the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-    /// Resource Names (ARNs)</a> for the resources that you want to share, a list of principals
-    /// you want to share the resources with, and the permissions to grant those principals.
-    /// 
-    ///  <note><para>
-    /// Sharing a resource makes it available for use by principals outside of the Amazon
-    /// Web Services account that created the resource. Sharing doesn't change any permissions
-    /// or quotas that apply to the resource in the account that created it.
-    /// </para></note>
+    /// Creates a customer managed permission for a specified resource type that you can attach
+    /// to resource shares. It is created in the Amazon Web Services Region in which you call
+    /// the operation.
     /// </summary>
-    [Cmdlet("New", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RAM.Model.ResourceShare")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) CreateResourceShare API operation.", Operation = new[] {"CreateResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.CreateResourceShareResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ResourceShare or Amazon.RAM.Model.CreateResourceShareResponse",
-        "This cmdlet returns an Amazon.RAM.Model.ResourceShare object.",
-        "The service call response (type Amazon.RAM.Model.CreateResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "RAMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RAM.Model.ResourceSharePermissionSummary")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) CreatePermission API operation.", Operation = new[] {"CreatePermission"}, SelectReturnType = typeof(Amazon.RAM.Model.CreatePermissionResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.ResourceSharePermissionSummary or Amazon.RAM.Model.CreatePermissionResponse",
+        "This cmdlet returns an Amazon.RAM.Model.ResourceSharePermissionSummary object.",
+        "The service call response (type Amazon.RAM.Model.CreatePermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class NewRAMPermissionCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
-        
-        #region Parameter AllowExternalPrincipal
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether principals outside your organization in Organizations can be associated
-        /// with a resource share. A value of <code>true</code> lets you share with individual
-        /// Amazon Web Services accounts that are <i>not</i> in your organization. A value of
-        /// <code>false</code> only has meaning if your account is a member of an Amazon Web Services
-        /// Organization. The default value is <code>true</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AllowExternalPrincipals")]
-        public System.Boolean? AllowExternalPrincipal { get; set; }
-        #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the resource share.</para>
+        /// <para>Specifies the name of the customer managed permission. The name must be unique within
+        /// the Amazon Web Services Region.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PolicyTemplate
+        /// <summary>
+        /// <para>
+        /// <para>A string in JSON format string that contains the following elements of a resource-based
+        /// policy:</para><ul><li><para><b>Effect</b>: must be set to <code>ALLOW</code>.</para></li><li><para><b>Action</b>: specifies the actions that are allowed by this customer managed permission.
+        /// The list must contain only actions that are supported by the specified resource type.
+        /// For a list of all actions supported by each resource type, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions,
+        /// resources, and condition keys for Amazon Web Services services</a> in the <i>Identity
+        /// and Access Management User Guide</i>.</para></li><li><para><b>Condition</b>: (optional) specifies conditional parameters that must evaluate
+        /// to true when a user attempts an action for that action to be allowed. For more information
+        /// about the Condition element, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html">IAM
+        /// policies: Condition element</a> in the <i>Identity and Access Management User Guide</i>.</para></li></ul><para>This template can't include either the <code>Resource</code> or <code>Principal</code>
+        /// elements. Those are both filled in by RAM when it instantiates the resource-based
+        /// policy on each resource shared using this managed permission. The <code>Resource</code>
+        /// comes from the ARN of the specific resource that you are sharing. The <code>Principal</code>
+        /// comes from the list of identities added to the resource share.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PolicyTemplate { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the resource type that this customer managed permission applies
+        /// to.</para><para>The format is <code><i>&lt;service-code&gt;</i>:<i>&lt;resource-type&gt;</i></code>
+        /// and is not case sensitive. For example, to specify an Amazon EC2 Subnet, you can use
+        /// the string <code>ec2:subnet</code>. To see the list of valid values for this parameter,
+        /// query the <a>ListResourceTypes</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,55 +107,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter PermissionArn
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs)</a> of the RAM permission to associate with the resource share.
-        /// If you do not specify an ARN for the permission, RAM automatically attaches the default
-        /// version of the permission for each resource type. You can associate only one permission
-        /// with each resource type included in the resource share.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("PermissionArns")]
-        public System.String[] PermissionArn { get; set; }
-        #endregion
-        
-        #region Parameter Principal
-        /// <summary>
-        /// <para>
-        /// <para>Specifies a list of one or more principals to associate with the resource share.</para><para>You can include the following values:</para><ul><li><para>An Amazon Web Services account ID, for example: <code>123456789012</code></para></li><li><para>An <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of an organization in Organizations, for example: <code>organizations::123456789012:organization/o-exampleorgid</code></para></li><li><para>An ARN of an organizational unit (OU) in Organizations, for example: <code>organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid123</code></para></li><li><para>An ARN of an IAM role, for example: <code>iam::123456789012:role/rolename</code></para></li><li><para>An ARN of an IAM user, for example: <code>iam::123456789012user/username</code></para></li></ul><note><para>Not all resource types can be shared with IAM roles and users. For more information,
-        /// see <a href="https://docs.aws.amazon.com/ram/latest/userguide/permissions.html#permissions-rbp-supported-resource-types">Sharing
-        /// with IAM roles and users</a> in the <i>Resource Access Manager User Guide</i>.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Principals")]
-        public System.String[] Principal { get; set; }
-        #endregion
-        
-        #region Parameter ResourceArn
-        /// <summary>
-        /// <para>
-        /// <para>Specifies a list of one or more ARNs of the resources to associate with the resource
-        /// share.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceArns")]
-        public System.String[] ResourceArn { get; set; }
+        public System.String ResourceType { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Specifies one or more tags to attach to the resource share itself. It doesn't attach
-        /// the tags to the resources associated with the resource share.</para>
+        /// <para>Specifies a list of one or more tag key and value pairs to attach to the permission.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,21 +140,21 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceShare'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.CreateResourceShareResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.CreateResourceShareResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Permission'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.CreatePermissionResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.CreatePermissionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResourceShare";
+        public string Select { get; set; } = "Permission";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceType' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceType' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -187,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RAMResourceShare (CreateResourceShare)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RAMPermission (CreatePermission)"))
             {
                 return;
             }
@@ -200,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.CreateResourceShareResponse, NewRAMResourceShareCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.CreatePermissionResponse, NewRAMPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -209,10 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ResourceType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AllowExternalPrincipal = this.AllowExternalPrincipal;
             context.ClientToken = this.ClientToken;
             context.Name = this.Name;
             #if MODULAR
@@ -221,18 +208,20 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.PermissionArn != null)
+            context.PolicyTemplate = this.PolicyTemplate;
+            #if MODULAR
+            if (this.PolicyTemplate == null && ParameterWasBound(nameof(this.PolicyTemplate)))
             {
-                context.PermissionArn = new List<System.String>(this.PermissionArn);
+                WriteWarning("You are passing $null as a value for parameter PolicyTemplate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            if (this.Principal != null)
+            #endif
+            context.ResourceType = this.ResourceType;
+            #if MODULAR
+            if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
             {
-                context.Principal = new List<System.String>(this.Principal);
+                WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            if (this.ResourceArn != null)
-            {
-                context.ResourceArn = new List<System.String>(this.ResourceArn);
-            }
+            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RAM.Model.Tag>(this.Tag);
@@ -251,12 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RAM.Model.CreateResourceShareRequest();
+            var request = new Amazon.RAM.Model.CreatePermissionRequest();
             
-            if (cmdletContext.AllowExternalPrincipal != null)
-            {
-                request.AllowExternalPrincipals = cmdletContext.AllowExternalPrincipal.Value;
-            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -265,17 +250,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.PermissionArn != null)
+            if (cmdletContext.PolicyTemplate != null)
             {
-                request.PermissionArns = cmdletContext.PermissionArn;
+                request.PolicyTemplate = cmdletContext.PolicyTemplate;
             }
-            if (cmdletContext.Principal != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.Principals = cmdletContext.Principal;
-            }
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArns = cmdletContext.ResourceArn;
+                request.ResourceType = cmdletContext.ResourceType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -314,15 +295,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.CreateResourceShareResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.CreateResourceShareRequest request)
+        private Amazon.RAM.Model.CreatePermissionResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.CreatePermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "CreateResourceShare");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "CreatePermission");
             try
             {
                 #if DESKTOP
-                return client.CreateResourceShare(request);
+                return client.CreatePermission(request);
                 #elif CORECLR
-                return client.CreateResourceShareAsync(request).GetAwaiter().GetResult();
+                return client.CreatePermissionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -342,15 +323,13 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AllowExternalPrincipal { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Name { get; set; }
-            public List<System.String> PermissionArn { get; set; }
-            public List<System.String> Principal { get; set; }
-            public List<System.String> ResourceArn { get; set; }
+            public System.String PolicyTemplate { get; set; }
+            public System.String ResourceType { get; set; }
             public List<Amazon.RAM.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.RAM.Model.CreateResourceShareResponse, NewRAMResourceShareCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResourceShare;
+            public System.Func<Amazon.RAM.Model.CreatePermissionResponse, NewRAMPermissionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Permission;
         }
         
     }

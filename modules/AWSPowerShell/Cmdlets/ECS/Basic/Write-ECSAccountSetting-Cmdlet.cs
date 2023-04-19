@@ -58,6 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// created will have Container Insights turned on unless you disable it during cluster
     /// creation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
     /// Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+    /// </para><para>
+    /// Amazon ECS is introducing tagging authorization for resource creation. Users must
+    /// have permissions for actions that create the resource, such as <code>ecsCreateCluster</code>.
+    /// If tags are specified when you create a resource, Amazon Web Services performs additional
+    /// authorization to verify if users or roles have permissions to create tags. Therefore,
+    /// you must grant explicit permissions to use the <code>ecs:TagResource</code> action.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant
+    /// permission to tag resources on creation</a> in the <i>Amazon ECS Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ECSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,7 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// for your Amazon ECS container instances is affected. If <code>containerInsights</code>
         /// is specified, the default setting for Amazon Web Services CloudWatch Container Insights
         /// for your clusters is affected. If <code>fargateFIPSMode</code> is specified, Fargate
-        /// FIPS 140 compliance is affected.</para>
+        /// FIPS 140 compliance is affected. If <code>tagResourceAuthorization</code> is specified,
+        /// the opt-in option for tagging resources on creation is affected. For information about
+        /// the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging
+        /// authorization timeline</a> in the <i>Amazon ECS Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

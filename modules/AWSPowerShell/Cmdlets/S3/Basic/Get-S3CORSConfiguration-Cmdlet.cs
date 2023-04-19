@@ -36,9 +36,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  To use this operation, you must have permission to perform the <code>s3:GetBucketCORS</code>
     /// action. By default, the bucket owner has this permission and can grant it to others.
     /// </para><para>
-    /// To use this API against an access point, provide the alias of the access point in
-    /// place of the bucket name.
-    /// </para><para>
     ///  For more information about CORS, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">
     /// Enabling Cross-Origin Resource Sharing</a>.
     /// </para><para>

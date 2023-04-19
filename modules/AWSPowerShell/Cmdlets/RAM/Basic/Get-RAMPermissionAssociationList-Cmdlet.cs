@@ -28,36 +28,89 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Lists the available versions of the specified RAM permission.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists information about the managed permission and its associations to any resource
+    /// shares that use this managed permission. This lets you see which resource shares use
+    /// which versions of the specified managed permission.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RAMPermissionVersionList")]
-    [OutputType("Amazon.RAM.Model.ResourceSharePermissionSummary")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListPermissionVersions API operation.", Operation = new[] {"ListPermissionVersions"}, SelectReturnType = typeof(Amazon.RAM.Model.ListPermissionVersionsResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ResourceSharePermissionSummary or Amazon.RAM.Model.ListPermissionVersionsResponse",
-        "This cmdlet returns a collection of Amazon.RAM.Model.ResourceSharePermissionSummary objects.",
-        "The service call response (type Amazon.RAM.Model.ListPermissionVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RAMPermissionAssociationList")]
+    [OutputType("Amazon.RAM.Model.AssociatedPermission")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListPermissionAssociations API operation.", Operation = new[] {"ListPermissionAssociations"}, SelectReturnType = typeof(Amazon.RAM.Model.ListPermissionAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.AssociatedPermission or Amazon.RAM.Model.ListPermissionAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.RAM.Model.AssociatedPermission objects.",
+        "The service call response (type Amazon.RAM.Model.ListPermissionAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRAMPermissionVersionListCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class GetRAMPermissionAssociationListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
+        
+        #region Parameter AssociationStatus
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only those associations with resource shares that
+        /// match this status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.ResourceShareAssociationStatus")]
+        public Amazon.RAM.ResourceShareAssociationStatus AssociationStatus { get; set; }
+        #endregion
+        
+        #region Parameter DefaultVersion
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, specifies that you want to list only those associations with
+        /// resource shares that use the default version of the specified managed permission.</para><para>When <code>false</code> (the default value), lists associations with resource shares
+        /// that use any version of the specified managed permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DefaultVersion { get; set; }
+        #endregion
+        
+        #region Parameter FeatureSet
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only those associations with resource shares that
+        /// have a <code>featureSet</code> with this value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.PermissionFeatureSet")]
+        public Amazon.RAM.PermissionFeatureSet FeatureSet { get; set; }
+        #endregion
         
         #region Parameter PermissionArn
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of the RAM permission whose versions you want to list. You
-        /// can use the <code>permissionVersion</code> parameter on the <a>AssociateResourceSharePermission</a>
-        /// operation to specify a non-default version to attach.</para>
+        /// Resource Name (ARN)</a> of the managed permission.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PermissionArn { get; set; }
+        #endregion
+        
+        #region Parameter PermissionVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only those associations with resource shares that
+        /// use this version of the managed permission. If you don't provide a value for this
+        /// parameter, then the operation returns information about associations with resource
+        /// shares that use any version of the managed permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PermissionVersion { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only those associations with resource shares that
+        /// include at least one resource of this resource type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -98,22 +151,12 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Permissions'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListPermissionVersionsResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.ListPermissionVersionsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListPermissionAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.ListPermissionAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "Permissions";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PermissionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -136,30 +179,19 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListPermissionVersionsResponse, GetRAMPermissionVersionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListPermissionAssociationsResponse, GetRAMPermissionAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.PermissionArn;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssociationStatus = this.AssociationStatus;
+            context.DefaultVersion = this.DefaultVersion;
+            context.FeatureSet = this.FeatureSet;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.PermissionArn = this.PermissionArn;
-            #if MODULAR
-            if (this.PermissionArn == null && ParameterWasBound(nameof(this.PermissionArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.PermissionVersion = this.PermissionVersion;
+            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,13 +205,23 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.RAM.Model.ListPermissionVersionsRequest();
+            var request = new Amazon.RAM.Model.ListPermissionAssociationsRequest();
             
+            if (cmdletContext.AssociationStatus != null)
+            {
+                request.AssociationStatus = cmdletContext.AssociationStatus;
+            }
+            if (cmdletContext.DefaultVersion != null)
+            {
+                request.DefaultVersion = cmdletContext.DefaultVersion.Value;
+            }
+            if (cmdletContext.FeatureSet != null)
+            {
+                request.FeatureSet = cmdletContext.FeatureSet;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -187,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.PermissionArn != null)
             {
                 request.PermissionArn = cmdletContext.PermissionArn;
+            }
+            if (cmdletContext.PermissionVersion != null)
+            {
+                request.PermissionVersion = cmdletContext.PermissionVersion.Value;
+            }
+            if (cmdletContext.ResourceType != null)
+            {
+                request.ResourceType = cmdletContext.ResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -245,15 +295,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.ListPermissionVersionsResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListPermissionVersionsRequest request)
+        private Amazon.RAM.Model.ListPermissionAssociationsResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListPermissionAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListPermissionVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListPermissionAssociations");
             try
             {
                 #if DESKTOP
-                return client.ListPermissionVersions(request);
+                return client.ListPermissionAssociations(request);
                 #elif CORECLR
-                return client.ListPermissionVersionsAsync(request).GetAwaiter().GetResult();
+                return client.ListPermissionAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -273,10 +323,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.RAM.ResourceShareAssociationStatus AssociationStatus { get; set; }
+            public System.Boolean? DefaultVersion { get; set; }
+            public Amazon.RAM.PermissionFeatureSet FeatureSet { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String PermissionArn { get; set; }
-            public System.Func<Amazon.RAM.Model.ListPermissionVersionsResponse, GetRAMPermissionVersionListCmdlet, object> Select { get; set; } =
+            public System.Int32? PermissionVersion { get; set; }
+            public System.String ResourceType { get; set; }
+            public System.Func<Amazon.RAM.Model.ListPermissionAssociationsResponse, GetRAMPermissionAssociationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Permissions;
         }
         

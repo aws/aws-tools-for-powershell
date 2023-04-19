@@ -132,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// rotation window. The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</para><para>For secrets that use a Lambda rotation function to rotate, if you don't immediately
         /// rotate the secret, Secrets Manager tests the rotation configuration by running the
         /// <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html"><code>testSecret</code> step</a> of the Lambda rotation function. The test creates
-        /// an <code>AWSPENDING</code> version of the secret and then removes it.</para><para>If you don't specify this value, then by default, Secrets Manager rotates the secret
-        /// immediately.</para>
+        /// an <code>AWSPENDING</code> version of the secret and then removes it.</para><para>By default, Secrets Manager rotates the secret immediately.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

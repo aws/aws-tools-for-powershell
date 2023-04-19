@@ -28,45 +28,70 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Modifies some of the properties of the specified resource share.
+    /// When you attach a resource-based policy to a resource, RAM automatically creates a
+    /// resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a
+    /// managed permission that has the same IAM permissions as the original resource-based
+    /// policy. However, this type of managed permission is visible to only the resource share
+    /// owner, and the associated resource share can't be modified by using RAM.
+    /// 
+    ///  
+    /// <para>
+    /// This operation creates a separate, fully manageable customer managed permission that
+    /// has the same IAM permissions as the original resource-based policy. You can associate
+    /// this customer managed permission to any resource shares.
+    /// </para><para>
+    /// Before you use <a>PromoteResourceShareCreatedFromPolicy</a>, you should first run
+    /// this operation to ensure that you have an appropriate customer managed permission
+    /// that can be associated with the promoted resource share.
+    /// </para><note><ul><li><para>
+    /// The original <code>CREATED_FROM_POLICY</code> policy isn't deleted, and resource shares
+    /// using that original policy aren't automatically updated.
+    /// </para></li><li><para>
+    /// You can't modify a <code>CREATED_FROM_POLICY</code> resource share so you can't associate
+    /// the new customer managed permission by using <code>ReplacePermsissionAssociations</code>.
+    /// However, if you use <a>PromoteResourceShareCreatedFromPolicy</a>, that operation automatically
+    /// associates the fully manageable customer managed permission to the newly promoted
+    /// <code>STANDARD</code> resource share.
+    /// </para></li><li><para>
+    /// After you promote a resource share, if the original <code>CREATED_FROM_POLICY</code>
+    /// managed permission has no other associations to A resource share, then RAM automatically
+    /// deletes it.
+    /// </para></li></ul></note>
     /// </summary>
-    [Cmdlet("Update", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RAM.Model.ResourceShare")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) UpdateResourceShare API operation.", Operation = new[] {"UpdateResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.UpdateResourceShareResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ResourceShare or Amazon.RAM.Model.UpdateResourceShareResponse",
-        "This cmdlet returns an Amazon.RAM.Model.ResourceShare object.",
-        "The service call response (type Amazon.RAM.Model.UpdateResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Convert", "RAMPermissionCreatedFromPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RAM.Model.ResourceSharePermissionSummary")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) PromotePermissionCreatedFromPolicy API operation.", Operation = new[] {"PromotePermissionCreatedFromPolicy"}, SelectReturnType = typeof(Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.ResourceSharePermissionSummary or Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse",
+        "This cmdlet returns an Amazon.RAM.Model.ResourceSharePermissionSummary object.",
+        "The service call response (type Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class ConvertRAMPermissionCreatedFromPolicyCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
-        
-        #region Parameter AllowExternalPrincipal
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether principals outside your organization in Organizations can be associated
-        /// with a resource share.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AllowExternalPrincipals")]
-        public System.Boolean? AllowExternalPrincipal { get; set; }
-        #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>If specified, the new name that you want to attach to the resource share.</para>
+        /// <para>Specifies a name for the promoted customer managed permission.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ResourceShareArn
+        #region Parameter PermissionArn
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of the resource share that you want to modify.</para>
+        /// Resource Name (ARN)</a> of the <code>CREATED_FROM_POLICY</code> permission that you
+        /// want to promote. You can get this <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> by calling the <a>ListResourceSharePermissions</a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceShareArn { get; set; }
+        public System.String PermissionArn { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -99,21 +124,21 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceShare'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.UpdateResourceShareResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.UpdateResourceShareResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Permission'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResourceShare";
+        public string Select { get; set; } = "Permission";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceShareArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceShareArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PermissionArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceShareArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -133,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceShareArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-RAMResourceShare (UpdateResourceShare)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PermissionArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Convert-RAMPermissionCreatedFromPolicy (PromotePermissionCreatedFromPolicy)"))
             {
                 return;
             }
@@ -147,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.UpdateResourceShareResponse, UpdateRAMResourceShareCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse, ConvertRAMPermissionCreatedFromPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,17 +181,22 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceShareArn;
+                context.Select = (response, cmdlet) => this.PermissionArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AllowExternalPrincipal = this.AllowExternalPrincipal;
             context.ClientToken = this.ClientToken;
             context.Name = this.Name;
-            context.ResourceShareArn = this.ResourceShareArn;
             #if MODULAR
-            if (this.ResourceShareArn == null && ParameterWasBound(nameof(this.ResourceShareArn)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceShareArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PermissionArn = this.PermissionArn;
+            #if MODULAR
+            if (this.PermissionArn == null && ParameterWasBound(nameof(this.PermissionArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,12 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RAM.Model.UpdateResourceShareRequest();
+            var request = new Amazon.RAM.Model.PromotePermissionCreatedFromPolicyRequest();
             
-            if (cmdletContext.AllowExternalPrincipal != null)
-            {
-                request.AllowExternalPrincipals = cmdletContext.AllowExternalPrincipal.Value;
-            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -197,9 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ResourceShareArn != null)
+            if (cmdletContext.PermissionArn != null)
             {
-                request.ResourceShareArn = cmdletContext.ResourceShareArn;
+                request.PermissionArn = cmdletContext.PermissionArn;
             }
             
             CmdletOutput output;
@@ -234,15 +260,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.UpdateResourceShareResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.UpdateResourceShareRequest request)
+        private Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.PromotePermissionCreatedFromPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "UpdateResourceShare");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "PromotePermissionCreatedFromPolicy");
             try
             {
                 #if DESKTOP
-                return client.UpdateResourceShare(request);
+                return client.PromotePermissionCreatedFromPolicy(request);
                 #elif CORECLR
-                return client.UpdateResourceShareAsync(request).GetAwaiter().GetResult();
+                return client.PromotePermissionCreatedFromPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -262,12 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AllowExternalPrincipal { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Name { get; set; }
-            public System.String ResourceShareArn { get; set; }
-            public System.Func<Amazon.RAM.Model.UpdateResourceShareResponse, UpdateRAMResourceShareCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResourceShare;
+            public System.String PermissionArn { get; set; }
+            public System.Func<Amazon.RAM.Model.PromotePermissionCreatedFromPolicyResponse, ConvertRAMPermissionCreatedFromPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Permission;
         }
         
     }

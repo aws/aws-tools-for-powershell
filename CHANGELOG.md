@@ -1,4 +1,23 @@
-﻿### 4.1.315 (2023-04-17 21:07Z)
+﻿### 4.1.316 (2023-04-19 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.529.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Comprehend
+    * Modified cmdlet New-COMPDocumentClassifier: added parameters DocumentReaderConfig_DocumentReadAction, DocumentReaderConfig_DocumentReadMode, DocumentReaderConfig_FeatureType, Documents_S3Uri, Documents_TestS3Uri and InputDataConfig_DocumentType.
+  * Amazon Resource Access Manager (RAM)
+    * Added cmdlet Convert-RAMPermissionCreatedFromPolicy leveraging the PromotePermissionCreatedFromPolicy service API.
+    * Added cmdlet Edit-RAMPermissionAssociation leveraging the ReplacePermissionAssociations service API.
+    * Added cmdlet Get-RAMPermissionAssociationList leveraging the ListPermissionAssociations service API.
+    * Added cmdlet Get-RAMReplacePermissionAssociationsWorkList leveraging the ListReplacePermissionAssociationsWork service API.
+    * Added cmdlet New-RAMPermission leveraging the CreatePermission service API.
+    * Added cmdlet New-RAMPermissionVersion leveraging the CreatePermissionVersion service API.
+    * Added cmdlet Remove-RAMPermission leveraging the DeletePermission service API.
+    * Added cmdlet Remove-RAMPermissionVersion leveraging the DeletePermissionVersion service API.
+    * Added cmdlet Set-RAMDefaultPermissionVersion leveraging the SetDefaultPermissionVersion service API.
+    * Modified cmdlet Add-RAMResourceTag: added parameter ResourceArn.
+    * Modified cmdlet Get-RAMPermissionList: added parameter PermissionType.
+    * Modified cmdlet Get-RAMResourceShare: added parameter PermissionVersion.
+    * Modified cmdlet Remove-RAMResourceTag: added parameter ResourceArn.
+
+### 4.1.315 (2023-04-17 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.528.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Modified cmdlet New-AFConnectorProfile: added parameter ClientToken.

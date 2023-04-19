@@ -28,9 +28,14 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Adds the specified tag keys and values to the specified resource share. The tags are
-    /// attached only to the resource share, not to the resources that are in the resource
-    /// share.
+    /// Adds the specified tag keys and values to a resource share or managed permission.
+    /// If you choose a resource share, the tags are attached to only the resource share,
+    /// not to the resources that are in the resource share.
+    /// 
+    ///  
+    /// <para>
+    /// The tags on a managed permission are the same for all versions of the managed permission.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "RAMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -42,21 +47,29 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class AddRAMResourceTagCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of the managed permission that you want to add tags to. You
+        /// must specify <i>either</i><code>resourceArn</code>, or <code>resourceShareArn</code>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceShareArn
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resoure Name (ARN)</a> of the resource share that you want to add tags to.</para>
+        /// Resource Name (ARN)</a> of the resource share that you want to add tags to. You must
+        /// specify <i>either</i><code>resourceShareArn</code>, or <code>resourceArn</code>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceShareArn { get; set; }
         #endregion
         
@@ -140,13 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 context.Select = (response, cmdlet) => this.ResourceShareArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ResourceArn = this.ResourceArn;
             context.ResourceShareArn = this.ResourceShareArn;
-            #if MODULAR
-            if (this.ResourceShareArn == null && ParameterWasBound(nameof(this.ResourceShareArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceShareArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RAM.Model.Tag>(this.Tag);
@@ -173,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             // create request
             var request = new Amazon.RAM.Model.TagResourceRequest();
             
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
+            }
             if (cmdletContext.ResourceShareArn != null)
             {
                 request.ResourceShareArn = cmdletContext.ResourceShareArn;
@@ -242,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ResourceArn { get; set; }
             public System.String ResourceShareArn { get; set; }
             public List<Amazon.RAM.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RAM.Model.TagResourceResponse, AddRAMResourceTagCmdlet, object> Select { get; set; } =

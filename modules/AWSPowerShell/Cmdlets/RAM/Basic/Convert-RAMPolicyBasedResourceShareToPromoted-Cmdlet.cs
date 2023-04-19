@@ -28,16 +28,25 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// When you attach a resource-based permission policy to a resource, it automatically
-    /// creates a resource share. However, resource shares created this way are visible only
-    /// to the resource share owner, and the resource share can't be modified in RAM.
+    /// When you attach a resource-based policy to a resource, RAM automatically creates a
+    /// resource share of <code>featureSet</code>=<code>CREATED_FROM_POLICY</code> with a
+    /// managed permission that has the same IAM permissions as the original resource-based
+    /// policy. However, this type of managed permission is visible to only the resource share
+    /// owner, and the associated resource share can't be modified by using RAM.
     /// 
     ///  
     /// <para>
-    /// You can use this operation to promote the resource share to a full RAM resource share.
-    /// When you promote a resource share, you can then manage the resource share in RAM and
-    /// it becomes visible to all of the principals you shared it with.
-    /// </para>
+    /// This operation promotes the resource share to a <code>STANDARD</code> resource share
+    /// that is fully manageable in RAM. When you promote a resource share, you can then manage
+    /// the resource share in RAM and it becomes visible to all of the principals you shared
+    /// it with.
+    /// </para><important><para>
+    /// Before you perform this operation, you should first run <a>PromotePermissionCreatedFromPolicy</a>to
+    /// ensure that you have an appropriate customer managed permission that can be associated
+    /// with this resource share after its is promoted. If this operation can't find a managed
+    /// permission that exactly matches the existing <code>CREATED_FROM_POLICY</code> permission,
+    /// then this operation fails.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Convert", "RAMPolicyBasedResourceShareToPromoted", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -53,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resoure Name (ARN)</a> of the resource share to promote.</para>
+        /// Resource Name (ARN)</a> of the resource share to promote.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -37,9 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// A <code>HEAD</code> request has the same options as a <code>GET</code> action on an
     /// object. The response is identical to the <code>GET</code> response except that there
     /// is no response body. Because of this, if the <code>HEAD</code> request generates an
-    /// error, it returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code>
-    /// or <code>404 Not Found</code> code. It is not possible to retrieve the exact exception
-    /// beyond these error codes.
+    /// error, it returns a generic <code>404 Not Found</code> or <code>403 Forbidden</code>
+    /// code. It is not possible to retrieve the exact exception beyond these error codes.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata

@@ -29,10 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Creates a new document classifier that you can use to categorize documents. To create
-    /// a classifier, you provide a set of training documents that labeled with the categories
-    /// that you want to use. After the classifier is trained you can use it to categorize
-    /// a set of labeled documents into the categories. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Document
-    /// Classification</a> in the Comprehend Developer Guide.
+    /// a classifier, you provide a set of training documents that are labeled with the categories
+    /// that you want to use. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/training-classifier-model.html">Training
+    /// classifier models</a> in the Comprehend Developer Guide.
     /// </summary>
     [Cmdlet("New", "COMPDocumentClassifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -118,6 +117,62 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DocumentClassifierName { get; set; }
+        #endregion
+        
+        #region Parameter DocumentReaderConfig_DocumentReadAction
+        /// <summary>
+        /// <para>
+        /// <para>This field defines the Amazon Textract API operation that Amazon Comprehend uses to
+        /// extract text from PDF files and image files. Enter one of the following values:</para><ul><li><para><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The Amazon Comprehend service uses the
+        /// <code>DetectDocumentText</code> API operation. </para></li><li><para><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The Amazon Comprehend service uses the <code>AnalyzeDocument</code>
+        /// API operation. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_DocumentReaderConfig_DocumentReadAction")]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentReadAction")]
+        public Amazon.Comprehend.DocumentReadAction DocumentReaderConfig_DocumentReadAction { get; set; }
+        #endregion
+        
+        #region Parameter DocumentReaderConfig_DocumentReadMode
+        /// <summary>
+        /// <para>
+        /// <para>Determines the text extraction actions for PDF files. Enter one of the following values:</para><ul><li><para><code>SERVICE_DEFAULT</code> - use the Amazon Comprehend service defaults for PDF
+        /// files.</para></li><li><para><code>FORCE_DOCUMENT_READ_ACTION</code> - Amazon Comprehend uses the Textract API
+        /// specified by DocumentReadAction for all PDF files, including digital PDF files. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_DocumentReaderConfig_DocumentReadMode")]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentReadMode")]
+        public Amazon.Comprehend.DocumentReadMode DocumentReaderConfig_DocumentReadMode { get; set; }
+        #endregion
+        
+        #region Parameter InputDataConfig_DocumentType
+        /// <summary>
+        /// <para>
+        /// <para>The type of input documents for training the model. Provide plain-text documents to
+        /// create a plain-text model, and provide semi-structured documents to create a native
+        /// model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentClassifierDocumentTypeFormat")]
+        public Amazon.Comprehend.DocumentClassifierDocumentTypeFormat InputDataConfig_DocumentType { get; set; }
+        #endregion
+        
+        #region Parameter DocumentReaderConfig_FeatureType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of Amazon Textract features to apply. If you chose <code>TEXTRACT_ANALYZE_DOCUMENT</code>
+        /// as the read action, you must specify one or both of the following values:</para><ul><li><para><code>TABLES</code> - Returns information about any tables that are detected in the
+        /// input document. </para></li><li><para><code>FORMS</code> - Returns information and the data from any forms that are detected
+        /// in the input document. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_DocumentReaderConfig_FeatureTypes")]
+        public System.String[] DocumentReaderConfig_FeatureType { get; set; }
         #endregion
         
         #region Parameter OutputDataConfig_FlywheelStatsS3Prefix
@@ -217,6 +272,17 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String ModelPolicy { get; set; }
         #endregion
         
+        #region Parameter Documents_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI location of the training documents specified in the S3Uri CSV file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_Documents_S3Uri")]
+        public System.String Documents_S3Uri { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_S3Uri
         /// <summary>
         /// <para>
@@ -235,9 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// <summary>
         /// <para>
         /// <para>When you use the <code>OutputDataConfig</code> object while creating a custom classifier,
-        /// you specify the Amazon S3 location where you want to write the confusion matrix. The
-        /// URI must be in the same Region as the API endpoint that you are calling. The location
-        /// is used as the prefix for the actual location of this output file.</para><para>When the custom classifier job is finished, the service creates the output file in
+        /// you specify the Amazon S3 location where you want to write the confusion matrix and
+        /// other output files. The URI must be in the same Region as the API endpoint that you
+        /// are calling. The location is used as the prefix for the actual location of this output
+        /// file.</para><para>When the custom classifier job is finished, the service creates the output file in
         /// a directory specific to the job. The <code>S3Uri</code> field contains the location
         /// of the output file, called <code>output.tar.gz</code>. It is a compressed archive
         /// that contains the confusion matrix.</para>
@@ -290,6 +357,18 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Documents_TestS3Uri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 URI location of the test documents included in the TestS3Uri CSV file. This
+        /// field is not required if you do not specify a test CSV file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_Documents_TestS3Uri")]
+        public System.String Documents_TestS3Uri { get; set; }
         #endregion
         
         #region Parameter InputDataConfig_TestS3Uri
@@ -411,6 +490,15 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 context.InputDataConfig_AugmentedManifest = new List<Amazon.Comprehend.Model.AugmentedManifestsListItem>(this.InputDataConfig_AugmentedManifest);
             }
             context.InputDataConfig_DataFormat = this.InputDataConfig_DataFormat;
+            context.DocumentReaderConfig_DocumentReadAction = this.DocumentReaderConfig_DocumentReadAction;
+            context.DocumentReaderConfig_DocumentReadMode = this.DocumentReaderConfig_DocumentReadMode;
+            if (this.DocumentReaderConfig_FeatureType != null)
+            {
+                context.DocumentReaderConfig_FeatureType = new List<System.String>(this.DocumentReaderConfig_FeatureType);
+            }
+            context.Documents_S3Uri = this.Documents_S3Uri;
+            context.Documents_TestS3Uri = this.Documents_TestS3Uri;
+            context.InputDataConfig_DocumentType = this.InputDataConfig_DocumentType;
             context.InputDataConfig_LabelDelimiter = this.InputDataConfig_LabelDelimiter;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
             context.InputDataConfig_TestS3Uri = this.InputDataConfig_TestS3Uri;
@@ -493,6 +581,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 request.InputDataConfig.DataFormat = requestInputDataConfig_inputDataConfig_DataFormat;
                 requestInputDataConfigIsNull = false;
             }
+            Amazon.Comprehend.DocumentClassifierDocumentTypeFormat requestInputDataConfig_inputDataConfig_DocumentType = null;
+            if (cmdletContext.InputDataConfig_DocumentType != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentType = cmdletContext.InputDataConfig_DocumentType;
+            }
+            if (requestInputDataConfig_inputDataConfig_DocumentType != null)
+            {
+                request.InputDataConfig.DocumentType = requestInputDataConfig_inputDataConfig_DocumentType;
+                requestInputDataConfigIsNull = false;
+            }
             System.String requestInputDataConfig_inputDataConfig_LabelDelimiter = null;
             if (cmdletContext.InputDataConfig_LabelDelimiter != null)
             {
@@ -521,6 +619,86 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (requestInputDataConfig_inputDataConfig_TestS3Uri != null)
             {
                 request.InputDataConfig.TestS3Uri = requestInputDataConfig_inputDataConfig_TestS3Uri;
+                requestInputDataConfigIsNull = false;
+            }
+            Amazon.Comprehend.Model.DocumentClassifierDocuments requestInputDataConfig_inputDataConfig_Documents = null;
+            
+             // populate Documents
+            var requestInputDataConfig_inputDataConfig_DocumentsIsNull = true;
+            requestInputDataConfig_inputDataConfig_Documents = new Amazon.Comprehend.Model.DocumentClassifierDocuments();
+            System.String requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri = null;
+            if (cmdletContext.Documents_S3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri = cmdletContext.Documents_S3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents.S3Uri = requestInputDataConfig_inputDataConfig_Documents_documents_S3Uri;
+                requestInputDataConfig_inputDataConfig_DocumentsIsNull = false;
+            }
+            System.String requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri = null;
+            if (cmdletContext.Documents_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri = cmdletContext.Documents_TestS3Uri;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri != null)
+            {
+                requestInputDataConfig_inputDataConfig_Documents.TestS3Uri = requestInputDataConfig_inputDataConfig_Documents_documents_TestS3Uri;
+                requestInputDataConfig_inputDataConfig_DocumentsIsNull = false;
+            }
+             // determine if requestInputDataConfig_inputDataConfig_Documents should be set to null
+            if (requestInputDataConfig_inputDataConfig_DocumentsIsNull)
+            {
+                requestInputDataConfig_inputDataConfig_Documents = null;
+            }
+            if (requestInputDataConfig_inputDataConfig_Documents != null)
+            {
+                request.InputDataConfig.Documents = requestInputDataConfig_inputDataConfig_Documents;
+                requestInputDataConfigIsNull = false;
+            }
+            Amazon.Comprehend.Model.DocumentReaderConfig requestInputDataConfig_inputDataConfig_DocumentReaderConfig = null;
+            
+             // populate DocumentReaderConfig
+            var requestInputDataConfig_inputDataConfig_DocumentReaderConfigIsNull = true;
+            requestInputDataConfig_inputDataConfig_DocumentReaderConfig = new Amazon.Comprehend.Model.DocumentReaderConfig();
+            Amazon.Comprehend.DocumentReadAction requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadAction = null;
+            if (cmdletContext.DocumentReaderConfig_DocumentReadAction != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadAction = cmdletContext.DocumentReaderConfig_DocumentReadAction;
+            }
+            if (requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadAction != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig.DocumentReadAction = requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadAction;
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfigIsNull = false;
+            }
+            Amazon.Comprehend.DocumentReadMode requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadMode = null;
+            if (cmdletContext.DocumentReaderConfig_DocumentReadMode != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadMode = cmdletContext.DocumentReaderConfig_DocumentReadMode;
+            }
+            if (requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadMode != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig.DocumentReadMode = requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_DocumentReadMode;
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfigIsNull = false;
+            }
+            List<System.String> requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_FeatureType = null;
+            if (cmdletContext.DocumentReaderConfig_FeatureType != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_FeatureType = cmdletContext.DocumentReaderConfig_FeatureType;
+            }
+            if (requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_FeatureType != null)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig.FeatureTypes = requestInputDataConfig_inputDataConfig_DocumentReaderConfig_documentReaderConfig_FeatureType;
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfigIsNull = false;
+            }
+             // determine if requestInputDataConfig_inputDataConfig_DocumentReaderConfig should be set to null
+            if (requestInputDataConfig_inputDataConfig_DocumentReaderConfigIsNull)
+            {
+                requestInputDataConfig_inputDataConfig_DocumentReaderConfig = null;
+            }
+            if (requestInputDataConfig_inputDataConfig_DocumentReaderConfig != null)
+            {
+                request.InputDataConfig.DocumentReaderConfig = requestInputDataConfig_inputDataConfig_DocumentReaderConfig;
                 requestInputDataConfigIsNull = false;
             }
              // determine if request.InputDataConfig should be set to null
@@ -690,6 +868,12 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String DocumentClassifierName { get; set; }
             public List<Amazon.Comprehend.Model.AugmentedManifestsListItem> InputDataConfig_AugmentedManifest { get; set; }
             public Amazon.Comprehend.DocumentClassifierDataFormat InputDataConfig_DataFormat { get; set; }
+            public Amazon.Comprehend.DocumentReadAction DocumentReaderConfig_DocumentReadAction { get; set; }
+            public Amazon.Comprehend.DocumentReadMode DocumentReaderConfig_DocumentReadMode { get; set; }
+            public List<System.String> DocumentReaderConfig_FeatureType { get; set; }
+            public System.String Documents_S3Uri { get; set; }
+            public System.String Documents_TestS3Uri { get; set; }
+            public Amazon.Comprehend.DocumentClassifierDocumentTypeFormat InputDataConfig_DocumentType { get; set; }
             public System.String InputDataConfig_LabelDelimiter { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public System.String InputDataConfig_TestS3Uri { get; set; }

@@ -41,11 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class GetRAMPermissionListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        #region Parameter PermissionType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that you want to list only permissions of this type:</para><ul><li><para><code>AWS</code> – returns only Amazon Web Services managed permissions.</para></li><li><para><code>LOCAL</code> – returns only customer managed permissions</para></li><li><para><code>ALL</code> – returns both Amazon Web Services managed permissions and customer
+        /// managed permissions.</para></li></ul><para>If you don't specify this parameter, the default is <code>All</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RAM.PermissionTypeFilter")]
+        public Amazon.RAM.PermissionTypeFilter PermissionType { get; set; }
+        #endregion
+        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Specifies that you want to list permissions for only the specified resource type.
-        /// For example, to list only permissions that apply to EC2 subnets, specify <code>ec2:Subnet</code>.
+        /// <para>Specifies that you want to list only those permissions that apply to the specified
+        /// resource type. This parameter is not case sensitive.</para><para>For example, to list only permissions that apply to Amazon EC2 subnets, specify <code>ec2:subnet</code>.
         /// You can use the <a>ListResourceTypes</a> operation to get the specific string required.</para>
         /// </para>
         /// </summary>
@@ -168,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             #endif
             context.NextToken = this.NextToken;
+            context.PermissionType = this.PermissionType;
             context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
@@ -193,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.PermissionType != null)
+            {
+                request.PermissionType = cmdletContext.PermissionType;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -253,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             
             // create request and set iteration invariants
             var request = new Amazon.RAM.Model.ListPermissionsRequest();
+            if (cmdletContext.PermissionType != null)
+            {
+                request.PermissionType = cmdletContext.PermissionType;
+            }
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceType = cmdletContext.ResourceType;
@@ -382,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.RAM.PermissionTypeFilter PermissionType { get; set; }
             public System.String ResourceType { get; set; }
             public System.Func<Amazon.RAM.Model.ListPermissionsResponse, GetRAMPermissionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Permissions;

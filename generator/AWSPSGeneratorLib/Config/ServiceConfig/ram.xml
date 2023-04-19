@@ -33,7 +33,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePermission" OutputProperty="Permission" Verb="New" Noun="Permission" ShouldProcessTarget="Name" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePermissionVersion" OutputProperty="Permission" Verb="New" Noun="PermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateResourceShare" OutputProperty="ResourceShare" Verb="New" Noun="ResourceShare" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePermission" OutputProperty="*" Verb="Remove" Noun="Permission" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePermissionVersion" OutputProperty="*" Verb="Remove" Noun="PermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,6 +93,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissionAssociations" OutputProperty="Permissions" Verb="Get" Noun="PermissionAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -86,6 +106,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReplacePermissionAssociationsWork" OutputProperty="ReplacePermissionAssociationsWorks" Verb="Get" Noun="ReplacePermissionAssociationsWorkList" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -101,11 +125,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PromotePermissionCreatedFromPolicy" OutputProperty="Permission" Verb="Convert" Noun="PermissionCreatedFromPolicy" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PromoteResourceShareCreatedFromPolicy" OutputProperty="ReturnValue" Verb="Convert" Noun="PolicyBasedResourceShareToPromoted" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RejectResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Deny" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplacePermissionAssociations" OutputProperty="ReplacePermissionAssociationsWork" Verb="Edit" Noun="PermissionAssociation" ShouldProcessTarget="FromPermissionArn" PipelineParameter="FromPermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDefaultPermissionVersion" OutputProperty="ReturnValue" Verb="Set" Noun="DefaultPermissionVersion" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

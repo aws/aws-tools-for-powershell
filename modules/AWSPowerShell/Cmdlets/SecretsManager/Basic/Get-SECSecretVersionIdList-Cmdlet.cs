@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies whether to include versions of secrets that don't have any staging labels
         /// attached to them. Versions without staging labels are considered deprecated and are
-        /// subject to deletion by Secrets Manager.</para>
+        /// subject to deletion by Secrets Manager. By default, versions without staging labels
+        /// aren't included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

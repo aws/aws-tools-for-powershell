@@ -28,27 +28,41 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Removes a managed permission from a resource share. Permission changes take effect
-    /// immediately. You can remove a managed permission from a resource share only if there
-    /// are currently no resources of the relevant resource type currently attached to the
-    /// resource share.
+    /// Updates all resource shares that use a managed permission to a different managed permission.
+    /// This operation always applies the default version of the target managed permission.
+    /// You can optionally specify that the update applies to only resource shares that currently
+    /// use a specified version. This enables you to update to the latest version, without
+    /// changing the which managed permission is used.
+    /// 
+    ///  
+    /// <para>
+    /// You can use this operation to update all of your resource shares to use the current
+    /// default version of the permission by specifying the same value for the <code>fromPermissionArn</code>
+    /// and <code>toPermissionArn</code> parameters.
+    /// </para><para>
+    /// You can use the optional <code>fromPermissionVersion</code> parameter to update only
+    /// those resources that use a specified version of the managed permission to the new
+    /// managed permission.
+    /// </para><important><para>
+    /// To successfully perform this operation, you must have permission to update the resource-based
+    /// policy on all affected resource types.
+    /// </para></important>
     /// </summary>
-    [Cmdlet("Remove", "RAMPermissionFromResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.Boolean")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) DisassociateResourceSharePermission API operation.", Operation = new[] {"DisassociateResourceSharePermission"}, SelectReturnType = typeof(Amazon.RAM.Model.DisassociateResourceSharePermissionResponse))]
-    [AWSCmdletOutput("System.Boolean or Amazon.RAM.Model.DisassociateResourceSharePermissionResponse",
-        "This cmdlet returns a System.Boolean object.",
-        "The service call response (type Amazon.RAM.Model.DisassociateResourceSharePermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "RAMPermissionAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RAM.Model.ReplacePermissionAssociationsWork")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ReplacePermissionAssociations API operation.", Operation = new[] {"ReplacePermissionAssociations"}, SelectReturnType = typeof(Amazon.RAM.Model.ReplacePermissionAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.ReplacePermissionAssociationsWork or Amazon.RAM.Model.ReplacePermissionAssociationsResponse",
+        "This cmdlet returns an Amazon.RAM.Model.ReplacePermissionAssociationsWork object.",
+        "The service call response (type Amazon.RAM.Model.ReplacePermissionAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRAMPermissionFromResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class EditRAMPermissionAssociationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
-        #region Parameter PermissionArn
+        #region Parameter FromPermissionArn
         /// <summary>
         /// <para>
-        /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of the managed permission to disassociate from the resource
-        /// share. Changes to permissions take effect immediately.</para>
+        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Resource Name (ARN)</a> of the managed permission that you want to replace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,15 +73,26 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PermissionArn { get; set; }
+        public System.String FromPermissionArn { get; set; }
         #endregion
         
-        #region Parameter ResourceShareArn
+        #region Parameter FromPermissionVersion
         /// <summary>
         /// <para>
-        /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of the resource share that you want to remove the managed
-        /// permission from.</para>
+        /// <para>Specifies that you want to updated the permissions for only those resource shares
+        /// that use the specified version of the managed permission.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? FromPermissionVersion { get; set; }
+        #endregion
+        
+        #region Parameter ToPermissionArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the ARN of the managed permission that you want to associate with resource
+        /// shares in place of the one specified by <code>fromPerssionArn</code> and <code>fromPermissionVersion</code>.</para><para>The operation always associates the version that is currently the default for the
+        /// specified managed permission.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceShareArn { get; set; }
+        public System.String ToPermissionArn { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -100,21 +125,21 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReturnValue'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.DisassociateResourceSharePermissionResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.DisassociateResourceSharePermissionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplacePermissionAssociationsWork'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ReplacePermissionAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.ReplacePermissionAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ReturnValue";
+        public string Select { get; set; } = "ReplacePermissionAssociationsWork";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PermissionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FromPermissionArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FromPermissionArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FromPermissionArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PermissionArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RAMPermissionFromResourceShare (DisassociateResourceSharePermission)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FromPermissionArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RAMPermissionAssociation (ReplacePermissionAssociations)"))
             {
                 return;
             }
@@ -148,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.DisassociateResourceSharePermissionResponse, RemoveRAMPermissionFromResourceShareCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ReplacePermissionAssociationsResponse, EditRAMPermissionAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,22 +182,23 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PermissionArn;
+                context.Select = (response, cmdlet) => this.FromPermissionArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            context.PermissionArn = this.PermissionArn;
+            context.FromPermissionArn = this.FromPermissionArn;
             #if MODULAR
-            if (this.PermissionArn == null && ParameterWasBound(nameof(this.PermissionArn)))
+            if (this.FromPermissionArn == null && ParameterWasBound(nameof(this.FromPermissionArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FromPermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResourceShareArn = this.ResourceShareArn;
+            context.FromPermissionVersion = this.FromPermissionVersion;
+            context.ToPermissionArn = this.ToPermissionArn;
             #if MODULAR
-            if (this.ResourceShareArn == null && ParameterWasBound(nameof(this.ResourceShareArn)))
+            if (this.ToPermissionArn == null && ParameterWasBound(nameof(this.ToPermissionArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceShareArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ToPermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -189,19 +215,23 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RAM.Model.DisassociateResourceSharePermissionRequest();
+            var request = new Amazon.RAM.Model.ReplacePermissionAssociationsRequest();
             
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.PermissionArn != null)
+            if (cmdletContext.FromPermissionArn != null)
             {
-                request.PermissionArn = cmdletContext.PermissionArn;
+                request.FromPermissionArn = cmdletContext.FromPermissionArn;
             }
-            if (cmdletContext.ResourceShareArn != null)
+            if (cmdletContext.FromPermissionVersion != null)
             {
-                request.ResourceShareArn = cmdletContext.ResourceShareArn;
+                request.FromPermissionVersion = cmdletContext.FromPermissionVersion.Value;
+            }
+            if (cmdletContext.ToPermissionArn != null)
+            {
+                request.ToPermissionArn = cmdletContext.ToPermissionArn;
             }
             
             CmdletOutput output;
@@ -236,15 +266,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.DisassociateResourceSharePermissionResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.DisassociateResourceSharePermissionRequest request)
+        private Amazon.RAM.Model.ReplacePermissionAssociationsResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ReplacePermissionAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "DisassociateResourceSharePermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ReplacePermissionAssociations");
             try
             {
                 #if DESKTOP
-                return client.DisassociateResourceSharePermission(request);
+                return client.ReplacePermissionAssociations(request);
                 #elif CORECLR
-                return client.DisassociateResourceSharePermissionAsync(request).GetAwaiter().GetResult();
+                return client.ReplacePermissionAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,10 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
-            public System.String PermissionArn { get; set; }
-            public System.String ResourceShareArn { get; set; }
-            public System.Func<Amazon.RAM.Model.DisassociateResourceSharePermissionResponse, RemoveRAMPermissionFromResourceShareCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ReturnValue;
+            public System.String FromPermissionArn { get; set; }
+            public System.Int32? FromPermissionVersion { get; set; }
+            public System.String ToPermissionArn { get; set; }
+            public System.Func<Amazon.RAM.Model.ReplacePermissionAssociationsResponse, EditRAMPermissionAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ReplacePermissionAssociationsWork;
         }
         
     }

@@ -99,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The DB cluster parameter group family name. A DB cluster parameter group can be associated
         /// with one and only one DB cluster parameter group family, and can be applied only to
         /// a DB cluster running a database engine and engine version compatible with that DB
-        /// cluster parameter group family.</para><para><b>Aurora MySQL</b></para><para>Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code></para><para><b>Aurora PostgreSQL</b></para><para>Example: <code>aurora-postgresql9.6</code></para><para><b>RDS for MySQL</b></para><para>Example: <code>mysql8.0</code></para><para><b>RDS for PostgreSQL</b></para><para>Example: <code>postgres12</code></para><para>To list all of the available parameter group families for a DB engine, use the following
+        /// cluster parameter group family.</para><para><b>Aurora MySQL</b></para><para>Example: <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code></para><para><b>Aurora PostgreSQL</b></para><para>Example: <code>aurora-postgresql14</code></para><para><b>RDS for MySQL</b></para><para>Example: <code>mysql8.0</code></para><para><b>RDS for PostgreSQL</b></para><para>Example: <code>postgres12</code></para><para>To list all of the available parameter group families for a DB engine, use the following
         /// command:</para><para><code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
         /// --engine &lt;engine&gt;</code></para><para>For example, to list all of the available parameter group families for the Aurora
         /// PostgreSQL DB engine, use the following command:</para><para><code>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
-        /// --engine aurora-postgresql</code></para><note><para>The output contains duplicates.</para></note><para>The following are the valid DB engine values:</para><ul><li><para><code>aurora</code> (for MySQL 5.6-compatible Aurora)</para></li><li><para><code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mysql</code></para></li><li><para><code>postgres</code></para></li></ul>
+        /// --engine aurora-postgresql</code></para><note><para>The output contains duplicates.</para></note><para>The following are the valid DB engine values:</para><ul><li><para><code>aurora-mysql</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mysql</code></para></li><li><para><code>postgres</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -12453,6 +12453,13 @@ $COMP_Completers = {
             break
         }
 
+        # Amazon.Comprehend.DocumentClassifierDocumentTypeFormat
+        "New-COMPDocumentClassifier/InputDataConfig_DocumentType"
+        {
+            $v = "PLAIN_TEXT_DOCUMENT","SEMI_STRUCTURED_DOCUMENT"
+            break
+        }
+
         # Amazon.Comprehend.DocumentClassifierMode
         {
             ($_ -eq "New-COMPDocumentClassifier/Mode") -Or
@@ -12466,7 +12473,8 @@ $COMP_Completers = {
         # Amazon.Comprehend.DocumentReadAction
         {
             ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadAction") -Or
-            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction")
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction") -Or
+            ($_ -eq "New-COMPDocumentClassifier/InputDataConfig_DocumentReaderConfig_DocumentReadAction")
         }
         {
             $v = "TEXTRACT_ANALYZE_DOCUMENT","TEXTRACT_DETECT_DOCUMENT_TEXT"
@@ -12476,7 +12484,8 @@ $COMP_Completers = {
         # Amazon.Comprehend.DocumentReadMode
         {
             ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadMode") -Or
-            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode")
+            ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode") -Or
+            ($_ -eq "New-COMPDocumentClassifier/InputDataConfig_DocumentReaderConfig_DocumentReadMode")
         }
         {
             $v = "FORCE_DOCUMENT_READ_ACTION","SERVICE_DEFAULT"
@@ -12609,7 +12618,10 @@ $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
     "Filter_Status"=@("Get-COMPDatasetList","Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList","Get-COMPFlywheelList")
     "InputDataConfig_DataFormat"=@("New-COMPDataset","New-COMPDocumentClassifier","New-COMPEntityRecognizer")
+    "InputDataConfig_DocumentReaderConfig_DocumentReadAction"=@("New-COMPDocumentClassifier")
+    "InputDataConfig_DocumentReaderConfig_DocumentReadMode"=@("New-COMPDocumentClassifier")
     "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
+    "InputDataConfig_DocumentType"=@("New-COMPDocumentClassifier")
     "InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat"=@("New-COMPDataset")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
@@ -20305,7 +20317,7 @@ $ECS_Completers = {
             ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
-            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","serviceLongArnFormat","taskLongArnFormat"
+            $v = "awsvpcTrunking","containerInsights","containerInstanceLongArnFormat","fargateFIPSMode","serviceLongArnFormat","tagResourceAuthorization","taskLongArnFormat"
             break
         }
 
@@ -44864,6 +44876,27 @@ $RAM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RAM.PermissionFeatureSet
+        "Get-RAMPermissionAssociationList/FeatureSet"
+        {
+            $v = "CREATED_FROM_POLICY","PROMOTING_TO_STANDARD","STANDARD"
+            break
+        }
+
+        # Amazon.RAM.PermissionTypeFilter
+        "Get-RAMPermissionList/PermissionType"
+        {
+            $v = "ALL","AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
+        # Amazon.RAM.ReplacePermissionAssociationsWorkStatus
+        "Get-RAMReplacePermissionAssociationsWorkList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+
         # Amazon.RAM.ResourceOwner
         {
             ($_ -eq "Get-RAMPrincipalList/ResourceOwner") -Or
@@ -44887,7 +44920,10 @@ $RAM_Completers = {
         }
 
         # Amazon.RAM.ResourceShareAssociationStatus
-        "Get-RAMResourceShareAssociation/AssociationStatus"
+        {
+            ($_ -eq "Get-RAMPermissionAssociationList/AssociationStatus") -Or
+            ($_ -eq "Get-RAMResourceShareAssociation/AssociationStatus")
+        }
         {
             $v = "ASSOCIATED","ASSOCIATING","DISASSOCIATED","DISASSOCIATING","FAILED"
             break
@@ -44916,11 +44952,14 @@ $RAM_Completers = {
 }
 
 $RAM_map = @{
-    "AssociationStatus"=@("Get-RAMResourceShareAssociation")
+    "AssociationStatus"=@("Get-RAMPermissionAssociationList","Get-RAMResourceShareAssociation")
     "AssociationType"=@("Get-RAMResourceShareAssociation")
+    "FeatureSet"=@("Get-RAMPermissionAssociationList")
+    "PermissionType"=@("Get-RAMPermissionList")
     "ResourceOwner"=@("Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
     "ResourceRegionScope"=@("Get-RAMPendingInvitationResourceList","Get-RAMResourceList","Get-RAMResourceTypeList")
     "ResourceShareStatus"=@("Get-RAMResourceShare")
+    "Status"=@("Get-RAMReplacePermissionAssociationsWorkList")
 }
 
 _awsArgumentCompleterRegistration $RAM_Completers $RAM_map
@@ -44976,7 +45015,11 @@ $RAM_SelectMap = @{
     "Select"=@("Confirm-RAMResourceShareInvitation",
                "Connect-RAMResourceShare",
                "Add-RAMPermissionToResourceShare",
+               "New-RAMPermission",
+               "New-RAMPermissionVersion",
                "New-RAMResourceShare",
+               "Remove-RAMPermission",
+               "Remove-RAMPermissionVersion",
                "Remove-RAMResourceShare",
                "Disconnect-RAMResourceShare",
                "Remove-RAMPermissionFromResourceShare",
@@ -44987,14 +45030,19 @@ $RAM_SelectMap = @{
                "Get-RAMResourceShareInvitation",
                "Get-RAMResourceShare",
                "Get-RAMPendingInvitationResourceList",
+               "Get-RAMPermissionAssociationList",
                "Get-RAMPermissionList",
                "Get-RAMPermissionVersionList",
                "Get-RAMPrincipalList",
+               "Get-RAMReplacePermissionAssociationsWorkList",
                "Get-RAMResourceList",
                "Get-RAMResourceSharePermissionList",
                "Get-RAMResourceTypeList",
+               "Convert-RAMPermissionCreatedFromPolicy",
                "Convert-RAMPolicyBasedResourceShareToPromoted",
                "Deny-RAMResourceShareInvitation",
+               "Edit-RAMPermissionAssociation",
+               "Set-RAMDefaultPermissionVersion",
                "Add-RAMResourceTag",
                "Remove-RAMResourceTag",
                "Update-RAMResourceShare")
@@ -48451,7 +48499,7 @@ $S3_Completers = {
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
-            $v = "DEEP_ARCHIVE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","GLACIER","GLACIER_IR","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","SNOW","STANDARD","STANDARD_IA"
             break
         }
 

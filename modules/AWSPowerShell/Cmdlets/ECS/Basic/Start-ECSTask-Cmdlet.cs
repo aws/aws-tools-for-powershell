@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Whether or not the execute command functionality is turned on for the task. If <code>true</code>,
-        /// this enables execute command functionality on all containers in the task.</para>
+        /// this turns on the execute command functionality on all containers in the task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

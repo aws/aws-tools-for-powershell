@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies whether to delete the secret without any recovery window. You can't use
         /// both this parameter and <code>RecoveryWindowInDays</code> in the same call. If you
-        /// don't use either, then Secrets Manager defaults to a 30 day recovery window.</para><para>Secrets Manager performs the actual deletion with an asynchronous background process,
+        /// don't use either, then by default Secrets Manager uses a 30 day recovery window.</para><para>Secrets Manager performs the actual deletion with an asynchronous background process,
         /// so there might be a short delay before the secret is permanently deleted. If you delete
         /// a secret and then immediately create a secret with the same name, use appropriate
         /// back off and retry logic.</para><important><para>Use this parameter with caution. This parameter causes the operation to skip the normal
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The number of days from 7 to 30 that Secrets Manager waits before permanently deleting
         /// the secret. You can't use both this parameter and <code>ForceDeleteWithoutRecovery</code>
-        /// in the same call. If you don't use either, then Secrets Manager defaults to a 30 day
-        /// recovery window.</para>
+        /// in the same call. If you don't use either, then by default Secrets Manager uses a
+        /// 30 day recovery window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

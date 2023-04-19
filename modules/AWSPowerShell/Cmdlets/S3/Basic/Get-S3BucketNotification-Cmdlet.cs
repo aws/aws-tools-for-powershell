@@ -40,9 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// other users to read this configuration with the <code>s3:GetBucketNotification</code>
     /// permission.
     /// </para><para>
-    /// To use this API against an access point, provide the alias of the access point in
-    /// place of the bucket name.
-    /// </para><para>
     /// For more information about setting and reading the notification configuration on a
     /// bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Setting
     /// Up Notification of Bucket Events</a>. For more information about bucket policies,

@@ -79,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter IncludePlannedDeletion
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to include secrets scheduled for deletion.</para>
+        /// <para>Specifies whether to include secrets scheduled for deletion. By default, secrets scheduled
+        /// for deletion aren't included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

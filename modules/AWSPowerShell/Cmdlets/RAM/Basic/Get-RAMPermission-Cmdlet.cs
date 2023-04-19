@@ -28,7 +28,7 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Gets the contents of an RAM permission in JSON format.
+    /// Retrieves the contents of a managed permission in JSON format.
     /// </summary>
     [Cmdlet("Get", "RAMPermission")]
     [OutputType("Amazon.RAM.Model.ResourceSharePermissionDetail")]
@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resoure Name (ARN)</a> of the permission whose contents you want to retrieve. To find
-        /// the ARN for a permission, use either the <a>ListPermissions</a> operation or go to
-        /// the <a href="https://console.aws.amazon.com/ram/home#Permissions:">Permissions library</a>
-        /// page in the RAM console and then choose the name of the permission. The ARN is displayed
-        /// on the detail page.</para>
+        /// Resource Name (ARN)</a> of the permission whose contents you want to retrieve. To
+        /// find the ARN for a permission, use either the <a>ListPermissions</a> operation or
+        /// go to the <a href="https://console.aws.amazon.com/ram/home#Permissions:">Permissions
+        /// library</a> page in the RAM console and then choose the name of the permission. The
+        /// ARN is displayed on the detail page.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter PermissionVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies identifier for the version of the RAM permission to retrieve. If you don't
-        /// specify this parameter, the operation retrieves the default version.</para>
+        /// <para>Specifies the version number of the RAM permission to retrieve. If you don't specify
+        /// this parameter, the operation retrieves the default version.</para><para>To see the list of available versions, use <a>ListPermissionVersions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

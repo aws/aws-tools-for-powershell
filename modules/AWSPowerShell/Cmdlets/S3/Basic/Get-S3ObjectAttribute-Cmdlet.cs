@@ -33,9 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// you must have READ access to the object.
     /// 
     ///  
-    /// <para><code>GetObjectAttributes</code> combines the functionality of <code>HeadObject</code>
-    /// and <code>ListParts</code>. All of the data returned with each of those individual
-    /// calls can be returned with a single call to <code>GetObjectAttributes</code>.
+    /// <para><code>GetObjectAttributes</code> combines the functionality of <code>GetObjectAcl</code>,
+    /// <code>GetObjectLegalHold</code>, <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
+    /// <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>.
+    /// All of the data returned with each of those individual calls can be returned with
+    /// a single call to <code>GetObjectAttributes</code>.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
@@ -48,8 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Encryption request headers, such as <code>x-amz-server-side-encryption</code>, should
     /// not be sent for GET requests if your object uses server-side encryption with Amazon
     /// Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS)
-    /// or server-side encryption with Amazon S3 managed keys (SSE-S3). If your object does
-    /// use these types of keys, you'll get an HTTP <code>400 Bad Request</code> error.
+    /// or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your
+    /// object does use these types of keys, you'll get an HTTP <code>400 Bad Request</code>
+    /// error.
     /// </para></li><li><para>
     ///  The last modified property in this case is the creation date of the object.
     /// </para></li></ul></note><para>

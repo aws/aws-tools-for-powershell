@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter ForceOverwriteReplicaSecret
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to overwrite a secret with the same name in the destination Region.</para>
+        /// <para>Specifies whether to overwrite a secret with the same name in the destination Region.
+        /// By default, secrets aren't overwritten.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

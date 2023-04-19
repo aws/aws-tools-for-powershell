@@ -80,6 +80,27 @@ $RAM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.RAM.PermissionFeatureSet
+        "Get-RAMPermissionAssociationList/FeatureSet"
+        {
+            $v = "CREATED_FROM_POLICY","PROMOTING_TO_STANDARD","STANDARD"
+            break
+        }
+
+        # Amazon.RAM.PermissionTypeFilter
+        "Get-RAMPermissionList/PermissionType"
+        {
+            $v = "ALL","AWS_MANAGED","CUSTOMER_MANAGED"
+            break
+        }
+
+        # Amazon.RAM.ReplacePermissionAssociationsWorkStatus
+        "Get-RAMReplacePermissionAssociationsWorkList/Status"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS"
+            break
+        }
+
         # Amazon.RAM.ResourceOwner
         {
             ($_ -eq "Get-RAMPrincipalList/ResourceOwner") -Or
@@ -103,7 +124,10 @@ $RAM_Completers = {
         }
 
         # Amazon.RAM.ResourceShareAssociationStatus
-        "Get-RAMResourceShareAssociation/AssociationStatus"
+        {
+            ($_ -eq "Get-RAMPermissionAssociationList/AssociationStatus") -Or
+            ($_ -eq "Get-RAMResourceShareAssociation/AssociationStatus")
+        }
         {
             $v = "ASSOCIATED","ASSOCIATING","DISASSOCIATED","DISASSOCIATING","FAILED"
             break
@@ -132,11 +156,14 @@ $RAM_Completers = {
 }
 
 $RAM_map = @{
-    "AssociationStatus"=@("Get-RAMResourceShareAssociation")
+    "AssociationStatus"=@("Get-RAMPermissionAssociationList","Get-RAMResourceShareAssociation")
     "AssociationType"=@("Get-RAMResourceShareAssociation")
+    "FeatureSet"=@("Get-RAMPermissionAssociationList")
+    "PermissionType"=@("Get-RAMPermissionList")
     "ResourceOwner"=@("Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
     "ResourceRegionScope"=@("Get-RAMPendingInvitationResourceList","Get-RAMResourceList","Get-RAMResourceTypeList")
     "ResourceShareStatus"=@("Get-RAMResourceShare")
+    "Status"=@("Get-RAMReplacePermissionAssociationsWorkList")
 }
 
 _awsArgumentCompleterRegistration $RAM_Completers $RAM_map
@@ -192,7 +219,11 @@ $RAM_SelectMap = @{
     "Select"=@("Confirm-RAMResourceShareInvitation",
                "Connect-RAMResourceShare",
                "Add-RAMPermissionToResourceShare",
+               "New-RAMPermission",
+               "New-RAMPermissionVersion",
                "New-RAMResourceShare",
+               "Remove-RAMPermission",
+               "Remove-RAMPermissionVersion",
                "Remove-RAMResourceShare",
                "Disconnect-RAMResourceShare",
                "Remove-RAMPermissionFromResourceShare",
@@ -203,14 +234,19 @@ $RAM_SelectMap = @{
                "Get-RAMResourceShareInvitation",
                "Get-RAMResourceShare",
                "Get-RAMPendingInvitationResourceList",
+               "Get-RAMPermissionAssociationList",
                "Get-RAMPermissionList",
                "Get-RAMPermissionVersionList",
                "Get-RAMPrincipalList",
+               "Get-RAMReplacePermissionAssociationsWorkList",
                "Get-RAMResourceList",
                "Get-RAMResourceSharePermissionList",
                "Get-RAMResourceTypeList",
+               "Convert-RAMPermissionCreatedFromPolicy",
                "Convert-RAMPolicyBasedResourceShareToPromoted",
                "Deny-RAMResourceShareInvitation",
+               "Edit-RAMPermissionAssociation",
+               "Set-RAMDefaultPermissionVersion",
                "Add-RAMResourceTag",
                "Remove-RAMResourceTag",
                "Update-RAMResourceShare")

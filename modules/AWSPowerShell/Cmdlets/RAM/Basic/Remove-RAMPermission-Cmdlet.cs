@@ -28,45 +28,25 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Modifies some of the properties of the specified resource share.
+    /// Deletes the specified customer managed permission in the Amazon Web Services Region
+    /// in which you call this operation. You can delete a customer managed permission only
+    /// if it isn't attached to any resource share. The operation deletes all versions associated
+    /// with the customer managed permission.
     /// </summary>
-    [Cmdlet("Update", "RAMResourceShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RAM.Model.ResourceShare")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) UpdateResourceShare API operation.", Operation = new[] {"UpdateResourceShare"}, SelectReturnType = typeof(Amazon.RAM.Model.UpdateResourceShareResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ResourceShare or Amazon.RAM.Model.UpdateResourceShareResponse",
-        "This cmdlet returns an Amazon.RAM.Model.ResourceShare object.",
-        "The service call response (type Amazon.RAM.Model.UpdateResourceShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "RAMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.RAM.Model.DeletePermissionResponse")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) DeletePermission API operation.", Operation = new[] {"DeletePermission"}, SelectReturnType = typeof(Amazon.RAM.Model.DeletePermissionResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.DeletePermissionResponse",
+        "This cmdlet returns an Amazon.RAM.Model.DeletePermissionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class RemoveRAMPermissionCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
-        #region Parameter AllowExternalPrincipal
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether principals outside your organization in Organizations can be associated
-        /// with a resource share.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AllowExternalPrincipals")]
-        public System.Boolean? AllowExternalPrincipal { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>If specified, the new name that you want to attach to the resource share.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ResourceShareArn
+        #region Parameter PermissionArn
         /// <summary>
         /// <para>
         /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of the resource share that you want to modify.</para>
+        /// Resource Name (ARN)</a> of the customer managed permission that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceShareArn { get; set; }
+        public System.String PermissionArn { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -99,21 +79,21 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceShare'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.UpdateResourceShareResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.UpdateResourceShareResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.DeletePermissionResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.DeletePermissionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResourceShare";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceShareArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceShareArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PermissionArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceShareArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -133,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceShareArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-RAMResourceShare (UpdateResourceShare)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PermissionArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RAMPermission (DeletePermission)"))
             {
                 return;
             }
@@ -147,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.UpdateResourceShareResponse, UpdateRAMResourceShareCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.DeletePermissionResponse, RemoveRAMPermissionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,17 +136,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceShareArn;
+                context.Select = (response, cmdlet) => this.PermissionArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AllowExternalPrincipal = this.AllowExternalPrincipal;
             context.ClientToken = this.ClientToken;
-            context.Name = this.Name;
-            context.ResourceShareArn = this.ResourceShareArn;
+            context.PermissionArn = this.PermissionArn;
             #if MODULAR
-            if (this.ResourceShareArn == null && ParameterWasBound(nameof(this.ResourceShareArn)))
+            if (this.PermissionArn == null && ParameterWasBound(nameof(this.PermissionArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceShareArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,23 +161,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RAM.Model.UpdateResourceShareRequest();
+            var request = new Amazon.RAM.Model.DeletePermissionRequest();
             
-            if (cmdletContext.AllowExternalPrincipal != null)
-            {
-                request.AllowExternalPrincipals = cmdletContext.AllowExternalPrincipal.Value;
-            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.PermissionArn != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.ResourceShareArn != null)
-            {
-                request.ResourceShareArn = cmdletContext.ResourceShareArn;
+                request.PermissionArn = cmdletContext.PermissionArn;
             }
             
             CmdletOutput output;
@@ -234,15 +204,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.UpdateResourceShareResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.UpdateResourceShareRequest request)
+        private Amazon.RAM.Model.DeletePermissionResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.DeletePermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "UpdateResourceShare");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "DeletePermission");
             try
             {
                 #if DESKTOP
-                return client.UpdateResourceShare(request);
+                return client.DeletePermission(request);
                 #elif CORECLR
-                return client.UpdateResourceShareAsync(request).GetAwaiter().GetResult();
+                return client.DeletePermissionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -262,12 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AllowExternalPrincipal { get; set; }
             public System.String ClientToken { get; set; }
-            public System.String Name { get; set; }
-            public System.String ResourceShareArn { get; set; }
-            public System.Func<Amazon.RAM.Model.UpdateResourceShareResponse, UpdateRAMResourceShareCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResourceShare;
+            public System.String PermissionArn { get; set; }
+            public System.Func<Amazon.RAM.Model.DeletePermissionResponse, RemoveRAMPermissionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

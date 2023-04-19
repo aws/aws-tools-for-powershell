@@ -377,8 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The type of restore to be performed. You can specify one of the following values:</para><ul><li><para><code>full-copy</code> - The new DB cluster is restored as a full copy of the source
         /// DB cluster.</para></li><li><para><code>copy-on-write</code> - The new DB cluster is restored as a clone of the source
-        /// DB cluster.</para></li></ul><para>Constraints: You can't specify <code>copy-on-write</code> if the engine version of
-        /// the source DB cluster is earlier than 1.11.</para><para>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
+        /// DB cluster.</para></li></ul><para>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
         /// restored as a full copy of the source DB cluster.</para><para>Valid for: Aurora DB clusters and Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>

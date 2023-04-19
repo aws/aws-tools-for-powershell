@@ -28,36 +28,41 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Lists the available versions of the specified RAM permission.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the current status of the asynchronous tasks performed by RAM when you perform
+    /// the <a>ReplacePermissionAssociationsWork</a> operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RAMPermissionVersionList")]
-    [OutputType("Amazon.RAM.Model.ResourceSharePermissionSummary")]
-    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListPermissionVersions API operation.", Operation = new[] {"ListPermissionVersions"}, SelectReturnType = typeof(Amazon.RAM.Model.ListPermissionVersionsResponse))]
-    [AWSCmdletOutput("Amazon.RAM.Model.ResourceSharePermissionSummary or Amazon.RAM.Model.ListPermissionVersionsResponse",
-        "This cmdlet returns a collection of Amazon.RAM.Model.ResourceSharePermissionSummary objects.",
-        "The service call response (type Amazon.RAM.Model.ListPermissionVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RAMReplacePermissionAssociationsWorkList")]
+    [OutputType("Amazon.RAM.Model.ReplacePermissionAssociationsWork")]
+    [AWSCmdlet("Calls the AWS Resource Access Manager (RAM) ListReplacePermissionAssociationsWork API operation.", Operation = new[] {"ListReplacePermissionAssociationsWork"}, SelectReturnType = typeof(Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse))]
+    [AWSCmdletOutput("Amazon.RAM.Model.ReplacePermissionAssociationsWork or Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse",
+        "This cmdlet returns a collection of Amazon.RAM.Model.ReplacePermissionAssociationsWork objects.",
+        "The service call response (type Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRAMPermissionVersionListCmdlet : AmazonRAMClientCmdlet, IExecutor
+    public partial class GetRAMReplacePermissionAssociationsWorkListCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
-        #region Parameter PermissionArn
+        #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Name (ARN)</a> of the RAM permission whose versions you want to list. You
-        /// can use the <code>permissionVersion</code> parameter on the <a>AssociateResourceSharePermission</a>
-        /// operation to specify a non-default version to attach.</para>
+        /// <para>Specifies that you want to see only the details about requests with a status that
+        /// matches this value.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PermissionArn { get; set; }
+        [AWSConstantClassSource("Amazon.RAM.ReplacePermissionAssociationsWorkStatus")]
+        public Amazon.RAM.ReplacePermissionAssociationsWorkStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter WorkId
+        /// <summary>
+        /// <para>
+        /// <para>A list of IDs. These values come from the <code>id</code>field of the <code>replacePermissionAssociationsWork</code>structure
+        /// returned by the <a>ReplacePermissionAssociations</a> operation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkIds")]
+        public System.String[] WorkId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -97,21 +102,21 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Permissions'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListPermissionVersionsResponse).
-        /// Specifying the name of a property of type Amazon.RAM.Model.ListPermissionVersionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReplacePermissionAssociationsWorks'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse).
+        /// Specifying the name of a property of type Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Permissions";
+        public string Select { get; set; } = "ReplacePermissionAssociationsWorks";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PermissionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Status parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PermissionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -139,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListPermissionVersionsResponse, GetRAMPermissionVersionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse, GetRAMReplacePermissionAssociationsWorkListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,18 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PermissionArn;
+                context.Select = (response, cmdlet) => this.Status;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.PermissionArn = this.PermissionArn;
-            #if MODULAR
-            if (this.PermissionArn == null && ParameterWasBound(nameof(this.PermissionArn)))
+            context.Status = this.Status;
+            if (this.WorkId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter PermissionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.WorkId = new List<System.String>(this.WorkId);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,15 +181,19 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.RAM.Model.ListPermissionVersionsRequest();
+            var request = new Amazon.RAM.Model.ListReplacePermissionAssociationsWorkRequest();
             
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.PermissionArn != null)
+            if (cmdletContext.Status != null)
             {
-                request.PermissionArn = cmdletContext.PermissionArn;
+                request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.WorkId != null)
+            {
+                request.WorkIds = cmdletContext.WorkId;
             }
             
             // Initialize loop variant and commence piping
@@ -245,15 +252,15 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         
         #region AWS Service Operation Call
         
-        private Amazon.RAM.Model.ListPermissionVersionsResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListPermissionVersionsRequest request)
+        private Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse CallAWSServiceOperation(IAmazonRAM client, Amazon.RAM.Model.ListReplacePermissionAssociationsWorkRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListPermissionVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Access Manager (RAM)", "ListReplacePermissionAssociationsWork");
             try
             {
                 #if DESKTOP
-                return client.ListPermissionVersions(request);
+                return client.ListReplacePermissionAssociationsWork(request);
                 #elif CORECLR
-                return client.ListPermissionVersionsAsync(request).GetAwaiter().GetResult();
+                return client.ListReplacePermissionAssociationsWorkAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,9 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String PermissionArn { get; set; }
-            public System.Func<Amazon.RAM.Model.ListPermissionVersionsResponse, GetRAMPermissionVersionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Permissions;
+            public Amazon.RAM.ReplacePermissionAssociationsWorkStatus Status { get; set; }
+            public List<System.String> WorkId { get; set; }
+            public System.Func<Amazon.RAM.Model.ListReplacePermissionAssociationsWorkResponse, GetRAMReplacePermissionAssociationsWorkListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ReplacePermissionAssociationsWorks;
         }
         
     }
