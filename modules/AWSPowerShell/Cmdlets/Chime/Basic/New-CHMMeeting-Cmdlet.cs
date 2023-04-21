@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Creates a new Amazon Chime SDK meeting in the specified media Region with no initial
-    /// attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime/latest/dg/chime-sdk-meetings-regions.html">Amazon
-    /// Chime SDK Media Regions</a> in the <i>Amazon Chime Developer Guide</i> . For more
-    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i> .
+    /// attendees. For more information about specifying media Regions, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon
+    /// Chime SDK Media Regions</a> in the <i>Amazon Chime SDK Developer Guide</i> . For more
+    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i> .
     /// </summary>
     [Cmdlet("New", "CHMMeeting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Meeting")]

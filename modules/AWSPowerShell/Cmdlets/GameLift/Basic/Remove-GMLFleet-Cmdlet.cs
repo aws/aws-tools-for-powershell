@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// the fleet status is changed to <code>DELETING</code>. When completed, the status switches
     /// to <code>TERMINATED</code> and the fleet event <code>FLEET_DELETED</code> is sent.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para>
+    /// up Amazon GameLift Fleets</a></para>
     /// </summary>
     [Cmdlet("Remove", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

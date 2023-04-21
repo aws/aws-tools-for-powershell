@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To stop actions on instances in one of the fleet's remote locations, provide a fleet
     /// ID, a location name, and the type of actions to suspend. 
     /// </para></li></ul><para>
-    /// If successful, GameLift no longer initiates scaling events except in response to manual
-    /// changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.
+    /// If successful, Amazon GameLift no longer initiates scaling events except in response
+    /// to manual changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift Fleets</a></para>
+    /// up Amazon GameLift Fleets</a></para>
     /// </summary>
     [Cmdlet("Stop", "GMLFleetAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.StopFleetActionsResponse")]

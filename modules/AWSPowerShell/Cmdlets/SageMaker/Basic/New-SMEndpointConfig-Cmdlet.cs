@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Creates an endpoint configuration that SageMaker hosting services uses to deploy models.
     /// In the configuration, you identify one or more models, created using the <code>CreateModel</code>
     /// API, to deploy and the resources that you want SageMaker to provision. Then you call
-    /// the <a>CreateEndpoint</a> API.
+    /// the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
+    /// API.
     /// 
     ///  <note><para>
     ///  Use this API if you want to use SageMaker hosting services to deploy models into
@@ -48,14 +49,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// A and 1 for model B. SageMaker distributes two-thirds of the traffic to Model A, and
     /// one-third to model B. 
     /// </para><note><para>
-    /// When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to verify that
-    /// your endpoint configuration exists. When you read data from a DynamoDB table supporting
-    /// <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
+    /// When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>,
+    /// a load call is made to DynamoDB to verify that your endpoint configuration exists.
+    /// When you read data from a DynamoDB table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
     /// results of a recently completed write operation. The response might include some stale
     /// data. If the dependent entities are not yet in DynamoDB, this causes a validation
     /// error. If you repeat your read request after a short time, the response should return
     /// the latest data. So retry logic is recommended to handle these possible issues. We
-    /// also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a>
+    /// also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a>
+    /// before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
     /// to minimize the potential impact of a DynamoDB eventually consistent read.
     /// </para></note>
     /// </summary>
@@ -142,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of the endpoint configuration. You specify this name in a <a>CreateEndpoint</a>
+        /// <para>The name of the endpoint configuration. You specify this name in a <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
         /// request. </para>
         /// </para>
         /// </summary>
@@ -230,7 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NotificationConfig_IncludeInferenceResponseIn
         /// <summary>
         /// <para>
-        /// <para>The Amazon SNS topics where you want the inference response to be included.</para>
+        /// <para>The Amazon SNS topics where you want the inference response to be included.</para><note><para>The inference response is included only if the response size is less than or equal
+        /// to 128 KB.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

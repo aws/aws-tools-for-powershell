@@ -22,93 +22,92 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chime;
-using Amazon.Chime.Model;
+using Amazon.WAFV2;
+using Amazon.WAFV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHM
+namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Creates a new attendee for an active Amazon Chime SDK meeting. For more information
-    /// about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
+    /// Creates an API key for use in the integration of the CAPTCHA API in your JavaScript
+    /// client applications. The integration lets you customize the placement and characteristics
+    /// of the CAPTCHA puzzle for your end users. For more information about the CAPTCHA JavaScript
+    /// integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+    /// client application integration</a> in the <i>WAF Developer Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// The CAPTCHA API requires a key that authorizes CAPTCHA use from the client application
+    /// domain. You can use a single key for up to 5 domains. After you generate a key, you
+    /// can copy it for use in your JavaScript integration. 
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "CHMAttendee", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Chime.Model.Attendee")]
-    [AWSCmdlet("Calls the Amazon Chime CreateAttendee API operation.", Operation = new[] {"CreateAttendee"}, SelectReturnType = typeof(Amazon.Chime.Model.CreateAttendeeResponse))]
-    [AWSCmdletOutput("Amazon.Chime.Model.Attendee or Amazon.Chime.Model.CreateAttendeeResponse",
-        "This cmdlet returns an Amazon.Chime.Model.Attendee object.",
-        "The service call response (type Amazon.Chime.Model.CreateAttendeeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "WAF2APIKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS WAF V2 CreateAPIKey API operation.", Operation = new[] {"CreateAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.CreateAPIKeyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.WAFV2.Model.CreateAPIKeyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.WAFV2.Model.CreateAPIKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCHMAttendeeCmdlet : AmazonChimeClientCmdlet, IExecutor
+    public partial class NewWAF2APIKeyCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
-        #region Parameter ExternalUserId
+        #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>The Amazon Chime SDK external user ID. An idempotency token. Links the attendee to
-        /// an identity managed by a builder application.</para>
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
+        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExternalUserId { get; set; }
+        [AWSConstantClassSource("Amazon.WAFV2.Scope")]
+        public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
         
-        #region Parameter MeetingId
+        #region Parameter TokenDomain
         /// <summary>
         /// <para>
-        /// <para>The Amazon Chime SDK meeting ID.</para>
+        /// <para>The client application domains that you want to use this API key for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String MeetingId { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tag key-value pairs.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.Chime.Model.Tag[] Tag { get; set; }
+        [Alias("TokenDomains")]
+        public System.String[] TokenDomain { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Attendee'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chime.Model.CreateAttendeeResponse).
-        /// Specifying the name of a property of type Amazon.Chime.Model.CreateAttendeeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'APIKey'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.CreateAPIKeyResponse).
+        /// Specifying the name of a property of type Amazon.WAFV2.Model.CreateAPIKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Attendee";
+        public string Select { get; set; } = "APIKey";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExternalUserId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExternalUserId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Scope parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExternalUserId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -128,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExternalUserId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CHMAttendee (CreateAttendee)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Scope), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-WAF2APIKey (CreateAPIKey)"))
             {
                 return;
             }
@@ -142,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chime.Model.CreateAttendeeResponse, NewCHMAttendeeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.CreateAPIKeyResponse, NewWAF2APIKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -151,27 +150,26 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExternalUserId;
+                context.Select = (response, cmdlet) => this.Scope;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ExternalUserId = this.ExternalUserId;
+            context.Scope = this.Scope;
             #if MODULAR
-            if (this.ExternalUserId == null && ParameterWasBound(nameof(this.ExternalUserId)))
+            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
             {
-                WriteWarning("You are passing $null as a value for parameter ExternalUserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MeetingId = this.MeetingId;
-            #if MODULAR
-            if (this.MeetingId == null && ParameterWasBound(nameof(this.MeetingId)))
+            if (this.TokenDomain != null)
             {
-                WriteWarning("You are passing $null as a value for parameter MeetingId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TokenDomain = new List<System.String>(this.TokenDomain);
+            }
+            #if MODULAR
+            if (this.TokenDomain == null && ParameterWasBound(nameof(this.TokenDomain)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TokenDomain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.Chime.Model.Tag>(this.Tag);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,19 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Chime.Model.CreateAttendeeRequest();
+            var request = new Amazon.WAFV2.Model.CreateAPIKeyRequest();
             
-            if (cmdletContext.ExternalUserId != null)
+            if (cmdletContext.Scope != null)
             {
-                request.ExternalUserId = cmdletContext.ExternalUserId;
+                request.Scope = cmdletContext.Scope;
             }
-            if (cmdletContext.MeetingId != null)
+            if (cmdletContext.TokenDomain != null)
             {
-                request.MeetingId = cmdletContext.MeetingId;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.TokenDomains = cmdletContext.TokenDomain;
             }
             
             CmdletOutput output;
@@ -233,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         #region AWS Service Operation Call
         
-        private Amazon.Chime.Model.CreateAttendeeResponse CallAWSServiceOperation(IAmazonChime client, Amazon.Chime.Model.CreateAttendeeRequest request)
+        private Amazon.WAFV2.Model.CreateAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.CreateAPIKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime", "CreateAttendee");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "CreateAPIKey");
             try
             {
                 #if DESKTOP
-                return client.CreateAttendee(request);
+                return client.CreateAPIKey(request);
                 #elif CORECLR
-                return client.CreateAttendeeAsync(request).GetAwaiter().GetResult();
+                return client.CreateAPIKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -261,11 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ExternalUserId { get; set; }
-            public System.String MeetingId { get; set; }
-            public List<Amazon.Chime.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Chime.Model.CreateAttendeeResponse, NewCHMAttendeeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Attendee;
+            public Amazon.WAFV2.Scope Scope { get; set; }
+            public List<System.String> TokenDomain { get; set; }
+            public System.Func<Amazon.WAFV2.Model.CreateAPIKeyResponse, NewWAF2APIKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.APIKey;
         }
         
     }

@@ -53,10 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// your own OIDC IdP. 
     /// </para><important><para>
     /// You can only update your OIDC IdP configuration when there are no work teams associated
-    /// with your workforce. You can delete work teams using the operation.
+    /// with your workforce. You can delete work teams using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a>
+    /// operation.
     /// </para></important><para>
     /// After restricting access to a range of IP addresses or updating your OIDC IdP configuration
-    /// with this operation, you can view details about your update workforce using the operation.
+    /// with this operation, you can view details about your update workforce using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeWorkforce.html">DescribeWorkforce</a>
+    /// operation.
     /// </para><important><para>
     /// This operation only applies to private workforces.
     /// </para></important>
@@ -203,7 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the private workforce that you want to update. You can find your workforce
-        /// name by using the operation.</para>
+        /// name by using the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html">ListWorkforces</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

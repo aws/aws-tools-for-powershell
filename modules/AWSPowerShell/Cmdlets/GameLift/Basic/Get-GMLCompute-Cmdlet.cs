@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves properties for a compute resource. To request a compute resource specify
-    /// the fleet ID and compute name. If successful, GameLift returns an object containing
+    /// the fleet ID and compute name. If successful, Amazon GameLift returns an object containing
     /// the build properties.
     /// </summary>
     [Cmdlet("Get", "GMLCompute")]

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Registers your compute resources in a fleet you previously created. After you register
-    /// a compute to your fleet, you can monitor and manage your compute using GameLift. The
-    /// operation returns the compute resource containing SDK endpoint you can use to connect
-    /// your game server to GameLift.
+    /// a compute to your fleet, you can monitor and manage your compute using Amazon GameLift.
+    /// The operation returns the compute resource containing SDK endpoint you can use to
+    /// connect your game server to Amazon GameLift.
     /// 
     ///  
     /// <para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-anywhere.html">Create
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The path to the TLS certificate on your compute resource. The path and certificate
-        /// are not validated by GameLift.</para>
+        /// are not validated by Amazon GameLift.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter DnsName
         /// <summary>
         /// <para>
-        /// <para>The DNS name of the compute resource. GameLift requires the DNS name or IP address
-        /// to manage your compute resource.</para>
+        /// <para>The DNS name of the compute resource. Amazon GameLift requires the DNS name or IP
+        /// address to manage your compute resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>The IP address of the compute resource. GameLift requires the DNS name or IP address
-        /// to manage your compute resource.</para>
+        /// <para>The IP address of the compute resource. Amazon GameLift requires the DNS name or IP
+        /// address to manage your compute resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

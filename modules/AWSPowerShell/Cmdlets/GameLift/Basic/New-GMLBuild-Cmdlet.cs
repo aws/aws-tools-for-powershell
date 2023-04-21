@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// game server binaries into a zip file for use with Amazon GameLift. 
     /// 
     ///  <important><para>
-    /// When setting up a new game build for GameLift, we recommend using the CLI command
+    /// When setting up a new game build for Amazon GameLift, we recommend using the CLI command
     /// <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command combines two tasks: (1) it uploads your build files from
-    /// a file directory to a GameLift Amazon S3 location, and (2) it creates a new build
-    /// resource.
+    /// a file directory to a Amazon GameLift Amazon S3 location, and (2) it creates a new
+    /// build resource.
     /// </para></important><para>
     /// You can use the operation in the following scenarios:
     /// </para><ul><li><para>
@@ -44,13 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// GameLift access to the Amazon S3 bucket. With permissions in place, specify a build
     /// name, operating system, and the Amazon S3 storage location of your game build.
     /// </para></li><li><para>
-    /// To directly upload your build files to a GameLift Amazon S3 location. To use this
-    /// option, specify a build name and operating system. This operation creates a new build
-    /// resource and also returns an Amazon S3 location with temporary access credentials.
+    /// To directly upload your build files to a Amazon GameLift Amazon S3 location. To use
+    /// this option, specify a build name and operating system. This operation creates a new
+    /// build resource and also returns an Amazon S3 location with temporary access credentials.
     /// Use the credentials to manually upload your build files to the specified Amazon S3
     /// location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
     /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. After you upload build files
-    /// to the GameLift Amazon S3 location, you can't update them. 
+    /// to the Amazon GameLift Amazon S3 location, you can't update them. 
     /// </para></li></ul><para>
     /// If successful, this operation creates a new build resource with a unique build ID
     /// and places it in <code>INITIALIZED</code> status. A build must be in <code>READY</code>
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>GameLift doesn't support uploading from Amazon S3 buckets with names that contain
+        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift doesn't support uploading from Amazon S3 buckets with names that contain
         /// a dot (.).</para></note>
         /// </para>
         /// </summary>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label associated with a build. Build names do not need to be unique.
+        /// <para>A descriptive label associated with a build. Build names don't need to be unique.
         /// You can change this value later. </para>
         /// </para>
         /// </summary>
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The operating system that you built the game server binaries to run on. This value
         /// determines the type of fleet resources that you can use for this build. If your game
         /// build contains multiple executables, they all must run on the same operating system.
-        /// If an operating system is not specified when creating a build, GameLift uses the default
-        /// value (WINDOWS_2012). This value cannot be changed later.</para>
+        /// If an operating system isn't specified when creating a build, Amazon GameLift uses
+        /// the default value (WINDOWS_2012). This value can't be changed later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,9 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ServerSdkVersion
         /// <summary>
         /// <para>
-        /// <para>A server SDK version you used when integrating your game server build with GameLift.
-        /// For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html">Integrate
-        /// games with custom game servers</a>.</para>
+        /// <para>A server SDK version you used when integrating your game server build with Amazon
+        /// GameLift. For more information see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/integration-custom-intro.html">Integrate
+        /// games with custom game servers</a>. By default Amazon GameLift sets this value to
+        /// <code>4.0.2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -176,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information associated with a build or script. Version strings do not need
+        /// <para>Version information associated with a build or script. Version strings don't need
         /// to be unique. You can change this value later. </para>
         /// </para>
         /// </summary>

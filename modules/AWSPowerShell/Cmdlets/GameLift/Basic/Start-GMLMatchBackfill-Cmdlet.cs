@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// When using FlexMatch with GameLift managed hosting, you can request a backfill match
-    /// from a client service by calling this operation with a <code>GameSessions</code> ID.
-    /// You also have the option of making backfill requests directly from your game server.
+    /// When using FlexMatch with Amazon GameLift managed hosting, you can request a backfill
+    /// match from a client service by calling this operation with a <code>GameSessions</code>
+    /// ID. You also have the option of making backfill requests directly from your game server.
     /// In response to a request, FlexMatch creates player sessions for the new players, updates
     /// the <code>GameSession</code> resource, and sends updated matchmaking data to the game
     /// server. You can request a backfill match at any point after a game session is started.
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Backfill existing games with FlexMatch</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html">
     /// Matchmaking events</a> (reference)
     /// </para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
-    /// How GameLift FlexMatch works</a></para>
+    /// How Amazon GameLift FlexMatch works</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLMatchBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]

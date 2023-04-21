@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the Amazon Web Services account that you use to manage your
-        /// GameLift fleet. You can find your Account ID in the Amazon Web Services Management
+        /// Amazon GameLift fleet. You can find your Account ID in the Amazon Web Services Management
         /// Console under account settings.</para>
         /// </para>
         /// </summary>
@@ -67,10 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PeerVpcId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a VPC with resources to be accessed by your GameLift fleet.
-        /// The VPC must be in the same Region as your fleet. To look up a VPC ID, use the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the Amazon Web Services
-        /// Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
-        /// Peering with GameLift Fleets</a>.</para>
+        /// <para>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift
+        /// fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use
+        /// the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the Amazon
+        /// Web Services Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// Peering with Amazon GameLift Fleets</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

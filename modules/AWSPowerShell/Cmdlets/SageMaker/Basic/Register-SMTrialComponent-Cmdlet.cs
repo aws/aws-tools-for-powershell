@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Associates a trial component with a trial. A trial component can be associated with
-    /// multiple trials. To disassociate a trial component from a trial, call the <a>DisassociateTrialComponent</a>
+    /// multiple trials. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a>
     /// API.
     /// </summary>
     [Cmdlet("Register", "SMTrialComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>The token assigned to the client making the pipeline request.</para>
+        /// <para>The unique identifier for the client request. The token makes the API request idempotent.
+        /// Use a different token for different media pipeline requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

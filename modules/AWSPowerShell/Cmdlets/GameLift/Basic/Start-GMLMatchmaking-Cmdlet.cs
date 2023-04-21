@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Uses FlexMatch to create a game match for a group of players based on custom matchmaking
-    /// rules. With games that use GameLift managed hosting, this operation also triggers
-    /// GameLift to find hosting resources and start a new game session for the new match.
-    /// Each matchmaking request includes information on one or more players and specifies
+    /// rules. With games that use Amazon GameLift managed hosting, this operation also triggers
+    /// Amazon GameLift to find hosting resources and start a new game session for the new
+    /// match. Each matchmaking request includes information on one or more players and specifies
     /// the FlexMatch matchmaker to use. When a request is for multiple players, FlexMatch
     /// attempts to build a match that includes all players in the request, placing them in
     /// the same team and finding additional players as needed to fill the match. 
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
     /// Add FlexMatch to a game client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
     /// Set Up FlexMatch event notification</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
-    /// How GameLift FlexMatch works</a></para>
+    /// How Amazon GameLift FlexMatch works</a></para>
     /// </summary>
     [Cmdlet("Start", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]

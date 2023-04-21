@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> Selects inference experiments which are in this status. For the possible statuses,
-        /// see <a>DescribeInferenceExperimentResponse$Status</a>. </para>
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html">DescribeInferenceExperiment</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> Selects inference experiments of this type. For the possible types of inference experiments,
-        /// see <a>CreateInferenceExperimentRequest$Type</a>. </para>
+        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html">CreateInferenceExperiment</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

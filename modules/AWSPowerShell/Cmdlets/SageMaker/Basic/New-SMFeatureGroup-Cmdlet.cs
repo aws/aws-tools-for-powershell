@@ -92,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services
-        /// Glue table when configuring an <code>OfflineStore</code>.</para>
+        /// Glue table when configuring an <code>OfflineStore</code>. If set to <code>False</code>,
+        /// Feature Store will name the <code>OfflineStore</code> Glue table following <a href="https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html">Athena's
+        /// naming recommendations</a>.</para><para>The default value is <code>False</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

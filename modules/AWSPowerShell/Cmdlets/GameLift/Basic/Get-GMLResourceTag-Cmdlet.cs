@@ -28,26 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves all tags that are assigned to a GameLift resource. Resource tags are used
-    /// to organize Amazon Web Services resources for a range of purposes. This operation
-    /// handles the permissions necessary to manage tags for the following GameLift resource
-    /// types:
+    /// Retrieves all tags assigned to a Amazon GameLift resource. Use resource tags to organize
+    /// Amazon Web Services resources for a range of purposes. This operation handles the
+    /// permissions necessary to manage tags for Amazon GameLift resources that support tagging.
     /// 
-    ///  <ul><li><para>
-    /// Build
-    /// </para></li><li><para>
-    /// Script
-    /// </para></li><li><para>
-    /// Fleet
-    /// </para></li><li><para>
-    /// Alias
-    /// </para></li><li><para>
-    /// GameSessionQueue
-    /// </para></li><li><para>
-    /// MatchmakingConfiguration
-    /// </para></li><li><para>
-    /// MatchmakingRuleSet
-    /// </para></li></ul><para>
+    ///  
+    /// <para>
     /// To list tags for a resource, specify the unique ARN value for the resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
@@ -68,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// that is assigned to and uniquely identifies the GameLift resource that you want to
-        /// retrieve tags for. GameLift resource ARNs are included in the data object for the
-        /// resource, which can be retrieved by calling a List or Describe operation for the resource
-        /// type. </para>
+        /// that uniquely identifies the Amazon GameLift resource that you want to retrieve tags
+        /// for. Amazon GameLift includes resource ARNs in the data object for the resource. You
+        /// can retrieve the ARN by calling a <code>List</code> or <code>Describe</code> operation
+        /// for the resource type. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

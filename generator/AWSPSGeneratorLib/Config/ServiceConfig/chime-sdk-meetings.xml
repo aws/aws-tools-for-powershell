@@ -64,7 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartMeetingTranscription" Verb="Start" Noun="MeetingTranscription" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames" NewName="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames" Alias="EngineTranscribeSettings_VocabularyNames" />
+                <Param Name="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames" NewName="TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames" Alias="EngineTranscribeSettings_VocabularyFilterNames" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopMeetingTranscription" Verb="Stop" Noun="MeetingTranscription" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">

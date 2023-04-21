@@ -1,4 +1,20 @@
-﻿### 4.1.316 (2023-04-19 21:06Z)
+﻿### 4.1.317 (2023-04-21 02:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.530.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime
+    * Modified cmdlet Start-CHMMeetingTranscription: added parameters EngineTranscribeSettings_IdentifyLanguage, EngineTranscribeSettings_LanguageOption, EngineTranscribeSettings_PreferredLanguage, TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames and TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames.
+  * Amazon Chime SDK Meetings
+    * Modified cmdlet Start-CHMTGMeetingTranscription: added parameters TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames and TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames.
+  * Amazon Import/Export Snowball
+    * Modified cmdlet New-SNOWCluster: added parameters ForceCreateJob, InitialClusterSize, LongTermPricingId, S3OnDeviceService_FaultTolerance, S3OnDeviceService_ServiceSize, S3OnDeviceService_StorageLimit, S3OnDeviceService_StorageUnit and SnowballCapacityPreference.
+    * Modified cmdlet New-SNOWJob: added parameters S3OnDeviceService_FaultTolerance, S3OnDeviceService_ServiceSize, S3OnDeviceService_StorageLimit and S3OnDeviceService_StorageUnit.
+    * Modified cmdlet Update-SNOWCluster: added parameters S3OnDeviceService_FaultTolerance, S3OnDeviceService_ServiceSize, S3OnDeviceService_StorageLimit and S3OnDeviceService_StorageUnit.
+    * Modified cmdlet Update-SNOWJob: added parameters S3OnDeviceService_FaultTolerance, S3OnDeviceService_ServiceSize, S3OnDeviceService_StorageLimit and S3OnDeviceService_StorageUnit.
+  * Amazon WAF V2
+    * Added cmdlet Get-WAF2APIKeyList leveraging the ListAPIKeys service API.
+    * Added cmdlet Get-WAF2DecryptedAPIKey leveraging the GetDecryptedAPIKey service API.
+    * Added cmdlet New-WAF2APIKey leveraging the CreateAPIKey service API.
+
+### 4.1.316 (2023-04-19 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.529.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Comprehend
     * Modified cmdlet New-COMPDocumentClassifier: added parameters DocumentReaderConfig_DocumentReadAction, DocumentReaderConfig_DocumentReadMode, DocumentReaderConfig_FeatureType, Documents_S3Uri, Documents_TestS3Uri and InputDataConfig_DocumentType.

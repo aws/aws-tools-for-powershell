@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Creates an endpoint using the endpoint configuration specified in the request. SageMaker
     /// uses the endpoint to provision resources and deploy models. You create the endpoint
-    /// configuration with the <a>CreateEndpointConfig</a> API. 
+    /// configuration with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
+    /// API. 
     /// 
     ///  
     /// <para>
@@ -50,20 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// When it receives the request, SageMaker creates the endpoint, launches the resources
     /// (ML compute instances), and deploys the model(s) on them. 
     /// </para><note><para>
-    /// When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to verify that
-    /// your endpoint configuration exists. When you read data from a DynamoDB table supporting
-    /// <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
+    /// When you call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>,
+    /// a load call is made to DynamoDB to verify that your endpoint configuration exists.
+    /// When you read data from a DynamoDB table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
     /// results of a recently completed write operation. The response might include some stale
     /// data. If the dependent entities are not yet in DynamoDB, this causes a validation
     /// error. If you repeat your read request after a short time, the response should return
     /// the latest data. So retry logic is recommended to handle these possible issues. We
-    /// also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a>
+    /// also recommend that customers call <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html">DescribeEndpointConfig</a>
+    /// before calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
     /// to minimize the potential impact of a DynamoDB eventually consistent read.
     /// </para></note><para>
     /// When SageMaker receives the request, it sets the endpoint status to <code>Creating</code>.
     /// After it creates the endpoint, it sets the status to <code>InService</code>. SageMaker
     /// can then process incoming requests for inferences. To check the status of an endpoint,
-    /// use the <a>DescribeEndpoint</a> API.
+    /// use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a>
+    /// API.
     /// </para><para>
     /// If any of the models hosted at this endpoint get model data from an Amazon S3 location,
     /// SageMaker uses Amazon Web Services Security Token Service to download model artifacts
@@ -76,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><note><para>
     ///  To add the IAM role policies for using this API operation, go to the <a href="https://console.aws.amazon.com/iam/">IAM
     /// console</a>, and choose Roles in the left navigation pane. Search the IAM role that
-    /// you want to grant access to use the <a>CreateEndpoint</a> and <a>CreateEndpointConfig</a>
+    /// you want to grant access to use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html">CreateEndpoint</a>
+    /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
     /// API operations, add the following policies to the role. 
     /// </para><ul><li><para>
     /// Option 1: For a full SageMaker access, search and attach the <code>AmazonSageMakerFullAccess</code>
@@ -115,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>.
+        /// <para>The name of an endpoint configuration. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -135,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The name of the endpoint.The name must be unique within an Amazon Web Services Region
         /// in your Amazon Web Services account. The name is case-insensitive in <code>CreateEndpoint</code>,
-        /// but the case is preserved and must be matched in .</para>
+        /// but the case is preserved and must be matched in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">InvokeEndpoint</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

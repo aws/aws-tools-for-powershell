@@ -28,13 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
-    /// Creates a GameLift FleetIQ game server group for managing game hosting on a collection
-    /// of Amazon Elastic Compute Cloud instances for game hosting. This operation creates
-    /// the game server group, creates an Auto Scaling group in your Amazon Web Services account,
-    /// and establishes a link between the two groups. You can view the status of your game
-    /// server groups in the GameLift console. Game server group metrics and events are emitted
-    /// to Amazon CloudWatch.
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Creates a Amazon GameLift FleetIQ game server group for managing game hosting on a
+    /// collection of Amazon Elastic Compute Cloud instances for game hosting. This operation
+    /// creates the game server group, creates an Auto Scaling group in your Amazon Web Services
+    /// account, and establishes a link between the two groups. You can view the status of
+    /// your game server groups in the Amazon GameLift console. Game server group metrics
+    /// and events are emitted to Amazon CloudWatch.
     /// </para><para>
     /// Before creating a new game server group, you must have the following: 
     /// </para><ul><li><para>
@@ -45,24 +46,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Cloud User Guide</i>. 
     /// </para></li><li><para>
     /// An IAM role that extends limited access to your Amazon Web Services account to allow
-    /// GameLift FleetIQ to create and interact with the Auto Scaling group. For more information,
-    /// see <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create
-    /// IAM roles for cross-service interaction</a> in the <i>GameLift FleetIQ Developer Guide</i>.
+    /// Amazon GameLift FleetIQ to create and interact with the Auto Scaling group. For more
+    /// information, see <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-iam-permissions-roles.html">Create
+    /// IAM roles for cross-service interaction</a> in the <i>Amazon GameLift FleetIQ Developer
+    /// Guide</i>.
     /// </para></li></ul><para>
     /// To create a new game server group, specify a unique group name, IAM role and Amazon
     /// Elastic Compute Cloud launch template, and provide a list of instance types that can
     /// be used in the group. You must also set initial maximum and minimum limits on the
     /// group's instance count. You can optionally set an Auto Scaling policy with target
-    /// tracking based on a GameLift FleetIQ metric.
+    /// tracking based on a Amazon GameLift FleetIQ metric.
     /// </para><para>
     /// Once the game server group and corresponding Auto Scaling group are created, you have
     /// full access to change the Auto Scaling group's configuration as needed. Several properties
     /// that are set when creating a game server group, including maximum/minimum size and
     /// auto-scaling policy settings, must be updated directly in the Auto Scaling group.
-    /// Keep in mind that some Auto Scaling group properties are periodically updated by GameLift
-    /// FleetIQ as part of its balancing activities to optimize for availability and cost.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para>
+    /// Keep in mind that some Auto Scaling group properties are periodically updated by Amazon
+    /// GameLift FleetIQ as part of its balancing activities to optimize for availability
+    /// and cost.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
+    /// GameLift FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("New", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -77,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BalancingStrategy
         /// <summary>
         /// <para>
-        /// <para>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances
-        /// in the game server group. Method options include the following:</para><ul><li><para><code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If
+        /// <para>Indicates how Amazon GameLift FleetIQ balances the use of Spot Instances and On-Demand
+        /// Instances in the game server group. Method options include the following:</para><ul><li><para><code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If
         /// Spot Instances are unavailable or not viable for game hosting, the game server group
         /// provides no hosting capacity until Spot Instances can again be used. Until then, no
         /// new instances are started, and the existing nonviable Spot Instances are terminated
@@ -100,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Length of time, in seconds, it takes for a new instance to start new game server processes
-        /// and register with GameLift FleetIQ. Specifying a warm-up time can be useful, particularly
-        /// with game servers that take a long time to start up, because it avoids prematurely
-        /// starting new instances. </para>
+        /// and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful,
+        /// particularly with game servers that take a long time to start up, because it avoids
+        /// prematurely starting new instances. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>An identifier for the new game server group. This value is used to generate unique
-        /// ARN identifiers for the Amazon EC2 Auto Scaling group and the GameLift FleetIQ game
-        /// server group. The name must be unique per Region per Amazon Web Services account.</para>
+        /// ARN identifiers for the Amazon EC2 Auto Scaling group and the Amazon GameLift FleetIQ
+        /// game server group. The name must be unique per Region per Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The Amazon EC2 instance types and sizes to use in the Auto Scaling group. The instance
         /// definitions must specify at least two different instance types that are supported
-        /// by GameLift FleetIQ. For more information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
+        /// by Amazon GameLift FleetIQ. For more information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
         /// Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. You can
         /// optionally specify capacity weighting for each instance type. If no weight value is
         /// specified for an instance type, it is set to the default value "1". For more information
@@ -195,8 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum number of instances allowed in the Amazon EC2 Auto Scaling group. During
-        /// automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above
-        /// this maximum. After the Auto Scaling group is created, update this value directly
+        /// automatic scaling events, Amazon GameLift FleetIQ and EC2 do not scale up the group
+        /// above this maximum. After the Auto Scaling group is created, update this value directly
         /// in the Auto Scaling group using the Amazon Web Services console or APIs.</para>
         /// </para>
         /// </summary>
@@ -214,10 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The minimum number of instances allowed in the Amazon EC2 Auto Scaling group. During
-        /// automatic scaling events, GameLift FleetIQ and Amazon EC2 do not scale down the group
-        /// below this minimum. In production, this value should be set to at least 1. After the
-        /// Auto Scaling group is created, update this value directly in the Auto Scaling group
-        /// using the Amazon Web Services console or APIs.</para>
+        /// automatic scaling events, Amazon GameLift FleetIQ and Amazon EC2 do not scale down
+        /// the group below this minimum. In production, this value should be set to at least
+        /// 1. After the Auto Scaling group is created, update this value directly in the Auto
+        /// Scaling group using the Amazon Web Services console or APIs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -290,9 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of virtual private cloud (VPC) subnets to use with instances in the game server
-        /// group. By default, all GameLift FleetIQ-supported Availability Zones are used. You
-        /// can use this parameter to specify VPCs that you've set up. This property cannot be
-        /// updated after the game server group is created, and the corresponding Auto Scaling
+        /// group. By default, all Amazon GameLift FleetIQ-supported Availability Zones are used.
+        /// You can use this parameter to specify VPCs that you've set up. This property cannot
+        /// be updated after the game server group is created, and the corresponding Auto Scaling
         /// group will always use the property value that is set with this request, even if the
         /// Auto Scaling group is updated directly.</para>
         /// </para>

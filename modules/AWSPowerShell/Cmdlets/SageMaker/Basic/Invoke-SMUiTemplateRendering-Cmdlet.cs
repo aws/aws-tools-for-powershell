@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not provide
-        /// a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</para><para>See a list of available Human Ui Amazon Resource Names (ARNs) in <a>UiConfig</a>.</para>
+        /// a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</para><para>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

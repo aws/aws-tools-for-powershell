@@ -93,7 +93,7 @@ $SNOW_Completers = {
         # Amazon.Snowball.LongTermPricingType
         "New-SNOWLongTermPricing/LongTermPricingType"
         {
-            $v = "OneYear","ThreeYear"
+            $v = "OneMonth","OneYear","ThreeYear"
             break
         }
 
@@ -136,11 +136,12 @@ $SNOW_Completers = {
 
         # Amazon.Snowball.SnowballCapacity
         {
+            ($_ -eq "New-SNOWCluster/SnowballCapacityPreference") -Or
             ($_ -eq "New-SNOWJob/SnowballCapacityPreference") -Or
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T100","T14","T32","T42","T50","T8","T80","T98"
+            $v = "NoPreference","T100","T14","T240","T32","T42","T50","T8","T80","T98"
             break
         }
 
@@ -151,7 +152,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWLongTermPricing/SnowballType")
         }
         {
-            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C"
+            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C","V3_5S"
             break
         }
 
@@ -161,6 +162,10 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
             ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
             ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
             ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
             ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
             ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
@@ -183,12 +188,13 @@ $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
     "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "RemoteManagement"=@("New-SNOWCluster","New-SNOWJob")
     "ServiceName"=@("Get-SNOWServiceVersion")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
-    "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
+    "SnowballCapacityPreference"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWJob")
     "SnowballType"=@("New-SNOWCluster","New-SNOWJob","New-SNOWLongTermPricing")
 }
 

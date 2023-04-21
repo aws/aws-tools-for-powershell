@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this operation. To start at the beginning
-        /// of the result set, do not specify a value.</para>
+        /// of the result set, don't specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

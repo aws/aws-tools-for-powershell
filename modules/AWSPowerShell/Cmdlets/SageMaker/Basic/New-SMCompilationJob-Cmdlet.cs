@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// use and costs. The response body contains the <code>CompilationJobArn</code> for the
     /// compiled job.
     /// </para><para>
-    /// To stop a model compilation job, use <a>StopCompilationJob</a>. To get information
-    /// about a particular model compilation job, use <a>DescribeCompilationJob</a>. To get
-    /// information about multiple model compilation jobs, use <a>ListCompilationJobs</a>.
+    /// To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>.
+    /// To get information about a particular model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>.
+    /// To get information about multiple model compilation jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMCompilationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -129,8 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// compiling for ARM 32-bit platform with NEON support.</para></li></ul></li><li><para><code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options passed
         /// in as a JSON string. For example, <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores
         /// 2 -O2\""</code>. </para><para>For information about supported compiler options, see <a href="https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md">
-        /// Neuron Compiler CLI</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a>OutputConfig$TargetDevice</a>
-        /// supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
+        /// Neuron Compiler CLI</a>. </para></li><li><para><code>CoreML</code>: Compilation for the CoreML <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><code>TargetDevice</code> supports the following compiler options:</para><ul><li><para><code>class_labels</code>: Specifies the classification labels file name inside input
         /// tar.gz file. For example, <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
         /// Labels inside the txt file should be separated by newlines.</para></li></ul></li><li><para><code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the
         /// following compiler options:</para><ul><li><para><code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported
@@ -149,8 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies the name and shape of the expected data inputs for your trained model with
-        /// a JSON dictionary form. The data inputs are <a>InputConfig$Framework</a> specific.
-        /// </para><ul><li><para><code>TensorFlow</code>: You must specify the name and shape (NHWC format) of the
+        /// a JSON dictionary form. The data inputs are <code>Framework</code> specific. </para><ul><li><para><code>TensorFlow</code>: You must specify the name and shape (NHWC format) of the
         /// expected data inputs using a dictionary format for your trained model. The dictionary
         /// formats required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <code>{"input":[1,1024,1024,3]}</code></para></li><li><para>If using the CLI, <code>{\"input\":[1,1024,1024,3]}</code></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <code>{"data1": [1,28,28,1], "data2":[1,28,28,1]}</code></para></li><li><para>If using the CLI, <code>{\"data1\": [1,28,28,1], \"data2\":[1,28,28,1]}</code></para></li></ul></li></ul></li><li><para><code>KERAS</code>: You must specify the name and shape (NCHW format) of expected
         /// data inputs using a dictionary format for your trained model. Note that while Keras
@@ -162,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// expected data inputs in order using a dictionary format for your trained model or
         /// you can specify the shape only using a list format. The dictionary formats required
         /// for the console and CLI are different. The list formats for the console and CLI are
-        /// the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224]}</code></para></li></ul></li><li><para>Example for one input in list format: <code>[[1,3,224,224]]</code></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </code></para></li></ul></li><li><para>Example for two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul><para><code>DataInputConfig</code> supports the following parameters for <code>CoreML</code><a>OutputConfig$TargetDevice</a> (ML Model format):</para><ul><li><para><code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
+        /// the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224]}</code></para></li></ul></li><li><para>Example for one input in list format: <code>[[1,3,224,224]]</code></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </code></para></li></ul></li><li><para>Example for two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul><para><code>DataInputConfig</code> supports the following parameters for <code>CoreML</code><code>TargetDevice</code> (ML Model format):</para><ul><li><para><code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
         /// In addition to static input shapes, CoreML converter supports Flexible input shapes:</para><ul><li><para>Range Dimension. You can use the Range Dimension feature if you know the input shape
         /// will be within some specific interval in that dimension, for example: <code>{"input_1":
         /// {"shape": ["1..10", 224, 224, 3]}}</code></para></li><li><para>Enumerated shapes. Sometimes, the models are trained to work only on a select set
@@ -172,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// {"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</code></para></li><li><para><code>type</code>: Input type. Allowed values: <code>Image</code> and <code>Tensor</code>.
         /// By default, the converter generates an ML Model with inputs of type Tensor (MultiArray).
         /// User can set input type to be Image. Image input type requires additional input parameters
-        /// such as <code>bias</code> and <code>scale</code>.</para></li><li><para><code>bias</code>: If the input type is an Image, you need to provide the bias vector.</para></li><li><para><code>scale</code>: If the input type is an Image, you need to provide a scale factor.</para></li></ul><para>CoreML <code>ClassifierConfig</code> parameters can be specified using <a>OutputConfig$CompilerOptions</a>.
-        /// CoreML converter supports Tensorflow and PyTorch models. CoreML conversion examples:</para><ul><li><para>Tensor type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
+        /// such as <code>bias</code> and <code>scale</code>.</para></li><li><para><code>bias</code>: If the input type is an Image, you need to provide the bias vector.</para></li><li><para><code>scale</code>: If the input type is an Image, you need to provide a scale factor.</para></li></ul><para>CoreML <code>ClassifierConfig</code> parameters can be specified using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html">OutputConfig</a><code>CompilerOptions</code>. CoreML converter supports Tensorflow and PyTorch models.
+        /// CoreML conversion examples:</para><ul><li><para>Tensor type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
         /// [1,224,224,3]}}</code></para></li></ul></li><li><para>Tensor type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
         /// [1,3,224,224]}]</code></para></li></ul></li><li><para>Image type input:</para><ul><li><para><code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
         /// [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code></para></li><li><para><code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code></para></li></ul></li><li><para>Image type input without input name (PyTorch):</para><ul><li><para><code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
@@ -382,8 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Identifies the target device or the machine learning instance that you want to run
         /// your model on after the compilation has completed. Alternatively, you can specify
-        /// OS, architecture, and accelerator using <a>TargetPlatform</a> fields. It can be used
-        /// instead of <code>TargetPlatform</code>.</para>
+        /// OS, architecture, and accelerator using <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html">TargetPlatform</a>
+        /// fields. It can be used instead of <code>TargetPlatform</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Deletes the specified trial component. A trial component must be disassociated from
     /// all trials before the trial component can be deleted. To disassociate a trial component
-    /// from a trial, call the <a>DisassociateTrialComponent</a> API.
+    /// from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a>
+    /// API.
     /// </summary>
     [Cmdlet("Remove", "SMTrialComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

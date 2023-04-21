@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>GameLift doesn't support uploading from Amazon S3 buckets with names that contain
+        /// <para>An Amazon S3 bucket identifier. Thename of the S3 bucket.</para><note><para>Amazon GameLift doesn't support uploading from Amazon S3 buckets with names that contain
         /// a dot (.).</para></note>
         /// </para>
         /// </summary>
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label that is associated with a script. Script names do not need to
-        /// be unique.</para>
+        /// <para>A descriptive label that is associated with a script. Script names don't need to be
+        /// unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information associated with a build or script. Version strings do not need
+        /// <para>Version information associated with a build or script. Version strings don't need
         /// to be unique.</para>
         /// </para>
         /// </summary>

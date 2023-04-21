@@ -28,8 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Gets a list of <a>TrainingJobSummary</a> objects that describe the training jobs that
-    /// a hyperparameter tuning job launched.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a>
+    /// objects that describe the training jobs that a hyperparameter tuning job launched.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrainingJobsForHyperParameterTuningJobList")]
     [OutputType("Amazon.SageMaker.Model.HyperParameterTrainingJobSummary")]

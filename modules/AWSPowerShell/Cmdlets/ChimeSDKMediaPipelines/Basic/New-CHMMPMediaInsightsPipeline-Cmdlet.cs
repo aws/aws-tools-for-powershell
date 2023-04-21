@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter S3RecordingSinkRuntimeConfiguration_Destination
         /// <summary>
         /// <para>
-        /// <para>The URL of the S3 bucket used as the runtime sink.</para>
+        /// <para>The URI of the S3 bucket used as the sink.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter S3RecordingSinkRuntimeConfiguration_RecordingFileFormat
         /// <summary>
         /// <para>
-        /// <para>The file formats for the audio and video files sent to the Amazon S3 bucket.</para>
+        /// <para>The file format for the media files sent to the Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -203,7 +203,7 @@ $GML_Completers = {
         # Amazon.GameLift.OperatingSystem
         "New-GMLBuild/OperatingSystem"
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","WINDOWS_2012"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","WINDOWS_2012","WINDOWS_2016"
             break
         }
 

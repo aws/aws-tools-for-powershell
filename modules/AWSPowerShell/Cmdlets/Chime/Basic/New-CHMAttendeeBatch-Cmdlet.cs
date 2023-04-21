@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Creates up to 100 new attendees for an active Amazon Chime SDK meeting. For more
-    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using
-    /// the Amazon Chime SDK</a> in the <i>Amazon Chime Developer Guide</i>.
+    /// information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using
+    /// the Amazon Chime SDK</a> in the <i>Amazon Chime SDK Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "CHMAttendeeBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.BatchCreateAttendeeResponse")]

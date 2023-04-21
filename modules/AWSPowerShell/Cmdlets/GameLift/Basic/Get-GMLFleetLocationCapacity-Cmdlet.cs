@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a <code>FleetCapacity</code> object is returned for the requested fleet
     /// location. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
+    /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift
     /// metrics for fleets</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLFleetLocationCapacity")]

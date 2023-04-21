@@ -85,6 +85,20 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String EKSOnDeviceService_EKSAnywhereVersion { get; set; }
         #endregion
         
+        #region Parameter S3OnDeviceService_FaultTolerance
+        /// <summary>
+        /// <para>
+        /// <para>&gt;Fault tolerance level of the cluster. This indicates the number of nodes that
+        /// can go down without degrading the performance of the cluster. This additional input
+        /// helps when the specified <code>StorageLimit</code> matches more than one Amazon S3
+        /// compatible storage on Snow family devices service configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_S3OnDeviceService_FaultTolerance")]
+        public System.Int32? S3OnDeviceService_FaultTolerance { get; set; }
+        #endregion
+        
         #region Parameter ForwardingAddressId
         /// <summary>
         /// <para>
@@ -178,6 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public Amazon.Snowball.Model.S3Resource[] Resources_S3Resource { get; set; }
         #endregion
         
+        #region Parameter S3OnDeviceService_ServiceSize
+        /// <summary>
+        /// <para>
+        /// <para>Applicable when creating a cluster. Specifies how many nodes are needed for Amazon
+        /// S3 compatible storage on Snow family devices. If specified, the other input can be
+        /// omitted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_S3OnDeviceService_ServiceSize")]
+        public System.Int32? S3OnDeviceService_ServiceSize { get; set; }
+        #endregion
+        
         #region Parameter ShippingOption
         /// <summary>
         /// <para>
@@ -228,6 +255,20 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.Int32? NFSOnDeviceService_StorageLimit { get; set; }
         #endregion
         
+        #region Parameter S3OnDeviceService_StorageLimit
+        /// <summary>
+        /// <para>
+        /// <para>If the specified storage limit value matches storage limit of one of the defined configurations,
+        /// that configuration will be used. If the specified storage limit value does not match
+        /// any defined configuration, the request will fail. If more than one configuration has
+        /// the same storage limit as specified, the other input need to be provided.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_S3OnDeviceService_StorageLimit")]
+        public System.Double? S3OnDeviceService_StorageLimit { get; set; }
+        #endregion
+        
         #region Parameter TGWOnDeviceService_StorageLimit
         /// <summary>
         /// <para>
@@ -250,6 +291,18 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         [Alias("OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit")]
         [AWSConstantClassSource("Amazon.Snowball.StorageUnit")]
         public Amazon.Snowball.StorageUnit NFSOnDeviceService_StorageUnit { get; set; }
+        #endregion
+        
+        #region Parameter S3OnDeviceService_StorageUnit
+        /// <summary>
+        /// <para>
+        /// <para>Storage unit. Currently the only supported unit is TB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit")]
+        [AWSConstantClassSource("Amazon.Snowball.StorageUnit")]
+        public Amazon.Snowball.StorageUnit S3OnDeviceService_StorageUnit { get; set; }
         #endregion
         
         #region Parameter TGWOnDeviceService_StorageUnit
@@ -345,6 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.EKSOnDeviceService_KubernetesVersion = this.EKSOnDeviceService_KubernetesVersion;
             context.NFSOnDeviceService_StorageLimit = this.NFSOnDeviceService_StorageLimit;
             context.NFSOnDeviceService_StorageUnit = this.NFSOnDeviceService_StorageUnit;
+            context.S3OnDeviceService_FaultTolerance = this.S3OnDeviceService_FaultTolerance;
+            context.S3OnDeviceService_ServiceSize = this.S3OnDeviceService_ServiceSize;
+            context.S3OnDeviceService_StorageLimit = this.S3OnDeviceService_StorageLimit;
+            context.S3OnDeviceService_StorageUnit = this.S3OnDeviceService_StorageUnit;
             context.TGWOnDeviceService_StorageLimit = this.TGWOnDeviceService_StorageLimit;
             context.TGWOnDeviceService_StorageUnit = this.TGWOnDeviceService_StorageUnit;
             if (this.Resources_Ec2AmiResource != null)
@@ -542,6 +599,61 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 request.OnDeviceServiceConfiguration.TGWOnDeviceService = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_TGWOnDeviceService;
                 requestOnDeviceServiceConfigurationIsNull = false;
             }
+            Amazon.Snowball.Model.S3OnDeviceServiceConfiguration requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService = null;
+            
+             // populate S3OnDeviceService
+            var requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceServiceIsNull = true;
+            requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService = new Amazon.Snowball.Model.S3OnDeviceServiceConfiguration();
+            System.Int32? requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_FaultTolerance = null;
+            if (cmdletContext.S3OnDeviceService_FaultTolerance != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_FaultTolerance = cmdletContext.S3OnDeviceService_FaultTolerance.Value;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_FaultTolerance != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService.FaultTolerance = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_FaultTolerance.Value;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceServiceIsNull = false;
+            }
+            System.Int32? requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_ServiceSize = null;
+            if (cmdletContext.S3OnDeviceService_ServiceSize != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_ServiceSize = cmdletContext.S3OnDeviceService_ServiceSize.Value;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_ServiceSize != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService.ServiceSize = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_ServiceSize.Value;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceServiceIsNull = false;
+            }
+            System.Double? requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageLimit = null;
+            if (cmdletContext.S3OnDeviceService_StorageLimit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageLimit = cmdletContext.S3OnDeviceService_StorageLimit.Value;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageLimit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService.StorageLimit = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageLimit.Value;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceServiceIsNull = false;
+            }
+            Amazon.Snowball.StorageUnit requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageUnit = null;
+            if (cmdletContext.S3OnDeviceService_StorageUnit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageUnit = cmdletContext.S3OnDeviceService_StorageUnit;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageUnit != null)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService.StorageUnit = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService_s3OnDeviceService_StorageUnit;
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceServiceIsNull = false;
+            }
+             // determine if requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService should be set to null
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceServiceIsNull)
+            {
+                requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService = null;
+            }
+            if (requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService != null)
+            {
+                request.OnDeviceServiceConfiguration.S3OnDeviceService = requestOnDeviceServiceConfiguration_onDeviceServiceConfiguration_S3OnDeviceService;
+                requestOnDeviceServiceConfigurationIsNull = false;
+            }
              // determine if request.OnDeviceServiceConfiguration should be set to null
             if (requestOnDeviceServiceConfigurationIsNull)
             {
@@ -670,6 +782,10 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String EKSOnDeviceService_KubernetesVersion { get; set; }
             public System.Int32? NFSOnDeviceService_StorageLimit { get; set; }
             public Amazon.Snowball.StorageUnit NFSOnDeviceService_StorageUnit { get; set; }
+            public System.Int32? S3OnDeviceService_FaultTolerance { get; set; }
+            public System.Int32? S3OnDeviceService_ServiceSize { get; set; }
+            public System.Double? S3OnDeviceService_StorageLimit { get; set; }
+            public Amazon.Snowball.StorageUnit S3OnDeviceService_StorageUnit { get; set; }
             public System.Int32? TGWOnDeviceService_StorageLimit { get; set; }
             public Amazon.Snowball.StorageUnit TGWOnDeviceService_StorageUnit { get; set; }
             public List<Amazon.Snowball.Model.Ec2AmiResource> Resources_Ec2AmiResource { get; set; }

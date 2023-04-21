@@ -22,47 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.WAFV2;
+using Amazon.WAFV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Requests an authentication token from Amazon GameLift. The authentication token is
-    /// used by your game server to authenticate with Amazon GameLift. Each authentication
-    /// token has an expiration time. To continue using the compute resource to host your
-    /// game server, regularly retrieve a new authorization token.
+    /// Returns your API key in decrypted form. Use this to check the token domains that you
+    /// have defined for the key.
     /// </summary>
-    [Cmdlet("Get", "GMLComputeAuthToken")]
-    [OutputType("Amazon.GameLift.Model.GetComputeAuthTokenResponse")]
-    [AWSCmdlet("Calls the Amazon GameLift Service GetComputeAuthToken API operation.", Operation = new[] {"GetComputeAuthToken"}, SelectReturnType = typeof(Amazon.GameLift.Model.GetComputeAuthTokenResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.GetComputeAuthTokenResponse",
-        "This cmdlet returns an Amazon.GameLift.Model.GetComputeAuthTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WAF2DecryptedAPIKey")]
+    [OutputType("Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse")]
+    [AWSCmdlet("Calls the AWS WAF V2 GetDecryptedAPIKey API operation.", Operation = new[] {"GetDecryptedAPIKey"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse))]
+    [AWSCmdletOutput("Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse",
+        "This cmdlet returns an Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLComputeAuthTokenCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetWAF2DecryptedAPIKeyCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ComputeName
+        #region Parameter APIKey
         /// <summary>
         /// <para>
-        /// <para>The name of the compute resource you are requesting the authentication token for.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ComputeName { get; set; }
-        #endregion
-        
-        #region Parameter FleetId
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the fleet that the compute is registered to.</para>
+        /// <para>The encrypted API key. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,14 +54,36 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String APIKey { get; set; }
+        #endregion
+        
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
+        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.WAFV2.Scope")]
+        public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.GetComputeAuthTokenResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.GetComputeAuthTokenResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse).
+        /// Specifying the name of a property of type Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ComputeName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ComputeName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Scope parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ComputeName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.GetComputeAuthTokenResponse, GetGMLComputeAuthTokenCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse, GetWAF2DecryptedAPIKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,21 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ComputeName;
+                context.Select = (response, cmdlet) => this.Scope;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ComputeName = this.ComputeName;
+            context.APIKey = this.APIKey;
             #if MODULAR
-            if (this.ComputeName == null && ParameterWasBound(nameof(this.ComputeName)))
+            if (this.APIKey == null && ParameterWasBound(nameof(this.APIKey)))
             {
-                WriteWarning("You are passing $null as a value for parameter ComputeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter APIKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.FleetId = this.FleetId;
+            context.Scope = this.Scope;
             #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.GetComputeAuthTokenRequest();
+            var request = new Amazon.WAFV2.Model.GetDecryptedAPIKeyRequest();
             
-            if (cmdletContext.ComputeName != null)
+            if (cmdletContext.APIKey != null)
             {
-                request.ComputeName = cmdletContext.ComputeName;
+                request.APIKey = cmdletContext.APIKey;
             }
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.Scope != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.Scope = cmdletContext.Scope;
             }
             
             CmdletOutput output;
@@ -193,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.GetComputeAuthTokenResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetComputeAuthTokenRequest request)
+        private Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetDecryptedAPIKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "GetComputeAuthToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetDecryptedAPIKey");
             try
             {
                 #if DESKTOP
-                return client.GetComputeAuthToken(request);
+                return client.GetDecryptedAPIKey(request);
                 #elif CORECLR
-                return client.GetComputeAuthTokenAsync(request).GetAwaiter().GetResult();
+                return client.GetDecryptedAPIKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,9 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ComputeName { get; set; }
-            public System.String FleetId { get; set; }
-            public System.Func<Amazon.GameLift.Model.GetComputeAuthTokenResponse, GetGMLComputeAuthTokenCmdlet, object> Select { get; set; } =
+            public System.String APIKey { get; set; }
+            public Amazon.WAFV2.Scope Scope { get; set; }
+            public System.Func<Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse, GetWAF2DecryptedAPIKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

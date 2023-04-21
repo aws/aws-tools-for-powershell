@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// If successful, an updated <code>FleetAttributes</code> object is returned.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para>
+    /// up Amazon GameLift fleets</a></para>
     /// </summary>
     [Cmdlet("Update", "GMLFleetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -53,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AnywhereConfiguration_Cost
         /// <summary>
         /// <para>
-        /// <para>The cost to run your fleet per hour. GameLift uses the provided cost of your fleet
-        /// to balance usage in queues. For more information about queues, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">Setting
-        /// up queues</a>.</para>
+        /// <para>The cost to run your fleet per hour. Amazon GameLift uses the provided cost of your
+        /// fleet to balance usage in queues. For more information about queues, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">Setting
+        /// up queues</a> in the <i>Amazon GameLift Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>A policy that puts limits on the number of game sessions that a player can create
         /// within a specified span of time. With this policy, you can control players' ability
         /// to consume available resources.</para><para>The policy is evaluated when a player tries to create a new game session. On receiving
-        /// a <code>CreateGameSession</code> request, GameLift checks that the player (identified
+        /// a <code>CreateGameSession</code> request, Amazon GameLift checks that the player (identified
         /// by <code>CreatorId</code>) has created fewer than game session limit in the specified
         /// time period.</para>
         /// </para>

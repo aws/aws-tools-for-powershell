@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a>
+    /// Updates a notebook instance lifecycle configuration created with the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html">CreateNotebookInstanceLifecycleConfig</a>
     /// API.
     /// </summary>
     [Cmdlet("Update", "SMNotebookInstanceLifecycleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

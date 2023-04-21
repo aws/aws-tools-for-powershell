@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A descriptive label associated with a build. Build names do not need to be unique.
+        /// <para>A descriptive label associated with a build. Build names don't need to be unique.
         /// </para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version information associated with a build or script. Version strings do not need
+        /// <para>Version information associated with a build or script. Version strings don't need
         /// to be unique.</para>
         /// </para>
         /// </summary>

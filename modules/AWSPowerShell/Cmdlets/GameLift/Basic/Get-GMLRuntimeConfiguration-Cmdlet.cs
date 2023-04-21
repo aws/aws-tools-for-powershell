@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves a fleet's runtime configuration settings. The runtime configuration tells
-    /// GameLift which server processes to run (and how) on each instance in the fleet.
+    /// Amazon GameLift which server processes to run (and how) on each instance in the fleet.
     /// 
     ///  
     /// <para>
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a <code>RuntimeConfiguration</code> object is returned for the requested
     /// fleet. If the requested fleet has been deleted, the result set is empty.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running
+    /// up Amazon GameLift fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-multiprocess.html">Running
     /// multiple processes on a fleet</a></para>
     /// </summary>
     [Cmdlet("Get", "GMLRuntimeConfiguration")]

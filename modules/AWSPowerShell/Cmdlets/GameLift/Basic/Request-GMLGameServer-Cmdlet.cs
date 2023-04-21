@@ -28,16 +28,17 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
     /// Locates an available game server and temporarily reserves it to host gameplay and
     /// players. This operation is called from a game client or client service (such as a
-    /// matchmaker) to request hosting resources for a new game session. In response, GameLift
-    /// FleetIQ locates an available game server, places it in <code>CLAIMED</code> status
-    /// for 60 seconds, and returns connection information that players can use to connect
-    /// to the game server. 
+    /// matchmaker) to request hosting resources for a new game session. In response, Amazon
+    /// GameLift FleetIQ locates an available game server, places it in <code>CLAIMED</code>
+    /// status for 60 seconds, and returns connection information that players can use to
+    /// connect to the game server. 
     /// </para><para>
     /// To claim a game server, identify a game server group. You can also specify a game
-    /// server ID, although this approach bypasses GameLift FleetIQ placement optimization.
+    /// server ID, although this approach bypasses Amazon GameLift FleetIQ placement optimization.
     /// Optionally, include game data to pass to the game server at the start of a game session,
     /// such as a game map or player information. 
     /// </para><para>
@@ -60,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// is running on an instance in <code>DRAINING</code> status. To avoid this, first check
     /// the instance status by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html">DescribeGameServerInstances</a>
     /// .
-    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para>
+    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
+    /// GameLift FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Request", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>A unique identifier for the game server group where the game server is running. If
         /// you are not specifying a game server to claim, this value identifies where you want
-        /// GameLift FleetIQ to look for an available game server to claim. </para>
+        /// Amazon GameLift FleetIQ to look for an available game server to claim. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A custom string that uniquely identifies the game server to claim. If this parameter
-        /// is left empty, GameLift FleetIQ searches for an available game server in the specified
-        /// game server group.</para>
+        /// is left empty, Amazon GameLift FleetIQ searches for an available game server in the
+        /// specified game server group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

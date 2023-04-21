@@ -266,9 +266,12 @@ $CHM_Completers = {
         }
 
         # Amazon.Chime.TranscribeLanguageCode
-        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            ($_ -eq "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode") -Or
+            ($_ -eq "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage")
+        }
+        {
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","th-TH","zh-CN"
             break
         }
 
@@ -393,6 +396,7 @@ $CHM_map = @{
     "TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMMeetingTranscription")
     "TriggerType"=@("New-CHMSipRule")

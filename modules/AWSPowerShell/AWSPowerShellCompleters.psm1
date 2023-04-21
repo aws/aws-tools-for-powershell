@@ -6402,9 +6402,12 @@ $CHM_Completers = {
         }
 
         # Amazon.Chime.TranscribeLanguageCode
-        "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            ($_ -eq "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode") -Or
+            ($_ -eq "Start-CHMMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage")
+        }
+        {
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","th-TH","zh-CN"
             break
         }
 
@@ -6529,6 +6532,7 @@ $CHM_map = @{
     "TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMMeetingTranscription")
+    "TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMMeetingTranscription")
     "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMMeetingTranscription")
     "TriggerType"=@("New-CHMSipRule")
@@ -7182,7 +7186,7 @@ $CHMTG_Completers = {
             ($_ -eq "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage")
         }
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","th-TH","zh-CN"
             break
         }
 
@@ -24623,7 +24627,7 @@ $GML_Completers = {
         # Amazon.GameLift.OperatingSystem
         "New-GMLBuild/OperatingSystem"
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","WINDOWS_2012"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","WINDOWS_2012","WINDOWS_2016"
             break
         }
 
@@ -28497,7 +28501,7 @@ $IOT_Completers = {
         # Amazon.IoT.OTAUpdateStatus
         "Get-IOTOTAUpdateList/OtaUpdateStatus"
         {
-            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING"
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING","DELETE_FAILED","DELETE_IN_PROGRESS"
             break
         }
 
@@ -53481,7 +53485,7 @@ $SNOW_Completers = {
         # Amazon.Snowball.LongTermPricingType
         "New-SNOWLongTermPricing/LongTermPricingType"
         {
-            $v = "OneYear","ThreeYear"
+            $v = "OneMonth","OneYear","ThreeYear"
             break
         }
 
@@ -53524,11 +53528,12 @@ $SNOW_Completers = {
 
         # Amazon.Snowball.SnowballCapacity
         {
+            ($_ -eq "New-SNOWCluster/SnowballCapacityPreference") -Or
             ($_ -eq "New-SNOWJob/SnowballCapacityPreference") -Or
             ($_ -eq "Update-SNOWJob/SnowballCapacityPreference")
         }
         {
-            $v = "NoPreference","T100","T14","T32","T42","T50","T8","T80","T98"
+            $v = "NoPreference","T100","T14","T240","T32","T42","T50","T8","T80","T98"
             break
         }
 
@@ -53539,7 +53544,7 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWLongTermPricing/SnowballType")
         }
         {
-            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C"
+            $v = "EDGE","EDGE_C","EDGE_CG","EDGE_S","SNC1_HDD","SNC1_SSD","STANDARD","V3_5C","V3_5S"
             break
         }
 
@@ -53549,6 +53554,10 @@ $SNOW_Completers = {
             ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
             ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
             ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
             ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
             ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
             ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
@@ -53571,12 +53580,13 @@ $SNOW_map = @{
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
     "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "RemoteManagement"=@("New-SNOWCluster","New-SNOWJob")
     "ServiceName"=@("Get-SNOWServiceVersion")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
-    "SnowballCapacityPreference"=@("New-SNOWJob","Update-SNOWJob")
+    "SnowballCapacityPreference"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWJob")
     "SnowballType"=@("New-SNOWCluster","New-SNOWJob","New-SNOWLongTermPricing")
 }
 
@@ -57842,8 +57852,10 @@ $WAF2_Completers = {
 
         # Amazon.WAFV2.Scope
         {
+            ($_ -eq "Get-WAF2APIKeyList/Scope") -Or
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupList/Scope") -Or
             ($_ -eq "Get-WAF2AvailableManagedRuleGroupVersionList/Scope") -Or
+            ($_ -eq "Get-WAF2DecryptedAPIKey/Scope") -Or
             ($_ -eq "Get-WAF2IPSet/Scope") -Or
             ($_ -eq "Get-WAF2IPSetList/Scope") -Or
             ($_ -eq "Get-WAF2LoggingConfigurationList/Scope") -Or
@@ -57858,6 +57870,7 @@ $WAF2_Completers = {
             ($_ -eq "Get-WAF2SampledRequest/Scope") -Or
             ($_ -eq "Get-WAF2WebACL/Scope") -Or
             ($_ -eq "Get-WAF2WebACLsList/Scope") -Or
+            ($_ -eq "New-WAF2APIKey/Scope") -Or
             ($_ -eq "New-WAF2IPSet/Scope") -Or
             ($_ -eq "New-WAF2RegexPatternSet/Scope") -Or
             ($_ -eq "New-WAF2RuleGroup/Scope") -Or
@@ -57892,7 +57905,7 @@ $WAF2_map = @{
     "LoggingConfiguration_LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
     "Platform"=@("Get-WAF2MobileSdkRelease","Get-WAF2MobileSdkReleaseList","New-WAF2MobileSdkReleaseUrl")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
-    "Scope"=@("Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
+    "Scope"=@("Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")
 }
 
 _awsArgumentCompleterRegistration $WAF2_Completers $WAF2_map
@@ -57947,6 +57960,7 @@ $WAF2_SelectCompleters = {
 $WAF2_SelectMap = @{
     "Select"=@("Add-WAF2WebACLToResource",
                "Test-WAF2Capacity",
+               "New-WAF2APIKey",
                "New-WAF2IPSet",
                "New-WAF2RegexPatternSet",
                "New-WAF2RuleGroup",
@@ -57961,6 +57975,7 @@ $WAF2_SelectMap = @{
                "Get-WAF2ManagedRuleGroup",
                "Remove-WAF2WebACLFromResource",
                "New-WAF2MobileSdkReleaseUrl",
+               "Get-WAF2DecryptedAPIKey",
                "Get-WAF2IPSet",
                "Get-WAF2LoggingConfiguration",
                "Get-WAF2ManagedRuleSet",
@@ -57972,6 +57987,7 @@ $WAF2_SelectMap = @{
                "Get-WAF2SampledRequest",
                "Get-WAF2WebACL",
                "Get-WAF2WebACLForResource",
+               "Get-WAF2APIKeyList",
                "Get-WAF2AvailableManagedRuleGroupList",
                "Get-WAF2AvailableManagedRuleGroupVersionList",
                "Get-WAF2IPSetList",

@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAPIKey" OutputProperty="APIKey" Verb="New" Noun="APIKey" ShouldProcessTarget="Scope" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIPSet" OutputProperty="Summary" Verb="New" Noun="IPSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -89,6 +93,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDecryptedAPIKey" OutputProperty="*" Verb="Get" Noun="DecryptedAPIKey" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +138,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetWebACLForResource" OutputProperty="WebACL" Verb="Get" Noun="WebACLForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAPIKeys" OutputProperty="*" Verb="Get" Noun="APIKeyList" PipelineParameter="Scope" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

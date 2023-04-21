@@ -28,7 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
     /// Temporarily stops activity on a game server group without terminating instances or
     /// the game server group. You can restart activity by calling <a href="gamelift/latest/apireference/API_ResumeGameServerGroup.html">ResumeGameServerGroup</a>.
     /// You can suspend the following activity:
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To suspend activity, specify a game server group ARN and the type of activity to be
     /// suspended. If successful, a <code>GameServerGroup</code> object is returned showing
     /// that the activity is listed in <code>SuspendedActions</code>.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para>
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
+    /// GameLift FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Suspend", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]

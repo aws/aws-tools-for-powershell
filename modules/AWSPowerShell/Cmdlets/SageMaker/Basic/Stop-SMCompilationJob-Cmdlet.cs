@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// shuts the job down. If the job hasn't stopped, it sends the SIGKILL signal.
     /// </para><para>
     /// When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes
-    /// the <a>CompilationJobSummary$CompilationJobStatus</a> of the job to <code>Stopping</code>.
-    /// After Amazon SageMaker stops the job, it sets the <a>CompilationJobSummary$CompilationJobStatus</a>
-    /// to <code>Stopped</code>. 
+    /// the <code>CompilationJobStatus</code> of the job to <code>Stopping</code>. After Amazon
+    /// SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to <code>Stopped</code>.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "SMCompilationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

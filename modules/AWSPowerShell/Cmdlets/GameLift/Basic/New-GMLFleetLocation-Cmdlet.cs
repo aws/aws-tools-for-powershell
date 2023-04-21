@@ -41,9 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// or more locations. 
     /// </para><para>
     /// If successful, this operation returns the list of added locations with their status
-    /// set to <code>NEW</code>. GameLift initiates the process of starting an instance in
-    /// each added location. You can track the status of each new location by monitoring location
-    /// creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.
+    /// set to <code>NEW</code>. Amazon GameLift initiates the process of starting an instance
+    /// in each added location. You can track the status of each new location by monitoring
+    /// location creation events using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html">DescribeFleetEvents</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Multi-location
     /// fleets</a></para>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A list of locations to deploy additional instances to and manage as part of the fleet.
-        /// You can add any GameLift-supported Amazon Web Services Region as a remote location,
+        /// You can add any Amazon GameLift-supported Amazon Web Services Region as a remote location,
         /// in the form of an Amazon Web Services Region code such as <code>us-west-2</code>.
         /// </para>
         /// </para>

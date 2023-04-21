@@ -29,21 +29,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
-    /// FlexMatch with GameLift hosting or as a standalone matchmaking service, the matchmaking
-    /// configuration sets out rules for matching players and forming teams. If you're also
-    /// using GameLift hosting, it defines how to start game sessions for each match. Your
-    /// matchmaking system can use multiple configurations to handle different game scenarios.
-    /// All matchmaking requests identify the matchmaking configuration to use and provide
-    /// player attributes consistent with that configuration. 
+    /// FlexMatch with Amazon GameLift hosting or as a standalone matchmaking service, the
+    /// matchmaking configuration sets out rules for matching players and forming teams. If
+    /// you're also using Amazon GameLift hosting, it defines how to start game sessions for
+    /// each match. Your matchmaking system can use multiple configurations to handle different
+    /// game scenarios. All matchmaking requests identify the matchmaking configuration to
+    /// use and provide player attributes consistent with that configuration. 
     /// 
     ///  
     /// <para>
     /// To create a matchmaking configuration, you must provide the following: configuration
-    /// name and FlexMatch mode (with or without GameLift hosting); a rule set that specifies
-    /// how to evaluate players and find acceptable matches; whether player acceptance is
-    /// required; and the maximum time allowed for a matchmaking attempt. When using FlexMatch
-    /// with GameLift hosting, you also need to identify the game session queue to use when
-    /// starting a game session for the match.
+    /// name and FlexMatch mode (with or without Amazon GameLift hosting); a rule set that
+    /// specifies how to evaluate players and find acceptable matches; whether player acceptance
+    /// is required; and the maximum time allowed for a matchmaking attempt. When using FlexMatch
+    /// with Amazon GameLift hosting, you also need to identify the game session queue to
+    /// use when starting a game session for the match.
     /// </para><para>
     /// In addition, you must set up an Amazon Simple Notification Service topic to receive
     /// matchmaking notifications. Provide the topic ARN in the matchmaking configuration.
@@ -110,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>The method used to backfill game sessions that are created with this matchmaking configuration.
         /// Specify <code>MANUAL</code> when your game manages backfill requests manually or does
-        /// not use the match backfill feature. Specify <code>AUTOMATIC</code> to have GameLift
-        /// create a backfill request whenever a game session has one or more open slots. Learn
-        /// more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
+        /// not use the match backfill feature. Specify <code>AUTOMATIC</code> to have Amazon
+        /// GameLift create a backfill request whenever a game session has one or more open slots.
+        /// Learn more about manual and automatic backfill in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">
         /// Backfill Existing Games with FlexMatch</a>. Automatic backfill is not available when
         /// <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</para>
         /// </para>
@@ -145,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FlexMatchMode
         /// <summary>
         /// <para>
-        /// <para>Indicates whether this matchmaking configuration is being used with GameLift hosting
-        /// or as a standalone matchmaking solution. </para><ul><li><para><b>STANDALONE</b> - FlexMatch forms matches and returns match information, including
+        /// <para>Indicates whether this matchmaking configuration is being used with Amazon GameLift
+        /// hosting or as a standalone matchmaking solution. </para><ul><li><para><b>STANDALONE</b> - FlexMatch forms matches and returns match information, including
         /// players and team assignments, in a <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html#match-events-matchmakingsucceeded">
-        /// MatchmakingSucceeded</a> event.</para></li><li><para><b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified GameLift queue
-        /// to start a game session for the match. </para></li></ul>
+        /// MatchmakingSucceeded</a> event.</para></li><li><para><b>WITH_QUEUE</b> - FlexMatch forms matches and uses the specified Amazon GameLift
+        /// queue to start a game session for the match. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,12 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// that is assigned to a GameLift game session queue resource and uniquely identifies
+        /// that is assigned to a Amazon GameLift game session queue resource and uniquely identifies
         /// it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:&lt;region&gt;::gamesessionqueue/&lt;queue
         /// name&gt;</code>. Queues can be located in any Region. Queues are used to start new
-        /// GameLift-hosted game sessions for matches that are created with this matchmaking configuration.
-        /// If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do not set this parameter.
-        /// </para>
+        /// Amazon GameLift-hosted game sessions for matches that are created with this matchmaking
+        /// configuration. If <code>FlexMatchMode</code> is set to <code>STANDALONE</code>, do
+        /// not set this parameter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

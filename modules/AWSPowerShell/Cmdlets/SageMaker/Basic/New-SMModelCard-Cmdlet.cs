@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the model card. Content must be in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html">model
+        /// <para>The content of the model card. Content must be in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model
         /// card JSON schema</a> and provided as a string.</para>
         /// </para>
         /// </summary>

@@ -36,7 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <para>
     /// When SageMaker receives the request, it sets the endpoint status to <code>Updating</code>.
     /// After updating the endpoint, it sets the status to <code>InService</code>. To check
-    /// the status of an endpoint, use the <a>DescribeEndpoint</a> API. 
+    /// the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a>
+    /// API. 
     /// </para><note><para>
     /// You must not delete an <code>EndpointConfig</code> in use by an endpoint that is live
     /// or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations
@@ -108,11 +109,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExcludeRetainedVariantProperty
         /// <summary>
         /// <para>
-        /// <para>When you are updating endpoint resources with <a>UpdateEndpointInput$RetainAllVariantProperties</a>,
+        /// <para>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>,
         /// whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code>
-        /// specifies the list of type <a>VariantProperty</a> to override with the values provided
-        /// by <code>EndpointConfig</code>. If you don't specify a value for <code>ExcludeRetainedVariantProperties</code>,
-        /// no variant properties are overridden. </para>
+        /// specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html">VariantProperty</a>
+        /// to override with the values provided by <code>EndpointConfig</code>. If you don't
+        /// specify a value for <code>ExcludeRetainedVariantProperties</code>, no variant properties
+        /// are overridden. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

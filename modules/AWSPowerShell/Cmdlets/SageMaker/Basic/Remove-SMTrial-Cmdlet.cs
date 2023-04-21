@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Deletes the specified trial. All trial components that make up the trial must be deleted
-    /// first. Use the <a>DescribeTrialComponent</a> API to get the list of trial components.
+    /// first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html">DescribeTrialComponent</a>
+    /// API to get the list of trial components.
     /// </summary>
     [Cmdlet("Remove", "SMTrial", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

@@ -28,8 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates the properties of a SageMaker image. To change the image's tags, use the <a>AddTags</a>
-    /// and <a>DeleteTags</a> APIs.
+    /// Updates the properties of a SageMaker image. To change the image's tags, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html">AddTags</a>
+    /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html">DeleteTags</a>
+    /// APIs.
     /// </summary>
     [Cmdlet("Update", "SMImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -134,7 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A name for the recommendation job. The name must be unique within the Amazon Web Services
-        /// Region and within your Amazon Web Services account.</para>
+        /// Region and within your Amazon Web Services account. The job name is passed down to
+        /// the resources created by the recommendation job. The names of resources (such as the
+        /// model, endpoint configuration, endpoint, and compilation) that are prefixed with the
+        /// job name are truncated at 40 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

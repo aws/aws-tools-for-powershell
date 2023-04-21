@@ -28,12 +28,13 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b><para>
-    /// Creates a new game server resource and notifies GameLift FleetIQ that the game server
-    /// is ready to host gameplay and players. This operation is called by a game server process
-    /// that is running on an instance in a game server group. Registering game servers enables
-    /// GameLift FleetIQ to track available game servers and enables game clients and services
-    /// to claim a game server for a new game session. 
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Creates a new game server resource and notifies Amazon GameLift FleetIQ that the game
+    /// server is ready to host gameplay and players. This operation is called by a game server
+    /// process that is running on an instance in a game server group. Registering game servers
+    /// enables Amazon GameLift FleetIQ to track available game servers and enables game clients
+    /// and services to claim a game server for a new game session. 
     /// </para><para>
     /// To register a game server, identify the game server group and instance where the game
     /// server is running, and provide a unique identifier for the game server. You can also
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// A request to register a game server may fail if the instance it is running on is in
     /// the process of shutting down as part of instance balancing or scale-down activity.
     /// 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para>
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
+    /// GameLift FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Register", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServer")]

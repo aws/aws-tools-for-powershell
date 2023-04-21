@@ -353,7 +353,7 @@ $IOT_Completers = {
         # Amazon.IoT.OTAUpdateStatus
         "Get-IOTOTAUpdateList/OtaUpdateStatus"
         {
-            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING"
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING","DELETE_FAILED","DELETE_IN_PROGRESS"
             break
         }
 

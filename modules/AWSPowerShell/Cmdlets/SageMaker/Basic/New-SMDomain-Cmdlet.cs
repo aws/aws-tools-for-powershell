@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_ExecutionRole
         /// <summary>
         /// <para>
-        /// <para>The execution role for the space.</para>
+        /// <para>The ARN of the execution role for the space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -419,7 +419,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultSpaceSettings_SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The security groups for the Amazon Virtual Private Cloud that the space uses for communication.</para>
+        /// <para>The security group IDs for the Amazon Virtual Private Cloud that the space uses for
+        /// communication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

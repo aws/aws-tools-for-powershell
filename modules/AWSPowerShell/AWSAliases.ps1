@@ -24724,6 +24724,8 @@ Set-Alias -Name Associate-WAF2WebACLToResource -Value Add-WAF2WebACLToResource
 Set-Alias -Name WAF2-AssociateWebACL -Value Add-WAF2WebACLToResource
 Set-Alias -Name Check-WAF2Capacity -Value Test-WAF2Capacity
 Set-Alias -Name WAF2-CheckCapacity -Value Test-WAF2Capacity
+Set-Alias -Name Create-WAF2APIKey -Value New-WAF2APIKey
+Set-Alias -Name WAF2-CreateAPIKey -Value New-WAF2APIKey
 Set-Alias -Name Create-WAF2IPSet -Value New-WAF2IPSet
 Set-Alias -Name WAF2-CreateIPSet -Value New-WAF2IPSet
 Set-Alias -Name Create-WAF2RegexPatternSet -Value New-WAF2RegexPatternSet
@@ -24754,6 +24756,7 @@ Set-Alias -Name Disassociate-WAF2WebACLFromResource -Value Remove-WAF2WebACLFrom
 Set-Alias -Name WAF2-DisassociateWebACL -Value Remove-WAF2WebACLFromResource
 Set-Alias -Name Generate-WAF2MobileSdkReleaseUrl -Value New-WAF2MobileSdkReleaseUrl
 Set-Alias -Name WAF2-GenerateMobileSdkReleaseUrl -Value New-WAF2MobileSdkReleaseUrl
+Set-Alias -Name WAF2-GetDecryptedAPIKey -Value Get-WAF2DecryptedAPIKey
 Set-Alias -Name WAF2-GetIPSet -Value Get-WAF2IPSet
 Set-Alias -Name WAF2-GetLoggingConfiguration -Value Get-WAF2LoggingConfiguration
 Set-Alias -Name WAF2-GetManagedRuleSet -Value Get-WAF2ManagedRuleSet
@@ -24767,6 +24770,9 @@ Set-Alias -Name Get-WAF2SampledRequests -Value Get-WAF2SampledRequest
 Set-Alias -Name WAF2-GetSampledRequests -Value Get-WAF2SampledRequest
 Set-Alias -Name WAF2-GetWebACL -Value Get-WAF2WebACL
 Set-Alias -Name WAF2-GetWebACLForResource -Value Get-WAF2WebACLForResource
+Set-Alias -Name List-WAF2APIKeys -Value Get-WAF2APIKeyList
+Set-Alias -Name List-WAF2APIKeyList -Value Get-WAF2APIKeyList
+Set-Alias -Name WAF2-ListAPIKeys -Value Get-WAF2APIKeyList
 Set-Alias -Name List-WAF2AvailableManagedRuleGroups -Value Get-WAF2AvailableManagedRuleGroupList
 Set-Alias -Name List-WAF2AvailableManagedRuleGroupList -Value Get-WAF2AvailableManagedRuleGroupList
 Set-Alias -Name WAF2-ListAvailableManagedRuleGroups -Value Get-WAF2AvailableManagedRuleGroupList

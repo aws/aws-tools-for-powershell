@@ -22,106 +22,92 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.WAFV2;
+using Amazon.WAFV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
-    /// groups.</b><para>
-    /// Retrieves information on all game servers that are currently active in a specified
-    /// game server group. You can opt to sort the list by game server age. Use the pagination
-    /// parameters to retrieve results in a set of sequential segments. 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
-    /// GameLift FleetIQ Guide</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of the API keys that you've defined for the specified scope.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "GMLGameServerList")]
-    [OutputType("Amazon.GameLift.Model.GameServer")]
-    [AWSCmdlet("Calls the Amazon GameLift Service ListGameServers API operation.", Operation = new[] {"ListGameServers"}, SelectReturnType = typeof(Amazon.GameLift.Model.ListGameServersResponse))]
-    [AWSCmdletOutput("Amazon.GameLift.Model.GameServer or Amazon.GameLift.Model.ListGameServersResponse",
-        "This cmdlet returns a collection of Amazon.GameLift.Model.GameServer objects.",
-        "The service call response (type Amazon.GameLift.Model.ListGameServersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WAF2APIKeyList")]
+    [OutputType("Amazon.WAFV2.Model.ListAPIKeysResponse")]
+    [AWSCmdlet("Calls the AWS WAF V2 ListAPIKeys API operation.", Operation = new[] {"ListAPIKeys"}, SelectReturnType = typeof(Amazon.WAFV2.Model.ListAPIKeysResponse))]
+    [AWSCmdletOutput("Amazon.WAFV2.Model.ListAPIKeysResponse",
+        "This cmdlet returns an Amazon.WAFV2.Model.ListAPIKeysResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLGameServerListCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetWAF2APIKeyListCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter GameServerGroupName
+        #region Parameter Scope
         /// <summary>
         /// <para>
-        /// <para>An identifier for the game server group to retrieve a list of game servers from. Use
-        /// either the name or ARN value.</para>
+        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
+        /// application. A regional application can be an Application Load Balancer (ALB), an
+        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
+        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
+        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GameServerGroupName { get; set; }
-        #endregion
-        
-        #region Parameter SortOrder
-        /// <summary>
-        /// <para>
-        /// <para>Indicates how to sort the returned data based on game server registration timestamp.
-        /// Use <code>ASCENDING</code> to retrieve oldest game servers first, or use <code>DESCENDING</code>
-        /// to retrieve newest game servers first. If this parameter is left empty, game servers
-        /// are returned in no particular order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.GameLift.SortOrder")]
-        public Amazon.GameLift.SortOrder SortOrder { get; set; }
+        [AWSConstantClassSource("Amazon.WAFV2.Scope")]
+        public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages.</para>
+        /// <para>The maximum number of objects that you want WAF to return for this request. If more
+        /// objects are available, in the response, WAF provides a <code>NextMarker</code> value
+        /// that you can use in a subsequent call to get the next batch of objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Limit { get; set; }
         #endregion
         
-        #region Parameter NextToken
+        #region Parameter NextMarker
         /// <summary>
         /// <para>
-        /// <para>A token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this operation. To start at the beginning
-        /// of the result set, do not specify a value.</para>
+        /// <para>When you request a list of objects with a <code>Limit</code> setting, if the number
+        /// of objects that are still available for retrieval exceeds the limit, WAF returns a
+        /// <code>NextMarker</code> value in the response. To retrieve the next batch of objects,
+        /// provide the marker from the prior call in your next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// <br/>In order to manually control output pagination, use '-NextMarker $null' for the first call and '-NextMarker $AWSHistory.LastServiceResponse.NextMarker' for subsequent calls.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        [Alias("NextToken")]
+        public System.String NextMarker { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'GameServers'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.ListGameServersResponse).
-        /// Specifying the name of a property of type Amazon.GameLift.Model.ListGameServersResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.ListAPIKeysResponse).
+        /// Specifying the name of a property of type Amazon.WAFV2.Model.ListAPIKeysResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "GameServers";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GameServerGroupName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GameServerGroupName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Scope parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GameServerGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -129,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
-        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextMarker
         /// as the start point.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.ListGameServersResponse, GetGMLGameServerListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.ListAPIKeysResponse, GetWAF2APIKeyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,19 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GameServerGroupName;
+                context.Select = (response, cmdlet) => this.Scope;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.GameServerGroupName = this.GameServerGroupName;
+            context.Limit = this.Limit;
+            context.NextMarker = this.NextMarker;
+            context.Scope = this.Scope;
             #if MODULAR
-            if (this.GameServerGroupName == null && ParameterWasBound(nameof(this.GameServerGroupName)))
+            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
             {
-                WriteWarning("You are passing $null as a value for parameter GameServerGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Limit = this.Limit;
-            context.NextToken = this.NextToken;
-            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,29 +174,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListGameServersRequest();
+            var request = new Amazon.WAFV2.Model.ListAPIKeysRequest();
             
-            if (cmdletContext.GameServerGroupName != null)
-            {
-                request.GameServerGroupName = cmdletContext.GameServerGroupName;
-            }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
             }
-            if (cmdletContext.SortOrder != null)
+            if (cmdletContext.Scope != null)
             {
-                request.SortOrder = cmdletContext.SortOrder;
+                request.Scope = cmdletContext.Scope;
             }
             
             // Initialize loop variant and commence piping
-            var _nextToken = cmdletContext.NextToken;
-            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
+            var _nextToken = cmdletContext.NextMarker;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextMarker));
             
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             do
             {
-                request.NextToken = _nextToken;
+                request.NextMarker = _nextToken;
                 
                 CmdletOutput output;
                 
@@ -231,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         ServiceResponse = response
                     };
                     
-                    _nextToken = response.NextToken;
+                    _nextToken = response.NextMarker;
                 }
                 catch (Exception e)
                 {
@@ -260,15 +241,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ListGameServersResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListGameServersRequest request)
+        private Amazon.WAFV2.Model.ListAPIKeysResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.ListAPIKeysRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListGameServers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "ListAPIKeys");
             try
             {
                 #if DESKTOP
-                return client.ListGameServers(request);
+                return client.ListAPIKeys(request);
                 #elif CORECLR
-                return client.ListGameServersAsync(request).GetAwaiter().GetResult();
+                return client.ListAPIKeysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -288,12 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GameServerGroupName { get; set; }
             public System.Int32? Limit { get; set; }
-            public System.String NextToken { get; set; }
-            public Amazon.GameLift.SortOrder SortOrder { get; set; }
-            public System.Func<Amazon.GameLift.Model.ListGameServersResponse, GetGMLGameServerListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.GameServers;
+            public System.String NextMarker { get; set; }
+            public Amazon.WAFV2.Scope Scope { get; set; }
+            public System.Func<Amazon.WAFV2.Model.ListAPIKeysResponse, GetWAF2APIKeyListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

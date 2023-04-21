@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// a request exceeds this limit, the request fails and the error message contains the
     /// maximum allowed number.
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// up Amazon GameLift fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetAttribute")]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]

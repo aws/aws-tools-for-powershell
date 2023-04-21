@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a slot is reserved in the game session for each player, and new <code>PlayerSession</code>
     /// objects are returned with player session IDs. Each player references their player
     /// session ID when sending a connection request to the game session, and the game server
-    /// can use it to validate the player reservation with the GameLift service. Player sessions
-    /// cannot be updated.
+    /// can use it to validate the player reservation with the Amazon GameLift service. Player
+    /// sessions cannot be updated.
     /// </para><para>
     /// The maximum number of players per game session is 200. It is not adjustable. 
     /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All

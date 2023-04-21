@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// This operation does not return the home Region. To get information on a fleet's home
     /// Region, call <code>DescribeFleetAttributes</code>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up GameLift fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// up Amazon GameLift fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetLocationAttribute")]
     [OutputType("Amazon.GameLift.Model.DescribeFleetLocationAttributesResponse")]

@@ -85,8 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ParameterRanges_CategoricalParameterRange
         /// <summary>
         /// <para>
-        /// <para>The array of <a>CategoricalParameterRange</a> objects that specify ranges of categorical
-        /// hyperparameters that a hyperparameter tuning job searches.</para>
+        /// <para>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CategoricalParameterRange.html">CategoricalParameterRange</a>
+        /// objects that specify ranges of categorical hyperparameters that a hyperparameter tuning
+        /// job searches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterRanges_CategoricalParameterRange
         /// <summary>
         /// <para>
-        /// <para>The array of <a>CategoricalParameterRange</a> objects that specify ranges of categorical
-        /// hyperparameters that a hyperparameter tuning job searches.</para>
+        /// <para>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CategoricalParameterRange.html">CategoricalParameterRange</a>
+        /// objects that specify ranges of categorical hyperparameters that a hyperparameter tuning
+        /// job searches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ParameterRanges_ContinuousParameterRange
         /// <summary>
         /// <para>
-        /// <para>The array of <a>ContinuousParameterRange</a> objects that specify ranges of continuous
-        /// hyperparameters that a hyperparameter tuning job searches.</para>
+        /// <para>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContinuousParameterRange.html">ContinuousParameterRange</a>
+        /// objects that specify ranges of continuous hyperparameters that a hyperparameter tuning
+        /// job searches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,8 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterRanges_ContinuousParameterRange
         /// <summary>
         /// <para>
-        /// <para>The array of <a>ContinuousParameterRange</a> objects that specify ranges of continuous
-        /// hyperparameters that a hyperparameter tuning job searches.</para>
+        /// <para>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContinuousParameterRange.html">ContinuousParameterRange</a>
+        /// objects that specify ranges of continuous hyperparameters that a hyperparameter tuning
+        /// job searches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,8 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingJobDefinition_InputDataConfig
         /// <summary>
         /// <para>
-        /// <para>An array of <a>Channel</a> objects that specify the input for the training jobs that
-        /// the tuning job launches.</para>
+        /// <para>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html">Channel</a>
+        /// objects that specify the input for the training jobs that the tuning job launches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,8 +291,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ParameterRanges_IntegerParameterRange
         /// <summary>
         /// <para>
-        /// <para>The array of <a>IntegerParameterRange</a> objects that specify ranges of integer hyperparameters
-        /// that a hyperparameter tuning job searches.</para>
+        /// <para>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_IntegerParameterRange.html">IntegerParameterRange</a>
+        /// objects that specify ranges of integer hyperparameters that a hyperparameter tuning
+        /// job searches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -299,8 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterRanges_IntegerParameterRange
         /// <summary>
         /// <para>
-        /// <para>The array of <a>IntegerParameterRange</a> objects that specify ranges of integer hyperparameters
-        /// that a hyperparameter tuning job searches.</para>
+        /// <para>The array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_IntegerParameterRange.html">IntegerParameterRange</a>
+        /// objects that specify ranges of integer hyperparameters that a hyperparameter tuning
+        /// job searches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,8 +450,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AlgorithmSpecification_MetricDefinition
         /// <summary>
         /// <para>
-        /// <para>An array of <a>MetricDefinition</a> objects that specify the metrics that the algorithm
-        /// emits.</para>
+        /// <para>An array of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html">MetricDefinition</a>
+        /// objects that specify the metrics that the algorithm emits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -678,8 +684,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingJobDefinition
         /// <summary>
         /// <para>
-        /// <para>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched for this
-        /// tuning job.</para>
+        /// <para>A list of the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html">HyperParameterTrainingJobDefinition</a>
+        /// objects launched for this tuning job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

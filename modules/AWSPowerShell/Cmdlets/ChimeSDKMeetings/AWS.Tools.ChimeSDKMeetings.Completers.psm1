@@ -127,7 +127,7 @@ $CHMTG_Completers = {
             ($_ -eq "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage")
         }
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","ja-JP","ko-KR","pt-BR","zh-CN"
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","th-TH","zh-CN"
             break
         }
 

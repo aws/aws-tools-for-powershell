@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// the Amazon Web Services SDK for Python (Boto), you must use the logging APIs provided
     /// by the SDK.
     /// </para><para>
-    /// You can add tags to a trial component and then use the <a>Search</a> API to search
-    /// for the tags.
+    /// You can add tags to a trial component and then use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
+    /// API to search for the tags.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMTrialComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to associate with the component. You can use <a>Search</a> API to search
-        /// on the tags.</para>
+        /// <para>A list of tags to associate with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
+        /// API to search on the tags.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
