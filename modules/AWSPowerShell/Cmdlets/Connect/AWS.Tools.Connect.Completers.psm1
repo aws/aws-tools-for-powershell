@@ -190,6 +190,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ParticipantRole
+        "New-CONNParticipant/ParticipantDetails_ParticipantRole"
+        {
+            $v = "AGENT","CUSTOMER","CUSTOM_BOT","SYSTEM"
+            break
+        }
+
         # Amazon.Connect.PhoneNumberCountryCode
         "Search-CONNAvailablePhoneNumber/PhoneNumberCountryCode"
         {
@@ -343,6 +350,7 @@ $CONN_map = @{
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
@@ -432,6 +440,7 @@ $CONN_SelectMap = @{
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
+               "New-CONNParticipant",
                "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",

@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging
         /// authorization timeline</a> in the <i>Amazon ECS Developer Guide</i>.</para><para>When you specify <code>fargateFIPSMode</code> for the <code>name</code> and <code>enabled</code>
         /// for the <code>value</code>, Fargate uses FIPS-140 compliant cryptographic algorithms
-        /// on your tasks. For more information about FIPS-140 compliance with Fargate, see <a href="https://docs.aws.amazon.com/AWSEC2ContainerServiceDocs/build/server-root/AmazonECS/latest/developerguide/ecs-fips-compliance.html">
+        /// on your tasks. For more information about FIPS-140 compliance with Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-fips-compliance.html">
         /// Amazon Web Services Fargate Federal Information Processing Standard (FIPS) 140-2 compliance</a>
         /// in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>

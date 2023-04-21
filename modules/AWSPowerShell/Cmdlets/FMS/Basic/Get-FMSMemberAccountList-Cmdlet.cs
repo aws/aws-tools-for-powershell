@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     /// 
     ///  
     /// <para>
-    /// The <code>ListMemberAccounts</code> must be submitted by the account that is set as
-    /// the Firewall Manager administrator.
+    /// Either an Firewall Manager administrator or the organization's management account
+    /// can make this request.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FMSMemberAccountList")]

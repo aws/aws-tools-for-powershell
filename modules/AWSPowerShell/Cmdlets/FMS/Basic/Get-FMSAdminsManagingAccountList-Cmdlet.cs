@@ -28,35 +28,20 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns an array of resources that are currently associated to a resource set.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the accounts that are managing the specified Organizations member account. This
+    /// is useful for any member account so that they can view the accounts who are managing
+    /// their account. This operation only returns the managing administrators that have the
+    /// requested account within their <a>AdminScope</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Read", "FMSResourceSetResourceList")]
-    [OutputType("Amazon.FMS.Model.Resource")]
-    [AWSCmdlet("Calls the Firewall Management Service ListResourceSetResources API operation.", Operation = new[] {"ListResourceSetResources"}, SelectReturnType = typeof(Amazon.FMS.Model.ListResourceSetResourcesResponse))]
-    [AWSCmdletOutput("Amazon.FMS.Model.Resource or Amazon.FMS.Model.ListResourceSetResourcesResponse",
-        "This cmdlet returns a collection of Amazon.FMS.Model.Resource objects.",
-        "The service call response (type Amazon.FMS.Model.ListResourceSetResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FMSAdminsManagingAccountList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Firewall Management Service ListAdminsManagingAccount API operation.", Operation = new[] {"ListAdminsManagingAccount"}, SelectReturnType = typeof(Amazon.FMS.Model.ListAdminsManagingAccountResponse))]
+    [AWSCmdletOutput("System.String or Amazon.FMS.Model.ListAdminsManagingAccountResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.FMS.Model.ListAdminsManagingAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ReadFMSResourceSetResourceListCmdlet : AmazonFMSClientCmdlet, IExecutor
+    public partial class GetFMSAdminsManagingAccountListCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for the resource set, used in a request to refer to the resource
-        /// set.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -91,23 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FMS.Model.ListResourceSetResourcesResponse).
-        /// Specifying the name of a property of type Amazon.FMS.Model.ListResourceSetResourcesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AdminAccounts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FMS.Model.ListAdminsManagingAccountResponse).
+        /// Specifying the name of a property of type Amazon.FMS.Model.ListAdminsManagingAccountResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "AdminAccounts";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -130,28 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FMS.Model.ListResourceSetResourcesResponse, ReadFMSResourceSetResourceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FMS.Model.ListAdminsManagingAccountResponse, GetFMSAdminsManagingAccountListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Identifier;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -167,17 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.FMS.Model.ListResourceSetResourcesRequest();
+            var request = new Amazon.FMS.Model.ListAdminsManagingAccountRequest();
             
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -239,15 +191,15 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         #region AWS Service Operation Call
         
-        private Amazon.FMS.Model.ListResourceSetResourcesResponse CallAWSServiceOperation(IAmazonFMS client, Amazon.FMS.Model.ListResourceSetResourcesRequest request)
+        private Amazon.FMS.Model.ListAdminsManagingAccountResponse CallAWSServiceOperation(IAmazonFMS client, Amazon.FMS.Model.ListAdminsManagingAccountRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "ListResourceSetResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "ListAdminsManagingAccount");
             try
             {
                 #if DESKTOP
-                return client.ListResourceSetResources(request);
+                return client.ListAdminsManagingAccount(request);
                 #elif CORECLR
-                return client.ListResourceSetResourcesAsync(request).GetAwaiter().GetResult();
+                return client.ListAdminsManagingAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -267,11 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Identifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.FMS.Model.ListResourceSetResourcesResponse, ReadFMSResourceSetResourceListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.Func<Amazon.FMS.Model.ListAdminsManagingAccountResponse, GetFMSAdminsManagingAccountListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AdminAccounts;
         }
         
     }

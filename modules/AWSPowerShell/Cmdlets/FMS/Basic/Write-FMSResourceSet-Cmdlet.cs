@@ -94,6 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         public System.String ResourceSet_Name { get; set; }
         #endregion
         
+        #region Parameter ResourceSet_ResourceSetStatus
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the resource set is in or out of an admin's Region scope.</para><ul><li><para><code>ACTIVE</code> - The administrator can manage and delete the resource set.</para></li><li><para><code>OUT_OF_ADMIN_SCOPE</code> - The administrator can view the resource set, but
+        /// they can't edit or delete the resource set. Existing protections stay in place. Any
+        /// new resource that come into scope of the resource set won't be protected.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FMS.ResourceSetStatus")]
+        public Amazon.FMS.ResourceSetStatus ResourceSet_ResourceSetStatus { get; set; }
+        #endregion
+        
         #region Parameter ResourceSet_ResourceTypeList
         /// <summary>
         /// <para>
@@ -220,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 WriteWarning("You are passing $null as a value for parameter ResourceSet_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceSet_ResourceSetStatus = this.ResourceSet_ResourceSetStatus;
             if (this.ResourceSet_ResourceTypeList != null)
             {
                 context.ResourceSet_ResourceTypeList = new List<System.String>(this.ResourceSet_ResourceTypeList);
@@ -293,6 +307,16 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             if (requestResourceSet_resourceSet_Name != null)
             {
                 request.ResourceSet.Name = requestResourceSet_resourceSet_Name;
+                requestResourceSetIsNull = false;
+            }
+            Amazon.FMS.ResourceSetStatus requestResourceSet_resourceSet_ResourceSetStatus = null;
+            if (cmdletContext.ResourceSet_ResourceSetStatus != null)
+            {
+                requestResourceSet_resourceSet_ResourceSetStatus = cmdletContext.ResourceSet_ResourceSetStatus;
+            }
+            if (requestResourceSet_resourceSet_ResourceSetStatus != null)
+            {
+                request.ResourceSet.ResourceSetStatus = requestResourceSet_resourceSet_ResourceSetStatus;
                 requestResourceSetIsNull = false;
             }
             List<System.String> requestResourceSet_resourceSet_ResourceTypeList = null;
@@ -389,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             public System.String ResourceSet_Id { get; set; }
             public System.DateTime? ResourceSet_LastUpdateTime { get; set; }
             public System.String ResourceSet_Name { get; set; }
+            public Amazon.FMS.ResourceSetStatus ResourceSet_ResourceSetStatus { get; set; }
             public List<System.String> ResourceSet_ResourceTypeList { get; set; }
             public System.String ResourceSet_UpdateToken { get; set; }
             public List<Amazon.FMS.Model.Tag> TagList { get; set; }

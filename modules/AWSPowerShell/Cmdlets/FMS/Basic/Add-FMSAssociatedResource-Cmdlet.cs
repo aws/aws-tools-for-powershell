@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ResourceSetIdentifier
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the resource set, used in a TODO to refer to the resource
+        /// <para>A unique identifier for the resource set, used in a request to refer to the resource
         /// set.</para>
         /// </para>
         /// </summary>

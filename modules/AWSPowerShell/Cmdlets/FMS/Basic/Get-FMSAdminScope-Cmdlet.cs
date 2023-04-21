@@ -28,23 +28,23 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Deletes the specified <a>ResourceSet</a>.
+    /// Returns information about the specified account's administrative scope. The admistrative
+    /// scope defines the resources that an Firewall Manager administrator can manage.
     /// </summary>
-    [Cmdlet("Remove", "FMSResourceSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Firewall Management Service DeleteResourceSet API operation.", Operation = new[] {"DeleteResourceSet"}, SelectReturnType = typeof(Amazon.FMS.Model.DeleteResourceSetResponse))]
-    [AWSCmdletOutput("None or Amazon.FMS.Model.DeleteResourceSetResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FMS.Model.DeleteResourceSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FMSAdminScope")]
+    [OutputType("Amazon.FMS.Model.AdminScope")]
+    [AWSCmdlet("Calls the Firewall Management Service GetAdminScope API operation.", Operation = new[] {"GetAdminScope"}, SelectReturnType = typeof(Amazon.FMS.Model.GetAdminScopeResponse))]
+    [AWSCmdletOutput("Amazon.FMS.Model.AdminScope or Amazon.FMS.Model.GetAdminScopeResponse",
+        "This cmdlet returns an Amazon.FMS.Model.AdminScope object.",
+        "The service call response (type Amazon.FMS.Model.GetAdminScopeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFMSResourceSetCmdlet : AmazonFMSClientCmdlet, IExecutor
+    public partial class GetFMSAdminScopeCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
-        #region Parameter Identifier
+        #region Parameter AdminAccount
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the resource set, used in a request to refer to the resource
-        /// set.</para>
+        /// <para>The administator account that you want to get the details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,49 +55,34 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String AdminAccount { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FMS.Model.DeleteResourceSetResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AdminScope'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FMS.Model.GetAdminScopeResponse).
+        /// Specifying the name of a property of type Amazon.FMS.Model.GetAdminScopeResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AdminScope";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AdminAccount parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AdminAccount' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AdminAccount' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FMSResourceSet (DeleteResourceSet)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -107,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FMS.Model.DeleteResourceSetResponse, RemoveFMSResourceSetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FMS.Model.GetAdminScopeResponse, GetFMSAdminScopeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.AdminAccount;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Identifier = this.Identifier;
+            context.AdminAccount = this.AdminAccount;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.AdminAccount == null && ParameterWasBound(nameof(this.AdminAccount)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AdminAccount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -140,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FMS.Model.DeleteResourceSetRequest();
+            var request = new Amazon.FMS.Model.GetAdminScopeRequest();
             
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.AdminAccount != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.AdminAccount = cmdletContext.AdminAccount;
             }
             
             CmdletOutput output;
@@ -179,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         #region AWS Service Operation Call
         
-        private Amazon.FMS.Model.DeleteResourceSetResponse CallAWSServiceOperation(IAmazonFMS client, Amazon.FMS.Model.DeleteResourceSetRequest request)
+        private Amazon.FMS.Model.GetAdminScopeResponse CallAWSServiceOperation(IAmazonFMS client, Amazon.FMS.Model.GetAdminScopeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "DeleteResourceSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Firewall Management Service", "GetAdminScope");
             try
             {
                 #if DESKTOP
-                return client.DeleteResourceSet(request);
+                return client.GetAdminScope(request);
                 #elif CORECLR
-                return client.DeleteResourceSetAsync(request).GetAwaiter().GetResult();
+                return client.GetAdminScopeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -207,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.FMS.Model.DeleteResourceSetResponse, RemoveFMSResourceSetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AdminAccount { get; set; }
+            public System.Func<Amazon.FMS.Model.GetAdminScopeResponse, GetFMSAdminScopeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AdminScope;
         }
         
     }

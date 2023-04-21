@@ -5328,6 +5328,8 @@ Set-Alias -Name Create-CONNInstance -Value New-CONNInstance
 Set-Alias -Name CONN-CreateInstance -Value New-CONNInstance
 Set-Alias -Name Create-CONNIntegrationAssociation -Value New-CONNIntegrationAssociation
 Set-Alias -Name CONN-CreateIntegrationAssociation -Value New-CONNIntegrationAssociation
+Set-Alias -Name Create-CONNParticipant -Value New-CONNParticipant
+Set-Alias -Name CONN-CreateParticipant -Value New-CONNParticipant
 Set-Alias -Name Create-CONNQueue -Value New-CONNQueue
 Set-Alias -Name CONN-CreateQueue -Value New-CONNQueue
 Set-Alias -Name Create-CONNQuickConnect -Value New-CONNQuickConnect
@@ -10117,6 +10119,7 @@ Set-Alias -Name FMS-DisassociateAdminAccount -Value Remove-FMSAdminAccountAssoci
 Set-Alias -Name Disassociate-FMSThirdPartyFirewall -Value Unregister-FMSThirdPartyFirewall
 Set-Alias -Name FMS-DisassociateThirdPartyFirewall -Value Unregister-FMSThirdPartyFirewall
 Set-Alias -Name FMS-GetAdminAccount -Value Get-FMSAdminAccount
+Set-Alias -Name FMS-GetAdminScope -Value Get-FMSAdminScope
 Set-Alias -Name Get-FMSAppsList -Value Get-FMSAppList
 Set-Alias -Name FMS-GetAppsList -Value Get-FMSAppList
 Set-Alias -Name FMS-GetComplianceDetail -Value Get-FMSComplianceDetail
@@ -10129,6 +10132,12 @@ Set-Alias -Name FMS-GetResourceSet -Value Get-FMSResourceSet
 Set-Alias -Name FMS-GetThirdPartyFirewallAssociationStatus -Value Get-FMSThirdPartyFirewallAssociationStatus
 Set-Alias -Name Get-FMSViolationDetails -Value Get-FMSViolationDetail
 Set-Alias -Name FMS-GetViolationDetails -Value Get-FMSViolationDetail
+Set-Alias -Name List-FMSAdminAccountsForOrganization -Value Get-FMSAdminAccountsForOrganizationList
+Set-Alias -Name List-FMSAdminAccountsForOrganizationList -Value Get-FMSAdminAccountsForOrganizationList
+Set-Alias -Name FMS-ListAdminAccountsForOrganization -Value Get-FMSAdminAccountsForOrganizationList
+Set-Alias -Name List-FMSAdminsManagingAccount -Value Get-FMSAdminsManagingAccountList
+Set-Alias -Name List-FMSAdminsManagingAccountList -Value Get-FMSAdminsManagingAccountList
+Set-Alias -Name FMS-ListAdminsManagingAccount -Value Get-FMSAdminsManagingAccountList
 Set-Alias -Name List-FMSAppsLists -Value Get-FMSAppsListList
 Set-Alias -Name List-FMSAppsListList -Value Get-FMSAppsListList
 Set-Alias -Name FMS-ListAppsLists -Value Get-FMSAppsListList
@@ -10157,6 +10166,8 @@ Set-Alias -Name FMS-ListTagsForResource -Value Get-FMSResourceTag
 Set-Alias -Name List-FMSThirdPartyFirewallFirewallPolicies -Value Get-FMSThirdPartyFirewallFirewallPolicyList
 Set-Alias -Name List-FMSThirdPartyFirewallFirewallPolicyList -Value Get-FMSThirdPartyFirewallFirewallPolicyList
 Set-Alias -Name FMS-ListThirdPartyFirewallFirewallPolicies -Value Get-FMSThirdPartyFirewallFirewallPolicyList
+Set-Alias -Name Put-FMSAdminAccount -Value Write-FMSAdminAccount
+Set-Alias -Name FMS-PutAdminAccount -Value Write-FMSAdminAccount
 Set-Alias -Name Put-FMSAppsList -Value Write-FMSAppList
 Set-Alias -Name Put-FMSAppList -Value Write-FMSAppList
 Set-Alias -Name FMS-PutAppsList -Value Write-FMSAppList

@@ -1,4 +1,15 @@
-﻿### 4.1.317 (2023-04-21 02:09Z)
+﻿### 4.1.318 (2023-04-21 21:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.531.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Connect Service
+    * Added cmdlet New-CONNParticipant leveraging the CreateParticipant service API.
+  * Amazon Firewall Management Service
+    * Added cmdlet Get-FMSAdminAccountsForOrganizationList leveraging the ListAdminAccountsForOrganization service API.
+    * Added cmdlet Get-FMSAdminScope leveraging the GetAdminScope service API.
+    * Added cmdlet Get-FMSAdminsManagingAccountList leveraging the ListAdminsManagingAccount service API.
+    * Added cmdlet Write-FMSAdminAccount leveraging the PutAdminAccount service API.
+    * Modified cmdlet Write-FMSResourceSet: added parameter ResourceSet_ResourceSetStatus.
+
+### 4.1.317 (2023-04-21 02:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.530.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime
     * Modified cmdlet Start-CHMMeetingTranscription: added parameters EngineTranscribeSettings_IdentifyLanguage, EngineTranscribeSettings_LanguageOption, EngineTranscribeSettings_PreferredLanguage, TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterNames and TranscriptionConfiguration_EngineTranscribeSettings_VocabularyNames.

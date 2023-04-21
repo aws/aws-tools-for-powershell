@@ -13512,6 +13512,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.ParticipantRole
+        "New-CONNParticipant/ParticipantDetails_ParticipantRole"
+        {
+            $v = "AGENT","CUSTOMER","CUSTOM_BOT","SYSTEM"
+            break
+        }
+
         # Amazon.Connect.PhoneNumberCountryCode
         "Search-CONNAvailablePhoneNumber/PhoneNumberCountryCode"
         {
@@ -13665,6 +13672,7 @@ $CONN_map = @{
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
     "PhoneNumberCountryCode"=@("Search-CONNAvailablePhoneNumber")
     "PhoneNumberType"=@("Search-CONNAvailablePhoneNumber")
@@ -13754,6 +13762,7 @@ $CONN_SelectMap = @{
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
+               "New-CONNParticipant",
                "New-CONNQueue",
                "New-CONNQuickConnect",
                "New-CONNRoutingProfile",
@@ -23552,6 +23561,13 @@ $FMS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.FMS.ResourceSetStatus
+        "Write-FMSResourceSet/ResourceSet_ResourceSetStatus"
+        {
+            $v = "ACTIVE","OUT_OF_ADMIN_SCOPE"
+            break
+        }
+
         # Amazon.FMS.ThirdPartyFirewall
         {
             ($_ -eq "Get-FMSThirdPartyFirewallAssociationStatus/ThirdPartyFirewall") -Or
@@ -23573,6 +23589,7 @@ $FMS_Completers = {
 }
 
 $FMS_map = @{
+    "ResourceSet_ResourceSetStatus"=@("Write-FMSResourceSet")
     "ThirdPartyFirewall"=@("Get-FMSThirdPartyFirewallAssociationStatus","Get-FMSThirdPartyFirewallFirewallPolicyList","Register-FMSThirdPartyFirewall","Unregister-FMSThirdPartyFirewall")
 }
 
@@ -23638,6 +23655,7 @@ $FMS_SelectMap = @{
                "Remove-FMSAdminAccountAssociation",
                "Unregister-FMSThirdPartyFirewall",
                "Get-FMSAdminAccount",
+               "Get-FMSAdminScope",
                "Get-FMSAppList",
                "Get-FMSComplianceDetail",
                "Get-FMSNotificationChannel",
@@ -23647,6 +23665,8 @@ $FMS_SelectMap = @{
                "Get-FMSResourceSet",
                "Get-FMSThirdPartyFirewallAssociationStatus",
                "Get-FMSViolationDetail",
+               "Get-FMSAdminAccountsForOrganizationList",
+               "Get-FMSAdminsManagingAccountList",
                "Get-FMSAppsListList",
                "Get-FMSComplianceStatusList",
                "Read-FMSDiscoveredResourceList",
@@ -23657,6 +23677,7 @@ $FMS_SelectMap = @{
                "Get-FMSResourceSetList",
                "Get-FMSResourceTag",
                "Get-FMSThirdPartyFirewallFirewallPolicyList",
+               "Write-FMSAdminAccount",
                "Write-FMSAppList",
                "Write-FMSNotificationChannel",
                "Set-FMSPolicy",

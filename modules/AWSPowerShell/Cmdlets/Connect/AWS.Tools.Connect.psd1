@@ -165,6 +165,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CONNHoursOfOperation', 
         'New-CONNInstance', 
         'New-CONNIntegrationAssociation', 
+        'New-CONNParticipant', 
         'New-CONNQueue', 
         'New-CONNQuickConnect', 
         'New-CONNRoutingProfile', 

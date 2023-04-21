@@ -70,6 +70,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAdminScope" OutputProperty="AdminScope" Verb="Get" Noun="AdminScope" PipelineParameter="AdminAccount" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAppsList" OutputProperty="*" Verb="Get" Noun="AppList" PipelineParameter="ListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +107,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetViolationDetails" OutputProperty="ViolationDetail" Verb="Get" Noun="ViolationDetail" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAdminAccountsForOrganization" OutputProperty="AdminAccounts" Verb="Get" Noun="AdminAccountsForOrganizationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAdminsManagingAccount" OutputProperty="AdminAccounts" Verb="Get" Noun="AdminsManagingAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,6 +155,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListThirdPartyFirewallFirewallPolicies" OutputProperty="ThirdPartyFirewallFirewallPolicies" Verb="Get" Noun="ThirdPartyFirewallFirewallPolicyList" PipelineParameter="ThirdPartyFirewall" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAdminAccount" Verb="Write" Noun="AdminAccount" ShouldProcessTarget="AdminAccount" PipelineParameter="AdminAccount" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
