@@ -28,44 +28,24 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Modifies a running DataSync task.
-    /// 
-    ///  <note><para>
-    /// Currently, the only <code>Option</code> that you can modify with <code>UpdateTaskExecution</code>
-    /// is <code><a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a></code>, which throttles bandwidth for a running or queued task.
-    /// </para></note>
+    /// Permanently removes a storage system resource from DataSync Discovery, including the
+    /// associated discovery jobs, collected data, and recommendations.
     /// </summary>
-    [Cmdlet("Update", "DSYNTaskExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "DSYNStorageSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS DataSync UpdateTaskExecution API operation.", Operation = new[] {"UpdateTaskExecution"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateTaskExecutionResponse))]
-    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateTaskExecutionResponse",
+    [AWSCmdlet("Calls the AWS DataSync RemoveStorageSystem API operation.", Operation = new[] {"RemoveStorageSystem"}, SelectReturnType = typeof(Amazon.DataSync.Model.RemoveStorageSystemResponse))]
+    [AWSCmdletOutput("None or Amazon.DataSync.Model.RemoveStorageSystemResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateTaskExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.RemoveStorageSystemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class RemoveDSYNStorageSystemCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
-        #region Parameter Option
+        #region Parameter StorageSystemArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Options")]
-        public Amazon.DataSync.Model.Options Option { get; set; }
-        #endregion
-        
-        #region Parameter TaskExecutionArn
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the task execution that you're updating.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the storage system that you want to permanently
+        /// remove from DataSync Discovery.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,13 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TaskExecutionArn { get; set; }
+        public System.String StorageSystemArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateTaskExecutionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.RemoveStorageSystemResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TaskExecutionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TaskExecutionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StorageSystemArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StorageSystemArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TaskExecutionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StorageSystemArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaskExecutionArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNTaskExecution (UpdateTaskExecution)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.StorageSystemArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DSYNStorageSystem (RemoveStorageSystem)"))
             {
                 return;
             }
@@ -128,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateTaskExecutionResponse, UpdateDSYNTaskExecutionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.RemoveStorageSystemResponse, RemoveDSYNStorageSystemCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,21 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TaskExecutionArn;
+                context.Select = (response, cmdlet) => this.StorageSystemArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Option = this.Option;
+            context.StorageSystemArn = this.StorageSystemArn;
             #if MODULAR
-            if (this.Option == null && ParameterWasBound(nameof(this.Option)))
+            if (this.StorageSystemArn == null && ParameterWasBound(nameof(this.StorageSystemArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Option which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.TaskExecutionArn = this.TaskExecutionArn;
-            #if MODULAR
-            if (this.TaskExecutionArn == null && ParameterWasBound(nameof(this.TaskExecutionArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TaskExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter StorageSystemArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,15 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.UpdateTaskExecutionRequest();
+            var request = new Amazon.DataSync.Model.RemoveStorageSystemRequest();
             
-            if (cmdletContext.Option != null)
+            if (cmdletContext.StorageSystemArn != null)
             {
-                request.Options = cmdletContext.Option;
-            }
-            if (cmdletContext.TaskExecutionArn != null)
-            {
-                request.TaskExecutionArn = cmdletContext.TaskExecutionArn;
+                request.StorageSystemArn = cmdletContext.StorageSystemArn;
             }
             
             CmdletOutput output;
@@ -211,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.UpdateTaskExecutionResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateTaskExecutionRequest request)
+        private Amazon.DataSync.Model.RemoveStorageSystemResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.RemoveStorageSystemRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateTaskExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "RemoveStorageSystem");
             try
             {
                 #if DESKTOP
-                return client.UpdateTaskExecution(request);
+                return client.RemoveStorageSystem(request);
                 #elif CORECLR
-                return client.UpdateTaskExecutionAsync(request).GetAwaiter().GetResult();
+                return client.RemoveStorageSystemAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,9 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.DataSync.Model.Options Option { get; set; }
-            public System.String TaskExecutionArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.UpdateTaskExecutionResponse, UpdateDSYNTaskExecutionCmdlet, object> Select { get; set; } =
+            public System.String StorageSystemArn { get; set; }
+            public System.Func<Amazon.DataSync.Model.RemoveStorageSystemResponse, RemoveDSYNStorageSystemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

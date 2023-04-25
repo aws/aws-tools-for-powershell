@@ -133,6 +133,26 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.EvaluationFormScoringMode
+        {
+            ($_ -eq "New-CONNEvaluationForm/ScoringStrategy_Mode") -Or
+            ($_ -eq "Update-CONNEvaluationForm/ScoringStrategy_Mode")
+        }
+        {
+            $v = "QUESTION_ONLY","SECTION_ONLY"
+            break
+        }
+
+        # Amazon.Connect.EvaluationFormScoringStatus
+        {
+            ($_ -eq "New-CONNEvaluationForm/ScoringStrategy_Status") -Or
+            ($_ -eq "Update-CONNEvaluationForm/ScoringStrategy_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Connect.EventSourceName
         {
             ($_ -eq "Get-CONNRuleList/EventSourceName") -Or
@@ -357,6 +377,8 @@ $CONN_map = @{
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
+    "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNQueue","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
@@ -423,7 +445,8 @@ $CONN_SelectCompleters = {
 }
 
 $CONN_SelectMap = @{
-    "Select"=@("Add-CONNApprovedOrigin",
+    "Select"=@("Enable-CONNEvaluationForm",
+               "Add-CONNApprovedOrigin",
                "Add-CONNBot",
                "Add-CONNDefaultVocabulary",
                "Add-CONNInstanceStorageConfig",
@@ -437,6 +460,7 @@ $CONN_SelectMap = @{
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
+               "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
@@ -452,8 +476,11 @@ $CONN_SelectMap = @{
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
                "New-CONNVocabulary",
+               "Disable-CONNEvaluationForm",
+               "Remove-CONNContactEvaluation",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",
+               "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
@@ -468,8 +495,10 @@ $CONN_SelectMap = @{
                "Remove-CONNVocabulary",
                "Get-CONNAgentStatus",
                "Get-CONNContact",
+               "Get-CONNContactEvaluation",
                "Get-CONNContactFlow",
                "Get-CONNContactFlowModule",
+               "Get-CONNEvaluationForm",
                "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
@@ -506,10 +535,13 @@ $CONN_SelectMap = @{
                "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
+               "Get-CONNContactEvaluationList",
                "Get-CONNContactFlowModuleList",
                "Get-CONNContactFlowList",
                "Get-CONNContactReferenceList",
                "Get-CONNDefaultVocabularyList",
+               "Get-CONNEvaluationFormList",
+               "Get-CONNEvaluationFormVersionList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -547,6 +579,7 @@ $CONN_SelectMap = @{
                "Search-CONNUser",
                "Search-CONNVocabulary",
                "Start-CONNChatContact",
+               "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNOutboundVoiceContact",
@@ -554,6 +587,7 @@ $CONN_SelectMap = @{
                "Stop-CONNContact",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",
+               "Submit-CONNContactEvaluation",
                "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
                "Move-CONNContact",
@@ -561,12 +595,14 @@ $CONN_SelectMap = @{
                "Update-CONNAgentStatus",
                "Update-CONNContact",
                "Update-CONNContactAttribute",
+               "Update-CONNContactEvaluation",
                "Update-CONNContactFlowContent",
                "Update-CONNContactFlowMetadata",
                "Update-CONNContactFlowModuleContent",
                "Update-CONNContactFlowModuleMetadata",
                "Update-CONNContactFlowName",
                "Update-CONNContactSchedule",
+               "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",

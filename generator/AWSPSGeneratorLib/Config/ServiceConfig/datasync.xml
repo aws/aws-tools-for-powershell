@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddStorageSystem" OutputProperty="StorageSystemArn" Verb="Add" Noun="StorageSystem" ShouldProcessTarget="" PipelineParameter="SystemType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelTaskExecution" Verb="Stop" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +100,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDiscoveryJob" OutputProperty="*" Verb="Get" Noun="DiscoveryJob" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocationEfs" OutputProperty="*" Verb="Get" Noun="LocationEfs" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -136,6 +144,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStorageSystem" OutputProperty="*" Verb="Get" Noun="StorageSystem" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStorageSystemResourceMetrics" OutputProperty="Metrics" Verb="Get" Noun="StorageSystemResourceMetric" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStorageSystemResources" OutputProperty="ResourceDetails" Verb="Get" Noun="StorageSystemResource" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTask" OutputProperty="*" Verb="Get" Noun="Task" PipelineParameter="TaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -144,11 +164,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateRecommendations" Verb="New" Noun="Recommendation" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAgents" OutputProperty="Agents" Verb="Get" Noun="AgentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveryJobs" OutputProperty="DiscoveryJobs" Verb="Get" Noun="DiscoveryJobList" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLocations" OutputProperty="Locations" Verb="Get" Noun="LocationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStorageSystems" OutputProperty="StorageSystems" Verb="Get" Noun="StorageSystemList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,7 +196,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveStorageSystem" Verb="Remove" Noun="StorageSystem" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDiscoveryJob" OutputProperty="DiscoveryJobArn" Verb="Start" Noun="DiscoveryJob" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartTaskExecution" OutputProperty="TaskExecutionArn" Verb="Start" Noun="TaskExecution" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDiscoveryJob" Verb="Stop" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,6 +221,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgent" Verb="Update" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDiscoveryJob" Verb="Update" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +244,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLocationSmb" Verb="Update" Noun="LocationSmb" ShouldProcessTarget="LocationArn" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStorageSystem" Verb="Update" Noun="StorageSystem" ShouldProcessTarget="StorageSystemArn" PipelineParameter="StorageSystemArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

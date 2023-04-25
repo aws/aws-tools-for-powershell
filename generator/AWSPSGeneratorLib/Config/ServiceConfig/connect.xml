@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ActivateEvaluationForm" OutputProperty="*" Verb="Enable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateApprovedOrigin" Verb="Add" Noun="ApprovedOrigin" ShouldProcessTarget="Origin" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -77,6 +81,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateContactFlowModule" OutputProperty="*" Verb="New" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEvaluationForm" OutputProperty="*" Verb="New" Noun="EvaluationForm" ShouldProcessTarget="InstanceId" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,11 +148,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateEvaluationForm" OutputProperty="*" Verb="Disable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContactEvaluation" Verb="Remove" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactFlow" Verb="Remove" Noun="ContactFlow" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactFlowModule" Verb="Remove" Noun="ContactFlowModule" ShouldProcessTarget="ContactFlowModuleId" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvaluationForm" Verb="Remove" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,11 +224,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContactEvaluation" OutputProperty="*" Verb="Get" Noun="ContactEvaluation" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeContactFlow" OutputProperty="ContactFlow" Verb="Get" Noun="ContactFlow" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeContactFlowModule" OutputProperty="ContactFlowModule" Verb="Get" Noun="ContactFlowModule" PipelineParameter="ContactFlowModuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvaluationForm" OutputProperty="EvaluationForm" Verb="Get" Noun="EvaluationForm" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -356,6 +384,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListContactEvaluations" OutputProperty="EvaluationSummaryList" Verb="Get" Noun="ContactEvaluationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListContactFlowModules" OutputProperty="ContactFlowModulesSummaryList" Verb="Get" Noun="ContactFlowModuleList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -369,6 +401,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDefaultVocabularies" OutputProperty="DefaultVocabularyList" Verb="Get" Noun="DefaultVocabularyList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEvaluationForms" OutputProperty="EvaluationFormSummaryList" Verb="Get" Noun="EvaluationFormList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEvaluationFormVersions" OutputProperty="EvaluationFormVersionSummaryList" Verb="Get" Noun="EvaluationFormVersionList" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -548,6 +588,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartContactEvaluation" OutputProperty="*" Verb="Start" Noun="ContactEvaluation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartContactRecording" Verb="Start" Noun="ContactRecording" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -573,6 +617,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopContactStreaming" Verb="Stop" Noun="ContactStreaming" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitContactEvaluation" OutputProperty="*" Verb="Submit" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -604,6 +652,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContactEvaluation" OutputProperty="*" Verb="Update" Noun="ContactEvaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactFlowContent" Verb="Update" Noun="ContactFlowContent" ShouldProcessTarget="ContactFlowId" PipelineParameter="ContactFlowId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -625,6 +677,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContactSchedule" Verb="Update" Noun="ContactSchedule" ShouldProcessTarget="ContactId" PipelineParameter="ContactId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEvaluationForm" OutputProperty="*" Verb="Update" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

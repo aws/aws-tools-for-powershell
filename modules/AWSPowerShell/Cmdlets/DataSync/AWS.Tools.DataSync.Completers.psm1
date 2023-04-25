@@ -80,6 +80,24 @@ $DSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DataSync.DiscoveryResourceType
+        {
+            ($_ -eq "Get-DSYNStorageSystemResource/ResourceType") -Or
+            ($_ -eq "Get-DSYNStorageSystemResourceMetric/ResourceType") -Or
+            ($_ -eq "New-DSYNRecommendation/ResourceType")
+        }
+        {
+            $v = "CLUSTER","SVM","VOLUME"
+            break
+        }
+
+        # Amazon.DataSync.DiscoverySystemType
+        "Add-DSYNStorageSystem/SystemType"
+        {
+            $v = "NetAppONTAP"
+            break
+        }
+
         # Amazon.DataSync.EfsInTransitEncryption
         "New-DSYNLocationEfs/InTransitEncryption"
         {
@@ -174,8 +192,10 @@ $DSYN_map = @{
     "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
+    "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
+    "SystemType"=@("Add-DSYNStorageSystem")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map
@@ -228,7 +248,8 @@ $DSYN_SelectCompleters = {
 }
 
 $DSYN_SelectMap = @{
-    "Select"=@("Stop-DSYNTaskExecution",
+    "Select"=@("Add-DSYNStorageSystem",
+               "Stop-DSYNTaskExecution",
                "New-DSYNAgent",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxLustre",
@@ -245,6 +266,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNLocation",
                "Remove-DSYNTask",
                "Get-DSYNAgent",
+               "Get-DSYNDiscoveryJob",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
                "Get-DSYNLocationFsxOntap",
@@ -255,21 +277,32 @@ $DSYN_SelectMap = @{
                "Get-DSYNLocationObjectStorage",
                "Get-DSYNLocationS3",
                "Get-DSYNLocationSmb",
+               "Get-DSYNStorageSystem",
+               "Get-DSYNStorageSystemResourceMetric",
+               "Get-DSYNStorageSystemResource",
                "Get-DSYNTask",
                "Get-DSYNTaskExecution",
+               "New-DSYNRecommendation",
                "Get-DSYNAgentList",
+               "Get-DSYNDiscoveryJobList",
                "Get-DSYNLocationList",
+               "Get-DSYNStorageSystemList",
                "Get-DSYNResourceTagList",
                "Get-DSYNTaskExecutionList",
                "Get-DSYNTaskList",
+               "Remove-DSYNStorageSystem",
+               "Start-DSYNDiscoveryJob",
                "Start-DSYNTaskExecution",
+               "Stop-DSYNDiscoveryJob",
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
+               "Update-DSYNDiscoveryJob",
                "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",
                "Update-DSYNLocationSmb",
+               "Update-DSYNStorageSystem",
                "Update-DSYNTask",
                "Update-DSYNTaskExecution")
 }

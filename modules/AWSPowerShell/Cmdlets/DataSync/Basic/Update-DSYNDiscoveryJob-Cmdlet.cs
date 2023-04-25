@@ -28,27 +28,23 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Modifies a running DataSync task.
-    /// 
-    ///  <note><para>
-    /// Currently, the only <code>Option</code> that you can modify with <code>UpdateTaskExecution</code>
-    /// is <code><a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a></code>, which throttles bandwidth for a running or queued task.
-    /// </para></note>
+    /// Edits a DataSync discovery job configuration.
     /// </summary>
-    [Cmdlet("Update", "DSYNTaskExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "DSYNDiscoveryJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS DataSync UpdateTaskExecution API operation.", Operation = new[] {"UpdateTaskExecution"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateTaskExecutionResponse))]
-    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateTaskExecutionResponse",
+    [AWSCmdlet("Calls the AWS DataSync UpdateDiscoveryJob API operation.", Operation = new[] {"UpdateDiscoveryJob"}, SelectReturnType = typeof(Amazon.DataSync.Model.UpdateDiscoveryJobResponse))]
+    [AWSCmdletOutput("None or Amazon.DataSync.Model.UpdateDiscoveryJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataSync.Model.UpdateTaskExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DataSync.Model.UpdateDiscoveryJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateDSYNTaskExecutionCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class UpdateDSYNDiscoveryJobCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
-        #region Parameter Option
+        #region Parameter CollectionDurationMinute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies in minutes how long that you want the discovery job to run. (You can't set
+        /// this parameter to less than the number of minutes that the job has already run for.)</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,14 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Options")]
-        public Amazon.DataSync.Model.Options Option { get; set; }
+        [Alias("CollectionDurationMinutes")]
+        public System.Int32? CollectionDurationMinute { get; set; }
         #endregion
         
-        #region Parameter TaskExecutionArn
+        #region Parameter DiscoveryJobArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the task execution that you're updating.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the discovery job that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,13 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TaskExecutionArn { get; set; }
+        public System.String DiscoveryJobArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateTaskExecutionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataSync.Model.UpdateDiscoveryJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TaskExecutionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TaskExecutionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DiscoveryJobArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DiscoveryJobArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TaskExecutionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DiscoveryJobArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TaskExecutionArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNTaskExecution (UpdateTaskExecution)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DiscoveryJobArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DSYNDiscoveryJob (UpdateDiscoveryJob)"))
             {
                 return;
             }
@@ -128,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateTaskExecutionResponse, UpdateDSYNTaskExecutionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataSync.Model.UpdateDiscoveryJobResponse, UpdateDSYNDiscoveryJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,21 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TaskExecutionArn;
+                context.Select = (response, cmdlet) => this.DiscoveryJobArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Option = this.Option;
+            context.CollectionDurationMinute = this.CollectionDurationMinute;
             #if MODULAR
-            if (this.Option == null && ParameterWasBound(nameof(this.Option)))
+            if (this.CollectionDurationMinute == null && ParameterWasBound(nameof(this.CollectionDurationMinute)))
             {
-                WriteWarning("You are passing $null as a value for parameter Option which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CollectionDurationMinute which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TaskExecutionArn = this.TaskExecutionArn;
+            context.DiscoveryJobArn = this.DiscoveryJobArn;
             #if MODULAR
-            if (this.TaskExecutionArn == null && ParameterWasBound(nameof(this.TaskExecutionArn)))
+            if (this.DiscoveryJobArn == null && ParameterWasBound(nameof(this.DiscoveryJobArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter TaskExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DiscoveryJobArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataSync.Model.UpdateTaskExecutionRequest();
+            var request = new Amazon.DataSync.Model.UpdateDiscoveryJobRequest();
             
-            if (cmdletContext.Option != null)
+            if (cmdletContext.CollectionDurationMinute != null)
             {
-                request.Options = cmdletContext.Option;
+                request.CollectionDurationMinutes = cmdletContext.CollectionDurationMinute.Value;
             }
-            if (cmdletContext.TaskExecutionArn != null)
+            if (cmdletContext.DiscoveryJobArn != null)
             {
-                request.TaskExecutionArn = cmdletContext.TaskExecutionArn;
+                request.DiscoveryJobArn = cmdletContext.DiscoveryJobArn;
             }
             
             CmdletOutput output;
@@ -211,15 +207,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.UpdateTaskExecutionResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateTaskExecutionRequest request)
+        private Amazon.DataSync.Model.UpdateDiscoveryJobResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.UpdateDiscoveryJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateTaskExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "UpdateDiscoveryJob");
             try
             {
                 #if DESKTOP
-                return client.UpdateTaskExecution(request);
+                return client.UpdateDiscoveryJob(request);
                 #elif CORECLR
-                return client.UpdateTaskExecutionAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDiscoveryJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,9 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.DataSync.Model.Options Option { get; set; }
-            public System.String TaskExecutionArn { get; set; }
-            public System.Func<Amazon.DataSync.Model.UpdateTaskExecutionResponse, UpdateDSYNTaskExecutionCmdlet, object> Select { get; set; } =
+            public System.Int32? CollectionDurationMinute { get; set; }
+            public System.String DiscoveryJobArn { get; set; }
+            public System.Func<Amazon.DataSync.Model.UpdateDiscoveryJobResponse, UpdateDSYNDiscoveryJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

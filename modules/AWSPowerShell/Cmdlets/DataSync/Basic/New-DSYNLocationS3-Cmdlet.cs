@@ -28,9 +28,17 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.
-    /// For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create
+    /// A <i>location</i> is an endpoint for an Amazon S3 bucket. DataSync can use the location
+    /// as a source or destination for copying data.
+    /// 
+    ///  <important><para>
+    /// Before you create your location, make sure that you read the following sections:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+    /// class considerations with Amazon S3 locations</a></para></li><li><para><a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">Evaluating
+    /// S3 request costs when using DataSync</a></para></li></ul></important><para>
+    ///  For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Creating
     /// an Amazon S3 location</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

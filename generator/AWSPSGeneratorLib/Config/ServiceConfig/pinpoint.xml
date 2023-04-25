@@ -295,6 +295,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetJourneyRunExecutionActivityMetrics" OutputProperty="JourneyRunExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyRunExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJourneyRunExecutionMetrics" OutputProperty="JourneyRunExecutionMetricsResponse" Verb="Get" Noun="JourneyRunExecutionMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJourneyRuns" OutputProperty="JourneyRunsResponse" Verb="Get" Noun="JourneyRun" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPushTemplate" OutputProperty="PushNotificationTemplateResponse" Verb="Get" Noun="PushTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

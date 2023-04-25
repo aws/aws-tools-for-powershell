@@ -13455,6 +13455,26 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.EvaluationFormScoringMode
+        {
+            ($_ -eq "New-CONNEvaluationForm/ScoringStrategy_Mode") -Or
+            ($_ -eq "Update-CONNEvaluationForm/ScoringStrategy_Mode")
+        }
+        {
+            $v = "QUESTION_ONLY","SECTION_ONLY"
+            break
+        }
+
+        # Amazon.Connect.EvaluationFormScoringStatus
+        {
+            ($_ -eq "New-CONNEvaluationForm/ScoringStrategy_Status") -Or
+            ($_ -eq "Update-CONNEvaluationForm/ScoringStrategy_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.Connect.EventSourceName
         {
             ($_ -eq "Get-CONNRuleList/EventSourceName") -Or
@@ -13679,6 +13699,8 @@ $CONN_map = @{
     "PublishStatus"=@("Get-CONNRuleList","New-CONNRule","Update-CONNRule")
     "QuickConnectConfig_QuickConnectType"=@("New-CONNQuickConnect","Update-CONNQuickConnectConfig")
     "ResourceType"=@("Add-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
+    "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
     "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNQueue","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
@@ -13745,7 +13767,8 @@ $CONN_SelectCompleters = {
 }
 
 $CONN_SelectMap = @{
-    "Select"=@("Add-CONNApprovedOrigin",
+    "Select"=@("Enable-CONNEvaluationForm",
+               "Add-CONNApprovedOrigin",
                "Add-CONNBot",
                "Add-CONNDefaultVocabulary",
                "Add-CONNInstanceStorageConfig",
@@ -13759,6 +13782,7 @@ $CONN_SelectMap = @{
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
+               "New-CONNEvaluationForm",
                "New-CONNHoursOfOperation",
                "New-CONNInstance",
                "New-CONNIntegrationAssociation",
@@ -13774,8 +13798,11 @@ $CONN_SelectMap = @{
                "New-CONNUser",
                "New-CONNUserHierarchyGroup",
                "New-CONNVocabulary",
+               "Disable-CONNEvaluationForm",
+               "Remove-CONNContactEvaluation",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",
+               "Remove-CONNEvaluationForm",
                "Remove-CONNHoursOfOperation",
                "Remove-CONNInstance",
                "Remove-CONNIntegrationAssociation",
@@ -13790,8 +13817,10 @@ $CONN_SelectMap = @{
                "Remove-CONNVocabulary",
                "Get-CONNAgentStatus",
                "Get-CONNContact",
+               "Get-CONNContactEvaluation",
                "Get-CONNContactFlow",
                "Get-CONNContactFlowModule",
+               "Get-CONNEvaluationForm",
                "Get-CONNHoursOfOperation",
                "Get-CONNInstance",
                "Get-CONNInstanceAttribute",
@@ -13828,10 +13857,13 @@ $CONN_SelectMap = @{
                "Get-CONNAgentStatusList",
                "Get-CONNApprovedOriginList",
                "Get-CONNBotList",
+               "Get-CONNContactEvaluationList",
                "Get-CONNContactFlowModuleList",
                "Get-CONNContactFlowList",
                "Get-CONNContactReferenceList",
                "Get-CONNDefaultVocabularyList",
+               "Get-CONNEvaluationFormList",
+               "Get-CONNEvaluationFormVersionList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNInstanceAttributeList",
                "Get-CONNInstanceList",
@@ -13869,6 +13901,7 @@ $CONN_SelectMap = @{
                "Search-CONNUser",
                "Search-CONNVocabulary",
                "Start-CONNChatContact",
+               "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
                "Start-CONNOutboundVoiceContact",
@@ -13876,6 +13909,7 @@ $CONN_SelectMap = @{
                "Stop-CONNContact",
                "Stop-CONNContactRecording",
                "Stop-CONNContactStreaming",
+               "Submit-CONNContactEvaluation",
                "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
                "Move-CONNContact",
@@ -13883,12 +13917,14 @@ $CONN_SelectMap = @{
                "Update-CONNAgentStatus",
                "Update-CONNContact",
                "Update-CONNContactAttribute",
+               "Update-CONNContactEvaluation",
                "Update-CONNContactFlowContent",
                "Update-CONNContactFlowMetadata",
                "Update-CONNContactFlowModuleContent",
                "Update-CONNContactFlowModuleMetadata",
                "Update-CONNContactFlowName",
                "Update-CONNContactSchedule",
+               "Update-CONNEvaluationForm",
                "Update-CONNHoursOfOperation",
                "Update-CONNInstanceAttribute",
                "Update-CONNInstanceStorageConfig",
@@ -15176,6 +15212,24 @@ $DSYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DataSync.DiscoveryResourceType
+        {
+            ($_ -eq "Get-DSYNStorageSystemResource/ResourceType") -Or
+            ($_ -eq "Get-DSYNStorageSystemResourceMetric/ResourceType") -Or
+            ($_ -eq "New-DSYNRecommendation/ResourceType")
+        }
+        {
+            $v = "CLUSTER","SVM","VOLUME"
+            break
+        }
+
+        # Amazon.DataSync.DiscoverySystemType
+        "Add-DSYNStorageSystem/SystemType"
+        {
+            $v = "NetAppONTAP"
+            break
+        }
+
         # Amazon.DataSync.EfsInTransitEncryption
         "New-DSYNLocationEfs/InTransitEncryption"
         {
@@ -15270,8 +15324,10 @@ $DSYN_map = @{
     "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
+    "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
+    "SystemType"=@("Add-DSYNStorageSystem")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map
@@ -15324,7 +15380,8 @@ $DSYN_SelectCompleters = {
 }
 
 $DSYN_SelectMap = @{
-    "Select"=@("Stop-DSYNTaskExecution",
+    "Select"=@("Add-DSYNStorageSystem",
+               "Stop-DSYNTaskExecution",
                "New-DSYNAgent",
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxLustre",
@@ -15341,6 +15398,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNLocation",
                "Remove-DSYNTask",
                "Get-DSYNAgent",
+               "Get-DSYNDiscoveryJob",
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxLustre",
                "Get-DSYNLocationFsxOntap",
@@ -15351,21 +15409,32 @@ $DSYN_SelectMap = @{
                "Get-DSYNLocationObjectStorage",
                "Get-DSYNLocationS3",
                "Get-DSYNLocationSmb",
+               "Get-DSYNStorageSystem",
+               "Get-DSYNStorageSystemResourceMetric",
+               "Get-DSYNStorageSystemResource",
                "Get-DSYNTask",
                "Get-DSYNTaskExecution",
+               "New-DSYNRecommendation",
                "Get-DSYNAgentList",
+               "Get-DSYNDiscoveryJobList",
                "Get-DSYNLocationList",
+               "Get-DSYNStorageSystemList",
                "Get-DSYNResourceTagList",
                "Get-DSYNTaskExecutionList",
                "Get-DSYNTaskList",
+               "Remove-DSYNStorageSystem",
+               "Start-DSYNDiscoveryJob",
                "Start-DSYNTaskExecution",
+               "Stop-DSYNDiscoveryJob",
                "Add-DSYNResourceTag",
                "Remove-DSYNResourceTag",
                "Update-DSYNAgent",
+               "Update-DSYNDiscoveryJob",
                "Update-DSYNLocationHdf",
                "Update-DSYNLocationNfs",
                "Update-DSYNLocationObjectStorage",
                "Update-DSYNLocationSmb",
+               "Update-DSYNStorageSystem",
                "Update-DSYNTask",
                "Update-DSYNTaskExecution")
 }
@@ -42982,6 +43051,9 @@ $PIN_SelectMap = @{
                "Get-PINJourneyDateRangeKpi",
                "Get-PINJourneyExecutionActivityMetric",
                "Get-PINJourneyExecutionMetric",
+               "Get-PINJourneyRunExecutionActivityMetric",
+               "Get-PINJourneyRunExecutionMetric",
+               "Get-PINJourneyRun",
                "Get-PINPushTemplate",
                "Get-PINRecommenderConfiguration",
                "Get-PINRecommenderConfigurationList",

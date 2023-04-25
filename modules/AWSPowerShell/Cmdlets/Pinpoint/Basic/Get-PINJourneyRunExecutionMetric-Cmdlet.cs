@@ -28,17 +28,17 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Retrieves (queries) pre-aggregated data for a standard execution metric that applies
-    /// to a journey activity.
+    /// Retrieves (queries) pre-aggregated data for a standard run execution metric that applies
+    /// to a journey.
     /// </summary>
-    [Cmdlet("Get", "PINJourneyExecutionActivityMetric")]
-    [OutputType("Amazon.Pinpoint.Model.JourneyExecutionActivityMetricsResponse")]
-    [AWSCmdlet("Calls the Amazon Pinpoint GetJourneyExecutionActivityMetrics API operation.", Operation = new[] {"GetJourneyExecutionActivityMetrics"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse))]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.JourneyExecutionActivityMetricsResponse or Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse",
-        "This cmdlet returns an Amazon.Pinpoint.Model.JourneyExecutionActivityMetricsResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINJourneyRunExecutionMetric")]
+    [OutputType("Amazon.Pinpoint.Model.JourneyRunExecutionMetricsResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetJourneyRunExecutionMetrics API operation.", Operation = new[] {"GetJourneyRunExecutionMetrics"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse))]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.JourneyRunExecutionMetricsResponse or Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse",
+        "This cmdlet returns an Amazon.Pinpoint.Model.JourneyRunExecutionMetricsResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPINJourneyExecutionActivityMetricCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class GetPINJourneyRunExecutionMetricCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
@@ -59,23 +59,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter JourneyActivityId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier for the journey activity.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JourneyActivityId { get; set; }
-        #endregion
-        
         #region Parameter JourneyId
         /// <summary>
         /// <para>
@@ -91,6 +74,23 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String JourneyId { get; set; }
+        #endregion
+        
+        #region Parameter RunId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the journey run.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String RunId { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -117,13 +117,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'JourneyExecutionActivityMetricsResponse'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse).
-        /// Specifying the name of a property of type Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JourneyRunExecutionMetricsResponse'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse).
+        /// Specifying the name of a property of type Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "JourneyExecutionActivityMetricsResponse";
+        public string Select { get; set; } = "JourneyRunExecutionMetricsResponse";
         #endregion
         
         #region Parameter PassThru
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse, GetPINJourneyExecutionActivityMetricCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse, GetPINJourneyRunExecutionMetricCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -168,13 +168,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.JourneyActivityId = this.JourneyActivityId;
-            #if MODULAR
-            if (this.JourneyActivityId == null && ParameterWasBound(nameof(this.JourneyActivityId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter JourneyActivityId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.JourneyId = this.JourneyId;
             #if MODULAR
             if (this.JourneyId == null && ParameterWasBound(nameof(this.JourneyId)))
@@ -184,6 +177,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             #endif
             context.NextToken = this.NextToken;
             context.PageSize = this.PageSize;
+            context.RunId = this.RunId;
+            #if MODULAR
+            if (this.RunId == null && ParameterWasBound(nameof(this.RunId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter RunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -198,15 +198,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsRequest();
+            var request = new Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.JourneyActivityId != null)
-            {
-                request.JourneyActivityId = cmdletContext.JourneyActivityId;
             }
             if (cmdletContext.JourneyId != null)
             {
@@ -219,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (cmdletContext.PageSize != null)
             {
                 request.PageSize = cmdletContext.PageSize;
+            }
+            if (cmdletContext.RunId != null)
+            {
+                request.RunId = cmdletContext.RunId;
             }
             
             CmdletOutput output;
@@ -253,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsRequest request)
+        private Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetJourneyExecutionActivityMetrics");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetJourneyRunExecutionMetrics");
             try
             {
                 #if DESKTOP
-                return client.GetJourneyExecutionActivityMetrics(request);
+                return client.GetJourneyRunExecutionMetrics(request);
                 #elif CORECLR
-                return client.GetJourneyExecutionActivityMetricsAsync(request).GetAwaiter().GetResult();
+                return client.GetJourneyRunExecutionMetricsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -282,12 +282,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
-            public System.String JourneyActivityId { get; set; }
             public System.String JourneyId { get; set; }
             public System.String NextToken { get; set; }
             public System.String PageSize { get; set; }
-            public System.Func<Amazon.Pinpoint.Model.GetJourneyExecutionActivityMetricsResponse, GetPINJourneyExecutionActivityMetricCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.JourneyExecutionActivityMetricsResponse;
+            public System.String RunId { get; set; }
+            public System.Func<Amazon.Pinpoint.Model.GetJourneyRunExecutionMetricsResponse, GetPINJourneyRunExecutionMetricCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JourneyRunExecutionMetricsResponse;
         }
         
     }

@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ClosedDays_CUSTOM
         /// <summary>
         /// <para>
-        /// <para>Rules for Custom Channel.</para>
+        /// <para>Rules for the Custom channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter OpenHours_CUSTOM
         /// <summary>
         /// <para>
-        /// <para>Rules for Custom Channel.</para>
+        /// <para>Specifies the schedule settings for the custom channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ClosedDays_EMAIL
         /// <summary>
         /// <para>
-        /// <para>Rules for Email Channel.</para>
+        /// <para>Rules for the Email channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter OpenHours_EMAIL
         /// <summary>
         /// <para>
-        /// <para>Rules for Email Channel.</para>
+        /// <para>Specifies the schedule settings for the email channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ClosedDays_PUSH
         /// <summary>
         /// <para>
-        /// <para>Rules for Push Channel.</para>
+        /// <para>Rules for the Push channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter OpenHours_PUSH
         /// <summary>
         /// <para>
-        /// <para>Rules for Push Channel.</para>
+        /// <para>Specifies the schedule settings for the push channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteJourneyRequest_RefreshOnSegmentUpdate
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a journey should be refreshed on segment update.</para>
+        /// <para>Indicates whether the journey participants should be refreshed when a segment is updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,8 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteJourneyRequest_SendingSchedule
         /// <summary>
         /// <para>
-        /// <para>Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays). This flag
-        /// should be set to true in order to allow (OpenHours and ClosedDays)</para>
+        /// <para>Indicates if journey has Advance Quiet Time enabled. This flag should be set to true
+        /// in order to allow using OpenHours and ClosedDays.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -406,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ClosedDays_SMS
         /// <summary>
         /// <para>
-        /// <para>Rules for SMS Channel.</para>
+        /// <para>Rules for the SMS channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -417,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter OpenHours_SMS
         /// <summary>
         /// <para>
-        /// <para>Rules for SMS Channel.</para>
+        /// <para>Specifies the schedule settings for the SMS channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -510,7 +510,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ClosedDays_VOICE
         /// <summary>
         /// <para>
-        /// <para>Rules for Voice Channel.</para>
+        /// <para>Rules for the Voice channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -521,7 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter OpenHours_VOICE
         /// <summary>
         /// <para>
-        /// <para>Rules for Voice Channel.</para>
+        /// <para>Specifies the schedule settings for the voice channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

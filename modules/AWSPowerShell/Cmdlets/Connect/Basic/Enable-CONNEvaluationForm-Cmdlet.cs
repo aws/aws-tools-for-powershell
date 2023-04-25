@@ -22,34 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMessaging;
-using Amazon.ChimeSDKMessaging.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMMG
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// The details of the time when a user last read messages in a channel.
-    /// 
-    ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
-    /// </para></note>
+    /// Activates an evaluation form in the specified Amazon Connect instance. After the evaluation
+    /// form is activated, it is available to start new evaluations based on the form.
     /// </summary>
-    [Cmdlet("Update", "CHMMGChannelReadMarker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Messaging UpdateChannelReadMarker API operation.", Operation = new[] {"UpdateChannelReadMarker"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Enable", "CONNEvaluationForm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Connect.Model.ActivateEvaluationFormResponse")]
+    [AWSCmdlet("Calls the Amazon Connect Service ActivateEvaluationForm API operation.", Operation = new[] {"ActivateEvaluationForm"}, SelectReturnType = typeof(Amazon.Connect.Model.ActivateEvaluationFormResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.ActivateEvaluationFormResponse",
+        "This cmdlet returns an Amazon.Connect.Model.ActivateEvaluationFormResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCHMMGChannelReadMarkerCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
+    public partial class EnableCONNEvaluationFormCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ChannelArn
+        #region Parameter EvaluationFormId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the channel.</para>
+        /// <para>The unique identifier for the evaluation form.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,14 +54,31 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
+        public System.String EvaluationFormId { get; set; }
         #endregion
         
-        #region Parameter ChimeBearer
+        #region Parameter EvaluationFormVersion
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The version of the evaluation form to activate. If the version property is not provided,
+        /// the latest version of the evaluation form is activated.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? EvaluationFormVersion { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,26 +89,26 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChimeBearer { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ActivateEvaluationFormResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.ActivateEvaluationFormResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ChannelArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EvaluationFormId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EvaluationFormId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EvaluationFormId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -117,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMMGChannelReadMarker (UpdateChannelReadMarker)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EvaluationFormId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-CONNEvaluationForm (ActivateEvaluationForm)"))
             {
                 return;
             }
@@ -131,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse, UpdateCHMMGChannelReadMarkerCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ActivateEvaluationFormResponse, EnableCONNEvaluationFormCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,21 +151,28 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ChannelArn;
+                context.Select = (response, cmdlet) => this.EvaluationFormId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ChannelArn = this.ChannelArn;
+            context.EvaluationFormId = this.EvaluationFormId;
             #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
+            if (this.EvaluationFormId == null && ParameterWasBound(nameof(this.EvaluationFormId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EvaluationFormId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ChimeBearer = this.ChimeBearer;
+            context.EvaluationFormVersion = this.EvaluationFormVersion;
             #if MODULAR
-            if (this.ChimeBearer == null && ParameterWasBound(nameof(this.ChimeBearer)))
+            if (this.EvaluationFormVersion == null && ParameterWasBound(nameof(this.EvaluationFormVersion)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChimeBearer which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter EvaluationFormVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerRequest();
+            var request = new Amazon.Connect.Model.ActivateEvaluationFormRequest();
             
-            if (cmdletContext.ChannelArn != null)
+            if (cmdletContext.EvaluationFormId != null)
             {
-                request.ChannelArn = cmdletContext.ChannelArn;
+                request.EvaluationFormId = cmdletContext.EvaluationFormId;
             }
-            if (cmdletContext.ChimeBearer != null)
+            if (cmdletContext.EvaluationFormVersion != null)
             {
-                request.ChimeBearer = cmdletContext.ChimeBearer;
+                request.EvaluationFormVersion = cmdletContext.EvaluationFormVersion.Value;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -214,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse CallAWSServiceOperation(IAmazonChimeSDKMessaging client, Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerRequest request)
+        private Amazon.Connect.Model.ActivateEvaluationFormResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ActivateEvaluationFormRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "UpdateChannelReadMarker");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ActivateEvaluationForm");
             try
             {
                 #if DESKTOP
-                return client.UpdateChannelReadMarker(request);
+                return client.ActivateEvaluationForm(request);
                 #elif CORECLR
-                return client.UpdateChannelReadMarkerAsync(request).GetAwaiter().GetResult();
+                return client.ActivateEvaluationFormAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
-            public System.String ChimeBearer { get; set; }
-            public System.Func<Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse, UpdateCHMMGChannelReadMarkerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelArn;
+            public System.String EvaluationFormId { get; set; }
+            public System.Int32? EvaluationFormVersion { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.Connect.Model.ActivateEvaluationFormResponse, EnableCONNEvaluationFormCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

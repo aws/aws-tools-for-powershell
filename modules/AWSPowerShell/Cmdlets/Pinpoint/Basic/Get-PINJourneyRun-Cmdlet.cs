@@ -22,34 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMessaging;
-using Amazon.ChimeSDKMessaging.Model;
+using Amazon.Pinpoint;
+using Amazon.Pinpoint.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMMG
+namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// The details of the time when a user last read messages in a channel.
-    /// 
-    ///  <note><para>
-    /// The <code>x-amz-chime-bearer</code> request header is mandatory. Use the ARN of the
-    /// <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes the API call
-    /// as the value in the header.
-    /// </para></note>
+    /// Provides information about the runs of a journey.
     /// </summary>
-    [Cmdlet("Update", "CHMMGChannelReadMarker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Messaging UpdateChannelReadMarker API operation.", Operation = new[] {"UpdateChannelReadMarker"}, SelectReturnType = typeof(Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINJourneyRun")]
+    [OutputType("Amazon.Pinpoint.Model.JourneyRunsResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetJourneyRuns API operation.", Operation = new[] {"GetJourneyRuns"}, SelectReturnType = typeof(Amazon.Pinpoint.Model.GetJourneyRunsResponse))]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.JourneyRunsResponse or Amazon.Pinpoint.Model.GetJourneyRunsResponse",
+        "This cmdlet returns an Amazon.Pinpoint.Model.JourneyRunsResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetJourneyRunsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCHMMGChannelReadMarkerCmdlet : AmazonChimeSDKMessagingClientCmdlet, IExecutor
+    public partial class GetPINJourneyRunCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter ChannelArn
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the channel.</para>
+        /// <para>The unique identifier for the application. This identifier is displayed as the <b>Project
+        /// ID</b> on the Amazon Pinpoint console.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,14 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelArn { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter ChimeBearer
+        #region Parameter JourneyId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the <code>AppInstanceUser</code> or <code>AppInstanceBot</code> that makes
-        /// the API call.</para>
+        /// <para>The unique identifier for the journey.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,50 +72,56 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChimeBearer { get; set; }
+        public System.String JourneyId { get; set; }
+        #endregion
+        
+        #region Parameter Token
+        /// <summary>
+        /// <para>
+        /// <para>The NextToken string that specifies which page of results to return in a paginated
+        /// response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Token { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to include in each page of a paginated response. This
+        /// parameter is not supported for application, campaign, and journey metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PageSize { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ChannelArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JourneyRunsResponse'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Pinpoint.Model.GetJourneyRunsResponse).
+        /// Specifying the name of a property of type Amazon.Pinpoint.Model.GetJourneyRunsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ChannelArn";
+        public string Select { get; set; } = "JourneyRunsResponse";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ChannelArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ApplicationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CHMMGChannelReadMarker (UpdateChannelReadMarker)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse, UpdateCHMMGChannelReadMarkerCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Pinpoint.Model.GetJourneyRunsResponse, GetPINJourneyRunCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,23 +140,25 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ChannelArn;
+                context.Select = (response, cmdlet) => this.ApplicationId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ChannelArn = this.ChannelArn;
+            context.ApplicationId = this.ApplicationId;
             #if MODULAR
-            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
+            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ChimeBearer = this.ChimeBearer;
+            context.JourneyId = this.JourneyId;
             #if MODULAR
-            if (this.ChimeBearer == null && ParameterWasBound(nameof(this.ChimeBearer)))
+            if (this.JourneyId == null && ParameterWasBound(nameof(this.JourneyId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ChimeBearer which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JourneyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PageSize = this.PageSize;
+            context.Token = this.Token;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,15 +173,23 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerRequest();
+            var request = new Amazon.Pinpoint.Model.GetJourneyRunsRequest();
             
-            if (cmdletContext.ChannelArn != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.ChannelArn = cmdletContext.ChannelArn;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
-            if (cmdletContext.ChimeBearer != null)
+            if (cmdletContext.JourneyId != null)
             {
-                request.ChimeBearer = cmdletContext.ChimeBearer;
+                request.JourneyId = cmdletContext.JourneyId;
+            }
+            if (cmdletContext.PageSize != null)
+            {
+                request.PageSize = cmdletContext.PageSize;
+            }
+            if (cmdletContext.Token != null)
+            {
+                request.Token = cmdletContext.Token;
             }
             
             CmdletOutput output;
@@ -214,15 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse CallAWSServiceOperation(IAmazonChimeSDKMessaging client, Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerRequest request)
+        private Amazon.Pinpoint.Model.GetJourneyRunsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetJourneyRunsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Messaging", "UpdateChannelReadMarker");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetJourneyRuns");
             try
             {
                 #if DESKTOP
-                return client.UpdateChannelReadMarker(request);
+                return client.GetJourneyRuns(request);
                 #elif CORECLR
-                return client.UpdateChannelReadMarkerAsync(request).GetAwaiter().GetResult();
+                return client.GetJourneyRunsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +252,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ChannelArn { get; set; }
-            public System.String ChimeBearer { get; set; }
-            public System.Func<Amazon.ChimeSDKMessaging.Model.UpdateChannelReadMarkerResponse, UpdateCHMMGChannelReadMarkerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ChannelArn;
+            public System.String ApplicationId { get; set; }
+            public System.String JourneyId { get; set; }
+            public System.String PageSize { get; set; }
+            public System.String Token { get; set; }
+            public System.Func<Amazon.Pinpoint.Model.GetJourneyRunsResponse, GetPINJourneyRunCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JourneyRunsResponse;
         }
         
     }

@@ -83,14 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
         /// <para>The client token for the request. An Idempotency token.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClientRequestToken { get; set; }
         #endregion
         
@@ -210,12 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
-            #if MODULAR
-            if (this.ClientRequestToken == null && ParameterWasBound(nameof(this.ClientRequestToken)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClientRequestToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))

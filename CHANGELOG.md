@@ -1,4 +1,43 @@
-﻿### 4.1.319 (2023-04-25 08:18Z)
+﻿### 4.1.320 (2023-04-25 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.533.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Chime SDK Messaging
+    * [Breaking Change] Modified cmdlet Remove-CHMMGChannel: removed parameter SubChannelId.
+    * [Breaking Change] Modified cmdlet Update-CHMMGChannelReadMarker: removed parameter SubChannelId.
+  * Amazon Connect Service
+    * Added cmdlet Disable-CONNEvaluationForm leveraging the DeactivateEvaluationForm service API.
+    * Added cmdlet Enable-CONNEvaluationForm leveraging the ActivateEvaluationForm service API.
+    * Added cmdlet Get-CONNContactEvaluation leveraging the DescribeContactEvaluation service API.
+    * Added cmdlet Get-CONNContactEvaluationList leveraging the ListContactEvaluations service API.
+    * Added cmdlet Get-CONNEvaluationForm leveraging the DescribeEvaluationForm service API.
+    * Added cmdlet Get-CONNEvaluationFormList leveraging the ListEvaluationForms service API.
+    * Added cmdlet Get-CONNEvaluationFormVersionList leveraging the ListEvaluationFormVersions service API.
+    * Added cmdlet New-CONNEvaluationForm leveraging the CreateEvaluationForm service API.
+    * Added cmdlet Remove-CONNContactEvaluation leveraging the DeleteContactEvaluation service API.
+    * Added cmdlet Remove-CONNEvaluationForm leveraging the DeleteEvaluationForm service API.
+    * Added cmdlet Start-CONNContactEvaluation leveraging the StartContactEvaluation service API.
+    * Added cmdlet Submit-CONNContactEvaluation leveraging the SubmitContactEvaluation service API.
+    * Added cmdlet Update-CONNContactEvaluation leveraging the UpdateContactEvaluation service API.
+    * Added cmdlet Update-CONNEvaluationForm leveraging the UpdateEvaluationForm service API.
+  * Amazon DataSync
+    * Added cmdlet Add-DSYNStorageSystem leveraging the AddStorageSystem service API.
+    * Added cmdlet Get-DSYNDiscoveryJob leveraging the DescribeDiscoveryJob service API.
+    * Added cmdlet Get-DSYNDiscoveryJobList leveraging the ListDiscoveryJobs service API.
+    * Added cmdlet Get-DSYNStorageSystem leveraging the DescribeStorageSystem service API.
+    * Added cmdlet Get-DSYNStorageSystemList leveraging the ListStorageSystems service API.
+    * Added cmdlet Get-DSYNStorageSystemResource leveraging the DescribeStorageSystemResources service API.
+    * Added cmdlet Get-DSYNStorageSystemResourceMetric leveraging the DescribeStorageSystemResourceMetrics service API.
+    * Added cmdlet New-DSYNRecommendation leveraging the GenerateRecommendations service API.
+    * Added cmdlet Remove-DSYNStorageSystem leveraging the RemoveStorageSystem service API.
+    * Added cmdlet Start-DSYNDiscoveryJob leveraging the StartDiscoveryJob service API.
+    * Added cmdlet Stop-DSYNDiscoveryJob leveraging the StopDiscoveryJob service API.
+    * Added cmdlet Update-DSYNDiscoveryJob leveraging the UpdateDiscoveryJob service API.
+    * Added cmdlet Update-DSYNStorageSystem leveraging the UpdateStorageSystem service API.
+  * Amazon Pinpoint
+    * Added cmdlet Get-PINJourneyRun leveraging the GetJourneyRuns service API.
+    * Added cmdlet Get-PINJourneyRunExecutionActivityMetric leveraging the GetJourneyRunExecutionActivityMetrics service API.
+    * Added cmdlet Get-PINJourneyRunExecutionMetric leveraging the GetJourneyRunExecutionMetrics service API.
+
+### 4.1.319 (2023-04-25 08:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.532.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet Edit-EC2VerifiedAccessTrustProvider: added parameters OidcOptions_AuthorizationEndpoint, OidcOptions_ClientId, OidcOptions_ClientSecret, OidcOptions_Issuer, OidcOptions_TokenEndpoint and OidcOptions_UserInfoEndpoint.
