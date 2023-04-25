@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describe details of existing Verified Access trust providers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified Amazon Web Services Verified Access trust providers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VerifiedAccessTrustProvider")]
     [OutputType("Amazon.EC2.Model.VerifiedAccessTrustProvider")]
@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class GetEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter Filter
         /// <summary>
@@ -54,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessTrustProviderId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Amazon Web Services Verified Access trust providers.</para>
+        /// <para>The IDs of the Verified Access trust providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

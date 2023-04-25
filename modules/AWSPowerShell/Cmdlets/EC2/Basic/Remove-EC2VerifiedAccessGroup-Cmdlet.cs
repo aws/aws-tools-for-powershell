@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessGroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access group.</para>
+        /// <para>The ID of the Verified Access group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

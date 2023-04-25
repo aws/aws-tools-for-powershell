@@ -28,8 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the current logging configuration for the Amazon Web Services Verified Access
-    /// instances.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified Amazon Web Services Verified Access instances.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VerifiedAccessInstanceLoggingConfiguration")]
     [OutputType("Amazon.EC2.Model.VerifiedAccessInstanceLoggingConfiguration")]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessInstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Amazon Web Services Verified Access instances.</para>
+        /// <para>The IDs of the Verified Access instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

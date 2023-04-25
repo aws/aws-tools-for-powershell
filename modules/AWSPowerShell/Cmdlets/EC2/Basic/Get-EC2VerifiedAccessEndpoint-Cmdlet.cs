@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describe Amazon Web Services Verified Access endpoints.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified Amazon Web Services Verified Access endpoints.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VerifiedAccessEndpoint")]
     [OutputType("Amazon.EC2.Model.VerifiedAccessEndpoint")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access endpoint.</para>
+        /// <para>The ID of the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessGroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access group.</para>
+        /// <para>The ID of the Verified Access group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessInstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access instance.</para>
+        /// <para>The ID of the Verified Access instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

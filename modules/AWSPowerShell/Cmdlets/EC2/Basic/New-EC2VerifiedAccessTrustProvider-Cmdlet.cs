@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// A trust provider is a third-party entity that creates, maintains, and manages identity
     /// information for users and devices. When an application request is made, the identity
-    /// information sent by the trust provider will be evaluated by Amazon Web Services Verified
-    /// Access, before allowing or denying the application request.
+    /// information sent by the trust provider is evaluated by Verified Access before allowing
+    /// or denying the application request.
     /// </summary>
     [Cmdlet("New", "EC2VerifiedAccessTrustProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessTrustProvider")]
@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class NewEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         #region Parameter OidcOptions_AuthorizationEndpoint
         /// <summary>
@@ -76,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>A description for the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DeviceTrustProviderType
         /// <summary>
         /// <para>
-        /// <para>The type of device-based trust provider.</para>
+        /// <para>The type of device-based trust provider. This parameter is required when the provider
+        /// type is <code>device</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -135,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>The tags to assign to the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TrustProviderType
         /// <summary>
         /// <para>
-        /// <para>The type of trust provider can be either user or device-based.</para>
+        /// <para>The type of trust provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -193,7 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserTrustProviderType
         /// <summary>
         /// <para>
-        /// <para>The type of user-based trust provider.</para>
+        /// <para>The type of user-based trust provider. This parameter is required when the provider
+        /// type is <code>user</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

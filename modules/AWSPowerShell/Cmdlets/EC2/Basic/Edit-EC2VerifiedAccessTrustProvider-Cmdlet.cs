@@ -41,14 +41,58 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter OidcOptions_AuthorizationEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC authorization endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcOptions_AuthorizationEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter OidcOptions_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The client identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcOptions_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter OidcOptions_ClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>The client secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcOptions_ClientSecret { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>A description for the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter OidcOptions_Issuer
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC issuer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcOptions_Issuer { get; set; }
         #endregion
         
         #region Parameter OidcOptions_Scope
@@ -62,10 +106,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String OidcOptions_Scope { get; set; }
         #endregion
         
+        #region Parameter OidcOptions_TokenEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC token endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcOptions_TokenEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter OidcOptions_UserInfoEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC user info endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcOptions_UserInfoEndpoint { get; set; }
+        #endregion
+        
         #region Parameter VerifiedAccessTrustProviderId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>The ID of the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,7 +219,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.OidcOptions_AuthorizationEndpoint = this.OidcOptions_AuthorizationEndpoint;
+            context.OidcOptions_ClientId = this.OidcOptions_ClientId;
+            context.OidcOptions_ClientSecret = this.OidcOptions_ClientSecret;
+            context.OidcOptions_Issuer = this.OidcOptions_Issuer;
             context.OidcOptions_Scope = this.OidcOptions_Scope;
+            context.OidcOptions_TokenEndpoint = this.OidcOptions_TokenEndpoint;
+            context.OidcOptions_UserInfoEndpoint = this.OidcOptions_UserInfoEndpoint;
             context.VerifiedAccessTrustProviderId = this.VerifiedAccessTrustProviderId;
             #if MODULAR
             if (this.VerifiedAccessTrustProviderId == null && ParameterWasBound(nameof(this.VerifiedAccessTrustProviderId)))
@@ -191,6 +261,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate OidcOptions
             var requestOidcOptionsIsNull = true;
             request.OidcOptions = new Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderOidcOptions();
+            System.String requestOidcOptions_oidcOptions_AuthorizationEndpoint = null;
+            if (cmdletContext.OidcOptions_AuthorizationEndpoint != null)
+            {
+                requestOidcOptions_oidcOptions_AuthorizationEndpoint = cmdletContext.OidcOptions_AuthorizationEndpoint;
+            }
+            if (requestOidcOptions_oidcOptions_AuthorizationEndpoint != null)
+            {
+                request.OidcOptions.AuthorizationEndpoint = requestOidcOptions_oidcOptions_AuthorizationEndpoint;
+                requestOidcOptionsIsNull = false;
+            }
+            System.String requestOidcOptions_oidcOptions_ClientId = null;
+            if (cmdletContext.OidcOptions_ClientId != null)
+            {
+                requestOidcOptions_oidcOptions_ClientId = cmdletContext.OidcOptions_ClientId;
+            }
+            if (requestOidcOptions_oidcOptions_ClientId != null)
+            {
+                request.OidcOptions.ClientId = requestOidcOptions_oidcOptions_ClientId;
+                requestOidcOptionsIsNull = false;
+            }
+            System.String requestOidcOptions_oidcOptions_ClientSecret = null;
+            if (cmdletContext.OidcOptions_ClientSecret != null)
+            {
+                requestOidcOptions_oidcOptions_ClientSecret = cmdletContext.OidcOptions_ClientSecret;
+            }
+            if (requestOidcOptions_oidcOptions_ClientSecret != null)
+            {
+                request.OidcOptions.ClientSecret = requestOidcOptions_oidcOptions_ClientSecret;
+                requestOidcOptionsIsNull = false;
+            }
+            System.String requestOidcOptions_oidcOptions_Issuer = null;
+            if (cmdletContext.OidcOptions_Issuer != null)
+            {
+                requestOidcOptions_oidcOptions_Issuer = cmdletContext.OidcOptions_Issuer;
+            }
+            if (requestOidcOptions_oidcOptions_Issuer != null)
+            {
+                request.OidcOptions.Issuer = requestOidcOptions_oidcOptions_Issuer;
+                requestOidcOptionsIsNull = false;
+            }
             System.String requestOidcOptions_oidcOptions_Scope = null;
             if (cmdletContext.OidcOptions_Scope != null)
             {
@@ -199,6 +309,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOidcOptions_oidcOptions_Scope != null)
             {
                 request.OidcOptions.Scope = requestOidcOptions_oidcOptions_Scope;
+                requestOidcOptionsIsNull = false;
+            }
+            System.String requestOidcOptions_oidcOptions_TokenEndpoint = null;
+            if (cmdletContext.OidcOptions_TokenEndpoint != null)
+            {
+                requestOidcOptions_oidcOptions_TokenEndpoint = cmdletContext.OidcOptions_TokenEndpoint;
+            }
+            if (requestOidcOptions_oidcOptions_TokenEndpoint != null)
+            {
+                request.OidcOptions.TokenEndpoint = requestOidcOptions_oidcOptions_TokenEndpoint;
+                requestOidcOptionsIsNull = false;
+            }
+            System.String requestOidcOptions_oidcOptions_UserInfoEndpoint = null;
+            if (cmdletContext.OidcOptions_UserInfoEndpoint != null)
+            {
+                requestOidcOptions_oidcOptions_UserInfoEndpoint = cmdletContext.OidcOptions_UserInfoEndpoint;
+            }
+            if (requestOidcOptions_oidcOptions_UserInfoEndpoint != null)
+            {
+                request.OidcOptions.UserInfoEndpoint = requestOidcOptions_oidcOptions_UserInfoEndpoint;
                 requestOidcOptionsIsNull = false;
             }
              // determine if request.OidcOptions should be set to null
@@ -273,7 +403,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String OidcOptions_AuthorizationEndpoint { get; set; }
+            public System.String OidcOptions_ClientId { get; set; }
+            public System.String OidcOptions_ClientSecret { get; set; }
+            public System.String OidcOptions_Issuer { get; set; }
             public System.String OidcOptions_Scope { get; set; }
+            public System.String OidcOptions_TokenEndpoint { get; set; }
+            public System.String OidcOptions_UserInfoEndpoint { get; set; }
             public System.String VerifiedAccessTrustProviderId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVerifiedAccessTrustProviderResponse, EditEC2VerifiedAccessTrustProviderCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VerifiedAccessTrustProvider;

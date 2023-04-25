@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the specified Verified Access endpoint policy.
+    /// Modifies the specified Amazon Web Services Verified Access endpoint policy.
     /// </summary>
     [Cmdlet("Edit", "EC2VerifiedAccessEndpointPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyVerifiedAccessEndpointPolicyResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Verified Access policy document.</para>
+        /// <para>The Verified Access policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access endpoint.</para>
+        /// <para>The ID of the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

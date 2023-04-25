@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AttachmentType
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services network component Verified Access attaches to.</para>
+        /// <para>The type of attachment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Web Services Verified Access endpoint.</para>
+        /// <para>A description for the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EndpointDomainPrefix
         /// <summary>
         /// <para>
-        /// <para>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</para>
+        /// <para>A custom identifier that is prepended to the DNS name that is generated for the endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of Amazon Web Services Verified Access endpoint to create.</para>
+        /// <para>The type of Verified Access endpoint to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Verified Access policy document.</para>
+        /// <para>The Verified Access policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,8 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 security groups to associate with the Amazon Web Services Verified
-        /// Access endpoint.</para>
+        /// <para>The IDs of the security groups to associate with the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -236,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the Amazon Web Services Verified Access endpoint.</para>
+        /// <para>The tags to assign to the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

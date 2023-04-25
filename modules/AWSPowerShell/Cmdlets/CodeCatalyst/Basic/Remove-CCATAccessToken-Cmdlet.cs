@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         /// <summary>
         /// <para>
         /// <para>The ID of the personal access token to delete. You can find the IDs of all PATs associated
-        /// with your user account by calling <a>ListAccessTokens</a>.</para>
+        /// with your Amazon Web Services Builder ID in a space by calling <a>ListAccessTokens</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

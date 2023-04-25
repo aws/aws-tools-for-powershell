@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the specified Verified Access group policy.
+    /// Modifies the specified Amazon Web Services Verified Access group policy.
     /// </summary>
     [Cmdlet("Edit", "EC2VerifiedAccessGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyVerifiedAccessGroupPolicyResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Verified Access policy document.</para>
+        /// <para>The Verified Access policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessGroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access group.</para>
+        /// <para>The ID of the Verified Access group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

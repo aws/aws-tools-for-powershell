@@ -40,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class RemoveEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter VerifiedAccessTrustProviderId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>The ID of the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

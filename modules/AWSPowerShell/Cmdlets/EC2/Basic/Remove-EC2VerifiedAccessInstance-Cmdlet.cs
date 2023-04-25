@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessInstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access instance.</para>
+        /// <para>The ID of the Verified Access instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

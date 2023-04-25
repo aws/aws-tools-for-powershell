@@ -28,7 +28,7 @@ using Amazon.CodeCatalyst.Model;
 namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
-    /// Retrives a list of Dev Environments in a project.
+    /// Retrieves a list of Dev Environments in a project.
     /// </summary>
     [Cmdlet("Get", "CCATDevEnvironmentList")]
     [OutputType("Amazon.CodeCatalyst.Model.DevEnvironmentSummary")]

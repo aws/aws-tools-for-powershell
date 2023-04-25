@@ -28,9 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// A trust provider is a third-party entity that creates, maintains, and manages identity
-    /// information for users and devices. One or more trust providers can be attached to
-    /// an Amazon Web Services Verified Access instance.
+    /// Attaches the specified Amazon Web Services Verified Access trust provider to the specified
+    /// Amazon Web Services Verified Access instance.
     /// </summary>
     [Cmdlet("Mount", "EC2VerifiedAccessTrustProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AttachVerifiedAccessTrustProviderResponse")]
@@ -41,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class MountEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter VerifiedAccessInstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access instance.</para>
+        /// <para>The ID of the Verified Access instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessTrustProviderId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>The ID of the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

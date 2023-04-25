@@ -28,7 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Detach a trust provider from an Amazon Web Services Verified Access instance.
+    /// Detaches the specified Amazon Web Services Verified Access trust provider from the
+    /// specified Amazon Web Services Verified Access instance.
     /// </summary>
     [Cmdlet("Dismount", "EC2VerifiedAccessTrustProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DetachVerifiedAccessTrustProviderResponse")]
@@ -39,10 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class DismountEC2VerifiedAccessTrustProviderCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter VerifiedAccessInstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access instance.</para>
+        /// <para>The ID of the Verified Access instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessTrustProviderId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access trust provider.</para>
+        /// <para>The ID of the Verified Access trust provider.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

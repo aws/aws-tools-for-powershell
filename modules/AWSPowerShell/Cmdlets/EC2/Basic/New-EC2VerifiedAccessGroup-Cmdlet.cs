@@ -30,10 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// An Amazon Web Services Verified Access group is a collection of Amazon Web Services
     /// Verified Access endpoints who's associated applications have similar security requirements.
-    /// Each instance within an Amazon Web Services Verified Access group shares an Amazon
-    /// Web Services Verified Access policy. For example, you can group all Amazon Web Services
-    /// Verified Access instances associated with “sales” applications together and use one
-    /// common Amazon Web Services Verified Access policy.
+    /// Each instance within a Verified Access group shares an Verified Access policy. For
+    /// example, you can group all Verified Access instances associated with "sales" applications
+    /// together and use one common Verified Access policy.
     /// </summary>
     [Cmdlet("New", "EC2VerifiedAccessGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessGroup")]
@@ -48,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Web Services Verified Access group.</para>
+        /// <para>A description for the Verified Access group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Verified Access policy document.</para>
+        /// <para>The Verified Access policy document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the Amazon Web Services Verified Access group.</para>
+        /// <para>The tags to assign to the Verified Access group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessInstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access instance.</para>
+        /// <para>The ID of the Verified Access instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

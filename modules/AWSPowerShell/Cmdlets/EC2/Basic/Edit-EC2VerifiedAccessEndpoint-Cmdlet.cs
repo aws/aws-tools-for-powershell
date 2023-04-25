@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the configuration of an Amazon Web Services Verified Access endpoint.
+    /// Modifies the configuration of the specified Amazon Web Services Verified Access endpoint.
     /// </summary>
     [Cmdlet("Edit", "EC2VerifiedAccessEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VerifiedAccessEndpoint")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Web Services Verified Access endpoint.</para>
+        /// <para>A description for the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access endpoint.</para>
+        /// <para>The ID of the Verified Access endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VerifiedAccessGroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services Verified Access group.</para>
+        /// <para>The ID of the Verified Access group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

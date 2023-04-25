@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
 {
     /// <summary>
     /// Lists all personal access tokens (PATs) associated with the user who calls the API.
-    /// You can only list PATs associated with your user account.
+    /// You can only list PATs associated with your Amazon Web Services Builder ID.
     /// </summary>
     [Cmdlet("Get", "CCATAccessTokenList")]
     [OutputType("Amazon.CodeCatalyst.Model.AccessTokenSummary")]
