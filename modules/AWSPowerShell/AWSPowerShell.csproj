@@ -769,6 +769,9 @@
     <Reference Include="AWSSDK.Organizations">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Organizations.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.OSIS">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.OSIS.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Outposts">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Outposts.dll</HintPath>
     </Reference>
@@ -1778,6 +1781,9 @@
     </Reference>
     <Reference Include="AWSSDK.Organizations">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Organizations.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.OSIS">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.OSIS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Outposts">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Outposts.dll</HintPath>

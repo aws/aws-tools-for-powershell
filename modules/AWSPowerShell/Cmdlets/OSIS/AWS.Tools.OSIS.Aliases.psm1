@@ -1,0 +1,3 @@
+﻿# OSIS
+
+Export-ModuleMember -Alias *

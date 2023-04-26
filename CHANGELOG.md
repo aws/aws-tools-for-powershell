@@ -1,4 +1,8 @@
-﻿### 4.1.320 (2023-04-25 21:06Z)
+﻿### 4.1.321 (2023-04-26 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.534.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon OpenSearch Ingestion. Added cmdlets to support the service. Cmdlets for the service have the noun prefix OSIS and can be listed using the command 'Get-AWSCmdletName -Service OSIS'.
+
+### 4.1.320 (2023-04-25 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.533.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Chime SDK Messaging
     * [Breaking Change] Modified cmdlet Remove-CHMMGChannel: removed parameter SubChannelId.

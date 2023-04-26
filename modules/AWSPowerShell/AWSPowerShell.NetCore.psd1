@@ -291,6 +291,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.OpsWorks.dll',
         'AWSSDK.OpsWorksCM.dll',
         'AWSSDK.Organizations.dll',
+        'AWSSDK.OSIS.dll',
         'AWSSDK.Outposts.dll',
         'AWSSDK.Panorama.dll',
         'AWSSDK.Personalize.dll',
