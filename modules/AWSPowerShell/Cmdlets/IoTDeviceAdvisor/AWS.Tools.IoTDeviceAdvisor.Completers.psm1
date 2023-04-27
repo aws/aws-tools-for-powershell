@@ -80,13 +80,20 @@ $IOTDA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTDeviceAdvisor.AuthenticationMethod
+        "Get-IOTDAEndpoint/AuthenticationMethod"
+        {
+            $v = "SignatureVersion4","X509ClientCertificate"
+            break
+        }
+
         # Amazon.IoTDeviceAdvisor.Protocol
         {
             ($_ -eq "New-IOTDASuiteDefinition/SuiteDefinitionConfiguration_Protocol") -Or
             ($_ -eq "Update-IOTDASuiteDefinition/SuiteDefinitionConfiguration_Protocol")
         }
         {
-            $v = "MqttV3_1_1","MqttV5"
+            $v = "MqttV3_1_1","MqttV3_1_1_OverWebSocket","MqttV5","MqttV5_OverWebSocket"
             break
         }
 
@@ -99,6 +106,7 @@ $IOTDA_Completers = {
 }
 
 $IOTDA_map = @{
+    "AuthenticationMethod"=@("Get-IOTDAEndpoint")
     "SuiteDefinitionConfiguration_Protocol"=@("New-IOTDASuiteDefinition","Update-IOTDASuiteDefinition")
 }
 

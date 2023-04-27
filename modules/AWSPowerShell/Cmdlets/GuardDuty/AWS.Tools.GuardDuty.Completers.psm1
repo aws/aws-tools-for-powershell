@@ -287,6 +287,7 @@ $GD_SelectMap = @{
                "Get-GDPublishingDestinationList",
                "Get-GDResourceTag",
                "Get-GDThreatIntelSetList",
+               "Start-GDMalwareScan",
                "Start-GDMonitoringMember",
                "Stop-GDMonitoringMember",
                "Add-GDResourceTag",

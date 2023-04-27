@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
     /// Checks whether an OpenSearch Ingestion pipeline configuration is valid prior to creation.
-    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html">Creating
-    /// and managing OpenSearch Ingestion pipelines</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html">Creating
+    /// Amazon OpenSearch Ingestion pipelines</a>.
     /// </summary>
     [Cmdlet("Use", "OSISPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OSIS.Model.ValidatePipelineResponse")]

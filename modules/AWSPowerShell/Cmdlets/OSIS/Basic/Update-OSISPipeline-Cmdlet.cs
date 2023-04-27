@@ -28,8 +28,8 @@ using Amazon.OSIS.Model;
 namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
-    /// Updates an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html">Creating
-    /// and managing OpenSearch Ingestion pipelines</a>.
+    /// Updates an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/update-pipeline.html">Updating
+    /// Amazon OpenSearch Ingestion pipelines</a>.
     /// </summary>
     [Cmdlet("Update", "OSISPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OSIS.Model.Pipeline")]

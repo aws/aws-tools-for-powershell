@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the status of the modification is <code>fulfilled</code>.</para></li><li><para><code>modification-result.target-configuration.availability-zone</code> - The Availability
         /// Zone for the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-count </code> - The number
         /// of new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.instance-type</code> - The instance
-        /// type of the new Reserved Instances.</para></li><li><para><code>modification-result.target-configuration.platform</code> - The network platform
-        /// of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</para></li><li><para><code>reserved-instances-modification-id</code> - The ID of the modification request.</para></li><li><para><code>status</code> - The status of the Reserved Instances modification request (<code>processing</code>
+        /// type of the new Reserved Instances.</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</para></li><li><para><code>reserved-instances-modification-id</code> - The ID of the modification request.</para></li><li><para><code>status</code> - The status of the Reserved Instances modification request (<code>processing</code>
         /// | <code>fulfilled</code> | <code>failed</code>).</para></li><li><para><code>status-message</code> - The reason for the status.</para></li><li><para><code>update-date</code> - The time when the modification request was last updated.</para></li></ul>
         /// </para>
         /// </summary>

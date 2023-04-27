@@ -72,9 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>block-device-mapping.status</code> - The status for the EBS volume (<code>attaching</code>
         /// | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>block-device-mapping.volume-id</code> - The volume ID of the EBS volume.</para></li><li><para><code>capacity-reservation-id</code> - The ID of the Capacity Reservation into which
         /// the instance was launched.</para></li><li><para><code>client-token</code> - The idempotency token you provided when you launched
-        /// the instance.</para></li><li><para><code>dns-name</code> - The public DNS name of the instance.</para></li><li><para><code>group-id</code> - The ID of the security group for the instance. EC2-Classic
-        /// only.</para></li><li><para><code>group-name</code> - The name of the security group for the instance. EC2-Classic
-        /// only.</para></li><li><para><code>hibernation-options.configured</code> - A Boolean that indicates whether the
+        /// the instance.</para></li><li><para><code>dns-name</code> - The public DNS name of the instance.</para></li><li><para><code>hibernation-options.configured</code> - A Boolean that indicates whether the
         /// instance is enabled for hibernation. A value of <code>true</code> means that the instance
         /// is enabled for hibernation. </para></li><li><para><code>host-id</code> - The ID of the Dedicated Host on which the instance is running,
         /// if applicable.</para></li><li><para><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> |

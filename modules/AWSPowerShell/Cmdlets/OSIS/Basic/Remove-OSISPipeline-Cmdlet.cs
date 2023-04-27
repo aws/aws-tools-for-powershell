@@ -28,8 +28,8 @@ using Amazon.OSIS.Model;
 namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
-    /// Deletes an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html#delete-pipeline">Deleting
-    /// pipelines</a>.
+    /// Deletes an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/delete-pipeline.html">Deleting
+    /// Amazon OpenSearch Ingestion pipelines</a>.
     /// </summary>
     [Cmdlet("Remove", "OSISPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

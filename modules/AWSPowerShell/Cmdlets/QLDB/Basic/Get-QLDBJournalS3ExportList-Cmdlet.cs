@@ -28,8 +28,8 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Returns an array of journal export job descriptions for all ledgers that are associated
-    /// with the current Amazon Web Services account and Region.
+    /// Returns all journal export jobs for all ledgers that are associated with the current
+    /// Amazon Web Services account and Region.
     /// 
     ///  
     /// <para>

@@ -1,4 +1,25 @@
-﻿### 4.1.321 (2023-04-26 21:05Z)
+﻿### 4.1.322 (2023-04-27 21:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.535.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon EMR Containers
+    * Added cmdlet Get-EMRCManagedEndpointSessionCredential leveraging the GetManagedEndpointSessionCredentials service API.
+  * Amazon GuardDuty
+    * Added cmdlet Start-GDMalwareScan leveraging the StartMalwareScan service API.
+  * Amazon IoT Core Device Advisor
+    * Modified cmdlet Get-IOTDAEndpoint: added parameters AuthenticationMethod and DeviceRoleArn.
+    * Modified cmdlet Start-IOTDASuiteRun: added parameter PrimaryDevice_DeviceRoleArn.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Deny-MSKClientVpcConnection leveraging the RejectClientVpcConnection service API.
+    * Added cmdlet Get-MSKClientVpcConnectionList leveraging the ListClientVpcConnections service API.
+    * Added cmdlet Get-MSKClusterPolicy leveraging the GetClusterPolicy service API.
+    * Added cmdlet Get-MSKVpcConnection leveraging the DescribeVpcConnection service API.
+    * Added cmdlet Get-MSKVpcConnectionList leveraging the ListVpcConnections service API.
+    * Added cmdlet New-MSKVpcConnection leveraging the CreateVpcConnection service API.
+    * Added cmdlet Remove-MSKClusterPolicy leveraging the DeleteClusterPolicy service API.
+    * Added cmdlet Remove-MSKVpcConnection leveraging the DeleteVpcConnection service API.
+    * Added cmdlet Write-MSKClusterPolicy leveraging the PutClusterPolicy service API.
+    * Modified cmdlet Update-MSKConnectivity: added parameters Iam_Enabled, Scram_Enabled and Tls_Enabled.
+
+### 4.1.321 (2023-04-26 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.534.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon OpenSearch Ingestion. Added cmdlets to support the service. Cmdlets for the service have the noun prefix OSIS and can be listed using the command 'Get-AWSCmdletName -Service OSIS'.
 

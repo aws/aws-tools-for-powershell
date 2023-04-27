@@ -35,12 +35,6 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// 
     ///  
     /// <para>
-    /// In JSON Lines format, each journal block in the exported data object is a valid JSON
-    /// object that is delimited by a newline. You can use this format to easily integrate
-    /// JSON exports with analytics tools such as Glue and Amazon Athena because these services
-    /// can parse newline-delimited JSON automatically. For more information about the format,
-    /// see <a href="https://jsonlines.org/">JSON Lines</a>.
-    /// </para><para>
     /// If the ledger with the given <code>Name</code> doesn't exist, then throws <code>ResourceNotFoundException</code>.
     /// </para><para>
     /// If the ledger with the given <code>Name</code> is in <code>CREATING</code> status,
@@ -118,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a symmetric key in Key Management Service (KMS).
-        /// Amazon S3 does not support asymmetric KMS keys.</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
+        /// <para>The Amazon Resource Name (ARN) of a symmetric encryption key in Key Management Service
+        /// (KMS). Amazon S3 does not support asymmetric KMS keys.</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
         /// <code>ObjectEncryptionType</code>.</para><para><code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the
         /// <code>ObjectEncryptionType</code>.</para>
         /// </para>
@@ -168,8 +162,12 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter OutputFormat
         /// <summary>
         /// <para>
-        /// <para>The output format of your exported journal data. If this parameter is not specified,
-        /// the exported data defaults to <code>ION_TEXT</code> format.</para>
+        /// <para>The output format of your exported journal data. A journal export job can write the
+        /// data objects in either the text or binary representation of <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/ion.html">Amazon
+        /// Ion</a> format, or in <a href="https://jsonlines.org/">JSON Lines</a> text format.</para><para>Default: <code>ION_TEXT</code></para><para>In JSON Lines format, each journal block in an exported data object is a valid JSON
+        /// object that is delimited by a newline. You can use this format to directly integrate
+        /// JSON exports with analytics tools such as Amazon Athena and Glue because these services
+        /// can parse newline-delimited JSON automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
-        /// journal export job to do the following:</para><ul><li><para>Write objects into your Amazon Simple Storage Service (Amazon S3) bucket.</para></li><li><para>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
+        /// journal export job to do the following:</para><ul><li><para>Write objects into your Amazon S3 bucket.</para></li><li><para>(Optional) Use your customer managed key in Key Management Service (KMS) for server-side
         /// encryption of your exported data.</para></li></ul><para>To pass a role to QLDB when requesting a journal export, you must have permissions
         /// to perform the <code>iam:PassRole</code> action on the IAM role resource. This is
         /// required for all journal export requests.</para>

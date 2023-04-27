@@ -231,6 +231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMalwareScan" OutputProperty="ScanId" Verb="Start" Noun="MalwareScan" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringMembers" OutputProperty="UnprocessedAccounts" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

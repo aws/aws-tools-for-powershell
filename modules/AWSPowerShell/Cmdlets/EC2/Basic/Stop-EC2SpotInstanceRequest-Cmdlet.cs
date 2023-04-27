@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotInstanceRequestId
         /// <summary>
         /// <para>
-        /// <para>One or more Spot Instance request IDs.</para>
+        /// <para>The IDs of the Spot Instance requests.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

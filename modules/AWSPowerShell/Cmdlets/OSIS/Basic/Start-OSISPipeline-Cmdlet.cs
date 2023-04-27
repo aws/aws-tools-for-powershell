@@ -28,8 +28,8 @@ using Amazon.OSIS.Model;
 namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
-    /// Starts an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html#start-pipeline">Starting
-    /// pipelines</a>.
+    /// Starts an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--start">Starting
+    /// an OpenSearch Ingestion pipeline</a>.
     /// </summary>
     [Cmdlet("Start", "OSISPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OSIS.Model.Pipeline")]

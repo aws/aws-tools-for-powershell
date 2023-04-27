@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMRCJobTemplateList', 
         'Get-EMRCManagedEndpoint', 
         'Get-EMRCManagedEndpointList', 
+        'Get-EMRCManagedEndpointSessionCredential', 
         'Get-EMRCResourceTag', 
         'Get-EMRCVirtualCluster', 
         'Get-EMRCVirtualClusterList', 

@@ -140,6 +140,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GDThreatIntelSet', 
         'Restore-GDFinding', 
         'Send-GDMemberInvitation', 
+        'Start-GDMalwareScan', 
         'Start-GDMonitoringMember', 
         'Stop-GDMonitoringMember', 
         'Unregister-GDFromMasterAccount', 

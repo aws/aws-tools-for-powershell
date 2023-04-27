@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone-group</code> - The Availability Zone group.</para></li><li><para><code>create-time</code> - The time stamp when the Spot Instance request was created.</para></li><li><para><code>fault-code</code> - The fault code related to the request.</para></li><li><para><code>fault-message</code> - The fault message related to the request.</para></li><li><para><code>instance-id</code> - The ID of the instance that fulfilled the request.</para></li><li><para><code>launch-group</code> - The Spot Instance launch group.</para></li><li><para><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether
+        /// <para>The filters.</para><ul><li><para><code>availability-zone-group</code> - The Availability Zone group.</para></li><li><para><code>create-time</code> - The time stamp when the Spot Instance request was created.</para></li><li><para><code>fault-code</code> - The fault code related to the request.</para></li><li><para><code>fault-message</code> - The fault message related to the request.</para></li><li><para><code>instance-id</code> - The ID of the instance that fulfilled the request.</para></li><li><para><code>launch-group</code> - The Spot Instance launch group.</para></li><li><para><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether
         /// the EBS volume is deleted on instance termination.</para></li><li><para><code>launch.block-device-mapping.device-name</code> - The device name for the volume
         /// in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot for
         /// the EBS volume.</para></li><li><para><code>launch.block-device-mapping.volume-size</code> - The size of the EBS volume,
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotInstanceRequestId
         /// <summary>
         /// <para>
-        /// <para>One or more Spot Instance request IDs.</para>
+        /// <para>The IDs of the Spot Instance requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

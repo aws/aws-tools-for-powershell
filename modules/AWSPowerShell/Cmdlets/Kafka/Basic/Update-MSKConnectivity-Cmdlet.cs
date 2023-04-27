@@ -75,6 +75,39 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter Iam_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>SASL/IAM authentication is on or off for VPC connectivity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConnectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam_Enabled")]
+        public System.Boolean? Iam_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Scram_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>SASL/SCRAM authentication is on or off for VPC connectivity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConnectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram_Enabled")]
+        public System.Boolean? Scram_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Tls_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>TLS authentication is on or off for VPC connectivity.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConnectivityInfo_VpcConnectivity_ClientAuthentication_Tls_Enabled")]
+        public System.Boolean? Tls_Enabled { get; set; }
+        #endregion
+        
         #region Parameter PublicAccess_Type
         /// <summary>
         /// <para>
@@ -157,6 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             }
             #endif
             context.PublicAccess_Type = this.PublicAccess_Type;
+            context.Iam_Enabled = this.Iam_Enabled;
+            context.Scram_Enabled = this.Scram_Enabled;
+            context.Tls_Enabled = this.Tls_Enabled;
             context.CurrentVersion = this.CurrentVersion;
             #if MODULAR
             if (this.CurrentVersion == null && ParameterWasBound(nameof(this.CurrentVersion)))
@@ -211,6 +247,126 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (requestConnectivityInfo_connectivityInfo_PublicAccess != null)
             {
                 request.ConnectivityInfo.PublicAccess = requestConnectivityInfo_connectivityInfo_PublicAccess;
+                requestConnectivityInfoIsNull = false;
+            }
+            Amazon.Kafka.Model.VpcConnectivity requestConnectivityInfo_connectivityInfo_VpcConnectivity = null;
+            
+             // populate VpcConnectivity
+            var requestConnectivityInfo_connectivityInfo_VpcConnectivityIsNull = true;
+            requestConnectivityInfo_connectivityInfo_VpcConnectivity = new Amazon.Kafka.Model.VpcConnectivity();
+            Amazon.Kafka.Model.VpcConnectivityClientAuthentication requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication = null;
+            
+             // populate ClientAuthentication
+            var requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthenticationIsNull = true;
+            requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication = new Amazon.Kafka.Model.VpcConnectivityClientAuthentication();
+            Amazon.Kafka.Model.VpcConnectivityTls requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls = null;
+            
+             // populate Tls
+            var requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_TlsIsNull = true;
+            requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls = new Amazon.Kafka.Model.VpcConnectivityTls();
+            System.Boolean? requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls_tls_Enabled = null;
+            if (cmdletContext.Tls_Enabled != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls_tls_Enabled = cmdletContext.Tls_Enabled.Value;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls_tls_Enabled != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls.Enabled = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls_tls_Enabled.Value;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_TlsIsNull = false;
+            }
+             // determine if requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls should be set to null
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_TlsIsNull)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls = null;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication.Tls = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Tls;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthenticationIsNull = false;
+            }
+            Amazon.Kafka.Model.VpcConnectivitySasl requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl = null;
+            
+             // populate Sasl
+            var requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_SaslIsNull = true;
+            requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl = new Amazon.Kafka.Model.VpcConnectivitySasl();
+            Amazon.Kafka.Model.VpcConnectivityIam requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam = null;
+            
+             // populate Iam
+            var requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_IamIsNull = true;
+            requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam = new Amazon.Kafka.Model.VpcConnectivityIam();
+            System.Boolean? requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam_iam_Enabled = null;
+            if (cmdletContext.Iam_Enabled != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam_iam_Enabled = cmdletContext.Iam_Enabled.Value;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam_iam_Enabled != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam.Enabled = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam_iam_Enabled.Value;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_IamIsNull = false;
+            }
+             // determine if requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam should be set to null
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_IamIsNull)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam = null;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl.Iam = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Iam;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_SaslIsNull = false;
+            }
+            Amazon.Kafka.Model.VpcConnectivityScram requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram = null;
+            
+             // populate Scram
+            var requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_ScramIsNull = true;
+            requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram = new Amazon.Kafka.Model.VpcConnectivityScram();
+            System.Boolean? requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram_scram_Enabled = null;
+            if (cmdletContext.Scram_Enabled != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram_scram_Enabled = cmdletContext.Scram_Enabled.Value;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram_scram_Enabled != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram.Enabled = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram_scram_Enabled.Value;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_ScramIsNull = false;
+            }
+             // determine if requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram should be set to null
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_ScramIsNull)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram = null;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl.Scram = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl_Scram;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_SaslIsNull = false;
+            }
+             // determine if requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl should be set to null
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_SaslIsNull)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl = null;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication.Sasl = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication_connectivityInfo_VpcConnectivity_ClientAuthentication_Sasl;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthenticationIsNull = false;
+            }
+             // determine if requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication should be set to null
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthenticationIsNull)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication = null;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication != null)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity.ClientAuthentication = requestConnectivityInfo_connectivityInfo_VpcConnectivity_connectivityInfo_VpcConnectivity_ClientAuthentication;
+                requestConnectivityInfo_connectivityInfo_VpcConnectivityIsNull = false;
+            }
+             // determine if requestConnectivityInfo_connectivityInfo_VpcConnectivity should be set to null
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivityIsNull)
+            {
+                requestConnectivityInfo_connectivityInfo_VpcConnectivity = null;
+            }
+            if (requestConnectivityInfo_connectivityInfo_VpcConnectivity != null)
+            {
+                request.ConnectivityInfo.VpcConnectivity = requestConnectivityInfo_connectivityInfo_VpcConnectivity;
                 requestConnectivityInfoIsNull = false;
             }
              // determine if request.ConnectivityInfo should be set to null
@@ -285,6 +441,9 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         {
             public System.String ClusterArn { get; set; }
             public System.String PublicAccess_Type { get; set; }
+            public System.Boolean? Iam_Enabled { get; set; }
+            public System.Boolean? Scram_Enabled { get; set; }
+            public System.Boolean? Tls_Enabled { get; set; }
             public System.String CurrentVersion { get; set; }
             public System.Func<Amazon.Kafka.Model.UpdateConnectivityResponse, UpdateMSKConnectivityCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

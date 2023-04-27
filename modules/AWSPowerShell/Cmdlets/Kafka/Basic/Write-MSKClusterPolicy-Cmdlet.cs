@@ -22,29 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OSIS;
-using Amazon.OSIS.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OSIS
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Stops an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/pipeline--stop-start.html#pipeline--stop">Stopping
-    /// an OpenSearch Ingestion pipeline</a>.
+    /// Creates or updates the MSK cluster policy specified by the cluster Amazon Resource
+    /// Name (ARN) in the request.
     /// </summary>
-    [Cmdlet("Stop", "OSISPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.OSIS.Model.Pipeline")]
-    [AWSCmdlet("Calls the Amazon OpenSearch Ingestion StopPipeline API operation.", Operation = new[] {"StopPipeline"}, SelectReturnType = typeof(Amazon.OSIS.Model.StopPipelineResponse))]
-    [AWSCmdletOutput("Amazon.OSIS.Model.Pipeline or Amazon.OSIS.Model.StopPipelineResponse",
-        "This cmdlet returns an Amazon.OSIS.Model.Pipeline object.",
-        "The service call response (type Amazon.OSIS.Model.StopPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "MSKClusterPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) PutClusterPolicy API operation.", Operation = new[] {"PutClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.PutClusterPolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Kafka.Model.PutClusterPolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Kafka.Model.PutClusterPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopOSISPipelineCmdlet : AmazonOSISClientCmdlet, IExecutor
+    public partial class WriteMSKClusterPolicyCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
-        #region Parameter PipelineName
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The name of the pipeline to stop.</para>
+        /// <para>The Amazon Resource Name (ARN) of the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,26 +55,53 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PipelineName { get; set; }
+        public System.String ClusterArn { get; set; }
+        #endregion
+        
+        #region Parameter CurrentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The policy version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CurrentVersion { get; set; }
+        #endregion
+        
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// <para>The policy.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Policy { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Pipeline'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OSIS.Model.StopPipelineResponse).
-        /// Specifying the name of a property of type Amazon.OSIS.Model.StopPipelineResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CurrentVersion'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.PutClusterPolicyResponse).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.PutClusterPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Pipeline";
+        public string Select { get; set; } = "CurrentVersion";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PipelineName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PipelineName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PipelineName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PipelineName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-OSISPipeline (StopPipeline)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-MSKClusterPolicy (PutClusterPolicy)"))
             {
                 return;
             }
@@ -108,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OSIS.Model.StopPipelineResponse, StopOSISPipelineCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.PutClusterPolicyResponse, WriteMSKClusterPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,14 +144,22 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PipelineName;
+                context.Select = (response, cmdlet) => this.ClusterArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PipelineName = this.PipelineName;
+            context.ClusterArn = this.ClusterArn;
             #if MODULAR
-            if (this.PipelineName == null && ParameterWasBound(nameof(this.PipelineName)))
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter PipelineName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.CurrentVersion = this.CurrentVersion;
+            context.Policy = this.Policy;
+            #if MODULAR
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -141,11 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OSIS.Model.StopPipelineRequest();
+            var request = new Amazon.Kafka.Model.PutClusterPolicyRequest();
             
-            if (cmdletContext.PipelineName != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.PipelineName = cmdletContext.PipelineName;
+                request.ClusterArn = cmdletContext.ClusterArn;
+            }
+            if (cmdletContext.CurrentVersion != null)
+            {
+                request.CurrentVersion = cmdletContext.CurrentVersion;
+            }
+            if (cmdletContext.Policy != null)
+            {
+                request.Policy = cmdletContext.Policy;
             }
             
             CmdletOutput output;
@@ -180,15 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         
         #region AWS Service Operation Call
         
-        private Amazon.OSIS.Model.StopPipelineResponse CallAWSServiceOperation(IAmazonOSIS client, Amazon.OSIS.Model.StopPipelineRequest request)
+        private Amazon.Kafka.Model.PutClusterPolicyResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.PutClusterPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Ingestion", "StopPipeline");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "PutClusterPolicy");
             try
             {
                 #if DESKTOP
-                return client.StopPipeline(request);
+                return client.PutClusterPolicy(request);
                 #elif CORECLR
-                return client.StopPipelineAsync(request).GetAwaiter().GetResult();
+                return client.PutClusterPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PipelineName { get; set; }
-            public System.Func<Amazon.OSIS.Model.StopPipelineResponse, StopOSISPipelineCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Pipeline;
+            public System.String ClusterArn { get; set; }
+            public System.String CurrentVersion { get; set; }
+            public System.String Policy { get; set; }
+            public System.Func<Amazon.Kafka.Model.PutClusterPolicyResponse, WriteMSKClusterPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CurrentVersion;
         }
         
     }

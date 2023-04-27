@@ -39,11 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
     /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
     /// Instances</i>.
-    /// </para></important><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
-    /// </para></note>
+    /// </para></important>
     /// </summary>
     [Cmdlet("Request", "EC2SpotInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SpotInstanceRequest")]
@@ -72,9 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchSpecification_AllSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>One or more security groups. When requesting instances in a VPC, you must specify
-        /// the IDs of the security groups. When requesting instances in EC2-Classic, you can
-        /// specify the names or the IDs of the security groups.</para>
+        /// <para>The IDs of the security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchSpecification_BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>One or more block device mapping entries.</para>
+        /// <para>The block device mapping entries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,8 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchSpecification_NetworkInterface
         /// <summary>
         /// <para>
-        /// <para>One or more network interfaces. If you specify a network interface, you must specify
-        /// subnet IDs and security group IDs using the network interface.</para>
+        /// <para>The network interfaces. If you specify a network interface, you must specify subnet
+        /// IDs and security group IDs using the network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -22198,6 +22198,7 @@ $EMRC_SelectMap = @{
                "Get-EMRCJobTemplate",
                "Get-EMRCManagedEndpoint",
                "Get-EMRCVirtualCluster",
+               "Get-EMRCManagedEndpointSessionCredential",
                "Get-EMRCJobRunList",
                "Get-EMRCJobTemplateList",
                "Get-EMRCManagedEndpointList",
@@ -26712,6 +26713,7 @@ $GD_SelectMap = @{
                "Get-GDPublishingDestinationList",
                "Get-GDResourceTag",
                "Get-GDThreatIntelSetList",
+               "Start-GDMalwareScan",
                "Start-GDMonitoringMember",
                "Stop-GDMonitoringMember",
                "Add-GDResourceTag",
@@ -29037,13 +29039,20 @@ $IOTDA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTDeviceAdvisor.AuthenticationMethod
+        "Get-IOTDAEndpoint/AuthenticationMethod"
+        {
+            $v = "SignatureVersion4","X509ClientCertificate"
+            break
+        }
+
         # Amazon.IoTDeviceAdvisor.Protocol
         {
             ($_ -eq "New-IOTDASuiteDefinition/SuiteDefinitionConfiguration_Protocol") -Or
             ($_ -eq "Update-IOTDASuiteDefinition/SuiteDefinitionConfiguration_Protocol")
         }
         {
-            $v = "MqttV3_1_1","MqttV5"
+            $v = "MqttV3_1_1","MqttV3_1_1_OverWebSocket","MqttV5","MqttV5_OverWebSocket"
             break
         }
 
@@ -29056,6 +29065,7 @@ $IOTDA_Completers = {
 }
 
 $IOTDA_map = @{
+    "AuthenticationMethod"=@("Get-IOTDAEndpoint")
     "SuiteDefinitionConfiguration_Protocol"=@("New-IOTDASuiteDefinition","Update-IOTDASuiteDefinition")
 }
 
@@ -31291,15 +31301,21 @@ $MSK_SelectMap = @{
                "New-MSKCluster",
                "New-MSKClusterV2",
                "New-MSKConfiguration",
+               "New-MSKVpcConnection",
                "Remove-MSKCluster",
+               "Remove-MSKClusterPolicy",
                "Remove-MSKConfiguration",
+               "Remove-MSKVpcConnection",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
                "Get-MSKClusterV2",
                "Get-MSKConfiguration",
                "Get-MSKConfigurationRevision",
+               "Get-MSKVpcConnection",
                "Get-MSKBootstrapBroker",
+               "Get-MSKClusterPolicy",
                "Get-MSKCompatibleKafkaVersion",
+               "Get-MSKClientVpcConnectionList",
                "Get-MSKClusterOperationList",
                "Get-MSKClusterList",
                "Get-MSKClustersV2List",
@@ -31309,7 +31325,10 @@ $MSK_SelectMap = @{
                "Get-MSKNodeList",
                "Get-MSKScramSecretList",
                "Get-MSKResourceTag",
+               "Get-MSKVpcConnectionList",
+               "Write-MSKClusterPolicy",
                "Restart-MSKBroker",
+               "Deny-MSKClientVpcConnection",
                "Add-MSKResourceTag",
                "Remove-MSKResourceTag",
                "Update-MSKBrokerCount",
@@ -33222,7 +33241,7 @@ $LM_Completers = {
             ($_ -eq "Update-LMFunctionConfiguration/Runtime")
         }
         {
-            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
+            $v = "dotnet6","dotnetcore1.0","dotnetcore2.0","dotnetcore2.1","dotnetcore3.1","go1.x","java11","java17","java8","java8.al2","nodejs","nodejs10.x","nodejs12.x","nodejs14.x","nodejs16.x","nodejs18.x","nodejs4.3","nodejs4.3-edge","nodejs6.10","nodejs8.10","provided","provided.al2","python2.7","python3.10","python3.6","python3.7","python3.8","python3.9","ruby2.5","ruby2.7"
             break
         }
 
@@ -49331,7 +49350,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
             break
         }
 

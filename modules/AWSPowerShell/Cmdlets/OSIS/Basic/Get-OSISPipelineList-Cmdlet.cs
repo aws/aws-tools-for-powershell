@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
     /// Lists all OpenSearch Ingestion pipelines in the current Amazon Web Services account
-    /// and Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/manage-pipeline.html">Creating
-    /// and managing OpenSearch Ingestion pipelines</a>.
+    /// and Region. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/list-pipeline.html">Viewing
+    /// Amazon OpenSearch Ingestion pipelines</a>.
     /// </summary>
     [Cmdlet("Get", "OSISPipelineList")]
     [OutputType("Amazon.OSIS.Model.PipelineSummary")]

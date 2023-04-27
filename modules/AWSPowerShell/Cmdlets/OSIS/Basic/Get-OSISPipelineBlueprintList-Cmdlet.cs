@@ -28,7 +28,9 @@ using Amazon.OSIS.Model;
 namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
-    /// Retrieves a list of all available blueprints for Data Prepper.
+    /// Retrieves a list of all available blueprints for Data Prepper. For more information,
+    /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/creating-pipeline.html#pipeline-blueprint">Using
+    /// blueprints to create a pipeline</a>.
     /// </summary>
     [Cmdlet("Get", "OSISPipelineBlueprintList")]
     [OutputType("Amazon.OSIS.Model.PipelineBlueprintSummary")]

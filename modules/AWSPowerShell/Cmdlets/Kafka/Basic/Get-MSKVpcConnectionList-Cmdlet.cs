@@ -22,57 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.QLDB;
-using Amazon.QLDB.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
-namespace Amazon.PowerShell.Cmdlets.QLDB
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Returns all Amazon QLDB journal streams for a given ledger.
-    /// 
-    ///  
-    /// <para>
-    /// This action does not return any expired journal streams. For more information, see
-    /// <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/streams.create.html#streams.create.states.expiration">Expiration
-    /// for terminal streams</a> in the <i>Amazon QLDB Developer Guide</i>.
-    /// </para><para>
-    /// This action returns a maximum of <code>MaxResults</code> items. It is paginated so
-    /// that you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
-    /// multiple times.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all the VPC connections in this Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "QLDBJournalKinesisStreamsForLedgerList")]
-    [OutputType("Amazon.QLDB.Model.JournalKinesisStreamDescription")]
-    [AWSCmdlet("Calls the Amazon QLDB ListJournalKinesisStreamsForLedger API operation.", Operation = new[] {"ListJournalKinesisStreamsForLedger"}, SelectReturnType = typeof(Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse))]
-    [AWSCmdletOutput("Amazon.QLDB.Model.JournalKinesisStreamDescription or Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse",
-        "This cmdlet returns a collection of Amazon.QLDB.Model.JournalKinesisStreamDescription objects.",
-        "The service call response (type Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MSKVpcConnectionList")]
+    [OutputType("Amazon.Kafka.Model.VpcConnection")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) ListVpcConnections API operation.", Operation = new[] {"ListVpcConnections"}, SelectReturnType = typeof(Amazon.Kafka.Model.ListVpcConnectionsResponse))]
+    [AWSCmdletOutput("Amazon.Kafka.Model.VpcConnection or Amazon.Kafka.Model.ListVpcConnectionsResponse",
+        "This cmdlet returns a collection of Amazon.Kafka.Model.VpcConnection objects.",
+        "The service call response (type Amazon.Kafka.Model.ListVpcConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetQLDBJournalKinesisStreamsForLedgerListCmdlet : AmazonQLDBClientCmdlet, IExecutor
+    public partial class GetMSKVpcConnectionListCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
-        
-        #region Parameter LedgerName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the ledger.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LedgerName { get; set; }
-        #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single <code>ListJournalKinesisStreamsForLedger</code>
-        /// request. (The actual number of results returned might be fewer.)</para>
+        /// <para>The maximum number of results to return in the response. If there are more results,
+        /// the response includes a NextToken parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,10 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token, indicating that you want to retrieve the next page of results.
-        /// If you received a value for <code>NextToken</code> in the response from a previous
-        /// <code>ListJournalKinesisStreamsForLedger</code> call, you should use that value as
-        /// input here.</para>
+        /// <para>The paginated results marker. When the result of the operation is truncated, the call
+        /// returns NextToken in the response.             To get the next batch, provide this
+        /// token in your next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -99,23 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Streams'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse).
-        /// Specifying the name of a property of type Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'VpcConnections'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.ListVpcConnectionsResponse).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.ListVpcConnectionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Streams";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LedgerName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LedgerName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LedgerName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "VpcConnections";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -138,28 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse, GetQLDBJournalKinesisStreamsForLedgerListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.ListVpcConnectionsResponse, GetMSKVpcConnectionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.LedgerName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LedgerName = this.LedgerName;
-            #if MODULAR
-            if (this.LedgerName == null && ParameterWasBound(nameof(this.LedgerName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LedgerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -175,17 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerRequest();
+            var request = new Amazon.Kafka.Model.ListVpcConnectionsRequest();
             
-            if (cmdletContext.LedgerName != null)
-            {
-                request.LedgerName = cmdletContext.LedgerName;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -247,15 +185,15 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         
         #region AWS Service Operation Call
         
-        private Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse CallAWSServiceOperation(IAmazonQLDB client, Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerRequest request)
+        private Amazon.Kafka.Model.ListVpcConnectionsResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.ListVpcConnectionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QLDB", "ListJournalKinesisStreamsForLedger");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "ListVpcConnections");
             try
             {
                 #if DESKTOP
-                return client.ListJournalKinesisStreamsForLedger(request);
+                return client.ListVpcConnections(request);
                 #elif CORECLR
-                return client.ListJournalKinesisStreamsForLedgerAsync(request).GetAwaiter().GetResult();
+                return client.ListVpcConnectionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,11 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LedgerName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.QLDB.Model.ListJournalKinesisStreamsForLedgerResponse, GetQLDBJournalKinesisStreamsForLedgerListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Streams;
+            public System.Func<Amazon.Kafka.Model.ListVpcConnectionsResponse, GetMSKVpcConnectionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.VpcConnections;
         }
         
     }

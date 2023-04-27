@@ -46,11 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record,
-        /// increasing the number of records sent per API call.</para><para><i>This option is enabled by default.</i> Record aggregation has important implications
-        /// for processing records and requires de-aggregation in your stream consumer. To learn
-        /// more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL
+        /// increasing the number of records sent per API call.</para><para>Default: <code>True</code></para><important><para>Record aggregation has important implications for processing records and requires
+        /// de-aggregation in your stream consumer. To learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL
         /// Key Concepts</a> and <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html">Consumer
-        /// De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</para>
+        /// De-aggregation</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

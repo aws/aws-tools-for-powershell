@@ -22,30 +22,27 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.OSIS;
-using Amazon.OSIS.Model;
+using Amazon.Kafka;
+using Amazon.Kafka.Model;
 
-namespace Amazon.PowerShell.Cmdlets.OSIS
+namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// Lists all resource tags associated with an OpenSearch Ingestion pipeline. For more
-    /// information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html">Tagging
-    /// Amazon OpenSearch Ingestion pipelines</a>.
+    /// Get the MSK cluster policy specified by the Amazon Resource Name (ARN) in the request.
     /// </summary>
-    [Cmdlet("Get", "OSISResourceTag")]
-    [OutputType("Amazon.OSIS.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon OpenSearch Ingestion ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.OSIS.Model.ListTagsForResourceResponse))]
-    [AWSCmdletOutput("Amazon.OSIS.Model.Tag or Amazon.OSIS.Model.ListTagsForResourceResponse",
-        "This cmdlet returns a collection of Amazon.OSIS.Model.Tag objects.",
-        "The service call response (type Amazon.OSIS.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MSKClusterPolicy")]
+    [OutputType("Amazon.Kafka.Model.GetClusterPolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetClusterPolicy API operation.", Operation = new[] {"GetClusterPolicy"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetClusterPolicyResponse))]
+    [AWSCmdletOutput("Amazon.Kafka.Model.GetClusterPolicyResponse",
+        "This cmdlet returns an Amazon.Kafka.Model.GetClusterPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetOSISResourceTagCmdlet : AmazonOSISClientCmdlet, IExecutor
+    public partial class GetMSKClusterPolicyCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
-        #region Parameter Arn
+        #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the pipeline to retrieve tags for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,26 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Arn { get; set; }
+        public System.String ClusterArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OSIS.Model.ListTagsForResourceResponse).
-        /// Specifying the name of a property of type Amazon.OSIS.Model.ListTagsForResourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.GetClusterPolicyResponse).
+        /// Specifying the name of a property of type Amazon.Kafka.Model.GetClusterPolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Tags";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -93,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.OSIS.Model.ListTagsForResourceResponse, GetOSISResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.GetClusterPolicyResponse, GetMSKClusterPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -102,14 +99,14 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Arn;
+                context.Select = (response, cmdlet) => this.ClusterArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Arn = this.Arn;
+            context.ClusterArn = this.ClusterArn;
             #if MODULAR
-            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OSIS.Model.ListTagsForResourceRequest();
+            var request = new Amazon.Kafka.Model.GetClusterPolicyRequest();
             
-            if (cmdletContext.Arn != null)
+            if (cmdletContext.ClusterArn != null)
             {
-                request.Arn = cmdletContext.Arn;
+                request.ClusterArn = cmdletContext.ClusterArn;
             }
             
             CmdletOutput output;
@@ -165,15 +162,15 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         
         #region AWS Service Operation Call
         
-        private Amazon.OSIS.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonOSIS client, Amazon.OSIS.Model.ListTagsForResourceRequest request)
+        private Amazon.Kafka.Model.GetClusterPolicyResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.GetClusterPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Ingestion", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "GetClusterPolicy");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.GetClusterPolicy(request);
                 #elif CORECLR
-                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
+                return client.GetClusterPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Arn { get; set; }
-            public System.Func<Amazon.OSIS.Model.ListTagsForResourceResponse, GetOSISResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Tags;
+            public System.String ClusterArn { get; set; }
+            public System.Func<Amazon.Kafka.Model.GetClusterPolicyResponse, GetMSKClusterPolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

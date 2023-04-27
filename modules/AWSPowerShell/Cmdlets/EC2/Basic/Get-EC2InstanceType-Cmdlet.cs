@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>auto-recovery-supported</code> - Indicates whether auto recovery is supported
-        /// (<code>true</code> | <code>false</code>).</para></li><li><para><code>bare-metal</code> - Indicates whether it is a bare metal instance type (<code>true</code>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>auto-recovery-supported</code> - Indicates whether Amazon CloudWatch action
+        /// based recovery is supported (<code>true</code> | <code>false</code>).</para></li><li><para><code>bare-metal</code> - Indicates whether it is a bare metal instance type (<code>true</code>
         /// | <code>false</code>).</para></li><li><para><code>burstable-performance-supported</code> - Indicates whether it is a burstable
         /// performance instance type (<code>true</code> | <code>false</code>).</para></li><li><para><code>current-generation</code> - Indicates whether this instance type is the latest
         /// generation instance type of an instance family (<code>true</code> | <code>false</code>).</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline

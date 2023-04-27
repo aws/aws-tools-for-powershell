@@ -35,19 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can specify a number of options, or leave the default options. The following rules
     /// apply:
     /// </para><ul><li><para>
-    /// [EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default
-    /// VPC for you. If you don't have a default VPC, you must specify a subnet ID in the
-    /// request.
+    /// If you don't specify a subnet ID, we choose a default subnet from your default VPC
+    /// for you. If you don't have a default VPC, you must specify a subnet ID in the request.
     /// </para></li><li><para>
-    /// [EC2-Classic] If don't specify an Availability Zone, we choose one for you.
-    /// </para></li><li><para>
-    /// Some instance types must be launched into a VPC. If you do not have a default VPC,
-    /// or if you do not specify a subnet ID, the request fails. For more information, see
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance
-    /// types available only in a VPC</a>.
-    /// </para></li><li><para>
-    /// [EC2-VPC] All instances have a network interface with a primary private IPv4 address.
-    /// If you don't specify this address, we choose one from the IPv4 range of your subnet.
+    /// All instances have a network interface with a primary private IPv4 address. If you
+    /// don't specify this address, we choose one from the IPv4 range of your subnet.
     /// </para></li><li><para>
     /// Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
     /// types</a>.
@@ -82,11 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What
     /// to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting
     /// connecting to your instance</a>.
-    /// </para><note><para>
-    /// We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate
-    /// from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.Reservation")]
@@ -519,10 +507,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6AddressCount
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The number of IPv6 addresses to associate with the primary network interface.
-        /// Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify
-        /// this option and the option to assign specific IPv6 addresses in the same request.
-        /// You can specify this option if you've specified a minimum number of instances to launch.</para><para>You cannot specify this option and the network interfaces option in the same request.</para>
+        /// <para>The number of IPv6 addresses to associate with the primary network interface. Amazon
+        /// EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify this
+        /// option and the option to assign specific IPv6 addresses in the same request. You can
+        /// specify this option if you've specified a minimum number of instances to launch.</para><para>You cannot specify this option and the network interfaces option in the same request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -532,9 +520,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Ipv6Address
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the primary
-        /// network interface. You cannot specify this option and the option to assign a number
-        /// of IPv6 addresses in the same request. You cannot specify this option if you've specified
+        /// <para>The IPv6 addresses from the range of the subnet to associate with the primary network
+        /// interface. You cannot specify this option and the option to assign a number of IPv6
+        /// addresses in the same request. You cannot specify this option if you've specified
         /// a minimum number of instances to launch.</para><para>You cannot specify this option and the network interfaces option in the same request.</para>
         /// </para>
         /// </summary>
@@ -670,8 +658,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateIpAddress
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
-        /// range of the subnet.</para><para>Only one private IP address can be designated as primary. You can't specify this option
+        /// <para>The primary IPv4 address. You must specify a value from the IPv4 address range of
+        /// the subnet.</para><para>Only one private IP address can be designated as primary. You can't specify this option
         /// if you've specified the option to designate a private IP address as the primary IP
         /// address in a network interface specification. You cannot specify this option if you're
         /// launching more than one instance in the request.</para><para>You cannot specify this option and the network interfaces option in the same request.</para>
@@ -711,7 +699,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The names of the security groups.</para><para>If you specify a network interface, you must specify any security groups as part of
+        /// <para>[Default VPC] The names of the security groups.</para><para>If you specify a network interface, you must specify any security groups as part of
         /// the network interface.</para><para>Default: Amazon EC2 uses the default security group.</para>
         /// </para>
         /// </summary>
@@ -733,7 +721,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The ID of the subnet to launch the instance into.</para><para>If you specify a network interface, you must specify any subnets as part of the network
+        /// <para>The ID of the subnet to launch the instance into.</para><para>If you specify a network interface, you must specify any subnets as part of the network
         /// interface.</para>
         /// </para>
         /// </summary>
@@ -755,8 +743,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_Tenancy
         /// <summary>
         /// <para>
-        /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
-        /// a tenancy of <code>dedicated</code> runs on single-tenant hardware.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.
+        /// <para>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code>
+        /// runs on single-tenant hardware.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.
         /// The <code>host</code> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
         /// or for T3 instances that are configured for the <code>unlimited</code> CPU credit
         /// option.</para>

@@ -175,6 +175,7 @@ $EMRC_SelectMap = @{
                "Get-EMRCJobTemplate",
                "Get-EMRCManagedEndpoint",
                "Get-EMRCVirtualCluster",
+               "Get-EMRCManagedEndpointSessionCredential",
                "Get-EMRCJobRunList",
                "Get-EMRCJobTemplateList",
                "Get-EMRCManagedEndpointList",

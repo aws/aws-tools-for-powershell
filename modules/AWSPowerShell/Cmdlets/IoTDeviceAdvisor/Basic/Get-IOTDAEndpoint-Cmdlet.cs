@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
     public partial class GetIOTDAEndpointCmdlet : AmazonIoTDeviceAdvisorClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The authentication method used during the device connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTDeviceAdvisor.AuthenticationMethod")]
+        public Amazon.IoTDeviceAdvisor.AuthenticationMethod AuthenticationMethod { get; set; }
+        #endregion
+        
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
@@ -48,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter DeviceRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The device role ARN of the device. This is an optional parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeviceRoleArn { get; set; }
         #endregion
         
         #region Parameter ThingArn
@@ -86,7 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
                 context.Select = CreateSelectDelegate<Amazon.IoTDeviceAdvisor.Model.GetEndpointResponse, GetIOTDAEndpointCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AuthenticationMethod = this.AuthenticationMethod;
             context.CertificateArn = this.CertificateArn;
+            context.DeviceRoleArn = this.DeviceRoleArn;
             context.ThingArn = this.ThingArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -104,9 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             // create request
             var request = new Amazon.IoTDeviceAdvisor.Model.GetEndpointRequest();
             
+            if (cmdletContext.AuthenticationMethod != null)
+            {
+                request.AuthenticationMethod = cmdletContext.AuthenticationMethod;
+            }
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
+            }
+            if (cmdletContext.DeviceRoleArn != null)
+            {
+                request.DeviceRoleArn = cmdletContext.DeviceRoleArn;
             }
             if (cmdletContext.ThingArn != null)
             {
@@ -173,7 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoTDeviceAdvisor.AuthenticationMethod AuthenticationMethod { get; set; }
             public System.String CertificateArn { get; set; }
+            public System.String DeviceRoleArn { get; set; }
             public System.String ThingArn { get; set; }
             public System.Func<Amazon.IoTDeviceAdvisor.Model.GetEndpointResponse, GetIOTDAEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Endpoint;

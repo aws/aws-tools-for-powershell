@@ -28,7 +28,7 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Returns an array of journal export job descriptions for a specified ledger.
+    /// Returns all journal export jobs for a specified ledger.
     /// 
     ///  
     /// <para>

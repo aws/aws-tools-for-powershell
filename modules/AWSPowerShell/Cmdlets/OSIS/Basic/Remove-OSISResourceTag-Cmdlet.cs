@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
     /// <summary>
     /// Removes one or more tags from an OpenSearch Ingestion pipeline. For more information,
     /// see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html">Tagging
-    /// OpenSearch Ingestion pipelines</a>.
+    /// Amazon OpenSearch Ingestion pipelines</a>.
     /// </summary>
     [Cmdlet("Remove", "OSISResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

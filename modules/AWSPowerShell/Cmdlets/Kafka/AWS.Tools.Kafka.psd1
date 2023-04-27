@@ -87,11 +87,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-MSKResourceTag', 
+        'Deny-MSKClientVpcConnection', 
         'Get-MSKBootstrapBroker', 
+        'Get-MSKClientVpcConnectionList', 
         'Get-MSKCluster', 
         'Get-MSKClusterList', 
         'Get-MSKClusterOperation', 
         'Get-MSKClusterOperationList', 
+        'Get-MSKClusterPolicy', 
         'Get-MSKClustersV2List', 
         'Get-MSKClusterV2', 
         'Get-MSKCompatibleKafkaVersion', 
@@ -103,13 +106,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MSKNodeList', 
         'Get-MSKResourceTag', 
         'Get-MSKScramSecretList', 
+        'Get-MSKVpcConnection', 
+        'Get-MSKVpcConnectionList', 
         'New-MSKCluster', 
         'New-MSKClusterV2', 
         'New-MSKConfiguration', 
+        'New-MSKVpcConnection', 
         'Register-MSKAssociateScramSecret', 
         'Remove-MSKCluster', 
+        'Remove-MSKClusterPolicy', 
         'Remove-MSKConfiguration', 
         'Remove-MSKResourceTag', 
+        'Remove-MSKVpcConnection', 
         'Restart-MSKBroker', 
         'Unregister-MSKDisassociateScramSecret', 
         'Update-MSKBrokerCount', 
@@ -121,7 +129,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-MSKConnectivity', 
         'Update-MSKMonitoring', 
         'Update-MSKSecurity', 
-        'Update-MSKStorage')
+        'Update-MSKStorage', 
+        'Write-MSKClusterPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

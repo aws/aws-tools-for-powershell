@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
 {
     /// <summary>
     /// Tags an OpenSearch Ingestion pipeline. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/tag-pipeline.html">Tagging
-    /// OpenSearch Ingestion pipelines</a>.
+    /// Amazon OpenSearch Ingestion pipelines</a>.
     /// </summary>
     [Cmdlet("Add", "OSISResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -53,17 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// can be used.</para></li><li><para><code>duration</code> - The duration of the Reserved Instance (one year or three
         /// years), in seconds (<code>31536000</code> | <code>94608000</code>).</para></li><li><para><code>end</code> - The time when the Reserved Instance expires (for example, 2015-08-07T11:54:42.000Z).</para></li><li><para><code>fixed-price</code> - The purchase price of the Reserved Instance (for example,
         /// 9800.0).</para></li><li><para><code>instance-type</code> - The instance type that is covered by the reservation.</para></li><li><para><code>scope</code> - The scope of the Reserved Instance (<code>Region</code> or <code>Availability
-        /// Zone</code>).</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description.
-        /// Instances that include <code>(Amazon VPC)</code> in the product platform description
-        /// will only be displayed to EC2-Classic account holders and are for use with Amazon
-        /// VPC (<code>Linux/UNIX</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE Linux</code>
-        /// | <code>SUSE Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux</code> | <code>Red
-        /// Hat Enterprise Linux (Amazon VPC)</code> | <code>Red Hat Enterprise Linux with HA
-        /// (Amazon VPC)</code> | <code>Windows</code> | <code>Windows (Amazon VPC)</code> | <code>Windows
-        /// with SQL Server Standard</code> | <code>Windows with SQL Server Standard (Amazon VPC)</code>
-        /// | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Web (Amazon
-        /// VPC)</code> | <code>Windows with SQL Server Enterprise</code> | <code>Windows with
-        /// SQL Server Enterprise (Amazon VPC)</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
+        /// Zone</code>).</para></li><li><para><code>product-description</code> - The Reserved Instance product platform description
+        /// (<code>Linux/UNIX</code> | <code>Linux with SQL Server Standard</code> | <code>Linux
+        /// with SQL Server Web</code> | <code>Linux with SQL Server Enterprise</code> | <code>SUSE
+        /// Linux</code> | <code>Red Hat Enterprise Linux</code> | <code>Red Hat Enterprise Linux
+        /// with HA</code> | <code>Windows</code> | <code>Windows with SQL Server Standard</code>
+        /// | <code>Windows with SQL Server Web</code> | <code>Windows with SQL Server Enterprise</code>).</para></li><li><para><code>reserved-instances-id</code> - The ID of the Reserved Instance.</para></li><li><para><code>start</code> - The time at which the Reserved Instance purchase request was
         /// placed (for example, 2014-08-07T11:54:42.000Z).</para></li><li><para><code>state</code> - The state of the Reserved Instance (<code>payment-pending</code>
         /// | <code>active</code> | <code>payment-failed</code> | <code>retired</code>).</para></li><li><para><code>tag:&lt;key&gt;</code> - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.

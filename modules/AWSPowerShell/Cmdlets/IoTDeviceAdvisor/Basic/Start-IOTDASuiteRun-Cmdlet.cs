@@ -48,12 +48,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter PrimaryDevice_CertificateArn
         /// <summary>
         /// <para>
-        /// <para>Lists devices certificate ARN.</para>
+        /// <para>Lists device's certificate ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SuiteRunConfiguration_PrimaryDevice_CertificateArn")]
         public System.String PrimaryDevice_CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter PrimaryDevice_DeviceRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Lists device's role ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuiteRunConfiguration_PrimaryDevice_DeviceRoleArn")]
+        public System.String PrimaryDevice_DeviceRoleArn { get; set; }
         #endregion
         
         #region Parameter SuiteRunConfiguration_ParallelRun
@@ -117,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
         #region Parameter PrimaryDevice_ThingArn
         /// <summary>
         /// <para>
-        /// <para>Lists devices thing ARN.</para>
+        /// <para>Lists device's thing ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             context.SuiteDefinitionVersion = this.SuiteDefinitionVersion;
             context.SuiteRunConfiguration_ParallelRun = this.SuiteRunConfiguration_ParallelRun;
             context.PrimaryDevice_CertificateArn = this.PrimaryDevice_CertificateArn;
+            context.PrimaryDevice_DeviceRoleArn = this.PrimaryDevice_DeviceRoleArn;
             context.PrimaryDevice_ThingArn = this.PrimaryDevice_ThingArn;
             if (this.SuiteRunConfiguration_SelectedTestList != null)
             {
@@ -271,6 +283,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn != null)
             {
                 requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.CertificateArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_CertificateArn;
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
+            }
+            System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn = null;
+            if (cmdletContext.PrimaryDevice_DeviceRoleArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn = cmdletContext.PrimaryDevice_DeviceRoleArn;
+            }
+            if (requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn != null)
+            {
+                requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice.DeviceRoleArn = requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_DeviceRoleArn;
                 requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDeviceIsNull = false;
             }
             System.String requestSuiteRunConfiguration_suiteRunConfiguration_PrimaryDevice_primaryDevice_ThingArn = null;
@@ -367,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             public System.String SuiteDefinitionVersion { get; set; }
             public System.Boolean? SuiteRunConfiguration_ParallelRun { get; set; }
             public System.String PrimaryDevice_CertificateArn { get; set; }
+            public System.String PrimaryDevice_DeviceRoleArn { get; set; }
             public System.String PrimaryDevice_ThingArn { get; set; }
             public List<System.String> SuiteRunConfiguration_SelectedTestList { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
