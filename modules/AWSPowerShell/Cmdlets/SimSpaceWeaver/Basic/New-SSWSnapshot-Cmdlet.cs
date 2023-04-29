@@ -28,22 +28,65 @@ using Amazon.SimSpaceWeaver.Model;
 namespace Amazon.PowerShell.Cmdlets.SSW
 {
     /// <summary>
-    /// Deletes all SimSpace Weaver resources assigned to the given simulation.
+    /// Creates a snapshot of the specified simulation. A snapshot is a file that contains
+    /// simulation state data at a specific time. The state data saved in a snapshot includes
+    /// entity data from the State Fabric, the simulation configuration specified in the schema,
+    /// and the clock tick number. You can use the snapshot to initialize a new simulation.
+    /// For more information about snapshots, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html">Snapshots</a>
+    /// in the <i>SimSpace Weaver User Guide</i>. 
     /// 
-    ///  <note><para>
-    /// Your simulation uses resources in other Amazon Web Services. This API operation doesn't
-    /// delete resources in other Amazon Web Services.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// You specify a <code>Destination</code> when you create a snapshot. The <code>Destination</code>
+    /// is the name of an Amazon S3 bucket and an optional <code>ObjectKeyPrefix</code>. The
+    /// <code>ObjectKeyPrefix</code> is usually the name of a folder in the bucket. SimSpace
+    /// Weaver creates a <code>snapshot</code> folder inside the <code>Destination</code>
+    /// and places the snapshot file there.
+    /// </para><para>
+    /// The snapshot file is an Amazon S3 object. It has an object key with the form: <code><i>object-key-prefix</i>/snapshot/<i>simulation-name</i>-<i>YYMMdd</i>-<i>HHmm</i>-<i>ss</i>.zip</code>,
+    /// where: 
+    /// </para><ul><li><para><code><i>YY</i></code> is the 2-digit year
+    /// </para></li><li><para><code><i>MM</i></code> is the 2-digit month
+    /// </para></li><li><para><code><i>dd</i></code> is the 2-digit day of the month
+    /// </para></li><li><para><code><i>HH</i></code> is the 2-digit hour (24-hour clock)
+    /// </para></li><li><para><code><i>mm</i></code> is the 2-digit minutes
+    /// </para></li><li><para><code><i>ss</i></code> is the 2-digit seconds
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "SSWSimulation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("New", "SSWSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS SimSpace Weaver DeleteSimulation API operation.", Operation = new[] {"DeleteSimulation"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse))]
-    [AWSCmdletOutput("None or Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse",
+    [AWSCmdlet("Calls the AWS SimSpace Weaver CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"}, SelectReturnType = typeof(Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse))]
+    [AWSCmdletOutput("None or Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSSWSimulationCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
+    public partial class NewSSWSnapshotCmdlet : AmazonSimSpaceWeaverClientCmdlet, IExecutor
     {
+        
+        #region Parameter Destination_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of an Amazon S3 bucket. For more information about buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
+        /// configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage
+        /// Service User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Destination_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter Destination_ObjectKeyPrefix
+        /// <summary>
+        /// <para>
+        /// <para>A string prefix for an Amazon S3 object key. It's usually a folder name. For more
+        /// information about folders in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">Organizing
+        /// objects in the Amazon S3 console using folders</a> in the <i>Amazon Simple Storage
+        /// Service User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Destination_ObjectKeyPrefix { get; set; }
+        #endregion
         
         #region Parameter Simulation
         /// <summary>
@@ -65,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Simulation), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSWSimulation (DeleteSimulation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Destination_BucketName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SSWSnapshot (CreateSnapshot)"))
             {
                 return;
             }
@@ -111,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse, RemoveSSWSimulationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse, NewSSWSnapshotCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,6 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
                 context.Select = (response, cmdlet) => this.Simulation;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Destination_BucketName = this.Destination_BucketName;
+            context.Destination_ObjectKeyPrefix = this.Destination_ObjectKeyPrefix;
             context.Simulation = this.Simulation;
             #if MODULAR
             if (this.Simulation == null && ParameterWasBound(nameof(this.Simulation)))
@@ -144,8 +189,37 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimSpaceWeaver.Model.DeleteSimulationRequest();
+            var request = new Amazon.SimSpaceWeaver.Model.CreateSnapshotRequest();
             
+            
+             // populate Destination
+            var requestDestinationIsNull = true;
+            request.Destination = new Amazon.SimSpaceWeaver.Model.S3Destination();
+            System.String requestDestination_destination_BucketName = null;
+            if (cmdletContext.Destination_BucketName != null)
+            {
+                requestDestination_destination_BucketName = cmdletContext.Destination_BucketName;
+            }
+            if (requestDestination_destination_BucketName != null)
+            {
+                request.Destination.BucketName = requestDestination_destination_BucketName;
+                requestDestinationIsNull = false;
+            }
+            System.String requestDestination_destination_ObjectKeyPrefix = null;
+            if (cmdletContext.Destination_ObjectKeyPrefix != null)
+            {
+                requestDestination_destination_ObjectKeyPrefix = cmdletContext.Destination_ObjectKeyPrefix;
+            }
+            if (requestDestination_destination_ObjectKeyPrefix != null)
+            {
+                request.Destination.ObjectKeyPrefix = requestDestination_destination_ObjectKeyPrefix;
+                requestDestinationIsNull = false;
+            }
+             // determine if request.Destination should be set to null
+            if (requestDestinationIsNull)
+            {
+                request.Destination = null;
+            }
             if (cmdletContext.Simulation != null)
             {
                 request.Simulation = cmdletContext.Simulation;
@@ -183,15 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         
         #region AWS Service Operation Call
         
-        private Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse CallAWSServiceOperation(IAmazonSimSpaceWeaver client, Amazon.SimSpaceWeaver.Model.DeleteSimulationRequest request)
+        private Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse CallAWSServiceOperation(IAmazonSimSpaceWeaver client, Amazon.SimSpaceWeaver.Model.CreateSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SimSpace Weaver", "DeleteSimulation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS SimSpace Weaver", "CreateSnapshot");
             try
             {
                 #if DESKTOP
-                return client.DeleteSimulation(request);
+                return client.CreateSnapshot(request);
                 #elif CORECLR
-                return client.DeleteSimulationAsync(request).GetAwaiter().GetResult();
+                return client.CreateSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -211,8 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Destination_BucketName { get; set; }
+            public System.String Destination_ObjectKeyPrefix { get; set; }
             public System.String Simulation { get; set; }
-            public System.Func<Amazon.SimSpaceWeaver.Model.DeleteSimulationResponse, RemoveSSWSimulationCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.SimSpaceWeaver.Model.CreateSnapshotResponse, NewSSWSnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

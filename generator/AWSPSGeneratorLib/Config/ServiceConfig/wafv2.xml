@@ -93,7 +93,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDecryptedAPIKey" OutputProperty="*" Verb="Get" Noun="DecryptedAPIKey" PipelineParameter="Scope" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDecryptedAPIKey" OutputProperty="*" Verb="Get" Noun="DecryptedAPIKey" PipelineParameter="APIKey" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

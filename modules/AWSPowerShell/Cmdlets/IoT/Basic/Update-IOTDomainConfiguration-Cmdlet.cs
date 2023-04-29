@@ -105,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? RemoveAuthorizerConfig { get; set; }
         #endregion
         
+        #region Parameter TlsConfig_SecurityPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The security policy for a domain configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table">Security
+        /// policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TlsConfig_SecurityPolicy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -178,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #endif
             context.DomainConfigurationStatus = this.DomainConfigurationStatus;
             context.RemoveAuthorizerConfig = this.RemoveAuthorizerConfig;
+            context.TlsConfig_SecurityPolicy = this.TlsConfig_SecurityPolicy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -234,6 +246,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.RemoveAuthorizerConfig != null)
             {
                 request.RemoveAuthorizerConfig = cmdletContext.RemoveAuthorizerConfig.Value;
+            }
+            
+             // populate TlsConfig
+            var requestTlsConfigIsNull = true;
+            request.TlsConfig = new Amazon.IoT.Model.TlsConfig();
+            System.String requestTlsConfig_tlsConfig_SecurityPolicy = null;
+            if (cmdletContext.TlsConfig_SecurityPolicy != null)
+            {
+                requestTlsConfig_tlsConfig_SecurityPolicy = cmdletContext.TlsConfig_SecurityPolicy;
+            }
+            if (requestTlsConfig_tlsConfig_SecurityPolicy != null)
+            {
+                request.TlsConfig.SecurityPolicy = requestTlsConfig_tlsConfig_SecurityPolicy;
+                requestTlsConfigIsNull = false;
+            }
+             // determine if request.TlsConfig should be set to null
+            if (requestTlsConfigIsNull)
+            {
+                request.TlsConfig = null;
             }
             
             CmdletOutput output;
@@ -301,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String DomainConfigurationName { get; set; }
             public Amazon.IoT.DomainConfigurationStatus DomainConfigurationStatus { get; set; }
             public System.Boolean? RemoveAuthorizerConfig { get; set; }
+            public System.String TlsConfig_SecurityPolicy { get; set; }
             public System.Func<Amazon.IoT.Model.UpdateDomainConfigurationResponse, UpdateIOTDomainConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

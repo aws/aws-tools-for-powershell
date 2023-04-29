@@ -28,7 +28,11 @@ using Amazon.SimSpaceWeaver.Model;
 namespace Amazon.PowerShell.Cmdlets.SSW
 {
     /// <summary>
-    /// Starts a simulation with the given name and schema.
+    /// Starts a simulation with the given name. You must choose to start your simulation
+    /// from a schema or from a snapshot. For more information about the schema, see the <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html">schema
+    /// reference</a> in the <i>SimSpace Weaver User Guide</i>. For more information about
+    /// snapshots, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html">Snapshots</a>
+    /// in the <i>SimSpace Weaver User Guide</i>.
     /// </summary>
     [Cmdlet("Start", "SSWSimulation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimSpaceWeaver.Model.StartSimulationResponse")]
@@ -53,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         public System.String SchemaS3Location_BucketName { get; set; }
         #endregion
         
+        #region Parameter SnapshotS3Location_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of an Amazon S3 bucket. For more information about buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
+        /// configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage
+        /// Service User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotS3Location_BucketName { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -66,8 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         #region Parameter MaximumDuration
         /// <summary>
         /// <para>
-        /// <para>The maximum running time of the simulation, specified as a number of months (m or
-        /// M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit.</para>
+        /// <para>The maximum running time of the simulation, specified as a number of minutes (m or
+        /// M), hours (h or H), or days (d or D). The simulation stops when it reaches this limit.
+        /// The maximum value is <code>14D</code>, or its equivalent in the other units. The default
+        /// value is <code>14D</code>. A value equivalent to <code>0</code> makes the simulation
+        /// immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,6 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SchemaS3Location_ObjectKey { get; set; }
+        #endregion
+        
+        #region Parameter SnapshotS3Location_ObjectKey
+        /// <summary>
+        /// <para>
+        /// <para>The key name of an object in Amazon S3. For more information about Amazon S3 objects
+        /// and object keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/uploading-downloading-objects.html">Uploading,
+        /// downloading, and working with objects in Amazon S3</a> in the <i>Amazon Simple Storage
+        /// Service User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnapshotS3Location_ObjectKey { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -230,6 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             #endif
             context.SchemaS3Location_BucketName = this.SchemaS3Location_BucketName;
             context.SchemaS3Location_ObjectKey = this.SchemaS3Location_ObjectKey;
+            context.SnapshotS3Location_BucketName = this.SnapshotS3Location_BucketName;
+            context.SnapshotS3Location_ObjectKey = this.SnapshotS3Location_ObjectKey;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -303,6 +337,35 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             {
                 request.SchemaS3Location = null;
             }
+            
+             // populate SnapshotS3Location
+            var requestSnapshotS3LocationIsNull = true;
+            request.SnapshotS3Location = new Amazon.SimSpaceWeaver.Model.S3Location();
+            System.String requestSnapshotS3Location_snapshotS3Location_BucketName = null;
+            if (cmdletContext.SnapshotS3Location_BucketName != null)
+            {
+                requestSnapshotS3Location_snapshotS3Location_BucketName = cmdletContext.SnapshotS3Location_BucketName;
+            }
+            if (requestSnapshotS3Location_snapshotS3Location_BucketName != null)
+            {
+                request.SnapshotS3Location.BucketName = requestSnapshotS3Location_snapshotS3Location_BucketName;
+                requestSnapshotS3LocationIsNull = false;
+            }
+            System.String requestSnapshotS3Location_snapshotS3Location_ObjectKey = null;
+            if (cmdletContext.SnapshotS3Location_ObjectKey != null)
+            {
+                requestSnapshotS3Location_snapshotS3Location_ObjectKey = cmdletContext.SnapshotS3Location_ObjectKey;
+            }
+            if (requestSnapshotS3Location_snapshotS3Location_ObjectKey != null)
+            {
+                request.SnapshotS3Location.ObjectKey = requestSnapshotS3Location_snapshotS3Location_ObjectKey;
+                requestSnapshotS3LocationIsNull = false;
+            }
+             // determine if request.SnapshotS3Location should be set to null
+            if (requestSnapshotS3LocationIsNull)
+            {
+                request.SnapshotS3Location = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -375,6 +438,8 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             public System.String RoleArn { get; set; }
             public System.String SchemaS3Location_BucketName { get; set; }
             public System.String SchemaS3Location_ObjectKey { get; set; }
+            public System.String SnapshotS3Location_BucketName { get; set; }
+            public System.String SnapshotS3Location_ObjectKey { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SimSpaceWeaver.Model.StartSimulationResponse, StartSSWSimulationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

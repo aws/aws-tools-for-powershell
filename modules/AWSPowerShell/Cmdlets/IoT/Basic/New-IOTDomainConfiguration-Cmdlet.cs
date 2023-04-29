@@ -93,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter TlsConfig_SecurityPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The security policy for a domain configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html#tls-policy-table">Security
+        /// policies </a> in the <i>Amazon Web Services IoT Core developer guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TlsConfig_SecurityPolicy { get; set; }
+        #endregion
+        
         #region Parameter ServerCertificateArn
         /// <summary>
         /// <para>
@@ -222,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
             }
+            context.TlsConfig_SecurityPolicy = this.TlsConfig_SecurityPolicy;
             context.ValidationCertificateArn = this.ValidationCertificateArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -287,6 +299,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TlsConfig
+            var requestTlsConfigIsNull = true;
+            request.TlsConfig = new Amazon.IoT.Model.TlsConfig();
+            System.String requestTlsConfig_tlsConfig_SecurityPolicy = null;
+            if (cmdletContext.TlsConfig_SecurityPolicy != null)
+            {
+                requestTlsConfig_tlsConfig_SecurityPolicy = cmdletContext.TlsConfig_SecurityPolicy;
+            }
+            if (requestTlsConfig_tlsConfig_SecurityPolicy != null)
+            {
+                request.TlsConfig.SecurityPolicy = requestTlsConfig_tlsConfig_SecurityPolicy;
+                requestTlsConfigIsNull = false;
+            }
+             // determine if request.TlsConfig should be set to null
+            if (requestTlsConfigIsNull)
+            {
+                request.TlsConfig = null;
             }
             if (cmdletContext.ValidationCertificateArn != null)
             {
@@ -360,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<System.String> ServerCertificateArn { get; set; }
             public Amazon.IoT.ServiceType ServiceType { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
+            public System.String TlsConfig_SecurityPolicy { get; set; }
             public System.String ValidationCertificateArn { get; set; }
             public System.Func<Amazon.IoT.Model.CreateDomainConfigurationResponse, NewIOTDomainConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

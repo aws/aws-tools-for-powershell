@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The number of DPUs to use for the coordinator. A coordinator is a special executor
-        /// that orchestrates processing work and manages other executors in a notebook session.</para>
+        /// that orchestrates processing work and manages other executors in a notebook session.
+        /// The default is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The default number of DPUs to use for executors. An executor is the smallest unit
-        /// of compute that a notebook session can request from Athena.</para>
+        /// of compute that a notebook session can request from Athena. The default is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

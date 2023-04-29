@@ -28,17 +28,18 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Creates an API key for use in the integration of the CAPTCHA API in your JavaScript
-    /// client applications. The integration lets you customize the placement and characteristics
-    /// of the CAPTCHA puzzle for your end users. For more information about the CAPTCHA JavaScript
-    /// integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
-    /// client application integration</a> in the <i>WAF Developer Guide</i>.
+    /// Creates an API key that contains a set of token domains.
     /// 
     ///  
     /// <para>
-    /// The CAPTCHA API requires a key that authorizes CAPTCHA use from the client application
-    /// domain. You can use a single key for up to 5 domains. After you generate a key, you
-    /// can copy it for use in your JavaScript integration. 
+    /// API keys are required for the integration of the CAPTCHA API in your JavaScript client
+    /// applications. The API lets you customize the placement and characteristics of the
+    /// CAPTCHA puzzle for your end users. For more information about the CAPTCHA JavaScript
+    /// integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+    /// client application integration</a> in the <i>WAF Developer Guide</i>.
+    /// </para><para>
+    /// You can use a single key for up to 5 domains. After you generate a key, you can copy
+    /// it for use in your JavaScript integration. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "WAF2APIKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
@@ -76,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter TokenDomain
         /// <summary>
         /// <para>
-        /// <para>The client application domains that you want to use this API key for. </para>
+        /// <para>The client application domains that you want to use this API key for. </para><para>Example JSON: <code>"TokenDomains": ["abc.com", "store.abc.com"]</code></para><para>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or
+        /// <code>co.uk</code> as token domains.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

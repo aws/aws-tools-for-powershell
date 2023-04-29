@@ -28,7 +28,16 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Retrieves a list of the API keys that you've defined for the specified scope.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of the API keys that you've defined for the specified scope. 
+    /// 
+    ///  
+    /// <para>
+    /// API keys are required for the integration of the CAPTCHA API in your JavaScript client
+    /// applications. The API lets you customize the placement and characteristics of the
+    /// CAPTCHA puzzle for your end users. For more information about the CAPTCHA JavaScript
+    /// integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+    /// client application integration</a> in the <i>WAF Developer Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WAF2APIKeyList")]
     [OutputType("Amazon.WAFV2.Model.ListAPIKeysResponse")]
@@ -45,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SSWResourceTag', 
         'Get-SSWSimulation', 
         'Get-SSWSimulationList', 
+        'New-SSWSnapshot', 
         'Remove-SSWApp', 
         'Remove-SSWResourceTag', 
         'Remove-SSWSimulation', 

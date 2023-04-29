@@ -81,12 +81,13 @@ namespace Amazon.PowerShell.Cmdlets.SSW
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If SimSpace Weaver returns <code>nextToken</code>, there are more results available.
+        /// <para>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
         /// The value of <code>nextToken</code> is a unique pagination token for each page. To
         /// retrieve the next page, call the operation again using the returned token. Keep all
-        /// other arguments unchanged. If no results remain, <code>nextToken</code> is set to
-        /// <code>null</code>. Each pagination token expires after 24 hours. If you provide a
-        /// token that isn't valid, you receive an <i>HTTP 400 ValidationException</i> error.</para>
+        /// other arguments unchanged. If no results remain, then <code>nextToken</code> is set
+        /// to <code>null</code>. Each pagination token expires after 24 hours. If you provide
+        /// a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

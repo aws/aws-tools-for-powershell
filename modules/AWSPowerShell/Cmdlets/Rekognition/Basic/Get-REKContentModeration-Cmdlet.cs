@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.REK
     public partial class GetREKContentModerationCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
+        #region Parameter AggregateBy
+        /// <summary>
+        /// <para>
+        /// <para>Defines how to aggregate results of the StartContentModeration request. Default aggregation
+        /// option is TIMESTAMPS. SEGMENTS mode aggregates moderation labels over time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Rekognition.ContentModerationAggregateBy")]
+        public Amazon.Rekognition.ContentModerationAggregateBy AggregateBy { get; set; }
+        #endregion
+        
         #region Parameter JobId
         /// <summary>
         /// <para>
@@ -175,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.GetContentModerationResponse, GetREKContentModerationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AggregateBy = this.AggregateBy;
             context.JobId = this.JobId;
             #if MODULAR
             if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
@@ -204,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request and set iteration invariants
             var request = new Amazon.Rekognition.Model.GetContentModerationRequest();
             
+            if (cmdletContext.AggregateBy != null)
+            {
+                request.AggregateBy = cmdletContext.AggregateBy;
+            }
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
@@ -270,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // create request
             var request = new Amazon.Rekognition.Model.GetContentModerationRequest();
             
+            if (cmdletContext.AggregateBy != null)
+            {
+                request.AggregateBy = cmdletContext.AggregateBy;
+            }
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
@@ -348,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Rekognition.ContentModerationAggregateBy AggregateBy { get; set; }
             public System.String JobId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Adds one or more tags to an Athena resource. A tag is a label that you assign to a
-    /// resource. In Athena, a resource can be a workgroup or data catalog. Each tag consists
-    /// of a key and an optional value, both of which you define. For example, you can use
-    /// tags to categorize Athena workgroups or data catalogs by purpose, owner, or environment.
-    /// Use a consistent set of tag keys to make it easier to search and filter workgroups
-    /// or data catalogs in your account. For best practices, see <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
+    /// resource. Each tag consists of a key and an optional value, both of which you define.
+    /// For example, you can use tags to categorize Athena workgroups, data catalogs, or capacity
+    /// reservations by purpose, owner, or environment. Use a consistent set of tag keys to
+    /// make it easier to search and filter the resources in your account. For best practices,
+    /// see <a href="https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html">Tagging
     /// Best Practices</a>. Tag keys can be from 1 to 128 UTF-8 Unicode characters, and tag
     /// values can be from 0 to 256 UTF-8 Unicode characters. Tags can use letters and numbers
     /// representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and
@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the Athena resource (workgroup or data catalog) to which tags
-        /// are to be added.</para>
+        /// <para>Specifies the ARN of the Athena resource to which tags are to be added.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A collection of one or more tags, separated by commas, to be added to an Athena workgroup
-        /// or data catalog resource.</para>
+        /// <para>A collection of one or more tags, separated by commas, to be added to an Athena resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -22,28 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WAFV2;
-using Amazon.WAFV2.Model;
+using Amazon.Athena;
+using Amazon.Athena.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WAF2
+namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Retrieves the specified <a>WebACL</a>.
+    /// Returns information about the capacity reservation with the specified name.
     /// </summary>
-    [Cmdlet("Get", "WAF2WebACL")]
-    [OutputType("Amazon.WAFV2.Model.GetWebACLResponse")]
-    [AWSCmdlet("Calls the AWS WAF V2 GetWebACL API operation.", Operation = new[] {"GetWebACL"}, SelectReturnType = typeof(Amazon.WAFV2.Model.GetWebACLResponse))]
-    [AWSCmdletOutput("Amazon.WAFV2.Model.GetWebACLResponse",
-        "This cmdlet returns an Amazon.WAFV2.Model.GetWebACLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ATHCapacityReservation")]
+    [OutputType("Amazon.Athena.Model.CapacityReservation")]
+    [AWSCmdlet("Calls the Amazon Athena GetCapacityReservation API operation.", Operation = new[] {"GetCapacityReservation"}, SelectReturnType = typeof(Amazon.Athena.Model.GetCapacityReservationResponse))]
+    [AWSCmdletOutput("Amazon.Athena.Model.CapacityReservation or Amazon.Athena.Model.GetCapacityReservationResponse",
+        "This cmdlet returns an Amazon.Athena.Model.CapacityReservation object.",
+        "The service call response (type Amazon.Athena.Model.GetCapacityReservationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWAF2WebACLCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
+    public partial class GetATHCapacityReservationCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
-        #region Parameter Id
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the web ACL. This ID is returned in the responses to create
-        /// and list commands. You provide it to operations like update and delete.</para>
+        /// <para>The name of the capacity reservation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -54,66 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Id { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the web ACL. You cannot change the name of a web ACL after you create
-        /// it.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter Scope
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
-        /// application. A regional application can be an Application Load Balancer (ALB), an
-        /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
-        /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.WAFV2.Scope")]
-        public Amazon.WAFV2.Scope Scope { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.GetWebACLResponse).
-        /// Specifying the name of a property of type Amazon.WAFV2.Model.GetWebACLResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CapacityReservation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.GetCapacityReservationResponse).
+        /// Specifying the name of a property of type Amazon.Athena.Model.GetCapacityReservationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "CapacityReservation";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -131,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.GetWebACLResponse, GetWAF2WebACLCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Athena.Model.GetCapacityReservationResponse, GetATHCapacityReservationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -140,28 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Id;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Scope = this.Scope;
-            #if MODULAR
-            if (this.Scope == null && ParameterWasBound(nameof(this.Scope)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Scope which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,19 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WAFV2.Model.GetWebACLRequest();
+            var request = new Amazon.Athena.Model.GetCapacityReservationRequest();
             
-            if (cmdletContext.Id != null)
-            {
-                request.Id = cmdletContext.Id;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.Scope != null)
-            {
-                request.Scope = cmdletContext.Scope;
             }
             
             CmdletOutput output;
@@ -225,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region AWS Service Operation Call
         
-        private Amazon.WAFV2.Model.GetWebACLResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.GetWebACLRequest request)
+        private Amazon.Athena.Model.GetCapacityReservationResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.GetCapacityReservationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "GetWebACL");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "GetCapacityReservation");
             try
             {
                 #if DESKTOP
-                return client.GetWebACL(request);
+                return client.GetCapacityReservation(request);
                 #elif CORECLR
-                return client.GetWebACLAsync(request).GetAwaiter().GetResult();
+                return client.GetCapacityReservationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -253,11 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Id { get; set; }
             public System.String Name { get; set; }
-            public Amazon.WAFV2.Scope Scope { get; set; }
-            public System.Func<Amazon.WAFV2.Model.GetWebACLResponse, GetWAF2WebACLCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Athena.Model.GetCapacityReservationResponse, GetATHCapacityReservationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CapacityReservation;
         }
         
     }

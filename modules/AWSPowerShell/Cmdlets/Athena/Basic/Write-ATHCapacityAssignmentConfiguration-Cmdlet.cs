@@ -28,40 +28,24 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Removes one or more tags from an Athena resource.
+    /// Puts a new capacity assignment configuration for a specified capacity reservation.
+    /// If a capacity assignment configuration already exists for the capacity reservation,
+    /// replaces the existing capacity assignment configuration.
     /// </summary>
-    [Cmdlet("Remove", "ATHResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Write", "ATHCapacityAssignmentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Athena UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Athena.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Athena.Model.UntagResourceResponse",
+    [AWSCmdlet("Calls the Amazon Athena PutCapacityAssignmentConfiguration API operation.", Operation = new[] {"PutCapacityAssignmentConfiguration"}, SelectReturnType = typeof(Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Athena.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveATHResourceTagCmdlet : AmazonAthenaClientCmdlet, IExecutor
+    public partial class WriteATHCapacityAssignmentConfigurationCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceARN
+        #region Parameter CapacityAssignment
         /// <summary>
         /// <para>
-        /// <para>Specifies the ARN of the resource from which tags are to be removed.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>A comma-separated list of one or more tag keys whose tags are to be removed from the
-        /// specified resource.</para>
+        /// <para>The list of assignments for the capacity assignment configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,14 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("CapacityAssignments")]
+        public Amazon.Athena.Model.CapacityAssignment[] CapacityAssignment { get; set; }
+        #endregion
+        
+        #region Parameter CapacityReservationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the capacity reservation to put a capacity assignment configuration for.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CapacityReservationName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.UntagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CapacityReservationName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CapacityReservationName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CapacityReservationName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ATHResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CapacityReservationName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-ATHCapacityAssignmentConfiguration (PutCapacityAssignmentConfiguration)"))
             {
                 return;
             }
@@ -125,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Athena.Model.UntagResourceResponse, RemoveATHResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse, WriteATHCapacityAssignmentConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,24 +135,24 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.CapacityReservationName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
-            #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.CapacityAssignment != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.CapacityAssignment = new List<Amazon.Athena.Model.CapacityAssignment>(this.CapacityAssignment);
+            }
+            #if MODULAR
+            if (this.CapacityAssignment == null && ParameterWasBound(nameof(this.CapacityAssignment)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CapacityAssignment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.CapacityReservationName = this.CapacityReservationName;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.CapacityReservationName == null && ParameterWasBound(nameof(this.CapacityReservationName)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CapacityReservationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -168,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Athena.Model.UntagResourceRequest();
+            var request = new Amazon.Athena.Model.PutCapacityAssignmentConfigurationRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.CapacityAssignment != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.CapacityAssignments = cmdletContext.CapacityAssignment;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.CapacityReservationName != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.CapacityReservationName = cmdletContext.CapacityReservationName;
             }
             
             CmdletOutput output;
@@ -211,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #region AWS Service Operation Call
         
-        private Amazon.Athena.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.UntagResourceRequest request)
+        private Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.PutCapacityAssignmentConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "PutCapacityAssignmentConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.PutCapacityAssignmentConfiguration(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.PutCapacityAssignmentConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,9 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.Athena.Model.UntagResourceResponse, RemoveATHResourceTagCmdlet, object> Select { get; set; } =
+            public List<Amazon.Athena.Model.CapacityAssignment> CapacityAssignment { get; set; }
+            public System.String CapacityReservationName { get; set; }
+            public System.Func<Amazon.Athena.Model.PutCapacityAssignmentConfigurationResponse, WriteATHCapacityAssignmentConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

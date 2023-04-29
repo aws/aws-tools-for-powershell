@@ -1441,6 +1441,10 @@ Set-Alias -Name ATH-BatchGetPreparedStatement -Value Get-ATHBatchPreparedStateme
 Set-Alias -Name Batch-ATHGetQueryExecution -Value Get-ATHQueryExecutionBatch
 Set-Alias -Name Batch-ATHQueryExecutionBatch -Value Get-ATHQueryExecutionBatch
 Set-Alias -Name ATH-BatchGetQueryExecution -Value Get-ATHQueryExecutionBatch
+Set-Alias -Name Cancel-ATHCapacityReservation -Value Stop-ATHCapacityReservation
+Set-Alias -Name ATH-CancelCapacityReservation -Value Stop-ATHCapacityReservation
+Set-Alias -Name Create-ATHCapacityReservation -Value New-ATHCapacityReservation
+Set-Alias -Name ATH-CreateCapacityReservation -Value New-ATHCapacityReservation
 Set-Alias -Name Create-ATHDataCatalog -Value New-ATHDataCatalog
 Set-Alias -Name ATH-CreateDataCatalog -Value New-ATHDataCatalog
 Set-Alias -Name Create-ATHNamedQuery -Value New-ATHNamedQuery
@@ -1467,6 +1471,8 @@ Set-Alias -Name ATH-ExportNotebook -Value Export-ATHNotebook
 Set-Alias -Name ATH-GetCalculationExecution -Value Get-ATHCalculationExecution
 Set-Alias -Name ATH-GetCalculationExecutionCode -Value Get-ATHCalculationExecutionCode
 Set-Alias -Name ATH-GetCalculationExecutionStatus -Value Get-ATHCalculationExecutionStatus
+Set-Alias -Name ATH-GetCapacityAssignmentConfiguration -Value Get-ATHCapacityAssignmentConfiguration
+Set-Alias -Name ATH-GetCapacityReservation -Value Get-ATHCapacityReservation
 Set-Alias -Name ATH-GetDatabase -Value Get-ATHDatabase
 Set-Alias -Name ATH-GetDataCatalog -Value Get-ATHDataCatalog
 Set-Alias -Name ATH-GetNamedQuery -Value Get-ATHNamedQuery
@@ -1488,6 +1494,9 @@ Set-Alias -Name ATH-ListApplicationDPUSizes -Value Get-ATHApplicationDPUSizeList
 Set-Alias -Name List-ATHCalculationExecutions -Value Get-ATHCalculationExecutionList
 Set-Alias -Name List-ATHCalculationExecutionList -Value Get-ATHCalculationExecutionList
 Set-Alias -Name ATH-ListCalculationExecutions -Value Get-ATHCalculationExecutionList
+Set-Alias -Name List-ATHCapacityReservations -Value Get-ATHCapacityReservationList
+Set-Alias -Name List-ATHCapacityReservationList -Value Get-ATHCapacityReservationList
+Set-Alias -Name ATH-ListCapacityReservations -Value Get-ATHCapacityReservationList
 Set-Alias -Name List-ATHDatabases -Value Get-ATHDatabasisList
 Set-Alias -Name List-ATHDatabasisList -Value Get-ATHDatabasisList
 Set-Alias -Name ATH-ListDatabases -Value Get-ATHDatabasisList
@@ -1525,6 +1534,8 @@ Set-Alias -Name ATH-ListTagsForResource -Value Get-ATHResourceTag
 Set-Alias -Name List-ATHWorkGroups -Value Get-ATHWorkGroupList
 Set-Alias -Name List-ATHWorkGroupList -Value Get-ATHWorkGroupList
 Set-Alias -Name ATH-ListWorkGroups -Value Get-ATHWorkGroupList
+Set-Alias -Name Put-ATHCapacityAssignmentConfiguration -Value Write-ATHCapacityAssignmentConfiguration
+Set-Alias -Name ATH-PutCapacityAssignmentConfiguration -Value Write-ATHCapacityAssignmentConfiguration
 Set-Alias -Name ATH-StartCalculationExecution -Value Start-ATHCalculationExecution
 Set-Alias -Name ATH-StartQueryExecution -Value Start-ATHQueryExecution
 Set-Alias -Name ATH-StartSession -Value Start-ATHSession
@@ -1534,6 +1545,7 @@ Set-Alias -Name ATH-TagResource -Value Add-ATHResourceTag
 Set-Alias -Name Terminate-ATHSession -Value Remove-ATHSession
 Set-Alias -Name ATH-TerminateSession -Value Remove-ATHSession
 Set-Alias -Name ATH-UntagResource -Value Remove-ATHResourceTag
+Set-Alias -Name ATH-UpdateCapacityReservation -Value Update-ATHCapacityReservation
 Set-Alias -Name ATH-UpdateDataCatalog -Value Update-ATHDataCatalog
 Set-Alias -Name ATH-UpdateNamedQuery -Value Update-ATHNamedQuery
 Set-Alias -Name ATH-UpdateNotebook -Value Update-ATHNotebook
@@ -22855,6 +22867,8 @@ Set-Alias -Name Update-SHLDEmergencyContactSettings -Value Update-SHLDEmergencyC
 Set-Alias -Name SHLD-UpdateEmergencyContactSettings -Value Update-SHLDEmergencyContactSetting
 Set-Alias -Name SHLD-UpdateProtectionGroup -Value Update-SHLDProtectionGroup
 Set-Alias -Name SHLD-UpdateSubscription -Value Update-SHLDSubscription
+Set-Alias -Name Create-SSWSnapshot -Value New-SSWSnapshot
+Set-Alias -Name SSW-CreateSnapshot -Value New-SSWSnapshot
 Set-Alias -Name Delete-SSWApp -Value Remove-SSWApp
 Set-Alias -Name SSW-DeleteApp -Value Remove-SSWApp
 Set-Alias -Name Delete-SSWSimulation -Value Remove-SSWSimulation

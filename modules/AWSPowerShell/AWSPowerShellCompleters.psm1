@@ -4112,6 +4112,8 @@ $ATH_SelectMap = @{
     "Select"=@("Get-ATHNamedQueryBatch",
                "Get-ATHBatchPreparedStatement",
                "Get-ATHQueryExecutionBatch",
+               "Stop-ATHCapacityReservation",
+               "New-ATHCapacityReservation",
                "New-ATHDataCatalog",
                "New-ATHNamedQuery",
                "New-ATHNotebook",
@@ -4127,6 +4129,8 @@ $ATH_SelectMap = @{
                "Get-ATHCalculationExecution",
                "Get-ATHCalculationExecutionCode",
                "Get-ATHCalculationExecutionStatus",
+               "Get-ATHCapacityAssignmentConfiguration",
+               "Get-ATHCapacityReservation",
                "Get-ATHDatabase",
                "Get-ATHDataCatalog",
                "Get-ATHNamedQuery",
@@ -4142,6 +4146,7 @@ $ATH_SelectMap = @{
                "Import-ATHNotebook",
                "Get-ATHApplicationDPUSizeList",
                "Get-ATHCalculationExecutionList",
+               "Get-ATHCapacityReservationList",
                "Get-ATHDatabasisList",
                "Get-ATHDataCatalogList",
                "Get-ATHEngineVersionList",
@@ -4155,6 +4160,7 @@ $ATH_SelectMap = @{
                "Get-ATHTableMetadataList",
                "Get-ATHResourceTag",
                "Get-ATHWorkGroupList",
+               "Write-ATHCapacityAssignmentConfiguration",
                "Start-ATHCalculationExecution",
                "Start-ATHQueryExecution",
                "Start-ATHSession",
@@ -4163,6 +4169,7 @@ $ATH_SelectMap = @{
                "Add-ATHResourceTag",
                "Remove-ATHSession",
                "Remove-ATHResourceTag",
+               "Update-ATHCapacityReservation",
                "Update-ATHDataCatalog",
                "Update-ATHNamedQuery",
                "Update-ATHNotebook",
@@ -46295,6 +46302,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.ContentModerationAggregateBy
+        "Get-REKContentModeration/AggregateBy"
+        {
+            $v = "SEGMENTS","TIMESTAMPS"
+            break
+        }
+
         # Amazon.Rekognition.ContentModerationSortBy
         "Get-REKContentModeration/SortBy"
         {
@@ -46364,7 +46378,7 @@ $REK_Completers = {
 }
 
 $REK_map = @{
-    "AggregateBy"=@("Get-REKLabelDetection")
+    "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")
@@ -53488,7 +53502,8 @@ $SSW_SelectCompleters = {
 }
 
 $SSW_SelectMap = @{
-    "Select"=@("Remove-SSWApp",
+    "Select"=@("New-SSWSnapshot",
+               "Remove-SSWApp",
                "Remove-SSWSimulation",
                "Get-SSWApp",
                "Get-SSWSimulation",
@@ -58026,7 +58041,7 @@ $WAF2_Completers = {
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
-            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL"
+            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC","APP_RUNNER_SERVICE","COGNITO_USER_POOL","VERIFIED_ACCESS_INSTANCE"
             break
         }
 

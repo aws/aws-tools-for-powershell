@@ -103,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter DocumentSource
         /// <summary>
         /// <para>
-        /// <para>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</para><note><para>If the job document resides in an S3 bucket, you must use a placeholder link when
-        /// specifying the document.</para><para>The placeholder link is of the following form:</para><para><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></para><para>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket
-        /// to which you are linking.</para></note>
+        /// <para>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object
+        /// URL and is required if you don't specify a value for <code>document</code>.</para><para>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods
+        /// for accessing a bucket</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,9 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter PresignedUrlConfig_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role that grants grants permission to download files from the S3
-        /// bucket where the job data/updates are stored. The role must also grant permission
-        /// for IoT to download the files.</para><important><para>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
+        /// <para>The ARN of an IAM role that grants permission to download files from the S3 bucket
+        /// where the job data/updates are stored. The role must also grant permission for IoT
+        /// to download the files.</para><important><para>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
         /// confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</para></important>
         /// </para>
         /// </summary>

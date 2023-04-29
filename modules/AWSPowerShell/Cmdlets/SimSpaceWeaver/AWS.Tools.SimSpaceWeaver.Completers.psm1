@@ -123,7 +123,8 @@ $SSW_SelectCompleters = {
 }
 
 $SSW_SelectMap = @{
-    "Select"=@("Remove-SSWApp",
+    "Select"=@("New-SSWSnapshot",
+               "Remove-SSWApp",
                "Remove-SSWSimulation",
                "Get-SSWApp",
                "Get-SSWSimulation",

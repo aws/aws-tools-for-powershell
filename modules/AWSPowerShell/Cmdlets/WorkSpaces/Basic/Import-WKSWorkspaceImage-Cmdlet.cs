@@ -28,10 +28,10 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon WorkSpaces.
-    /// The image must be an already licensed Amazon EC2 image that is in your Amazon Web
-    /// Services account, and you must own the image. For more information about creating
-    /// BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+    /// Imports the specified Windows 10 or 11 Bring Your Own License (BYOL) image into Amazon
+    /// WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your
+    /// Amazon Web Services account, and you must own the image. For more information about
+    /// creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
     /// Bring Your Own Windows Desktop Licenses</a>.
     /// </summary>
     [Cmdlet("Import", "WKSWorkspaceImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows
-        /// 10 BYOL images. For more information about subscribing to Office for BYOL images,
+        /// 10 and 11 BYOL images. For more information about subscribing to Office for BYOL images,
         /// see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
-        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><para>Although this parameter is an array, only one item is allowed at this time.</para></note>
+        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><ul><li><para>Although this parameter is an array, only one item is allowed at this time.</para></li><li><para>Windows 11 only supports <code>Microsoft_Office_2019</code>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

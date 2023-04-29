@@ -1,4 +1,27 @@
-﻿### 4.1.322 (2023-04-27 21:10Z)
+﻿### 4.1.323 (2023-04-28 23:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.536.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Athena
+    * Added cmdlet Get-ATHCapacityAssignmentConfiguration leveraging the GetCapacityAssignmentConfiguration service API.
+    * Added cmdlet Get-ATHCapacityReservation leveraging the GetCapacityReservation service API.
+    * Added cmdlet Get-ATHCapacityReservationList leveraging the ListCapacityReservations service API.
+    * Added cmdlet New-ATHCapacityReservation leveraging the CreateCapacityReservation service API.
+    * Added cmdlet Stop-ATHCapacityReservation leveraging the CancelCapacityReservation service API.
+    * Added cmdlet Update-ATHCapacityReservation leveraging the UpdateCapacityReservation service API.
+    * Added cmdlet Write-ATHCapacityAssignmentConfiguration leveraging the PutCapacityAssignmentConfiguration service API.
+  * Amazon IoT
+    * Modified cmdlet New-IOTDomainConfiguration: added parameter TlsConfig_SecurityPolicy.
+    * Modified cmdlet Update-IOTDomainConfiguration: added parameter TlsConfig_SecurityPolicy.
+  * Amazon Managed Grafana
+    * Modified cmdlet New-MGRFWorkspace: added parameter GrafanaVersion.
+  * Amazon Rekognition
+    * Modified cmdlet Get-REKContentModeration: added parameter AggregateBy.
+  * Amazon SimSpace Weaver
+    * Added cmdlet New-SSWSnapshot leveraging the CreateSnapshot service API.
+    * Modified cmdlet Start-SSWSimulation: added parameters SnapshotS3Location_BucketName and SnapshotS3Location_ObjectKey.
+  * Amazon WAF V2
+    * [Breaking Change] Modified cmdlet Get-WAF2DecryptedAPIKey: parameter Scope doesn't support pipeline ByValue anymore; parameter Scope cannot be used positionally anymore.
+
+### 4.1.322 (2023-04-27 21:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.535.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon EMR Containers
     * Added cmdlet Get-EMRCManagedEndpointSessionCredential leveraging the GetManagedEndpointSessionCredentials service API.

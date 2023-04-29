@@ -29,7 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
     /// Returns your API key in decrypted form. Use this to check the token domains that you
-    /// have defined for the key.
+    /// have defined for the key. 
+    /// 
+    ///  
+    /// <para>
+    /// API keys are required for the integration of the CAPTCHA API in your JavaScript client
+    /// applications. The API lets you customize the placement and characteristics of the
+    /// CAPTCHA puzzle for your end users. For more information about the CAPTCHA JavaScript
+    /// integration, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF
+    /// client application integration</a> in the <i>WAF Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "WAF2DecryptedAPIKey")]
     [OutputType("Amazon.WAFV2.Model.GetDecryptedAPIKeyResponse")]
@@ -47,9 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -63,15 +72,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>Specifies whether this is for an Amazon CloudFront distribution or for a regional
         /// application. A regional application can be an Application Load Balancer (ALB), an
         /// Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool,
-        /// or an App Runner service. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// an App Runner service, or an Amazon Web Services Verified Access instance. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
@@ -92,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Scope parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the APIKey parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^APIKey' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Scope' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^APIKey' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Scope;
+                context.Select = (response, cmdlet) => this.APIKey;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.APIKey = this.APIKey;

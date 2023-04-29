@@ -94,6 +94,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHCalculationExecutionCode', 
         'Get-ATHCalculationExecutionList', 
         'Get-ATHCalculationExecutionStatus', 
+        'Get-ATHCapacityAssignmentConfiguration', 
+        'Get-ATHCapacityReservation', 
+        'Get-ATHCapacityReservationList', 
         'Get-ATHDatabase', 
         'Get-ATHDatabasisList', 
         'Get-ATHDataCatalog', 
@@ -122,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHWorkGroup', 
         'Get-ATHWorkGroupList', 
         'Import-ATHNotebook', 
+        'New-ATHCapacityReservation', 
         'New-ATHDataCatalog', 
         'New-ATHNamedQuery', 
         'New-ATHNotebook', 
@@ -139,13 +143,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-ATHQueryExecution', 
         'Start-ATHSession', 
         'Stop-ATHCalculationExecution', 
+        'Stop-ATHCapacityReservation', 
         'Stop-ATHQueryExecution', 
+        'Update-ATHCapacityReservation', 
         'Update-ATHDataCatalog', 
         'Update-ATHNamedQuery', 
         'Update-ATHNotebook', 
         'Update-ATHNotebookMetadata', 
         'Update-ATHPreparedStatement', 
-        'Update-ATHWorkGroup')
+        'Update-ATHWorkGroup', 
+        'Write-ATHCapacityAssignmentConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

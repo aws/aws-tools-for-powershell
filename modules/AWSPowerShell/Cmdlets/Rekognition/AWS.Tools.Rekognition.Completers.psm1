@@ -87,6 +87,13 @@ $REK_Completers = {
             break
         }
 
+        # Amazon.Rekognition.ContentModerationAggregateBy
+        "Get-REKContentModeration/AggregateBy"
+        {
+            $v = "SEGMENTS","TIMESTAMPS"
+            break
+        }
+
         # Amazon.Rekognition.ContentModerationSortBy
         "Get-REKContentModeration/SortBy"
         {
@@ -156,7 +163,7 @@ $REK_Completers = {
 }
 
 $REK_map = @{
-    "AggregateBy"=@("Get-REKLabelDetection")
+    "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
     "DatasetType"=@("New-REKDataset")
     "FaceAttributes"=@("Start-REKFaceDetection")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")

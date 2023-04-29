@@ -31,6 +31,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelCapacityReservation" Verb="Stop" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityReservation" Verb="New" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataCatalog" Verb="New" Noun="DataCatalog" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +96,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCalculationExecutionStatus" OutputProperty="*" Verb="Get" Noun="CalculationExecutionStatus" PipelineParameter="CalculationExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityAssignmentConfiguration" OutputProperty="CapacityAssignmentConfiguration" Verb="Get" Noun="CapacityAssignmentConfiguration" PipelineParameter="CapacityReservationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityReservation" OutputProperty="CapacityReservation" Verb="Get" Noun="CapacityReservation" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +167,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabasisList" PipelineParameter="CatalogName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -203,6 +223,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutCapacityAssignmentConfiguration" Verb="Write" Noun="CapacityAssignmentConfiguration" ShouldProcessTarget="CapacityReservationName" PipelineParameter="CapacityReservationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartCalculationExecution" OutputProperty="*" Verb="Start" Noun="CalculationExecution" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -232,6 +256,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCapacityReservation" Verb="Update" Noun="CapacityReservation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
