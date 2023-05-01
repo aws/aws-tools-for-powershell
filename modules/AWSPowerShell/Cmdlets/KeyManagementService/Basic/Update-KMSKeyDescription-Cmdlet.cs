@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>New description for the KMS key.</para>
+        /// <para>New description for the KMS key.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

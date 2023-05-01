@@ -223,8 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the KMS key.</para><para>Use a description that helps you decide whether the KMS key is appropriate for a task.
-        /// The default value is an empty string (no description).</para><para>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</para>
+        /// <para>A description of the KMS key. Use a description that helps you decide whether the
+        /// KMS key is appropriate for a task. The default value is an empty string (no description).</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -348,7 +349,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when
-        /// it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</para><note><para>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
+        /// it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><note><para>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
         /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
         /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
         /// permission in an IAM policy.</para><para>Each tag consists of a tag key and a tag value. Both the tag key and the tag value

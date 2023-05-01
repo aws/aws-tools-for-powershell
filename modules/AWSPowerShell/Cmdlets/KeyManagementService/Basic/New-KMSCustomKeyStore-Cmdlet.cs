@@ -134,7 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>
         /// <para>Specifies a friendly name for the custom key store. The name must be unique in your
         /// Amazon Web Services account and Region. This parameter is required for all custom
-        /// key stores.</para>
+        /// key stores.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

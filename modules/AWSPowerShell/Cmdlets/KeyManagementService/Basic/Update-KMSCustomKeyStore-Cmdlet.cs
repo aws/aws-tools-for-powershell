@@ -174,7 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Changes the friendly name of the custom key store to the value that you specify. The
-        /// custom key store name must be unique in the Amazon Web Services account.</para><para>To change this value, an CloudHSM key store must be disconnected. An external key
+        /// custom key store name must be unique in the Amazon Web Services account.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To change this value, an CloudHSM key store must be disconnected. An external key
         /// store can be connected or disconnected.</para>
         /// </para>
         /// </summary>

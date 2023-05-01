@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the alias name. This value must begin with <code>alias/</code> followed
-        /// by a name, such as <code>alias/ExampleAlias</code>. </para><para>The <code>AliasName</code> value must be string of 1-256 characters. It can contain
+        /// by a name, such as <code>alias/ExampleAlias</code>. </para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>The <code>AliasName</code> value must be string of 1-256 characters. It can contain
         /// only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-).
         /// The alias name cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code>
         /// prefix is reserved for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon

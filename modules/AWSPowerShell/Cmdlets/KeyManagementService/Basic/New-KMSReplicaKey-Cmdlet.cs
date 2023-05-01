@@ -128,7 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the KMS key. The default value is an empty string (no description).</para><para>The description is not a shared property of multi-Region keys. You can specify the
+        /// <para>A description of the KMS key. The default value is an empty string (no description).</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>The description is not a shared property of multi-Region keys. You can specify the
         /// same description or a different description for each key in a set of related multi-Region
         /// keys. KMS does not synchronize this property.</para>
         /// </para>
@@ -221,7 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key
-        /// when it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</para><note><para>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
+        /// when it is created. To tag an existing KMS key, use the <a>TagResource</a> operation.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><note><para>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details,
         /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC
         /// for KMS</a> in the <i>Key Management Service Developer Guide</i>.</para></note><para>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a>
         /// permission in an IAM policy.</para><para>Tags are not a shared property of multi-Region keys. You can specify the same tags

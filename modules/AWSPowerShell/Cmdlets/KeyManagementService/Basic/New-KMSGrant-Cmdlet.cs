@@ -164,7 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>A friendly name for the grant. Use this value to prevent the unintended creation of
-        /// duplicate grants when retrying this request.</para><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
+        /// duplicate grants when retrying this request.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
         /// with a unique <code>GrantId</code> even if all the supplied parameters are identical.
         /// This can result in unintended duplicates when you retry the <code>CreateGrant</code>
         /// request.</para><para>When this value is present, you can retry a <code>CreateGrant</code> request with

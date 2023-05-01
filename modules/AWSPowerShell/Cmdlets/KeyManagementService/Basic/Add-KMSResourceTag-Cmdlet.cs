@@ -93,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags. </para><para>Each tag consists of a tag key and a tag value. The tag value can be an empty (null)
-        /// string. </para><para>You cannot have more than one tag on a KMS key with the same tag key. If you specify
+        /// <para>One or more tags. Each tag consists of a tag key and a tag value. The tag value can
+        /// be an empty (null) string. </para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>You cannot have more than one tag on a KMS key with the same tag key. If you specify
         /// an existing tag key with a different tag value, KMS replaces the current tag value
         /// with the specified one.</para>
         /// </para>

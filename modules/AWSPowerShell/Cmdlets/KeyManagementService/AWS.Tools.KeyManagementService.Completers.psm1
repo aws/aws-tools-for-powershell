@@ -140,6 +140,18 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.KeyEncryptionMechanism
+        {
+            ($_ -eq "Invoke-KMSDecrypt/Recipient_KeyEncryptionAlgorithm") -Or
+            ($_ -eq "New-KMSDataKey/Recipient_KeyEncryptionAlgorithm") -Or
+            ($_ -eq "New-KMSDataKeyPair/Recipient_KeyEncryptionAlgorithm") -Or
+            ($_ -eq "New-KMSRandom/Recipient_KeyEncryptionAlgorithm")
+        }
+        {
+            $v = "RSAES_OAEP_SHA_256"
+            break
+        }
+
         # Amazon.KeyManagementService.KeySpec
         "New-KMSKey/KeySpec"
         {
@@ -228,6 +240,7 @@ $KMS_map = @{
     "MacAlgorithm"=@("New-KMSMac","Test-KMSMac")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
+    "Recipient_KeyEncryptionAlgorithm"=@("Invoke-KMSDecrypt","New-KMSDataKey","New-KMSDataKeyPair","New-KMSRandom")
     "SigningAlgorithm"=@("Invoke-KMSSigning","Test-KMSSignature")
     "SourceEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "WrappingAlgorithm"=@("Get-KMSParametersForImport")

@@ -62,13 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// must use an IAM policy for <code>Decrypt</code> permissions, limit the user to particular
     /// KMS keys or particular trusted accounts. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policies-best-practices">Best
     /// practices for IAM policies</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para>
-    /// Applications in Amazon Web Services Nitro Enclaves can call this operation by using
-    /// the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services
-    /// Nitro Enclaves Development Kit</a>. For information about the supporting parameters,
-    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
-    /// Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer
-    /// Guide</i>.
+    /// </para><para><code>Decrypt</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
+    /// Web Services Nitro Enclaves</a>, which provide an isolated compute environment in
+    /// Amazon EC2. To call <code>Decrypt</code> for a Nitro enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
+    /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
+    /// parameter to provide the attestation document for the enclave. Instead of the plaintext
+    /// data, the response includes the plaintext data encrypted with the public key from
+    /// the attestation document (<code>CiphertextForRecipient</code>).For information about
+    /// the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
+    /// Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer
+    /// Guide</i>..
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
@@ -90,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
+        
+        #region Parameter Recipient_AttestationDocument
+        /// <summary>
+        /// <para>
+        /// <para>The attestation document for an Amazon Web Services Nitro Enclave. This document includes
+        /// the enclave's public key.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] Recipient_AttestationDocument { get; set; }
+        #endregion
         
         #region Parameter CiphertextBlob
         /// <summary>
@@ -157,6 +173,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public System.String[] GrantToken { get; set; }
         #endregion
         
+        #region Parameter Recipient_KeyEncryptionAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The encryption algorithm that KMS should use with the public key for an Amazon Web
+        /// Services Nitro Enclave to encrypt plaintext values for the response. The only valid
+        /// value is <code>RSAES_OAEP_SHA_256</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KeyManagementService.KeyEncryptionMechanism")]
+        public Amazon.KeyManagementService.KeyEncryptionMechanism Recipient_KeyEncryptionAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter KeyId
         /// <summary>
         /// <para>
@@ -221,6 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.GrantToken = new List<System.String>(this.GrantToken);
             }
             context.KeyId = this.KeyId;
+            context.Recipient_AttestationDocument = this.Recipient_AttestationDocument;
+            context.Recipient_KeyEncryptionAlgorithm = this.Recipient_KeyEncryptionAlgorithm;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -234,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         public object Execute(ExecutorContext context)
         {
             System.IO.MemoryStream _CiphertextBlobStream = null;
+            System.IO.MemoryStream _Recipient_AttestationDocumentStream = null;
             
             try
             {
@@ -263,6 +295,36 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                     request.KeyId = cmdletContext.KeyId;
                 }
                 
+                 // populate Recipient
+                var requestRecipientIsNull = true;
+                request.Recipient = new Amazon.KeyManagementService.Model.RecipientInfo();
+                System.IO.MemoryStream requestRecipient_recipient_AttestationDocument = null;
+                if (cmdletContext.Recipient_AttestationDocument != null)
+                {
+                    _Recipient_AttestationDocumentStream = new System.IO.MemoryStream(cmdletContext.Recipient_AttestationDocument);
+                    requestRecipient_recipient_AttestationDocument = _Recipient_AttestationDocumentStream;
+                }
+                if (requestRecipient_recipient_AttestationDocument != null)
+                {
+                    request.Recipient.AttestationDocument = requestRecipient_recipient_AttestationDocument;
+                    requestRecipientIsNull = false;
+                }
+                Amazon.KeyManagementService.KeyEncryptionMechanism requestRecipient_recipient_KeyEncryptionAlgorithm = null;
+                if (cmdletContext.Recipient_KeyEncryptionAlgorithm != null)
+                {
+                    requestRecipient_recipient_KeyEncryptionAlgorithm = cmdletContext.Recipient_KeyEncryptionAlgorithm;
+                }
+                if (requestRecipient_recipient_KeyEncryptionAlgorithm != null)
+                {
+                    request.Recipient.KeyEncryptionAlgorithm = requestRecipient_recipient_KeyEncryptionAlgorithm;
+                    requestRecipientIsNull = false;
+                }
+                 // determine if request.Recipient should be set to null
+                if (requestRecipientIsNull)
+                {
+                    request.Recipient = null;
+                }
+                
                 CmdletOutput output;
                 
                 // issue call
@@ -290,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 if( _CiphertextBlobStream != null)
                 {
                     _CiphertextBlobStream.Dispose();
+                }
+                if( _Recipient_AttestationDocumentStream != null)
+                {
+                    _Recipient_AttestationDocumentStream.Dispose();
                 }
             }
         }
@@ -336,6 +402,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public Dictionary<System.String, System.String> EncryptionContext { get; set; }
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }
+            public byte[] Recipient_AttestationDocument { get; set; }
+            public Amazon.KeyManagementService.KeyEncryptionMechanism Recipient_KeyEncryptionAlgorithm { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.DecryptResponse, InvokeKMSDecryptCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

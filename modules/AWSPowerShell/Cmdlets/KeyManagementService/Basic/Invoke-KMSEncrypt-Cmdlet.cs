@@ -115,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
         /// operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption
         /// algorithms and HMAC algorithms that KMS uses do not support an encryption context.
-        /// </para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
+        /// </para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
         /// the data. An encryption context is supported only on operations with symmetric encryption

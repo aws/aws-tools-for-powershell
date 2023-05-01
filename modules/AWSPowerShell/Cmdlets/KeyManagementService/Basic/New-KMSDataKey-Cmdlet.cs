@@ -59,13 +59,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
     /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
     /// Context</a> in the <i>Key Management Service Developer Guide</i>.
-    /// </para><para>
-    /// Applications in Amazon Web Services Nitro Enclaves can call this operation by using
-    /// the <a href="https://github.com/aws/aws-nitro-enclaves-sdk-c">Amazon Web Services
-    /// Nitro Enclaves Development Kit</a>. For information about the supporting parameters,
+    /// </para><para><code>GenerateDataKey</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon
+    /// Web Services Nitro Enclaves</a>, which provide an isolated compute environment in
+    /// Amazon EC2. To call <code>GenerateDataKey</code> for an Amazon Web Services Nitro
+    /// enclave, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon
+    /// Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code>
+    /// parameter to provide the attestation document for the enclave. <code>GenerateDataKey</code>
+    /// returns a copy of the data key encrypted under the specified KMS key, as usual. But
+    /// instead of a plaintext copy of the data key, the response includes a copy of the data
+    /// key encrypted under the public key from the attestation document (<code>CiphertextForRecipient</code>).
+    /// For information about the interaction between KMS and Amazon Web Services Nitro Enclaves,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How
-    /// Amazon Web Services Nitro Enclaves use KMS</a> in the <i>Key Management Service Developer
-    /// Guide</i>.
+    /// Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer
+    /// Guide</i>..
     /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
@@ -112,10 +118,24 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
+        #region Parameter Recipient_AttestationDocument
+        /// <summary>
+        /// <para>
+        /// <para>The attestation document for an Amazon Web Services Nitro Enclave. This document includes
+        /// the enclave's public key.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] Recipient_AttestationDocument { get; set; }
+        #endregion
+        
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Specifies the encryption context that will be used when encrypting the data key.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
+        /// <para>Specifies the encryption context that will be used when encrypting the data key.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
         /// the data. An encryption context is supported only on operations with symmetric encryption
@@ -140,6 +160,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("GrantTokens")]
         public System.String[] GrantToken { get; set; }
+        #endregion
+        
+        #region Parameter Recipient_KeyEncryptionAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The encryption algorithm that KMS should use with the public key for an Amazon Web
+        /// Services Nitro Enclave to encrypt plaintext values for the response. The only valid
+        /// value is <code>RSAES_OAEP_SHA_256</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KeyManagementService.KeyEncryptionMechanism")]
+        public Amazon.KeyManagementService.KeyEncryptionMechanism Recipient_KeyEncryptionAlgorithm { get; set; }
         #endregion
         
         #region Parameter KeyId
@@ -273,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             #endif
             context.KeySpec = this.KeySpec;
             context.NumberOfBytes = this.NumberOfBytes;
+            context.Recipient_AttestationDocument = this.Recipient_AttestationDocument;
+            context.Recipient_KeyEncryptionAlgorithm = this.Recipient_KeyEncryptionAlgorithm;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -285,52 +320,94 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.KeyManagementService.Model.GenerateDataKeyRequest();
+            System.IO.MemoryStream _Recipient_AttestationDocumentStream = null;
             
-            if (cmdletContext.EncryptionContext != null)
-            {
-                request.EncryptionContext = cmdletContext.EncryptionContext;
-            }
-            if (cmdletContext.GrantToken != null)
-            {
-                request.GrantTokens = cmdletContext.GrantToken;
-            }
-            if (cmdletContext.KeyId != null)
-            {
-                request.KeyId = cmdletContext.KeyId;
-            }
-            if (cmdletContext.KeySpec != null)
-            {
-                request.KeySpec = cmdletContext.KeySpec;
-            }
-            if (cmdletContext.NumberOfBytes != null)
-            {
-                request.NumberOfBytes = cmdletContext.NumberOfBytes.Value;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.KeyManagementService.Model.GenerateDataKeyRequest();
+                
+                if (cmdletContext.EncryptionContext != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.EncryptionContext = cmdletContext.EncryptionContext;
+                }
+                if (cmdletContext.GrantToken != null)
+                {
+                    request.GrantTokens = cmdletContext.GrantToken;
+                }
+                if (cmdletContext.KeyId != null)
+                {
+                    request.KeyId = cmdletContext.KeyId;
+                }
+                if (cmdletContext.KeySpec != null)
+                {
+                    request.KeySpec = cmdletContext.KeySpec;
+                }
+                if (cmdletContext.NumberOfBytes != null)
+                {
+                    request.NumberOfBytes = cmdletContext.NumberOfBytes.Value;
+                }
+                
+                 // populate Recipient
+                var requestRecipientIsNull = true;
+                request.Recipient = new Amazon.KeyManagementService.Model.RecipientInfo();
+                System.IO.MemoryStream requestRecipient_recipient_AttestationDocument = null;
+                if (cmdletContext.Recipient_AttestationDocument != null)
+                {
+                    _Recipient_AttestationDocumentStream = new System.IO.MemoryStream(cmdletContext.Recipient_AttestationDocument);
+                    requestRecipient_recipient_AttestationDocument = _Recipient_AttestationDocumentStream;
+                }
+                if (requestRecipient_recipient_AttestationDocument != null)
+                {
+                    request.Recipient.AttestationDocument = requestRecipient_recipient_AttestationDocument;
+                    requestRecipientIsNull = false;
+                }
+                Amazon.KeyManagementService.KeyEncryptionMechanism requestRecipient_recipient_KeyEncryptionAlgorithm = null;
+                if (cmdletContext.Recipient_KeyEncryptionAlgorithm != null)
+                {
+                    requestRecipient_recipient_KeyEncryptionAlgorithm = cmdletContext.Recipient_KeyEncryptionAlgorithm;
+                }
+                if (requestRecipient_recipient_KeyEncryptionAlgorithm != null)
+                {
+                    request.Recipient.KeyEncryptionAlgorithm = requestRecipient_recipient_KeyEncryptionAlgorithm;
+                    requestRecipientIsNull = false;
+                }
+                 // determine if request.Recipient should be set to null
+                if (requestRecipientIsNull)
+                {
+                    request.Recipient = null;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _Recipient_AttestationDocumentStream != null)
+                {
+                    _Recipient_AttestationDocumentStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -375,6 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             public System.String KeyId { get; set; }
             public Amazon.KeyManagementService.DataKeySpec KeySpec { get; set; }
             public System.Int32? NumberOfBytes { get; set; }
+            public byte[] Recipient_AttestationDocument { get; set; }
+            public Amazon.KeyManagementService.KeyEncryptionMechanism Recipient_KeyEncryptionAlgorithm { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.GenerateDataKeyResponse, NewKMSDataKeyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

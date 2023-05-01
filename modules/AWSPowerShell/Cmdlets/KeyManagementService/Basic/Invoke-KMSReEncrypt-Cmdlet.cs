@@ -144,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter DestinationEncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Specifies that encryption context to use when the reencrypting the data.</para><para>A destination encryption context is valid only when the destination KMS key is a symmetric
+        /// <para>Specifies that encryption context to use when the reencrypting the data.</para><important><para>Do not include confidential or sensitive information in this field. This field may
+        /// be displayed in plaintext in CloudTrail logs and other output.</para></important><para>A destination encryption context is valid only when the destination KMS key is a symmetric
         /// encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not
         /// include fields for metadata.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent
         /// additional authenticated data. When you use an encryption context to encrypt data,
