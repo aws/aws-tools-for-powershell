@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter FeaturedResultsSetId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index used for featuring results.</para>
+        /// <para>The identifier of the set of featured results that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

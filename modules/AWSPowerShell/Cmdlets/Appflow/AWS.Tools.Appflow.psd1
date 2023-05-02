@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AFResourceTag', 
         'Start-AFFlow', 
         'Stop-AFFlow', 
+        'Stop-AFFlowExecution', 
         'Unregister-AFConnector', 
         'Update-AFConnectorProfile', 
         'Update-AFConnectorRegistration', 

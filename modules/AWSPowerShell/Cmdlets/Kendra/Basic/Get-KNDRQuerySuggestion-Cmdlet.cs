@@ -44,6 +44,53 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class GetKNDRQuerySuggestionCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        #region Parameter AttributeSuggestionsConfig_AdditionalResponseAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The list of additional document field/attribute keys or field names to include in
+        /// the response. You can use additional fields to provide extra information in the response.
+        /// Additional fields are not used to based suggestions on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeSuggestionsConfig_AdditionalResponseAttributes")]
+        public System.String[] AttributeSuggestionsConfig_AdditionalResponseAttribute { get; set; }
+        #endregion
+        
+        #region Parameter AttributeSuggestionsConfig_AttributeFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the search results based on document fields/attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Kendra.Model.AttributeFilter AttributeSuggestionsConfig_AttributeFilter { get; set; }
+        #endregion
+        
+        #region Parameter UserContext_DataSourceGroup
+        /// <summary>
+        /// <para>
+        /// <para>The list of data source groups you want to filter search results based on groups'
+        /// access to documents in that data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeSuggestionsConfig_UserContext_DataSourceGroups")]
+        public Amazon.Kendra.Model.DataSourceGroup[] UserContext_DataSourceGroup { get; set; }
+        #endregion
+        
+        #region Parameter UserContext_Group
+        /// <summary>
+        /// <para>
+        /// <para>The list of groups you want to filter search results based on the groups' access to
+        /// documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeSuggestionsConfig_UserContext_Groups")]
+        public System.String[] UserContext_Group { get; set; }
+        #endregion
+        
         #region Parameter IndexId
         /// <summary>
         /// <para>
@@ -89,6 +136,57 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryText { get; set; }
+        #endregion
+        
+        #region Parameter AttributeSuggestionsConfig_SuggestionAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The list of document field/attribute keys or field names to use for query suggestions.
+        /// If the content within any of the fields match what your user starts typing as their
+        /// query, then the field content is returned as a query suggestion.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeSuggestionsConfig_SuggestionAttributes")]
+        public System.String[] AttributeSuggestionsConfig_SuggestionAttribute { get; set; }
+        #endregion
+        
+        #region Parameter SuggestionType
+        /// <summary>
+        /// <para>
+        /// <para>The suggestions type to base query suggestions on. The suggestion types are query
+        /// history or document fields/attributes. You can set one type or the other.</para><para>If you set query history as your suggestions type, Amazon Kendra suggests queries
+        /// relevant to your users based on popular queries in the query history.</para><para>If you set document fields/attributes as your suggestions type, Amazon Kendra suggests
+        /// queries relevant to your users based on the contents of document fields.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuggestionTypes")]
+        public System.String[] SuggestionType { get; set; }
+        #endregion
+        
+        #region Parameter UserContext_Token
+        /// <summary>
+        /// <para>
+        /// <para>The user context token for filtering search results for a user. It must be a JWT or
+        /// a JSON token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeSuggestionsConfig_UserContext_Token")]
+        public System.String UserContext_Token { get; set; }
+        #endregion
+        
+        #region Parameter UserContext_UserId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the user you want to filter search results based on their access
+        /// to documents.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeSuggestionsConfig_UserContext_UserId")]
+        public System.String UserContext_UserId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -137,6 +235,25 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.IndexId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AttributeSuggestionsConfig_AdditionalResponseAttribute != null)
+            {
+                context.AttributeSuggestionsConfig_AdditionalResponseAttribute = new List<System.String>(this.AttributeSuggestionsConfig_AdditionalResponseAttribute);
+            }
+            context.AttributeSuggestionsConfig_AttributeFilter = this.AttributeSuggestionsConfig_AttributeFilter;
+            if (this.AttributeSuggestionsConfig_SuggestionAttribute != null)
+            {
+                context.AttributeSuggestionsConfig_SuggestionAttribute = new List<System.String>(this.AttributeSuggestionsConfig_SuggestionAttribute);
+            }
+            if (this.UserContext_DataSourceGroup != null)
+            {
+                context.UserContext_DataSourceGroup = new List<Amazon.Kendra.Model.DataSourceGroup>(this.UserContext_DataSourceGroup);
+            }
+            if (this.UserContext_Group != null)
+            {
+                context.UserContext_Group = new List<System.String>(this.UserContext_Group);
+            }
+            context.UserContext_Token = this.UserContext_Token;
+            context.UserContext_UserId = this.UserContext_UserId;
             context.IndexId = this.IndexId;
             #if MODULAR
             if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
@@ -152,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 WriteWarning("You are passing $null as a value for parameter QueryText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SuggestionType != null)
+            {
+                context.SuggestionType = new List<System.String>(this.SuggestionType);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,6 +289,100 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.GetQuerySuggestionsRequest();
             
+            
+             // populate AttributeSuggestionsConfig
+            var requestAttributeSuggestionsConfigIsNull = true;
+            request.AttributeSuggestionsConfig = new Amazon.Kendra.Model.AttributeSuggestionsGetConfig();
+            List<System.String> requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AdditionalResponseAttribute = null;
+            if (cmdletContext.AttributeSuggestionsConfig_AdditionalResponseAttribute != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AdditionalResponseAttribute = cmdletContext.AttributeSuggestionsConfig_AdditionalResponseAttribute;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AdditionalResponseAttribute != null)
+            {
+                request.AttributeSuggestionsConfig.AdditionalResponseAttributes = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AdditionalResponseAttribute;
+                requestAttributeSuggestionsConfigIsNull = false;
+            }
+            Amazon.Kendra.Model.AttributeFilter requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeFilter = null;
+            if (cmdletContext.AttributeSuggestionsConfig_AttributeFilter != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeFilter = cmdletContext.AttributeSuggestionsConfig_AttributeFilter;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeFilter != null)
+            {
+                request.AttributeSuggestionsConfig.AttributeFilter = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeFilter;
+                requestAttributeSuggestionsConfigIsNull = false;
+            }
+            List<System.String> requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestionAttribute = null;
+            if (cmdletContext.AttributeSuggestionsConfig_SuggestionAttribute != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestionAttribute = cmdletContext.AttributeSuggestionsConfig_SuggestionAttribute;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestionAttribute != null)
+            {
+                request.AttributeSuggestionsConfig.SuggestionAttributes = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestionAttribute;
+                requestAttributeSuggestionsConfigIsNull = false;
+            }
+            Amazon.Kendra.Model.UserContext requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext = null;
+            
+             // populate UserContext
+            var requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContextIsNull = true;
+            requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext = new Amazon.Kendra.Model.UserContext();
+            List<Amazon.Kendra.Model.DataSourceGroup> requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_DataSourceGroup = null;
+            if (cmdletContext.UserContext_DataSourceGroup != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_DataSourceGroup = cmdletContext.UserContext_DataSourceGroup;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_DataSourceGroup != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext.DataSourceGroups = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_DataSourceGroup;
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContextIsNull = false;
+            }
+            List<System.String> requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Group = null;
+            if (cmdletContext.UserContext_Group != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Group = cmdletContext.UserContext_Group;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Group != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext.Groups = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Group;
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContextIsNull = false;
+            }
+            System.String requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Token = null;
+            if (cmdletContext.UserContext_Token != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Token = cmdletContext.UserContext_Token;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Token != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext.Token = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_Token;
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContextIsNull = false;
+            }
+            System.String requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_UserId = null;
+            if (cmdletContext.UserContext_UserId != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_UserId = cmdletContext.UserContext_UserId;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_UserId != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext.UserId = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext_userContext_UserId;
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContextIsNull = false;
+            }
+             // determine if requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext should be set to null
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContextIsNull)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext = null;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext != null)
+            {
+                request.AttributeSuggestionsConfig.UserContext = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_UserContext;
+                requestAttributeSuggestionsConfigIsNull = false;
+            }
+             // determine if request.AttributeSuggestionsConfig should be set to null
+            if (requestAttributeSuggestionsConfigIsNull)
+            {
+                request.AttributeSuggestionsConfig = null;
+            }
             if (cmdletContext.IndexId != null)
             {
                 request.IndexId = cmdletContext.IndexId;
@@ -179,6 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.QueryText != null)
             {
                 request.QueryText = cmdletContext.QueryText;
+            }
+            if (cmdletContext.SuggestionType != null)
+            {
+                request.SuggestionTypes = cmdletContext.SuggestionType;
             }
             
             CmdletOutput output;
@@ -241,9 +460,17 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributeSuggestionsConfig_AdditionalResponseAttribute { get; set; }
+            public Amazon.Kendra.Model.AttributeFilter AttributeSuggestionsConfig_AttributeFilter { get; set; }
+            public List<System.String> AttributeSuggestionsConfig_SuggestionAttribute { get; set; }
+            public List<Amazon.Kendra.Model.DataSourceGroup> UserContext_DataSourceGroup { get; set; }
+            public List<System.String> UserContext_Group { get; set; }
+            public System.String UserContext_Token { get; set; }
+            public System.String UserContext_UserId { get; set; }
             public System.String IndexId { get; set; }
             public System.Int32? MaxSuggestionsCount { get; set; }
             public System.String QueryText { get; set; }
+            public List<System.String> SuggestionType { get; set; }
             public System.Func<Amazon.Kendra.Model.GetQuerySuggestionsResponse, GetKNDRQuerySuggestionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

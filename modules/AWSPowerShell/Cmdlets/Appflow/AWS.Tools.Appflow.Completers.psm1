@@ -221,7 +221,8 @@ $AF_SelectCompleters = {
 }
 
 $AF_SelectMap = @{
-    "Select"=@("New-AFConnectorProfile",
+    "Select"=@("Stop-AFFlowExecution",
+               "New-AFConnectorProfile",
                "New-AFFlow",
                "Remove-AFConnectorProfile",
                "Remove-AFFlow",

@@ -2385,7 +2385,8 @@ $AF_SelectCompleters = {
 }
 
 $AF_SelectMap = @{
-    "Select"=@("New-AFConnectorProfile",
+    "Select"=@("Stop-AFFlowExecution",
+               "New-AFConnectorProfile",
                "New-AFFlow",
                "Remove-AFConnectorProfile",
                "Remove-AFFlow",
@@ -13488,7 +13489,7 @@ $CONN_Completers = {
             ($_ -eq "New-CONNRule/TriggerEventSource_EventSourceName")
         }
         {
-            $v = "OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
+            $v = "OnContactEvaluationSubmit","OnPostCallAnalysisAvailable","OnPostChatAnalysisAvailable","OnRealTimeCallAnalysisAvailable","OnSalesforceCaseCreate","OnZendeskTicketCreate","OnZendeskTicketStatusUpdate"
             break
         }
 
@@ -31467,6 +31468,13 @@ $KNDR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Kendra.AttributeSuggestionsMode
+        "Update-KNDRQuerySuggestionsConfig/AttributeSuggestionsConfig_AttributeSuggestionsMode"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
         # Amazon.Kendra.ConditionOperator
         {
             ($_ -eq "New-KNDRDataSource/CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
@@ -31583,6 +31591,7 @@ $KNDR_Completers = {
 }
 
 $KNDR_map = @{
+    "AttributeSuggestionsConfig_AttributeSuggestionsMode"=@("Update-KNDRQuerySuggestionsConfig")
     "CustomDocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator"=@("New-KNDRDataSource","Update-KNDRDataSource","Write-KNDRDocumentBatch")
     "CustomDocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator"=@("New-KNDRDataSource","Update-KNDRDataSource","Write-KNDRDocumentBatch")
     "Edition"=@("New-KNDRIndex")

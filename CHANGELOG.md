@@ -1,4 +1,12 @@
-﻿### 4.1.324 (2023-05-01 21:03Z)
+﻿### 4.1.325 (2023-05-02 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.538.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Appflow
+    * Added cmdlet Stop-AFFlowExecution leveraging the CancelFlowExecutions service API.
+  * Amazon Kendra
+    * Modified cmdlet Get-KNDRQuerySuggestion: added parameters AttributeSuggestionsConfig_AdditionalResponseAttribute, AttributeSuggestionsConfig_AttributeFilter, AttributeSuggestionsConfig_SuggestionAttribute, SuggestionType, UserContext_DataSourceGroup, UserContext_Group, UserContext_Token and UserContext_UserId.
+    * Modified cmdlet Update-KNDRQuerySuggestionsConfig: added parameters AttributeSuggestionsConfig_AttributeSuggestionsMode and AttributeSuggestionsConfig_SuggestableConfigList.
+
+### 4.1.324 (2023-05-01 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.537.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Key Management Service
     * Modified cmdlet Invoke-KMSDecrypt: added parameters Recipient_AttestationDocument and Recipient_KeyEncryptionAlgorithm.

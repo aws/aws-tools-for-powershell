@@ -192,14 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// <para>The name of the resource.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceName { get; set; }
         #endregion
         
@@ -363,12 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             }
             #endif
             context.ResourceName = this.ResourceName;
-            #if MODULAR
-            if (this.ResourceName == null && ParameterWasBound(nameof(this.ResourceName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResourceType = this.ResourceType;
             #if MODULAR
             if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))

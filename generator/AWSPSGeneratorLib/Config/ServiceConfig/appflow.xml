@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelFlowExecutions" OutputProperty="InvalidExecutions" Verb="Stop" Noun="FlowExecution" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="New" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten>

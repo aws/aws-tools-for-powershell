@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>
-        /// and <code>disabled</code>.</para>
+        /// <para>The account setting value for the specified principal ARN. Accepted values are <code>enabled</code>,
+        /// <code>disabled</code>, <code>on</code>, and <code>off</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// Amazon Kendra supports partial updates, so you only need to provide the fields you
     /// want to update.
     /// </para><para>
-    /// If an update is currently processing (i.e. 'happening'), you need to wait for the
-    /// update to finish before making another update.
+    /// If an update is currently processing, you need to wait for the update to finish before
+    /// making another update.
     /// </para><para>
     /// Updates to query suggestions settings might not take effect right away. The time for
     /// your updated settings to take effect depends on the updates made and the number of
@@ -56,6 +56,24 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     )]
     public partial class UpdateKNDRQuerySuggestionsConfigCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
+        
+        #region Parameter AttributeSuggestionsConfig_AttributeSuggestionsMode
+        /// <summary>
+        /// <para>
+        /// <para>You can set the mode to <code>ACTIVE</code> or <code>INACTIVE</code>. You must also
+        /// set <code>SuggestionTypes</code> as either <code>QUERY</code> or <code>DOCUMENT_ATTRIBUTES</code>
+        /// and then call <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html">GetQuerySuggestions</a>.
+        /// If <code>Mode</code> to use query history is set to <code>ENABLED</code> when calling
+        /// <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
+        /// and <code>AttributeSuggestionsMode</code> to use fields/attributes is set to <code>ACTIVE</code>,
+        /// and you haven't set your <code>SuggestionTypes</code> preference to <code>DOCUMENT_ATTRIBUTES</code>,
+        /// then Amazon Kendra uses the query history.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.AttributeSuggestionsMode")]
+        public Amazon.Kendra.AttributeSuggestionsMode AttributeSuggestionsConfig_AttributeSuggestionsMode { get; set; }
+        #endregion
         
         #region Parameter IncludeQueriesWithoutUserInformation
         /// <summary>
@@ -141,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.Int32? QueryLogLookBackWindowInDay { get; set; }
         #endregion
         
+        #region Parameter AttributeSuggestionsConfig_SuggestableConfigList
+        /// <summary>
+        /// <para>
+        /// <para>The list of fields/attributes that you want to set as suggestible for query suggestions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Kendra.Model.SuggestableConfig[] AttributeSuggestionsConfig_SuggestableConfigList { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -202,6 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.IndexId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AttributeSuggestionsConfig_AttributeSuggestionsMode = this.AttributeSuggestionsConfig_AttributeSuggestionsMode;
+            if (this.AttributeSuggestionsConfig_SuggestableConfigList != null)
+            {
+                context.AttributeSuggestionsConfig_SuggestableConfigList = new List<Amazon.Kendra.Model.SuggestableConfig>(this.AttributeSuggestionsConfig_SuggestableConfigList);
+            }
             context.IncludeQueriesWithoutUserInformation = this.IncludeQueriesWithoutUserInformation;
             context.IndexId = this.IndexId;
             #if MODULAR
@@ -230,6 +263,35 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.UpdateQuerySuggestionsConfigRequest();
             
+            
+             // populate AttributeSuggestionsConfig
+            var requestAttributeSuggestionsConfigIsNull = true;
+            request.AttributeSuggestionsConfig = new Amazon.Kendra.Model.AttributeSuggestionsUpdateConfig();
+            Amazon.Kendra.AttributeSuggestionsMode requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeSuggestionsMode = null;
+            if (cmdletContext.AttributeSuggestionsConfig_AttributeSuggestionsMode != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeSuggestionsMode = cmdletContext.AttributeSuggestionsConfig_AttributeSuggestionsMode;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeSuggestionsMode != null)
+            {
+                request.AttributeSuggestionsConfig.AttributeSuggestionsMode = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_AttributeSuggestionsMode;
+                requestAttributeSuggestionsConfigIsNull = false;
+            }
+            List<Amazon.Kendra.Model.SuggestableConfig> requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestableConfigList = null;
+            if (cmdletContext.AttributeSuggestionsConfig_SuggestableConfigList != null)
+            {
+                requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestableConfigList = cmdletContext.AttributeSuggestionsConfig_SuggestableConfigList;
+            }
+            if (requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestableConfigList != null)
+            {
+                request.AttributeSuggestionsConfig.SuggestableConfigList = requestAttributeSuggestionsConfig_attributeSuggestionsConfig_SuggestableConfigList;
+                requestAttributeSuggestionsConfigIsNull = false;
+            }
+             // determine if request.AttributeSuggestionsConfig should be set to null
+            if (requestAttributeSuggestionsConfigIsNull)
+            {
+                request.AttributeSuggestionsConfig = null;
+            }
             if (cmdletContext.IncludeQueriesWithoutUserInformation != null)
             {
                 request.IncludeQueriesWithoutUserInformation = cmdletContext.IncludeQueriesWithoutUserInformation.Value;
@@ -315,6 +377,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Kendra.AttributeSuggestionsMode AttributeSuggestionsConfig_AttributeSuggestionsMode { get; set; }
+            public List<Amazon.Kendra.Model.SuggestableConfig> AttributeSuggestionsConfig_SuggestableConfigList { get; set; }
             public System.Boolean? IncludeQueriesWithoutUserInformation { get; set; }
             public System.String IndexId { get; set; }
             public System.Int32? MinimumNumberOfQueryingUser { get; set; }

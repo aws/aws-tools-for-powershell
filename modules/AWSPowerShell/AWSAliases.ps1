@@ -852,6 +852,9 @@ Set-Alias -Name Validate-APPCConfigurationValidity -Value Test-APPCConfiguration
 Set-Alias -Name APPC-ValidateConfiguration -Value Test-APPCConfigurationValidity
 Set-Alias -Name ACD-GetLatestConfiguration -Value Get-ACDLatestConfiguration
 Set-Alias -Name ACD-StartConfigurationSession -Value Start-ACDConfigurationSession
+Set-Alias -Name Cancel-AFFlowExecutions -Value Stop-AFFlowExecution
+Set-Alias -Name Cancel-AFFlowExecution -Value Stop-AFFlowExecution
+Set-Alias -Name AF-CancelFlowExecutions -Value Stop-AFFlowExecution
 Set-Alias -Name Create-AFConnectorProfile -Value New-AFConnectorProfile
 Set-Alias -Name AF-CreateConnectorProfile -Value New-AFConnectorProfile
 Set-Alias -Name Create-AFFlow -Value New-AFFlow
