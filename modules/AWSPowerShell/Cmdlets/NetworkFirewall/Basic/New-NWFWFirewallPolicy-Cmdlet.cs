@@ -121,6 +121,21 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
         #endregion
         
+        #region Parameter PolicyVariables_RuleVariable
+        /// <summary>
+        /// <para>
+        /// <para>The IPv4 or IPv6 addresses in CIDR notation to use for the Suricata <code>HOME_NET</code>
+        /// variable. If your firewall uses an inspection VPC, you might want to override the
+        /// <code>HOME_NET</code> variable with the CIDRs of your home networks. If you don't
+        /// override <code>HOME_NET</code> with your own CIDRs, Network Firewall by default uses
+        /// the CIDR of your inspection VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FirewallPolicy_PolicyVariables_RuleVariables")]
+        public System.Collections.Hashtable PolicyVariables_RuleVariable { get; set; }
+        #endregion
+        
         #region Parameter FirewallPolicy_StatefulDefaultAction
         /// <summary>
         /// <para>
@@ -343,6 +358,14 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             context.DryRun = this.DryRun;
             context.EncryptionConfiguration_KeyId = this.EncryptionConfiguration_KeyId;
             context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
+            if (this.PolicyVariables_RuleVariable != null)
+            {
+                context.PolicyVariables_RuleVariable = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PolicyVariables_RuleVariable.Keys)
+                {
+                    context.PolicyVariables_RuleVariable.Add((String)hashKey, (IPSet)(this.PolicyVariables_RuleVariable[hashKey]));
+                }
+            }
             if (this.FirewallPolicy_StatefulDefaultAction != null)
             {
                 context.FirewallPolicy_StatefulDefaultAction = new List<System.String>(this.FirewallPolicy_StatefulDefaultAction);
@@ -520,6 +543,31 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 request.FirewallPolicy.TLSInspectionConfigurationArn = requestFirewallPolicy_firewallPolicy_TLSInspectionConfigurationArn;
                 requestFirewallPolicyIsNull = false;
             }
+            Amazon.NetworkFirewall.Model.PolicyVariables requestFirewallPolicy_firewallPolicy_PolicyVariables = null;
+            
+             // populate PolicyVariables
+            var requestFirewallPolicy_firewallPolicy_PolicyVariablesIsNull = true;
+            requestFirewallPolicy_firewallPolicy_PolicyVariables = new Amazon.NetworkFirewall.Model.PolicyVariables();
+            Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> requestFirewallPolicy_firewallPolicy_PolicyVariables_policyVariables_RuleVariable = null;
+            if (cmdletContext.PolicyVariables_RuleVariable != null)
+            {
+                requestFirewallPolicy_firewallPolicy_PolicyVariables_policyVariables_RuleVariable = cmdletContext.PolicyVariables_RuleVariable;
+            }
+            if (requestFirewallPolicy_firewallPolicy_PolicyVariables_policyVariables_RuleVariable != null)
+            {
+                requestFirewallPolicy_firewallPolicy_PolicyVariables.RuleVariables = requestFirewallPolicy_firewallPolicy_PolicyVariables_policyVariables_RuleVariable;
+                requestFirewallPolicy_firewallPolicy_PolicyVariablesIsNull = false;
+            }
+             // determine if requestFirewallPolicy_firewallPolicy_PolicyVariables should be set to null
+            if (requestFirewallPolicy_firewallPolicy_PolicyVariablesIsNull)
+            {
+                requestFirewallPolicy_firewallPolicy_PolicyVariables = null;
+            }
+            if (requestFirewallPolicy_firewallPolicy_PolicyVariables != null)
+            {
+                request.FirewallPolicy.PolicyVariables = requestFirewallPolicy_firewallPolicy_PolicyVariables;
+                requestFirewallPolicyIsNull = false;
+            }
             Amazon.NetworkFirewall.Model.StatefulEngineOptions requestFirewallPolicy_firewallPolicy_StatefulEngineOptions = null;
             
              // populate StatefulEngineOptions
@@ -633,6 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
             public System.Boolean? DryRun { get; set; }
             public System.String EncryptionConfiguration_KeyId { get; set; }
             public Amazon.NetworkFirewall.EncryptionType EncryptionConfiguration_Type { get; set; }
+            public Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet> PolicyVariables_RuleVariable { get; set; }
             public List<System.String> FirewallPolicy_StatefulDefaultAction { get; set; }
             public Amazon.NetworkFirewall.RuleOrder StatefulEngineOptions_RuleOrder { get; set; }
             public Amazon.NetworkFirewall.StreamExceptionPolicy StatefulEngineOptions_StreamExceptionPolicy { get; set; }

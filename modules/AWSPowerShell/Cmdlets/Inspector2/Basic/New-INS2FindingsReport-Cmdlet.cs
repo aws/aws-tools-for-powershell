@@ -28,7 +28,9 @@ using Amazon.Inspector2.Model;
 namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Creates a finding report.
+    /// Creates a finding report. By default only <code>ACTIVE</code> findings are returned
+    /// in the report. To see <code>SUPRESSED</code> or <code>CLOSED</code> findings you must
+    /// specify a value for the <code>findingStatus</code> filter criteria.
     /// </summary>
     [Cmdlet("New", "INS2FindingsReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -254,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         #region Parameter S3Destination_KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix of the KMS key used to export findings.</para>
+        /// <para>The prefix of the Amazon S3 bucket used to export findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
     /// Returns a list of Amazon OpenSearch Service package versions, along with their creation
-    /// time and commit message. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
+    /// time, commit message, and plugin properties (if the package is a zip plugin package).
+    /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom
     /// packages for Amazon OpenSearch Service</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "OSPackageVersionHistory")]

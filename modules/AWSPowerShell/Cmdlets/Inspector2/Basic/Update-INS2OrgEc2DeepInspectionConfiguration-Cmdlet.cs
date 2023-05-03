@@ -22,51 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WellArchitected;
-using Amazon.WellArchitected.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WAT
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Updates whether the Amazon Web Services account is opted into organization sharing
-    /// and discovery integration features.
+    /// Updates the Amazon Inspector deep inspection custom paths for your organization. You
+    /// must be an Amazon Inspector delegated administrator to use this API.
     /// </summary>
-    [Cmdlet("Update", "WATGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "INS2OrgEc2DeepInspectionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Well-Architected Tool UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse))]
-    [AWSCmdletOutput("None or Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse",
+    [AWSCmdlet("Calls the Inspector2 UpdateOrgEc2DeepInspectionConfiguration API operation.", Operation = new[] {"UpdateOrgEc2DeepInspectionConfiguration"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateWATGlobalSettingCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
+    public partial class UpdateINS2OrgEc2DeepInspectionConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter DiscoveryIntegrationStatus
+        #region Parameter OrgPackagePath
         /// <summary>
         /// <para>
-        /// <para>The status of discovery support settings.</para>
+        /// <para>The Amazon Inspector deep inspection custom paths you are adding for your organization.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WellArchitected.DiscoveryIntegrationStatus")]
-        public Amazon.WellArchitected.DiscoveryIntegrationStatus DiscoveryIntegrationStatus { get; set; }
-        #endregion
-        
-        #region Parameter OrganizationSharingStatus
-        /// <summary>
-        /// <para>
-        /// <para>The status of organization sharing settings.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WellArchitected.OrganizationSharingStatus")]
-        public Amazon.WellArchitected.OrganizationSharingStatus OrganizationSharingStatus { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("OrgPackagePaths")]
+        public System.String[] OrgPackagePath { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WATGlobalSetting (UpdateGlobalSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrgPackagePath), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-INS2OrgEc2DeepInspectionConfiguration (UpdateOrgEc2DeepInspectionConfiguration)"))
             {
                 return;
             }
@@ -101,11 +97,19 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse, UpdateWATGlobalSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse, UpdateINS2OrgEc2DeepInspectionConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DiscoveryIntegrationStatus = this.DiscoveryIntegrationStatus;
-            context.OrganizationSharingStatus = this.OrganizationSharingStatus;
+            if (this.OrgPackagePath != null)
+            {
+                context.OrgPackagePath = new List<System.String>(this.OrgPackagePath);
+            }
+            #if MODULAR
+            if (this.OrgPackagePath == null && ParameterWasBound(nameof(this.OrgPackagePath)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OrgPackagePath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,15 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WellArchitected.Model.UpdateGlobalSettingsRequest();
+            var request = new Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationRequest();
             
-            if (cmdletContext.DiscoveryIntegrationStatus != null)
+            if (cmdletContext.OrgPackagePath != null)
             {
-                request.DiscoveryIntegrationStatus = cmdletContext.DiscoveryIntegrationStatus;
-            }
-            if (cmdletContext.OrganizationSharingStatus != null)
-            {
-                request.OrganizationSharingStatus = cmdletContext.OrganizationSharingStatus;
+                request.OrgPackagePaths = cmdletContext.OrgPackagePath;
             }
             
             CmdletOutput output;
@@ -163,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         #region AWS Service Operation Call
         
-        private Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.UpdateGlobalSettingsRequest request)
+        private Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "UpdateGlobalSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "UpdateOrgEc2DeepInspectionConfiguration");
             try
             {
                 #if DESKTOP
-                return client.UpdateGlobalSettings(request);
+                return client.UpdateOrgEc2DeepInspectionConfiguration(request);
                 #elif CORECLR
-                return client.UpdateGlobalSettingsAsync(request).GetAwaiter().GetResult();
+                return client.UpdateOrgEc2DeepInspectionConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,9 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.WellArchitected.DiscoveryIntegrationStatus DiscoveryIntegrationStatus { get; set; }
-            public Amazon.WellArchitected.OrganizationSharingStatus OrganizationSharingStatus { get; set; }
-            public System.Func<Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse, UpdateWATGlobalSettingCmdlet, object> Select { get; set; } =
+            public List<System.String> OrgPackagePath { get; set; }
+            public System.Func<Amazon.Inspector2.Model.UpdateOrgEc2DeepInspectionConfigurationResponse, UpdateINS2OrgEc2DeepInspectionConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

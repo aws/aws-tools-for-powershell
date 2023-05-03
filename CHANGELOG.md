@@ -1,4 +1,27 @@
-﻿### 4.1.325 (2023-05-02 21:12Z)
+﻿### 4.1.326 (2023-05-03 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.539.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon AppSync
+    * Modified cmdlet New-ASYNGraphqlApi: added parameter Visibility.
+  * Amazon Inspector2
+    * Added cmdlet Get-INS2BatchMemberEc2DeepInspectionStatus leveraging the BatchGetMemberEc2DeepInspectionStatus service API.
+    * Added cmdlet Get-INS2Ec2DeepInspectionConfiguration leveraging the GetEc2DeepInspectionConfiguration service API.
+    * Added cmdlet Update-INS2BatchMemberEc2DeepInspectionStatus leveraging the BatchUpdateMemberEc2DeepInspectionStatus service API.
+    * Added cmdlet Update-INS2Ec2DeepInspectionConfiguration leveraging the UpdateEc2DeepInspectionConfiguration service API.
+    * Added cmdlet Update-INS2OrgEc2DeepInspectionConfiguration leveraging the UpdateOrgEc2DeepInspectionConfiguration service API.
+  * Amazon Network Firewall
+    * Modified cmdlet New-NWFWFirewallPolicy: added parameter PolicyVariables_RuleVariable.
+    * Modified cmdlet Update-NWFWFirewallPolicy: added parameter PolicyVariables_RuleVariable.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSDomainHealth leveraging the DescribeDomainHealth service API.
+    * Modified cmdlet Get-OSInstanceTypeDetailList: added parameters InstanceType and RetrieveAZs.
+    * Modified cmdlet New-OSDomain: added parameter ClusterConfig_MultiAZWithStandbyEnabled.
+    * Modified cmdlet Update-OSDomainConfig: added parameter ClusterConfig_MultiAZWithStandbyEnabled.
+  * Amazon Well-Architected Tool
+    * Modified cmdlet New-WATWorkload: added parameter DiscoveryConfig_WorkloadResourceDefinition.
+    * Modified cmdlet Update-WATGlobalSetting: added parameter DiscoveryIntegrationStatus.
+    * Modified cmdlet Update-WATWorkload: added parameter DiscoveryConfig_WorkloadResourceDefinition.
+
+### 4.1.325 (2023-05-02 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.538.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Appflow
     * Added cmdlet Stop-AFFlowExecution leveraging the CancelFlowExecutions service API.

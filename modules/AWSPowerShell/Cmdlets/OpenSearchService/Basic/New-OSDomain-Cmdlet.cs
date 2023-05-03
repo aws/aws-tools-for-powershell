@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// <summary>
         /// <para>
         /// <para>Number of dedicated master nodes in the cluster. This number must be greater than
-        /// 1, otherwise you receive a validation exception.</para>
+        /// 2 and not 4, otherwise you receive a validation exception.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter OffPeakWindowOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether to enable an off-peak window.</para><para>This option is only available when modifying a domain created prior to February 13,
+        /// <para>Whether to enable an off-peak window.</para><para>This option is only available when modifying a domain created prior to February 16,
         /// 2023, not when creating a new domain. All domains created after this date have the
         /// off-peak window enabled by default. You can't disable the off-peak window after it's
         /// enabled for a domain.</para>
@@ -518,6 +518,18 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OffPeakWindowOptions_OffPeakWindow_WindowStartTime_Minutes")]
         public System.Int64? WindowStartTime_Minute { get; set; }
+        #endregion
+        
+        #region Parameter ClusterConfig_MultiAZWithStandbyEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A boolean that indicates whether a multi-AZ domain is turned on with a standby AZ.
+        /// For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html">Configuring
+        /// a multi-AZ domain in Amazon OpenSearch Service</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ClusterConfig_MultiAZWithStandbyEnabled { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_RoleArn
@@ -788,6 +800,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.ClusterConfig_DedicatedMasterType = this.ClusterConfig_DedicatedMasterType;
             context.ClusterConfig_InstanceCount = this.ClusterConfig_InstanceCount;
             context.ClusterConfig_InstanceType = this.ClusterConfig_InstanceType;
+            context.ClusterConfig_MultiAZWithStandbyEnabled = this.ClusterConfig_MultiAZWithStandbyEnabled;
             context.ClusterConfig_WarmCount = this.ClusterConfig_WarmCount;
             context.ClusterConfig_WarmEnabled = this.ClusterConfig_WarmEnabled;
             context.ClusterConfig_WarmType = this.ClusterConfig_WarmType;
@@ -1152,6 +1165,16 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestClusterConfig_clusterConfig_InstanceType != null)
             {
                 request.ClusterConfig.InstanceType = requestClusterConfig_clusterConfig_InstanceType;
+                requestClusterConfigIsNull = false;
+            }
+            System.Boolean? requestClusterConfig_clusterConfig_MultiAZWithStandbyEnabled = null;
+            if (cmdletContext.ClusterConfig_MultiAZWithStandbyEnabled != null)
+            {
+                requestClusterConfig_clusterConfig_MultiAZWithStandbyEnabled = cmdletContext.ClusterConfig_MultiAZWithStandbyEnabled.Value;
+            }
+            if (requestClusterConfig_clusterConfig_MultiAZWithStandbyEnabled != null)
+            {
+                request.ClusterConfig.MultiAZWithStandbyEnabled = requestClusterConfig_clusterConfig_MultiAZWithStandbyEnabled.Value;
                 requestClusterConfigIsNull = false;
             }
             System.Int32? requestClusterConfig_clusterConfig_WarmCount = null;
@@ -1702,6 +1725,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public Amazon.OpenSearchService.OpenSearchPartitionInstanceType ClusterConfig_DedicatedMasterType { get; set; }
             public System.Int32? ClusterConfig_InstanceCount { get; set; }
             public Amazon.OpenSearchService.OpenSearchPartitionInstanceType ClusterConfig_InstanceType { get; set; }
+            public System.Boolean? ClusterConfig_MultiAZWithStandbyEnabled { get; set; }
             public System.Int32? ClusterConfig_WarmCount { get; set; }
             public System.Boolean? ClusterConfig_WarmEnabled { get; set; }
             public Amazon.OpenSearchService.OpenSearchWarmPartitionInstanceType ClusterConfig_WarmType { get; set; }

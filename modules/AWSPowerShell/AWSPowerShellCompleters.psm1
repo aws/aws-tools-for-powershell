@@ -3623,6 +3623,13 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.GraphQLApiVisibility
+        "New-ASYNGraphqlApi/Visibility"
+        {
+            $v = "GLOBAL","PRIVATE"
+            break
+        }
+
         # Amazon.AppSync.OutputType
         "Get-ASYNIntrospectionSchema/Format"
         {
@@ -3694,6 +3701,7 @@ $ASYN_map = @{
     "SyncConfig_ConflictDetection"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictHandler"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
+    "Visibility"=@("New-ASYNGraphqlApi")
 }
 
 _awsArgumentCompleterRegistration $ASYN_Completers $ASYN_map
@@ -28179,6 +28187,8 @@ $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
                "Get-INS2GetAccountStatus",
                "Get-INS2GetFreeTrialInfo",
+               "Get-INS2BatchMemberEc2DeepInspectionStatus",
+               "Update-INS2BatchMemberEc2DeepInspectionStatus",
                "Stop-INS2FindingsReport",
                "New-INS2Filter",
                "New-INS2FindingsReport",
@@ -28191,6 +28201,7 @@ $INS2_SelectMap = @{
                "Enable-INS2DelegatedAdminAccount",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
+               "Get-INS2Ec2DeepInspectionConfiguration",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
                "Get-INS2AccountPermissionList",
@@ -28206,8 +28217,10 @@ $INS2_SelectMap = @{
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
                "Update-INS2Configuration",
+               "Update-INS2Ec2DeepInspectionConfiguration",
                "Update-INS2Filter",
-               "Update-INS2OrganizationConfiguration")
+               "Update-INS2OrganizationConfiguration",
+               "Update-INS2OrgEc2DeepInspectionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $INS2_SelectCompleters $INS2_SelectMap
@@ -41212,6 +41225,7 @@ $OS_SelectMap = @{
                "Get-OSDomainAutoTune",
                "Get-OSDomainChangeProgress",
                "Get-OSDomainConfig",
+               "Get-OSDomainHealth",
                "Get-OSDomainList",
                "Get-OSDryRunProgress",
                "Get-OSInboundConnection",
@@ -58244,6 +58258,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.DiscoveryIntegrationStatus
+        "Update-WATGlobalSetting/DiscoveryIntegrationStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.LensStatusType
         {
             ($_ -eq "Get-WATLensList/LensStatus") -Or
@@ -58346,6 +58367,7 @@ $WAT_Completers = {
 
 $WAT_map = @{
     "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
+    "DiscoveryIntegrationStatus"=@("Update-WATGlobalSetting")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")

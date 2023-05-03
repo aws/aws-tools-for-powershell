@@ -228,6 +228,16 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String WorkloadName { get; set; }
         #endregion
         
+        #region Parameter DiscoveryConfig_WorkloadResourceDefinition
+        /// <summary>
+        /// <para>
+        /// <para>The mode to use for identifying resources associated with the workload.</para><para>You can specify <code>WORKLOAD_METADATA</code>, <code>APP_REGISTRY</code>, or both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] DiscoveryConfig_WorkloadResourceDefinition { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Workload'.
@@ -305,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             }
             context.Description = this.Description;
             context.DiscoveryConfig_TrustedAdvisorIntegrationStatus = this.DiscoveryConfig_TrustedAdvisorIntegrationStatus;
+            if (this.DiscoveryConfig_WorkloadResourceDefinition != null)
+            {
+                context.DiscoveryConfig_WorkloadResourceDefinition = new List<System.String>(this.DiscoveryConfig_WorkloadResourceDefinition);
+            }
             context.Environment = this.Environment;
             context.ImprovementStatus = this.ImprovementStatus;
             context.Industry = this.Industry;
@@ -376,6 +390,16 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             if (requestDiscoveryConfig_discoveryConfig_TrustedAdvisorIntegrationStatus != null)
             {
                 request.DiscoveryConfig.TrustedAdvisorIntegrationStatus = requestDiscoveryConfig_discoveryConfig_TrustedAdvisorIntegrationStatus;
+                requestDiscoveryConfigIsNull = false;
+            }
+            List<System.String> requestDiscoveryConfig_discoveryConfig_WorkloadResourceDefinition = null;
+            if (cmdletContext.DiscoveryConfig_WorkloadResourceDefinition != null)
+            {
+                requestDiscoveryConfig_discoveryConfig_WorkloadResourceDefinition = cmdletContext.DiscoveryConfig_WorkloadResourceDefinition;
+            }
+            if (requestDiscoveryConfig_discoveryConfig_WorkloadResourceDefinition != null)
+            {
+                request.DiscoveryConfig.WorkloadResourceDefinition = requestDiscoveryConfig_discoveryConfig_WorkloadResourceDefinition;
                 requestDiscoveryConfigIsNull = false;
             }
              // determine if request.DiscoveryConfig should be set to null
@@ -494,6 +518,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public List<System.String> AwsRegion { get; set; }
             public System.String Description { get; set; }
             public Amazon.WellArchitected.TrustedAdvisorIntegrationStatus DiscoveryConfig_TrustedAdvisorIntegrationStatus { get; set; }
+            public List<System.String> DiscoveryConfig_WorkloadResourceDefinition { get; set; }
             public Amazon.WellArchitected.WorkloadEnvironment Environment { get; set; }
             public Amazon.WellArchitected.WorkloadImprovementStatus ImprovementStatus { get; set; }
             public System.String Industry { get; set; }

@@ -72,9 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LambdaAuthorizerConfig_AuthorizerResultTtlInSecond
         /// <summary>
         /// <para>
-        /// <para>The number of seconds a response should be cached for. The default is 5 minutes (300
-        /// seconds). The Lambda function can override this by returning a <code>ttlOverride</code>
-        /// key in its response. A value of 0 disables caching of responses.</para>
+        /// <para>The number of seconds a response should be cached for. The default is 0 seconds, which
+        /// disables caching. If you don't specify a value for <code>authorizerResultTtlInSeconds</code>,
+        /// the default value is used. The maximum value is one hour (3600 seconds). The Lambda
+        /// function can override this by returning a <code>ttlOverride</code> key in its response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,6 +222,19 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
         #endregion
         
+        #region Parameter Visibility
+        /// <summary>
+        /// <para>
+        /// <para>Sets the value of the GraphQL API to public (<code>GLOBAL</code>) or private (<code>PRIVATE</code>).
+        /// If no value is provided, the visibility will be set to <code>GLOBAL</code> by default.
+        /// This value cannot be changed once the API has been created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.GraphQLApiVisibility")]
+        public Amazon.AppSync.GraphQLApiVisibility Visibility { get; set; }
+        #endregion
+        
         #region Parameter XrayEnabled
         /// <summary>
         /// <para>
@@ -330,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 }
             }
             context.UserPoolConfig = this.UserPoolConfig;
+            context.Visibility = this.Visibility;
             context.XrayEnabled = this.XrayEnabled;
             
             // allow further manipulation of loaded context prior to processing
@@ -494,6 +509,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.UserPoolConfig = cmdletContext.UserPoolConfig;
             }
+            if (cmdletContext.Visibility != null)
+            {
+                request.Visibility = cmdletContext.Visibility;
+            }
             if (cmdletContext.XrayEnabled != null)
             {
                 request.XrayEnabled = cmdletContext.XrayEnabled.Value;
@@ -574,6 +593,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String OpenIDConnectConfig_Issuer { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
+            public Amazon.AppSync.GraphQLApiVisibility Visibility { get; set; }
             public System.Boolean? XrayEnabled { get; set; }
             public System.Func<Amazon.AppSync.Model.CreateGraphqlApiResponse, NewASYNGraphqlApiCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GraphqlApi;

@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter PackageType
         /// <summary>
         /// <para>
-        /// <para>Type of package.</para>
+        /// <para>The type of package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

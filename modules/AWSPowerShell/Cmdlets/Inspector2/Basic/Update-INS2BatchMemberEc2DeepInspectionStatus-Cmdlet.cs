@@ -22,51 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WellArchitected;
-using Amazon.WellArchitected.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WAT
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Updates whether the Amazon Web Services account is opted into organization sharing
-    /// and discovery integration features.
+    /// Activates or deactivates Amazon Inspector deep inspection for the provided member
+    /// accounts in your organization. You must be the delegated administrator of an organization
+    /// in Amazon Inspector to use this API.
     /// </summary>
-    [Cmdlet("Update", "WATGlobalSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Well-Architected Tool UpdateGlobalSettings API operation.", Operation = new[] {"UpdateGlobalSettings"}, SelectReturnType = typeof(Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse))]
-    [AWSCmdletOutput("None or Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "INS2BatchMemberEc2DeepInspectionStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse")]
+    [AWSCmdlet("Calls the Inspector2 BatchUpdateMemberEc2DeepInspectionStatus API operation.", Operation = new[] {"BatchUpdateMemberEc2DeepInspectionStatus"}, SelectReturnType = typeof(Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse))]
+    [AWSCmdletOutput("Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse",
+        "This cmdlet returns an Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateWATGlobalSettingCmdlet : AmazonWellArchitectedClientCmdlet, IExecutor
+    public partial class UpdateINS2BatchMemberEc2DeepInspectionStatusCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter DiscoveryIntegrationStatus
+        #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The status of discovery support settings.</para>
+        /// <para>The unique identifiers for the Amazon Web Services accounts to change Amazon Inspector
+        /// deep inspection status for.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WellArchitected.DiscoveryIntegrationStatus")]
-        public Amazon.WellArchitected.DiscoveryIntegrationStatus DiscoveryIntegrationStatus { get; set; }
-        #endregion
-        
-        #region Parameter OrganizationSharingStatus
-        /// <summary>
-        /// <para>
-        /// <para>The status of organization sharing settings.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WellArchitected.OrganizationSharingStatus")]
-        public Amazon.WellArchitected.OrganizationSharingStatus OrganizationSharingStatus { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("AccountIds")]
+        public Amazon.Inspector2.Model.MemberAccountEc2DeepInspectionStatus[] AccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse).
+        /// Specifying the name of a property of type Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WATGlobalSetting (UpdateGlobalSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-INS2BatchMemberEc2DeepInspectionStatus (BatchUpdateMemberEc2DeepInspectionStatus)"))
             {
                 return;
             }
@@ -101,11 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse, UpdateWATGlobalSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse, UpdateINS2BatchMemberEc2DeepInspectionStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.DiscoveryIntegrationStatus = this.DiscoveryIntegrationStatus;
-            context.OrganizationSharingStatus = this.OrganizationSharingStatus;
+            if (this.AccountId != null)
+            {
+                context.AccountId = new List<Amazon.Inspector2.Model.MemberAccountEc2DeepInspectionStatus>(this.AccountId);
+            }
+            #if MODULAR
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WellArchitected.Model.UpdateGlobalSettingsRequest();
+            var request = new Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusRequest();
             
-            if (cmdletContext.DiscoveryIntegrationStatus != null)
+            if (cmdletContext.AccountId != null)
             {
-                request.DiscoveryIntegrationStatus = cmdletContext.DiscoveryIntegrationStatus;
-            }
-            if (cmdletContext.OrganizationSharingStatus != null)
-            {
-                request.OrganizationSharingStatus = cmdletContext.OrganizationSharingStatus;
+                request.AccountIds = cmdletContext.AccountId;
             }
             
             CmdletOutput output;
@@ -163,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         #region AWS Service Operation Call
         
-        private Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse CallAWSServiceOperation(IAmazonWellArchitected client, Amazon.WellArchitected.Model.UpdateGlobalSettingsRequest request)
+        private Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Well-Architected Tool", "UpdateGlobalSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "BatchUpdateMemberEc2DeepInspectionStatus");
             try
             {
                 #if DESKTOP
-                return client.UpdateGlobalSettings(request);
+                return client.BatchUpdateMemberEc2DeepInspectionStatus(request);
                 #elif CORECLR
-                return client.UpdateGlobalSettingsAsync(request).GetAwaiter().GetResult();
+                return client.BatchUpdateMemberEc2DeepInspectionStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.WellArchitected.DiscoveryIntegrationStatus DiscoveryIntegrationStatus { get; set; }
-            public Amazon.WellArchitected.OrganizationSharingStatus OrganizationSharingStatus { get; set; }
-            public System.Func<Amazon.WellArchitected.Model.UpdateGlobalSettingsResponse, UpdateWATGlobalSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<Amazon.Inspector2.Model.MemberAccountEc2DeepInspectionStatus> AccountId { get; set; }
+            public System.Func<Amazon.Inspector2.Model.BatchUpdateMemberEc2DeepInspectionStatusResponse, UpdateINS2BatchMemberEc2DeepInspectionStatusCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

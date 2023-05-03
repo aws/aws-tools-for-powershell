@@ -278,6 +278,7 @@ $OS_SelectMap = @{
                "Get-OSDomainAutoTune",
                "Get-OSDomainChangeProgress",
                "Get-OSDomainConfig",
+               "Get-OSDomainHealth",
                "Get-OSDomainList",
                "Get-OSDryRunProgress",
                "Get-OSInboundConnection",

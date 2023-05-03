@@ -350,6 +350,8 @@ $INS2_SelectMap = @{
     "Select"=@("Register-INS2Member",
                "Get-INS2GetAccountStatus",
                "Get-INS2GetFreeTrialInfo",
+               "Get-INS2BatchMemberEc2DeepInspectionStatus",
+               "Update-INS2BatchMemberEc2DeepInspectionStatus",
                "Stop-INS2FindingsReport",
                "New-INS2Filter",
                "New-INS2FindingsReport",
@@ -362,6 +364,7 @@ $INS2_SelectMap = @{
                "Enable-INS2DelegatedAdminAccount",
                "Get-INS2Configuration",
                "Get-INS2DelegatedAdminAccount",
+               "Get-INS2Ec2DeepInspectionConfiguration",
                "Get-INS2FindingsReportStatus",
                "Get-INS2Member",
                "Get-INS2AccountPermissionList",
@@ -377,8 +380,10 @@ $INS2_SelectMap = @{
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
                "Update-INS2Configuration",
+               "Update-INS2Ec2DeepInspectionConfiguration",
                "Update-INS2Filter",
-               "Update-INS2OrganizationConfiguration")
+               "Update-INS2OrganizationConfiguration",
+               "Update-INS2OrgEc2DeepInspectionConfiguration")
 }
 
 _awsArgumentCompleterRegistration $INS2_SelectCompleters $INS2_SelectMap

@@ -154,6 +154,13 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.GraphQLApiVisibility
+        "New-ASYNGraphqlApi/Visibility"
+        {
+            $v = "GLOBAL","PRIVATE"
+            break
+        }
+
         # Amazon.AppSync.OutputType
         "Get-ASYNIntrospectionSchema/Format"
         {
@@ -225,6 +232,7 @@ $ASYN_map = @{
     "SyncConfig_ConflictDetection"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictHandler"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
+    "Visibility"=@("New-ASYNGraphqlApi")
 }
 
 _awsArgumentCompleterRegistration $ASYN_Completers $ASYN_map

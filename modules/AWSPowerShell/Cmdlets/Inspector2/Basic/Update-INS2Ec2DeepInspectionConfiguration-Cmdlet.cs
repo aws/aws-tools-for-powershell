@@ -22,75 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppSync;
-using Amazon.AppSync.Model;
+using Amazon.Inspector2;
+using Amazon.Inspector2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ASYN
+namespace Amazon.PowerShell.Cmdlets.INS2
 {
     /// <summary>
-    /// Maps an endpoint to your custom domain.
+    /// Activates, deactivates Amazon Inspector deep inspection, or updates custom paths for
+    /// your account.
     /// </summary>
-    [Cmdlet("Start", "ASYNApiAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppSync.Model.ApiAssociation")]
-    [AWSCmdlet("Calls the AWS AppSync AssociateApi API operation.", Operation = new[] {"AssociateApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.AssociateApiResponse))]
-    [AWSCmdletOutput("Amazon.AppSync.Model.ApiAssociation or Amazon.AppSync.Model.AssociateApiResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.ApiAssociation object.",
-        "The service call response (type Amazon.AppSync.Model.AssociateApiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "INS2Ec2DeepInspectionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse")]
+    [AWSCmdlet("Calls the Inspector2 UpdateEc2DeepInspectionConfiguration API operation.", Operation = new[] {"UpdateEc2DeepInspectionConfiguration"}, SelectReturnType = typeof(Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse",
+        "This cmdlet returns an Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartASYNApiAssociationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
+    public partial class UpdateINS2Ec2DeepInspectionConfigurationCmdlet : AmazonInspector2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ApiId
+        #region Parameter ActivateDeepInspection
         /// <summary>
         /// <para>
-        /// <para>The API ID. Private APIs can not be associated with custom domains.</para>
+        /// <para>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account,
+        /// or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate
+        /// deep inspection, instead the delegated administrator for the organization can deactivate
+        /// a member account using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html">BatchUpdateMemberEc2DeepInspectionStatus</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApiId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Boolean? ActivateDeepInspection { get; set; }
         #endregion
         
-        #region Parameter DomainName
+        #region Parameter PackagePath
         /// <summary>
         /// <para>
-        /// <para>The domain name.</para>
+        /// <para>The Amazon Inspector deep inspection custom paths you are adding for your account.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainName { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PackagePaths")]
+        public System.String[] PackagePath { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApiAssociation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppSync.Model.AssociateApiResponse).
-        /// Specifying the name of a property of type Amazon.AppSync.Model.AssociateApiResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApiAssociation";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ActivateDeepInspection parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ActivateDeepInspection' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ActivateDeepInspection' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ASYNApiAssociation (AssociateApi)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActivateDeepInspection), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-INS2Ec2DeepInspectionConfiguration (UpdateEc2DeepInspectionConfiguration)"))
             {
                 return;
             }
@@ -124,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppSync.Model.AssociateApiResponse, StartASYNApiAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse, UpdateINS2Ec2DeepInspectionConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -133,23 +123,14 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainName;
+                context.Select = (response, cmdlet) => this.ActivateDeepInspection;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApiId = this.ApiId;
-            #if MODULAR
-            if (this.ApiId == null && ParameterWasBound(nameof(this.ApiId)))
+            context.ActivateDeepInspection = this.ActivateDeepInspection;
+            if (this.PackagePath != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.PackagePath = new List<System.String>(this.PackagePath);
             }
-            #endif
-            context.DomainName = this.DomainName;
-            #if MODULAR
-            if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,15 +145,15 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppSync.Model.AssociateApiRequest();
+            var request = new Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationRequest();
             
-            if (cmdletContext.ApiId != null)
+            if (cmdletContext.ActivateDeepInspection != null)
             {
-                request.ApiId = cmdletContext.ApiId;
+                request.ActivateDeepInspection = cmdletContext.ActivateDeepInspection.Value;
             }
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.PackagePath != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.PackagePaths = cmdletContext.PackagePath;
             }
             
             CmdletOutput output;
@@ -207,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region AWS Service Operation Call
         
-        private Amazon.AppSync.Model.AssociateApiResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.AssociateApiRequest request)
+        private Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse CallAWSServiceOperation(IAmazonInspector2 client, Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "AssociateApi");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Inspector2", "UpdateEc2DeepInspectionConfiguration");
             try
             {
                 #if DESKTOP
-                return client.AssociateApi(request);
+                return client.UpdateEc2DeepInspectionConfiguration(request);
                 #elif CORECLR
-                return client.AssociateApiAsync(request).GetAwaiter().GetResult();
+                return client.UpdateEc2DeepInspectionConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,10 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiId { get; set; }
-            public System.String DomainName { get; set; }
-            public System.Func<Amazon.AppSync.Model.AssociateApiResponse, StartASYNApiAssociationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApiAssociation;
+            public System.Boolean? ActivateDeepInspection { get; set; }
+            public List<System.String> PackagePath { get; set; }
+            public System.Func<Amazon.Inspector2.Model.UpdateEc2DeepInspectionConfigurationResponse, UpdateINS2Ec2DeepInspectionConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -87,6 +87,13 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.DiscoveryIntegrationStatus
+        "Update-WATGlobalSetting/DiscoveryIntegrationStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.LensStatusType
         {
             ($_ -eq "Get-WATLensList/LensStatus") -Or
@@ -189,6 +196,7 @@ $WAT_Completers = {
 
 $WAT_map = @{
     "DiscoveryConfig_TrustedAdvisorIntegrationStatus"=@("New-WATWorkload","Update-WATWorkload")
+    "DiscoveryIntegrationStatus"=@("Update-WATGlobalSetting")
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")

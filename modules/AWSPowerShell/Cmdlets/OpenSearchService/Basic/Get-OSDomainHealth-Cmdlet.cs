@@ -22,45 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppSync;
-using Amazon.AppSync.Model;
+using Amazon.OpenSearchService;
+using Amazon.OpenSearchService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ASYN
+namespace Amazon.PowerShell.Cmdlets.OS
 {
     /// <summary>
-    /// Maps an endpoint to your custom domain.
+    /// Returns information about domain and node health, the standby Availability Zone, number
+    /// of nodes per Availability Zone, and shard count per node.
     /// </summary>
-    [Cmdlet("Start", "ASYNApiAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppSync.Model.ApiAssociation")]
-    [AWSCmdlet("Calls the AWS AppSync AssociateApi API operation.", Operation = new[] {"AssociateApi"}, SelectReturnType = typeof(Amazon.AppSync.Model.AssociateApiResponse))]
-    [AWSCmdletOutput("Amazon.AppSync.Model.ApiAssociation or Amazon.AppSync.Model.AssociateApiResponse",
-        "This cmdlet returns an Amazon.AppSync.Model.ApiAssociation object.",
-        "The service call response (type Amazon.AppSync.Model.AssociateApiResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OSDomainHealth")]
+    [OutputType("Amazon.OpenSearchService.Model.DescribeDomainHealthResponse")]
+    [AWSCmdlet("Calls the Amazon OpenSearch Service DescribeDomainHealth API operation.", Operation = new[] {"DescribeDomainHealth"}, SelectReturnType = typeof(Amazon.OpenSearchService.Model.DescribeDomainHealthResponse))]
+    [AWSCmdletOutput("Amazon.OpenSearchService.Model.DescribeDomainHealthResponse",
+        "This cmdlet returns an Amazon.OpenSearchService.Model.DescribeDomainHealthResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartASYNApiAssociationCmdlet : AmazonAppSyncClientCmdlet, IExecutor
+    public partial class GetOSDomainHealthCmdlet : AmazonOpenSearchServiceClientCmdlet, IExecutor
     {
-        
-        #region Parameter ApiId
-        /// <summary>
-        /// <para>
-        /// <para>The API ID. Private APIs can not be associated with custom domains.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApiId { get; set; }
-        #endregion
         
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name.</para>
+        /// <para>The name of the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,13 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApiAssociation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppSync.Model.AssociateApiResponse).
-        /// Specifying the name of a property of type Amazon.AppSync.Model.AssociateApiResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.OpenSearchService.Model.DescribeDomainHealthResponse).
+        /// Specifying the name of a property of type Amazon.OpenSearchService.Model.DescribeDomainHealthResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApiAssociation";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -95,26 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ASYNApiAssociation (AssociateApi)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -124,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppSync.Model.AssociateApiResponse, StartASYNApiAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.OpenSearchService.Model.DescribeDomainHealthResponse, GetOSDomainHealthCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,13 +103,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApiId = this.ApiId;
-            #if MODULAR
-            if (this.ApiId == null && ParameterWasBound(nameof(this.ApiId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -164,12 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppSync.Model.AssociateApiRequest();
+            var request = new Amazon.OpenSearchService.Model.DescribeDomainHealthRequest();
             
-            if (cmdletContext.ApiId != null)
-            {
-                request.ApiId = cmdletContext.ApiId;
-            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -207,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region AWS Service Operation Call
         
-        private Amazon.AppSync.Model.AssociateApiResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.AssociateApiRequest request)
+        private Amazon.OpenSearchService.Model.DescribeDomainHealthResponse CallAWSServiceOperation(IAmazonOpenSearchService client, Amazon.OpenSearchService.Model.DescribeDomainHealthRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "AssociateApi");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon OpenSearch Service", "DescribeDomainHealth");
             try
             {
                 #if DESKTOP
-                return client.AssociateApi(request);
+                return client.DescribeDomainHealth(request);
                 #elif CORECLR
-                return client.AssociateApiAsync(request).GetAwaiter().GetResult();
+                return client.DescribeDomainHealthAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiId { get; set; }
             public System.String DomainName { get; set; }
-            public System.Func<Amazon.AppSync.Model.AssociateApiResponse, StartASYNApiAssociationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApiAssociation;
+            public System.Func<Amazon.OpenSearchService.Model.DescribeDomainHealthResponse, GetOSDomainHealthCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

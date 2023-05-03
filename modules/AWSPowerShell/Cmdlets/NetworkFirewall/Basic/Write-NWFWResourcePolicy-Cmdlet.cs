@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// group or firewall policy with and the operations that you want the accounts to be
         /// able to perform. </para><para>For a rule group resource, you can specify the following operations in the Actions
         /// section of the statement:</para><ul><li><para>network-firewall:CreateFirewallPolicy</para></li><li><para>network-firewall:UpdateFirewallPolicy</para></li><li><para>network-firewall:ListRuleGroups</para></li></ul><para>For a firewall policy resource, you can specify the following operations in the Actions
-        /// section of the statement:</para><ul><li><para>network-firewall:CreateFirewall</para></li><li><para>network-firewall:UpdateFirewall</para></li><li><para>network-firewall:AssociateFirewallPolicy</para></li><li><para>network-firewall:ListFirewallPolicies</para></li></ul><para>In the Resource section of the statement, you specify the ARNs for the rule groups
+        /// section of the statement:</para><ul><li><para>network-firewall:AssociateFirewallPolicy</para></li><li><para>network-firewall:ListFirewallPolicies</para></li></ul><para>In the Resource section of the statement, you specify the ARNs for the rule groups
         /// and firewall policies that you want to share with the account that you specified in
         /// <code>Arn</code>.</para>
         /// </para>

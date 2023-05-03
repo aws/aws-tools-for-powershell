@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>Name of the domain to list instance type details for.</para>
+        /// <para>The name of the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+        /// <para>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
         /// Defaults to the latest version of OpenSearch.</para>
         /// </para>
         /// </summary>
@@ -67,6 +67,26 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EngineVersion { get; set; }
+        #endregion
+        
+        #region Parameter InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter that lists information for a given instance type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAZs
+        /// <summary>
+        /// <para>
+        /// <para>An optional parameter that specifies the Availability Zones for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetrieveAZs { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -166,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 WriteWarning("You are passing $null as a value for parameter EngineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InstanceType = this.InstanceType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -177,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             }
             #endif
             context.NextToken = this.NextToken;
+            context.RetrieveAZs = this.RetrieveAZs;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -206,9 +228,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.InstanceType != null)
+            {
+                request.InstanceType = cmdletContext.InstanceType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.RetrieveAZs != null)
+            {
+                request.RetrieveAZs = cmdletContext.RetrieveAZs.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -272,6 +302,14 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.InstanceType != null)
+            {
+                request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.RetrieveAZs != null)
+            {
+                request.RetrieveAZs = cmdletContext.RetrieveAZs.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -394,8 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
         {
             public System.String DomainName { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String InstanceType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? RetrieveAZs { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.ListInstanceTypeDetailsResponse, GetOSInstanceTypeDetailListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.InstanceTypeDetails;
         }

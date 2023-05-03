@@ -30,6 +30,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetMemberEc2DeepInspectionStatus" OutputProperty="*" Verb="Get" Noun="BatchMemberEc2DeepInspectionStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateMemberEc2DeepInspectionStatus" OutputProperty="*" Verb="Update" Noun="BatchMemberEc2DeepInspectionStatus" ShouldProcessTarget="AccountIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelFindingsReport" OutputProperty="ReportId" Verb="Stop" Noun="FindingsReport" ShouldProcessTarget="ReportId" PipelineParameter="ReportId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDelegatedAdminAccount" OutputProperty="DelegatedAdmin" Verb="Get" Noun="DelegatedAdminAccount" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEc2DeepInspectionConfiguration" OutputProperty="*" Verb="Get" Noun="Ec2DeepInspectionConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,11 +150,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEc2DeepInspectionConfiguration" OutputProperty="*" Verb="Update" Noun="Ec2DeepInspectionConfiguration" ShouldProcessTarget="ActivateDeepInspection" PipelineParameter="ActivateDeepInspection" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateFilter" OutputProperty="Arn" Verb="Update" Noun="Filter" ShouldProcessTarget="FilterArn" PipelineParameter="FilterArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateOrganizationConfiguration" OutputProperty="AutoEnable" Verb="Update" Noun="OrganizationConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOrgEc2DeepInspectionConfiguration" Verb="Update" Noun="OrgEc2DeepInspectionConfiguration" ShouldProcessTarget="OrgPackagePaths" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

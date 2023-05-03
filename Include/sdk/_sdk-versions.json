@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.538.0",
+    "ProductVersion" : "3.7.539.0",
     "CoreVersion"    : "3.7.106.31",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.132.3",
+            "Version" : "3.7.133.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"
@@ -922,7 +922,7 @@
             "InPreview"               : false
         },
         "AppSync"                         : {
-            "Version" : "3.7.103.61",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"
@@ -1890,7 +1890,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.105.18",
+            "Version" : "3.7.106.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"
@@ -2050,7 +2050,7 @@
             "InPreview"               : false
         },
         "WellArchitected"                 : {
-            "Version" : "3.7.102.22",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"
@@ -2226,7 +2226,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.104.46",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"
@@ -2338,7 +2338,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.102.80",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"
@@ -2370,7 +2370,7 @@
             "InPreview"               : false
         },
         "IoTTwinMaker"                        : {
-            "Version" : "3.7.103.27",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.31"

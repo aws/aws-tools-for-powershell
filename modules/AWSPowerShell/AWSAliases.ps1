@@ -12480,6 +12480,12 @@ Set-Alias -Name Batch-INS2GetAccountStatus -Value Get-INS2GetAccountStatus
 Set-Alias -Name INS2-BatchGetAccountStatus -Value Get-INS2GetAccountStatus
 Set-Alias -Name Batch-INS2GetFreeTrialInfo -Value Get-INS2GetFreeTrialInfo
 Set-Alias -Name INS2-BatchGetFreeTrialInfo -Value Get-INS2GetFreeTrialInfo
+Set-Alias -Name Batch-INS2GetMemberEc2DeepInspectionStatus -Value Get-INS2BatchMemberEc2DeepInspectionStatus
+Set-Alias -Name Batch-INS2BatchMemberEc2DeepInspectionStatus -Value Get-INS2BatchMemberEc2DeepInspectionStatus
+Set-Alias -Name INS2-BatchGetMemberEc2DeepInspectionStatus -Value Get-INS2BatchMemberEc2DeepInspectionStatus
+Set-Alias -Name Batch-INS2UpdateMemberEc2DeepInspectionStatus -Value Update-INS2BatchMemberEc2DeepInspectionStatus
+Set-Alias -Name Batch-INS2BatchMemberEc2DeepInspectionStatus -Value Update-INS2BatchMemberEc2DeepInspectionStatus
+Set-Alias -Name INS2-BatchUpdateMemberEc2DeepInspectionStatus -Value Update-INS2BatchMemberEc2DeepInspectionStatus
 Set-Alias -Name Cancel-INS2FindingsReport -Value Stop-INS2FindingsReport
 Set-Alias -Name INS2-CancelFindingsReport -Value Stop-INS2FindingsReport
 Set-Alias -Name Create-INS2Filter -Value New-INS2Filter
@@ -12502,6 +12508,7 @@ Set-Alias -Name INS2-Enable -Value Stop-INS2Inspector
 Set-Alias -Name INS2-EnableDelegatedAdminAccount -Value Enable-INS2DelegatedAdminAccount
 Set-Alias -Name INS2-GetConfiguration -Value Get-INS2Configuration
 Set-Alias -Name INS2-GetDelegatedAdminAccount -Value Get-INS2DelegatedAdminAccount
+Set-Alias -Name INS2-GetEc2DeepInspectionConfiguration -Value Get-INS2Ec2DeepInspectionConfiguration
 Set-Alias -Name INS2-GetFindingsReportStatus -Value Get-INS2FindingsReportStatus
 Set-Alias -Name INS2-GetMember -Value Get-INS2Member
 Set-Alias -Name List-INS2AccountPermissions -Value Get-INS2AccountPermissionList
@@ -12535,8 +12542,10 @@ Set-Alias -Name INS2-ListUsageTotals -Value Get-INS2UsageTotalList
 Set-Alias -Name INS2-TagResource -Value Add-INS2ResourceTag
 Set-Alias -Name INS2-UntagResource -Value Remove-INS2ResourceTag
 Set-Alias -Name INS2-UpdateConfiguration -Value Update-INS2Configuration
+Set-Alias -Name INS2-UpdateEc2DeepInspectionConfiguration -Value Update-INS2Ec2DeepInspectionConfiguration
 Set-Alias -Name INS2-UpdateFilter -Value Update-INS2Filter
 Set-Alias -Name INS2-UpdateOrganizationConfiguration -Value Update-INS2OrganizationConfiguration
+Set-Alias -Name INS2-UpdateOrgEc2DeepInspectionConfiguration -Value Update-INS2OrgEc2DeepInspectionConfiguration
 Set-Alias -Name Create-CWIMMonitor -Value New-CWIMMonitor
 Set-Alias -Name CWIM-CreateMonitor -Value New-CWIMMonitor
 Set-Alias -Name Delete-CWIMMonitor -Value Remove-CWIMMonitor
@@ -17675,6 +17684,8 @@ Set-Alias -Name Describe-OSDomainChangeProgress -Value Get-OSDomainChangeProgres
 Set-Alias -Name OS-DescribeDomainChangeProgress -Value Get-OSDomainChangeProgress
 Set-Alias -Name Describe-OSDomainConfig -Value Get-OSDomainConfig
 Set-Alias -Name OS-DescribeDomainConfig -Value Get-OSDomainConfig
+Set-Alias -Name Describe-OSDomainHealth -Value Get-OSDomainHealth
+Set-Alias -Name OS-DescribeDomainHealth -Value Get-OSDomainHealth
 Set-Alias -Name Describe-OSDomains -Value Get-OSDomainList
 Set-Alias -Name Describe-OSDomainList -Value Get-OSDomainList
 Set-Alias -Name OS-DescribeDomains -Value Get-OSDomainList
