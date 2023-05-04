@@ -28,7 +28,36 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.PutBucketVersioning
+    /// Sets the versioning state of an existing bucket.
+    /// 
+    ///  
+    /// <para>
+    /// You can set the versioning state with one of the following values:
+    /// </para><para><b>Enabled</b>—Enables versioning for the objects in the bucket. All objects added
+    /// to the bucket receive a unique version ID.
+    /// </para><para><b>Suspended</b>—Disables versioning for the objects in the bucket. All objects added
+    /// to the bucket receive the version ID null.
+    /// </para><para>
+    /// If the versioning state has never been set on a bucket, it has no versioning state;
+    /// a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>
+    /// request does not return a versioning state value.
+    /// </para><para>
+    /// In order to enable MFA Delete, you must be the bucket owner. If you are the bucket
+    /// owner and want to enable MFA Delete in the bucket versioning configuration, you must
+    /// include the <code>x-amz-mfa request</code> header and the <code>Status</code> and
+    /// the <code>MfaDelete</code> request elements in a request to set the versioning state
+    /// of the bucket.
+    /// </para><important><para>
+    /// If you have an object expiration lifecycle configuration in your non-versioned bucket
+    /// and you want to maintain the same permanent delete behavior when you enable versioning,
+    /// you must add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration
+    /// will manage the deletes of the noncurrent object versions in the version-enabled bucket.
+    /// (A version-enabled bucket maintains one current and zero or more noncurrent object
+    /// versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle
+    /// and Versioning</a>.
+    /// </para></important><para>
+    /// The following operations are related to <code>PutBucketVersioning</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketVersioning", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

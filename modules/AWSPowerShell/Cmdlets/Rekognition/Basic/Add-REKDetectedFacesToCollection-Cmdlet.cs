@@ -107,10 +107,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li><li><para>
     /// An image ID, <code>ImageId</code>, assigned by the service for the input image.
     /// </para></li></ul><para>
-    /// If you request all facial attributes (by using the <code>detectionAttributes</code>
-    /// parameter), Amazon Rekognition returns detailed facial attributes, such as facial
-    /// landmarks (for example, location of eye and mouth) and other facial attributes. If
-    /// you provide the same image, specify the same collection, and use the same external
+    /// If you request <code>ALL</code> or specific facial attributes (e.g., <code>FACE_OCCLUDED</code>)
+    /// by using the detectionAttributes parameter, Amazon Rekognition returns detailed facial
+    /// attributes, such as facial landmarks (for example, location of eye and mouth), facial
+    /// occlusion, and other facial attributes.
+    /// </para><para>
+    /// If you provide the same image, specify the same collection, and use the same external
     /// ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
     /// face metadata.
     /// </para><para>
@@ -176,12 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter DetectionAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of facial attributes that you want to be returned. This can be the default
-        /// list of attributes or all attributes. If you don't specify a value for <code>Attributes</code>
-        /// or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of
-        /// facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
-        /// <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>,
-        /// all facial attributes are returned, but the operation takes longer to complete.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
+        /// <para>An array of facial attributes you want to be returned. A <code>DEFAULT</code> subset
+        /// of facial attributes - <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
+        /// <code>Quality</code>, and <code>Landmarks</code> - will always be returned. You can
+        /// request for specific facial attributes (in addition to the default list) - by using
+        /// <code>["DEFAULT", "FACE_OCCLUDED"]</code> or just <code>["FACE_OCCLUDED"]</code>.
+        /// You can request for all facial attributes by using <code>["ALL"]</code>. Requesting
+        /// more attributes may increase response time.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
         /// operator to determine which attributes to return (in this case, all attributes). </para>
         /// </para>
         /// </summary>

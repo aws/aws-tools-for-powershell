@@ -237,6 +237,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBAdministratorAccount",
                "Get-SHUBEnabledStandard",
                "Get-SHUBFindingAggregator",
+               "Get-SHUBFindingHistory",
                "Get-SHUBFinding",
                "Get-SHUBInsightResult",
                "Get-SHUBInsight",

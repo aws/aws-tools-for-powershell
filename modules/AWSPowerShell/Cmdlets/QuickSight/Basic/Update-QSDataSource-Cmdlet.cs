@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OracleParameters_Database
         /// <summary>
         /// <para>
-        /// <para>Database.</para>
+        /// <para>The database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -589,7 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter OracleParameters_Port
         /// <summary>
         /// <para>
-        /// <para>Port.</para>
+        /// <para>The port.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

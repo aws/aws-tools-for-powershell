@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// section describes the latest API. The previous version of the API supported filtering
     /// based only on an object key name prefix, which is supported for backward compatibility.
     /// For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
-    /// </para></note><para><b>Rules</b></para><para>
+    /// </para></note><dl><dt>Rules</dt><dd><para>
     /// You specify the lifecycle configuration in your request body. The lifecycle configuration
     /// is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration
     /// can have up to 1,000 rules. This limit is not adjustable. Each rule consists of the
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
     /// Lifecycle Management</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle
     /// Configuration Elements</a>.
-    /// </para><para><b>Permissions</b></para><para>
+    /// </para></dd><dt>Permissions</dt><dd><para>
     /// By default, all Amazon S3 resources are private, including buckets, objects, and related
     /// subresources (for example, lifecycle configuration and website configuration). Only
     /// the resource owner (that is, the Amazon Web Services account that created it) can
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><ul><li><para><code>s3:DeleteObject</code></para></li><li><para><code>s3:DeleteObjectVersion</code></para></li><li><para><code>s3:PutLifecycleConfiguration</code></para></li></ul><para>
     /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
     /// Access Permissions to Your Amazon S3 Resources</a>.
-    /// </para><para>
-    /// The following are related to <code>PutBucketLifecycleConfiguration</code>:
+    /// </para></dd></dl><para>
+    /// The following operations are related to <code>PutBucketLifecycleConfiguration</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html">Examples
     /// of Lifecycle Configuration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>

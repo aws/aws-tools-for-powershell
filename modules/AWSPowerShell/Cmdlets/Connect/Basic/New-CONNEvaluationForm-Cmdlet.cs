@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Creates an evaluation form in the specified Amazon Connect instance. The form can
     /// be used to define questions related to agent performance, and create sections to organize
-    /// such questions. An evaluation form must have a unique title within an instance. Question
-    /// and section identifiers cannot be duplicated within the same evaluation form.
+    /// such questions. Question and section identifiers cannot be duplicated within the same
+    /// evaluation form.
     /// </summary>
     [Cmdlet("New", "CONNEvaluationForm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateEvaluationFormResponse")]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>A unique title of the evaluation form.</para>
+        /// <para>A title of the evaluation form.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

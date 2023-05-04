@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// access to others. Permissions can only be granted using policies. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general">Permissions
     /// for server access log delivery</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></important><para><b>Grantee Values</b></para><para>
+    /// </para></important><dl><dt>Grantee Values</dt><dd><para>
     /// You can specify the person (grantee) to whom you're assigning access rights (using
     /// request elements) in the following ways:
     /// </para><ul><li><para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// request, appears as the CanonicalUser.
     /// </para></li><li><para>
     /// By URI:
-    /// </para><para><code>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"&gt;&lt;URI&gt;&lt;&gt;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&lt;&gt;&lt;/URI&gt;&lt;/Grantee&gt;</code></para></li></ul><para>
+    /// </para><para><code>&lt;Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"&gt;&lt;URI&gt;&lt;&gt;http://acs.amazonaws.com/groups/global/AuthenticatedUsers&lt;&gt;&lt;/URI&gt;&lt;/Grantee&gt;</code></para></li></ul></dd></dl><para>
     /// To enable logging, you use LoggingEnabled and its children request elements. To disable
     /// logging, you use an empty BucketLoggingStatus request element:
     /// </para><para><code>&lt;BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" /&gt;</code></para><para>

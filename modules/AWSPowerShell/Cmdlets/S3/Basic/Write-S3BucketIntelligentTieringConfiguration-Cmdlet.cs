@@ -28,7 +28,43 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.PutBucketIntelligentTieringConfiguration
+    /// Puts a S3 Intelligent-Tiering configuration to the specified bucket. You can have
+    /// up to 1,000 S3 Intelligent-Tiering configurations per bucket.
+    /// 
+    ///  
+    /// <para>
+    /// The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
+    /// automatically moving data to the most cost-effective storage access tier, without
+    /// performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic
+    /// cost savings in three low latency and high throughput access tiers. To get the lowest
+    /// storage cost on data that can be accessed in minutes to hours, you can choose to activate
+    /// additional archiving capabilities.
+    /// </para><para>
+    /// The S3 Intelligent-Tiering storage class is the ideal storage class for data with
+    /// unknown, changing, or unpredictable access patterns, independent of object size or
+    /// retention period. If the size of an object is less than 128 KB, it is not monitored
+    /// and not eligible for auto-tiering. Smaller objects can be stored, but they are always
+    /// charged at the Frequent Access tier rates in the S3 Intelligent-Tiering storage class.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access">Storage
+    /// class for automatically optimizing frequently and infrequently accessed objects</a>.
+    /// </para><para>
+    /// Operations related to <code>PutBucketIntelligentTieringConfiguration</code> include:
+    /// 
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketIntelligentTieringConfiguration.html">DeleteBucketIntelligentTieringConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketIntelligentTieringConfiguration.html">GetBucketIntelligentTieringConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketIntelligentTieringConfigurations.html">ListBucketIntelligentTieringConfigurations</a></para></li></ul><note><para>
+    /// You only need S3 Intelligent-Tiering enabled on a bucket if you want to automatically
+    /// move objects stored in the S3 Intelligent-Tiering storage class to the Archive Access
+    /// or Deep Archive Access tier.
+    /// </para></note><para><code>PutBucketIntelligentTieringConfiguration</code> has the following special errors:
+    /// </para><dl><dt>HTTP 400 Bad Request Error</dt><dd><para><i>Code:</i> InvalidArgument
+    /// </para><para><i>Cause:</i> Invalid Argument
+    /// </para></dd><dt>HTTP 400 Bad Request Error</dt><dd><para><i>Code:</i> TooManyConfigurations
+    /// </para><para><i>Cause:</i> You are attempting to create a new configuration but have already reached
+    /// the 1,000-configuration limit. 
+    /// </para></dd><dt>HTTP 403 Forbidden Error</dt><dd><para><i>Cause:</i> You are not the owner of the specified bucket, or you do not have the
+    /// <code>s3:PutIntelligentTieringConfiguration</code> bucket permission to set the configuration
+    /// on the bucket. 
+    /// </para></dd></dl>
     /// </summary>
     [Cmdlet("Write", "S3BucketIntelligentTieringConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

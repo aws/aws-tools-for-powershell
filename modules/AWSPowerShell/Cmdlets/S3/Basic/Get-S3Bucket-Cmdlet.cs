@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Returns a list of all buckets owned by the authenticated sender of the request. To
     /// use this operation, you must have the <code>s3:ListAllMyBuckets</code> permission.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating,
+    /// configuring, and working with Amazon S3 buckets</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "S3Bucket")]
     [OutputType("Amazon.S3.Model.S3Bucket")]

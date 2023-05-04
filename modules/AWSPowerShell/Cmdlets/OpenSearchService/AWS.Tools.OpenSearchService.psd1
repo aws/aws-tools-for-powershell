@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OSDomainHealth', 
         'Get-OSDomainList', 
         'Get-OSDomainNameList', 
+        'Get-OSDomainNode', 
         'Get-OSDomainsForPackageList', 
         'Get-OSDryRunProgress', 
         'Get-OSInboundConnection', 

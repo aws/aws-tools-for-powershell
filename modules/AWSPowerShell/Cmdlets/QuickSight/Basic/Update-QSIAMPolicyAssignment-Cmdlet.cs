@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the assignment, also called a rule. This name must be unique within an
+        /// <para>The name of the assignment, also called a rule. The name must be unique within the
         /// Amazon Web Services account.</para>
         /// </para>
         /// </summary>

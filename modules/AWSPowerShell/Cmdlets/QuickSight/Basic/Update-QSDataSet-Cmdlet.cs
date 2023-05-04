@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String DataSetId { get; set; }
         #endregion
         
+        #region Parameter DatasetParameter
+        /// <summary>
+        /// <para>
+        /// <para>The parameter declarations of the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DatasetParameters")]
+        public Amazon.QuickSight.Model.DatasetParameter[] DatasetParameter { get; set; }
+        #endregion
+        
         #region Parameter DataSetUsageConfiguration_DisableUseAsDirectQuerySource
         /// <summary>
         /// <para>
@@ -375,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter DataSetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.DatasetParameter != null)
+            {
+                context.DatasetParameter = new List<Amazon.QuickSight.Model.DatasetParameter>(this.DatasetParameter);
+            }
             context.DataSetUsageConfiguration_DisableUseAsDirectQuerySource = this.DataSetUsageConfiguration_DisableUseAsDirectQuerySource;
             context.DataSetUsageConfiguration_DisableUseAsImportedSource = this.DataSetUsageConfiguration_DisableUseAsImportedSource;
             if (this.FieldFolder != null)
@@ -470,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.DataSetId != null)
             {
                 request.DataSetId = cmdletContext.DataSetId;
+            }
+            if (cmdletContext.DatasetParameter != null)
+            {
+                request.DatasetParameters = cmdletContext.DatasetParameter;
             }
             
              // populate DataSetUsageConfiguration
@@ -683,6 +702,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.ColumnGroup> ColumnGroup { get; set; }
             public List<Amazon.QuickSight.Model.ColumnLevelPermissionRule> ColumnLevelPermissionRule { get; set; }
             public System.String DataSetId { get; set; }
+            public List<Amazon.QuickSight.Model.DatasetParameter> DatasetParameter { get; set; }
             public System.Boolean? DataSetUsageConfiguration_DisableUseAsDirectQuerySource { get; set; }
             public System.Boolean? DataSetUsageConfiguration_DisableUseAsImportedSource { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder> FieldFolder { get; set; }

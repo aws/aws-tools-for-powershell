@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// replaces the previous value for that tag.
     /// </para><para>
     /// You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging
-    /// on data set, data source, dashboard, and template. 
+    /// on data set, data source, dashboard, template, and topic. 
     /// </para><para>
     /// Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web
     /// Services services, except for the following:

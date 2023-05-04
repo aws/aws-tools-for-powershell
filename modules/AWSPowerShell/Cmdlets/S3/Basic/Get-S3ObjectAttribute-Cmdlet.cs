@@ -33,11 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// you must have READ access to the object.
     /// 
     ///  
-    /// <para><code>GetObjectAttributes</code> combines the functionality of <code>GetObjectAcl</code>,
-    /// <code>GetObjectLegalHold</code>, <code>GetObjectLockConfiguration</code>, <code>GetObjectRetention</code>,
-    /// <code>GetObjectTagging</code>, <code>HeadObject</code>, and <code>ListParts</code>.
-    /// All of the data returned with each of those individual calls can be returned with
-    /// a single call to <code>GetObjectAttributes</code>.
+    /// <para><code>GetObjectAttributes</code> combines the functionality of <code>HeadObject</code>
+    /// and <code>ListParts</code>. All of the data returned with each of those individual
+    /// calls can be returned with a single call to <code>GetObjectAttributes</code>.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
@@ -50,9 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Encryption request headers, such as <code>x-amz-server-side-encryption</code>, should
     /// not be sent for GET requests if your object uses server-side encryption with Amazon
     /// Web Services KMS keys stored in Amazon Web Services Key Management Service (SSE-KMS)
-    /// or server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your
-    /// object does use these types of keys, you'll get an HTTP <code>400 Bad Request</code>
-    /// error.
+    /// or server-side encryption with Amazon S3 managed keys (SSE-S3). If your object does
+    /// use these types of keys, you'll get an HTTP <code>400 Bad Request</code> error.
     /// </para></li><li><para>
     ///  The last modified property in this case is the creation date of the object.
     /// </para></li></ul></note><para>
@@ -72,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li></ul></li></ul><para>
     /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
     /// 7232</a>.
-    /// </para><para><b>Permissions</b></para><para>
+    /// </para><dl><dt>Permissions</dt><dd><para>
     /// The permissions that you need to use this operation depend on whether the bucket is
     /// versioned. If the bucket is versioned, you need both the <code>s3:GetObjectVersion</code>
     /// and <code>s3:GetObjectVersionAttributes</code> permissions for this operation. If
@@ -87,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     /// If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
     /// HTTP status code <code>403 Forbidden</code> ("access denied") error.
-    /// </para></li></ul><para>
+    /// </para></li></ul></dd></dl><para>
     /// The following actions are related to <code>GetObjectAttributes</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html">GetObjectLegalHold</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html">GetObjectLockConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html">GetObjectRetention</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html">HeadObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a></para></li></ul>
     /// </summary>

@@ -331,6 +331,16 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.TopicScheduleType
+        {
+            ($_ -eq "New-QSTopicRefreshSchedule/RefreshSchedule_TopicScheduleType") -Or
+            ($_ -eq "Update-QSTopicRefreshSchedule/RefreshSchedule_TopicScheduleType")
+        }
+        {
+            $v = "DAILY","HOURLY","MONTHLY","WEEKLY"
+            break
+        }
+
         # Amazon.QuickSight.UserRole
         {
             ($_ -eq "Update-QSUser/Role") -Or
@@ -375,6 +385,7 @@ $QS_map = @{
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "IngestionType"=@("New-QSIngestion")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
+    "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "Role"=@("Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
@@ -456,6 +467,9 @@ $QS_SelectMap = @{
                "New-QSTemplateAlias",
                "New-QSTheme",
                "New-QSThemeAlias",
+               "New-QSTopic",
+               "New-QSTopicRefreshSchedule",
+               "New-QSVPCConnection",
                "Remove-QSAccountCustomization",
                "Remove-QSAccountSubscription",
                "Remove-QSAnalysis",
@@ -474,8 +488,11 @@ $QS_SelectMap = @{
                "Remove-QSTemplateAlias",
                "Remove-QSTheme",
                "Remove-QSThemeAlias",
+               "Remove-QSTopic",
+               "Remove-QSTopicRefreshSchedule",
                "Remove-QSUser",
                "Remove-QSUserByPrincipalId",
+               "Remove-QSVPCConnection",
                "Get-QSAccountCustomization",
                "Get-QSAccountSetting",
                "Get-QSAccountSubscription",
@@ -507,7 +524,12 @@ $QS_SelectMap = @{
                "Get-QSTheme",
                "Get-QSThemeAlias",
                "Get-QSThemePermission",
+               "Get-QSTopic",
+               "Get-QSTopicPermission",
+               "Get-QSTopicRefresh",
+               "Get-QSTopicRefreshSchedule",
                "Get-QSUser",
+               "Get-QSVPCConnection",
                "New-QSEmbedUrlForAnonymousUser",
                "New-QSEmbedUrlForRegisteredUser",
                "Get-QSDashboardEmbedUrl",
@@ -533,8 +555,11 @@ $QS_SelectMap = @{
                "Get-QSThemeAliasList",
                "Get-QSThemeList",
                "Get-QSThemeVersionList",
+               "Get-QSTopicRefreshScheduleList",
+               "Get-QSTopicList",
                "Get-QSUserGroupList",
                "Get-QSUserList",
+               "Get-QSVPCConnectionList",
                "Write-QSDataSetRefreshProperty",
                "Register-QSUser",
                "Restore-QSAnalysis",
@@ -570,7 +595,11 @@ $QS_SelectMap = @{
                "Update-QSTheme",
                "Update-QSThemeAlias",
                "Update-QSThemePermission",
-               "Update-QSUser")
+               "Update-QSTopic",
+               "Update-QSTopicPermission",
+               "Update-QSTopicRefreshSchedule",
+               "Update-QSUser",
+               "Update-QSVPCConnection")
 }
 
 _awsArgumentCompleterRegistration $QS_SelectCompleters $QS_SelectMap

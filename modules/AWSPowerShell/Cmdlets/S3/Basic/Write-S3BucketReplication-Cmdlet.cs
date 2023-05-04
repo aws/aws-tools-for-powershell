@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using
     /// Versioning</a>.
-    /// </para><para><b>Handling Replication of Encrypted Objects</b></para><para>
+    /// </para><dl><dt>Handling Replication of Encrypted Objects</dt><dd><para>
     /// By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
     /// encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects,
     /// add the following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Objects Created with SSE Using KMS keys</a>.
     /// </para><para>
     /// For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List
-    /// of replication-related error codes</a></para><para><b>Permissions</b></para><para>
+    /// of replication-related error codes</a></para></dd><dt>Permissions</dt><dd><para>
     /// To create a <code>PutBucketReplication</code> request, you must have <code>s3:PutReplicationConfiguration</code>
     /// permissions for the bucket. 
     /// </para><para>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><note><para>
     /// To perform this operation, the user or role performing the action must have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
     /// permission.
-    /// </para></note><para>
+    /// </para></note></dd></dl><para>
     /// The following operations are related to <code>PutBucketReplication</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a></para></li></ul>
     /// </summary>

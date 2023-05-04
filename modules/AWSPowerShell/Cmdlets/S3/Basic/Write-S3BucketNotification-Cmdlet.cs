@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// you send a PUT request with this configuration, Amazon S3 sends test messages to your
     /// SNS topic. If the message fails, the entire PUT action will fail, and Amazon S3 will
     /// not add the configuration to your bucket.
-    /// </para></note><para><b>Responses</b></para><para>
+    /// </para></note><para>
     /// If the configuration in the request body includes only one <code>TopicConfiguration</code>
     /// specifying only the <code>s3:ReducedRedundancyLostObject</code> event type, the response
     /// will also include the <code>x-amz-sns-test-message-id</code> header containing the

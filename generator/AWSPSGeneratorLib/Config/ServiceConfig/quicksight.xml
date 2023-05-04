@@ -107,6 +107,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTopic" OutputProperty="*" Verb="New" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTopicRefreshSchedule" OutputProperty="*" Verb="New" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVPCConnection" OutputProperty="*" Verb="New" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountCustomization" OutputProperty="*" Verb="Remove" Noun="AccountCustomization" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -179,11 +191,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTopic" OutputProperty="*" Verb="Remove" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTopicRefreshSchedule" OutputProperty="*" Verb="Remove" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteUserByPrincipalId" OutputProperty="*" Verb="Remove" Noun="UserByPrincipalId" ShouldProcessTarget="PrincipalId" PipelineParameter="PrincipalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVPCConnection" OutputProperty="*" Verb="Remove" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -311,7 +335,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopic" OutputProperty="*" Verb="Get" Noun="Topic" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopicPermissions" OutputProperty="*" Verb="Get" Noun="TopicPermission" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopicRefresh" OutputProperty="RefreshDetails" Verb="Get" Noun="TopicRefresh" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTopicRefreshSchedule" OutputProperty="*" Verb="Get" Noun="TopicRefreshSchedule" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeUser" OutputProperty="User" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVPCConnection" OutputProperty="VPCConnection" Verb="Get" Noun="VPCConnection" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -420,11 +464,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicRefreshSchedules" OutputProperty="*" Verb="Get" Noun="TopicRefreshScheduleList" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTopics" OutputProperty="TopicsSummaries" Verb="Get" Noun="TopicList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUserGroups" OutputProperty="GroupList" Verb="Get" Noun="UserGroupList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListUsers" OutputProperty="UserList" Verb="Get" Noun="UserList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVPCConnections" OutputProperty="VPCConnectionSummaries" Verb="Get" Noun="VPCConnectionList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -580,7 +636,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopic" OutputProperty="*" Verb="Update" Noun="Topic" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopicPermissions" OutputProperty="*" Verb="Update" Noun="TopicPermission" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopicRefreshSchedule" OutputProperty="*" Verb="Update" Noun="TopicRefreshSchedule" ShouldProcessTarget="TopicId" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateUser" OutputProperty="User" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVPCConnection" OutputProperty="*" Verb="Update" Noun="VPCConnection" ShouldProcessTarget="VPCConnectionId" PipelineParameter="VPCConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

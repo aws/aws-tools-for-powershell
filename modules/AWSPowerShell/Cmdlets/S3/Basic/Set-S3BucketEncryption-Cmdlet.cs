@@ -28,7 +28,34 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.PutBucketEncryption
+    /// This action uses the <code>encryption</code> subresource to configure default encryption
+    /// and Amazon S3 Bucket Keys for an existing bucket.
+    /// 
+    ///  
+    /// <para>
+    /// By default, all buckets have a default encryption configuration that uses server-side
+    /// encryption with Amazon S3 managed keys (SSE-S3). You can optionally configure default
+    /// encryption for a bucket by using server-side encryption with an Amazon Web Services
+    /// KMS key (SSE-KMS) or a customer-provided key (SSE-C). If you specify default encryption
+    /// by using SSE-KMS, you can also configure Amazon S3 Bucket Keys. For information about
+    /// bucket default encryption, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon
+    /// S3 bucket default encryption</a> in the <i>Amazon S3 User Guide</i>. For more information
+    /// about S3 Bucket Keys, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html">Amazon
+    /// S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><important><para>
+    /// This action requires Amazon Web Services Signature Version 4. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">
+    /// Authenticating Requests (Amazon Web Services Signature Version 4)</a>. 
+    /// </para></important><para>
+    /// To use this operation, you must have permissions to perform the <code>s3:PutEncryptionConfiguration</code>
+    /// action. The bucket owner has this permission by default. The bucket owner can grant
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
+    /// 
+    /// </para><para>
+    /// The following operations are related to <code>PutBucketEncryption</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html">GetBucketEncryption</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html">DeleteBucketEncryption</a></para></li></ul>
     /// </summary>
     [Cmdlet("Set", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -452,7 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter StatusCode
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.WriteGetObjectResponseRequest.StatusCode
+        /// <para>The integer status code for an HTTP response of a corresponding <code>GetObject</code> request.
+        /// The following is a list of status codes. </para><ul><li><para><i>200 - OK</i></para></li><li><para><i>206 - Partial Content</i></para></li><li><para><i>304 - Not Modified</i></para></li><li><para><i>400 - Bad Request</i></para></li><li><para><i>401 - Unauthorized</i></para></li><li><para><i>403 - Forbidden</i></para></li><li><para><i>404 - Not Found</i></para></li><li><para><i>405 - Method Not Allowed</i></para></li><li><para><i>409 - Conflict</i></para></li><li><para><i>411 - Length Required</i></para></li><li><para><i>412 - Precondition Failed</i></para></li><li><para><i>416 - Range Not Satisfiable</i></para></li><li><para><i>500 - Internal Server Error</i></para></li><li><para><i>503 - Service Unavailable</i></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

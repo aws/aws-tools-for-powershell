@@ -40,9 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
     /// Method Not Allowed</code> error.
     /// </para><important><para>
-    ///  As a security precaution, the root user of the Amazon Web Services account that owns
-    /// a bucket can always use this operation, even if the policy explicitly denies the root
-    /// user the ability to perform this action. 
+    /// To ensure that bucket owners don't inadvertently lock themselves out of their own
+    /// buckets, the root principal in a bucket owner's Amazon Web Services account can perform
+    /// the <code>GetBucketPolicy</code>, <code>PutBucketPolicy</code>, and <code>DeleteBucketPolicy</code>
+    /// API actions, even if their bucket policy explicitly denies the root principal's access.
+    /// Bucket owner root principals can only be blocked from performing these API actions
+    /// by VPC endpoint policies and Amazon Web Services Organizations policies.
     /// </para></important><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html">Bucket
     /// policy examples</a>.

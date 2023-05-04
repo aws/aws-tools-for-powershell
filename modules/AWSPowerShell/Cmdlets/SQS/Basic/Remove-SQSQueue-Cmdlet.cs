@@ -43,8 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// with the same name.
     /// </para><note><para>
     /// Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
-    /// cross-account permissions to a role and a user name</a> in the <i>Amazon SQS Developer
+    /// cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer
     /// Guide</i>.
+    /// </para><para>
+    /// The delete operation uses the HTTP <code>GET</code> verb.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,9 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for
-    /// the IAM policies assigned to the specified user and group or groups that the user
-    /// belongs to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all of the IAM policy assignments, including the Amazon Resource Names (ARNs),
+    /// for the IAM policies assigned to the specified user and group, or groups that the
+    /// user belongs to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSIAMPolicyAssignmentsForUserList")]
     [OutputType("Amazon.QuickSight.Model.ActiveIAMPolicyAssignment")]

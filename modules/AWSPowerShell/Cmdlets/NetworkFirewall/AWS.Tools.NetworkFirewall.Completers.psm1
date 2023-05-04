@@ -152,7 +152,7 @@ $NWFW_Completers = {
             ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy")
         }
         {
-            $v = "CONTINUE","DROP"
+            $v = "CONTINUE","DROP","REJECT"
             break
         }
 

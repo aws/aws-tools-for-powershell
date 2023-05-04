@@ -28,7 +28,34 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.PutObjectTagging
+    /// Sets the supplied tag-set to an object that already exists in a bucket.
+    /// 
+    ///  
+    /// <para>
+    /// A tag is a key-value pair. You can associate tags with an object by sending a PUT
+    /// request against the tagging subresource that is associated with the object. You can
+    /// retrieve tags by sending a GET request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.
+    /// </para><para>
+    /// For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag
+    /// Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags
+    /// per object.
+    /// </para><para>
+    /// To use this operation, you must have permission to perform the <code>s3:PutObjectTagging</code>
+    /// action. By default, the bucket owner has this permission and can grant this permission
+    /// to others.
+    /// </para><para>
+    /// To put tags of any other version, use the <code>versionId</code> query parameter.
+    /// You also need permission for the <code>s3:PutObjectVersionTagging</code> action.
+    /// </para><para>
+    /// For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
+    /// Tagging</a>.
+    /// </para><para><code>PutObjectTagging</code> has the following special errors:
+    /// </para><ul><li><ul><li><para><i>Code: InvalidTagError </i></para></li><li><para><i>Cause: The tag provided was not a valid tag. This error can occur if the tag did
+    /// not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
+    /// Tagging</a>.</i></para></li></ul></li><li><ul><li><para><i>Code: MalformedXMLError </i></para></li><li><para><i>Cause: The XML provided does not match the schema.</i></para></li></ul></li><li><ul><li><para><i>Code: OperationAbortedError </i></para></li><li><para><i>Cause: A conflicting conditional action is currently in progress against this
+    /// resource. Please try again.</i></para></li></ul></li><li><ul><li><para><i>Code: InternalError</i></para></li><li><para><i>Cause: The service was unable to apply the provided tag to the object.</i></para></li></ul></li></ul><para>
+    /// The following operations are related to <code>PutObjectTagging</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html">DeleteObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

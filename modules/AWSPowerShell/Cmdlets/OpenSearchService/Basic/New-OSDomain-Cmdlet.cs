@@ -419,7 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter LogPublishingOption
         /// <summary>
         /// <para>
-        /// <para>Key-value pairs to configure slow log publishing.</para>
+        /// <para>Key-value pairs to configure log publishing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

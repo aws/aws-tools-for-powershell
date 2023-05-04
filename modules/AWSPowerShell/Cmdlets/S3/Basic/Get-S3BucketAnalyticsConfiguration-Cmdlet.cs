@@ -28,7 +28,23 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Amazon.S3.IAmazonS3.GetBucketAnalyticsConfiguration
+    /// This implementation of the GET action returns an analytics configuration (identified
+    /// by the analytics configuration ID) from the bucket.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must have permissions to perform the <code>s3:GetAnalyticsConfiguration</code>
+    /// action. The bucket owner has this permission by default. The bucket owner can grant
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">
+    /// Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a> in the <i>Amazon S3 User Guide</i>.
+    /// 
+    /// </para><para>
+    /// For information about Amazon S3 analytics feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html">Amazon
+    /// S3 Analytics – Storage Class Analysis</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para><para>
+    /// The following operations are related to <code>GetBucketAnalyticsConfiguration</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html">DeleteBucketAnalyticsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBucketAnalyticsConfigurations.html">ListBucketAnalyticsConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html">PutBucketAnalyticsConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketAnalyticsConfiguration")]
     [OutputType("Amazon.S3.Model.AnalyticsConfiguration")]

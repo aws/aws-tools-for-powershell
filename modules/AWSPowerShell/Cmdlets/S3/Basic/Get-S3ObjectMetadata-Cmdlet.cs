@@ -37,8 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// A <code>HEAD</code> request has the same options as a <code>GET</code> action on an
     /// object. The response is identical to the <code>GET</code> response except that there
     /// is no response body. Because of this, if the <code>HEAD</code> request generates an
-    /// error, it returns a generic <code>404 Not Found</code> or <code>403 Forbidden</code>
-    /// code. It is not possible to retrieve the exact exception beyond these error codes.
+    /// error, it returns a generic <code>400 Bad Request</code>, <code>403 Forbidden</code>
+    /// or <code>404 Not Found</code> code. It is not possible to retrieve the exact exception
+    /// beyond these error codes.
     /// </para><para>
     /// If you encrypt an object by using server-side encryption with customer-provided encryption
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
@@ -81,18 +82,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li></ul><para>
     /// For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC
     /// 7232</a>.
-    /// </para><para><b>Permissions</b></para><para>
+    /// </para><dl><dt>Permissions</dt><dd><para>
     /// You need the relevant read object (or version) permission for this operation. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
-    /// Permissions in a Policy</a>. If the object you request does not exist, the error Amazon
-    /// S3 returns depends on whether you also have the s3:ListBucket permission.
+    /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
+    /// resources, and condition keys for Amazon S3</a>. If the object you request does not
+    /// exist, the error Amazon S3 returns depends on whether you also have the s3:ListBucket
+    /// permission.
     /// </para><ul><li><para>
     /// If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
     /// an HTTP status code 404 ("no such key") error.
     /// </para></li><li><para>
     /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
     /// HTTP status code 403 ("access denied") error.
-    /// </para></li></ul><para>
+    /// </para></li></ul></dd></dl><para>
     /// The following actions are related to <code>HeadObject</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>

@@ -1,4 +1,33 @@
-﻿### 4.1.326 (2023-05-03 21:04Z)
+﻿### 4.1.327 (2023-05-04 23:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.540.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon OpenSearch Service
+    * Added cmdlet Get-OSDomainNode leveraging the DescribeDomainNodes service API.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSTopic leveraging the DescribeTopic service API.
+    * Added cmdlet Get-QSTopicList leveraging the ListTopics service API.
+    * Added cmdlet Get-QSTopicPermission leveraging the DescribeTopicPermissions service API.
+    * Added cmdlet Get-QSTopicRefresh leveraging the DescribeTopicRefresh service API.
+    * Added cmdlet Get-QSTopicRefreshSchedule leveraging the DescribeTopicRefreshSchedule service API.
+    * Added cmdlet Get-QSTopicRefreshScheduleList leveraging the ListTopicRefreshSchedules service API.
+    * Added cmdlet Get-QSVPCConnection leveraging the DescribeVPCConnection service API.
+    * Added cmdlet Get-QSVPCConnectionList leveraging the ListVPCConnections service API.
+    * Added cmdlet New-QSTopic leveraging the CreateTopic service API.
+    * Added cmdlet New-QSTopicRefreshSchedule leveraging the CreateTopicRefreshSchedule service API.
+    * Added cmdlet New-QSVPCConnection leveraging the CreateVPCConnection service API.
+    * Added cmdlet Remove-QSTopic leveraging the DeleteTopic service API.
+    * Added cmdlet Remove-QSTopicRefreshSchedule leveraging the DeleteTopicRefreshSchedule service API.
+    * Added cmdlet Remove-QSVPCConnection leveraging the DeleteVPCConnection service API.
+    * Added cmdlet Update-QSTopic leveraging the UpdateTopic service API.
+    * Added cmdlet Update-QSTopicPermission leveraging the UpdateTopicPermissions service API.
+    * Added cmdlet Update-QSTopicRefreshSchedule leveraging the UpdateTopicRefreshSchedule service API.
+    * Added cmdlet Update-QSVPCConnection leveraging the UpdateVPCConnection service API.
+    * Modified cmdlet New-QSDataSet: added parameter DatasetParameter.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameter ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled.
+    * Modified cmdlet Update-QSDataSet: added parameter DatasetParameter.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBFindingHistory leveraging the GetFindingHistory service API.
+
+### 4.1.326 (2023-05-03 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.539.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon AppSync
     * Modified cmdlet New-ASYNGraphqlApi: added parameter Visibility.

@@ -250,7 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
         /// the service won't have the context from session initialization defining the application
         /// layer protocol as HTTP. However, this behavior is rule dependent—a TCP-layer rule
         /// using a <code>flow:stateless</code> rule would still match, as would the <code>aws:drop_strict</code>
-        /// default action.</para></li></ul>
+        /// default action.</para></li><li><para><code>REJECT</code> - Network Firewall fails closed and drops all subsequent traffic
+        /// going to the firewall. Network Firewall also sends a TCP reject packet back to your
+        /// client so that the client can immediately establish a new session. Network Firewall
+        /// will have context about the new session and will apply rules to the subsequent traffic.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

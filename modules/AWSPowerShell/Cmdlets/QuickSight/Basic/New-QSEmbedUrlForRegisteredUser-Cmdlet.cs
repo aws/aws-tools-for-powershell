@@ -117,6 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String InitialDashboardVisualId_DashboardId { get; set; }
         #endregion
         
+        #region Parameter ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that determines whether a user can bookmark an embedded dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled
         /// <summary>
         /// <para>
@@ -310,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled = this.ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled;
             context.ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled = this.ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled;
             context.Dashboard_InitialDashboardId = this.Dashboard_InitialDashboardId;
             context.InitialDashboardVisualId_DashboardId = this.InitialDashboardVisualId_DashboardId;
@@ -459,6 +470,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate FeatureConfigurations
             var requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurationsIsNull = true;
             requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations = new Amazon.QuickSight.Model.RegisteredUserDashboardFeatureConfigurations();
+            Amazon.QuickSight.Model.BookmarksConfigurations requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks = null;
+            
+             // populate Bookmarks
+            var requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_BookmarksIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks = new Amazon.QuickSight.Model.BookmarksConfigurations();
+            System.Boolean? requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled = null;
+            if (cmdletContext.ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled = cmdletContext.ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled.Value;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks.Enabled = requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled.Value;
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_BookmarksIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_BookmarksIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations.Bookmarks = requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks;
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurationsIsNull = false;
+            }
             Amazon.QuickSight.Model.StatePersistenceConfigurations requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence = null;
             
              // populate StatePersistence
@@ -645,6 +681,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public List<System.String> AllowedDomain { get; set; }
             public System.String AwsAccountId { get; set; }
+            public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled { get; set; }
             public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled { get; set; }
             public System.String Dashboard_InitialDashboardId { get; set; }
             public System.String InitialDashboardVisualId_DashboardId { get; set; }
