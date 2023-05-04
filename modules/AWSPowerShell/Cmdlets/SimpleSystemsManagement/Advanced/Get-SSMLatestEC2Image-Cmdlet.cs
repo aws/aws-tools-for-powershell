@@ -30,11 +30,11 @@ using ThirdParty.Json.LitJson;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the latest EC2 AMIs (Amazon Machine Images) from AWS Systems Manger parameters by calling Get-SSMParametersByPath or Get-SSMParameterValue.
+    /// Retrieves the latest EC2 AMIs (Amazon Machine Images) from AWS Systems Manager parameters by calling Get-SSMParametersByPath or Get-SSMParameterValue.
     /// </summary>
     [Cmdlet("Get", "SSMLatestEC2Image")]
     [OutputType("PSObject")]
-    [AWSCmdlet("Retrieves the latest EC2 AMIs (Amazon Machine Images) from AWS Systems Manger parameters by calling Get-SSMParametersByPath or Get-SSMParameterValue.")]
+    [AWSCmdlet("Retrieves the latest EC2 AMIs (Amazon Machine Images) from AWS Systems Manager parameters by calling Get-SSMParametersByPath or Get-SSMParameterValue.")]
     [AWSCmdletOutput("PSObject or System.String",
         "This cmdlet returns a collection of PSObjects when listing AMIs. When -ImageName is specified without using wildcard characters, the cmdlet returns only the AMI's identifier as a string.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse or Amazon.SimpleSystemsManagement.Model.GetParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
