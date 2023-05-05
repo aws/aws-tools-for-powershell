@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.540.0",
+    "ProductVersion" : "3.7.542.0",
     "CoreVersion"    : "3.7.106.32",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -86,7 +86,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "3.7.104.68",
+            "Version" : "3.7.104.69",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -144,7 +144,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.102.39",
+            "Version" : "3.7.103.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -152,7 +152,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.133.1",
+            "Version" : "3.7.134.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -314,7 +314,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.104.10",
+            "Version" : "3.7.104.11",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -362,7 +362,7 @@
             "InPreview"               : false
         },
         "SQS"                       : {
-            "Version" : "3.7.101.0",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -1130,7 +1130,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "3.7.104.61",
+            "Version" : "3.7.105.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -2338,7 +2338,7 @@
             "InPreview"               : false
         },
         "Inspector2"                          : {
-            "Version" : "3.7.103.1",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"
@@ -2562,7 +2562,7 @@
             "InPreview"               : false
         },
         "Scheduler"                           : {
-            "Version" : "3.7.101.83",
+            "Version" : "3.7.101.84",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.32"

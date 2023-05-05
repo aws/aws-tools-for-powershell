@@ -1,4 +1,11 @@
-﻿### 4.1.327 (2023-05-04 23:13Z)
+﻿### 4.1.328 (2023-05-05 22:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.542.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter AvailSuppression_FillPolicy.
+  * Amazon Inspector2
+    * Added cmdlet Search-INS2Vulnerability leveraging the SearchVulnerabilities service API.
+
+### 4.1.327 (2023-05-04 23:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.540.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon OpenSearch Service
     * Added cmdlet Get-OSDomainNode leveraging the DescribeDomainNodes service API.

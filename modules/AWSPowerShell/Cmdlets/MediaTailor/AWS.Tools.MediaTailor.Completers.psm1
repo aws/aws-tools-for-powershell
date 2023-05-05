@@ -90,10 +90,17 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.FillPolicy
+        "Set-EMTPlaybackConfiguration/AvailSuppression_FillPolicy"
+        {
+            $v = "FULL_AVAIL_ONLY","PARTIAL_AVAIL"
+            break
+        }
+
         # Amazon.MediaTailor.Mode
         "Set-EMTPlaybackConfiguration/AvailSuppression_Mode"
         {
-            $v = "BEHIND_LIVE_EDGE","OFF"
+            $v = "AFTER_LIVE_EDGE","BEHIND_LIVE_EDGE","OFF"
             break
         }
 
@@ -128,6 +135,7 @@ $EMT_Completers = {
 
 $EMT_map = @{
     "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
+    "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "ScheduleConfiguration_Transition_RelativePosition"=@("New-EMTProgram")

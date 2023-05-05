@@ -123,6 +123,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String Bumper_EndUrl { get; set; }
         #endregion
         
+        #region Parameter AvailSuppression_FillPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Defines the policy to apply to the avail suppression mode. <code>BEHIND_LIVE_EDGE</code>
+        /// will always use the full avail suppression policy. <code>AFTER_LIVE_EDGE</code> mode
+        /// can be used to invoke partial ad break fills when a session starts mid-break.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.FillPolicy")]
+        public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
+        #endregion
+        
         #region Parameter LivePreRollConfiguration_MaxDurationSecond
         /// <summary>
         /// <para>
@@ -142,7 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks
         /// are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad
         /// suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression
-        /// Value time in the manifest lookback window.</para>
+        /// Value time in the manifest lookback window. When Mode is set to <code>AFTER_LIVE_EDGE</code>,
+        /// ad suppression is active and MediaTailor won't fill ad breaks that are within the
+        /// live edge plus the avail suppression value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -325,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
+            context.AvailSuppression_FillPolicy = this.AvailSuppression_FillPolicy;
             context.AvailSuppression_Mode = this.AvailSuppression_Mode;
             context.AvailSuppression_Value = this.AvailSuppression_Value;
             context.Bumper_EndUrl = this.Bumper_EndUrl;
@@ -385,6 +401,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
              // populate AvailSuppression
             var requestAvailSuppressionIsNull = true;
             request.AvailSuppression = new Amazon.MediaTailor.Model.AvailSuppression();
+            Amazon.MediaTailor.FillPolicy requestAvailSuppression_availSuppression_FillPolicy = null;
+            if (cmdletContext.AvailSuppression_FillPolicy != null)
+            {
+                requestAvailSuppression_availSuppression_FillPolicy = cmdletContext.AvailSuppression_FillPolicy;
+            }
+            if (requestAvailSuppression_availSuppression_FillPolicy != null)
+            {
+                request.AvailSuppression.FillPolicy = requestAvailSuppression_availSuppression_FillPolicy;
+                requestAvailSuppressionIsNull = false;
+            }
             Amazon.MediaTailor.Mode requestAvailSuppression_availSuppression_Mode = null;
             if (cmdletContext.AvailSuppression_Mode != null)
             {
@@ -600,6 +626,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdDecisionServerUrl { get; set; }
+            public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
             public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }
             public System.String AvailSuppression_Value { get; set; }
             public System.String Bumper_EndUrl { get; set; }

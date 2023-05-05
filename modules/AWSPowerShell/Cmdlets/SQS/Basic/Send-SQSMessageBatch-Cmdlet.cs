@@ -28,11 +28,8 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// You can use <code>SendMessageBatch</code> to send up to 10 messages to the specified
-    /// queue by assigning either identical or different values to each message (or by not
-    /// assigning values at all). This is a batch version of <code><a>SendMessage</a>.</code>
-    /// For a FIFO queue, multiple messages within a single batch are enqueued in the order
-    /// they are sent.
+    /// Delivers up to ten messages to the specified queue. This is a batch version of <code><a>SendMessage</a>.</code> For a FIFO queue, multiple messages within a single batch
+    /// are enqueued in the order they are sent.
     /// 
     ///  
     /// <para>
@@ -42,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// <code>200</code>.
     /// </para><para>
     /// The maximum allowed individual message size and the maximum total payload size (the
-    /// sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144
+    /// sum of the individual lengths of all of the batched messages) are both 256 KB (262,144
     /// bytes).
     /// </para><important><para>
     /// A message can include only XML, JSON, and unformatted text. The following Unicode
@@ -54,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para></important><para>
     /// If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon
     /// SQS uses the default value for the queue.
-    /// </para>
+    /// </para><para>
+    /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
+    /// list with two elements looks like this:
+    /// </para><para><code>&amp;AttributeName.1=first</code></para><para><code>&amp;AttributeName.2=second</code></para>
     /// </summary>
     [Cmdlet("Send", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SQS.Model.SendMessageBatchResponse")]

@@ -35,7 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Because the batch request can result in a combination of successful and unsuccessful
     /// actions, you should check for batch errors even when the call returns an HTTP status
     /// code of <code>200</code>.
-    /// </para></important>
+    /// </para></important><para>
+    /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
+    /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
+    /// list with two elements looks like this:
+    /// </para><para><code>&amp;AttributeName.1=first</code></para><para><code>&amp;AttributeName.2=second</code></para>
     /// </summary>
     [Cmdlet("Remove", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SQS.Model.DeleteMessageBatchResponse")]

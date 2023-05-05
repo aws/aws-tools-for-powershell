@@ -113,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-INS2Member', 
         'Remove-INS2Filter', 
         'Remove-INS2ResourceTag', 
+        'Search-INS2Vulnerability', 
         'Stop-INS2FindingsReport', 
         'Stop-INS2Inspector', 
         'Stop-INS2Service', 

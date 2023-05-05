@@ -12539,6 +12539,8 @@ Set-Alias -Name INS2-ListTagsForResource -Value Get-INS2ResourceTag
 Set-Alias -Name List-INS2UsageTotals -Value Get-INS2UsageTotalList
 Set-Alias -Name List-INS2UsageTotalList -Value Get-INS2UsageTotalList
 Set-Alias -Name INS2-ListUsageTotals -Value Get-INS2UsageTotalList
+Set-Alias -Name Search-INS2Vulnerabilities -Value Search-INS2Vulnerability
+Set-Alias -Name INS2-SearchVulnerabilities -Value Search-INS2Vulnerability
 Set-Alias -Name INS2-TagResource -Value Add-INS2ResourceTag
 Set-Alias -Name INS2-UntagResource -Value Remove-INS2ResourceTag
 Set-Alias -Name INS2-UpdateConfiguration -Value Update-INS2Configuration

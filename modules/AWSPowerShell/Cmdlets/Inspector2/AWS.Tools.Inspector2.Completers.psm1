@@ -377,6 +377,7 @@ $INS2_SelectMap = @{
                "Get-INS2MemberList",
                "Get-INS2ResourceTag",
                "Get-INS2UsageTotalList",
+               "Search-INS2Vulnerability",
                "Add-INS2ResourceTag",
                "Remove-INS2ResourceTag",
                "Update-INS2Configuration",
