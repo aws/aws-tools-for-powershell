@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return for each paginated request. A result set is
-        /// returned in the two cases, whichever occurs first.</para><ul><li><para>The size of the result set is less than 1 MB.</para></li><li><para>The number of data points in the result set is less than the value of <code>maxResults</code>.
+        /// returned in the two cases, whichever occurs first.</para><ul><li><para>The size of the result set is equal to 1 MB.</para></li><li><para>The number of data points in the result set is equal to the value of <code>maxResults</code>.
         /// The maximum value of <code>maxResults</code> is 4000.</para></li></ul>
         /// </para>
         /// </summary>

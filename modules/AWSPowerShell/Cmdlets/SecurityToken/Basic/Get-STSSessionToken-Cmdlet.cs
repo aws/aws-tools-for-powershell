@@ -32,16 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// The credentials consist of an access key ID, a secret access key, and a security token.
     /// Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
     /// programmatic calls to specific Amazon Web Services API operations like Amazon EC2
-    /// <code>StopInstances</code>. MFA-enabled IAM users would need to call <code>GetSessionToken</code>
-    /// and submit an MFA code that is associated with their MFA device. Using the temporary
-    /// security credentials that are returned from the call, IAM users can then make programmatic
-    /// calls to API operations that require MFA authentication. If you do not supply a correct
-    /// MFA code, then the API returns an access denied error. For a comparison of <code>GetSessionToken</code>
-    /// with the other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
+    /// <code>StopInstances</code>.
+    /// 
+    ///  
+    /// <para>
+    /// MFA-enabled IAM users must call <code>GetSessionToken</code> and submit an MFA code
+    /// that is associated with their MFA device. Using the temporary security credentials
+    /// that the call returns, IAM users can then make programmatic calls to API operations
+    /// that require MFA authentication. An incorrect MFA code causes the API to return an
+    /// access denied error. For a comparison of <code>GetSessionToken</code> with the other
+    /// API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
     /// Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing
     /// the Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.
-    /// 
-    ///  <note><para>
+    /// </para><note><para>
     /// No permissions are required for users to perform this operation. The purpose of the
     /// <code>sts:GetSessionToken</code> operation is to authenticate the user using MFA.
     /// You cannot use policies to control authentication operations. For more information,
@@ -49,12 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// for GetSessionToken</a> in the <i>IAM User Guide</i>.
     /// </para></note><para><b>Session Duration</b></para><para>
     /// The <code>GetSessionToken</code> operation must be called by using the long-term Amazon
-    /// Web Services security credentials of the Amazon Web Services account root user or
-    /// an IAM user. Credentials that are created by IAM users are valid for the duration
-    /// that you specify. This duration can range from 900 seconds (15 minutes) up to a maximum
-    /// of 129,600 seconds (36 hours), with a default of 43,200 seconds (12 hours). Credentials
-    /// based on account credentials can range from 900 seconds (15 minutes) up to 3,600 seconds
-    /// (1 hour), with a default of 1 hour. 
+    /// Web Services security credentials of an IAM user. Credentials that are created by
+    /// IAM users are valid for the duration that you specify. This duration can range from
+    /// 900 seconds (15 minutes) up to a maximum of 129,600 seconds (36 hours), with a default
+    /// of 43,200 seconds (12 hours). Credentials based on account credentials can range from
+    /// 900 seconds (15 minutes) up to 3,600 seconds (1 hour), with a default of 1 hour. 
     /// </para><para><b>Permissions</b></para><para>
     /// The temporary security credentials created by <code>GetSessionToken</code> can be
     /// used to make API calls to any Amazon Web Services service with the following exceptions:
@@ -63,21 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// in the request.
     /// </para></li><li><para>
     /// You cannot call any STS API <i>except</i><code>AssumeRole</code> or <code>GetCallerIdentity</code>.
-    /// </para></li></ul><note><para>
-    /// We recommend that you do not call <code>GetSessionToken</code> with Amazon Web Services
-    /// account root user credentials. Instead, follow our <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users">best
-    /// practices</a> by creating one or more IAM users, giving them the necessary permissions,
-    /// and using IAM users for everyday interaction with Amazon Web Services. 
-    /// </para></note><para>
-    /// The credentials that are returned by <code>GetSessionToken</code> are based on permissions
-    /// associated with the user whose credentials were used to call the operation. If <code>GetSessionToken</code>
-    /// is called using Amazon Web Services account root user credentials, the temporary credentials
-    /// have root user permissions. Similarly, if <code>GetSessionToken</code> is called using
-    /// the credentials of an IAM user, the temporary credentials have the same permissions
-    /// as the IAM user. 
-    /// </para><para>
+    /// </para></li></ul><para>
+    /// The credentials that <code>GetSessionToken</code> returns are based on permissions
+    /// associated with the IAM user whose credentials were used to call the operation. The
+    /// temporary credentials have the same permissions as the IAM user.
+    /// </para><note><para>
+    /// Although it is possible to call <code>GetSessionToken</code> using the security credentials
+    /// of an Amazon Web Services account root user rather than an IAM user, we do not recommend
+    /// it. If <code>GetSessionToken</code> is called using root user credentials, the temporary
+    /// credentials have root user permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials">Safeguard
+    /// your root user credentials and don't use them for everyday tasks</a> in the <i>IAM
+    /// User Guide</i></para></note><para>
     /// For more information about using <code>GetSessionToken</code> to create temporary
-    /// credentials, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
+    /// credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
     /// Credentials for Users in Untrusted Environments</a> in the <i>IAM User Guide</i>.
     /// 
     /// </para>
