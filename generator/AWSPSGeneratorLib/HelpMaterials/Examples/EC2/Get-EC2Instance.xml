@@ -59,7 +59,7 @@ OwnerId       : 123456789012
 RequesterId   : 854251627541
 ReservationId : r-63e65bab
 ...</code>
-    <description>This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.</description>
+    <description>This example describes all your instances in the current region, <b>grouped by reservation</b>. To see the instance details expand the Instances collection within each reservation object.</description>
   </example>
   <example>
     <code>

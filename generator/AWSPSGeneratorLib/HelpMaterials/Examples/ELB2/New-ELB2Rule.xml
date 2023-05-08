@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$newRuleCondition = [Amazon.ElasticLoadBalancingV2.Model.Action]@{           
+    <code>$newRuleAction = [Amazon.ElasticLoadBalancingV2.Model.Action]@{           
   "FixedResponseConfig" = @{
     "ContentType" = "text/plain"
     "MessageBody" = "Hello World"

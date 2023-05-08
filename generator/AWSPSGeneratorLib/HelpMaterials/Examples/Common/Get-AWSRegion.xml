@@ -2,7 +2,7 @@
 <examples>
   <example>
     <code>
-Get-DefaultAWSRegion
+Get-AWSRegion
 
 Region         Name                      IsShellDefault
 ------         ----                      --------------
@@ -26,7 +26,7 @@ us-west-2      US West (Oregon)          True
   </example>
   <example>
     <code>
-Get-DefaultAWSRegion
+Get-AWSRegion
 
 Region         Name                      IsShellDefault
 ------         ----                      --------------
