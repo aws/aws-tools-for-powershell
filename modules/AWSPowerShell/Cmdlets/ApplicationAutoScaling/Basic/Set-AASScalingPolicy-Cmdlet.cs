@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the cooldown period after a scale-in activity, Application Auto Scaling scales out
         /// the target immediately. In this case, the cooldown period for the scale-in activity
         /// stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication
-        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para> Neptune clusters</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>DynamoDB tables and global secondary indexes</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon MSK broker storage</para></li></ul>
+        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para> Neptune clusters</para></li><li><para>SageMaker Serverless endpoint provisioned concurrency</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>DynamoDB tables and global secondary indexes</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -275,7 +275,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
         /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li><li><para>Amazon ElastiCache replication group - The resource type is <code>replication-group</code>
         /// and the unique identifier is the replication group name. Example: <code>replication-group/mycluster</code>.</para></li><li><para>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier
-        /// is the cluster name. Example: <code>cluster:mycluster</code>.</para></li></ul>
+        /// is the cluster name. Example: <code>cluster:mycluster</code>.</para></li><li><para>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the
+        /// unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -332,7 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for brokers in an Amazon MSK cluster.</para></li><li><para><code>elasticache:replication-group:NodeGroups</code> - The number of node groups
         /// for an Amazon ElastiCache replication group.</para></li><li><para><code>elasticache:replication-group:Replicas</code> - The number of replicas per
         /// node group for an Amazon ElastiCache replication group.</para></li><li><para><code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an
-        /// Amazon Neptune DB cluster.</para></li></ul>
+        /// Amazon Neptune DB cluster.</para></li><li><para><code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency
+        /// for a SageMaker Serverless endpoint.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -355,7 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the cooldown period has expired. However, if another alarm triggers a scale-out activity
         /// during the scale-in cooldown period, Application Auto Scaling scales out the target
         /// immediately. In this case, the scale-in cooldown period stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication
-        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para> Neptune clusters</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>DynamoDB tables and global secondary indexes</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon MSK broker storage</para></li></ul>
+        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para> Neptune clusters</para></li><li><para>SageMaker Serverless endpoint provisioned concurrency</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>DynamoDB tables and global secondary indexes</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -373,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is triggered or the cooldown period ends. While the cooldown period is in effect,
         /// the capacity added by the initiating scale-out activity is calculated as part of the
         /// desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 600 for Amazon ElastiCache replication
-        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para> Neptune clusters</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>DynamoDB tables and global secondary indexes</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon MSK broker storage</para></li></ul>
+        /// groups and a default value of 300 for the following scalable targets:</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para> Neptune clusters</para></li><li><para>SageMaker Serverless endpoint provisioned concurrency</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>DynamoDB tables and global secondary indexes</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon MSK broker storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>The minimum value that you plan to scale in to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale in (contract) as needed to the minimum capacity
         /// limit in response to changing demand. This property is required when registering a
-        /// new scalable target.</para><para>For the following resources, the minimum value allowed is 0.</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para> Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>custom resources</para></li></ul><para>It's strongly recommended that you specify a value greater than 0. A value greater
+        /// new scalable target.</para><para>For the following resources, the minimum value allowed is 0.</para><ul><li><para>AppStream 2.0 fleets</para></li><li><para> Aurora DB clusters</para></li><li><para>ECS services</para></li><li><para>EMR clusters</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>SageMaker Serverless endpoint provisioned concurrency</para></li><li><para>SageMaker endpoint variants</para></li><li><para>Spot Fleets</para></li><li><para>custom resources</para></li></ul><para>It's strongly recommended that you specify a value greater than 0. A value greater
         /// than 0 means that data points are continuously reported to CloudWatch that scaling
         /// policies can use to scale on a metric like average CPU utilization.</para><para>For all other resources, the minimum allowed value depends on the type of resource
         /// that you are using. If you provide a value that is lower than what a resource can
@@ -166,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
         /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li><li><para>Amazon ElastiCache replication group - The resource type is <code>replication-group</code>
         /// and the unique identifier is the replication group name. Example: <code>replication-group/mycluster</code>.</para></li><li><para>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier
-        /// is the cluster name. Example: <code>cluster:mycluster</code>.</para></li></ul>
+        /// is the cluster name. Example: <code>cluster:mycluster</code>.</para></li><li><para>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the
+        /// unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -218,7 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for brokers in an Amazon MSK cluster.</para></li><li><para><code>elasticache:replication-group:NodeGroups</code> - The number of node groups
         /// for an Amazon ElastiCache replication group.</para></li><li><para><code>elasticache:replication-group:Replicas</code> - The number of replicas per
         /// node group for an Amazon ElastiCache replication group.</para></li><li><para><code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an
-        /// Amazon Neptune DB cluster.</para></li></ul>
+        /// Amazon Neptune DB cluster.</para></li><li><para><code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency
+        /// for a SageMaker Serverless endpoint.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
