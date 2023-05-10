@@ -509,6 +509,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the storage type to be associated with the DB cluster.</para><para>Valid values: <code>aurora</code>, <code>aurora-iopt1</code></para><para>Default: <code>aurora</code></para><para>Valid for: Aurora DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -675,6 +685,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.StorageEncrypted = this.StorageEncrypted;
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
@@ -856,6 +867,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -959,6 +974,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String SourceEngine { get; set; }
             public System.String SourceEngineVersion { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }
             public System.Func<Amazon.RDS.Model.RestoreDBClusterFromS3Response, RestoreRDSDBClusterFromS3Cmdlet, object> Select { get; set; } =

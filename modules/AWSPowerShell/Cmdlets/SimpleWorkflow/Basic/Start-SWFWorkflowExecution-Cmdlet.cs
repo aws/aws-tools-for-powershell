@@ -93,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The name of the domain in which the workflow execution is created.</para>
+        /// <para>The name of the domain in which the workflow execution is created.</para><para>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash),
+        /// <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code>
+        /// | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -243,10 +245,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// to associate a custom identifier with the workflow execution. You may specify the
         /// same identifier if a workflow execution is logically a <i>restart</i> of a previous
         /// execution. You cannot have two open workflow executions with the same <code>workflowId</code>
-        /// at the same time within the same domain.</para><para>The specified string must not start or end with whitespace. It must not contain a
-        /// <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or
-        /// any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>).
-        /// Also, it must not <i>be</i> the literal string <code>arn</code>.</para>
+        /// at the same time within the same domain.</para><para>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash),
+        /// <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code>
+        /// | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

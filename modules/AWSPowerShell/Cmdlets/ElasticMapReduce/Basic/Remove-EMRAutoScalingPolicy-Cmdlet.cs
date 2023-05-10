@@ -28,8 +28,8 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Removes an automatic scaling policy from a specified instance group within an EMR
-    /// cluster.
+    /// Removes an automatic scaling policy from a specified instance group within an Amazon
+    /// EMR cluster.
     /// </summary>
     [Cmdlet("Remove", "EMRAutoScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

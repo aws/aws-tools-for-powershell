@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// Provides summaries of all notebook executions. You can filter the list based on multiple
     /// criteria such as status, time range, and editor id. Returns a maximum of 50 notebook
     /// executions and a marker to track the paging of a longer notebook execution list across
-    /// multiple <code>ListNotebookExecution</code> calls.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// multiple <code>ListNotebookExecutions</code> calls.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRNotebookExecutionList")]
     [OutputType("Amazon.ElasticMapReduce.Model.NotebookExecutionSummary")]
@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EditorId { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionEngineId
+        /// <summary>
+        /// <para>
+        /// <para>The unique ID of the execution engine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionEngineId { get; set; }
         #endregion
         
         #region Parameter From
@@ -145,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EditorId = this.EditorId;
+            context.ExecutionEngineId = this.ExecutionEngineId;
             context.From = this.From;
             context.Marker = this.Marker;
             context.Status = this.Status;
@@ -170,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.EditorId != null)
             {
                 request.EditorId = cmdletContext.EditorId;
+            }
+            if (cmdletContext.ExecutionEngineId != null)
+            {
+                request.ExecutionEngineId = cmdletContext.ExecutionEngineId;
             }
             if (cmdletContext.From != null)
             {
@@ -269,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EditorId { get; set; }
+            public System.String ExecutionEngineId { get; set; }
             public System.DateTime? From { get; set; }
             public System.String Marker { get; set; }
             public Amazon.ElasticMapReduce.NotebookExecutionStatus Status { get; set; }

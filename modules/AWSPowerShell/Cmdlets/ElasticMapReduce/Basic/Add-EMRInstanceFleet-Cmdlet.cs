@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// Adds an instance fleet to a running cluster.
     /// 
     ///  <note><para>
-    /// The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+    /// The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
     /// later, excluding 5.0.x.
     /// </para></note>
     /// </summary>
@@ -154,7 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter InstanceFleet_InstanceTypeConfig
         /// <summary>
         /// <para>
-        /// <para>The instance type configurations that define the EC2 instances in the instance fleet.</para>
+        /// <para>The instance type configurations that define the Amazon EC2 instances in the instance
+        /// fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

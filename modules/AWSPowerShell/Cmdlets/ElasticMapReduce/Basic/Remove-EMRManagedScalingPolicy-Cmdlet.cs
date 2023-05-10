@@ -28,7 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Removes a managed scaling policy from a specified EMR cluster.
+    /// Removes a managed scaling policy from a specified Amazon EMR cluster.
     /// </summary>
     [Cmdlet("Remove", "EMRManagedScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

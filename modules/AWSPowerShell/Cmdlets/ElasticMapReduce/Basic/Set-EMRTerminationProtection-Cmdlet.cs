@@ -28,11 +28,12 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// SetTerminationProtection locks a cluster (job flow) so the EC2 instances in the cluster
-    /// cannot be terminated by user intervention, an API call, or in the event of a job-flow
-    /// error. The cluster still terminates upon successful completion of the job flow. Calling
-    /// <code>SetTerminationProtection</code> on a cluster is similar to calling the Amazon
-    /// EC2 <code>DisableAPITermination</code> API on all EC2 instances in a cluster.
+    /// SetTerminationProtection locks a cluster (job flow) so the Amazon EC2 instances in
+    /// the cluster cannot be terminated by user intervention, an API call, or in the event
+    /// of a job-flow error. The cluster still terminates upon successful completion of the
+    /// job flow. Calling <code>SetTerminationProtection</code> on a cluster is similar to
+    /// calling the Amazon EC2 <code>DisableAPITermination</code> API on all Amazon EC2 instances
+    /// in a cluster.
     /// 
     ///  
     /// <para><code>SetTerminationProtection</code> is used to prevent accidental termination of

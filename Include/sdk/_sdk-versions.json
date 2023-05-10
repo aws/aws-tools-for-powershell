@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.544.0",
+    "ProductVersion" : "3.7.545.0",
     "CoreVersion"    : "3.7.106.34",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -192,7 +192,7 @@
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "3.7.103.25",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.34"
@@ -282,7 +282,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.117.14",
+            "Version" : "3.7.118.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.34"
@@ -354,7 +354,7 @@
             "InPreview"               : false
         },
         "SimpleWorkflow"            : {
-            "Version" : "3.7.101.65",
+            "Version" : "3.7.102.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.34"

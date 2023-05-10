@@ -40,28 +40,62 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     public partial class StartEMRNotebookExecutionCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
         
+        #region Parameter NotebookS3Location_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket that stores the notebook execution input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotebookS3Location_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter OutputNotebookS3Location_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket that stores the notebook execution output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputNotebookS3Location_Bucket { get; set; }
+        #endregion
+        
         #region Parameter EditorId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the EMR Notebook to use for notebook execution.</para>
+        /// <para>The unique identifier of the Amazon EMR Notebook to use for notebook execution.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EditorId { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentVariable
+        /// <summary>
+        /// <para>
+        /// <para>The environment variables associated with the notebook execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnvironmentVariables")]
+        public System.Collections.Hashtable EnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter ExecutionEngine_ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The execution role ARN required for the notebook execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExecutionEngine_ExecutionRoleArn { get; set; }
         #endregion
         
         #region Parameter ExecutionEngine_Id
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the execution engine. For an EMR cluster, this is the cluster
-        /// ID.</para>
+        /// <para>The unique identifier of the execution engine. For an Amazon EMR cluster, this is
+        /// the cluster ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,12 +109,33 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String ExecutionEngine_Id { get; set; }
         #endregion
         
+        #region Parameter NotebookS3Location_Key
+        /// <summary>
+        /// <para>
+        /// <para>The key to the Amazon S3 location that stores the notebook execution input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NotebookS3Location_Key { get; set; }
+        #endregion
+        
+        #region Parameter OutputNotebookS3Location_Key
+        /// <summary>
+        /// <para>
+        /// <para>The key to the Amazon S3 location that stores the notebook execution output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputNotebookS3Location_Key { get; set; }
+        #endregion
+        
         #region Parameter ExecutionEngine_MasterInstanceSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>An optional unique ID of an EC2 security group to associate with the master instance
-        /// of the EMR cluster for this notebook execution. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
-        /// EC2 Security Groups for EMR Notebooks</a> in the <i>EMR Management Guide</i>.</para>
+        /// <para>An optional unique ID of an Amazon EC2 security group to associate with the master
+        /// instance of the Amazon EMR cluster for this notebook execution. For more information
+        /// see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
+        /// Amazon EC2 Security Groups for Amazon EMR Notebooks</a> in the <i>EMR Management Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter NotebookInstanceSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Amazon EC2 security group to associate with the EMR Notebook
-        /// for this notebook execution.</para>
+        /// <para>The unique identifier of the Amazon EC2 security group to associate with the Amazon
+        /// EMR Notebook for this notebook execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter NotebookParam
         /// <summary>
         /// <para>
-        /// <para>Input parameters in JSON format passed to the EMR Notebook at runtime for execution.</para>
+        /// <para>Input parameters in JSON format passed to the Amazon EMR Notebook at runtime for execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,25 +174,29 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String NotebookParam { get; set; }
         #endregion
         
+        #region Parameter OutputNotebookFormat
+        /// <summary>
+        /// <para>
+        /// <para>The output format for the notebook execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.OutputNotebookFormat")]
+        public Amazon.ElasticMapReduce.OutputNotebookFormat OutputNotebookFormat { get; set; }
+        #endregion
+        
         #region Parameter RelativePath
         /// <summary>
         /// <para>
         /// <para>The path and file name of the notebook file for this execution, relative to the path
-        /// specified for the EMR Notebook. For example, if you specify a path of <code>s3://MyBucket/MyNotebooks</code>
-        /// when you create an EMR Notebook for a notebook with an ID of <code>e-ABCDEFGHIJK1234567890ABCD</code>
+        /// specified for the Amazon EMR Notebook. For example, if you specify a path of <code>s3://MyBucket/MyNotebooks</code>
+        /// when you create an Amazon EMR Notebook for a notebook with an ID of <code>e-ABCDEFGHIJK1234567890ABCD</code>
         /// (the <code>EditorID</code> of this request), and you specify a <code>RelativePath</code>
         /// of <code>my_notebook_executions/notebook_execution.ipynb</code>, the location of the
         /// file for the notebook execution is <code>s3://MyBucket/MyNotebooks/e-ABCDEFGHIJK1234567890ABCD/my_notebook_executions/notebook_execution.ipynb</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RelativePath { get; set; }
         #endregion
         
@@ -145,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The name or ARN of the IAM role that is used as the service role for Amazon EMR (the
-        /// EMR role) for the notebook execution.</para>
+        /// Amazon EMR role) for the notebook execution.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,7 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ExecutionEngine_Type
         /// <summary>
         /// <para>
-        /// <para>The type of execution engine. A value of <code>EMR</code> specifies an EMR cluster.</para>
+        /// <para>The type of execution engine. A value of <code>EMR</code> specifies an Amazon EMR
+        /// cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -226,12 +286,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EditorId = this.EditorId;
-            #if MODULAR
-            if (this.EditorId == null && ParameterWasBound(nameof(this.EditorId)))
+            if (this.EnvironmentVariable != null)
             {
-                WriteWarning("You are passing $null as a value for parameter EditorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EnvironmentVariable.Keys)
+                {
+                    context.EnvironmentVariable.Add((String)hashKey, (String)(this.EnvironmentVariable[hashKey]));
+                }
             }
-            #endif
+            context.ExecutionEngine_ExecutionRoleArn = this.ExecutionEngine_ExecutionRoleArn;
             context.ExecutionEngine_Id = this.ExecutionEngine_Id;
             #if MODULAR
             if (this.ExecutionEngine_Id == null && ParameterWasBound(nameof(this.ExecutionEngine_Id)))
@@ -244,13 +307,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.NotebookExecutionName = this.NotebookExecutionName;
             context.NotebookInstanceSecurityGroupId = this.NotebookInstanceSecurityGroupId;
             context.NotebookParam = this.NotebookParam;
+            context.NotebookS3Location_Bucket = this.NotebookS3Location_Bucket;
+            context.NotebookS3Location_Key = this.NotebookS3Location_Key;
+            context.OutputNotebookFormat = this.OutputNotebookFormat;
+            context.OutputNotebookS3Location_Bucket = this.OutputNotebookS3Location_Bucket;
+            context.OutputNotebookS3Location_Key = this.OutputNotebookS3Location_Key;
             context.RelativePath = this.RelativePath;
-            #if MODULAR
-            if (this.RelativePath == null && ParameterWasBound(nameof(this.RelativePath)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RelativePath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ServiceRole = this.ServiceRole;
             #if MODULAR
             if (this.ServiceRole == null && ParameterWasBound(nameof(this.ServiceRole)))
@@ -282,10 +344,24 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.EditorId = cmdletContext.EditorId;
             }
+            if (cmdletContext.EnvironmentVariable != null)
+            {
+                request.EnvironmentVariables = cmdletContext.EnvironmentVariable;
+            }
             
              // populate ExecutionEngine
             var requestExecutionEngineIsNull = true;
             request.ExecutionEngine = new Amazon.ElasticMapReduce.Model.ExecutionEngineConfig();
+            System.String requestExecutionEngine_executionEngine_ExecutionRoleArn = null;
+            if (cmdletContext.ExecutionEngine_ExecutionRoleArn != null)
+            {
+                requestExecutionEngine_executionEngine_ExecutionRoleArn = cmdletContext.ExecutionEngine_ExecutionRoleArn;
+            }
+            if (requestExecutionEngine_executionEngine_ExecutionRoleArn != null)
+            {
+                request.ExecutionEngine.ExecutionRoleArn = requestExecutionEngine_executionEngine_ExecutionRoleArn;
+                requestExecutionEngineIsNull = false;
+            }
             System.String requestExecutionEngine_executionEngine_Id = null;
             if (cmdletContext.ExecutionEngine_Id != null)
             {
@@ -332,6 +408,68 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.NotebookParam != null)
             {
                 request.NotebookParams = cmdletContext.NotebookParam;
+            }
+            
+             // populate NotebookS3Location
+            var requestNotebookS3LocationIsNull = true;
+            request.NotebookS3Location = new Amazon.ElasticMapReduce.Model.NotebookS3LocationFromInput();
+            System.String requestNotebookS3Location_notebookS3Location_Bucket = null;
+            if (cmdletContext.NotebookS3Location_Bucket != null)
+            {
+                requestNotebookS3Location_notebookS3Location_Bucket = cmdletContext.NotebookS3Location_Bucket;
+            }
+            if (requestNotebookS3Location_notebookS3Location_Bucket != null)
+            {
+                request.NotebookS3Location.Bucket = requestNotebookS3Location_notebookS3Location_Bucket;
+                requestNotebookS3LocationIsNull = false;
+            }
+            System.String requestNotebookS3Location_notebookS3Location_Key = null;
+            if (cmdletContext.NotebookS3Location_Key != null)
+            {
+                requestNotebookS3Location_notebookS3Location_Key = cmdletContext.NotebookS3Location_Key;
+            }
+            if (requestNotebookS3Location_notebookS3Location_Key != null)
+            {
+                request.NotebookS3Location.Key = requestNotebookS3Location_notebookS3Location_Key;
+                requestNotebookS3LocationIsNull = false;
+            }
+             // determine if request.NotebookS3Location should be set to null
+            if (requestNotebookS3LocationIsNull)
+            {
+                request.NotebookS3Location = null;
+            }
+            if (cmdletContext.OutputNotebookFormat != null)
+            {
+                request.OutputNotebookFormat = cmdletContext.OutputNotebookFormat;
+            }
+            
+             // populate OutputNotebookS3Location
+            var requestOutputNotebookS3LocationIsNull = true;
+            request.OutputNotebookS3Location = new Amazon.ElasticMapReduce.Model.OutputNotebookS3LocationFromInput();
+            System.String requestOutputNotebookS3Location_outputNotebookS3Location_Bucket = null;
+            if (cmdletContext.OutputNotebookS3Location_Bucket != null)
+            {
+                requestOutputNotebookS3Location_outputNotebookS3Location_Bucket = cmdletContext.OutputNotebookS3Location_Bucket;
+            }
+            if (requestOutputNotebookS3Location_outputNotebookS3Location_Bucket != null)
+            {
+                request.OutputNotebookS3Location.Bucket = requestOutputNotebookS3Location_outputNotebookS3Location_Bucket;
+                requestOutputNotebookS3LocationIsNull = false;
+            }
+            System.String requestOutputNotebookS3Location_outputNotebookS3Location_Key = null;
+            if (cmdletContext.OutputNotebookS3Location_Key != null)
+            {
+                requestOutputNotebookS3Location_outputNotebookS3Location_Key = cmdletContext.OutputNotebookS3Location_Key;
+            }
+            if (requestOutputNotebookS3Location_outputNotebookS3Location_Key != null)
+            {
+                request.OutputNotebookS3Location.Key = requestOutputNotebookS3Location_outputNotebookS3Location_Key;
+                requestOutputNotebookS3LocationIsNull = false;
+            }
+             // determine if request.OutputNotebookS3Location should be set to null
+            if (requestOutputNotebookS3LocationIsNull)
+            {
+                request.OutputNotebookS3Location = null;
             }
             if (cmdletContext.RelativePath != null)
             {
@@ -407,12 +545,19 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EditorId { get; set; }
+            public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
+            public System.String ExecutionEngine_ExecutionRoleArn { get; set; }
             public System.String ExecutionEngine_Id { get; set; }
             public System.String ExecutionEngine_MasterInstanceSecurityGroupId { get; set; }
             public Amazon.ElasticMapReduce.ExecutionEngineType ExecutionEngine_Type { get; set; }
             public System.String NotebookExecutionName { get; set; }
             public System.String NotebookInstanceSecurityGroupId { get; set; }
             public System.String NotebookParam { get; set; }
+            public System.String NotebookS3Location_Bucket { get; set; }
+            public System.String NotebookS3Location_Key { get; set; }
+            public Amazon.ElasticMapReduce.OutputNotebookFormat OutputNotebookFormat { get; set; }
+            public System.String OutputNotebookS3Location_Bucket { get; set; }
+            public System.String OutputNotebookS3Location_Key { get; set; }
             public System.String RelativePath { get; set; }
             public System.String ServiceRole { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Tag> Tag { get; set; }

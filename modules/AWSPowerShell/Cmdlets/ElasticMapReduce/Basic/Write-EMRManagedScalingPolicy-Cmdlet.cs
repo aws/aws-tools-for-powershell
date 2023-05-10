@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
     /// Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed
-    /// scaling policy defines the limits for resources, such as EC2 instances that can be
-    /// added or terminated from a cluster. The policy only applies to the core and task nodes.
-    /// The master node cannot be scaled after initial configuration.
+    /// scaling policy defines the limits for resources, such as Amazon EC2 instances that
+    /// can be added or terminated from a cluster. The policy only applies to the core and
+    /// task nodes. The master node cannot be scaled after initial configuration.
     /// </summary>
     [Cmdlet("Write", "EMRManagedScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ClusterId
         /// <summary>
         /// <para>
-        /// <para>Specifies the ID of an EMR cluster where the managed scaling policy is attached. </para>
+        /// <para>Specifies the ID of an Amazon EMR cluster where the managed scaling policy is attached.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of EC2 units. It is measured through vCPU cores or instances for
-        /// instance groups and measured through units for instance fleets. Managed scaling activities
-        /// are not allowed beyond this boundary. The limit only applies to the core and task
-        /// nodes. The master node cannot be scaled after initial configuration. </para>
+        /// <para> The upper boundary of Amazon EC2 units. It is measured through vCPU cores or instances
+        /// for instance groups and measured through units for instance fleets. Managed scaling
+        /// activities are not allowed beyond this boundary. The limit only applies to the core
+        /// and task nodes. The master node cannot be scaled after initial configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumCoreCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of EC2 units for core node type in a cluster. It is measured through
-        /// vCPU cores or instances for instance groups and measured through units for instance
-        /// fleets. The core units are not allowed to scale beyond this boundary. The parameter
-        /// is used to split capacity allocation between core and task nodes. </para>
+        /// <para> The upper boundary of Amazon EC2 units for core node type in a cluster. It is measured
+        /// through vCPU cores or instances for instance groups and measured through units for
+        /// instance fleets. The core units are not allowed to scale beyond this boundary. The
+        /// parameter is used to split capacity allocation between core and task nodes. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumOnDemandCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances
-        /// for instance groups and measured through units for instance fleets. The On-Demand
-        /// units are not allowed to scale beyond this boundary. The parameter is used to split
-        /// capacity allocation between On-Demand and Spot Instances. </para>
+        /// <para> The upper boundary of On-Demand Amazon EC2 units. It is measured through vCPU cores
+        /// or instances for instance groups and measured through units for instance fleets. The
+        /// On-Demand units are not allowed to scale beyond this boundary. The parameter is used
+        /// to split capacity allocation between On-Demand and Spot Instances. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MinimumCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The lower boundary of EC2 units. It is measured through vCPU cores or instances for
-        /// instance groups and measured through units for instance fleets. Managed scaling activities
-        /// are not allowed beyond this boundary. The limit only applies to the core and task
-        /// nodes. The master node cannot be scaled after initial configuration. </para>
+        /// <para> The lower boundary of Amazon EC2 units. It is measured through vCPU cores or instances
+        /// for instance groups and measured through units for instance fleets. Managed scaling
+        /// activities are not allowed beyond this boundary. The limit only applies to the core
+        /// and task nodes. The master node cannot be scaled after initial configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

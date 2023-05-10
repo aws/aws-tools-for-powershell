@@ -28,9 +28,10 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides EMR release label details, such as releases available the region where the
-    /// API request is run, and the available applications for a specific EMR release label.
-    /// Can also list EMR release versions that support a specified version of Spark.
+    /// Provides Amazon EMR release label details, such as the releases available the Region
+    /// where the API request is run, and the available applications for a specific Amazon
+    /// EMR release label. Can also list Amazon EMR releases that support a specified version
+    /// of Spark.
     /// </summary>
     [Cmdlet("Get", "EMRReleaseLabel")]
     [OutputType("Amazon.ElasticMapReduce.Model.DescribeReleaseLabelResponse")]

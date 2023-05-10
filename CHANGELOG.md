@@ -1,4 +1,12 @@
-﻿### 4.1.330 (2023-05-09 21:13Z)
+﻿### 4.1.331 (2023-05-10 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.545.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Get-EMRNotebookExecutionList: added parameter ExecutionEngineId.
+    * Modified cmdlet Start-EMRNotebookExecution: added parameters EnvironmentVariable, ExecutionEngine_ExecutionRoleArn, NotebookS3Location_Bucket, NotebookS3Location_Key, OutputNotebookFormat, OutputNotebookS3Location_Bucket and OutputNotebookS3Location_Key.
+  * Amazon Relational Database Service
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameter StorageType.
+
+### 4.1.330 (2023-05-09 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.544.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.329 (2023-05-08 21:44Z)

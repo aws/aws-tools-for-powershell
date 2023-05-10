@@ -28,9 +28,10 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides information for all active EC2 instances and EC2 instances terminated in
-    /// the last 30 days, up to a maximum of 2,000. EC2 instances in any of the following
-    /// states are considered active: AWAITING_FULFILLMENT, PROVISIONING, BOOTSTRAPPING, RUNNING.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides information for all active Amazon EC2 instances and Amazon EC2 instances
+    /// terminated in the last 30 days, up to a maximum of 2,000. Amazon EC2 instances in
+    /// any of the following states are considered active: AWAITING_FULFILLMENT, PROVISIONING,
+    /// BOOTSTRAPPING, RUNNING.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRInstanceList")]
     [OutputType("Amazon.ElasticMapReduce.Model.Instance")]

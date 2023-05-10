@@ -155,6 +155,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.OutputNotebookFormat
+        "Start-EMRNotebookExecution/OutputNotebookFormat"
+        {
+            $v = "HTML"
+            break
+        }
+
         # Amazon.ElasticMapReduce.RepoUpgradeOnBoot
         "Start-EMRJobFlow/RepoUpgradeOnBoot"
         {
@@ -210,6 +217,7 @@ $EMR_map = @{
     "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
     "ManagedScalingPolicy_ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
+    "OutputNotebookFormat"=@("Start-EMRNotebookExecution")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
     "Status"=@("Get-EMRNotebookExecutionList")

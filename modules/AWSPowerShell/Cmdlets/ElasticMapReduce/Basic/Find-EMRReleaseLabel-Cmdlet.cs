@@ -28,7 +28,7 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Retrieves release labels of EMR services in the region where the API is called.
+    /// Retrieves release labels of Amazon EMR services in the Region where the API is called.
     /// </summary>
     [Cmdlet("Find", "EMRReleaseLabel")]
     [OutputType("System.String")]

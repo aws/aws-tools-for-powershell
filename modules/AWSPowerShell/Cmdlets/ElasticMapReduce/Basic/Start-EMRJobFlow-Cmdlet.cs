@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </para><para>
     /// For long-running clusters, we recommend that you periodically store your results.
     /// </para><note><para>
-    /// The instance fleets configuration is available only in Amazon EMR versions 4.8.0 and
+    /// The instance fleets configuration is available only in Amazon EMR releases 4.8.0 and
     /// later, excluding 5.0.x versions. The RunJobFlow request can contain InstanceFleets
     /// parameters or InstanceGroups parameters, but not both.
     /// </para></note>
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>An IAM role for automatic scaling policies. The default role is <code>EMR_AutoScaling_DefaultRole</code>.
         /// The IAM role provides permissions that the automatic scaling feature requires to launch
-        /// and terminate EC2 instances in an instance group.</para>
+        /// and terminate Amazon EC2 instances in an instance group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>When multiple Availability Zones are specified, Amazon EMR evaluates them and launches
         /// instances in the optimal Availability Zone. <code>AvailabilityZones</code> is used
         /// for instance fleets, while <code>AvailabilityZone</code> (singular) is used for uniform
-        /// instance groups.</para><note><para>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+        /// instance groups.</para><note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
         /// later, excluding 5.0.x versions.</para></note>
         /// </para>
         /// </summary>
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the
-        /// EMR cluster you are creating.</para>
+        /// Amazon EMR cluster that you are creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,12 +218,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter CustomAmiId
         /// <summary>
         /// <para>
-        /// <para>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed
-        /// Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances.
-        /// For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using
+        /// <para>Available only in Amazon EMR releases 5.7.0 and later. The ID of a custom Amazon EBS-backed
+        /// Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster Amazon
+        /// EC2 instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using
         /// a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster
         /// uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
-        /// versions 2.x and 3.x, use <code>AmiVersion</code> instead.</para><para>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
+        /// releases 2.x and 3.x, use <code>AmiVersion</code> instead.</para><para>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
         /// an Amazon EBS-Backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide
         /// for Linux Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
         /// a Linux AMI</a>. </para>
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used
-        /// for each EC2 instance. Available in Amazon EMR version 4.x and later.</para>
+        /// for each Amazon EC2 instance. Available in Amazon EMR releases 4.x and later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,8 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_Ec2KeyName
         /// <summary>
         /// <para>
-        /// <para>The name of the EC2 key pair that can be used to connect to the master node using
-        /// SSH as the user called "hadoop."</para>
+        /// <para>The name of the Amazon EC2 key pair that can be used to connect to the master node
+        /// using SSH as the user called "hadoop."</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,9 +271,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_Ec2SubnetIds
         /// <summary>
         /// <para>
-        /// <para>Applies to clusters that use the instance fleet configuration. When multiple EC2 subnet
-        /// IDs are specified, Amazon EMR evaluates them and launches instances in the optimal
-        /// subnet.</para><note><para>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+        /// <para>Applies to clusters that use the instance fleet configuration. When multiple Amazon
+        /// EC2 subnet IDs are specified, Amazon EMR evaluates them and launches instances in
+        /// the optimal subnet.</para><note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
         /// later, excluding 5.0.x versions.</para></note>
         /// </para>
         /// </summary>
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances in the cluster.</para>
+        /// <para>The number of Amazon EC2 instances in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -343,9 +343,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_InstanceFleet
         /// <summary>
         /// <para>
-        /// <note><para>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
-        /// later, excluding 5.0.x versions.</para></note><para>Describes the EC2 instances and instance configurations for clusters that use the
-        /// instance fleet configuration.</para>
+        /// <note><para>The instance fleet configuration is available only in Amazon EMR releases 4.8.0 and
+        /// later, excluding 5.0.x versions.</para></note><para>Describes the Amazon EC2 instances and instance configurations for clusters that use
+        /// the instance fleet configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -367,8 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter JobFlowRole
         /// <summary>
         /// <para>
-        /// <para>Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2
-        /// instances of the cluster assume this role. The default role is <code>EMR_EC2_DefaultRole</code>.
+        /// <para>Also called instance profile and Amazon EC2 role. An IAM role for an Amazon EMR cluster.
+        /// The Amazon EC2 instances of the cluster assume this role. The default role is <code>EMR_EC2_DefaultRole</code>.
         /// In order to use the default role, you must have already created it using the CLI or
         /// console.</para>
         /// </para>
@@ -406,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The KMS key used for encrypting log files. If a value is not provided, the logs remain
-        /// encrypted by AES-256. This attribute is only available with Amazon EMR version 5.30.0
+        /// encrypted by AES-256. This attribute is only available with Amazon EMR releases 5.30.0
         /// and later, excluding Amazon EMR 6.0.0.</para>
         /// </para>
         /// </summary>
@@ -428,7 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_MasterInstanceType
         /// <summary>
         /// <para>
-        /// <para>The EC2 instance type of the master node.</para>
+        /// <para>The Amazon EC2 instance type of the master node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -438,10 +438,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of EC2 units. It is measured through vCPU cores or instances for
-        /// instance groups and measured through units for instance fleets. Managed scaling activities
-        /// are not allowed beyond this boundary. The limit only applies to the core and task
-        /// nodes. The master node cannot be scaled after initial configuration. </para>
+        /// <para> The upper boundary of Amazon EC2 units. It is measured through vCPU cores or instances
+        /// for instance groups and measured through units for instance fleets. Managed scaling
+        /// activities are not allowed beyond this boundary. The limit only applies to the core
+        /// and task nodes. The master node cannot be scaled after initial configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -452,10 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumCoreCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of EC2 units for core node type in a cluster. It is measured through
-        /// vCPU cores or instances for instance groups and measured through units for instance
-        /// fleets. The core units are not allowed to scale beyond this boundary. The parameter
-        /// is used to split capacity allocation between core and task nodes. </para>
+        /// <para> The upper boundary of Amazon EC2 units for core node type in a cluster. It is measured
+        /// through vCPU cores or instances for instance groups and measured through units for
+        /// instance fleets. The core units are not allowed to scale beyond this boundary. The
+        /// parameter is used to split capacity allocation between core and task nodes. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -466,10 +466,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MaximumOnDemandCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or instances
-        /// for instance groups and measured through units for instance fleets. The On-Demand
-        /// units are not allowed to scale beyond this boundary. The parameter is used to split
-        /// capacity allocation between On-Demand and Spot Instances. </para>
+        /// <para> The upper boundary of On-Demand Amazon EC2 units. It is measured through vCPU cores
+        /// or instances for instance groups and measured through units for instance fleets. The
+        /// On-Demand units are not allowed to scale beyond this boundary. The parameter is used
+        /// to split capacity allocation between On-Demand and Spot Instances. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -480,10 +480,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ComputeLimits_MinimumCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The lower boundary of EC2 units. It is measured through vCPU cores or instances for
-        /// instance groups and measured through units for instance fleets. Managed scaling activities
-        /// are not allowed beyond this boundary. The limit only applies to the core and task
-        /// nodes. The master node cannot be scaled after initial configuration. </para>
+        /// <para> The lower boundary of Amazon EC2 units. It is measured through vCPU cores or instances
+        /// for instance groups and measured through units for instance fleets. Managed scaling
+        /// activities are not allowed beyond this boundary. The limit only applies to the core
+        /// and task nodes. The master node cannot be scaled after initial configuration. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -512,9 +512,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
-        /// accepts a user argument list. EMR accepts and forwards the argument list to the corresponding
-        /// installation script as bootstrap action arguments. For more information, see "Launch
-        /// a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
+        /// accepts a user argument list. Amazon EMR accepts and forwards the argument list to
+        /// the corresponding installation script as bootstrap action arguments. For more information,
+        /// see "Launch a Job Flow on the MapR Distribution for Hadoop" in the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
         /// EMR Developer Guide</a>. Supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
         /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analytics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
         /// </para>
@@ -602,8 +602,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// instances, regardless of the instance-hour boundary. With either behavior, Amazon
         /// EMR removes the least active nodes first and blocks instance termination if it could
         /// lead to HDFS corruption. <code>TERMINATE_AT_TASK_COMPLETION</code> available only
-        /// in Amazon EMR version 4.1.0 and later, and is the default for versions of Amazon EMR
-        /// earlier than 5.1.0.</para>
+        /// in Amazon EMR releases 4.1.0 and later, and is the default for releases of Amazon
+        /// EMR earlier than 5.1.0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -647,7 +647,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_SlaveInstanceType
         /// <summary>
         /// <para>
-        /// <para>The EC2 instance type of the core and task nodes.</para>
+        /// <para>The Amazon EC2 instance type of the core and task nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -728,14 +728,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <important><para>The VisibleToAllUsers parameter is no longer supported. By default, the value is set
         /// to <code>true</code>. Setting it to <code>false</code> now has no effect.</para></important><para>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services
-        /// account associated with the cluster can perform EMR actions on the cluster that their
-        /// IAM policies allow. This value defaults to <code>true</code> for clusters created
-        /// using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a>
+        /// account associated with the cluster can perform Amazon EMR actions on the cluster
+        /// that their IAM policies allow. This value defaults to <code>true</code> for clusters
+        /// created using the Amazon EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a>
         /// command.</para><para>When set to <code>false</code>, only the IAM principal that created the cluster and
-        /// the Amazon Web Services account root user can perform EMR actions for the cluster,
+        /// the Amazon Web Services account root user can perform Amazon EMR actions for the cluster,
         /// regardless of the IAM permissions policies attached to other IAM principals. For more
-        /// information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding
-        /// the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</para>
+        /// information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_IAM_emr-with-IAM.html#security_set_visible_to_all_users">Understanding
+        /// the Amazon EMR cluster VisibleToAllUsers setting</a> in the <i>Amazon EMR Management
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

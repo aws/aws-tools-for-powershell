@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>
         /// <para>Indicates whether Amazon EMR block public access is enabled (<code>true</code>) or
         /// disabled (<code>false</code>). By default, the value is <code>false</code> for accounts
-        /// that have created EMR clusters before July 2019. For accounts created after this,
-        /// the default is <code>true</code>.</para>
+        /// that have created Amazon EMR clusters before July 2019. For accounts created after
+        /// this, the default is <code>true</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is
         /// specified for <code>PermittedPublicSecurityGroupRuleRanges</code>, Amazon EMR allows
         /// cluster creation if a security group associated with the cluster has a rule that allows
-        /// inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.</para><para>By default, Port 22, which is used for SSH access to the cluster EC2 instances, is
-        /// in the list of <code>PermittedPublicSecurityGroupRuleRanges</code>.</para>
+        /// inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.</para><para>By default, Port 22, which is used for SSH access to the cluster Amazon EC2 instances,
+        /// is in the list of <code>PermittedPublicSecurityGroupRuleRanges</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// <summary>
     /// Creates or updates an automatic scaling policy for a core instance group or task instance
     /// group in an Amazon EMR cluster. The automatic scaling policy defines how an instance
-    /// group dynamically adds and terminates EC2 instances in response to the value of a
-    /// CloudWatch metric.
+    /// group dynamically adds and terminates Amazon EC2 instances in response to the value
+    /// of a CloudWatch metric.
     /// </summary>
     [Cmdlet("Write", "EMRAutoScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse")]
@@ -80,8 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Constraints_MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The upper boundary of EC2 instances in an instance group beyond which scaling activities
-        /// are not allowed to grow. Scale-out activities will not add instances beyond this boundary.</para>
+        /// <para>The upper boundary of Amazon EC2 instances in an instance group beyond which scaling
+        /// activities are not allowed to grow. Scale-out activities will not add instances beyond
+        /// this boundary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Constraints_MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The lower boundary of EC2 instances in an instance group below which scaling activities
-        /// are not allowed to shrink. Scale-in activities will not terminate instances below
-        /// this boundary.</para>
+        /// <para>The lower boundary of Amazon EC2 instances in an instance group below which scaling
+        /// activities are not allowed to shrink. Scale-in activities will not terminate instances
+        /// below this boundary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

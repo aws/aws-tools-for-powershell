@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>The Amazon Resource Name (ARN) for the session policy that will be applied to the
         /// user or group. You should specify the ARN for the session policy that you want to
         /// apply, not the ARN of your user role. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio-user-role.html">Create
-        /// an EMR Studio User Role with Session Policies</a>.</para>
+        /// an Amazon EMR Studio User Role with Session Policies</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

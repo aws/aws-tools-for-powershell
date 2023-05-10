@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>If specified, this value is the backtrack identifier of the backtrack to be described.</para><para>Constraints:</para><ul><li><para>Must contain a valid universally unique identifier (UUID). For more information about
-        /// UUIDs, see <a href="http://www.ietf.org/rfc/rfc4122.txt">A Universally Unique Identifier
-        /// (UUID) URN Namespace</a>.</para></li></ul><para>Example: <code>123e4567-e89b-12d3-a456-426655440000</code></para>
+        /// UUIDs, see <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally
+        /// unique identifier</a>.</para></li></ul><para>Example: <code>123e4567-e89b-12d3-a456-426655440000</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

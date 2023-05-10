@@ -176,10 +176,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the activity type within the domain.</para><para>The specified string must not start or end with whitespace. It must not contain a
-        /// <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or
-        /// any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>).
-        /// Also, it must not <i>be</i> the literal string <code>arn</code>.</para>
+        /// <para>The name of the activity type within the domain.</para><para>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash),
+        /// <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code>
+        /// | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -197,10 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// <summary>
         /// <para>
         /// <para>The version of the activity type.</para><note><para>The activity type consists of the name and version, the combination of which must
-        /// be unique within the domain.</para></note><para>The specified string must not start or end with whitespace. It must not contain a
-        /// <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or
-        /// any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>).
-        /// Also, it must not <i>be</i> the literal string <code>arn</code>.</para>
+        /// be unique within the domain.</para></note><para>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash),
+        /// <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code>
+        /// | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
