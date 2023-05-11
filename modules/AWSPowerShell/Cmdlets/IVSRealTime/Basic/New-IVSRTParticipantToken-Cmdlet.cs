@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter Duration
         /// <summary>
         /// <para>
-        /// <para>Duration (in minutes), after which the token expires. Default: 60 (1 hour).</para>
+        /// <para>Duration (in minutes), after which the token expires. Default: 720 (12 hours).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -146,6 +146,21 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String[] CacheSecurityGroupName { get; set; }
         #endregion
         
+        #region Parameter ClusterMode
+        /// <summary>
+        /// <para>
+        /// <para>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
+        /// set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect
+        /// using both cluster mode enabled and cluster mode disabled. After you migrate all Redis
+        /// clients to use cluster mode enabled, you can then complete cluster mode configuration
+        /// and set the cluster mode to Enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.ClusterMode")]
+        public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -165,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>.
         /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
-        /// engine version 1.6.6 on all instances built on the <a href="https://aws.amazon.com/ec2/nitro/">Nitro
+        /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
         /// </para>
         /// </summary>
@@ -349,8 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// in the same request to allow both encrypted and unencrypted connections at the same
         /// time. Once you migrate all your Redis clients to use encrypted connections you can
         /// set the value to <code>required</code> to allow encrypted connections only.</para><para>Setting <code>TransitEncryptionMode</code> to <code>required</code> is a two-step
-        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>
-        /// first, after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.
+        /// process that requires you to first set the <code>TransitEncryptionMode</code> to <code>preferred</code>,
+        /// after that you can set <code>TransitEncryptionMode</code> to <code>required</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -465,6 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
+            context.ClusterMode = this.ClusterMode;
             context.EngineVersion = this.EngineVersion;
             context.IpDiscovery = this.IpDiscovery;
             if (this.LogDeliveryConfiguration != null)
@@ -552,6 +568,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.CacheSecurityGroupName != null)
             {
                 request.CacheSecurityGroupNames = cmdletContext.CacheSecurityGroupName;
+            }
+            if (cmdletContext.ClusterMode != null)
+            {
+                request.ClusterMode = cmdletContext.ClusterMode;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -704,6 +724,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheNodeType { get; set; }
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
+            public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
             public System.String EngineVersion { get; set; }
             public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
             public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }

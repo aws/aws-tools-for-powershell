@@ -136,9 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         /// <summary>
         /// <para>
         /// <para>The language in which Amazon Web Services Support handles the case. Amazon Web Services
-        /// Support currently supports English ("en") and Japanese ("ja"). You must specify the
-        /// ISO 639-1 code for the <code>language</code> parameter if you want support in that
-        /// language.</para>
+        /// Support currently supports Chinese (“zh”), English ("en"), Japanese ("ja") and Korean
+        /// (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter
+        /// if you want support in that language.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter FallbackLocation
+        /// <summary>
+        /// <para>
+        /// <para> An S3 location that is used to store files that have failed a direct upload. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FallbackLocation { get; set; }
+        #endregion
+        
         #region Parameter SseConfig_KeyArn
         /// <summary>
         /// <para>
@@ -173,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.FallbackLocation = this.FallbackLocation;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -213,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.FallbackLocation != null)
+            {
+                request.FallbackLocation = cmdletContext.FallbackLocation;
             }
             if (cmdletContext.Name != null)
             {
@@ -314,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.String FallbackLocation { get; set; }
             public System.String Name { get; set; }
             public System.String SseConfig_KeyArn { get; set; }
             public Amazon.Omics.EncryptionType SseConfig_Type { get; set; }

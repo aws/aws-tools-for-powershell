@@ -22,30 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IVSRealTime;
-using Amazon.IVSRealTime.Model;
+using Amazon.Omics;
+using Amazon.Omics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IVSRT
+namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Disconnects a specified participant and revokes the participant permanently from a
-    /// specified stage.
+    /// Lists all multipart read set uploads and their statuses.
     /// </summary>
-    [Cmdlet("Disconnect", "IVSRTParticipant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DisconnectParticipant API operation.", Operation = new[] {"DisconnectParticipant"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DisconnectParticipantResponse))]
-    [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DisconnectParticipantResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.DisconnectParticipantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "OMICSMultipartReadSetUploadList")]
+    [OutputType("Amazon.Omics.Model.MultipartReadSetUploadListItem")]
+    [AWSCmdlet("Calls the Amazon Omics ListMultipartReadSetUploads API operation.", Operation = new[] {"ListMultipartReadSetUploads"}, SelectReturnType = typeof(Amazon.Omics.Model.ListMultipartReadSetUploadsResponse))]
+    [AWSCmdletOutput("Amazon.Omics.Model.MultipartReadSetUploadListItem or Amazon.Omics.Model.ListMultipartReadSetUploadsResponse",
+        "This cmdlet returns a collection of Amazon.Omics.Model.MultipartReadSetUploadListItem objects.",
+        "The service call response (type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisconnectIVSRTParticipantCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
+    public partial class GetOMICSMultipartReadSetUploadListCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
-        #region Parameter ParticipantId
+        #region Parameter SequenceStoreId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the participant to be disconnected. This is assigned by IVS and returned
-        /// by <a>CreateParticipantToken</a>.</para>
+        /// <para> The Sequence Store ID used for the multipart uploads. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,76 +54,56 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ParticipantId { get; set; }
+        public System.String SequenceStoreId { get; set; }
         #endregion
         
-        #region Parameter Reason
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Description of why this participant is being disconnected.</para>
+        /// <para> The maximum number of multipart uploads returned in a page. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Reason { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
-        #region Parameter StageArn
+        #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>ARN of the stage to which the participant is attached.</para>
+        /// <para> Next token returned in the response of a previous ListMultipartReadSetUploads call.
+        /// Used to get the next page of results. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String StageArn { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.DisconnectParticipantResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Uploads'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Omics.Model.ListMultipartReadSetUploadsResponse).
+        /// Specifying the name of a property of type Amazon.Omics.Model.ListMultipartReadSetUploadsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Uploads";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ParticipantId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ParticipantId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SequenceStoreId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ParticipantId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SequenceStoreId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ParticipantId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-IVSRTParticipant (DisconnectParticipant)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -135,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.DisconnectParticipantResponse, DisconnectIVSRTParticipantCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,22 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ParticipantId;
+                context.Select = (response, cmdlet) => this.SequenceStoreId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ParticipantId = this.ParticipantId;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.SequenceStoreId = this.SequenceStoreId;
             #if MODULAR
-            if (this.ParticipantId == null && ParameterWasBound(nameof(this.ParticipantId)))
+            if (this.SequenceStoreId == null && ParameterWasBound(nameof(this.SequenceStoreId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ParticipantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Reason = this.Reason;
-            context.StageArn = this.StageArn;
-            #if MODULAR
-            if (this.StageArn == null && ParameterWasBound(nameof(this.StageArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StageArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SequenceStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -176,19 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IVSRealTime.Model.DisconnectParticipantRequest();
+            var request = new Amazon.Omics.Model.ListMultipartReadSetUploadsRequest();
             
-            if (cmdletContext.ParticipantId != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.ParticipantId = cmdletContext.ParticipantId;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Reason != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Reason = cmdletContext.Reason;
+                request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.StageArn != null)
+            if (cmdletContext.SequenceStoreId != null)
             {
-                request.StageArn = cmdletContext.StageArn;
+                request.SequenceStoreId = cmdletContext.SequenceStoreId;
             }
             
             CmdletOutput output;
@@ -223,15 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region AWS Service Operation Call
         
-        private Amazon.IVSRealTime.Model.DisconnectParticipantResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.DisconnectParticipantRequest request)
+        private Amazon.Omics.Model.ListMultipartReadSetUploadsResponse CallAWSServiceOperation(IAmazonOmics client, Amazon.Omics.Model.ListMultipartReadSetUploadsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "DisconnectParticipant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Omics", "ListMultipartReadSetUploads");
             try
             {
                 #if DESKTOP
-                return client.DisconnectParticipant(request);
+                return client.ListMultipartReadSetUploads(request);
                 #elif CORECLR
-                return client.DisconnectParticipantAsync(request).GetAwaiter().GetResult();
+                return client.ListMultipartReadSetUploadsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,11 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ParticipantId { get; set; }
-            public System.String Reason { get; set; }
-            public System.String StageArn { get; set; }
-            public System.Func<Amazon.IVSRealTime.Model.DisconnectParticipantResponse, DisconnectIVSRTParticipantCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String SequenceStoreId { get; set; }
+            public System.Func<Amazon.Omics.Model.ListMultipartReadSetUploadsResponse, GetOMICSMultipartReadSetUploadListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Uploads;
         }
         
     }

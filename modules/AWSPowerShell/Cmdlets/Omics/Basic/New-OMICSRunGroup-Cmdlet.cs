@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.Int32? MaxDuration { get; set; }
         #endregion
         
+        #region Parameter MaxGpus
+        /// <summary>
+        /// <para>
+        /// <para> The maximum GPUs that can be used by a run group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxGpus { get; set; }
+        #endregion
+        
         #region Parameter MaxRun
         /// <summary>
         /// <para>
@@ -146,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             context.MaxCpu = this.MaxCpu;
             context.MaxDuration = this.MaxDuration;
+            context.MaxGpus = this.MaxGpus;
             context.MaxRun = this.MaxRun;
             context.Name = this.Name;
             context.RequestId = this.RequestId;
@@ -180,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.MaxDuration != null)
             {
                 request.MaxDuration = cmdletContext.MaxDuration.Value;
+            }
+            if (cmdletContext.MaxGpus != null)
+            {
+                request.MaxGpus = cmdletContext.MaxGpus.Value;
             }
             if (cmdletContext.MaxRun != null)
             {
@@ -260,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public System.Int32? MaxCpu { get; set; }
             public System.Int32? MaxDuration { get; set; }
+            public System.Int32? MaxGpus { get; set; }
             public System.Int32? MaxRun { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }

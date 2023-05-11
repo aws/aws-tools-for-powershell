@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     public partial class NewOMICSWorkflowCmdlet : AmazonOmicsClientCmdlet, IExecutor
     {
         
+        #region Parameter Accelerator
+        /// <summary>
+        /// <para>
+        /// <para> The computational accelerator specified to run the workflow. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Accelerators")]
+        [AWSConstantClassSource("Amazon.Omics.Accelerators")]
+        public Amazon.Omics.Accelerators Accelerator { get; set; }
+        #endregion
+        
         #region Parameter DefinitionUri
         /// <summary>
         /// <para>
@@ -185,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.Select = CreateSelectDelegate<Amazon.Omics.Model.CreateWorkflowResponse, NewOMICSWorkflowCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Accelerator = this.Accelerator;
             context.DefinitionUri = this.DefinitionUri;
             context.DefinitionZip = this.DefinitionZip;
             context.Description = this.Description;
@@ -229,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 // create request
                 var request = new Amazon.Omics.Model.CreateWorkflowRequest();
                 
+                if (cmdletContext.Accelerator != null)
+                {
+                    request.Accelerators = cmdletContext.Accelerator;
+                }
                 if (cmdletContext.DefinitionUri != null)
                 {
                     request.DefinitionUri = cmdletContext.DefinitionUri;
@@ -339,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Omics.Accelerators Accelerator { get; set; }
             public System.String DefinitionUri { get; set; }
             public byte[] DefinitionZip { get; set; }
             public System.String Description { get; set; }

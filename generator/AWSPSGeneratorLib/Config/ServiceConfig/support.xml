@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>support</C2jFilename>
     <AssemblyName>AWSSupport</AssemblyName>
@@ -14,7 +15,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -44,11 +44,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCreateCaseOptions" OutputProperty="*" Verb="Get" Noun="CreateCaseOption" PipelineParameter="CategoryCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" LegacyAlias="Get-ASAServices">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeSeverityLevels" OutputProperty="SeverityLevels" Verb="Get" Noun="SeverityLevel" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASASeverityLevels">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSupportedLanguages" OutputProperty="SupportedLanguages" Verb="Get" Noun="SupportedLanguage" PipelineParameter="CategoryCode" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,7 +85,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

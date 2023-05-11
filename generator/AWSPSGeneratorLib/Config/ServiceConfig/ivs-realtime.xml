@@ -35,11 +35,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetParticipant" OutputProperty="Participant" Verb="Get" Noun="Participant" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetStage" OutputProperty="Stage" Verb="Get" Noun="Stage" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStageSession" OutputProperty="StageSession" Verb="Get" Noun="StageSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListParticipantEvents" OutputProperty="Events" Verb="Get" Noun="ParticipantEventList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListParticipants" OutputProperty="Participants" Verb="Get" Noun="ParticipantList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStages" OutputProperty="Stages" Verb="Get" Noun="StageList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStageSessions" OutputProperty="StageSessions" Verb="Get" Noun="StageSessionList" PipelineParameter="StageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

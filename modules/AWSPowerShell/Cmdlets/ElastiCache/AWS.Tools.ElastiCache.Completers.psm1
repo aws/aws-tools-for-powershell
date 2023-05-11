@@ -100,6 +100,16 @@ $EC_Completers = {
             break
         }
 
+        # Amazon.ElastiCache.ClusterMode
+        {
+            ($_ -eq "Edit-ECReplicationGroup/ClusterMode") -Or
+            ($_ -eq "New-ECReplicationGroup/ClusterMode")
+        }
+        {
+            $v = "compatible","disabled","enabled"
+            break
+        }
+
         # Amazon.ElastiCache.InputAuthenticationType
         {
             ($_ -eq "Edit-ECUser/AuthenticationMode_Type") -Or
@@ -168,6 +178,7 @@ $EC_map = @{
     "AuthenticationMode_Type"=@("Edit-ECUser","New-ECUser")
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
+    "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
     "OutpostMode"=@("New-ECCacheCluster")

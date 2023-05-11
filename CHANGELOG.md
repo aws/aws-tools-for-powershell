@@ -1,4 +1,34 @@
-﻿### 4.1.331 (2023-05-10 20:56Z)
+﻿### 4.1.332 (2023-05-11 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.546.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECReplicationGroup: added parameter ClusterMode.
+    * Modified cmdlet New-ECReplicationGroup: added parameter ClusterMode.
+  * Amazon Interactive Video Service RealTime
+    * Added cmdlet Get-IVSRTParticipant leveraging the GetParticipant service API.
+    * Added cmdlet Get-IVSRTParticipantEventList leveraging the ListParticipantEvents service API.
+    * Added cmdlet Get-IVSRTParticipantList leveraging the ListParticipants service API.
+    * Added cmdlet Get-IVSRTStageSession leveraging the GetStageSession service API.
+    * Added cmdlet Get-IVSRTStageSessionList leveraging the ListStageSessions service API.
+  * Amazon Omics
+    * Added cmdlet Complete-OMICSMultipartReadSetUpload leveraging the CompleteMultipartReadSetUpload service API.
+    * Added cmdlet Get-OMICSMultipartReadSetUploadList leveraging the ListMultipartReadSetUploads service API.
+    * Added cmdlet Get-OMICSReadSetUploadPartList leveraging the ListReadSetUploadParts service API.
+    * Added cmdlet New-OMICSMultipartReadSetUpload leveraging the CreateMultipartReadSetUpload service API.
+    * Added cmdlet Remove-OMICSMultipartReadSetUpload leveraging the AbortMultipartReadSetUpload service API.
+    * Added cmdlet Set-OMICSReadSetPart leveraging the UploadReadSetPart service API.
+    * Modified cmdlet Get-OMICSReadSetList: added parameters Filter_GeneratedFrom, Filter_SampleId and Filter_SubjectId.
+    * Modified cmdlet Get-OMICSRunList: added parameter Status.
+    * Modified cmdlet New-OMICSRunGroup: added parameter MaxGpus.
+    * Modified cmdlet New-OMICSSequenceStore: added parameter FallbackLocation.
+    * Modified cmdlet New-OMICSWorkflow: added parameter Accelerator.
+    * Modified cmdlet Start-OMICSAnnotationImportJob: added parameter AnnotationField.
+    * Modified cmdlet Start-OMICSVariantImportJob: added parameter AnnotationField.
+    * Modified cmdlet Update-OMICSRunGroup: added parameter MaxGpus.
+  * Amazon Support
+    * Added cmdlet Get-ASACreateCaseOption leveraging the DescribeCreateCaseOptions service API.
+    * Added cmdlet Get-ASASupportedLanguage leveraging the DescribeSupportedLanguages service API.
+
+### 4.1.331 (2023-05-10 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.545.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic MapReduce
     * Modified cmdlet Get-EMRNotebookExecutionList: added parameter ExecutionEngineId.

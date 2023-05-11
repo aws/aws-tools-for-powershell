@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services services associated with the event. For example, <code>EC2</code>,
+        /// <para>The Amazon Web Services associated with the event. For example, <code>EC2</code>,
         /// <code>RDS</code>.</para>
         /// </para>
         /// </summary>

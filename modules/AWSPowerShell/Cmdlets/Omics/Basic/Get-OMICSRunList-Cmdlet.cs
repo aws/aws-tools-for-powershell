@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String StartingToken { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para> The status of a run. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.RunStatus")]
+        public Amazon.Omics.RunStatus Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -112,6 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.Name = this.Name;
             context.RunGroupId = this.RunGroupId;
             context.StartingToken = this.StartingToken;
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.StartingToken != null)
             {
                 request.StartingToken = cmdletContext.StartingToken;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -209,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String Name { get; set; }
             public System.String RunGroupId { get; set; }
             public System.String StartingToken { get; set; }
+            public Amazon.Omics.RunStatus Status { get; set; }
             public System.Func<Amazon.Omics.Model.ListRunsResponse, GetOMICSRunListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Items;
         }

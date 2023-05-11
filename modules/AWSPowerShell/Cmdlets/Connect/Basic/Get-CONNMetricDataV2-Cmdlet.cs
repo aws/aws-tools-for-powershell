@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// the previous version of this API. It has new metrics, offers filtering at a metric
     /// level, and offers the ability to filter and group data by channels, queues, routing
     /// profiles, agents, and agent hierarchy levels. It can retrieve historical data for
-    /// the last 14 days, in 24-hour intervals.
+    /// the last 35 days, in 24-hour intervals.
     /// </para><para>
     /// For a description of the historical metrics that are supported by <code>GetMetricDataV2</code>
     /// and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
@@ -174,8 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>The timestamp, in UNIX Epoch time format, at which to start the reporting interval
         /// for the retrieval of historical metrics data. The time must be before the end time
         /// timestamp. The time range between the start and end time must be less than 24 hours.
-        /// The start time cannot be earlier than 14 days before the time of the request. Historical
-        /// metrics are available for 14 days.</para>
+        /// The start time cannot be earlier than 35 days before the time of the request. Historical
+        /// metrics are available for 35 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

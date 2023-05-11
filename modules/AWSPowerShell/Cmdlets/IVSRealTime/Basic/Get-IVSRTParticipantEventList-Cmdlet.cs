@@ -28,30 +28,28 @@ using Amazon.IVSRealTime.Model;
 namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// Disconnects a specified participant and revokes the participant permanently from a
-    /// specified stage.
+    /// Lists events for a specified participant that occurred during a specified stage session.
     /// </summary>
-    [Cmdlet("Disconnect", "IVSRTParticipant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DisconnectParticipant API operation.", Operation = new[] {"DisconnectParticipant"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DisconnectParticipantResponse))]
-    [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DisconnectParticipantResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IVSRealTime.Model.DisconnectParticipantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IVSRTParticipantEventList")]
+    [OutputType("Amazon.IVSRealTime.Model.Event")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime ListParticipantEvents API operation.", Operation = new[] {"ListParticipantEvents"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.ListParticipantEventsResponse))]
+    [AWSCmdletOutput("Amazon.IVSRealTime.Model.Event or Amazon.IVSRealTime.Model.ListParticipantEventsResponse",
+        "This cmdlet returns a collection of Amazon.IVSRealTime.Model.Event objects.",
+        "The service call response (type Amazon.IVSRealTime.Model.ListParticipantEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisconnectIVSRTParticipantCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
+    public partial class GetIVSRTParticipantEventListCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
         #region Parameter ParticipantId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the participant to be disconnected. This is assigned by IVS and returned
-        /// by <a>CreateParticipantToken</a>.</para>
+        /// <para>Unique identifier for this participant. This is assigned by IVS and returned by <a>CreateParticipantToken</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -59,20 +57,27 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.String ParticipantId { get; set; }
         #endregion
         
-        #region Parameter Reason
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>Description of why this participant is being disconnected.</para>
+        /// <para>ID of a session within the stage.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Reason { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter StageArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the stage to which the participant is attached.</para>
+        /// <para>Stage ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,34 +91,37 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.String StageArn { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of results to return. Default: 50.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The first participant to retrieve. This is used for pagination; see the <code>nextToken</code>
+        /// response field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.DisconnectParticipantResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Events'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.ListParticipantEventsResponse).
+        /// Specifying the name of a property of type Amazon.IVSRealTime.Model.ListParticipantEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ParticipantId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ParticipantId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ParticipantId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "Events";
         #endregion
         
         protected override void ProcessRecord()
@@ -121,32 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ParticipantId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disconnect-IVSRTParticipant (DisconnectParticipant)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.DisconnectParticipantResponse, DisconnectIVSRTParticipantCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.ListParticipantEventsResponse, GetIVSRTParticipantEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ParticipantId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.ParticipantId = this.ParticipantId;
             #if MODULAR
             if (this.ParticipantId == null && ParameterWasBound(nameof(this.ParticipantId)))
@@ -154,7 +148,13 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 WriteWarning("You are passing $null as a value for parameter ParticipantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Reason = this.Reason;
+            context.SessionId = this.SessionId;
+            #if MODULAR
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.StageArn = this.StageArn;
             #if MODULAR
             if (this.StageArn == null && ParameterWasBound(nameof(this.StageArn)))
@@ -176,15 +176,23 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IVSRealTime.Model.DisconnectParticipantRequest();
+            var request = new Amazon.IVSRealTime.Model.ListParticipantEventsRequest();
             
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             if (cmdletContext.ParticipantId != null)
             {
                 request.ParticipantId = cmdletContext.ParticipantId;
             }
-            if (cmdletContext.Reason != null)
+            if (cmdletContext.SessionId != null)
             {
-                request.Reason = cmdletContext.Reason;
+                request.SessionId = cmdletContext.SessionId;
             }
             if (cmdletContext.StageArn != null)
             {
@@ -223,15 +231,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region AWS Service Operation Call
         
-        private Amazon.IVSRealTime.Model.DisconnectParticipantResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.DisconnectParticipantRequest request)
+        private Amazon.IVSRealTime.Model.ListParticipantEventsResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.ListParticipantEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "DisconnectParticipant");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "ListParticipantEvents");
             try
             {
                 #if DESKTOP
-                return client.DisconnectParticipant(request);
+                return client.ListParticipantEvents(request);
                 #elif CORECLR
-                return client.DisconnectParticipantAsync(request).GetAwaiter().GetResult();
+                return client.ListParticipantEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,11 +259,13 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.String ParticipantId { get; set; }
-            public System.String Reason { get; set; }
+            public System.String SessionId { get; set; }
             public System.String StageArn { get; set; }
-            public System.Func<Amazon.IVSRealTime.Model.DisconnectParticipantResponse, DisconnectIVSRTParticipantCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.IVSRealTime.Model.ListParticipantEventsResponse, GetIVSRTParticipantEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Events;
         }
         
     }

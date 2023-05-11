@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Interactive Video Service RealTime
 
 
+$IVSRT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IVSRealTime.ParticipantState
+        "Get-IVSRTParticipantList/FilterByState"
+        {
+            $v = "CONNECTED","DISCONNECTED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IVSRT_map = @{
+    "FilterByState"=@("Get-IVSRTParticipantList")
+}
+
+_awsArgumentCompleterRegistration $IVSRT_Completers $IVSRT_map
+
 $IVSRT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -127,8 +153,13 @@ $IVSRT_SelectMap = @{
                "New-IVSRTStage",
                "Remove-IVSRTStage",
                "Disconnect-IVSRTParticipant",
+               "Get-IVSRTParticipant",
                "Get-IVSRTStage",
+               "Get-IVSRTStageSession",
+               "Get-IVSRTParticipantEventList",
+               "Get-IVSRTParticipantList",
                "Get-IVSRTStageList",
+               "Get-IVSRTStageSessionList",
                "Get-IVSRTResourceTag",
                "Add-IVSRTResourceTag",
                "Remove-IVSRTResourceTag",

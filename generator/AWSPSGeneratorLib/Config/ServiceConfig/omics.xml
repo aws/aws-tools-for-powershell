@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AbortMultipartReadSetUpload" Verb="Remove" Noun="MultipartReadSetUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeleteReadSet" OutputProperty="Errors" Verb="Remove" Noun="ReadSet" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -35,7 +39,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CompleteMultipartReadSetUpload" OutputProperty="ReadSetId" Verb="Complete" Noun="MultipartReadSetUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAnnotationStore" OutputProperty="*" Verb="New" Noun="AnnotationStore" ShouldProcessTarget="Name" PipelineParameter="StoreFormat" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMultipartReadSetUpload" OutputProperty="*" Verb="New" Noun="MultipartReadSetUpload" ShouldProcessTarget="SequenceStoreId" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,6 +187,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMultipartReadSetUploads" OutputProperty="Uploads" Verb="Get" Noun="MultipartReadSetUploadList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListReadSetActivationJobs" OutputProperty="ActivationJobs" Verb="Get" Noun="ReadSetActivationJobList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -188,6 +204,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListReadSets" OutputProperty="ReadSets" Verb="Get" Noun="ReadSetList" PipelineParameter="SequenceStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReadSetUploadParts" OutputProperty="Parts" Verb="Get" Noun="ReadSetUploadPartList" PipelineParameter="UploadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -284,6 +304,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkflow" Verb="Update" Noun="Workflow" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadReadSetPart" OutputProperty="Checksum" Verb="Set" Noun="ReadSetPart" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

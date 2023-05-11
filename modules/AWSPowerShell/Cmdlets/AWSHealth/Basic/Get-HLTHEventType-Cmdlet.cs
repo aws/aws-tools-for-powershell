@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <summary>
     /// Returns the event types that meet the specified filter criteria. You can use this
     /// API operation to find information about the Health event, such as the category, Amazon
-    /// Web Services service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a>
+    /// Web Service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a>
     /// object. 
     /// 
     ///  
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Service
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services services associated with the event. For example, <code>EC2</code>,
+        /// <para>The Amazon Web Services associated with the event. For example, <code>EC2</code>,
         /// <code>RDS</code>.</para>
         /// </para>
         /// </summary>
@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para>
+        /// <para>The maximum number of items to return in one batch, between 10 and 100, inclusive.</para><note><para>If you don't specify the <code>maxResults</code> parameter, this operation returns
+        /// a maximum of 30 items by default.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
