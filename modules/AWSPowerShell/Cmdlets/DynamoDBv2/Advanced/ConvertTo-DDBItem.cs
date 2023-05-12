@@ -97,13 +97,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             else if (inputObjectType.IsArray)
             {
                 objectArray = (System.Object[])inputObject;
-                ddbAttribute = new AttributeValue { L = ConvertToDDBItemList(objectArray, attributeName) };
+                ddbAttribute = new AttributeValue {
+                    L = ConvertToDDBItemList(objectArray, attributeName),
+                    IsLSet = true
+                };
             }
             else if (inputObjectType.FullName == "System.Collections.ArrayList")
             {
                 var arrayList = (System.Collections.ArrayList)inputObject;
                 objectArray = arrayList.ToArray();
-                ddbAttribute = new AttributeValue { L = ConvertToDDBItemList(objectArray, attributeName) };
+                ddbAttribute = new AttributeValue {
+                    L = ConvertToDDBItemList(objectArray, attributeName),
+                    IsLSet = true
+                };
             }
             else if (inputObjectType.Name == "HashSet`1")
             {
@@ -240,7 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 default:
                     throw new InvalidOperationException($"The data type '{inputObjectType.FullName}' provided for the attribute '{attributeName}' is not supported for conversion into a DynamoDB attribute value.");
             }
-            return new AttributeValue { L = ConvertToDDBItemList(objectArray, attributeName) };
+            return new AttributeValue {
+                L = ConvertToDDBItemList(objectArray, attributeName),
+                IsLSet = true
+            };
         }
 
         private AttributeValue ConvertSingleValue(Object inputObject, Type inputObjectType, string attributeName)
@@ -281,7 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 case nameof(System.IO.MemoryStream):
                     return new AttributeValue { B = (System.IO.MemoryStream)inputObject };
                 case nameof(System.Collections.Hashtable):
-                    return new AttributeValue { M = ConvertToDDBItemDictionary((System.Collections.Hashtable)inputObject) };
+                    return new AttributeValue {
+                        M = ConvertToDDBItemDictionary((System.Collections.Hashtable)inputObject),
+                        IsMSet = true
+                    };
                 default:
                     throw new InvalidOperationException($"The data type '{inputObjectType.FullName}' provided for the attribute '{attributeName}' is not supported for conversion into a DynamoDB attribute value.");
             }

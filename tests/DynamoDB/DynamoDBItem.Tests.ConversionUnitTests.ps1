@@ -354,6 +354,40 @@ Describe -Tag "Smoke" "AWS.PowerTools.DynamoDB ConvertTo-DDBItem Unit Tests" {
         $result3 = ConvertTo-DDBItem -InputObject $result2
         $result3.TestProperty.M.List.L[0].N | Should -Be '1'
     }
+
+    It "ConvertTo-DDBItem converts an empty array'" {
+        $hashtable = @{
+            List = @()
+        }
+        $result = ConvertTo-DDBItem -InputObject $hashtable
+        $result.List.IsLSet | Should -Be $true
+    }
+
+    It "ConvertTo-DDBItem converts an empty arraylist'" {
+        $hashtable = @{
+            List = New-Object System.Collections.ArrayList
+        }
+        $result = ConvertTo-DDBItem -InputObject $hashtable
+        $result.List.IsLSet | Should -Be $true
+    }
+
+    It "ConvertTo-DDBItem converts an empty generic list'" {
+        $hashtable = @{
+            List = New-Object System.Collections.Generic.List[String]
+        }
+        $result = ConvertTo-DDBItem -InputObject $hashtable
+        $result.List.IsLSet | Should -Be $true
+    }
+
+    It "ConvertTo-DDBItem converts an empty hashtable'" {
+        $hashtable = @{
+            Map = @{}
+        }
+        $result = ConvertTo-DDBItem -InputObject $hashtable
+        $result.Map.IsMSet | Should -Be $true
+    }
+
+    # Converting "from" empty lists and maps works well by default so no additional tests or round trip tests are provided.
 }
 
 Describe -Tag "Smoke" "AWS.PowerTools.DynamoDB ConvertFrom-DDBItem Unit Tests" {
