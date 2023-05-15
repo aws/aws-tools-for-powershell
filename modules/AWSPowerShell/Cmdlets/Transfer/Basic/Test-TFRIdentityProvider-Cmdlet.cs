@@ -40,10 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     ///  The <code>ServerId</code> and <code>UserName</code> parameters are required. The
     /// <code>ServerProtocol</code>, <code>SourceIp</code>, and <code>UserPassword</code>
     /// are all optional. 
-    /// </para><note><para>
+    /// </para><para>
+    /// Note the following:
+    /// </para><ul><li><para>
     ///  You cannot use <code>TestIdentityProvider</code> if the <code>IdentityProviderType</code>
-    /// of your server is <code>SERVICE_MANAGED</code>. 
-    /// </para></note><ul><li><para>
+    /// of your server is <code>SERVICE_MANAGED</code>.
+    /// </para></li><li><para><code>TestIdentityProvider</code> does not work with keys: it only accepts passwords.
+    /// </para></li><li><para><code>TestIdentityProvider</code> can test the password operation for a custom Identity
+    /// Provider that handles keys and passwords.
+    /// </para></li><li><para>
     ///  If you provide any incorrect values for any parameters, the <code>Response</code>
     /// field is empty. 
     /// </para></li><li><para>
@@ -54,7 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     ///  If you enter a Server ID for the <code>--server-id</code> parameter that does not
     /// identify an actual Transfer server, you receive the following error: 
     /// </para><para><code>An error occurred (ResourceNotFoundException) when calling the TestIdentityProvider
-    /// operation: Unknown server</code></para></li></ul>
+    /// operation: Unknown server</code>. 
+    /// </para><para>
+    /// It is possible your sever is in a different region. You can specify a region by adding
+    /// the following: <code>--region region-code</code>, such as <code>--region us-east-2</code>
+    /// to specify a server in <b>US East (Ohio)</b>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Test", "TFRIdentityProvider")]
     [OutputType("Amazon.Transfer.Model.TestIdentityProviderResponse")]
@@ -88,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerProtocol
         /// <summary>
         /// <para>
-        /// <para>The type of file transfer protocol to be tested.</para><para>The available protocols are:</para><ul><li><para>Secure Shell (SSH) File Transfer Protocol (SFTP)</para></li><li><para>File Transfer Protocol Secure (FTPS)</para></li><li><para>File Transfer Protocol (FTP)</para></li></ul>
+        /// <para>The type of file transfer protocol to be tested.</para><para>The available protocols are:</para><ul><li><para>Secure Shell (SSH) File Transfer Protocol (SFTP)</para></li><li><para>File Transfer Protocol Secure (FTPS)</para></li><li><para>File Transfer Protocol (FTP)</para></li><li><para>Applicability Statement 2 (AS2)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SourceIp
         /// <summary>
         /// <para>
-        /// <para>The source IP address of the user account to be tested.</para>
+        /// <para>The source IP address of the account to be tested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user account to be tested.</para>
+        /// <para>The name of the account to be tested.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserPassword
         /// <summary>
         /// <para>
-        /// <para>The password of the user account to be tested.</para>
+        /// <para>The password of the account to be tested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

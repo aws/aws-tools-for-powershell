@@ -28,9 +28,8 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Creates a profile. A profile is configuration resource to list the roles that RolesAnywhere
-    /// service is trusted to assume. In addition, by applying a profile you can intersect
-    /// permissions with IAM managed policies.
+    /// Creates a <i>profile</i>, a list of the roles that Roles Anywhere service is trusted
+    /// to assume. You use profiles to intersect permissions with IAM managed policies.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:CreateProfile</code>. 
@@ -100,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter RequireInstanceProperty
         /// <summary>
         /// <para>
-        /// <para>Specifies whether instance properties are required in <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>
-        /// requests with this profile. </para>
+        /// <para>Specifies whether instance properties are required in temporary credential requests
+        /// with this profile. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>A list of IAM roles that this profile can assume in a <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>
-        /// operation.</para>
+        /// <para>A list of IAM roles that this profile can assume in a temporary credential request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

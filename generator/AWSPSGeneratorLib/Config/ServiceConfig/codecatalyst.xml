@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDevEnvironmentSessions" OutputProperty="Items" Verb="Get" Noun="DevEnvironmentSessionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEventLogs" OutputProperty="Items" Verb="Get" Noun="EventLogList" PipelineParameter="SpaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

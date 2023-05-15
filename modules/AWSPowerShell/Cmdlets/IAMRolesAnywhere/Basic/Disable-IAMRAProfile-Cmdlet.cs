@@ -28,8 +28,8 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Disables a profile. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>
-    /// requests with this profile fail.
+    /// Disables a profile. When disabled, temporary credential requests with this profile
+    /// fail.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:DisableProfile</code>. 

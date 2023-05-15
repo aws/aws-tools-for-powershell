@@ -28,7 +28,12 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Lists all executions for the specified workflow.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all in-progress executions for the specified workflow.
+    /// 
+    ///  <note><para>
+    /// If the specified workflow ID cannot be found, <code>ListExecutions</code> returns
+    /// a <code>ResourceNotFound</code> exception.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRExecutionList")]
     [OutputType("Amazon.Transfer.Model.ListExecutionsResponse")]

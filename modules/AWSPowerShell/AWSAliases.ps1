@@ -4101,6 +4101,9 @@ Set-Alias -Name CCAT-ListAccessTokens -Value Get-CCATAccessTokenList
 Set-Alias -Name List-CCATDevEnvironments -Value Get-CCATDevEnvironmentList
 Set-Alias -Name List-CCATDevEnvironmentList -Value Get-CCATDevEnvironmentList
 Set-Alias -Name CCAT-ListDevEnvironments -Value Get-CCATDevEnvironmentList
+Set-Alias -Name List-CCATDevEnvironmentSessions -Value Get-CCATDevEnvironmentSessionList
+Set-Alias -Name List-CCATDevEnvironmentSessionList -Value Get-CCATDevEnvironmentSessionList
+Set-Alias -Name CCAT-ListDevEnvironmentSessions -Value Get-CCATDevEnvironmentSessionList
 Set-Alias -Name List-CCATEventLogs -Value Get-CCATEventLogList
 Set-Alias -Name List-CCATEventLogList -Value Get-CCATEventLogList
 Set-Alias -Name CCAT-ListEventLogs -Value Get-CCATEventLogList
@@ -20681,6 +20684,11 @@ Set-Alias -Name IAMRA-ListTagsForResource -Value Get-IAMRAResourceTag
 Set-Alias -Name List-IAMRATrustAnchors -Value Get-IAMRATrustAnchorList
 Set-Alias -Name List-IAMRATrustAnchorList -Value Get-IAMRATrustAnchorList
 Set-Alias -Name IAMRA-ListTrustAnchors -Value Get-IAMRATrustAnchorList
+Set-Alias -Name Put-IAMRANotificationSettings -Value Write-IAMRANotificationSetting
+Set-Alias -Name Put-IAMRANotificationSetting -Value Write-IAMRANotificationSetting
+Set-Alias -Name IAMRA-PutNotificationSettings -Value Write-IAMRANotificationSetting
+Set-Alias -Name Reset-IAMRANotificationSettings -Value Reset-IAMRANotificationSetting
+Set-Alias -Name IAMRA-ResetNotificationSettings -Value Reset-IAMRANotificationSetting
 Set-Alias -Name IAMRA-TagResource -Value Add-IAMRAResourceTag
 Set-Alias -Name IAMRA-UntagResource -Value Remove-IAMRAResourceTag
 Set-Alias -Name IAMRA-UpdateCrl -Value Update-IAMRACrl

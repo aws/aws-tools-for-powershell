@@ -28,12 +28,11 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Creates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate
-    /// authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as
-    /// a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA),
-    /// or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate
-    /// with the trust anchor using certificates issued by the trusted Certificate Authority
-    /// (CA) in exchange for temporary AWS credentials.
+    /// Creates a trust anchor to establish trust between IAM Roles Anywhere and your certificate
+    /// authority (CA). You can define a trust anchor as a reference to an Private Certificate
+    /// Authority (Private CA) or by uploading a CA certificate. Your Amazon Web Services
+    /// workloads can authenticate with the trust anchor using certificates issued by the
+    /// CA in exchange for temporary Amazon Web Services credentials.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:CreateTrustAnchor</code>. 
@@ -54,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter SourceData_AcmPcaArn
         /// <summary>
         /// <para>
-        /// <para>The root certificate of the Certificate Manager Private Certificate Authority specified
-        /// by this ARN is used in trust validation for <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>
-        /// operations. Included for trust anchors of type <code>AWS_ACM_PCA</code>. </para>
+        /// <para> The root certificate of the Private Certificate Authority specified by this ARN is
+        /// used in trust validation for temporary credential requests. Included for trust anchors
+        /// of type <code>AWS_ACM_PCA</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NotificationSetting
+        /// <summary>
+        /// <para>
+        /// <para>A list of notification settings to be associated to the trust anchor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NotificationSettings")]
+        public Amazon.IAMRolesAnywhere.Model.NotificationSetting[] NotificationSetting { get; set; }
         #endregion
         
         #region Parameter Source_SourceType
@@ -175,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.NotificationSetting != null)
+            {
+                context.NotificationSetting = new List<Amazon.IAMRolesAnywhere.Model.NotificationSetting>(this.NotificationSetting);
+            }
             context.SourceData_AcmPcaArn = this.SourceData_AcmPcaArn;
             context.SourceData_X509CertificateData = this.SourceData_X509CertificateData;
             context.Source_SourceType = this.Source_SourceType;
@@ -205,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NotificationSetting != null)
+            {
+                request.NotificationSettings = cmdletContext.NotificationSetting;
             }
             
              // populate Source
@@ -327,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         {
             public System.Boolean? Enabled { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.IAMRolesAnywhere.Model.NotificationSetting> NotificationSetting { get; set; }
             public System.String SourceData_AcmPcaArn { get; set; }
             public System.String SourceData_X509CertificateData { get; set; }
             public Amazon.IAMRolesAnywhere.TrustAnchorType Source_SourceType { get; set; }

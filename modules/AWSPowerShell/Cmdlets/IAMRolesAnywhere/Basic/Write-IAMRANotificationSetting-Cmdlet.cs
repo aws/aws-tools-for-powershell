@@ -22,52 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Transfer;
-using Amazon.Transfer.Model;
+using Amazon.IAMRolesAnywhere;
+using Amazon.IAMRolesAnywhere.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TFR
+namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Adds a Secure Shell (SSH) public key to a Transfer Family user identified by a <code>UserName</code>
-    /// value assigned to the specific file transfer protocol-enabled server, identified by
-    /// <code>ServerId</code>.
+    /// Attaches a list of <i>notification settings</i> to a trust anchor.
     /// 
     ///  
     /// <para>
-    /// The response returns the <code>UserName</code> value, the <code>ServerId</code> value,
-    /// and the name of the <code>SshPublicKeyId</code>.
+    /// A notification setting includes information such as event name, threshold, status
+    /// of the notification setting, and the channel to notify.
+    /// </para><para><b>Required permissions: </b><code>rolesanywhere:PutNotificationSettings</code>.
+    /// 
     /// </para>
     /// </summary>
-    [Cmdlet("Import", "TFRSshPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Transfer.Model.ImportSshPublicKeyResponse")]
-    [AWSCmdlet("Calls the AWS Transfer for SFTP ImportSshPublicKey API operation.", Operation = new[] {"ImportSshPublicKey"}, SelectReturnType = typeof(Amazon.Transfer.Model.ImportSshPublicKeyResponse))]
-    [AWSCmdletOutput("Amazon.Transfer.Model.ImportSshPublicKeyResponse",
-        "This cmdlet returns an Amazon.Transfer.Model.ImportSshPublicKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "IAMRANotificationSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail")]
+    [AWSCmdlet("Calls the IAM Roles Anywhere PutNotificationSettings API operation.", Operation = new[] {"PutNotificationSettings"}, SelectReturnType = typeof(Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse))]
+    [AWSCmdletOutput("Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail or Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse",
+        "This cmdlet returns an Amazon.IAMRolesAnywhere.Model.TrustAnchorDetail object.",
+        "The service call response (type Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ImportTFRSshPublicKeyCmdlet : AmazonTransferClientCmdlet, IExecutor
+    public partial class WriteIAMRANotificationSettingCmdlet : AmazonIAMRolesAnywhereClientCmdlet, IExecutor
     {
         
-        #region Parameter ServerId
+        #region Parameter NotificationSetting
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a server.</para>
+        /// <para>A list of notification settings to be associated to the trust anchor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ServerId { get; set; }
+        [Alias("NotificationSettings")]
+        public Amazon.IAMRolesAnywhere.Model.NotificationSetting[] NotificationSetting { get; set; }
         #endregion
         
-        #region Parameter SshPublicKeyBody
+        #region Parameter TrustAnchorId
         /// <summary>
         /// <para>
-        /// <para>The public key portion of an SSH key pair.</para><para>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</para>
+        /// <para>The unique identifier of the trust anchor.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,43 +80,26 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SshPublicKeyBody { get; set; }
-        #endregion
-        
-        #region Parameter UserName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the Transfer Family user that is assigned to one or more servers.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserName { get; set; }
+        public System.String TrustAnchorId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Transfer.Model.ImportSshPublicKeyResponse).
-        /// Specifying the name of a property of type Amazon.Transfer.Model.ImportSshPublicKeyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TrustAnchor'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse).
+        /// Specifying the name of a property of type Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "TrustAnchor";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the SshPublicKeyBody parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^SshPublicKeyBody' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TrustAnchorId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TrustAnchorId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SshPublicKeyBody' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrustAnchorId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-TFRSshPublicKey (ImportSshPublicKey)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrustAnchorId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-IAMRANotificationSetting (PutNotificationSettings)"))
             {
                 return;
             }
@@ -148,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Transfer.Model.ImportSshPublicKeyResponse, ImportTFRSshPublicKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse, WriteIAMRANotificationSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,28 +142,24 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.SshPublicKeyBody;
+                context.Select = (response, cmdlet) => this.TrustAnchorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ServerId = this.ServerId;
-            #if MODULAR
-            if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
+            if (this.NotificationSetting != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.NotificationSetting = new List<Amazon.IAMRolesAnywhere.Model.NotificationSetting>(this.NotificationSetting);
+            }
+            #if MODULAR
+            if (this.NotificationSetting == null && ParameterWasBound(nameof(this.NotificationSetting)))
+            {
+                WriteWarning("You are passing $null as a value for parameter NotificationSetting which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.SshPublicKeyBody = this.SshPublicKeyBody;
+            context.TrustAnchorId = this.TrustAnchorId;
             #if MODULAR
-            if (this.SshPublicKeyBody == null && ParameterWasBound(nameof(this.SshPublicKeyBody)))
+            if (this.TrustAnchorId == null && ParameterWasBound(nameof(this.TrustAnchorId)))
             {
-                WriteWarning("You are passing $null as a value for parameter SshPublicKeyBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UserName = this.UserName;
-            #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TrustAnchorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -195,19 +176,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Transfer.Model.ImportSshPublicKeyRequest();
+            var request = new Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsRequest();
             
-            if (cmdletContext.ServerId != null)
+            if (cmdletContext.NotificationSetting != null)
             {
-                request.ServerId = cmdletContext.ServerId;
+                request.NotificationSettings = cmdletContext.NotificationSetting;
             }
-            if (cmdletContext.SshPublicKeyBody != null)
+            if (cmdletContext.TrustAnchorId != null)
             {
-                request.SshPublicKeyBody = cmdletContext.SshPublicKeyBody;
-            }
-            if (cmdletContext.UserName != null)
-            {
-                request.UserName = cmdletContext.UserName;
+                request.TrustAnchorId = cmdletContext.TrustAnchorId;
             }
             
             CmdletOutput output;
@@ -242,15 +219,15 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         #region AWS Service Operation Call
         
-        private Amazon.Transfer.Model.ImportSshPublicKeyResponse CallAWSServiceOperation(IAmazonTransfer client, Amazon.Transfer.Model.ImportSshPublicKeyRequest request)
+        private Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse CallAWSServiceOperation(IAmazonIAMRolesAnywhere client, Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "ImportSshPublicKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "IAM Roles Anywhere", "PutNotificationSettings");
             try
             {
                 #if DESKTOP
-                return client.ImportSshPublicKey(request);
+                return client.PutNotificationSettings(request);
                 #elif CORECLR
-                return client.ImportSshPublicKeyAsync(request).GetAwaiter().GetResult();
+                return client.PutNotificationSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -270,11 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ServerId { get; set; }
-            public System.String SshPublicKeyBody { get; set; }
-            public System.String UserName { get; set; }
-            public System.Func<Amazon.Transfer.Model.ImportSshPublicKeyResponse, ImportTFRSshPublicKeyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<Amazon.IAMRolesAnywhere.Model.NotificationSetting> NotificationSetting { get; set; }
+            public System.String TrustAnchorId { get; set; }
+            public System.Func<Amazon.IAMRolesAnywhere.Model.PutNotificationSettingsResponse, WriteIAMRANotificationSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TrustAnchor;
         }
         
     }

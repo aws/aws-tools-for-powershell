@@ -28,8 +28,8 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Disables a trust anchor. When disabled, <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>
-    /// requests specifying this trust anchor are unauthorized.
+    /// Disables a trust anchor. When disabled, temporary credential requests specifying this
+    /// trust anchor are unauthorized.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:DisableTrustAnchor</code>. 

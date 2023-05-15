@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_Function
         /// <summary>
         /// <para>
-        /// <para>The ARN for a lambda function to use for the Identity provider.</para>
+        /// <para>The ARN for a Lambda function to use for the Identity provider.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// Gateway endpoint URL to call for authentication by using the <code>IdentityProviderDetails</code>
         /// parameter.</para><para>Use the <code>AWS_LAMBDA</code> value to directly use an Lambda function as your identity
         /// provider. If you choose this value, you must specify the ARN for the Lambda function
-        /// in the <code>Function</code> parameter or the <code>IdentityProviderDetails</code>
+        /// in the <code>Function</code> parameter for the <code>IdentityProviderDetails</code>
         /// data type.</para>
         /// </para>
         /// </summary>
@@ -182,7 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_InvocationRole
         /// <summary>
         /// <para>
-        /// <para>Provides the type of <code>InvocationRole</code> used to authenticate the user account.</para>
+        /// <para>This parameter is only applicable if your <code>IdentityProviderType</code> is <code>API_GATEWAY</code>.
+        /// Provides the type of <code>InvocationRole</code> used to authenticate the user account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -347,6 +348,23 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public Amazon.Transfer.SetStatOption ProtocolDetails_SetStatOption { get; set; }
         #endregion
         
+        #region Parameter IdentityProviderDetails_SftpAuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// <para>For SFTP-enabled servers, and for custom identity providers <i>only</i>, you can specify
+        /// whether to authenticate using a password, SSH key pair, or both.</para><ul><li><para><code>PASSWORD</code> - users must provide their password to connect.</para></li><li><para><code>PUBLIC_KEY</code> - users must provide their private key to connect.</para></li><li><para><code>PUBLIC_KEY_OR_PASSWORD</code> - users can authenticate with either their password
+        /// or their key. This is the default value.</para></li><li><para><code>PUBLIC_KEY_AND_PASSWORD</code> - users must provide both their private key
+        /// and their password to connect. The server checks the key first, and then if the key
+        /// is valid, the system prompts for a password. If the private key provided does not
+        /// match the public key that is stored, authentication fails.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityProviderDetails_SftpAuthenticationMethods")]
+        [AWSConstantClassSource("Amazon.Transfer.SftpAuthenticationMethods")]
+        public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
+        #endregion
+        
         #region Parameter EndpointDetails_SubnetId
         /// <summary>
         /// <para>
@@ -489,6 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_DirectoryId = this.IdentityProviderDetails_DirectoryId;
             context.IdentityProviderDetails_Function = this.IdentityProviderDetails_Function;
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
+            context.IdentityProviderDetails_SftpAuthenticationMethod = this.IdentityProviderDetails_SftpAuthenticationMethod;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.IdentityProviderType = this.IdentityProviderType;
             context.LoggingRole = this.LoggingRole;
@@ -641,6 +660,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestIdentityProviderDetails_identityProviderDetails_InvocationRole != null)
             {
                 request.IdentityProviderDetails.InvocationRole = requestIdentityProviderDetails_identityProviderDetails_InvocationRole;
+                requestIdentityProviderDetailsIsNull = false;
+            }
+            Amazon.Transfer.SftpAuthenticationMethods requestIdentityProviderDetails_identityProviderDetails_SftpAuthenticationMethod = null;
+            if (cmdletContext.IdentityProviderDetails_SftpAuthenticationMethod != null)
+            {
+                requestIdentityProviderDetails_identityProviderDetails_SftpAuthenticationMethod = cmdletContext.IdentityProviderDetails_SftpAuthenticationMethod;
+            }
+            if (requestIdentityProviderDetails_identityProviderDetails_SftpAuthenticationMethod != null)
+            {
+                request.IdentityProviderDetails.SftpAuthenticationMethods = requestIdentityProviderDetails_identityProviderDetails_SftpAuthenticationMethod;
                 requestIdentityProviderDetailsIsNull = false;
             }
             System.String requestIdentityProviderDetails_identityProviderDetails_Url = null;
@@ -837,6 +866,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_DirectoryId { get; set; }
             public System.String IdentityProviderDetails_Function { get; set; }
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
+            public Amazon.Transfer.SftpAuthenticationMethods IdentityProviderDetails_SftpAuthenticationMethod { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
             public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
             public System.String LoggingRole { get; set; }

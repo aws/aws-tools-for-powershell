@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a server instance that the user account is
-        /// assigned to.</para>
+        /// <para>A system-assigned unique identifier for a Transfer Family server instance that the
+        /// user is assigned to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

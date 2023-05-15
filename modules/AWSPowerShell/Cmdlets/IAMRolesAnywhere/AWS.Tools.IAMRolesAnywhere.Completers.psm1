@@ -173,6 +173,8 @@ $IAMRA_SelectMap = @{
                "Get-IAMRASubjectList",
                "Get-IAMRAResourceTag",
                "Get-IAMRATrustAnchorList",
+               "Write-IAMRANotificationSetting",
+               "Reset-IAMRANotificationSetting",
                "Add-IAMRAResourceTag",
                "Remove-IAMRAResourceTag",
                "Update-IAMRACrl",

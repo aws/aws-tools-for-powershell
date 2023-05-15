@@ -175,6 +175,7 @@ $CCAT_SelectMap = @{
                "Get-CCATUserDetail",
                "Get-CCATAccessTokenList",
                "Get-CCATDevEnvironmentList",
+               "Get-CCATDevEnvironmentSessionList",
                "Get-CCATEventLogList",
                "Get-CCATProjectList",
                "Get-CCATSourceRepositoryList",

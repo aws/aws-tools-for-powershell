@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Key-value pairs assigned to ARNs that you can use to group and search for resources
-        /// by type. You can attach this metadata to user accounts for any purpose.</para>
+        /// by type. You can attach this metadata to resources (servers, users, workflows, and
+        /// so on) for any purpose.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

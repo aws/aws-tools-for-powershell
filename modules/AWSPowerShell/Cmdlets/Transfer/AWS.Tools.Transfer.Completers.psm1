@@ -207,6 +207,16 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.SftpAuthenticationMethods
+        {
+            ($_ -eq "New-TFRServer/IdentityProviderDetails_SftpAuthenticationMethods") -Or
+            ($_ -eq "Update-TFRServer/IdentityProviderDetails_SftpAuthenticationMethods")
+        }
+        {
+            $v = "PASSWORD","PUBLIC_KEY","PUBLIC_KEY_AND_PASSWORD","PUBLIC_KEY_OR_PASSWORD"
+            break
+        }
+
         # Amazon.Transfer.SigningAlg
         {
             ($_ -eq "New-TFRConnector/As2Config_SigningAlgorithm") -Or
@@ -244,6 +254,7 @@ $TFR_map = @{
     "Domain"=@("New-TFRServer")
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRAccess","New-TFRUser","Update-TFRAccess","Update-TFRUser")
+    "IdentityProviderDetails_SftpAuthenticationMethods"=@("New-TFRServer","Update-TFRServer")
     "IdentityProviderType"=@("New-TFRServer")
     "ProfileType"=@("Get-TFRProfileList","New-TFRProfile")
     "ProtocolDetails_SetStatOption"=@("New-TFRServer","Update-TFRServer")

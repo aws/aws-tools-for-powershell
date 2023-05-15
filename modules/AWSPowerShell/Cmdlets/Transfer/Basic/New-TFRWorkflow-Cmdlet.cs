@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>Specifies the steps (actions) to take if errors are encountered during execution of
-        /// the workflow.</para><note><para>For custom steps, the lambda function needs to send <code>FAILURE</code> to the call
-        /// back API to kick off the exception steps. Additionally, if the lambda does not send
+        /// the workflow.</para><note><para>For custom steps, the Lambda function needs to send <code>FAILURE</code> to the call
+        /// back API to kick off the exception steps. Additionally, if the Lambda does not send
         /// <code>SUCCESS</code> before it times out, the exception steps are executed.</para></note>
         /// </para>
         /// </summary>

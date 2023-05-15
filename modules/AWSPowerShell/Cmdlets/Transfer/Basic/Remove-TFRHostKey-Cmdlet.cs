@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Deletes the host key that's specified in the <code>HoskKeyId</code> parameter.
+    /// Deletes the host key that's specified in the <code>HostKeyId</code> parameter.
     /// </summary>
     [Cmdlet("Remove", "TFRHostKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

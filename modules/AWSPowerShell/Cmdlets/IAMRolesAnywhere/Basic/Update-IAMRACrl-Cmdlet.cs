@@ -28,9 +28,9 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Updates the certificate revocation list (CRL). CRl is a list of certificates that
-    /// have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates
-    /// against the crl list before issuing credentials.
+    /// Updates the certificate revocation list (CRL). A CRL is a list of certificates that
+    /// have been revoked by the issuing certificate authority (CA). IAM Roles Anywhere validates
+    /// against the CRL before issuing credentials.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:UpdateCrl</code>. 
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter CrlData
         /// <summary>
         /// <para>
-        /// <para>The x509 v3 specified certificate revocation list</para>
+        /// <para>The x509 v3 specified certificate revocation list (CRL).</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

@@ -102,6 +102,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutNotificationSettings" OutputProperty="TrustAnchor" Verb="Write" Noun="NotificationSetting" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetNotificationSettings" OutputProperty="TrustAnchor" Verb="Reset" Noun="NotificationSetting" ShouldProcessTarget="TrustAnchorId" PipelineParameter="TrustAnchorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

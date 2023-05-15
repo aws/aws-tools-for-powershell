@@ -1,4 +1,18 @@
-﻿### 4.1.332 (2023-05-11 21:11Z)
+﻿### 4.1.333 (2023-05-15 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.547.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * Modified cmdlet Start-ATHSession: added parameter EngineConfiguration_SparkProperty.
+  * Amazon CodeCatalyst
+    * Added cmdlet Get-CCATDevEnvironmentSessionList leveraging the ListDevEnvironmentSessions service API.
+  * Amazon IAM Roles Anywhere
+    * Added cmdlet Reset-IAMRANotificationSetting leveraging the ResetNotificationSettings service API.
+    * Added cmdlet Write-IAMRANotificationSetting leveraging the PutNotificationSettings service API.
+    * Modified cmdlet New-IAMRATrustAnchor: added parameter NotificationSetting.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter IdentityProviderDetails_SftpAuthenticationMethod.
+    * Modified cmdlet Update-TFRServer: added parameter IdentityProviderDetails_SftpAuthenticationMethod.
+
+### 4.1.332 (2023-05-11 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.546.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon ElastiCache
     * Modified cmdlet Edit-ECReplicationGroup: added parameter ClusterMode.

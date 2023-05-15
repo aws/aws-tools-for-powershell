@@ -28,12 +28,11 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Updates the trust anchor.You establish trust between IAM Roles Anywhere and your certificate
-    /// authority (CA) by configuring a trust anchor. A Trust Anchor is defined either as
-    /// a reference to a AWS Certificate Manager Private Certificate Authority (ACM PCA),
-    /// or by uploading a Certificate Authority (CA) certificate. Your AWS workloads can authenticate
-    /// with the trust anchor using certificates issued by the trusted Certificate Authority
-    /// (CA) in exchange for temporary AWS credentials.
+    /// Updates a trust anchor. You establish trust between IAM Roles Anywhere and your certificate
+    /// authority (CA) by configuring a trust anchor. You can define a trust anchor as a reference
+    /// to an Private Certificate Authority (Private CA) or by uploading a CA certificate.
+    /// Your Amazon Web Services workloads can authenticate with the trust anchor using certificates
+    /// issued by the CA in exchange for temporary Amazon Web Services credentials.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:UpdateTrustAnchor</code>. 
@@ -52,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter SourceData_AcmPcaArn
         /// <summary>
         /// <para>
-        /// <para>The root certificate of the Certificate Manager Private Certificate Authority specified
-        /// by this ARN is used in trust validation for <a href="https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html">CreateSession</a>
-        /// operations. Included for trust anchors of type <code>AWS_ACM_PCA</code>. </para>
+        /// <para> The root certificate of the Private Certificate Authority specified by this ARN is
+        /// used in trust validation for temporary credential requests. Included for trust anchors
+        /// of type <code>AWS_ACM_PCA</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

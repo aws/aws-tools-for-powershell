@@ -28,7 +28,8 @@ using Amazon.IAMRolesAnywhere.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
-    /// Lists all Crls in the authenticated account and Amazon Web Services Region.
+    /// Lists all certificate revocation lists (CRL) in the authenticated account and Amazon
+    /// Web Services Region.
     /// 
     ///  
     /// <para><b>Required permissions: </b><code>rolesanywhere:ListCrls</code>. 
@@ -47,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that indicates where the output should continue from, if a previous operation
-        /// did not show all results. To get the next results, call the operation again with this
+        /// <para>A token that indicates where the output should continue from, if a previous request
+        /// did not show all results. To get the next results, make the request again with this
         /// value.</para>
         /// </para>
         /// </summary>
