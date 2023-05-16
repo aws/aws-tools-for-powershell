@@ -1,4 +1,10 @@
-﻿### 4.1.333 (2023-05-15 21:19Z)
+﻿### 4.1.334 (2023-05-16 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.548.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUECustomEntityTypeList: added parameter Tag.
+    * Modified cmdlet New-GLUECustomEntityType: added parameter Tag.
+
+### 4.1.333 (2023-05-15 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.547.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * Modified cmdlet Start-ATHSession: added parameter EngineConfiguration_SparkProperty.
