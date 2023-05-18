@@ -33,6 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// to turn off Insights event logging, by passing an empty list of insight types. The
     /// valid Insights event types in this release are <code>ApiErrorRateInsight</code> and
     /// <code>ApiCallRateInsight</code>.
+    /// 
+    ///  
+    /// <para>
+    /// To log CloudTrail Insights events on API call volume, the trail must log <code>write</code>
+    /// management events. To log CloudTrail Insights events on API error rate, the trail
+    /// must log <code>read</code> or <code>write</code> management events. You can call <code>GetEventSelectors</code>
+    /// on a trail to check whether the trail logs management events.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "CTInsightSelector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.PutInsightSelectorsResponse")]
@@ -47,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>A JSON string that contains the insight types you want to log on a trail. <code>ApiCallRateInsight</code>
-        /// and <code>ApiErrorRateInsight</code> are valid insight types.</para>
+        /// and <code>ApiErrorRateInsight</code> are valid Insight types.</para><para>The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API
+        /// calls that are aggregated per minute against a baseline API call volume.</para><para>The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that
+        /// result in error codes. The error is shown if the API call is unsuccessful.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

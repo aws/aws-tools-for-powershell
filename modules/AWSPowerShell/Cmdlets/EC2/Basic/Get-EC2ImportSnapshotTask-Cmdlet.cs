@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2ImportSnapshotTaskCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Filter
         /// <summary>
         /// <para>

@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The number of instantiations of the specified task definition to place and keep running
-        /// on your cluster.</para><para>This is required if <code>schedulingStrategy</code> is <code>REPLICA</code> or isn't
+        /// in your service.</para><para>This is required if <code>schedulingStrategy</code> is <code>REPLICA</code> or isn't
         /// specified. If <code>schedulingStrategy</code> is <code>DAEMON</code> then this isn't
         /// required.</para>
         /// </para>

@@ -54,6 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class ImportEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter Architecture
         /// <summary>
         /// <para>

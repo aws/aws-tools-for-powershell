@@ -125,13 +125,6 @@ $SMGS_Completers = {
             break
         }
 
-        # Amazon.SageMakerGeospatial.MetadataProvider
-        "Start-SMGSEarthObservationJob/InputConfig_DataSourceConfig_S3Data_MetadataProvider"
-        {
-            $v = "PLANET_ORDER"
-            break
-        }
-
         # Amazon.SageMakerGeospatial.OutputType
         "Get-SMGSTile/OutputDataType"
         {
@@ -189,7 +182,6 @@ $SMGS_Completers = {
 }
 
 $SMGS_map = @{
-    "InputConfig_DataSourceConfig_S3Data_MetadataProvider"=@("Start-SMGSEarthObservationJob")
     "InputConfig_DocumentType"=@("Start-SMGSVectorEnrichmentJob")
     "InputConfig_RasterDataCollectionQuery_PropertyFilters_LogicalOperator"=@("Start-SMGSEarthObservationJob")
     "JobConfig_CloudRemovalConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")

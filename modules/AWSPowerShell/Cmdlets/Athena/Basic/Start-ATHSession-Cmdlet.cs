@@ -145,18 +145,6 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         public System.Int32? SessionIdleTimeoutInMinute { get; set; }
         #endregion
         
-        #region Parameter EngineConfiguration_SparkProperty
-        /// <summary>
-        /// <para>
-        /// <para>Specifies custom jar files and Spark properties for use cases like cluster encryption,
-        /// table formats, and general Spark tuning.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("EngineConfiguration_SparkProperties")]
-        public System.Collections.Hashtable EngineConfiguration_SparkProperty { get; set; }
-        #endregion
-        
         #region Parameter WorkGroup
         /// <summary>
         /// <para>
@@ -255,14 +243,6 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 WriteWarning("You are passing $null as a value for parameter EngineConfiguration_MaxConcurrentDpus which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.EngineConfiguration_SparkProperty != null)
-            {
-                context.EngineConfiguration_SparkProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EngineConfiguration_SparkProperty.Keys)
-                {
-                    context.EngineConfiguration_SparkProperty.Add((String)hashKey, (String)(this.EngineConfiguration_SparkProperty[hashKey]));
-                }
-            }
             context.NotebookVersion = this.NotebookVersion;
             context.SessionIdleTimeoutInMinute = this.SessionIdleTimeoutInMinute;
             context.WorkGroup = this.WorkGroup;
@@ -338,16 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (requestEngineConfiguration_engineConfiguration_MaxConcurrentDpus != null)
             {
                 request.EngineConfiguration.MaxConcurrentDpus = requestEngineConfiguration_engineConfiguration_MaxConcurrentDpus.Value;
-                requestEngineConfigurationIsNull = false;
-            }
-            Dictionary<System.String, System.String> requestEngineConfiguration_engineConfiguration_SparkProperty = null;
-            if (cmdletContext.EngineConfiguration_SparkProperty != null)
-            {
-                requestEngineConfiguration_engineConfiguration_SparkProperty = cmdletContext.EngineConfiguration_SparkProperty;
-            }
-            if (requestEngineConfiguration_engineConfiguration_SparkProperty != null)
-            {
-                request.EngineConfiguration.SparkProperties = requestEngineConfiguration_engineConfiguration_SparkProperty;
                 requestEngineConfigurationIsNull = false;
             }
              // determine if request.EngineConfiguration should be set to null
@@ -434,7 +404,6 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.Int32? EngineConfiguration_CoordinatorDpuSize { get; set; }
             public System.Int32? EngineConfiguration_DefaultExecutorDpuSize { get; set; }
             public System.Int32? EngineConfiguration_MaxConcurrentDpus { get; set; }
-            public Dictionary<System.String, System.String> EngineConfiguration_SparkProperty { get; set; }
             public System.String NotebookVersion { get; set; }
             public System.Int32? SessionIdleTimeoutInMinute { get; set; }
             public System.String WorkGroup { get; set; }

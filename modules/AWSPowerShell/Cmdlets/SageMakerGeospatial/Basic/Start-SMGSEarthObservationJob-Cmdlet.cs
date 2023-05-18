@@ -129,7 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         /// <para>The Amazon Resource Name (ARN) of the IAM role that you specified for the job.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         
@@ -154,17 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JobConfig_CloudRemovalConfig_InterpolationValue")]
         public System.String CloudRemovalConfig_InterpolationValue { get; set; }
-        #endregion
-        
-        #region Parameter S3Data_KmsKeyId
-        /// <summary>
-        /// <para>
-        /// <para>The Key Management Service key ID for server-side encryption.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InputConfig_DataSourceConfig_S3Data_KmsKeyId")]
-        public System.String S3Data_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -197,18 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         [Alias("InputConfig_RasterDataCollectionQuery_PropertyFilters_LogicalOperator")]
         [AWSConstantClassSource("Amazon.SageMakerGeospatial.LogicalOperator")]
         public Amazon.SageMakerGeospatial.LogicalOperator PropertyFilters_LogicalOperator { get; set; }
-        #endregion
-        
-        #region Parameter S3Data_MetadataProvider
-        /// <summary>
-        /// <para>
-        /// <para>Metadata provider from whom the Amazon S3 data has been acquired.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InputConfig_DataSourceConfig_S3Data_MetadataProvider")]
-        [AWSConstantClassSource("Amazon.SageMakerGeospatial.MetadataProvider")]
-        public Amazon.SageMakerGeospatial.MetadataProvider S3Data_MetadataProvider { get; set; }
         #endregion
         
         #region Parameter Name
@@ -295,17 +279,6 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("InputConfig_RasterDataCollectionQuery_RasterDataCollectionArn")]
         public System.String RasterDataCollectionQuery_RasterDataCollectionArn { get; set; }
-        #endregion
-        
-        #region Parameter S3Data_S3Uri
-        /// <summary>
-        /// <para>
-        /// <para>The URL to the Amazon S3 input.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InputConfig_DataSourceConfig_S3Data_S3Uri")]
-        public System.String S3Data_S3Uri { get; set; }
         #endregion
         
         #region Parameter TimeRangeFilter_StartTime
@@ -565,9 +538,12 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
-            context.S3Data_KmsKeyId = this.S3Data_KmsKeyId;
-            context.S3Data_MetadataProvider = this.S3Data_MetadataProvider;
-            context.S3Data_S3Uri = this.S3Data_S3Uri;
+            #if MODULAR
+            if (this.ExecutionRoleArn == null && ParameterWasBound(nameof(this.ExecutionRoleArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.InputConfig_PreviousEarthObservationJobArn = this.InputConfig_PreviousEarthObservationJobArn;
             if (this.MultiPolygonGeometry_Coordinate != null)
             {
@@ -716,66 +692,6 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
             if (requestInputConfig_inputConfig_PreviousEarthObservationJobArn != null)
             {
                 request.InputConfig.PreviousEarthObservationJobArn = requestInputConfig_inputConfig_PreviousEarthObservationJobArn;
-                requestInputConfigIsNull = false;
-            }
-            Amazon.SageMakerGeospatial.Model.EojDataSourceConfigInput requestInputConfig_inputConfig_DataSourceConfig = null;
-            
-             // populate DataSourceConfig
-            var requestInputConfig_inputConfig_DataSourceConfigIsNull = true;
-            requestInputConfig_inputConfig_DataSourceConfig = new Amazon.SageMakerGeospatial.Model.EojDataSourceConfigInput();
-            Amazon.SageMakerGeospatial.Model.S3DataInput requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data = null;
-            
-             // populate S3Data
-            var requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3DataIsNull = true;
-            requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data = new Amazon.SageMakerGeospatial.Model.S3DataInput();
-            System.String requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_KmsKeyId = null;
-            if (cmdletContext.S3Data_KmsKeyId != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_KmsKeyId = cmdletContext.S3Data_KmsKeyId;
-            }
-            if (requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_KmsKeyId != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data.KmsKeyId = requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_KmsKeyId;
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3DataIsNull = false;
-            }
-            Amazon.SageMakerGeospatial.MetadataProvider requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_MetadataProvider = null;
-            if (cmdletContext.S3Data_MetadataProvider != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_MetadataProvider = cmdletContext.S3Data_MetadataProvider;
-            }
-            if (requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_MetadataProvider != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data.MetadataProvider = requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_MetadataProvider;
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3DataIsNull = false;
-            }
-            System.String requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_S3Uri = null;
-            if (cmdletContext.S3Data_S3Uri != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_S3Uri = cmdletContext.S3Data_S3Uri;
-            }
-            if (requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_S3Uri != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data.S3Uri = requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data_s3Data_S3Uri;
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3DataIsNull = false;
-            }
-             // determine if requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data should be set to null
-            if (requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3DataIsNull)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data = null;
-            }
-            if (requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data != null)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig.S3Data = requestInputConfig_inputConfig_DataSourceConfig_inputConfig_DataSourceConfig_S3Data;
-                requestInputConfig_inputConfig_DataSourceConfigIsNull = false;
-            }
-             // determine if requestInputConfig_inputConfig_DataSourceConfig should be set to null
-            if (requestInputConfig_inputConfig_DataSourceConfigIsNull)
-            {
-                requestInputConfig_inputConfig_DataSourceConfig = null;
-            }
-            if (requestInputConfig_inputConfig_DataSourceConfig != null)
-            {
-                request.InputConfig.DataSourceConfig = requestInputConfig_inputConfig_DataSourceConfig;
                 requestInputConfigIsNull = false;
             }
             Amazon.SageMakerGeospatial.Model.RasterDataCollectionQueryInput requestInputConfig_inputConfig_RasterDataCollectionQuery = null;
@@ -1462,9 +1378,6 @@ namespace Amazon.PowerShell.Cmdlets.SMGS
         {
             public System.String ClientToken { get; set; }
             public System.String ExecutionRoleArn { get; set; }
-            public System.String S3Data_KmsKeyId { get; set; }
-            public Amazon.SageMakerGeospatial.MetadataProvider S3Data_MetadataProvider { get; set; }
-            public System.String S3Data_S3Uri { get; set; }
             public System.String InputConfig_PreviousEarthObservationJobArn { get; set; }
             public List<List<List<List<System.Double>>>> MultiPolygonGeometry_Coordinate { get; set; }
             public List<List<List<System.Double>>> PolygonGeometry_Coordinate { get; set; }

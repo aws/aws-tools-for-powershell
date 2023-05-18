@@ -123,6 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.STS
     public partial class UseSTSRoleCmdlet : AmazonSecurityTokenServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         #region Parameter DurationInSeconds
         /// <summary>
         /// <para>

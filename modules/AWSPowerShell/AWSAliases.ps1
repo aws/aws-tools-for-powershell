@@ -5352,6 +5352,8 @@ Set-Alias -Name Create-CONNIntegrationAssociation -Value New-CONNIntegrationAsso
 Set-Alias -Name CONN-CreateIntegrationAssociation -Value New-CONNIntegrationAssociation
 Set-Alias -Name Create-CONNParticipant -Value New-CONNParticipant
 Set-Alias -Name CONN-CreateParticipant -Value New-CONNParticipant
+Set-Alias -Name Create-CONNPrompt -Value New-CONNPrompt
+Set-Alias -Name CONN-CreatePrompt -Value New-CONNPrompt
 Set-Alias -Name Create-CONNQueue -Value New-CONNQueue
 Set-Alias -Name CONN-CreateQueue -Value New-CONNQueue
 Set-Alias -Name Create-CONNQuickConnect -Value New-CONNQuickConnect
@@ -5390,6 +5392,8 @@ Set-Alias -Name Delete-CONNInstance -Value Remove-CONNInstance
 Set-Alias -Name CONN-DeleteInstance -Value Remove-CONNInstance
 Set-Alias -Name Delete-CONNIntegrationAssociation -Value Remove-CONNIntegrationAssociation
 Set-Alias -Name CONN-DeleteIntegrationAssociation -Value Remove-CONNIntegrationAssociation
+Set-Alias -Name Delete-CONNPrompt -Value Remove-CONNPrompt
+Set-Alias -Name CONN-DeletePrompt -Value Remove-CONNPrompt
 Set-Alias -Name Delete-CONNQuickConnect -Value Remove-CONNQuickConnect
 Set-Alias -Name CONN-DeleteQuickConnect -Value Remove-CONNQuickConnect
 Set-Alias -Name Delete-CONNRule -Value Remove-CONNRule
@@ -5430,6 +5434,8 @@ Set-Alias -Name Describe-CONNInstanceStorageConfig -Value Get-CONNInstanceStorag
 Set-Alias -Name CONN-DescribeInstanceStorageConfig -Value Get-CONNInstanceStorageConfig
 Set-Alias -Name Describe-CONNPhoneNumber -Value Get-CONNPhoneNumber
 Set-Alias -Name CONN-DescribePhoneNumber -Value Get-CONNPhoneNumber
+Set-Alias -Name Describe-CONNPrompt -Value Get-CONNPrompt
+Set-Alias -Name CONN-DescribePrompt -Value Get-CONNPrompt
 Set-Alias -Name Describe-CONNQueue -Value Get-CONNQueue
 Set-Alias -Name CONN-DescribeQueue -Value Get-CONNQueue
 Set-Alias -Name Describe-CONNQuickConnect -Value Get-CONNQuickConnect
@@ -5479,6 +5485,7 @@ Set-Alias -Name CONN-GetCurrentUserData -Value Get-CONNCurrentUserData
 Set-Alias -Name CONN-GetFederationToken -Value Get-CONNFederationToken
 Set-Alias -Name CONN-GetMetricData -Value Get-CONNMetricData
 Set-Alias -Name CONN-GetMetricDataV2 -Value Get-CONNMetricDataV2
+Set-Alias -Name CONN-GetPromptFile -Value Get-CONNPromptFile
 Set-Alias -Name CONN-GetTaskTemplate -Value Get-CONNTaskTemplate
 Set-Alias -Name CONN-GetTrafficDistribution -Value Get-CONNTrafficDistribution
 Set-Alias -Name List-CONNAgentStatuses -Value Get-CONNAgentStatusList
@@ -5638,6 +5645,7 @@ Set-Alias -Name CONN-UpdateInstanceAttribute -Value Update-CONNInstanceAttribute
 Set-Alias -Name CONN-UpdateInstanceStorageConfig -Value Update-CONNInstanceStorageConfig
 Set-Alias -Name CONN-UpdateParticipantRoleConfig -Value Update-CONNParticipantRoleConfig
 Set-Alias -Name CONN-UpdatePhoneNumber -Value Update-CONNPhoneNumber
+Set-Alias -Name CONN-UpdatePrompt -Value Update-CONNPrompt
 Set-Alias -Name CONN-UpdateQueueHoursOfOperation -Value Update-CONNQueueHoursOfOperation
 Set-Alias -Name Update-CONNQueueMaxContacts -Value Update-CONNQueueMaxContact
 Set-Alias -Name CONN-UpdateQueueMaxContacts -Value Update-CONNQueueMaxContact

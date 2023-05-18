@@ -1,4 +1,17 @@
-﻿### 4.1.334 (2023-05-16 21:38Z)
+﻿### 4.1.335 (2023-05-18 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.549.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Athena
+    * [Breaking Change] Modified cmdlet Start-ATHSession: removed parameter EngineConfiguration_SparkProperty.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNPrompt leveraging the DescribePrompt service API.
+    * Added cmdlet Get-CONNPromptFile leveraging the GetPromptFile service API.
+    * Added cmdlet New-CONNPrompt leveraging the CreatePrompt service API.
+    * Added cmdlet Remove-CONNPrompt leveraging the DeletePrompt service API.
+    * Added cmdlet Update-CONNPrompt leveraging the UpdatePrompt service API.
+  * Amazon SageMaker Geospatial
+    * [Breaking Change] Modified cmdlet Start-SMGSEarthObservationJob: removed parameters S3Data_KmsKeyId, S3Data_MetadataProvider and S3Data_S3Uri.
+
+### 4.1.334 (2023-05-16 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.548.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet Get-GLUECustomEntityTypeList: added parameter Tag.
