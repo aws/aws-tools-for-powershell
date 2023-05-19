@@ -1,4 +1,10 @@
-﻿### 4.1.335 (2023-05-18 21:18Z)
+﻿### 4.1.336 (2023-05-19 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.551.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaPackage v2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MPV2 and can be listed using the command 'Get-AWSCmdletName -Service MPV2'.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Write-SES2DedicatedIpPoolScalingAttribute leveraging the PutDedicatedIpPoolScalingAttributes service API.
+
+### 4.1.335 (2023-05-18 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.549.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Athena
     * [Breaking Change] Modified cmdlet Start-ATHSession: removed parameter EngineConfiguration_SparkProperty.

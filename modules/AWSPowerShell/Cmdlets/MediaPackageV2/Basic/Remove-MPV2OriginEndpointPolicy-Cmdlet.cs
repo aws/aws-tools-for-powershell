@@ -22,56 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.MediaPackageV2;
+using Amazon.MediaPackageV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.MPV2
 {
     /// <summary>
-    /// Updates a contact's preferences for a list. It is not necessary to specify all existing
-    /// topic preferences in the TopicPreferences object, just the ones that need updating.
+    /// Delete an origin endpoint policy.
     /// </summary>
-    [Cmdlet("Update", "SES2Contact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "MPV2OriginEndpointPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateContact API operation.", Operation = new[] {"UpdateContact"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateContactResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateContactResponse",
+    [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 DeleteOriginEndpointPolicy API operation.", Operation = new[] {"DeleteOriginEndpointPolicy"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.UpdateContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSES2ContactCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class RemoveMPV2OriginEndpointPolicyCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AttributesData
+        #region Parameter ChannelGroupName
         /// <summary>
         /// <para>
-        /// <para>The attribute data attached to a contact.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AttributesData { get; set; }
-        #endregion
-        
-        #region Parameter ContactListName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the contact list.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactListName { get; set; }
-        #endregion
-        
-        #region Parameter EmailAddress
-        /// <summary>
-        /// <para>
-        /// <para>The contact's email address.</para>
+        /// <para>The name that describes the channel group. The name is the primary identifier for
+        /// the channel group, and must be unique for your account in the AWS Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,35 +55,50 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EmailAddress { get; set; }
+        public System.String ChannelGroupName { get; set; }
         #endregion
         
-        #region Parameter TopicPreference
+        #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// <para>The contact's preference for being opted-in to or opted-out of a topic.</para>
+        /// <para>The name that describes the channel. The name is the primary identifier for the channel,
+        /// and must be unique for your account in the AWS Region and channel group. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TopicPreferences")]
-        public Amazon.SimpleEmailV2.Model.TopicPreference[] TopicPreference { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ChannelName { get; set; }
         #endregion
         
-        #region Parameter UnsubscribeAll
+        #region Parameter OriginEndpointName
         /// <summary>
         /// <para>
-        /// <para>A boolean value status noting if the contact is unsubscribed from all contact list
-        /// topics.</para>
+        /// <para>The name that describes the origin endpoint. The name is the primary identifier for
+        /// the origin endpoint, and and must be unique for your account in the AWS Region and
+        /// channel. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? UnsubscribeAll { get; set; }
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OriginEndpointName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.UpdateContactResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactListName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactListName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the OriginEndpointName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OriginEndpointName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactListName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OriginEndpointName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -142,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactListName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SES2Contact (UpdateContact)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MPV2OriginEndpointPolicy (DeleteOriginEndpointPolicy)"))
             {
                 return;
             }
@@ -156,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.UpdateContactResponse, UpdateSES2ContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse, RemoveMPV2OriginEndpointPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -165,29 +153,30 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactListName;
+                context.Select = (response, cmdlet) => this.OriginEndpointName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AttributesData = this.AttributesData;
-            context.ContactListName = this.ContactListName;
+            context.ChannelGroupName = this.ChannelGroupName;
             #if MODULAR
-            if (this.ContactListName == null && ParameterWasBound(nameof(this.ContactListName)))
+            if (this.ChannelGroupName == null && ParameterWasBound(nameof(this.ChannelGroupName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.EmailAddress = this.EmailAddress;
+            context.ChannelName = this.ChannelName;
             #if MODULAR
-            if (this.EmailAddress == null && ParameterWasBound(nameof(this.EmailAddress)))
+            if (this.ChannelName == null && ParameterWasBound(nameof(this.ChannelName)))
             {
-                WriteWarning("You are passing $null as a value for parameter EmailAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TopicPreference != null)
+            context.OriginEndpointName = this.OriginEndpointName;
+            #if MODULAR
+            if (this.OriginEndpointName == null && ParameterWasBound(nameof(this.OriginEndpointName)))
             {
-                context.TopicPreference = new List<Amazon.SimpleEmailV2.Model.TopicPreference>(this.TopicPreference);
+                WriteWarning("You are passing $null as a value for parameter OriginEndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.UnsubscribeAll = this.UnsubscribeAll;
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,27 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.UpdateContactRequest();
+            var request = new Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyRequest();
             
-            if (cmdletContext.AttributesData != null)
+            if (cmdletContext.ChannelGroupName != null)
             {
-                request.AttributesData = cmdletContext.AttributesData;
+                request.ChannelGroupName = cmdletContext.ChannelGroupName;
             }
-            if (cmdletContext.ContactListName != null)
+            if (cmdletContext.ChannelName != null)
             {
-                request.ContactListName = cmdletContext.ContactListName;
+                request.ChannelName = cmdletContext.ChannelName;
             }
-            if (cmdletContext.EmailAddress != null)
+            if (cmdletContext.OriginEndpointName != null)
             {
-                request.EmailAddress = cmdletContext.EmailAddress;
-            }
-            if (cmdletContext.TopicPreference != null)
-            {
-                request.TopicPreferences = cmdletContext.TopicPreference;
-            }
-            if (cmdletContext.UnsubscribeAll != null)
-            {
-                request.UnsubscribeAll = cmdletContext.UnsubscribeAll.Value;
+                request.OriginEndpointName = cmdletContext.OriginEndpointName;
             }
             
             CmdletOutput output;
@@ -257,15 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.UpdateContactResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.UpdateContactRequest request)
+        private Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse CallAWSServiceOperation(IAmazonMediaPackageV2 client, Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "UpdateContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage v2", "DeleteOriginEndpointPolicy");
             try
             {
                 #if DESKTOP
-                return client.UpdateContact(request);
+                return client.DeleteOriginEndpointPolicy(request);
                 #elif CORECLR
-                return client.UpdateContactAsync(request).GetAwaiter().GetResult();
+                return client.DeleteOriginEndpointPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -285,12 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AttributesData { get; set; }
-            public System.String ContactListName { get; set; }
-            public System.String EmailAddress { get; set; }
-            public List<Amazon.SimpleEmailV2.Model.TopicPreference> TopicPreference { get; set; }
-            public System.Boolean? UnsubscribeAll { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.UpdateContactResponse, UpdateSES2ContactCmdlet, object> Select { get; set; } =
+            public System.String ChannelGroupName { get; set; }
+            public System.String ChannelName { get; set; }
+            public System.String OriginEndpointName { get; set; }
+            public System.Func<Amazon.MediaPackageV2.Model.DeleteOriginEndpointPolicyResponse, RemoveMPV2OriginEndpointPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

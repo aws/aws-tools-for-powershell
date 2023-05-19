@@ -22,39 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.MediaPackageV2;
+using Amazon.MediaPackageV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.MPV2
 {
     /// <summary>
-    /// Updates a contact's preferences for a list. It is not necessary to specify all existing
-    /// topic preferences in the TopicPreferences object, just the ones that need updating.
+    /// Create a channel group to group your channels and origin endpoints. A channel group
+    /// is the top-level resource that consists of channels and origin endpoints that are
+    /// associated with it and that provides predictable URLs for stream delivery. All channels
+    /// and origin endpoints within the channel group are guaranteed to share the DNS. You
+    /// can create only one channel group with each request.
     /// </summary>
-    [Cmdlet("Update", "SES2Contact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) UpdateContact API operation.", Operation = new[] {"UpdateContact"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.UpdateContactResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleEmailV2.Model.UpdateContactResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleEmailV2.Model.UpdateContactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "MPV2ChannelGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaPackageV2.Model.CreateChannelGroupResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 CreateChannelGroup API operation.", Operation = new[] {"CreateChannelGroup"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.CreateChannelGroupResponse))]
+    [AWSCmdletOutput("Amazon.MediaPackageV2.Model.CreateChannelGroupResponse",
+        "This cmdlet returns an Amazon.MediaPackageV2.Model.CreateChannelGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSES2ContactCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class NewMPV2ChannelGroupCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter AttributesData
+        #region Parameter ChannelGroupName
         /// <summary>
         /// <para>
-        /// <para>The attribute data attached to a contact.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AttributesData { get; set; }
-        #endregion
-        
-        #region Parameter ContactListName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the contact list.</para>
+        /// <para>The name that describes the channel group. The name is the primary identifier for
+        /// the channel group, and must be unique for your account in the AWS Region. You can't
+        /// use spaces in the name. You can't change the name after you create the channel group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,52 +59,45 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactListName { get; set; }
+        public System.String ChannelGroupName { get; set; }
         #endregion
         
-        #region Parameter EmailAddress
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The contact's email address.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EmailAddress { get; set; }
-        #endregion
-        
-        #region Parameter TopicPreference
-        /// <summary>
-        /// <para>
-        /// <para>The contact's preference for being opted-in to or opted-out of a topic.</para>
+        /// <para>Enter any descriptive text that helps you to identify the channel group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TopicPreferences")]
-        public Amazon.SimpleEmailV2.Model.TopicPreference[] TopicPreference { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter UnsubscribeAll
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A boolean value status noting if the contact is unsubscribed from all contact list
-        /// topics.</para>
+        /// <para>A comma-separated list of tag key:value pairs that you define. For example:</para><para><code>"Key1": "Value1",</code></para><para><code>"Key2": "Value2"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? UnsubscribeAll { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.UpdateContactResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackageV2.Model.CreateChannelGroupResponse).
+        /// Specifying the name of a property of type Amazon.MediaPackageV2.Model.CreateChannelGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactListName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactListName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChannelGroupName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelGroupName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactListName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelGroupName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -142,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContactListName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SES2Contact (UpdateContact)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelGroupName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MPV2ChannelGroup (CreateChannelGroup)"))
             {
                 return;
             }
@@ -156,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.UpdateContactResponse, UpdateSES2ContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.CreateChannelGroupResponse, NewMPV2ChannelGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -165,29 +152,26 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactListName;
+                context.Select = (response, cmdlet) => this.ChannelGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AttributesData = this.AttributesData;
-            context.ContactListName = this.ContactListName;
+            context.ChannelGroupName = this.ChannelGroupName;
             #if MODULAR
-            if (this.ContactListName == null && ParameterWasBound(nameof(this.ContactListName)))
+            if (this.ChannelGroupName == null && ParameterWasBound(nameof(this.ChannelGroupName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.EmailAddress = this.EmailAddress;
-            #if MODULAR
-            if (this.EmailAddress == null && ParameterWasBound(nameof(this.EmailAddress)))
+            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter EmailAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
-            #endif
-            if (this.TopicPreference != null)
-            {
-                context.TopicPreference = new List<Amazon.SimpleEmailV2.Model.TopicPreference>(this.TopicPreference);
-            }
-            context.UnsubscribeAll = this.UnsubscribeAll;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,27 +186,23 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.UpdateContactRequest();
+            var request = new Amazon.MediaPackageV2.Model.CreateChannelGroupRequest();
             
-            if (cmdletContext.AttributesData != null)
+            if (cmdletContext.ChannelGroupName != null)
             {
-                request.AttributesData = cmdletContext.AttributesData;
+                request.ChannelGroupName = cmdletContext.ChannelGroupName;
             }
-            if (cmdletContext.ContactListName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ContactListName = cmdletContext.ContactListName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.EmailAddress != null)
+            if (cmdletContext.Description != null)
             {
-                request.EmailAddress = cmdletContext.EmailAddress;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.TopicPreference != null)
+            if (cmdletContext.Tag != null)
             {
-                request.TopicPreferences = cmdletContext.TopicPreference;
-            }
-            if (cmdletContext.UnsubscribeAll != null)
-            {
-                request.UnsubscribeAll = cmdletContext.UnsubscribeAll.Value;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -257,15 +237,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.UpdateContactResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.UpdateContactRequest request)
+        private Amazon.MediaPackageV2.Model.CreateChannelGroupResponse CallAWSServiceOperation(IAmazonMediaPackageV2 client, Amazon.MediaPackageV2.Model.CreateChannelGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "UpdateContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage v2", "CreateChannelGroup");
             try
             {
                 #if DESKTOP
-                return client.UpdateContact(request);
+                return client.CreateChannelGroup(request);
                 #elif CORECLR
-                return client.UpdateContactAsync(request).GetAwaiter().GetResult();
+                return client.CreateChannelGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -285,13 +265,12 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AttributesData { get; set; }
-            public System.String ContactListName { get; set; }
-            public System.String EmailAddress { get; set; }
-            public List<Amazon.SimpleEmailV2.Model.TopicPreference> TopicPreference { get; set; }
-            public System.Boolean? UnsubscribeAll { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.UpdateContactResponse, UpdateSES2ContactCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ChannelGroupName { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.MediaPackageV2.Model.CreateChannelGroupResponse, NewMPV2ChannelGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

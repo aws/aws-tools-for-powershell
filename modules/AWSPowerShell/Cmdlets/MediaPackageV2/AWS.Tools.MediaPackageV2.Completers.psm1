@@ -72,42 +72,61 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Connect Cases
+# Argument completions for service AWS Elemental MediaPackage v2
 
 
-$CCAS_Completers = {
+$MPV2_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.ConnectCases.CommentBodyTextType
-        "New-CCASRelatedItem/Content_Comment_ContentType"
+        # Amazon.MediaPackageV2.CmafEncryptionMethod
         {
-            $v = "Text/Plain"
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_CmafEncryptionMethod") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_CmafEncryptionMethod")
+        }
+        {
+            $v = "CBCS","CENC"
             break
         }
 
-        # Amazon.ConnectCases.FieldType
-        "New-CCASField/Type"
+        # Amazon.MediaPackageV2.ContainerType
         {
-            $v = "Boolean","DateTime","Number","SingleSelect","Text","Url"
+            ($_ -eq "New-MPV2OriginEndpoint/ContainerType") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/ContainerType")
+        }
+        {
+            $v = "CMAF","TS"
             break
         }
 
-        # Amazon.ConnectCases.RelatedItemType
-        "New-CCASRelatedItem/Type"
+        # Amazon.MediaPackageV2.PresetSpeke20Audio
         {
-            $v = "Comment","Contact"
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio")
+        }
+        {
+            $v = "PRESET_AUDIO_1","PRESET_AUDIO_2","PRESET_AUDIO_3","SHARED","UNENCRYPTED"
             break
         }
 
-        # Amazon.ConnectCases.TemplateStatus
+        # Amazon.MediaPackageV2.PresetSpeke20Video
         {
-            ($_ -eq "New-CCASTemplate/Status") -Or
-            ($_ -eq "Update-CCASTemplate/Status")
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video")
         }
         {
-            $v = "Active","Inactive"
+            $v = "PRESET_VIDEO_1","PRESET_VIDEO_2","PRESET_VIDEO_3","PRESET_VIDEO_4","PRESET_VIDEO_5","PRESET_VIDEO_6","PRESET_VIDEO_7","PRESET_VIDEO_8","SHARED","UNENCRYPTED"
+            break
+        }
+
+        # Amazon.MediaPackageV2.TsEncryptionMethod
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_TsEncryptionMethod") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_TsEncryptionMethod")
+        }
+        {
+            $v = "AES_128","SAMPLE_AES"
             break
         }
 
@@ -119,18 +138,20 @@ $CCAS_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$CCAS_map = @{
-    "Content_Comment_ContentType"=@("New-CCASRelatedItem")
-    "Status"=@("New-CCASTemplate","Update-CCASTemplate")
-    "Type"=@("New-CCASField","New-CCASRelatedItem")
+$MPV2_map = @{
+    "ContainerType"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_EncryptionMethod_CmafEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
 }
 
-_awsArgumentCompleterRegistration $CCAS_Completers $CCAS_map
+_awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map
 
-$CCAS_SelectCompleters = {
+$MPV2_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CCAS.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MPV2.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -174,38 +195,32 @@ $CCAS_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$CCAS_SelectMap = @{
-    "Select"=@("Group-CCASGetField",
-               "Group-CCASPutFieldOption",
-               "New-CCASCase",
-               "New-CCASDomain",
-               "New-CCASField",
-               "New-CCASLayout",
-               "New-CCASRelatedItem",
-               "New-CCASTemplate",
-               "Remove-CCASDomain",
-               "Get-CCASCase",
-               "Get-CCASCaseEventConfiguration",
-               "Get-CCASDomain",
-               "Get-CCASLayout",
-               "Get-CCASTemplate",
-               "Get-CCASCasesForContactList",
-               "Get-CCASDomainList",
-               "Get-CCASFieldOptionList",
-               "Get-CCASFieldList",
-               "Get-CCASLayoutList",
-               "Get-CCASResourceTag",
-               "Get-CCASTemplateList",
-               "Write-CCASCaseEventConfiguration",
-               "Search-CCASCase",
-               "Search-CCASRelatedItem",
-               "Add-CCASResourceTag",
-               "Remove-CCASResourceTag",
-               "Update-CCASCase",
-               "Update-CCASField",
-               "Update-CCASLayout",
-               "Update-CCASTemplate")
+$MPV2_SelectMap = @{
+    "Select"=@("New-MPV2Channel",
+               "New-MPV2ChannelGroup",
+               "New-MPV2OriginEndpoint",
+               "Remove-MPV2Channel",
+               "Remove-MPV2ChannelGroup",
+               "Remove-MPV2ChannelPolicy",
+               "Remove-MPV2OriginEndpoint",
+               "Remove-MPV2OriginEndpointPolicy",
+               "Get-MPV2Channel",
+               "Get-MPV2ChannelGroup",
+               "Get-MPV2ChannelPolicy",
+               "Get-MPV2OriginEndpoint",
+               "Get-MPV2OriginEndpointPolicy",
+               "Get-MPV2ChannelGroupList",
+               "Get-MPV2ChannelList",
+               "Get-MPV2OriginEndpointList",
+               "Get-MPV2ResourceTag",
+               "Write-MPV2ChannelPolicy",
+               "Write-MPV2OriginEndpointPolicy",
+               "Add-MPV2ResourceTag",
+               "Remove-MPV2ResourceTag",
+               "Update-MPV2Channel",
+               "Update-MPV2ChannelGroup",
+               "Update-MPV2OriginEndpoint")
 }
 
-_awsArgumentCompleterRegistration $CCAS_SelectCompleters $CCAS_SelectMap
+_awsArgumentCompleterRegistration $MPV2_SelectCompleters $MPV2_SelectMap
 

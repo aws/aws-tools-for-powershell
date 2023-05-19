@@ -691,6 +691,9 @@
     <Reference Include="AWSSDK.MediaPackage">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaPackage.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MediaPackageV2">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaPackageV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MediaPackageVod">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaPackageVod.dll</HintPath>
     </Reference>
@@ -1703,6 +1706,9 @@
     </Reference>
     <Reference Include="AWSSDK.MediaPackage">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MediaPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MediaPackageV2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MediaPackageV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaPackageVod">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MediaPackageVod.dll</HintPath>

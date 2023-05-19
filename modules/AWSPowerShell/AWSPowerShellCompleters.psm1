@@ -14105,7 +14105,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.FieldType
         "New-CCASField/Type"
         {
-            $v = "Boolean","DateTime","Number","SingleSelect","Text"
+            $v = "Boolean","DateTime","Number","SingleSelect","Text","Url"
             break
         }
 
@@ -37339,6 +37339,157 @@ $EMP_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $EMP_SelectCompleters $EMP_SelectMap
+# Argument completions for service AWS Elemental MediaPackage v2
+
+
+$MPV2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaPackageV2.CmafEncryptionMethod
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_CmafEncryptionMethod") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_CmafEncryptionMethod")
+        }
+        {
+            $v = "CBCS","CENC"
+            break
+        }
+
+        # Amazon.MediaPackageV2.ContainerType
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/ContainerType") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/ContainerType")
+        }
+        {
+            $v = "CMAF","TS"
+            break
+        }
+
+        # Amazon.MediaPackageV2.PresetSpeke20Audio
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio")
+        }
+        {
+            $v = "PRESET_AUDIO_1","PRESET_AUDIO_2","PRESET_AUDIO_3","SHARED","UNENCRYPTED"
+            break
+        }
+
+        # Amazon.MediaPackageV2.PresetSpeke20Video
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video")
+        }
+        {
+            $v = "PRESET_VIDEO_1","PRESET_VIDEO_2","PRESET_VIDEO_3","PRESET_VIDEO_4","PRESET_VIDEO_5","PRESET_VIDEO_6","PRESET_VIDEO_7","PRESET_VIDEO_8","SHARED","UNENCRYPTED"
+            break
+        }
+
+        # Amazon.MediaPackageV2.TsEncryptionMethod
+        {
+            ($_ -eq "New-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_TsEncryptionMethod") -Or
+            ($_ -eq "Update-MPV2OriginEndpoint/Segment_Encryption_EncryptionMethod_TsEncryptionMethod")
+        }
+        {
+            $v = "AES_128","SAMPLE_AES"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MPV2_map = @{
+    "ContainerType"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_EncryptionMethod_CmafEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "Segment_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+}
+
+_awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map
+
+$MPV2_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MPV2.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MPV2_SelectMap = @{
+    "Select"=@("New-MPV2Channel",
+               "New-MPV2ChannelGroup",
+               "New-MPV2OriginEndpoint",
+               "Remove-MPV2Channel",
+               "Remove-MPV2ChannelGroup",
+               "Remove-MPV2ChannelPolicy",
+               "Remove-MPV2OriginEndpoint",
+               "Remove-MPV2OriginEndpointPolicy",
+               "Get-MPV2Channel",
+               "Get-MPV2ChannelGroup",
+               "Get-MPV2ChannelPolicy",
+               "Get-MPV2OriginEndpoint",
+               "Get-MPV2OriginEndpointPolicy",
+               "Get-MPV2ChannelGroupList",
+               "Get-MPV2ChannelList",
+               "Get-MPV2OriginEndpointList",
+               "Get-MPV2ResourceTag",
+               "Write-MPV2ChannelPolicy",
+               "Write-MPV2OriginEndpointPolicy",
+               "Add-MPV2ResourceTag",
+               "Remove-MPV2ResourceTag",
+               "Update-MPV2Channel",
+               "Update-MPV2ChannelGroup",
+               "Update-MPV2OriginEndpoint")
+}
+
+_awsArgumentCompleterRegistration $MPV2_SelectCompleters $MPV2_SelectMap
 # Argument completions for service AWS Elemental MediaPackage VOD
 
 
@@ -53261,7 +53412,10 @@ $SES2_Completers = {
         }
 
         # Amazon.SimpleEmailV2.ScalingMode
-        "New-SES2DedicatedIpPool/ScalingMode"
+        {
+            ($_ -eq "New-SES2DedicatedIpPool/ScalingMode") -Or
+            ($_ -eq "Write-SES2DedicatedIpPoolScalingAttribute/ScalingMode")
+        }
         {
             $v = "MANAGED","STANDARD"
             break
@@ -53318,7 +53472,7 @@ $SES2_map = @{
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "MailType"=@("Write-SES2AccountDetail")
     "Reason"=@("Write-SES2SuppressedDestination")
-    "ScalingMode"=@("New-SES2DedicatedIpPool")
+    "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
@@ -53445,6 +53599,7 @@ $SES2_SelectMap = @{
                "Write-SES2ConfigurationSetTrackingOption",
                "Write-SES2ConfigurationSetVdmOption",
                "Write-SES2DedicatedIpInPool",
+               "Write-SES2DedicatedIpPoolScalingAttribute",
                "Write-SES2DedicatedIpWarmupAttribute",
                "Write-SES2DeliverabilityDashboardOption",
                "Write-SES2EmailIdentityConfigurationSetAttribute",

@@ -51,8 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         #region Parameter ClientContext
         /// <summary>
         /// <para>

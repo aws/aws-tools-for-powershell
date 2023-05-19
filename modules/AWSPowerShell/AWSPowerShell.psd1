@@ -265,6 +265,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MediaConvert.dll',
         'AWSSDK.MediaLive.dll',
         'AWSSDK.MediaPackage.dll',
+        'AWSSDK.MediaPackageV2.dll',
         'AWSSDK.MediaPackageVod.dll',
         'AWSSDK.MediaStore.dll',
         'AWSSDK.MediaStoreData.dll',

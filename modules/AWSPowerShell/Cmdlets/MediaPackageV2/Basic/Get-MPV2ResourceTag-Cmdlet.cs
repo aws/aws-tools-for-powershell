@@ -22,27 +22,28 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmailV2;
-using Amazon.SimpleEmailV2.Model;
+using Amazon.MediaPackageV2;
+using Amazon.MediaPackageV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES2
+namespace Amazon.PowerShell.Cmdlets.MPV2
 {
     /// <summary>
-    /// Returns a contact from a contact list.
+    /// Lists the tags assigned to a resource.
     /// </summary>
-    [Cmdlet("Get", "SES2Contact")]
-    [OutputType("Amazon.SimpleEmailV2.Model.GetContactResponse")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) GetContact API operation.", Operation = new[] {"GetContact"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.GetContactResponse))]
-    [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.GetContactResponse",
-        "This cmdlet returns an Amazon.SimpleEmailV2.Model.GetContactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MPV2ResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Elemental MediaPackage v2 ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.MediaPackageV2.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.MediaPackageV2.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.MediaPackageV2.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSES2ContactCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    public partial class GetMPV2ResourceTagCmdlet : AmazonMediaPackageV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ContactListName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the contact list to which the contact belongs.</para>
+        /// <para>The ARN of the CloudWatch resource that you want to view tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -53,43 +54,26 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ContactListName { get; set; }
-        #endregion
-        
-        #region Parameter EmailAddress
-        /// <summary>
-        /// <para>
-        /// <para>The contact's email address.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EmailAddress { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.GetContactResponse).
-        /// Specifying the name of a property of type Amazon.SimpleEmailV2.Model.GetContactResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaPackageV2.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.MediaPackageV2.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ContactListName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ContactListName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContactListName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -107,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.GetContactResponse, GetSES2ContactCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaPackageV2.Model.ListTagsForResourceResponse, GetMPV2ResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -116,21 +100,14 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ContactListName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContactListName = this.ContactListName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ContactListName == null && ParameterWasBound(nameof(this.ContactListName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContactListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.EmailAddress = this.EmailAddress;
-            #if MODULAR
-            if (this.EmailAddress == null && ParameterWasBound(nameof(this.EmailAddress)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EmailAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -147,15 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmailV2.Model.GetContactRequest();
+            var request = new Amazon.MediaPackageV2.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.ContactListName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ContactListName = cmdletContext.ContactListName;
-            }
-            if (cmdletContext.EmailAddress != null)
-            {
-                request.EmailAddress = cmdletContext.EmailAddress;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -190,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmailV2.Model.GetContactResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.GetContactRequest request)
+        private Amazon.MediaPackageV2.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonMediaPackageV2 client, Amazon.MediaPackageV2.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "GetContact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaPackage v2", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetContact(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetContactAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -218,10 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ContactListName { get; set; }
-            public System.String EmailAddress { get; set; }
-            public System.Func<Amazon.SimpleEmailV2.Model.GetContactResponse, GetSES2ContactCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.MediaPackageV2.Model.ListTagsForResourceResponse, GetMPV2ResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

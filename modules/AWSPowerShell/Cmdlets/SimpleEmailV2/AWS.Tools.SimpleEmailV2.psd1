@@ -164,6 +164,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-SES2ConfigurationSetTrackingOption', 
         'Write-SES2ConfigurationSetVdmOption', 
         'Write-SES2DedicatedIpInPool', 
+        'Write-SES2DedicatedIpPoolScalingAttribute', 
         'Write-SES2DedicatedIpWarmupAttribute', 
         'Write-SES2DeliverabilityDashboardOption', 
         'Write-SES2EmailIdentityConfigurationSetAttribute', 
