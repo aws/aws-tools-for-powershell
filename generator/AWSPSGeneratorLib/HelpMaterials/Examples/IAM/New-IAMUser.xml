@@ -9,6 +9,6 @@ PasswordLastUsed : 1/1/0001 12:00:00 AM
 Path             : /
 UserId           : AIDAJWGEFDMEMEXAMPLE1
 UserName         : Bob</code>
-    <description>This example renames the IAM user named <code>Bob</code> to <code>Robert</code>. If Bob needs to sign in to the AWS console, then you must separately run the command <code>New-IAMLoginProfile</code> to create a sign-in profile with a password. If Bob needs to run AWS PowerShell or cross-platform CLI commands or make AWS API calls, then you must separately run the <code>New-IAMAccessKey</code> command to create access keys.</description>
+    <description>This example creates an IAM user named <code>Bob</code>. If Bob needs to sign in to the AWS console, then you must separately run the command <code>New-IAMLoginProfile</code> to create a sign-in profile with a password. If Bob needs to run AWS PowerShell or cross-platform CLI commands or make AWS API calls, then you must separately run the <code>New-IAMAccessKey</code> command to create access keys.</description>
   </example>
 </examples>
