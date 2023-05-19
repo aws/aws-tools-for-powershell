@@ -28,7 +28,7 @@ $keys = Get-IAMAccessKey -UserName $name
 foreach ($key in $keys) { Remove-IAMAccessKey -AccessKeyId $key.AccessKeyId -UserName $name -Force }
 
 # delete the user's login profile, if one exists - note: need to use try/catch to suppress not found error
-try { $prof = Get-IAMLoginProfile -UserName bab -ea 0 } catch { out-null }
+try { $prof = Get-IAMLoginProfile -UserName $name -ea 0 } catch { out-null }
 if ($prof) { Remove-IAMLoginProfile -UserName $name -Force }
 
 # find any MFA device, detach it, and if virtual, delete it.
