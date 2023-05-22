@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        #region Parameter CopySourceTagsToRestoredResource
+        /// <summary>
+        /// <para>
+        /// <para>This is an optional parameter. If this equals <code>True</code>, tags included in
+        /// the backup will be copied to the restored resource.</para><para>This can only be applied to backups created through Backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CopySourceTagsToRestoredResource { get; set; }
+        #endregion
+        
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
@@ -187,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = (response, cmdlet) => this.RecoveryPointArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CopySourceTagsToRestoredResource = this.CopySourceTagsToRestoredResource;
             context.IamRoleArn = this.IamRoleArn;
             context.IdempotencyToken = this.IdempotencyToken;
             if (this.Metadata != null)
@@ -227,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request
             var request = new Amazon.Backup.Model.StartRestoreJobRequest();
             
+            if (cmdletContext.CopySourceTagsToRestoredResource != null)
+            {
+                request.CopySourceTagsToRestoredResource = cmdletContext.CopySourceTagsToRestoredResource.Value;
+            }
             if (cmdletContext.IamRoleArn != null)
             {
                 request.IamRoleArn = cmdletContext.IamRoleArn;
@@ -308,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CopySourceTagsToRestoredResource { get; set; }
             public System.String IamRoleArn { get; set; }
             public System.String IdempotencyToken { get; set; }
             public Dictionary<System.String, System.String> Metadata { get; set; }

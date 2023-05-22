@@ -44858,6 +44858,20 @@ $QS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QuickSight.AssetBundleExportFormat
+        "Start-QSAssetBundleExportJob/ExportFormat"
+        {
+            $v = "CLOUDFORMATION_JSON","QUICKSIGHT_JSON"
+            break
+        }
+
+        # Amazon.QuickSight.AssetBundleImportFailureAction
+        "Start-QSAssetBundleImportJob/FailureAction"
+        {
+            $v = "DO_NOTHING","ROLLBACK"
+            break
+        }
+
         # Amazon.QuickSight.AssignmentStatus
         {
             ($_ -eq "Get-QSIAMPolicyAssignmentList/AssignmentStatus") -Or
@@ -45157,6 +45171,8 @@ $QS_map = @{
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
+    "ExportFormat"=@("Start-QSAssetBundleExportJob")
+    "FailureAction"=@("Start-QSAssetBundleImportJob")
     "FolderType"=@("New-QSFolder")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
@@ -45277,6 +45293,8 @@ $QS_SelectMap = @{
                "Get-QSAnalysis",
                "Get-QSAnalysisDefinition",
                "Get-QSAnalysisPermission",
+               "Get-QSAssetBundleExportJob",
+               "Get-QSAssetBundleImportJob",
                "Get-QSDashboard",
                "Get-QSDashboardDefinition",
                "Get-QSDashboardPermission",
@@ -45313,6 +45331,8 @@ $QS_SelectMap = @{
                "Get-QSDashboardEmbedUrl",
                "Get-QSSessionEmbedUrl",
                "Get-QSAnalysisList",
+               "Get-QSAssetBundleExportJobList",
+               "Get-QSAssetBundleImportJobList",
                "Get-QSDashboardList",
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
@@ -45347,6 +45367,8 @@ $QS_SelectMap = @{
                "Search-QSDataSource",
                "Search-QSFolder",
                "Find-QSGroup",
+               "Start-QSAssetBundleExportJob",
+               "Start-QSAssetBundleImportJob",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSAccountCustomization",

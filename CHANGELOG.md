@@ -1,4 +1,16 @@
-﻿### 4.1.336 (2023-05-19 21:12Z)
+﻿### 4.1.337 (2023-05-22 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.552.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon Backup
+    * Modified cmdlet Start-BAKRestoreJob: added parameter CopySourceTagsToRestoredResource.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSAssetBundleExportJob leveraging the DescribeAssetBundleExportJob service API.
+    * Added cmdlet Get-QSAssetBundleExportJobList leveraging the ListAssetBundleExportJobs service API.
+    * Added cmdlet Get-QSAssetBundleImportJob leveraging the DescribeAssetBundleImportJob service API.
+    * Added cmdlet Get-QSAssetBundleImportJobList leveraging the ListAssetBundleImportJobs service API.
+    * Added cmdlet Start-QSAssetBundleExportJob leveraging the StartAssetBundleExportJob service API.
+    * Added cmdlet Start-QSAssetBundleImportJob leveraging the StartAssetBundleImportJob service API.
+
+### 4.1.336 (2023-05-19 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.551.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaPackage v2. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MPV2 and can be listed using the command 'Get-AWSCmdletName -Service MPV2'.
   * Amazon Simple Email Service V2 (SES V2)

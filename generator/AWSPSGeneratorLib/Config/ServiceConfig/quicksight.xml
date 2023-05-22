@@ -235,6 +235,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssetBundleExportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleExportJob" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssetBundleImportJob" OutputProperty="*" Verb="Get" Noun="AssetBundleImportJob" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDashboard" OutputProperty="Dashboard" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -384,6 +392,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetBundleExportJobs" OutputProperty="AssetBundleExportJobSummaryList" Verb="Get" Noun="AssetBundleExportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetBundleImportJobs" OutputProperty="AssetBundleImportJobSummaryList" Verb="Get" Noun="AssetBundleImportJobList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -517,6 +533,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchGroups" OutputProperty="GroupList" Verb="Find" Noun="Group" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAssetBundleExportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleExportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleExportJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAssetBundleImportJob" OutputProperty="*" Verb="Start" Noun="AssetBundleImportJob" AnonymousShouldProcessTarget="true" PipelineParameter="AssetBundleImportJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

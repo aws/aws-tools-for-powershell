@@ -19305,6 +19305,10 @@ Set-Alias -Name QS-DescribeAnalysisDefinition -Value Get-QSAnalysisDefinition
 Set-Alias -Name Describe-QSAnalysisPermissions -Value Get-QSAnalysisPermission
 Set-Alias -Name Describe-QSAnalysisPermission -Value Get-QSAnalysisPermission
 Set-Alias -Name QS-DescribeAnalysisPermissions -Value Get-QSAnalysisPermission
+Set-Alias -Name Describe-QSAssetBundleExportJob -Value Get-QSAssetBundleExportJob
+Set-Alias -Name QS-DescribeAssetBundleExportJob -Value Get-QSAssetBundleExportJob
+Set-Alias -Name Describe-QSAssetBundleImportJob -Value Get-QSAssetBundleImportJob
+Set-Alias -Name QS-DescribeAssetBundleImportJob -Value Get-QSAssetBundleImportJob
 Set-Alias -Name Describe-QSDashboard -Value Get-QSDashboard
 Set-Alias -Name QS-DescribeDashboard -Value Get-QSDashboard
 Set-Alias -Name Describe-QSDashboardDefinition -Value Get-QSDashboardDefinition
@@ -19385,6 +19389,12 @@ Set-Alias -Name QS-GetSessionEmbedUrl -Value Get-QSSessionEmbedUrl
 Set-Alias -Name List-QSAnalyses -Value Get-QSAnalysisList
 Set-Alias -Name List-QSAnalysisList -Value Get-QSAnalysisList
 Set-Alias -Name QS-ListAnalyses -Value Get-QSAnalysisList
+Set-Alias -Name List-QSAssetBundleExportJobs -Value Get-QSAssetBundleExportJobList
+Set-Alias -Name List-QSAssetBundleExportJobList -Value Get-QSAssetBundleExportJobList
+Set-Alias -Name QS-ListAssetBundleExportJobs -Value Get-QSAssetBundleExportJobList
+Set-Alias -Name List-QSAssetBundleImportJobs -Value Get-QSAssetBundleImportJobList
+Set-Alias -Name List-QSAssetBundleImportJobList -Value Get-QSAssetBundleImportJobList
+Set-Alias -Name QS-ListAssetBundleImportJobs -Value Get-QSAssetBundleImportJobList
 Set-Alias -Name List-QSDashboards -Value Get-QSDashboardList
 Set-Alias -Name List-QSDashboardList -Value Get-QSDashboardList
 Set-Alias -Name QS-ListDashboards -Value Get-QSDashboardList
@@ -19476,6 +19486,8 @@ Set-Alias -Name QS-SearchFolders -Value Search-QSFolder
 Set-Alias -Name Search-QSGroups -Value Find-QSGroup
 Set-Alias -Name Search-QSGroup -Value Find-QSGroup
 Set-Alias -Name QS-SearchGroups -Value Find-QSGroup
+Set-Alias -Name QS-StartAssetBundleExportJob -Value Start-QSAssetBundleExportJob
+Set-Alias -Name QS-StartAssetBundleImportJob -Value Start-QSAssetBundleImportJob
 Set-Alias -Name QS-TagResource -Value Add-QSResourceTag
 Set-Alias -Name QS-UntagResource -Value Remove-QSResourceTag
 Set-Alias -Name QS-UpdateAccountCustomization -Value Update-QSAccountCustomization

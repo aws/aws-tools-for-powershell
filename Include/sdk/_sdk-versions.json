@@ -1,6 +1,6 @@
 
 {
-    "ProductVersion" : "3.7.551.0",
+    "ProductVersion" : "3.7.552.0",
     "CoreVersion"    : "3.7.106.39",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -666,7 +666,7 @@
             "InPreview"               : false
         },
         "Pinpoint"                        : {
-            "Version" : "3.7.101.13",
+            "Version" : "3.7.101.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.39"
@@ -1226,7 +1226,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.108.7",
+            "Version" : "3.7.109.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.39"
@@ -1362,7 +1362,7 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "3.7.103.0",
+            "Version" : "3.7.104.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.106.39"
