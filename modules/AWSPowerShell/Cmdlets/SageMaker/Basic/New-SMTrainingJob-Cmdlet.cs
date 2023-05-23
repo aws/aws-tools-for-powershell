@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// type, compression method, and whether the data is wrapped in RecordIO format. </para><para>Depending on the input mode that the algorithm supports, SageMaker either copies input
         /// data files from an S3 bucket to a local directory in the Docker container, or makes
         /// it available as input streams. For example, if you specify an EFS location, input
-        /// data files are available as input streams. They do not need to be downloaded.</para>
+        /// data files are available as input streams. They do not need to be downloaded.</para><para>Your input must be in the same Amazon Web Services region as your training job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

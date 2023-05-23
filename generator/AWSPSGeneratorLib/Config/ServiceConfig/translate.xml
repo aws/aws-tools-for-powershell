@@ -79,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TranslateDocument" OutputProperty="*" Verb="ConvertTo" Noun="Document" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TranslateText" OutputProperty="*" Verb="ConvertTo" Noun="TargetLanguage" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

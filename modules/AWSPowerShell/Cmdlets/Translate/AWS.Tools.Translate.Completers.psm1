@@ -107,6 +107,7 @@ $TRN_Completers = {
 
         # Amazon.Translate.Formality
         {
+            ($_ -eq "ConvertTo-TRNDocument/Settings_Formality") -Or
             ($_ -eq "ConvertTo-TRNTargetLanguage/Settings_Formality") -Or
             ($_ -eq "Start-TRNTextTranslationJob/Settings_Formality")
         }
@@ -141,6 +142,7 @@ $TRN_Completers = {
 
         # Amazon.Translate.Profanity
         {
+            ($_ -eq "ConvertTo-TRNDocument/Settings_Profanity") -Or
             ($_ -eq "ConvertTo-TRNTargetLanguage/Settings_Profanity") -Or
             ($_ -eq "Start-TRNTextTranslationJob/Settings_Profanity")
         }
@@ -174,8 +176,8 @@ $TRN_map = @{
     "MergeStrategy"=@("Import-TRNTerminology")
     "OutputDataConfig_EncryptionKey_Type"=@("Start-TRNTextTranslationJob")
     "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
-    "Settings_Formality"=@("ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
-    "Settings_Profanity"=@("ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
+    "Settings_Formality"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
+    "Settings_Profanity"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "TerminologyData_Directionality"=@("Import-TRNTerminology")
     "TerminologyData_Format"=@("Import-TRNTerminology")
     "TerminologyDataFormat"=@("Get-TRNTerminology")
@@ -246,6 +248,7 @@ $TRN_SelectMap = @{
                "Start-TRNTextTranslationJob",
                "Stop-TRNTextTranslationJob",
                "Add-TRNResourceTag",
+               "ConvertTo-TRNDocument",
                "ConvertTo-TRNTargetLanguage",
                "Remove-TRNResourceTag",
                "Update-TRNParallelData")

@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter SourceLanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code for the language of the source text. The language must be a language
-        /// supported by Amazon Translate. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// <para>The language code for the language of the source text. For a list of language codes,
+        /// see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
         /// languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
         /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
         /// Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
@@ -104,8 +104,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TargetLanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code requested for the language of the target text. The language must
-        /// be a language supported by Amazon Translate.</para>
+        /// <para>The language code requested for the language of the target text. For a list of language
+        /// codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported
+        /// languages</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,9 +123,11 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyName
         /// <summary>
         /// <para>
-        /// <para>The name of the terminology list file to be used in the TranslateText request. You
-        /// can use 1 terminology list at most in a <code>TranslateText</code> request. Terminology
-        /// lists can contain a maximum of 256 terms.</para>
+        /// <para>The name of a terminology list file to add to the translation job. This file provides
+        /// source terms and the desired translation for each term. A terminology list can contain
+        /// a maximum of 256 terms. You can use one custom terminology resource in your translation
+        /// request.</para><para>Use the <a>ListTerminologies</a> operation to get the available terminology lists.</para><para>For more information about custom terminology lists, see <a href="https://docs.aws.amazon.com/translate/latest/dg/how-custom-terminology.html">Custom
+        /// terminology</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

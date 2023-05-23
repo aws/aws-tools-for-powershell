@@ -1,4 +1,11 @@
-﻿### 4.1.337 (2023-05-22 21:00Z)
+﻿### 4.1.338 (2023-05-23 21:32Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.553.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Service
+    * Modified cmdlet Get-SMInferenceRecommendationsJobList: added parameters ModelNameEqual and ModelPackageVersionArnEqual.
+  * Amazon Translate
+    * Added cmdlet ConvertTo-TRNDocument leveraging the TranslateDocument service API.
+
+### 4.1.337 (2023-05-22 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.552.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon Backup
     * Modified cmdlet Start-BAKRestoreJob: added parameter CopySourceTagsToRestoredResource.

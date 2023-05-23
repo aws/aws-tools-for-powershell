@@ -24557,6 +24557,8 @@ Set-Alias -Name TRN-ListTextTranslationJobs -Value Get-TRNTextTranslationJobList
 Set-Alias -Name TRN-StartTextTranslationJob -Value Start-TRNTextTranslationJob
 Set-Alias -Name TRN-StopTextTranslationJob -Value Stop-TRNTextTranslationJob
 Set-Alias -Name TRN-TagResource -Value Add-TRNResourceTag
+Set-Alias -Name Translate-TRNDocument -Value ConvertTo-TRNDocument
+Set-Alias -Name TRN-TranslateDocument -Value ConvertTo-TRNDocument
 Set-Alias -Name Translate-TRNText -Value ConvertTo-TRNTargetLanguage
 Set-Alias -Name Translate-TRNTargetLanguage -Value ConvertTo-TRNTargetLanguage
 Set-Alias -Name TRN-TranslateText -Value ConvertTo-TRNTargetLanguage

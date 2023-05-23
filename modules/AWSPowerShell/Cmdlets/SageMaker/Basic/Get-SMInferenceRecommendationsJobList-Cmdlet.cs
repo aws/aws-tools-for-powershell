@@ -81,6 +81,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? LastModifiedTimeBefore { get; set; }
         #endregion
         
+        #region Parameter ModelNameEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only jobs that were created for this model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelNameEquals")]
+        public System.String ModelNameEqual { get; set; }
+        #endregion
+        
+        #region Parameter ModelPackageVersionArnEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only jobs that were created for this versioned model package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelPackageVersionArnEquals")]
+        public System.String ModelPackageVersionArnEqual { get; set; }
+        #endregion
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>
@@ -195,6 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.LastModifiedTimeAfter = this.LastModifiedTimeAfter;
             context.LastModifiedTimeBefore = this.LastModifiedTimeBefore;
             context.MaxResult = this.MaxResult;
+            context.ModelNameEqual = this.ModelNameEqual;
+            context.ModelPackageVersionArnEqual = this.ModelPackageVersionArnEqual;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
@@ -237,6 +261,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ModelNameEqual != null)
+            {
+                request.ModelNameEquals = cmdletContext.ModelNameEqual;
+            }
+            if (cmdletContext.ModelPackageVersionArnEqual != null)
+            {
+                request.ModelPackageVersionArnEquals = cmdletContext.ModelPackageVersionArnEqual;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -344,6 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.DateTime? LastModifiedTimeAfter { get; set; }
             public System.DateTime? LastModifiedTimeBefore { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public System.String ModelNameEqual { get; set; }
+            public System.String ModelPackageVersionArnEqual { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.ListInferenceRecommendationsJobsSortBy SortBy { get; set; }
