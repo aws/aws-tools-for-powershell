@@ -105,8 +105,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ASYNResolverListByFunction', 
         'Get-ASYNResourceTag', 
         'Get-ASYNSchemaCreationStatus', 
+        'Get-ASYNSourceApiAssociation', 
+        'Get-ASYNSourceApiAssociationList', 
         'Get-ASYNType', 
         'Get-ASYNTypeList', 
+        'Get-ASYNTypesByAssociationList', 
         'New-ASYNApiCache', 
         'New-ASYNApiKey', 
         'New-ASYNDataSource', 
@@ -125,8 +128,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ASYNResourceTag', 
         'Remove-ASYNType', 
         'Start-ASYNApiAssociation', 
+        'Start-ASYNMergedGraphqlApi', 
         'Start-ASYNSchemaCreation', 
+        'Start-ASYNSchemaMerge', 
+        'Start-ASYNSourceGraphqlApi', 
         'Stop-ASYNApiAssociation', 
+        'Stop-ASYNMergedGraphqlApi', 
+        'Stop-ASYNSourceGraphqlApi', 
         'Test-ASYNCode', 
         'Test-ASYNMappingTemplate', 
         'Update-ASYNApiCache', 
@@ -136,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-ASYNFunction', 
         'Update-ASYNGraphqlApi', 
         'Update-ASYNResolver', 
+        'Update-ASYNSourceApiAssociation', 
         'Update-ASYNType')
 
     # Variables to export from this module

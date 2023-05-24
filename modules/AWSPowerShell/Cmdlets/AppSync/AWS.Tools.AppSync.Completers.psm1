@@ -154,6 +154,16 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.GraphQLApiType
+        {
+            ($_ -eq "Get-ASYNGraphqlApiList/ApiType") -Or
+            ($_ -eq "New-ASYNGraphqlApi/ApiType")
+        }
+        {
+            $v = "GRAPHQL","MERGED"
+            break
+        }
+
         # Amazon.AppSync.GraphQLApiVisibility
         "New-ASYNGraphqlApi/Visibility"
         {
@@ -161,10 +171,28 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.MergeType
+        {
+            ($_ -eq "Start-ASYNMergedGraphqlApi/SourceApiAssociationConfig_MergeType") -Or
+            ($_ -eq "Start-ASYNSourceGraphqlApi/SourceApiAssociationConfig_MergeType") -Or
+            ($_ -eq "Update-ASYNSourceApiAssociation/SourceApiAssociationConfig_MergeType")
+        }
+        {
+            $v = "AUTO_MERGE","MANUAL_MERGE"
+            break
+        }
+
         # Amazon.AppSync.OutputType
         "Get-ASYNIntrospectionSchema/Format"
         {
             $v = "JSON","SDL"
+            break
+        }
+
+        # Amazon.AppSync.Ownership
+        "Get-ASYNGraphqlApiList/Owner"
+        {
+            $v = "CURRENT_ACCOUNT","OTHER_ACCOUNTS"
             break
         }
 
@@ -205,6 +233,7 @@ $ASYN_Completers = {
         {
             ($_ -eq "Get-ASYNType/Format") -Or
             ($_ -eq "Get-ASYNTypeList/Format") -Or
+            ($_ -eq "Get-ASYNTypesByAssociationList/Format") -Or
             ($_ -eq "New-ASYNType/Format") -Or
             ($_ -eq "Update-ASYNType/Format")
         }
@@ -223,12 +252,15 @@ $ASYN_Completers = {
 
 $ASYN_map = @{
     "ApiCachingBehavior"=@("New-ASYNApiCache","Update-ASYNApiCache")
+    "ApiType"=@("Get-ASYNGraphqlApiList","New-ASYNGraphqlApi")
     "AuthenticationType"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
-    "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","New-ASYNType","Update-ASYNType")
+    "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","Get-ASYNTypesByAssociationList","New-ASYNType","Update-ASYNType")
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "Owner"=@("Get-ASYNGraphqlApiList")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
     "Runtime_Name"=@("New-ASYNFunction","New-ASYNResolver","Test-ASYNCode","Update-ASYNFunction","Update-ASYNResolver")
+    "SourceApiAssociationConfig_MergeType"=@("Start-ASYNMergedGraphqlApi","Start-ASYNSourceGraphqlApi","Update-ASYNSourceApiAssociation")
     "SyncConfig_ConflictDetection"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "SyncConfig_ConflictHandler"=@("New-ASYNFunction","New-ASYNResolver","Update-ASYNFunction","Update-ASYNResolver")
     "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
@@ -286,6 +318,8 @@ $ASYN_SelectCompleters = {
 
 $ASYN_SelectMap = @{
     "Select"=@("Start-ASYNApiAssociation",
+               "Start-ASYNMergedGraphqlApi",
+               "Start-ASYNSourceGraphqlApi",
                "New-ASYNApiCache",
                "New-ASYNApiKey",
                "New-ASYNDataSource",
@@ -303,6 +337,8 @@ $ASYN_SelectMap = @{
                "Remove-ASYNResolver",
                "Remove-ASYNType",
                "Stop-ASYNApiAssociation",
+               "Stop-ASYNMergedGraphqlApi",
+               "Stop-ASYNSourceGraphqlApi",
                "Test-ASYNCode",
                "Test-ASYNMappingTemplate",
                "Clear-ASYNApiCache",
@@ -315,6 +351,7 @@ $ASYN_SelectMap = @{
                "Get-ASYNIntrospectionSchema",
                "Get-ASYNResolver",
                "Get-ASYNSchemaCreationStatus",
+               "Get-ASYNSourceApiAssociation",
                "Get-ASYNType",
                "Get-ASYNApiKeyList",
                "Get-ASYNDataSourceList",
@@ -323,9 +360,12 @@ $ASYN_SelectMap = @{
                "Get-ASYNGraphqlApiList",
                "Get-ASYNResolverList",
                "Get-ASYNResolverListByFunction",
+               "Get-ASYNSourceApiAssociationList",
                "Get-ASYNResourceTag",
                "Get-ASYNTypeList",
+               "Get-ASYNTypesByAssociationList",
                "Start-ASYNSchemaCreation",
+               "Start-ASYNSchemaMerge",
                "Add-ASYNResourceTag",
                "Remove-ASYNResourceTag",
                "Update-ASYNApiCache",
@@ -335,6 +375,7 @@ $ASYN_SelectMap = @{
                "Update-ASYNFunction",
                "Update-ASYNGraphqlApi",
                "Update-ASYNResolver",
+               "Update-ASYNSourceApiAssociation",
                "Update-ASYNType")
 }
 

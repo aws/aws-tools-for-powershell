@@ -11,7 +11,10 @@
     <ServiceModuleGuid>2f2a9d9e-48aa-4a81-9013-f98c2415c204</ServiceModuleGuid>
     <PipelineParameter />
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="25" PageSizeIsRequired="true" />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Associate" To="Start" />
+        <Map From="Disassociate" To="Stop" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -20,6 +23,14 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateApi" OutputProperty="ApiAssociation" Verb="Start" Noun="ApiAssociation" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateMergedGraphqlApi" OutputProperty="SourceApiAssociation" Verb="Start" Noun="MergedGraphqlApi" ShouldProcessTarget="SourceApiIdentifier" PipelineParameter="SourceApiIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSourceGraphqlApi" OutputProperty="SourceApiAssociation" Verb="Start" Noun="SourceGraphqlApi" ShouldProcessTarget="MergedApiIdentifier" PipelineParameter="MergedApiIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +102,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateMergedGraphqlApi" OutputProperty="SourceApiAssociationStatus" Verb="Stop" Noun="MergedGraphqlApi" ShouldProcessTarget="SourceApiIdentifier" PipelineParameter="SourceApiIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSourceGraphqlApi" OutputProperty="SourceApiAssociationStatus" Verb="Stop" Noun="SourceGraphqlApi" ShouldProcessTarget="MergedApiIdentifier" PipelineParameter="MergedApiIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EvaluateCode" OutputProperty="*" Verb="Test" Noun="Code" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -139,6 +158,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Get" Noun="SourceApiAssociation" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetType" OutputProperty="Type" Verb="Get" Noun="Type" PipelineParameter="TypeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -159,7 +182,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="ApiType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -171,6 +194,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSourceApiAssociations" OutputProperty="SourceApiAssociationSummaries" Verb="Get" Noun="SourceApiAssociationList" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -179,7 +206,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTypesByAssociation" OutputProperty="Types" Verb="Get" Noun="TypesByAssociationList" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartSchemaCreation" OutputProperty="Status" Verb="Start" Noun="SchemaCreation" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSchemaMerge" OutputProperty="SourceApiAssociationStatus" Verb="Start" Noun="SchemaMerge" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,6 +251,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateResolver" OutputProperty="Resolver" Verb="Update" Noun="Resolver" ShouldProcessTarget="FieldName" PipelineParameter="FieldName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSourceApiAssociation" OutputProperty="SourceApiAssociation" Verb="Update" Noun="SourceApiAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

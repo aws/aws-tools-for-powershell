@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.Model.AdditionalAuthenticationProvider[] AdditionalAuthenticationProvider { get; set; }
         #endregion
         
+        #region Parameter ApiType
+        /// <summary>
+        /// <para>
+        /// <para>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>)
+        /// or merged API (<code>MERGED</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.GraphQLApiType")]
+        public Amazon.AppSync.GraphQLApiType ApiType { get; set; }
+        #endregion
+        
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>
@@ -184,6 +196,19 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String OpenIDConnectConfig_Issuer { get; set; }
         #endregion
         
+        #region Parameter MergedApiExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Identity and Access Management service role ARN for a merged API. The AppSync
+        /// service assumes this role on behalf of the Merged API to validate access to source
+        /// APIs at runtime and to prompt the <code>AUTO_MERGE</code> to update the merged API
+        /// endpoint with the source API changes automatically.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MergedApiExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -199,6 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OwnerContact
+        /// <summary>
+        /// <para>
+        /// <para>The owner contact information for an API resource.</para><para>This field accepts any string input with a length of 0 - 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwnerContact { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -311,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 context.AdditionalAuthenticationProvider = new List<Amazon.AppSync.Model.AdditionalAuthenticationProvider>(this.AdditionalAuthenticationProvider);
             }
+            context.ApiType = this.ApiType;
             context.AuthenticationType = this.AuthenticationType;
             #if MODULAR
             if (this.AuthenticationType == null && ParameterWasBound(nameof(this.AuthenticationType)))
@@ -324,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.LogConfig_CloudWatchLogsRoleArn = this.LogConfig_CloudWatchLogsRoleArn;
             context.LogConfig_ExcludeVerboseContent = this.LogConfig_ExcludeVerboseContent;
             context.LogConfig_FieldLogLevel = this.LogConfig_FieldLogLevel;
+            context.MergedApiExecutionRoleArn = this.MergedApiExecutionRoleArn;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -335,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.OpenIDConnectConfig_ClientId = this.OpenIDConnectConfig_ClientId;
             context.OpenIDConnectConfig_IatTTL = this.OpenIDConnectConfig_IatTTL;
             context.OpenIDConnectConfig_Issuer = this.OpenIDConnectConfig_Issuer;
+            context.OwnerContact = this.OwnerContact;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -365,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.AdditionalAuthenticationProvider != null)
             {
                 request.AdditionalAuthenticationProviders = cmdletContext.AdditionalAuthenticationProvider;
+            }
+            if (cmdletContext.ApiType != null)
+            {
+                request.ApiType = cmdletContext.ApiType;
             }
             if (cmdletContext.AuthenticationType != null)
             {
@@ -448,6 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.LogConfig = null;
             }
+            if (cmdletContext.MergedApiExecutionRoleArn != null)
+            {
+                request.MergedApiExecutionRoleArn = cmdletContext.MergedApiExecutionRoleArn;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -500,6 +546,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (requestOpenIDConnectConfigIsNull)
             {
                 request.OpenIDConnectConfig = null;
+            }
+            if (cmdletContext.OwnerContact != null)
+            {
+                request.OwnerContact = cmdletContext.OwnerContact;
             }
             if (cmdletContext.Tag != null)
             {
@@ -579,6 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.AppSync.Model.AdditionalAuthenticationProvider> AdditionalAuthenticationProvider { get; set; }
+            public Amazon.AppSync.GraphQLApiType ApiType { get; set; }
             public Amazon.AppSync.AuthenticationType AuthenticationType { get; set; }
             public System.Int32? LambdaAuthorizerConfig_AuthorizerResultTtlInSecond { get; set; }
             public System.String LambdaAuthorizerConfig_AuthorizerUri { get; set; }
@@ -586,11 +637,13 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String LogConfig_CloudWatchLogsRoleArn { get; set; }
             public System.Boolean? LogConfig_ExcludeVerboseContent { get; set; }
             public Amazon.AppSync.FieldLogLevel LogConfig_FieldLogLevel { get; set; }
+            public System.String MergedApiExecutionRoleArn { get; set; }
             public System.String Name { get; set; }
             public System.Int64? OpenIDConnectConfig_AuthTTL { get; set; }
             public System.String OpenIDConnectConfig_ClientId { get; set; }
             public System.Int64? OpenIDConnectConfig_IatTTL { get; set; }
             public System.String OpenIDConnectConfig_Issuer { get; set; }
+            public System.String OwnerContact { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
             public Amazon.AppSync.GraphQLApiVisibility Visibility { get; set; }

@@ -28,17 +28,34 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Lists multiple custom domain names.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the <code>SourceApiAssociationSummary</code> data.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "ASYNDomainNameList")]
-    [OutputType("Amazon.AppSync.Model.DomainNameConfig")]
-    [AWSCmdlet("Calls the AWS AppSync ListDomainNames API operation.", Operation = new[] {"ListDomainNames"}, SelectReturnType = typeof(Amazon.AppSync.Model.ListDomainNamesResponse))]
-    [AWSCmdletOutput("Amazon.AppSync.Model.DomainNameConfig or Amazon.AppSync.Model.ListDomainNamesResponse",
-        "This cmdlet returns a collection of Amazon.AppSync.Model.DomainNameConfig objects.",
-        "The service call response (type Amazon.AppSync.Model.ListDomainNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ASYNSourceApiAssociationList")]
+    [OutputType("Amazon.AppSync.Model.SourceApiAssociationSummary")]
+    [AWSCmdlet("Calls the AWS AppSync ListSourceApiAssociations API operation.", Operation = new[] {"ListSourceApiAssociations"}, SelectReturnType = typeof(Amazon.AppSync.Model.ListSourceApiAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.AppSync.Model.SourceApiAssociationSummary or Amazon.AppSync.Model.ListSourceApiAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.AppSync.Model.SourceApiAssociationSummary objects.",
+        "The service call response (type Amazon.AppSync.Model.ListSourceApiAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetASYNDomainNameListCmdlet : AmazonAppSyncClientCmdlet, IExecutor
+    public partial class GetASYNSourceApiAssociationListCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApiId
+        /// <summary>
+        /// <para>
+        /// <para>The API ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ApiId { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -68,13 +85,23 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DomainNameConfigs'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppSync.Model.ListDomainNamesResponse).
-        /// Specifying the name of a property of type Amazon.AppSync.Model.ListDomainNamesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SourceApiAssociationSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppSync.Model.ListSourceApiAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.AppSync.Model.ListSourceApiAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DomainNameConfigs";
+        public string Select { get; set; } = "SourceApiAssociationSummaries";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ApiId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApiId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApiId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -97,11 +124,28 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppSync.Model.ListDomainNamesResponse, GetASYNDomainNameListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AppSync.Model.ListSourceApiAssociationsResponse, GetASYNSourceApiAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ApiId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApiId = this.ApiId;
+            #if MODULAR
+            if (this.ApiId == null && ParameterWasBound(nameof(this.ApiId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -117,11 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.AppSync.Model.ListDomainNamesRequest();
+            var request = new Amazon.AppSync.Model.ListSourceApiAssociationsRequest();
             
+            if (cmdletContext.ApiId != null)
+            {
+                request.ApiId = cmdletContext.ApiId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -183,15 +233,15 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         #region AWS Service Operation Call
         
-        private Amazon.AppSync.Model.ListDomainNamesResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.ListDomainNamesRequest request)
+        private Amazon.AppSync.Model.ListSourceApiAssociationsResponse CallAWSServiceOperation(IAmazonAppSync client, Amazon.AppSync.Model.ListSourceApiAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "ListDomainNames");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppSync", "ListSourceApiAssociations");
             try
             {
                 #if DESKTOP
-                return client.ListDomainNames(request);
+                return client.ListSourceApiAssociations(request);
                 #elif CORECLR
-                return client.ListDomainNamesAsync(request).GetAwaiter().GetResult();
+                return client.ListSourceApiAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -211,10 +261,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ApiId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.AppSync.Model.ListDomainNamesResponse, GetASYNDomainNameListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DomainNameConfigs;
+            public System.Func<Amazon.AppSync.Model.ListSourceApiAssociationsResponse, GetASYNSourceApiAssociationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SourceApiAssociationSummaries;
         }
         
     }

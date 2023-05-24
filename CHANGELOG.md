@@ -1,4 +1,20 @@
-﻿### 4.1.338 (2023-05-23 21:32Z)
+﻿### 4.1.339 (2023-05-24 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.554.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon AppSync
+    * Added cmdlet Get-ASYNSourceApiAssociation leveraging the GetSourceApiAssociation service API.
+    * Added cmdlet Get-ASYNSourceApiAssociationList leveraging the ListSourceApiAssociations service API.
+    * Added cmdlet Get-ASYNTypesByAssociationList leveraging the ListTypesByAssociation service API.
+    * Added cmdlet Start-ASYNMergedGraphqlApi leveraging the AssociateMergedGraphqlApi service API.
+    * Added cmdlet Start-ASYNSchemaMerge leveraging the StartSchemaMerge service API.
+    * Added cmdlet Start-ASYNSourceGraphqlApi leveraging the AssociateSourceGraphqlApi service API.
+    * Added cmdlet Stop-ASYNMergedGraphqlApi leveraging the DisassociateMergedGraphqlApi service API.
+    * Added cmdlet Stop-ASYNSourceGraphqlApi leveraging the DisassociateSourceGraphqlApi service API.
+    * Added cmdlet Update-ASYNSourceApiAssociation leveraging the UpdateSourceApiAssociation service API.
+    * Modified cmdlet Get-ASYNGraphqlApiList: added parameters ApiType, Owner and PassThru.
+    * Modified cmdlet New-ASYNGraphqlApi: added parameters ApiType, MergedApiExecutionRoleArn and OwnerContact.
+    * Modified cmdlet Update-ASYNGraphqlApi: added parameters MergedApiExecutionRoleArn and OwnerContact.
+
+### 4.1.338 (2023-05-23 21:32Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.553.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Service
     * Modified cmdlet Get-SMInferenceRecommendationsJobList: added parameters ModelNameEqual and ModelPackageVersionArnEqual.

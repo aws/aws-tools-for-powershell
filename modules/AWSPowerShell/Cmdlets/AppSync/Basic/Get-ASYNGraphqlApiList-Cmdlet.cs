@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
     public partial class GetASYNGraphqlApiListCmdlet : AmazonAppSyncClientCmdlet, IExecutor
     {
         
+        #region Parameter ApiType
+        /// <summary>
+        /// <para>
+        /// <para>The value that indicates whether the GraphQL API is a standard API (<code>GRAPHQL</code>)
+        /// or merged API (<code>MERGED</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.AppSync.GraphQLApiType")]
+        public Amazon.AppSync.GraphQLApiType ApiType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -72,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String NextToken { get; set; }
         #endregion
         
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>The account owner of the GraphQL API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.Ownership")]
+        public Amazon.AppSync.Ownership Owner { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GraphqlApis'.
@@ -81,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "GraphqlApis";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ApiType parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ApiType' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApiType' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -103,11 +136,22 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.AppSync.Model.ListGraphqlApisResponse, GetASYNGraphqlApiListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ApiType;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApiType = this.ApiType;
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -126,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.NextToken = this.NextToken;
+            context.Owner = this.Owner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -140,14 +185,24 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.AppSync.Model.ListGraphqlApisRequest();
             
+            if (cmdletContext.ApiType != null)
+            {
+                request.ApiType = cmdletContext.ApiType;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
             }
             
             // Initialize loop variant and commence piping
@@ -200,10 +255,18 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
             
             // create request and set iteration invariants
             var request = new Amazon.AppSync.Model.ListGraphqlApisRequest();
+            if (cmdletContext.ApiType != null)
+            {
+                request.ApiType = cmdletContext.ApiType;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -327,8 +390,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.AppSync.GraphQLApiType ApiType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.AppSync.Ownership Owner { get; set; }
             public System.Func<Amazon.AppSync.Model.ListGraphqlApisResponse, GetASYNGraphqlApiListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GraphqlApis;
         }

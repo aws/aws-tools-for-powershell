@@ -1298,6 +1298,10 @@ Set-Alias -Name APS-UpdateStack -Value Update-APSStack
 Set-Alias -Name Associate-ASYNApi -Value Start-ASYNApiAssociation
 Set-Alias -Name Associate-ASYNApiAssociation -Value Start-ASYNApiAssociation
 Set-Alias -Name ASYN-AssociateApi -Value Start-ASYNApiAssociation
+Set-Alias -Name Associate-ASYNMergedGraphqlApi -Value Start-ASYNMergedGraphqlApi
+Set-Alias -Name ASYN-AssociateMergedGraphqlApi -Value Start-ASYNMergedGraphqlApi
+Set-Alias -Name Associate-ASYNSourceGraphqlApi -Value Start-ASYNSourceGraphqlApi
+Set-Alias -Name ASYN-AssociateSourceGraphqlApi -Value Start-ASYNSourceGraphqlApi
 Set-Alias -Name Create-ASYNApiCache -Value New-ASYNApiCache
 Set-Alias -Name ASYN-CreateApiCache -Value New-ASYNApiCache
 Set-Alias -Name Create-ASYNApiKey -Value New-ASYNApiKey
@@ -1333,6 +1337,10 @@ Set-Alias -Name ASYN-DeleteType -Value Remove-ASYNType
 Set-Alias -Name Disassociate-ASYNApi -Value Stop-ASYNApiAssociation
 Set-Alias -Name Disassociate-ASYNApiAssociation -Value Stop-ASYNApiAssociation
 Set-Alias -Name ASYN-DisassociateApi -Value Stop-ASYNApiAssociation
+Set-Alias -Name Disassociate-ASYNMergedGraphqlApi -Value Stop-ASYNMergedGraphqlApi
+Set-Alias -Name ASYN-DisassociateMergedGraphqlApi -Value Stop-ASYNMergedGraphqlApi
+Set-Alias -Name Disassociate-ASYNSourceGraphqlApi -Value Stop-ASYNSourceGraphqlApi
+Set-Alias -Name ASYN-DisassociateSourceGraphqlApi -Value Stop-ASYNSourceGraphqlApi
 Set-Alias -Name Evaluate-ASYNCode -Value Test-ASYNCode
 Set-Alias -Name ASYN-EvaluateCode -Value Test-ASYNCode
 Set-Alias -Name Evaluate-ASYNMappingTemplate -Value Test-ASYNMappingTemplate
@@ -1348,6 +1356,7 @@ Set-Alias -Name ASYN-GetGraphqlApi -Value Get-ASYNGraphqlApi
 Set-Alias -Name ASYN-GetIntrospectionSchema -Value Get-ASYNIntrospectionSchema
 Set-Alias -Name ASYN-GetResolver -Value Get-ASYNResolver
 Set-Alias -Name ASYN-GetSchemaCreationStatus -Value Get-ASYNSchemaCreationStatus
+Set-Alias -Name ASYN-GetSourceApiAssociation -Value Get-ASYNSourceApiAssociation
 Set-Alias -Name ASYN-GetType -Value Get-ASYNType
 Set-Alias -Name List-ASYNApiKeys -Value Get-ASYNApiKeyList
 Set-Alias -Name List-ASYNApiKeyList -Value Get-ASYNApiKeyList
@@ -1370,11 +1379,18 @@ Set-Alias -Name ASYN-ListResolvers -Value Get-ASYNResolverList
 Set-Alias -Name List-ASYNResolversByFunction -Value Get-ASYNResolverListByFunction
 Set-Alias -Name List-ASYNResolverListByFunction -Value Get-ASYNResolverListByFunction
 Set-Alias -Name ASYN-ListResolversByFunction -Value Get-ASYNResolverListByFunction
+Set-Alias -Name List-ASYNSourceApiAssociations -Value Get-ASYNSourceApiAssociationList
+Set-Alias -Name List-ASYNSourceApiAssociationList -Value Get-ASYNSourceApiAssociationList
+Set-Alias -Name ASYN-ListSourceApiAssociations -Value Get-ASYNSourceApiAssociationList
 Set-Alias -Name ASYN-ListTagsForResource -Value Get-ASYNResourceTag
 Set-Alias -Name List-ASYNTypes -Value Get-ASYNTypeList
 Set-Alias -Name List-ASYNTypeList -Value Get-ASYNTypeList
 Set-Alias -Name ASYN-ListTypes -Value Get-ASYNTypeList
+Set-Alias -Name List-ASYNTypesByAssociation -Value Get-ASYNTypesByAssociationList
+Set-Alias -Name List-ASYNTypesByAssociationList -Value Get-ASYNTypesByAssociationList
+Set-Alias -Name ASYN-ListTypesByAssociation -Value Get-ASYNTypesByAssociationList
 Set-Alias -Name ASYN-StartSchemaCreation -Value Start-ASYNSchemaCreation
+Set-Alias -Name ASYN-StartSchemaMerge -Value Start-ASYNSchemaMerge
 Set-Alias -Name ASYN-TagResource -Value Add-ASYNResourceTag
 Set-Alias -Name ASYN-UntagResource -Value Remove-ASYNResourceTag
 Set-Alias -Name ASYN-UpdateApiCache -Value Update-ASYNApiCache
@@ -1384,6 +1400,7 @@ Set-Alias -Name ASYN-UpdateDomainName -Value Update-ASYNDomainName
 Set-Alias -Name ASYN-UpdateFunction -Value Update-ASYNFunction
 Set-Alias -Name ASYN-UpdateGraphqlApi -Value Update-ASYNGraphqlApi
 Set-Alias -Name ASYN-UpdateResolver -Value Update-ASYNResolver
+Set-Alias -Name ASYN-UpdateSourceApiAssociation -Value Update-ASYNSourceApiAssociation
 Set-Alias -Name ASYN-UpdateType -Value Update-ASYNType
 Set-Alias -Name Create-PROMAlertManagerDefinition -Value New-PROMAlertManagerDefinition
 Set-Alias -Name PROM-CreateAlertManagerDefinition -Value New-PROMAlertManagerDefinition
