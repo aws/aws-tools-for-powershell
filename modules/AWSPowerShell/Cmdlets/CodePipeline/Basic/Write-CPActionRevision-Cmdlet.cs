@@ -28,7 +28,7 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Provides information to AWS CodePipeline about new revisions to a source.
+    /// Provides information to CodePipeline about new revisions to a source.
     /// </summary>
     [Cmdlet("Write", "CPActionRevision", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodePipeline.Model.PutActionRevisionResponse")]

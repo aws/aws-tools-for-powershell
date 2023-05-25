@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// for partner actions only.
     /// 
     ///  <important><para>
-    /// When this API is called, AWS CodePipeline returns temporary credentials for the S3
-    /// bucket used to store artifacts for the pipeline, if the action requires access to
-    /// that S3 bucket for input or output artifacts.
+    /// When this API is called, CodePipeline returns temporary credentials for the S3 bucket
+    /// used to store artifacts for the pipeline, if the action requires access to that S3
+    /// bucket for input or output artifacts.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "CPActionableThirdPartyJobList")]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <para>
         /// <para>The provider of the service being called by the action. Valid providers are determined
         /// by the action category. For example, an action in the Deploy category type might have
-        /// a provider of AWS CodeDeploy, which would be specified as CodeDeploy. For more information,
-        /// see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
+        /// a provider of CodeDeploy, which would be specified as <code>CodeDeploy</code>. For
+        /// more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
         /// Action Types and Providers in CodePipeline</a>.</para>
         /// </para>
         /// </summary>

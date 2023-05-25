@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Nonce
         /// <summary>
         /// <para>
-        /// <para>A system-generated random number that AWS CodePipeline uses to ensure that the job
-        /// is being worked on by only one job worker. Get this number from the response of the
-        /// <a>PollForJobs</a> request that returned this job.</para>
+        /// <para>A system-generated random number that CodePipeline uses to ensure that the job is
+        /// being worked on by only one job worker. Get this number from the response of the <a>PollForJobs</a>
+        /// request that returned this job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

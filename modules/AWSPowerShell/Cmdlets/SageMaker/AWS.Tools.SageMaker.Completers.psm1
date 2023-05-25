@@ -223,6 +223,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AutotuneMode
+        "New-SMHyperParameterTuningJob/Autotune_Mode"
+        {
+            $v = "Enabled"
+            break
+        }
+
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
@@ -1331,6 +1338,7 @@ $SM_map = @{
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
+    "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DataQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")

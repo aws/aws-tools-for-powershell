@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEDataQualityRulesetCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter TargetTable_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The catalog id where the Glue table exists.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetTable_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter TargetTable_DatabaseName
         /// <summary>
         /// <para>
@@ -219,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.TargetTable_CatalogId = this.TargetTable_CatalogId;
             context.TargetTable_DatabaseName = this.TargetTable_DatabaseName;
             context.TargetTable_TableName = this.TargetTable_TableName;
             
@@ -261,6 +272,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate TargetTable
             var requestTargetTableIsNull = true;
             request.TargetTable = new Amazon.Glue.Model.DataQualityTargetTable();
+            System.String requestTargetTable_targetTable_CatalogId = null;
+            if (cmdletContext.TargetTable_CatalogId != null)
+            {
+                requestTargetTable_targetTable_CatalogId = cmdletContext.TargetTable_CatalogId;
+            }
+            if (requestTargetTable_targetTable_CatalogId != null)
+            {
+                request.TargetTable.CatalogId = requestTargetTable_targetTable_CatalogId;
+                requestTargetTableIsNull = false;
+            }
             System.String requestTargetTable_targetTable_DatabaseName = null;
             if (cmdletContext.TargetTable_DatabaseName != null)
             {
@@ -352,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Name { get; set; }
             public System.String Ruleset { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String TargetTable_CatalogId { get; set; }
             public System.String TargetTable_DatabaseName { get; set; }
             public System.String TargetTable_TableName { get; set; }
             public System.Func<Amazon.Glue.Model.CreateDataQualityRulesetResponse, NewGLUEDataQualityRulesetCmdlet, object> Select { get; set; } =

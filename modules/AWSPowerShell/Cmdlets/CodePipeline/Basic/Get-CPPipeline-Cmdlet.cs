@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The name of the pipeline for which you want to get information. Pipeline names must
-        /// be unique under an AWS user account.</para>
+        /// be unique in an Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

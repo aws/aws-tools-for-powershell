@@ -28,9 +28,9 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Gets a listing of all the webhooks in this AWS Region for this account. The output
-    /// lists all webhooks and includes the webhook URL and ARN and the configuration for
-    /// each webhook.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a listing of all the webhooks in this Amazon Web Services Region for this account.
+    /// The output lists all webhooks and includes the webhook URL and ARN and the configuration
+    /// for each webhook.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CPWebhookList")]
     [OutputType("Amazon.CodePipeline.Model.ListWebhookItem")]

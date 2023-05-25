@@ -43,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class StartGLUEDataQualityRulesetEvaluationRunCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalDataSource
+        /// <summary>
+        /// <para>
+        /// <para>A map of reference strings to additional data sources you can specify for an evaluation
+        /// run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdditionalDataSources")]
+        public System.Collections.Hashtable AdditionalDataSource { get; set; }
+        #endregion
+        
         #region Parameter GlueTable_AdditionalOption
         /// <summary>
         /// <para>
@@ -265,6 +277,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = (response, cmdlet) => this.Role;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalDataSource != null)
+            {
+                context.AdditionalDataSource = new Dictionary<System.String, Amazon.Glue.Model.DataSource>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AdditionalDataSource.Keys)
+                {
+                    context.AdditionalDataSource.Add((String)hashKey, (DataSource)(this.AdditionalDataSource[hashKey]));
+                }
+            }
             context.AdditionalRunOptions_CloudWatchMetricsEnabled = this.AdditionalRunOptions_CloudWatchMetricsEnabled;
             context.AdditionalRunOptions_ResultsS3Prefix = this.AdditionalRunOptions_ResultsS3Prefix;
             context.ClientToken = this.ClientToken;
@@ -327,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.StartDataQualityRulesetEvaluationRunRequest();
             
+            if (cmdletContext.AdditionalDataSource != null)
+            {
+                request.AdditionalDataSources = cmdletContext.AdditionalDataSource;
+            }
             
              // populate AdditionalRunOptions
             var requestAdditionalRunOptionsIsNull = true;
@@ -511,6 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, Amazon.Glue.Model.DataSource> AdditionalDataSource { get; set; }
             public System.Boolean? AdditionalRunOptions_CloudWatchMetricsEnabled { get; set; }
             public System.String AdditionalRunOptions_ResultsS3Prefix { get; set; }
             public System.String ClientToken { get; set; }

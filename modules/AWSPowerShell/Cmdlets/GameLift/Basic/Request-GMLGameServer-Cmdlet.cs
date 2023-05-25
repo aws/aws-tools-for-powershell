@@ -40,7 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To claim a game server, identify a game server group. You can also specify a game
     /// server ID, although this approach bypasses Amazon GameLift FleetIQ placement optimization.
     /// Optionally, include game data to pass to the game server at the start of a game session,
-    /// such as a game map or player information. 
+    /// such as a game map or player information. Filter options may be included to further
+    /// restrict how a game server is chosen, such as only allowing game servers on <code>ACTIVE</code>
+    /// instances to be claimed.
     /// </para><para>
     /// When a game server is successfully claimed, connection information is returned. A
     /// claimed game server's utilization status remains <code>AVAILABLE</code> while the
@@ -56,12 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If the game server utilization status is <code>UTILIZED</code>.
     /// </para></li><li><para>
     /// If the game server claim status is <code>CLAIMED</code>.
-    /// </para></li></ul><note><para>
-    /// When claiming a specific game server, this request will succeed even if the game server
-    /// is running on an instance in <code>DRAINING</code> status. To avoid this, first check
-    /// the instance status by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameServerInstances.html">DescribeGameServerInstances</a>
-    /// .
-    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
+    /// </para></li><li><para>
+    /// If the game server is running on an instance in <code>DRAINING</code> status and provided
+    /// filter option does not allow placing on <code>DRAINING</code> instances.
+    /// </para></li></ul><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon
     /// GameLift FleetIQ Guide</a></para>
     /// </summary>
     [Cmdlet("Request", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -115,6 +115,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String GameServerId { get; set; }
+        #endregion
+        
+        #region Parameter FilterOption_InstanceStatus
+        /// <summary>
+        /// <para>
+        /// <para>List of instance statuses that game servers may be claimed on. If provided, the list
+        /// must contain the <code>ACTIVE</code> status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FilterOption_InstanceStatuses")]
+        public System.String[] FilterOption_InstanceStatus { get; set; }
         #endregion
         
         #region Parameter Select
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.GameServerGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.FilterOption_InstanceStatus != null)
+            {
+                context.FilterOption_InstanceStatus = new List<System.String>(this.FilterOption_InstanceStatus);
+            }
             context.GameServerData = this.GameServerData;
             context.GameServerGroupName = this.GameServerGroupName;
             #if MODULAR
@@ -204,6 +220,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.ClaimGameServerRequest();
             
+            
+             // populate FilterOption
+            var requestFilterOptionIsNull = true;
+            request.FilterOption = new Amazon.GameLift.Model.ClaimFilterOption();
+            List<System.String> requestFilterOption_filterOption_InstanceStatus = null;
+            if (cmdletContext.FilterOption_InstanceStatus != null)
+            {
+                requestFilterOption_filterOption_InstanceStatus = cmdletContext.FilterOption_InstanceStatus;
+            }
+            if (requestFilterOption_filterOption_InstanceStatus != null)
+            {
+                request.FilterOption.InstanceStatuses = requestFilterOption_filterOption_InstanceStatus;
+                requestFilterOptionIsNull = false;
+            }
+             // determine if request.FilterOption should be set to null
+            if (requestFilterOptionIsNull)
+            {
+                request.FilterOption = null;
+            }
             if (cmdletContext.GameServerData != null)
             {
                 request.GameServerData = cmdletContext.GameServerData;
@@ -277,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> FilterOption_InstanceStatus { get; set; }
             public System.String GameServerData { get; set; }
             public System.String GameServerGroupName { get; set; }
             public System.String GameServerId { get; set; }

@@ -2513,7 +2513,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization"
             break
         }
 
@@ -49855,6 +49855,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AutotuneMode
+        "New-SMHyperParameterTuningJob/Autotune_Mode"
+        {
+            $v = "Enabled"
+            break
+        }
+
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
@@ -50963,6 +50970,7 @@ $SM_map = @{
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
+    "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DataQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")

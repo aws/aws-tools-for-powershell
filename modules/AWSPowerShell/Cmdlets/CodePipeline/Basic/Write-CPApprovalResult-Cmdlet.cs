@@ -28,7 +28,7 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Provides the response to a manual approval request to AWS CodePipeline. Valid responses
+    /// Provides the response to a manual approval request to CodePipeline. Valid responses
     /// include Approved and Rejected.
     /// </summary>
     [Cmdlet("Write", "CPApprovalResult", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

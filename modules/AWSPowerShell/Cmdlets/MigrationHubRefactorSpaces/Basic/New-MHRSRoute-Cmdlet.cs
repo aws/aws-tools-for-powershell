@@ -133,6 +133,17 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         public Amazon.MigrationHubRefactorSpaces.RouteActivationState UriPathRoute_ActivationState { get; set; }
         #endregion
         
+        #region Parameter UriPathRoute_AppendSourcePath
+        /// <summary>
+        /// <para>
+        /// <para>If set to <code>true</code>, this option appends the source path to the service URL
+        /// endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UriPathRoute_AppendSourcePath { get; set; }
+        #endregion
+        
         #region Parameter ApplicationIdentifier
         /// <summary>
         /// <para>
@@ -234,8 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
         #region Parameter UriPathRoute_SourcePath
         /// <summary>
         /// <para>
-        /// <para>The path to use to match traffic. Paths must start with <code>/</code> and are relative
-        /// to the base of the application.</para>
+        /// <para>This is the path that Refactor Spaces uses to match traffic. Paths must start with
+        /// <code>/</code> and are relative to the base of the application. To use path parameters
+        /// in the source path, add a variable in curly braces. For example, the resource path
+        /// {user} represents a path parameter called 'user'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -346,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
                 }
             }
             context.UriPathRoute_ActivationState = this.UriPathRoute_ActivationState;
+            context.UriPathRoute_AppendSourcePath = this.UriPathRoute_AppendSourcePath;
             context.UriPathRoute_IncludeChildPath = this.UriPathRoute_IncludeChildPath;
             if (this.UriPathRoute_Method != null)
             {
@@ -423,6 +437,16 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             if (requestUriPathRoute_uriPathRoute_ActivationState != null)
             {
                 request.UriPathRoute.ActivationState = requestUriPathRoute_uriPathRoute_ActivationState;
+                requestUriPathRouteIsNull = false;
+            }
+            System.Boolean? requestUriPathRoute_uriPathRoute_AppendSourcePath = null;
+            if (cmdletContext.UriPathRoute_AppendSourcePath != null)
+            {
+                requestUriPathRoute_uriPathRoute_AppendSourcePath = cmdletContext.UriPathRoute_AppendSourcePath.Value;
+            }
+            if (requestUriPathRoute_uriPathRoute_AppendSourcePath != null)
+            {
+                request.UriPathRoute.AppendSourcePath = requestUriPathRoute_uriPathRoute_AppendSourcePath.Value;
                 requestUriPathRouteIsNull = false;
             }
             System.Boolean? requestUriPathRoute_uriPathRoute_IncludeChildPath = null;
@@ -529,6 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             public System.String ServiceIdentifier { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.MigrationHubRefactorSpaces.RouteActivationState UriPathRoute_ActivationState { get; set; }
+            public System.Boolean? UriPathRoute_AppendSourcePath { get; set; }
             public System.Boolean? UriPathRoute_IncludeChildPath { get; set; }
             public List<System.String> UriPathRoute_Method { get; set; }
             public System.String UriPathRoute_SourcePath { get; set; }

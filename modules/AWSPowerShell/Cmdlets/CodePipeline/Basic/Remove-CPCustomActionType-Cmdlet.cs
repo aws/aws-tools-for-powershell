@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Provider
         /// <summary>
         /// <para>
-        /// <para>The provider of the service used in the custom action, such as AWS CodeDeploy.</para>
+        /// <para>The provider of the service used in the custom action, such as CodeDeploy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

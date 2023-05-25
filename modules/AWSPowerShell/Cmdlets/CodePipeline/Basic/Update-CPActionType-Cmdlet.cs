@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Permissions_AllowedAccount
         /// <summary>
         /// <para>
-        /// <para>A list of AWS account IDs with access to use the action type in their pipelines.</para>
+        /// <para>A list of Amazon Web Services account IDs with access to use the action type in their
+        /// pipelines.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,8 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Executor_PolicyStatementsTemplate
         /// <summary>
         /// <para>
-        /// <para>The policy statement that specifies the permissions in the CodePipeline customer’s
-        /// account that are needed to successfully run an action.</para><para>To grant permission to another account, specify the account ID as the Principal, a
+        /// <para>The policy statement that specifies the permissions in the CodePipeline customer account
+        /// that are needed to successfully run an action.</para><para>To grant permission to another account, specify the account ID as the Principal, a
         /// domain-style identifier defined by the service, for example <code>codepipeline.amazonaws.com</code>.</para><note><para>The size of the passed JSON policy document cannot exceed 2048 characters.</para></note>
         /// </para>
         /// </summary>

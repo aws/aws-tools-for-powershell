@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEDataQualityRulesetListCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter TargetTable_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The catalog id where the Glue table exists.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_TargetTable_CatalogId")]
+        public System.String TargetTable_CatalogId { get; set; }
+        #endregion
+        
         #region Parameter Filter_CreatedAfter
         /// <summary>
         /// <para>
@@ -200,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.Filter_LastModifiedAfter = this.Filter_LastModifiedAfter;
             context.Filter_LastModifiedBefore = this.Filter_LastModifiedBefore;
             context.Filter_Name = this.Filter_Name;
+            context.TargetTable_CatalogId = this.TargetTable_CatalogId;
             context.TargetTable_DatabaseName = this.TargetTable_DatabaseName;
             context.TargetTable_TableName = this.TargetTable_TableName;
             context.MaxResult = this.MaxResult;
@@ -299,6 +311,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate TargetTable
             var requestFilter_filter_TargetTableIsNull = true;
             requestFilter_filter_TargetTable = new Amazon.Glue.Model.DataQualityTargetTable();
+            System.String requestFilter_filter_TargetTable_targetTable_CatalogId = null;
+            if (cmdletContext.TargetTable_CatalogId != null)
+            {
+                requestFilter_filter_TargetTable_targetTable_CatalogId = cmdletContext.TargetTable_CatalogId;
+            }
+            if (requestFilter_filter_TargetTable_targetTable_CatalogId != null)
+            {
+                requestFilter_filter_TargetTable.CatalogId = requestFilter_filter_TargetTable_targetTable_CatalogId;
+                requestFilter_filter_TargetTableIsNull = false;
+            }
             System.String requestFilter_filter_TargetTable_targetTable_DatabaseName = null;
             if (cmdletContext.TargetTable_DatabaseName != null)
             {
@@ -433,6 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.DateTime? Filter_LastModifiedAfter { get; set; }
             public System.DateTime? Filter_LastModifiedBefore { get; set; }
             public System.String Filter_Name { get; set; }
+            public System.String TargetTable_CatalogId { get; set; }
             public System.String TargetTable_DatabaseName { get; set; }
             public System.String TargetTable_TableName { get; set; }
             public System.Int32? MaxResult { get; set; }

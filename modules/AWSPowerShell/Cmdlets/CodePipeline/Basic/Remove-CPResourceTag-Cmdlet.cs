@@ -28,7 +28,7 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Removes tags from an AWS resource.
+    /// Removes tags from an Amazon Web Services resource.
     /// </summary>
     [Cmdlet("Remove", "CPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

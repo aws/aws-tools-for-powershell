@@ -1,4 +1,17 @@
-﻿### 4.1.339 (2023-05-24 21:11Z)
+﻿### 4.1.340 (2023-05-25 21:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.555.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon GameLift Service
+    * Modified cmdlet Request-GMLGameServer: added parameter FilterOption_InstanceStatus.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEDataQualityRulesetList: added parameter TargetTable_CatalogId.
+    * Modified cmdlet New-GLUEDataQualityRuleset: added parameter TargetTable_CatalogId.
+    * Modified cmdlet Start-GLUEDataQualityRulesetEvaluationRun: added parameter AdditionalDataSource.
+  * Amazon Migration Hub Refactor Spaces
+    * Modified cmdlet New-MHRSRoute: added parameter UriPathRoute_AppendSourcePath.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameters Autotune_Mode, HyperParameterRanges_AutoParameter and ParameterRanges_AutoParameter.
+
+### 4.1.339 (2023-05-24 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.554.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Added cmdlet Get-ASYNSourceApiAssociation leveraging the GetSourceApiAssociation service API.
