@@ -70,6 +70,29 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public Amazon.IoTWireless.LogLevel TraceContent_LogLevel { get; set; }
         #endregion
         
+        #region Parameter TraceContent_MulticastFrameInfo
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTWireless.MulticastFrameInfo")]
+        public Amazon.IoTWireless.MulticastFrameInfo TraceContent_MulticastFrameInfo { get; set; }
+        #endregion
+        
+        #region Parameter MulticastGroup
+        /// <summary>
+        /// <para>
+        /// <para>Multicast Group resources to add to the network analyzer configruation. Provide the
+        /// <code>MulticastGroupId</code> of the resource to add in the input array.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MulticastGroups")]
+        public System.String[] MulticastGroup { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -197,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.Description = this.Description;
+            if (this.MulticastGroup != null)
+            {
+                context.MulticastGroup = new List<System.String>(this.MulticastGroup);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -209,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
                 context.Tag = new List<Amazon.IoTWireless.Model.Tag>(this.Tag);
             }
             context.TraceContent_LogLevel = this.TraceContent_LogLevel;
+            context.TraceContent_MulticastFrameInfo = this.TraceContent_MulticastFrameInfo;
             context.TraceContent_WirelessDeviceFrameInfo = this.TraceContent_WirelessDeviceFrameInfo;
             if (this.WirelessDevice != null)
             {
@@ -242,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.MulticastGroup != null)
+            {
+                request.MulticastGroups = cmdletContext.MulticastGroup;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -262,6 +294,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestTraceContent_traceContent_LogLevel != null)
             {
                 request.TraceContent.LogLevel = requestTraceContent_traceContent_LogLevel;
+                requestTraceContentIsNull = false;
+            }
+            Amazon.IoTWireless.MulticastFrameInfo requestTraceContent_traceContent_MulticastFrameInfo = null;
+            if (cmdletContext.TraceContent_MulticastFrameInfo != null)
+            {
+                requestTraceContent_traceContent_MulticastFrameInfo = cmdletContext.TraceContent_MulticastFrameInfo;
+            }
+            if (requestTraceContent_traceContent_MulticastFrameInfo != null)
+            {
+                request.TraceContent.MulticastFrameInfo = requestTraceContent_traceContent_MulticastFrameInfo;
                 requestTraceContentIsNull = false;
             }
             Amazon.IoTWireless.WirelessDeviceFrameInfo requestTraceContent_traceContent_WirelessDeviceFrameInfo = null;
@@ -350,9 +392,11 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> MulticastGroup { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.IoTWireless.Model.Tag> Tag { get; set; }
             public Amazon.IoTWireless.LogLevel TraceContent_LogLevel { get; set; }
+            public Amazon.IoTWireless.MulticastFrameInfo TraceContent_MulticastFrameInfo { get; set; }
             public Amazon.IoTWireless.WirelessDeviceFrameInfo TraceContent_WirelessDeviceFrameInfo { get; set; }
             public List<System.String> WirelessDevice { get; set; }
             public List<System.String> WirelessGateway { get; set; }

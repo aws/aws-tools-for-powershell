@@ -1,4 +1,10 @@
-﻿### 4.1.340 (2023-05-25 21:18Z)
+﻿### 4.1.341 (2023-05-26 21:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.556.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT Wireless
+    * Modified cmdlet New-IOTWNetworkAnalyzerConfiguration: added parameters MulticastGroup and TraceContent_MulticastFrameInfo.
+    * Modified cmdlet Update-IOTWNetworkAnalyzerConfiguration: added parameters MulticastGroupsToAdd, MulticastGroupsToRemove and TraceContent_MulticastFrameInfo.
+
+### 4.1.340 (2023-05-25 21:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.555.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.ALL.md.
   * Amazon GameLift Service
     * Modified cmdlet Request-GMLGameServer: added parameter FilterOption_InstanceStatus.

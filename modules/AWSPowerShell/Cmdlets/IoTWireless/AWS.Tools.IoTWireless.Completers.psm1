@@ -183,6 +183,16 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.MulticastFrameInfo
+        {
+            ($_ -eq "New-IOTWNetworkAnalyzerConfiguration/TraceContent_MulticastFrameInfo") -Or
+            ($_ -eq "Update-IOTWNetworkAnalyzerConfiguration/TraceContent_MulticastFrameInfo")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.IoTWireless.OnboardStatus
         "Get-IOTWDevicesForWirelessDeviceImportTaskList/Status"
         {
@@ -343,6 +353,7 @@ $IOTW_map = @{
     "Status"=@("Get-IOTWDevicesForWirelessDeviceImportTaskList")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
+    "TraceContent_MulticastFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage","Unregister-IOTWWirelessDevice")

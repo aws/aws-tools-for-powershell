@@ -78,6 +78,39 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         public Amazon.IoTWireless.LogLevel TraceContent_LogLevel { get; set; }
         #endregion
         
+        #region Parameter TraceContent_MulticastFrameInfo
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTWireless.MulticastFrameInfo")]
+        public Amazon.IoTWireless.MulticastFrameInfo TraceContent_MulticastFrameInfo { get; set; }
+        #endregion
+        
+        #region Parameter MulticastGroupsToAdd
+        /// <summary>
+        /// <para>
+        /// <para>Multicast group resources to add to the network analyzer configuration. Provide the
+        /// <code>MulticastGroupId</code> of the resource to add in the input array.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] MulticastGroupsToAdd { get; set; }
+        #endregion
+        
+        #region Parameter MulticastGroupsToRemove
+        /// <summary>
+        /// <para>
+        /// <para>Multicast group resources to remove from the network analyzer configuration. Provide
+        /// the <code>MulticastGroupId</code> of the resource to remove in the input array.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] MulticastGroupsToRemove { get; set; }
+        #endregion
+        
         #region Parameter TraceContent_WirelessDeviceFrameInfo
         /// <summary>
         /// <para>
@@ -202,7 +235,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             }
             #endif
             context.Description = this.Description;
+            if (this.MulticastGroupsToAdd != null)
+            {
+                context.MulticastGroupsToAdd = new List<System.String>(this.MulticastGroupsToAdd);
+            }
+            if (this.MulticastGroupsToRemove != null)
+            {
+                context.MulticastGroupsToRemove = new List<System.String>(this.MulticastGroupsToRemove);
+            }
             context.TraceContent_LogLevel = this.TraceContent_LogLevel;
+            context.TraceContent_MulticastFrameInfo = this.TraceContent_MulticastFrameInfo;
             context.TraceContent_WirelessDeviceFrameInfo = this.TraceContent_WirelessDeviceFrameInfo;
             if (this.WirelessDevicesToAdd != null)
             {
@@ -244,6 +286,14 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.MulticastGroupsToAdd != null)
+            {
+                request.MulticastGroupsToAdd = cmdletContext.MulticastGroupsToAdd;
+            }
+            if (cmdletContext.MulticastGroupsToRemove != null)
+            {
+                request.MulticastGroupsToRemove = cmdletContext.MulticastGroupsToRemove;
+            }
             
              // populate TraceContent
             var requestTraceContentIsNull = true;
@@ -256,6 +306,16 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             if (requestTraceContent_traceContent_LogLevel != null)
             {
                 request.TraceContent.LogLevel = requestTraceContent_traceContent_LogLevel;
+                requestTraceContentIsNull = false;
+            }
+            Amazon.IoTWireless.MulticastFrameInfo requestTraceContent_traceContent_MulticastFrameInfo = null;
+            if (cmdletContext.TraceContent_MulticastFrameInfo != null)
+            {
+                requestTraceContent_traceContent_MulticastFrameInfo = cmdletContext.TraceContent_MulticastFrameInfo;
+            }
+            if (requestTraceContent_traceContent_MulticastFrameInfo != null)
+            {
+                request.TraceContent.MulticastFrameInfo = requestTraceContent_traceContent_MulticastFrameInfo;
                 requestTraceContentIsNull = false;
             }
             Amazon.IoTWireless.WirelessDeviceFrameInfo requestTraceContent_traceContent_WirelessDeviceFrameInfo = null;
@@ -352,7 +412,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         {
             public System.String ConfigurationName { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> MulticastGroupsToAdd { get; set; }
+            public List<System.String> MulticastGroupsToRemove { get; set; }
             public Amazon.IoTWireless.LogLevel TraceContent_LogLevel { get; set; }
+            public Amazon.IoTWireless.MulticastFrameInfo TraceContent_MulticastFrameInfo { get; set; }
             public Amazon.IoTWireless.WirelessDeviceFrameInfo TraceContent_WirelessDeviceFrameInfo { get; set; }
             public List<System.String> WirelessDevicesToAdd { get; set; }
             public List<System.String> WirelessDevicesToRemove { get; set; }
